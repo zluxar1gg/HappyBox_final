@@ -90,10 +90,22 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
   return (
     <section className="py-16 bg-cream">
       <div className="container mx-auto">
-        {/* Title moved out of grid to span full width on desktop */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight md:leading-[1.1] mb-10 lg:mb-16 text-brand-dark lg:text-center lg:max-w-6xl lg:mx-auto tracking-tight">
-          {t.title}
-        </h1>
+        <div className="flex flex-col items-start lg:items-center text-left lg:text-center mb-10 lg:mb-16">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight md:leading-[1.1] mb-6 text-brand-dark lg:max-w-6xl tracking-tight">
+                {t.title}
+            </h1>
+            
+            {/* NO MINIMUM WEIGHT BADGE */}
+            <div className="bg-brand-yellow px-5 py-2.5 rounded-2xl shadow-sm border border-brand-yellow/30 animate-fade-in flex items-center gap-2">
+                <span className="flex h-3 w-3 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-blue"></span>
+                </span>
+                <span className="font-bold text-brand-dark text-sm md:text-base lg:text-lg tracking-tight">
+                    {t.minWeightBadge}
+                </span>
+            </div>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content Column (Features + Stats) */}

@@ -119,24 +119,29 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Form */}
             <div className="flex flex-col gap-6">
-              <div className="grid grid-cols-2 gap-4">
-                <input 
-                  type="number" 
-                  value={weight}
-                  onChange={(e) => setWeight(e.target.value)}
-                  placeholder={t.weightPlaceholder}
-                  min="0"
-                  step="0.1"
-                  className="w-full p-4 border-2 border-gray-200 rounded-2xl text-lg font-medium focus:border-brand-blue outline-none transition-colors bg-white text-brand-dark placeholder-gray-400"
-                />
-                <select 
-                  value={unit}
-                  onChange={(e) => setUnit(e.target.value)}
-                  className="w-full p-4 border-2 border-gray-200 rounded-2xl text-lg font-medium focus:border-brand-blue outline-none bg-white text-brand-dark cursor-pointer"
-                >
-                  <option value="kg">{t.kg}</option>
-                  <option value="pound">{t.lb}</option>
-                </select>
+              <div className="flex flex-col gap-2">
+                <div className="grid grid-cols-2 gap-4">
+                  <input 
+                    type="number" 
+                    value={weight}
+                    onChange={(e) => setWeight(e.target.value)}
+                    placeholder={t.weightPlaceholder}
+                    min="0"
+                    step="0.1"
+                    className="w-full p-4 border-2 border-gray-200 rounded-2xl text-lg font-medium focus:border-brand-blue outline-none transition-colors bg-white text-brand-dark placeholder-gray-400"
+                  />
+                  <select 
+                    value={unit}
+                    onChange={(e) => setUnit(e.target.value)}
+                    className="w-full p-4 border-2 border-gray-200 rounded-2xl text-lg font-medium focus:border-brand-blue outline-none bg-white text-brand-dark cursor-pointer"
+                  >
+                    <option value="kg">{t.kg}</option>
+                    <option value="pound">{t.lb}</option>
+                  </select>
+                </div>
+                <p className="text-xs text-gray-400 font-bold ml-2">
+                    {t.minWeightHint}
+                </p>
               </div>
 
               <div className="flex flex-col gap-2">

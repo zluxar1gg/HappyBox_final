@@ -12,6 +12,7 @@ export const translations = {
     },
     hero: {
       title: 'Fast, Affordable, and Trustworthy Shipping from China & Hong Kong',
+      minWeightBadge: 'No minimum weight requirements — shipping from 0.1 kg',
       features: {
         operating: 'Operating since 2016',
         warehouse: 'We store and consolidate your orders for free',
@@ -117,7 +118,7 @@ export const translations = {
         {
           name: "Maria Gonzalez",
           location: "Madrid, Spain",
-          text: "These branded boots are stunning. The leather quality is amazing. HappyBox checked the size for me, so they fit perfectly. Shipping to Madrid was fast.",
+          text: "These branded boots are stunning. Leather quality is amazing. HappyBox checked the size for me, so they fit perfectly. Shipping to Madrid was fast.",
           image: "https://i.ibb.co/kgtnSjsG/Happy-Box-review2.jpg"
         },
         {
@@ -132,6 +133,7 @@ export const translations = {
       title: 'Online shipping cost calculator',
       subtitle: 'Door-to-door delivery. Prices include all taxes and customs duties.',
       weightPlaceholder: 'Weight',
+      minWeightHint: 'Min. weight — 0.1 kg',
       kg: 'Kilogram (kg)',
       lb: 'Pound (lb)',
       selectCountry: 'Select destination country',
@@ -271,6 +273,7 @@ export const translations = {
     },
     hero: {
       title: 'Быстрая, доступная и надежная доставка из Китая и Гонконга',
+      minWeightBadge: 'Никаких ограничений по минимальному весу — доставка от 0.1 кг',
       features: {
         operating: 'Работаем с 2016 года',
         warehouse: 'Храним и консолидируем ваши заказы бесплатно',
@@ -303,7 +306,7 @@ export const translations = {
       },
       amazonItems: {
         fba: { title: 'Подготовка к FBA', text: 'Мы занимаемся маркировкой FNSKU, упаковкой в пакеты, пупырчатую пленку и комплектацией, чтобы ваши товары соответствовали строгим требованиям Amazon (США, Европа) перед отправкой из Китая.' },
-        direct: { title: 'Прямая доставка на склады Amazon FBA (США и Европа)', text: 'Мы специализируемся на доставке в FBA. Отправляем грузы из Китая напрямую в центры Amazon FBA в США и Европе, минуя промежуточное хранение. Это быстрее и дешевле.' },
+        direct: { title: 'Прямая доставка на склады Amazon FBA (США и Европа)', text: 'Мы специализируемся на доставке в FBA. Отправляляем грузы из Китая напрямую в центры Amazon FBA в США и Европе, минуя промежуточное хранение. Это быстрее и дешевле.' },
         ddp: { title: 'Доставка DDP (с оплатой пошлин) для Amazon', text: 'Критично для продавцов на Amazon: мы берем на себя таможенное оформление и уплату всех пошлин. Груз поступает на склад FBA уже очищенным.' },
         inspection: { title: 'Инспекция качества', text: 'Наша команда проверяет товары перед отправкой на Amazon, чтобы предотвратить возвраты из-за брака или поврежденной упаковки.' },
         storage: { title: 'Хранение и консолидация', text: 'Мы собираем товары от разных поставщиков на нашем складе перед отправкой консолидированного груза на Amazon для оптимизации расходов.' },
@@ -391,6 +394,7 @@ export const translations = {
       title: 'Онлайн калькулятор доставки',
       subtitle: 'Доставка до двери. Цены включают все налоги и таможенные пошлины.',
       weightPlaceholder: 'Вес',
+      minWeightHint: 'Минимальный вес — 0.1 кг',
       kg: 'Килограмм (кг)',
       lb: 'Фунт (lb)',
       selectCountry: 'Выберите страну назначения',
