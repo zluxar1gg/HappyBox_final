@@ -16,7 +16,9 @@ export const SeoBlock: React.FC<SeoBlockProps> = ({ language }) => {
       <div className="container mx-auto px-6 xl:px-0">
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-3 text-gray-500 hover:text-brand-blue transition-colors text-sm font-semibold uppercase tracking-wider mx-auto md:mx-0"
+          aria-expanded={isOpen}
+          aria-label={t.toggle}
+          className="flex items-center gap-3 text-gray-500 hover:text-brand-blue transition-colors text-sm font-semibold uppercase tracking-wider mx-auto md:mx-0 outline-none"
         >
           {t.toggle}
           <ChevronDown 
@@ -27,44 +29,27 @@ export const SeoBlock: React.FC<SeoBlockProps> = ({ language }) => {
 
         <div className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${isOpen ? 'max-h-[1000px] mt-8' : 'max-h-0'}`}>
           <div className="grid md:grid-cols-3 gap-10 text-sm pb-4">
-            {/* Destinations */}
             <div>
-              <h4 className="font-bold text-brand-dark mb-4 text-base">
-                {t.categories.destinations.title}
-              </h4>
+              <h4 className="font-bold text-brand-dark mb-4 text-base">{t.categories.destinations.title}</h4>
               <ul className="space-y-2">
                 {t.categories.destinations.items.map((item, idx) => (
-                  <li key={idx} className="text-gray-500 hover:text-brand-blue cursor-default transition-colors">
-                    {item}
-                  </li>
+                  <li key={idx} className="text-gray-500 hover:text-brand-blue cursor-default transition-colors">{item}</li>
                 ))}
               </ul>
             </div>
-
-            {/* Services */}
             <div>
-              <h4 className="font-bold text-brand-dark mb-4 text-base">
-                {t.categories.services.title}
-              </h4>
+              <h4 className="font-bold text-brand-dark mb-4 text-base">{t.categories.services.title}</h4>
               <ul className="space-y-2">
                 {t.categories.services.items.map((item, idx) => (
-                  <li key={idx} className="text-gray-500 hover:text-brand-blue cursor-default transition-colors">
-                    {item}
-                  </li>
+                  <li key={idx} className="text-gray-500 hover:text-brand-blue cursor-default transition-colors">{item}</li>
                 ))}
               </ul>
             </div>
-
-            {/* Platforms */}
             <div>
-              <h4 className="font-bold text-brand-dark mb-4 text-base">
-                {t.categories.platforms.title}
-              </h4>
+              <h4 className="font-bold text-brand-dark mb-4 text-base">{t.categories.platforms.title}</h4>
               <ul className="space-y-2">
                 {t.categories.platforms.items.map((item, idx) => (
-                  <li key={idx} className="text-gray-500 hover:text-brand-blue cursor-default transition-colors">
-                    {item}
-                  </li>
+                  <li key={idx} className="text-gray-500 hover:text-brand-blue cursor-default transition-colors">{item}</li>
                 ))}
               </ul>
             </div>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { X, PackageSearch } from 'lucide-react';
 import { Language, translations } from '../utils/translations';
@@ -13,9 +12,7 @@ export const Tracking: React.FC<TrackingProps> = ({ language }) => {
   const t = translations[language].tracking;
 
   const handleTrack = () => {
-    if (!trackingNumber.trim()) {
-      return;
-    }
+    if (!trackingNumber.trim()) return;
     setShowResult(true);
     setTimeout(() => {
       document.getElementById('tracking-frame')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -39,8 +36,10 @@ export const Tracking: React.FC<TrackingProps> = ({ language }) => {
 
         <div className="max-w-2xl mx-auto flex flex-col sm:flex-row gap-4 mb-10 px-4 sm:px-0">
           <div className="relative flex-1">
+            <label htmlFor="track-number" className="sr-only">{t.placeholder}</label>
             <PackageSearch className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400" size={24} />
             <input 
+              id="track-number"
               type="text" 
               value={trackingNumber}
               onChange={(e) => setTrackingNumber(e.target.value)}
@@ -68,17 +67,17 @@ export const Tracking: React.FC<TrackingProps> = ({ language }) => {
               </div>
               <button 
                 onClick={handleClose}
+                aria-label="Close tracking result"
                 className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors hover:rotate-90 duration-300"
               >
                 <X size={18} />
               </button>
             </div>
-            {/* 17TRACK Embed */}
             <div className="w-full h-[600px] bg-gray-50 relative">
                 <iframe 
                   src={`https://t.17track.net/${language}#nums=${trackingNumber}`}
                   className="w-full h-full border-0"
-                  title="Tracking Result"
+                  title="Tracking Result Frame"
                   sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
                 />
             </div>

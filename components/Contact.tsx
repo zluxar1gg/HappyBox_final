@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Language, translations } from '../utils/translations';
 import { Send, Copy, Check, Mail } from 'lucide-react';
@@ -51,10 +50,11 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
               <div className="aspect-square w-full max-w-[280px] rounded-[30px] overflow-hidden shadow-sm bg-white mb-6 border-2 border-transparent group-hover:border-brand-blue/20 transition-all">
                 <img 
                   src="https://i.ibb.co/KpGd8jJ3/happybox-telegram.jpg" 
-                  alt="Telegram QR Code" 
+                  alt="Telegram QR Code for HappyBox" 
                   width="300"
                   height="300"
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                 />
@@ -64,6 +64,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                 href="https://t.me/HappyBoxDan" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label={language === 'en' ? 'Contact us via Telegram' : 'Связаться через Telegram'}
                 className="flex items-center gap-2 bg-brand-blue text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-lg shadow-blue-200 active:scale-95 w-full sm:w-auto justify-center"
               >
                 <Send size={20} />
@@ -76,10 +77,11 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
               <div className="aspect-square w-full max-w-[280px] rounded-[30px] overflow-hidden shadow-sm bg-white mb-6 border-2 border-transparent group-hover:border-[#25D366]/20 transition-all">
                 <img 
                   src="https://i.ibb.co/JRJHgSkC/happybox-wa.png" 
-                  alt="WhatsApp QR Code" 
+                  alt="WhatsApp QR Code for HappyBox" 
                   width="300"
                   height="300"
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                 />
@@ -89,6 +91,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                 href="https://wa.me/8613048875834" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label={language === 'en' ? 'Contact us via WhatsApp' : 'Связаться через WhatsApp'}
                 className="flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#20ba57] transition-all shadow-lg shadow-green-200 active:scale-95 w-full sm:w-auto justify-center"
               >
                 <WhatsAppIcon size={20} />
@@ -101,10 +104,11 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
               <div className="aspect-square w-full max-w-[280px] rounded-[30px] overflow-hidden shadow-sm bg-white mb-6 border-2 border-transparent group-hover:border-[#07C160]/20 transition-all">
                 <img 
                   src="https://i.ibb.co/93pK51G9/happybox-wechat.jpg" 
-                  alt="WeChat QR Code" 
+                  alt="WeChat QR Code for HappyBox" 
                   width="300"
                   height="300"
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                 />
@@ -113,6 +117,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
               <div className="flex flex-col items-center gap-2 w-full sm:w-auto">
                 <button 
                     onClick={handleCopyWeChat}
+                    aria-label={language === 'en' ? 'Copy WeChat ID HappyBoxLogistics' : 'Скопировать WeChat ID HappyBoxLogistics'}
                     className="flex items-center gap-2 bg-[#07C160] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#06ad56] transition-all shadow-lg shadow-green-200 active:scale-95 w-full justify-center"
                 >
                     {copied ? <Check size={20} /> : <Copy size={20} />}
@@ -141,6 +146,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
             </div>
             <a 
                 href={`mailto:${fullEmail}`}
+                aria-label={language === 'en' ? 'Send email to support' : 'Написать на почту поддержки'}
                 className="bg-white text-brand-dark border-2 border-gray-200 px-8 py-3 rounded-xl font-bold hover:border-brand-blue hover:text-brand-blue transition-all active:scale-95 w-full md:w-auto"
             >
                 {language === 'en' ? 'Send Email' : 'Написать письмо'}

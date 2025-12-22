@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Language, translations } from '../utils/translations';
 
@@ -24,10 +23,11 @@ export const About: React.FC<AboutProps> = ({ language }) => {
             <div className="flex justify-center lg:justify-end order-last lg:order-first">
                 <img 
                   src="https://i.ibb.co/Yq39d9G/happyboxdelivery.png" 
-                  alt="Happy Box Delivery" 
+                  alt="Happy Box Delivery Illustration" 
                   width="800"
                   height="800"
                   loading="lazy"
+                  decoding="async"
                   className="w-full max-w-[600px] object-contain drop-shadow-2xl"
                   onError={(e) => {
                     e.currentTarget.src = "https://images.unsplash.com/photo-1586810724476-c294fb7ac01b?auto=format&fit=crop&w=800&q=80";

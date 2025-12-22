@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Warehouse
@@ -95,7 +94,6 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
                 {t.title}
             </h1>
             
-            {/* NO MINIMUM WEIGHT BADGE */}
             <div className="bg-brand-yellow px-5 py-2.5 rounded-2xl shadow-sm border border-brand-yellow/30 animate-fade-in flex items-center gap-2">
                 <span className="flex h-3 w-3 relative">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
@@ -108,17 +106,15 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Content Column (Features + Stats) */}
           <div className="flex flex-col">
-
-            {/* Mobile Only Image: Placed between Headline and Features */}
             <div className="lg:hidden mb-12 flex justify-center">
                 <img 
                   src="https://i.ibb.co/23T2k8rr/happyboxtop.png" 
-                  alt="Happy Box Services" 
+                  alt="Happy Box Services Mascot" 
                   width="800"
                   height="800"
                   fetchpriority="high"
+                  decoding="async"
                   className="w-full max-w-[600px] h-auto object-contain"
                   onError={(e) => {
                     e.currentTarget.src = "https://images.unsplash.com/photo-1586810724476-c294fb7ac01b?auto=format&fit=crop&w=800&q=80";
@@ -127,14 +123,12 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
                 />
             </div>
 
-            {/* Features Grid: Now 2 columns on all sizes (grid-cols-2) */}
             <div className="grid grid-cols-2 gap-x-3 gap-y-8 md:gap-x-6 mb-12">
               {features.map((feature, idx) => (
                 <div key={idx} className="flex gap-3 items-start">
                   <div className="flex-shrink-0 pt-1">
                     <feature.icon size={40} strokeWidth={1.5} className="text-brand-blue w-10 h-10" />
                   </div>
-                  {/* Slightly smaller text on mobile to fit the 2-column layout better */}
                   <p className="text-sm md:text-base font-semibold leading-snug text-gray-700">
                     {feature.text}
                   </p>
@@ -143,19 +137,19 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
             </div>
 
             <div className="bg-brand-yellow rounded-[25px] px-8 py-6 inline-block self-start shadow-sm">
-              <h3 className="text-3xl md:text-4xl font-black text-brand-dark mb-1 tracking-tight">86200+</h3>
+              <div className="text-3xl md:text-4xl font-black text-brand-dark mb-1 tracking-tight">86200+</div>
               <p className="font-bold text-brand-dark text-sm md:text-base">{t.stats}</p>
             </div>
           </div>
 
-          {/* Desktop Only Image: Right Column */}
           <div className="hidden lg:flex justify-center">
             <img 
               src="https://i.ibb.co/23T2k8rr/happyboxtop.png" 
-              alt="Happy Box Services" 
+              alt="Happy Box Services Mascot" 
               width="800"
               height="800"
               fetchpriority="high"
+              decoding="async"
               className="w-full max-w-[600px] h-auto object-contain"
               onError={(e) => {
                 e.currentTarget.src = "https://images.unsplash.com/photo-1586810724476-c294fb7ac01b?auto=format&fit=crop&w=800&q=80";

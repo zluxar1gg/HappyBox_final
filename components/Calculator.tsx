@@ -1,8 +1,7 @@
-
 import React, { useState, useMemo } from 'react';
 import { Language, translations } from '../utils/translations';
 
-// Rates per kg in USD (logic remains the same, only UI text changes)
+// Rates per kg in USD
 const RATES: Record<string, number> = {
   'us': 19, 'ca': 15.5, 'au': 15, 'ae': 20,
   'eng': 16, 'sct': 16, 'wls': 16, 'nir': 16,
@@ -13,7 +12,6 @@ const RATES: Record<string, number> = {
   'si': 16, 'es': 16, 'se': 16,
 };
 
-// Use codes to map to translated names
 const COUNTRY_CODES = [
   'us', 'ca', 'au', 'ae',
   'eng', 'sct', 'wls', 'nir',
@@ -44,7 +42,6 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
 
   const t = translations[language].calculator;
 
-  // Dynamically sort countries based on their translated names
   const sortedCountries = useMemo(() => {
     const list = COUNTRY_CODES.map(code => ({
       code,
@@ -64,30 +61,22 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
       return;
     }
     setError(false);
-
     if (country === 'other') {
         setResult({ isOther: true });
         return;
     }
-
     let weightNum = parseFloat(weight);
     if (isNaN(weightNum) || weightNum <= 0) return;
-
     let weightInKg = weightNum;
-    if (unit === 'pound') {
-        weightInKg = weightNum * 0.453592;
-    }
-
+    if (unit === 'pound') { weightInKg = weightNum * 0.453592; }
     const rate = RATES[country] || 20;
     const totalCost = Math.ceil(weightInKg * rate);
-    
     let timeEstimate = `10-18 ${t.timeDays}`;
     if (['us', 'ca', 'eng', 'sct', 'wls', 'nir', 'au', 'de', 'fr', 'nl', 'be'].includes(country)) {
         timeEstimate = `8-15 ${t.timeDays}`;
     } else if (country === 'ae') {
         timeEstimate = `7-12 ${t.timeDays}`;
     }
-
     setResult({
       isOther: false,
       price: Math.max(20, totalCost),
@@ -98,9 +87,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
 
   const handleScrollToContact = () => {
     const contactSection = document.getElementById('contacts');
-    if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (contactSection) { contactSection.scrollIntoView({ behavior: 'smooth' }); }
   };
 
   return (
@@ -117,35 +104,44 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Form */}
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">
                 <div className="grid grid-cols-2 gap-4">
-                  <input 
-                    type="number" 
-                    value={weight}
-                    onChange={(e) => setWeight(e.target.value)}
-                    placeholder={t.weightPlaceholder}
-                    min="0"
-                    step="0.1"
-                    className="w-full p-4 border-2 border-gray-200 rounded-2xl text-lg font-medium focus:border-brand-blue outline-none transition-colors bg-white text-brand-dark placeholder-gray-400"
-                  />
-                  <select 
-                    value={unit}
-                    onChange={(e) => setUnit(e.target.value)}
-                    className="w-full p-4 border-2 border-gray-200 rounded-2xl text-lg font-medium focus:border-brand-blue outline-none bg-white text-brand-dark cursor-pointer"
-                  >
-                    <option value="kg">{t.kg}</option>
-                    <option value="pound">{t.lb}</option>
-                  </select>
+                  <div className="relative">
+                    <label htmlFor="ship-weight" className="sr-only">{t.weightPlaceholder}</label>
+                    <input 
+                        id="ship-weight"
+                        type="number" 
+                        value={weight}
+                        onChange={(e) => setWeight(e.target.value)}
+                        placeholder={t.weightPlaceholder}
+                        min="0"
+                        step="0.1"
+                        className="w-full p-4 border-2 border-gray-200 rounded-2xl text-lg font-medium focus:border-brand-blue outline-none transition-colors bg-white text-brand-dark placeholder-gray-400"
+                    />
+                  </div>
+                  <div className="relative">
+                    <label htmlFor="ship-unit" className="sr-only">Unit of Measurement</label>
+                    <select 
+                        id="ship-unit"
+                        value={unit}
+                        onChange={(e) => setUnit(e.target.value)}
+                        className="w-full p-4 border-2 border-gray-200 rounded-2xl text-lg font-medium focus:border-brand-blue outline-none bg-white text-brand-dark cursor-pointer"
+                    >
+                        <option value="kg">{t.kg}</option>
+                        <option value="pound">{t.lb}</option>
+                    </select>
+                  </div>
                 </div>
                 <p className="text-xs text-gray-400 font-bold ml-2">
                     {t.minWeightHint}
                 </p>
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 relative">
+                <label htmlFor="ship-country" className="sr-only">{t.selectCountry}</label>
                 <select 
+                  id="ship-country"
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
                   className="w-full p-4 border-2 border-gray-200 rounded-2xl text-lg font-medium focus:border-brand-blue outline-none bg-white text-brand-dark cursor-pointer appearance-none"
@@ -161,13 +157,17 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
                 {error && <span className="text-brand-blue text-sm font-bold animate-pulse">{t.error}</span>}
               </div>
 
-              <input 
-                type="text" 
-                value={postal}
-                onChange={(e) => setPostal(e.target.value)}
-                placeholder={t.postalPlaceholder}
-                className="w-full p-4 border-2 border-gray-200 rounded-2xl text-lg font-medium focus:border-brand-blue outline-none bg-white text-brand-dark placeholder-gray-400"
-              />
+              <div className="relative">
+                <label htmlFor="ship-postal" className="sr-only">{t.postalPlaceholder}</label>
+                <input 
+                    id="ship-postal"
+                    type="text" 
+                    value={postal}
+                    onChange={(e) => setPostal(e.target.value)}
+                    placeholder={t.postalPlaceholder}
+                    className="w-full p-4 border-2 border-gray-200 rounded-2xl text-lg font-medium focus:border-brand-blue outline-none bg-white text-brand-dark placeholder-gray-400"
+                />
+              </div>
 
               <button 
                 onClick={handleCalculate}
@@ -177,20 +177,14 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
               </button>
             </div>
 
-            {/* Visual / Result */}
             <div>
               {result ? (
                 <div className="text-center p-12 bg-gradient-to-br from-brand-blue to-blue-400 rounded-[30px] text-white shadow-xl animate-fade-in relative overflow-hidden h-full flex flex-col justify-center">
                   <div className="relative z-10">
-                    
                     {result.isOther ? (
                         <div className="space-y-6">
-                            <h3 className="text-2xl font-bold leading-tight">
-                                {t.contactQuote}
-                            </h3>
-                            <p className="text-blue-100 font-medium leading-relaxed">
-                                {t.contactDesc}
-                            </p>
+                            <h3 className="text-2xl font-bold leading-tight">{t.contactQuote}</h3>
+                            <p className="text-blue-100 font-medium leading-relaxed">{t.contactDesc}</p>
                             <button 
                                 onClick={handleScrollToContact}
                                 className="inline-block bg-white text-brand-blue px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-lg"
@@ -202,11 +196,9 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
                         <>
                             <p className="text-blue-100 font-medium mb-1 text-lg uppercase tracking-wider">{t.airRate}</p>
                             <h3 className="text-7xl font-black mb-4 tracking-tight">${result.price}</h3>
-                            
                             <div className="inline-block bg-white/20 rounded-xl px-6 py-3 backdrop-blur-sm mb-6">
                                 <p className="text-lg font-semibold">{t.time}: {result.time}</p>
                             </div>
-                            
                             <div className="space-y-4">
                                 <p className="text-sm opacity-80 max-w-[90%] mx-auto leading-snug">
                                     {t.note.replace('{weight}', result.weightKg?.toFixed(2) || '0')}
@@ -221,7 +213,6 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
                             </div>
                         </>
                     )}
-
                     <button 
                         onClick={() => setResult(null)} 
                         className="mt-8 px-6 py-2 bg-white/10 rounded-full hover:bg-white/20 transition text-sm font-bold border border-white/30"
@@ -229,8 +220,6 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
                         {t.recalculate}
                     </button>
                   </div>
-                  
-                  {/* Decorative Circle */}
                   <div className="absolute -top-20 -right-20 w-60 h-60 bg-white/10 rounded-full blur-3xl"></div>
                   <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-600/20 rounded-full blur-3xl"></div>
                 </div>
@@ -238,10 +227,11 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
                 <div className="bg-gray-50 rounded-[30px] overflow-hidden flex items-center justify-center min-h-[300px] lg:min-h-[400px] border border-gray-100">
                    <img 
                     src="https://i.ibb.co/YTffLPLR/happyboxcalc.png" 
-                    alt="Calculator Visual" 
+                    alt="Calculation process visualization" 
                     width="1000"
                     height="1000"
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
                     onError={(e) => {
                       e.currentTarget.src = "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80";

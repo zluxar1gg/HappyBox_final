@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { X, Mail } from 'lucide-react';
 import { Language, translations } from '../utils/translations';
@@ -100,16 +99,15 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                 HappyBox
               </div>
               <div className="flex gap-4 ml-2">
-                <SocialLink href="https://instagram.com/happybox_dan" icon={InstagramIcon} label="Instagram" />
-                <SocialLink href="https://t.me/happyboxlogistics" icon={TelegramIcon} label="Telegram" />
-                <SocialLink href="https://wa.me/8613048875834" icon={WhatsAppIcon} label="WhatsApp" />
-                <SocialLink href="https://www.facebook.com/HappyBoxLogistics" icon={FacebookIcon} label="Facebook" />
+                <SocialLink href="https://instagram.com/happybox_dan" icon={InstagramIcon} label="Instagram Profile" />
+                <SocialLink href="https://t.me/happyboxlogistics" icon={TelegramIcon} label="Telegram Channel" />
+                <SocialLink href="https://wa.me/8613048875834" icon={WhatsAppIcon} label="WhatsApp Contact" />
+                <SocialLink href="https://www.facebook.com/HappyBoxLogistics" icon={FacebookIcon} label="Facebook Page" />
                 
-                {/* Mail Icon added to row, VISIBLE ON MOBILE AGAIN */}
                 <a 
                     href={`mailto:${fullEmail}`}
                     className="flex w-11 h-11 bg-white rounded-full items-center justify-center text-brand-dark hover:bg-brand-blue hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-1"
-                    aria-label="Email Support"
+                    aria-label={language === 'en' ? 'Email Support' : 'Написать в поддержку'}
                 >
                     <Mail className="w-5 h-5" />
                 </a>
@@ -145,14 +143,15 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                     </ul>
                 </div>
 
-                {/* Mobile/Tablet Mascot - Visible only on LG hidden, next to links */}
+                {/* Mobile/Tablet Mascot */}
                 <div className="block lg:hidden -mb-4 -mr-4">
                     <img 
                         src="https://i.ibb.co/8gjY6zKw/happyboxbottom-r.png" 
-                        alt="Happy Box Mascot" 
+                        alt="Happy Box Mascot Mascot" 
                         width="300"
                         height="300"
                         loading="lazy"
+                        decoding="async"
                         className="w-[150px] h-auto object-contain drop-shadow-lg"
                         referrerPolicy="no-referrer"
                     />
@@ -167,6 +166,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                     width="300"
                     height="300"
                     loading="lazy"
+                    decoding="async"
                     className="w-[250px] h-auto object-contain drop-shadow-xl"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
@@ -199,33 +199,31 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               </h2>
               <button 
                 onClick={() => setActiveModal(null)}
+                aria-label="Close modal"
                 className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
               >
                 <X size={20} className="text-brand-dark" />
               </button>
             </div>
 
-            {/* Modal Content - Keeping this part static for simplicity in this example, or could also be translated */}
             <div className="p-8 overflow-y-auto leading-relaxed text-gray-600 space-y-4">
               {activeModal === 'privacy' ? (
                 <>
-                  <p><strong>1. Introduction</strong><br/>Welcome to HappyBox. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.</p>
-                  <p><strong>2. The Data We Collect</strong><br/>We may collect, use, store and transfer different kinds of personal data about you including: Identity Data (name, username), Contact Data (billing address, delivery address, email address, telephone number), and Transaction Data (details about payments and shipments).</p>
-                  <p><strong>3. How We Use Your Data</strong><br/>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances: Where we need to perform the contract we are about to enter into or have entered into with you (shipping goods).</p>
-                  <p><strong>4. Data Security</strong><br/>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed.</p>
+                  <p><strong>1. Introduction</strong><br/>Welcome to HappyBox. We respect your privacy and are committed to protecting your personal data.</p>
+                  <p><strong>2. The Data We Collect</strong><br/>We may collect, use, store and transfer different kinds of personal data about you including identity and contact data.</p>
+                  <p><strong>3. How We Use Your Data</strong><br/>We will only use your personal data when the law allows us to, primarily to fulfill shipping contracts.</p>
+                  <p><strong>4. Data Security</strong><br/>We have put in place appropriate security measures to prevent your personal data from being accidentally lost or accessed in an unauthorized way.</p>
                 </>
               ) : (
                 <>
-                  <p><strong>1. General Provisions</strong><br/>By using the HappyBox service, you agree to be bound by these Terms of Service. HappyBox provides intermediary services for the purchase and delivery of goods from China/Hong Kong to international destinations.</p>
-                  <p><strong>2. Order Processing</strong><br/>HappyBox acts as your agent to purchase and ship products. We are not the manufacturer or direct seller of the goods. We are responsible for the inspection (if requested), consolidation, and shipment of your items.</p>
-                  <p><strong>3. Prohibited Items</strong><br/>The user agrees not to order items prohibited for export from China/Hong Kong or import into the destination country. This includes, but is not limited to: explosives, flammable substances, drugs, weapons, and counterfeit currency. HappyBox reserves the right to refuse shipment of such items.</p>
-                  <p><strong>4. Shipping & Liability</strong><br/>Delivery times are estimates and not guarantees. HappyBox is not liable for delays caused by customs clearance or force majeure events. Insurance is available and recommended for high-value items.</p>
-                  <p><strong>5. Refunds & Returns</strong><br/>Returns to the original seller in China can be processed before the item leaves our warehouse (subject to domestic shipping fees). Once an item has shipped internationally, returns are generally not feasible due to high shipping costs.</p>
+                  <p><strong>1. General Provisions</strong><br/>By using HappyBox, you agree to be bound by these Terms of Service.</p>
+                  <p><strong>2. Order Processing</strong><br/>HappyBox acts as your agent to purchase and ship products. We are not the manufacturer.</p>
+                  <p><strong>3. Prohibited Items</strong><br/>Users agree not to order items prohibited for export or import (explosives, drugs, etc.).</p>
+                  <p><strong>4. Shipping & Liability</strong><br/>Delivery times are estimates. HappyBox is not liable for customs delays.</p>
                 </>
               )}
             </div>
             
-            {/* Modal Footer */}
             <div className="p-6 border-t border-gray-100 bg-gray-50 text-center">
               <button 
                 onClick={() => setActiveModal(null)}
