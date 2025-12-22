@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Warehouse
@@ -109,7 +110,7 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
           <div className="flex flex-col">
             <div className="lg:hidden mb-12 flex justify-center">
                 <img 
-                  src="https://i.ibb.co/23T2k8rr/happyboxtop.png" 
+                  src="https://i.ibb.co/cS2GvWht/happyboxtop.webp" 
                   alt="Happy Box Services Mascot" 
                   width="800"
                   height="800"
@@ -144,7 +145,7 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
 
           <div className="hidden lg:flex justify-center">
             <img 
-              src="https://i.ibb.co/23T2k8rr/happyboxtop.png" 
+              src="https://i.ibb.co/cS2GvWht/happyboxtop.webp" 
               alt="Happy Box Services Mascot" 
               width="800"
               height="800"

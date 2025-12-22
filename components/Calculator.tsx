@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { Language, translations } from '../utils/translations';
 
@@ -210,7 +211,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
                                         <button onClick={handleScrollToContact} className="underline hover:text-white mt-1">{t.altContact}</button>
                                     </p>
                                 </div>
-                            </div>
+                            </>
                         </>
                     )}
                     <button 
@@ -220,13 +221,13 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
                         {t.recalculate}
                     </button>
                   </div>
-                  <div className="absolute -top-20 -right-20 w-60 h-60 bg-white/10 rounded-full blur-3xl"></div>
+                  <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
                   <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-600/20 rounded-full blur-3xl"></div>
                 </div>
               ) : (
                 <div className="bg-gray-50 rounded-[30px] overflow-hidden flex items-center justify-center min-h-[300px] lg:min-h-[400px] border border-gray-100">
                    <img 
-                    src="https://i.ibb.co/YTffLPLR/happyboxcalc.png" 
+                    src="https://i.ibb.co/Fqyggpqt/happyboxcalc.webp" 
                     alt="Calculation process visualization" 
                     width="1000"
                     height="1000"

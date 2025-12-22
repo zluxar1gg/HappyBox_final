@@ -59,73 +59,73 @@ export const translations = {
           name: "Anastasia",
           location: "Dubai, UAE",
           text: "Living in Dubai, finding specific decor is hard. Ordered these Hermes cups for my collection. HappyBox packed them with such care! Not a single chip. The consolidation service is a lifesaver.",
-          image: "https://i.ibb.co/N2VFszPL/Happy-Box-review8.jpg"
+          image: "https://i.ibb.co/RGjpLh3Z/Happy-Box-review8.webp"
         },
         {
           name: "Jason Miller",
           location: "Los Angeles, USA",
           text: "I ordered a full electric drum kit. It was a huge box, but the shipping cost was surprisingly reasonable. Everything arrived intact and works perfectly. Great service for large items!",
-          image: "https://i.ibb.co/CsKPWkpG/Happy-Box-review9.jpg"
+          image: "https://i.ibb.co/Q3G8jNRR/Happy-Box-review9.webp"
         },
         {
           name: "Elena Petrova",
           location: "Berlin, Germany",
           text: "Got my Gucci shoes! I was worried about the box getting crushed, but they double-boxed everything. They are 100% authentic and arrived in Berlin in perfect condition.",
-          image: "https://i.ibb.co/MxLDG9DY/Happy-Box-review12.jpg"
+          image: "https://i.ibb.co/0y8mfkkB/Happy-Box-review12.webp"
         },
         {
           name: "Michael Chen",
           location: "Toronto, Canada",
           text: "I was looking for an e-foil everywhere. The HappyBox team helped me find a supplier on 1688 much cheaper than I could find on my own. Saved me over $1000!",
-          image: "https://i.ibb.co/0yfRFc1j/Happy-Box-review6.jpg"
+          image: "https://i.ibb.co/whXdYLzr/Happy-Box-review6.webp"
         },
         {
           name: "Olga S.",
           location: "Riga, Latvia",
           text: "So happy you can ship food products! I ordered a big batch of baby cookies and snacks that my children love. Everything arrived fresh and well-packed. Thank you!",
-          image: "https://i.ibb.co/35FGLGx3/Happy-Box-review11.jpg"
+          image: "https://i.ibb.co/YFwfYJht/Happy-Box-review11.webp"
         },
         {
           name: "Jessica Miller",
           location: "London, UK",
           text: "Fast, reliable, and honest. I've been using them for 2 years now for personal shopping. The consolidation feature is the best – I save about 40% on shipping compared to direct delivery.",
-          image: "https://i.ibb.co/RpzX3KSH/Happy-Box-review3.jpg"
+          image: "https://i.ibb.co/4n8HyptV/Happy-Box-review3.webp"
         },
         {
           name: "Polina K.",
           location: "Warsaw, Poland",
           text: "Ordered a Dyson hair dryer. It's the real deal! Works with my voltage perfectly. The team checked the serial number for me before shipping. Highly recommended.",
-          image: "https://i.ibb.co/W4cwnn0z/Happy-Box-review7.jpg"
+          image: "https://i.ibb.co/6JmvY3Kp/Happy-Box-review7.webp"
         },
         {
           name: "Emma Davis",
           location: "New York, USA",
           text: "These cute cushions for my dining chairs are adorable! They look exactly like the photos. The 'purchase for me' service made buying from Taobao so easy.",
-          image: "https://i.ibb.co/mrbFpkyL/Happy-Box-review13.jpg"
+          image: "https://i.ibb.co/6cbcytdJ/Happy-Box-review13.webp"
         },
         {
           name: "Sarah Weber",
           location: "Munich, Germany",
           text: "Very professional logistics. Tracking was accurate all the way to my door in Munich. The rates for heavy shipments are very competitive. Will definitely use again.",
-          image: "https://i.ibb.co/whqcnyTY/Happy-Box-review10.jpg"
+          image: "https://i.ibb.co/4RF5Hdbw/Happy-Box-review10.webp"
         },
         {
           name: "Sophie Martin",
           location: "Paris, France",
           text: "My Hermes bag arrived! I can't believe I got it for this price. The inspection photos gave me peace of mind before shipping. It's absolutely beautiful.",
-          image: "https://i.ibb.co/DDBq8y1N/Happy-Box-review.jpg"
+          image: "https://i.ibb.co/ZRC3B1k5/Happy-Box-review.webp"
         },
         {
           name: "Maria Gonzalez",
           location: "Madrid, Spain",
           text: "These branded boots are stunning. Leather quality is amazing. HappyBox checked the size for me, so they fit perfectly. Shipping to Madrid was fast.",
-          image: "https://i.ibb.co/kgtnSjsG/Happy-Box-review2.jpg"
+          image: "https://i.ibb.co/BKrDsfWw/Happy-Box-review2.webp"
         },
         {
           name: "Daniel Kim",
           location: "Vancouver, Canada",
           text: "Solid service. Had a small issue with a missing tracking number once, but support resolved it via Telegram in 10 minutes. It feels like they really care about your package.",
-          image: "https://i.ibb.co/FLtYHyRk/Happy-Box-review4.jpg"
+          image: "https://i.ibb.co/xycMWf1/Happy-Box-review4.webp"
         }
       ]
     },
@@ -320,73 +320,73 @@ export const translations = {
           name: "Анастасия",
           location: "Дубай, ОАЭ",
           text: "Живя в Дубае, сложно найти специфический декор. Заказала чашки Hermes для коллекции. HappyBox упаковали их идеально! Ни единого скола. Услуга консолидации — просто спасение.",
-          image: "https://i.ibb.co/N2VFszPL/Happy-Box-review8.jpg"
+          image: "https://i.ibb.co/RGjpLh3Z/Happy-Box-review8.webp"
         },
         {
           name: "Джейсон Миллер",
           location: "Лос-Анджелес, США",
           text: "Заказал полную электронную ударную установку. Коробка была огромной, но цена доставки приятно удивила. Все пришло целым и работает отлично. Отличный сервис для крупных грузов!",
-          image: "https://i.ibb.co/CsKPWkpG/Happy-Box-review9.jpg"
+          image: "https://i.ibb.co/Q3G8jNRR/Happy-Box-review9.webp"
         },
         {
           name: "Елена Петрова",
           location: "Берлин, Германия",
           text: "Получила свои туфли Gucci! Боялась, что коробка помнется, но они упаковали в двойную коробку. 100% оригинал, доставили в Берлин в идеальном состоянии.",
-          image: "https://i.ibb.co/MxLDG9DY/Happy-Box-review12.jpg"
+          image: "https://i.ibb.co/0y8mfkkB/Happy-Box-review12.webp"
         },
         {
           name: "Майкл Чен",
           location: "Торонто, Канада",
           text: "Везде искал электро-фойл (e-foil). Команда HappyBox помогла найти поставщика на 1688 намного дешевле, чем я мог найти сам. Сэкономил более $1000!",
-          image: "https://i.ibb.co/0yfRFc1j/Happy-Box-review6.jpg"
+          image: "https://i.ibb.co/whXdYLzr/Happy-Box-review6.webp"
         },
         {
           name: "Ольга С.",
           location: "Рига, Латвия",
           text: "Так рада, что вы отправляете продукты! Заказала большую партию детского печенья и снеков, которые любят мои дети. Все пришло свежим и отлично упакованным. Спасибо!",
-          image: "https://i.ibb.co/35FGLGx3/Happy-Box-review11.jpg"
+          image: "https://i.ibb.co/YFwfYJht/Happy-Box-review11.webp"
         },
         {
           name: "Джессика Миллер",
           location: "Лондон, Великобритания",
           text: "Быстро, надежно и честно. Пользуюсь сервисом уже 2 года для личных покупок. Консолидация — лучшее, что есть, экономлю около 40% на доставке по сравнению с прямой отправкой.",
-          image: "https://i.ibb.co/RpzX3KSH/Happy-Box-review3.jpg"
+          image: "https://i.ibb.co/4n8HyptV/Happy-Box-review3.webp"
         },
         {
           name: "Полина К.",
           location: "Варшава, Польша",
           text: "Заказала фен Dyson. Это оригинал! Отлично работает с нашим напряжением. Команда проверила серийный номер перед отправкой. Очень рекомендую.",
-          image: "https://i.ibb.co/W4cwnn0z/Happy-Box-review7.jpg"
+          image: "https://i.ibb.co/6JmvY3Kp/Happy-Box-review7.webp"
         },
         {
           name: "Эмма Дэвис",
           location: "Нью-Йорк, США",
           text: "Эти милые подушки для стульев просто прелесть! Выглядят точно как на фото. Услуга «выкуп» сделала покупку на Таобао такой простой.",
-          image: "https://i.ibb.co/mrbFpkyL/Happy-Box-review13.jpg"
+          image: "https://i.ibb.co/6cbcytdJ/Happy-Box-review13.webp"
         },
         {
           name: "Сара Вебер",
           location: "Мюнхен, Германия",
           text: "Очень профессиональная логистика. Отслеживание было точным до самой двери в Мюнхене. Тарифы на тяжелые посылки очень конкурентные. Обязательно воспользуюсь снова.",
-          image: "https://i.ibb.co/whqcnyTY/Happy-Box-review10.jpg"
+          image: "https://i.ibb.co/4RF5Hdbw/Happy-Box-review10.webp"
         },
         {
           name: "Софи Мартин",
           location: "Париж, Франция",
           text: "Моя сумка Hermes приехала! Не могу поверить, что купила её по такой цене. Фото с проверки успокоили меня перед отправкой. Она прекрасна.",
-          image: "https://i.ibb.co/DDBq8y1N/Happy-Box-review.jpg"
+          image: "https://i.ibb.co/ZRC3B1k5/Happy-Box-review.webp"
         },
         {
           name: "Мария Гонсалес",
           location: "Мадрид, Испания",
           text: "Эти брендовые сапоги потрясающие. Качество кожи изумительное. HappyBox проверили размер, так что подошли идеально. Доставка в Мадрид была быстрой.",
-          image: "https://i.ibb.co/kgtnSjsG/Happy-Box-review2.jpg"
+          image: "https://i.ibb.co/BKrDsfWw/Happy-Box-review2.webp"
         },
         {
           name: "Дэниел Ким",
           location: "Ванкувер, Канада",
           text: "Надежный сервис. Был небольшой вопрос с трек-номером, но поддержка в Telegram решила все за 10 минут. Чувствуется, что им не все равно.",
-          image: "https://i.ibb.co/FLtYHyRk/Happy-Box-review4.jpg"
+          image: "https://i.ibb.co/xycMWf1/Happy-Box-review4.webp"
         }
       ]
     },
@@ -435,7 +435,7 @@ export const translations = {
         fi: 'Финляндия',
         fr: 'Франция',
         de: 'Германия',
-        gr: 'Греция',
+        gr: 'Greece',
         hu: 'Венгрия',
         ie: 'Ирландия',
         it: 'Италия',

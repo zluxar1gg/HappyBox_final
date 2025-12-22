@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Language, translations } from '../utils/translations';
 import { Send, Copy, Check, Mail } from 'lucide-react';
@@ -49,7 +50,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
             <div className="flex flex-col items-center group">
               <div className="aspect-square w-full max-w-[280px] rounded-[30px] overflow-hidden shadow-sm bg-white mb-6 border-2 border-transparent group-hover:border-brand-blue/20 transition-all">
                 <img 
-                  src="https://i.ibb.co/KpGd8jJ3/happybox-telegram.jpg" 
+                  src="https://i.ibb.co/wr46ZsJj/happybox-telegram.webp" 
                   alt="Telegram QR Code for HappyBox" 
                   width="300"
                   height="300"
@@ -76,7 +77,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
             <div className="flex flex-col items-center group">
               <div className="aspect-square w-full max-w-[280px] rounded-[30px] overflow-hidden shadow-sm bg-white mb-6 border-2 border-transparent group-hover:border-[#25D366]/20 transition-all">
                 <img 
-                  src="https://i.ibb.co/JRJHgSkC/happybox-wa.png" 
+                  src="https://i.ibb.co/MK48T9C/happybox-wa.webp" 
                   alt="WhatsApp QR Code for HappyBox" 
                   width="300"
                   height="300"
@@ -103,7 +104,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
             <div className="flex flex-col items-center group">
               <div className="aspect-square w-full max-w-[280px] rounded-[30px] overflow-hidden shadow-sm bg-white mb-6 border-2 border-transparent group-hover:border-[#07C160]/20 transition-all">
                 <img 
-                  src="https://i.ibb.co/93pK51G9/happybox-wechat.jpg" 
+                  src="https://i.ibb.co/YFjhyYvW/happybox-wechat.webp" 
                   alt="WeChat QR Code for HappyBox" 
                   width="300"
                   height="300"
