@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Language, translations } from '../utils/translations';
 import { Send, Copy, Check, Mail } from 'lucide-react';
+import { trackLead } from '../utils/analytics';
 
 interface ContactProps {
   language: Language;
@@ -26,6 +27,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
   const handleCopyWeChat = () => {
     navigator.clipboard.writeText('HappyBoxLogistics');
     setCopied(true);
+    trackLead('wechat', 'contact_section');
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -65,11 +67,14 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                 href="https://t.me/HappyBoxDan" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                onClick={() => trackLead('telegram', 'contact_section')}
                 aria-label={language === 'en' ? 'Contact us via Telegram' : 'Связаться через Telegram'}
                 className="flex items-center gap-2 bg-brand-blue text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-lg shadow-blue-200 active:scale-95 w-full sm:w-auto justify-center"
               >
-                <Send size={20} />
-                {language === 'en' ? 'Open Telegram' : 'Открыть Telegram'}
+                <span className="flex items-center gap-2">
+                  <Send size={20} />
+                  {language === 'en' ? 'Open Telegram' : 'Открыть Telegram'}
+                </span>
               </a>
             </div>
 
@@ -92,11 +97,14 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                 href="https://wa.me/8613048875834" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                onClick={() => trackLead('whatsapp', 'contact_section')}
                 aria-label={language === 'en' ? 'Contact us via WhatsApp' : 'Связаться через WhatsApp'}
                 className="flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#20ba57] transition-all shadow-lg shadow-green-200 active:scale-95 w-full sm:w-auto justify-center"
               >
-                <WhatsAppIcon size={20} />
-                {language === 'en' ? 'Open WhatsApp' : 'Открыть WhatsApp'}
+                <span className="flex items-center gap-2">
+                  <WhatsAppIcon size={20} />
+                  {language === 'en' ? 'Open WhatsApp' : 'Открыть WhatsApp'}
+                </span>
               </a>
             </div>
 
@@ -147,6 +155,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
             </div>
             <a 
                 href={`mailto:${fullEmail}`}
+                onClick={() => trackLead('email', 'contact_section')}
                 aria-label={language === 'en' ? 'Send email to support' : 'Написать на почту поддержки'}
                 className="bg-white text-brand-dark border-2 border-gray-200 px-8 py-3 rounded-xl font-bold hover:border-brand-blue hover:text-brand-blue transition-all active:scale-95 w-full md:w-auto"
             >

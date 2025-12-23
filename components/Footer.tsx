@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Mail } from 'lucide-react';
 import { Language, translations } from '../utils/translations';
+import { trackLead } from '../utils/analytics';
 
 // Social Media Icons Components
 const InstagramIcon = ({ className }: { className?: string }) => (
@@ -32,13 +33,15 @@ interface SocialLinkProps {
   href: string;
   icon: React.FC<{ className?: string }>;
   label: string;
+  platform?: 'instagram' | 'telegram' | 'whatsapp' | 'facebook';
 }
 
-const SocialLink: React.FC<SocialLinkProps> = ({ href, icon: Icon, label }) => (
+const SocialLink: React.FC<SocialLinkProps> = ({ href, icon: Icon, label, platform }) => (
   <a 
     href={href}
     target="_blank"
     rel="noopener noreferrer"
+    onClick={() => platform && platform !== 'instagram' && platform !== 'facebook' ? trackLead(platform as any, 'footer') : null}
     className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-brand-dark hover:bg-brand-blue hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-1"
     aria-label={label}
   >
@@ -100,13 +103,14 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                 HappyBox
               </div>
               <div className="flex gap-4 ml-2">
-                <SocialLink href="https://instagram.com/happybox_dan" icon={InstagramIcon} label="Instagram Profile" />
-                <SocialLink href="https://t.me/happyboxlogistics" icon={TelegramIcon} label="Telegram Channel" />
-                <SocialLink href="https://wa.me/8613048875834" icon={WhatsAppIcon} label="WhatsApp Contact" />
-                <SocialLink href="https://www.facebook.com/HappyBoxLogistics" icon={FacebookIcon} label="Facebook Page" />
+                <SocialLink href="https://instagram.com/happybox_dan" icon={InstagramIcon} label="Instagram Profile" platform="instagram" />
+                <SocialLink href="https://t.me/happyboxlogistics" icon={TelegramIcon} label="Telegram Channel" platform="telegram" />
+                <SocialLink href="https://wa.me/8613048875834" icon={WhatsAppIcon} label="WhatsApp Contact" platform="whatsapp" />
+                <SocialLink href="https://www.facebook.com/HappyBoxLogistics" icon={FacebookIcon} label="Facebook Page" platform="facebook" />
                 
                 <a 
                     href={`mailto:${fullEmail}`}
+                    onClick={() => trackLead('email', 'footer')}
                     className="flex w-11 h-11 bg-white rounded-full items-center justify-center text-brand-dark hover:bg-brand-blue hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-1"
                     aria-label={language === 'en' ? 'Email Support' : 'Написать в поддержку'}
                 >
