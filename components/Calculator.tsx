@@ -1,5 +1,7 @@
+
 import React, { useState, useMemo } from 'react';
 import { Language, translations } from '../utils/translations';
+import { trackLead } from '../utils/analytics';
 
 // Rates per kg in USD
 const RATES: Record<string, number> = {
@@ -85,7 +87,9 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
     });
   };
 
-  const handleScrollToContact = () => {
+  const handleScrollToContact = (platform: 'telegram' | 'whatsapp' | 'email') => {
+    // Track that user is moving from calculator to contacts
+    trackLead(platform, 'hero', 'click'); // Using hero/calculator context
     const contactSection = document.getElementById('contacts');
     if (contactSection) { contactSection.scrollIntoView({ behavior: 'smooth' }); }
   };
@@ -186,7 +190,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
                             <h3 className="text-2xl font-bold leading-tight">{t.contactQuote}</h3>
                             <p className="text-blue-100 font-medium leading-relaxed">{t.contactDesc}</p>
                             <button 
-                                onClick={handleScrollToContact}
+                                onClick={() => handleScrollToContact('telegram')}
                                 className="inline-block bg-white text-brand-blue px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-lg"
                             >
                                 {t.contactBtn}
@@ -207,7 +211,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language }) => {
                                     <p className="text-sm font-medium text-white/90">
                                         {t.altDelivery}
                                         <br/>
-                                        <button onClick={handleScrollToContact} className="underline hover:text-white mt-1">{t.altContact}</button>
+                                        <button onClick={() => handleScrollToContact('whatsapp')} className="underline hover:text-white mt-1">{t.altContact}</button>
                                     </p>
                                 </div>
                             </div>
