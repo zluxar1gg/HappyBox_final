@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 
 const GA_ID = 'G-JXMNGZQXGY';
@@ -56,8 +55,20 @@ export const Analytics: React.FC = () => {
       }
     };
 
-    // Load analytics almost immediately for debugging
-    setTimeout(initAnalytics, 500);
+    /**
+     * Performance optimization: Delaying third-party scripts.
+     * requestIdleCallback waits for the browser to finish rendering and reach an idle state.
+     * This fixes the "Forced Reflow" issue and improves LCP/FCP scores.
+     */
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        // Add a safety delay even after idle
+        setTimeout(initAnalytics, 1000);
+      }, { timeout: 4000 }); // Maximum wait of 4s if never idle
+    } else {
+      // Fallback for browsers that don't support requestIdleCallback (like some versions of Safari)
+      setTimeout(initAnalytics, 2000);
+    }
   }, []);
 
   return null;
