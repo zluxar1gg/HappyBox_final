@@ -1,5 +1,5 @@
 
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -8,31 +8,33 @@ import { Reviews } from './components/Reviews';
 import { Calculator } from './components/Calculator';
 import { DeliveryPath } from './components/DeliveryPath';
 import { ShoppingGuides } from './components/ShoppingGuides';
-// Remove static import
-// import { Quiz } from './components/Quiz';
 import { Tracking } from './components/Tracking';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { SeoBlock } from './components/SeoBlock';
-import { ClientDashboard } from './components/ClientDashboard';
 import { Analytics } from './components/Analytics';
 import { FloatingContact } from './components/FloatingContact';
-import { Language } from './utils/translations';
-import { Loader2 } from 'lucide-react';
+import { Language, translations } from './utils/translations';
+import { Loader2, X, Hammer } from 'lucide-react';
 
-// Lazy load the Quiz component
-// Since Quiz is a named export, we need to handle the import promise specifically
+// Lazy load components
 const Quiz = React.lazy(() => import('./components/Quiz').then(module => ({ default: module.Quiz })));
 
 const App: React.FC = () => {
   const [language, setLanguage] = useState<Language>('en');
-  const [view, setView] = useState<'landing' | 'dashboard'>('landing');
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [isDevModalOpen, setIsDevModalOpen] = useState(false);
+  const t = translations[language].devModal;
 
-  const handleLogout = () => {
-    setView('landing');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  // Handle body scroll locking
+  useEffect(() => {
+    if (isQuizOpen || isDevModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [isQuizOpen, isDevModalOpen]);
 
   return (
     <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
@@ -40,59 +42,96 @@ const App: React.FC = () => {
       <Header 
         language={language} 
         setLanguage={setLanguage} 
-        onLoginClick={() => setView('dashboard')}
-        isDashboard={view === 'dashboard'}
+        onLoginClick={() => setIsDevModalOpen(true)}
+        isDashboard={false}
       />
       
-      {view === 'landing' ? (
-        <main>
-          <Hero language={language} />
-          <DeliveryPath language={language} />
-          <div id="services" className="scroll-mt-28">
-            <Services language={language} />
-          </div>
-          <div id="about" className="scroll-mt-28">
-            <About language={language} />
-          </div>
-          <ShoppingGuides language={language} />
-          <div id="reviews" className="scroll-mt-28">
-            <Reviews language={language} />
-          </div>
-          <div id="cost" className="scroll-mt-28">
-            <Calculator language={language} onOpenQuiz={() => setIsQuizOpen(true)} />
-          </div>
-          
-          {/* Quiz is now Lazy Loaded. It won't affect initial page load time. */}
-          <Suspense fallback={
-            isQuizOpen ? (
-              <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/20 backdrop-blur-sm">
-                <div className="bg-white p-4 rounded-full shadow-lg">
-                   <Loader2 className="animate-spin text-brand-blue" size={32} />
-                </div>
+      <main>
+        <Hero language={language} />
+        <DeliveryPath language={language} />
+        <div id="services" className="scroll-mt-28">
+          <Services language={language} />
+        </div>
+        <div id="about" className="scroll-mt-28">
+          <About language={language} />
+        </div>
+        <ShoppingGuides language={language} />
+        <div id="reviews" className="scroll-mt-28">
+          <Reviews language={language} />
+        </div>
+        <div id="cost" className="scroll-mt-28">
+          <Calculator language={language} onOpenQuiz={() => setIsQuizOpen(true)} />
+        </div>
+        
+        <Suspense fallback={
+          isQuizOpen ? (
+            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/20 backdrop-blur-sm">
+              <div className="bg-white p-4 rounded-full shadow-lg">
+                 <Loader2 className="animate-spin text-brand-blue" size={32} />
               </div>
-            ) : null
-          }>
-            {isQuizOpen && (
-              <Quiz 
-                language={language} 
-                isOpen={isQuizOpen} 
-                onClose={() => setIsQuizOpen(false)} 
-              />
-            )}
-          </Suspense>
+            </div>
+          ) : null
+        }>
+          {isQuizOpen && (
+            <Quiz 
+              language={language} 
+              isOpen={isQuizOpen} 
+              onClose={() => setIsQuizOpen(false)} 
+            />
+          )}
+        </Suspense>
 
-          <div id="tracking" className="scroll-mt-28">
-            <Tracking language={language} />
+        <div id="tracking" className="scroll-mt-28">
+          <Tracking language={language} />
+        </div>
+        <div id="contacts" className="scroll-mt-28">
+          <Contact language={language} />
+        </div>
+        <SeoBlock language={language} />
+        <Footer language={language} />
+        <FloatingContact />
+      </main>
+
+      {/* Under Development Modal */}
+      {isDevModalOpen && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand-dark/60 backdrop-blur-md animate-fade-in"
+          onClick={() => setIsDevModalOpen(false)}
+        >
+          <div 
+            className="bg-white w-full max-w-md rounded-[40px] shadow-2xl p-8 md:p-12 text-center relative overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Background design element */}
+            <div className="absolute -top-12 -right-12 w-32 h-32 bg-brand-light rounded-full blur-2xl opacity-50"></div>
+            
+            <button 
+              onClick={() => setIsDevModalOpen(false)}
+              className="absolute top-6 right-6 w-10 h-10 bg-gray-50 hover:bg-gray-100 rounded-full flex items-center justify-center text-gray-400 hover:text-brand-dark transition-all"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="w-20 h-20 bg-brand-blue/10 text-brand-blue rounded-[25px] flex items-center justify-center mx-auto mb-8 animate-bounce-slow">
+              <Hammer size={40} />
+            </div>
+
+            <h2 className="text-3xl font-black text-brand-dark mb-4 tracking-tight">
+              {t.title}
+            </h2>
+            
+            <p className="text-gray-500 font-bold leading-relaxed mb-10">
+              {t.message}
+            </p>
+
+            <button 
+              onClick={() => setIsDevModalOpen(false)}
+              className="w-full bg-brand-dark text-white py-4 rounded-2xl font-black text-lg hover:bg-brand-blue transition-all active:scale-95 shadow-xl shadow-gray-100"
+            >
+              {t.close}
+            </button>
           </div>
-          <div id="contacts" className="scroll-mt-28">
-            <Contact language={language} />
-          </div>
-          <SeoBlock language={language} />
-          <Footer language={language} />
-          <FloatingContact />
-        </main>
-      ) : (
-        <ClientDashboard language={language} onLogout={handleLogout} />
+        </div>
       )}
     </div>
   );

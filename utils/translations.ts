@@ -332,6 +332,11 @@ export const translations = {
       privacyTitle: 'Privacy Policy',
       termsTitle: 'User Agreement'
     },
+    devModal: {
+        title: 'Section Under Development',
+        message: 'Personal accounts are coming soon! We are working hard to bring you a seamless tracking and management experience.',
+        close: 'Close'
+    },
     seoBlock: {
       toggle: 'Popular Destinations & Services',
       categories: {
@@ -508,7 +513,7 @@ export const translations = {
     },
     about: {
       title: 'Уже более 9 лет мы обеспечиваем надежную доставку и выкуп товаров из Китая и Гонконга.',
-      text: 'Мы являемся одним из **самых надежных сервисов по выкупу и доставке**, с собственным автоматизированным складом в Китае и Гонконге. Мы гарантируем доставку прямо до вашей двери.'
+      text: 'Уже более 9 лет мы обеспечиваем надежную доставку и выкуп товаров из Китая и Гонконга.'
     },
     services: {
       title: 'Услуги',
@@ -706,6 +711,11 @@ export const translations = {
       iUnderstand: 'I Understand',
       privacyTitle: 'Политика конфиденциальности',
       termsTitle: 'Пользовательское соглашение'
+    },
+    devModal: {
+        title: 'Раздел в разработке',
+        message: 'Личный кабинет скоро появится! Мы усердно работаем над созданием удобной системы для отслеживания и управления вашими заказами.',
+        close: 'Закрыть'
     },
     seoBlock: {
       toggle: 'Популярные направления и услуги',
