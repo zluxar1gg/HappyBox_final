@@ -11,7 +11,7 @@ import {
   CheckCircle2,
   ArrowRight
 } from 'lucide-react';
-import { Language } from '../utils/translations';
+import { Language, translations } from '../utils/translations';
 
 interface QuickAccessProps {
   language: Language;
@@ -24,6 +24,15 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
   const [activeTab, setActiveTab] = useState<TabType>('shopping');
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const isEn = language === 'en';
+  const t = translations[language].quickAccess;
+
+  // Helper to generate SEO friendly URLs for anchors
+  const getPageUrl = (page: string) => {
+    const params = new URLSearchParams();
+    params.set('page', page);
+    if (language === 'ru') params.set('lang', 'ru');
+    return `/?${params.toString()}`;
+  };
 
   // --- DATA DEFINITIONS ---
   const tabs = [
@@ -42,6 +51,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
     { 
       id: 'taobao', 
       title: isEn ? 'Taobao Agent' : 'Байер Taobao', 
+      seoText: t.taobao,
       icon: ShoppingCart, 
       color: 'text-orange-500', 
       bg: 'bg-orange-50' 
@@ -49,6 +59,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
     { 
       id: '1688', 
       title: isEn ? '1688 Agent' : 'Выкуп 1688', 
+      seoText: t['1688'],
       icon: Search, 
       color: 'text-red-500', 
       bg: 'bg-red-50' 
@@ -56,6 +67,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
     { 
       id: 'inspection', 
       title: isEn ? 'Inspection' : 'Проверка брака', 
+      seoText: t.inspection,
       icon: ClipboardCheck, 
       color: 'text-purple-500', 
       bg: 'bg-purple-50' 
@@ -63,6 +75,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
     { 
       id: 'warehousing', 
       title: isEn ? 'Warehousing' : 'Склад', 
+      seoText: t.warehousing,
       icon: Warehouse, 
       color: 'text-blue-500', 
       bg: 'bg-blue-50' 
@@ -110,7 +123,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
   };
 
   const handleItemClick = (id: string) => {
-    // If it's a shopping item, show details. If destination, navigate.
+    // If it's a shopping item, show details.
     if (activeTab === 'shopping') {
       setSelectedService(id);
     }
@@ -119,32 +132,35 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
   // --- RENDER HELPERS ---
   const renderDestinations = () => (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 animate-fade-in">
-      {destinations.map((item) => (
-        <div 
-          key={item.id}
-          onClick={() => {
-            if (item.id === 'usa') onNavigate('usa');
-            else if (item.id === 'eu') onNavigate('eu');
-            else if (item.id === 'uae') onNavigate('uae');
-            else if (item.id === 'ru') onNavigate('ru');
-            else {
-                document.getElementById('cost')?.scrollIntoView({ behavior: 'smooth' });
-            }
-          }}
-          className="bg-white border border-gray-100 rounded-2xl p-4 flex flex-col items-start gap-3 hover:shadow-lg hover:border-brand-blue/30 transition-all cursor-pointer group relative overflow-hidden"
-        >
-          {item.tag && (
-            <span className="absolute top-0 right-0 bg-brand-yellow text-[10px] font-black px-2 py-0.5 rounded-bl-lg">
-              {item.tag}
-            </span>
-          )}
-          <div className="text-3xl bg-gray-50 w-10 h-10 flex items-center justify-center rounded-full shadow-sm">{item.flag}</div>
-          <div>
-            <h4 className="font-bold text-brand-dark leading-tight group-hover:text-brand-blue transition-colors">{item.title}</h4>
-            <p className="text-xs text-gray-500 font-medium mt-1">{isEn ? 'from' : 'от'} <span className="text-brand-dark font-bold">{item.price}</span></p>
-          </div>
-        </div>
-      ))}
+      {destinations.map((item) => {
+        // We use <a> tag for SEO, but allow JS to handle SPA navigation via onClick
+        const isInternalPage = ['usa', 'eu', 'uae', 'ru'].includes(item.id);
+        const href = isInternalPage ? getPageUrl(item.id) : '#cost';
+
+        return (
+          <a 
+            key={item.id}
+            href={href}
+            onClick={(e) => {
+              e.preventDefault();
+              if (isInternalPage) onNavigate(item.id);
+              else document.getElementById('cost')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="bg-white border border-gray-100 rounded-2xl p-4 flex flex-col items-start gap-3 hover:shadow-lg hover:border-brand-blue/30 transition-all cursor-pointer group relative overflow-hidden block"
+          >
+            {item.tag && (
+              <span className="absolute top-0 right-0 bg-brand-yellow text-[10px] font-black px-2 py-0.5 rounded-bl-lg">
+                {item.tag}
+              </span>
+            )}
+            <div className="text-3xl bg-gray-50 w-10 h-10 flex items-center justify-center rounded-full shadow-sm">{item.flag}</div>
+            <div>
+              <h4 className="font-bold text-brand-dark leading-tight group-hover:text-brand-blue transition-colors">{item.title}</h4>
+              <p className="text-xs text-gray-500 font-medium mt-1">{isEn ? 'from' : 'от'} <span className="text-brand-dark font-bold">{item.price}</span></p>
+            </div>
+          </a>
+        );
+      })}
     </div>
   );
 
@@ -159,9 +175,14 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
           <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${item.bg} ${item.color} mb-1 group-hover:scale-110 transition-transform shadow-sm`}>
             <item.icon size={28} />
           </div>
-          <h4 className="font-bold text-brand-dark text-base leading-tight group-hover:text-brand-blue transition-colors">
-            {item.title}
-          </h4>
+          <div>
+            <h4 className="font-bold text-brand-dark text-base leading-tight group-hover:text-brand-blue transition-colors mb-2">
+                {item.title}
+            </h4>
+            <p className="text-xs text-gray-400 font-medium leading-tight px-1">
+                {item.seoText}
+            </p>
+          </div>
           <div className="mt-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold uppercase tracking-wider text-gray-400 flex items-center gap-1">
              {isEn ? 'Learn More' : 'Подробнее'} <ArrowRight size={12} />
           </div>

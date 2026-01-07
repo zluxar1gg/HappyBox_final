@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import { Menu, X, User } from 'lucide-react';
 import { Language, translations } from '../utils/translations';
@@ -23,6 +22,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
     { name: t.cost, href: '#cost' },
     { name: t.tracking, href: '#tracking' },
     { name: t.contacts, href: '#contacts' },
+    { name: t.faq, href: '#faq' },
   ];
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

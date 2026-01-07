@@ -15,11 +15,13 @@ import { SeoBlock } from './components/SeoBlock';
 import { Analytics } from './components/Analytics';
 import { FloatingContact } from './components/FloatingContact';
 import { QuickAccess } from './components/QuickAccess';
+import { FAQ } from './components/FAQ'; // New Import
 import { UsaShippingPage } from './components/UsaShippingPage'; 
 import { EuShippingPage } from './components/EuShippingPage';
 import { UaeShippingPage } from './components/UaeShippingPage';
 import { RuShippingPage } from './components/RuShippingPage';
 import { Language, translations } from './utils/translations';
+import { updateMetaTags } from './utils/seo'; 
 import { Loader2, X, Hammer } from 'lucide-react';
 
 // Lazy load components
@@ -72,6 +74,12 @@ const App: React.FC = () => {
     }
     return 'home';
   });
+
+  // --- SEO EFFECT ---
+  // Updates title, description, and canonical URL whenever page or language changes
+  useEffect(() => {
+    updateMetaTags(currentPage, language);
+  }, [currentPage, language]);
 
   const t = translations[language].devModal;
 
@@ -193,9 +201,12 @@ const App: React.FC = () => {
             <div id="tracking" className="scroll-mt-28">
               <Tracking language={language} />
             </div>
+            
             <div id="contacts" className="scroll-mt-28">
               <Contact language={language} />
             </div>
+
+            <FAQ language={language} />
             
             <SeoBlock language={language} onNavigate={handleNavigate} />
             

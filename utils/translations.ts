@@ -9,7 +9,8 @@ export const translations = {
       reviews: 'Reviews',
       cost: 'Cost',
       tracking: 'Tracking',
-      contacts: 'Contacts'
+      contacts: 'Contacts',
+      faq: 'FAQ'
     },
     hero: {
       title: 'Fast & Reliable Shipping from China to Europe, USA, UAE & Worldwide.',
@@ -238,14 +239,14 @@ export const translations = {
         },
         {
           name: "Maria Gonzalez",
-          location: "Madrid, Spain",
-          text: "These branded boots are stunning. Leather quality is amazing. HappyBox checked the size for me, so they fit perfectly. Shipping to Madrid was fast.",
+          location: "Мадрид, Испания",
+          text: "Эти брендовые ботинки потрясающие. Кожа отличная. HappyBox проверили размер, так что подошли идеально. Доставка в Мадрид была быстрой.",
           image: "https://i.ibb.co/BKrDsfWw/Happy-Box-review2.webp"
         },
         {
-          name: "Daniel Kim",
-          location: "Vancouver, Canada",
-          text: "Solid service. Had a small issue with a missing tracking number once, but support resolved it via Telegram in 10 minutes. It feels like they really care about your package.",
+          name: "Дэниел Ким",
+          location: "Ванкувер, Канада",
+          text: "Надежный сервис. Была небольшая проблема с трек-номером, но поддержка в Telegram решила все за 10 минут. Чувствуется забота о клиенте.",
           image: "https://i.ibb.co/xycMWf1/Happy-Box-review4.webp"
         }
       ]
@@ -396,6 +397,34 @@ export const translations = {
           ]
         }
       }
+    },
+    faq: {
+      title: 'Common Questions',
+      subtitle: 'Everything you need to know about working with HappyBox',
+      items: [
+        {
+          question: 'Do you charge a fee for purchasing on 1688 or Taobao?',
+          answer: 'If you provide the links, we charge 0% commission! We only charge for the shipping. If you need us to find a supplier (Sourcing), the fee is 1%.'
+        },
+        {
+          question: 'What if my item arrives damaged at your warehouse?',
+          answer: 'We inspect every incoming package. If an item is damaged or does not match the description, we will return it to the Chinese seller immediately for a refund or exchange.'
+        },
+        {
+          question: 'How do I pay you? Do you accept Crypto?',
+          answer: 'Yes! We accept USDT (Crypto), Bank Transfers (USD/EUR) to our Hong Kong or US companies, and even Rubles for our CIS clients. You can pay securely before shipment.'
+        },
+        {
+          question: 'What is DDP shipping?',
+          answer: 'DDP stands for "Delivered Duty Paid". It means we handle all customs clearance and pay all import taxes. You just wait for the parcel at your door.'
+        }
+      ]
+    },
+    quickAccess: {
+      taobao: 'Buy from Taobao without a Chinese number',
+      1688: 'Wholesale sourcing direct from factories',
+      inspection: 'Quality check before international shipping',
+      warehousing: 'Free storage and consolidation'
     }
   },
   ru: {
@@ -404,7 +433,8 @@ export const translations = {
       reviews: 'Отзывы',
       cost: 'Стоимость',
       tracking: 'Отслеживание',
-      contacts: 'Контакты'
+      contacts: 'Контакты',
+      faq: 'FAQ'
     },
     hero: {
       title: 'Быстрая и надежная доставка из Китая в Европу, США, ОАЭ и по всему миру.',
@@ -791,6 +821,34 @@ export const translations = {
           ]
         }
       }
+    },
+    faq: {
+      title: 'Частые вопросы',
+      subtitle: 'Все, что нужно знать о работе с HappyBox',
+      items: [
+        {
+          question: 'Берете ли вы комиссию за выкуп с 1688 или Таобао?',
+          answer: 'Если вы присылаете ссылки — комиссия 0%! Вы платите только за доставку. Если нужен поиск поставщика (Сорсинг) — комиссия 1%.'
+        },
+        {
+          question: 'Что если товар придет с браком на склад?',
+          answer: 'Мы проверяем каждую посылку. Если товар поврежден или не соответствует описанию, мы вернем его китайскому продавцу для замены или возврата денег.'
+        },
+        {
+          question: 'Как оплатить? Принимаете рубли или крипту?',
+          answer: 'Да! Мы принимаем USDT (Крипта), SWIFT переводы на наши компании в Гонконге или США, и даже рубли для клиентов из СНГ. Вы можете безопасно оплатить услуги до отправки груза.'
+        },
+        {
+          question: 'Что такое Карго доставка?',
+          answer: 'Это упрощенная доставка "под ключ". Мы берем на себя таможенную очистку и страховку. Вы получаете груз в Москве или своем городе без бюрократии.'
+        }
+      ]
+    },
+    quickAccess: {
+      taobao: 'Выкуп с Taobao без китайского номера',
+      1688: 'Оптовые закупки напрямую с фабрик',
+      inspection: 'Проверка качества перед отправкой',
+      warehousing: 'Бесплатное хранение и консолидация'
     }
   }
 };
