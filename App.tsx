@@ -28,7 +28,34 @@ const Quiz = React.lazy(() => import('./components/Quiz').then(module => ({ defa
 type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru';
 
 const App: React.FC = () => {
-  const [language, setLanguage] = useState<Language>('en');
+  // 1. Initialize language from URL
+  const [language, setLanguageState] = useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('lang') === 'ru' ? 'ru' : 'en';
+    }
+    return 'en';
+  });
+
+  // 2. Custom setter to update URL query param
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (lang === 'ru') {
+        params.set('lang', 'ru');
+      } else {
+        params.delete('lang');
+      }
+      
+      const search = params.toString();
+      const newUrl = search ? `${window.location.pathname}?${search}` : window.location.pathname;
+      
+      window.history.pushState(null, '', newUrl);
+    }
+  };
+
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isDevModalOpen, setIsDevModalOpen] = useState(false);
   
@@ -57,12 +84,18 @@ const App: React.FC = () => {
 
     setCurrentPage(targetPage);
     
-    // Update URL without reloading
-    const newUrl = targetPage === 'home' 
-      ? window.location.pathname 
-      : `${window.location.pathname}?page=${targetPage}`;
+    // Update URL keeping the lang param if it exists
+    const params = new URLSearchParams(window.location.search);
+    if (targetPage === 'home') {
+        params.delete('page');
+    } else {
+        params.set('page', targetPage);
+    }
       
-    window.history.pushState({ page: targetPage }, '', newUrl);
+    const search = params.toString();
+    const newUrl = search ? `${window.location.pathname}?${search}` : window.location.pathname;
+    
+    window.history.pushState(null, '', newUrl);
     
     // Scroll to top
     window.scrollTo(0, 0);
@@ -73,12 +106,17 @@ const App: React.FC = () => {
     const handlePopState = (event: PopStateEvent) => {
       const params = new URLSearchParams(window.location.search);
       const pageParam = params.get('page');
+      const langParam = params.get('lang');
       
+      // Update page
       if (pageParam === 'usa') setCurrentPage('usa');
       else if (pageParam === 'eu') setCurrentPage('eu');
       else if (pageParam === 'uae') setCurrentPage('uae');
       else if (pageParam === 'ru') setCurrentPage('ru');
       else setCurrentPage('home');
+
+      // Update language from URL
+      setLanguageState(langParam === 'ru' ? 'ru' : 'en');
     };
 
     window.addEventListener('popstate', handlePopState);
