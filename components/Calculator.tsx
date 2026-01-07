@@ -5,20 +5,20 @@ import { Info, Truck, Plane, Anchor, AlertCircle, HelpCircle } from 'lucide-reac
 
 const RATES: Record<string, number> = {
   'us': 19, 'ca': 15.5, 'au': 15, 'ae': 20, 'pl': 16, 'de': 16, 'fr': 16, 'es': 16, 'pt': 16,
-  'eng': 16, 'it': 16, 'at': 16, 'be': 16, 'bg': 16, 'ro': 16, 'nl': 16,
+  'eng': 16, 'it': 16, 'at': 16, 'be': 16, 'bg': 16, 'ro': 16, 'nl': 16, 'ru': 10
 };
 
 const SEA_RATES: Record<string, number> = {
-  'us': 5, 'ca': 6, 'pl': 5.5, 'de': 6.5, 'es': 7, 'pt': 7, 'au': 5.5
+  'us': 5, 'ca': 6, 'pl': 5.5, 'de': 6.5, 'es': 7, 'pt': 7, 'au': 5.5, 'ae': 4.5
 };
 
 const RAIL_RATES: Record<string, number> = {
-  'pl': 5, 'de': 5.5, 'fr': 6, 'ae': 12
+  'pl': 5, 'de': 5.5, 'fr': 6, 'ae': 12, 'ru': 2.5
 };
 
 const COUNTRY_CODES = [
   'us', 'ca', 'au', 'ae', 'pl', 'de', 'fr', 'es', 'pt',
-  'eng', 'it', 'at', 'be', 'bg', 'ro', 'nl', 'other'
+  'eng', 'it', 'at', 'be', 'bg', 'ro', 'nl', 'ru', 'other'
 ];
 
 type ShippingMethod = 'air' | 'sea' | 'rail';
@@ -35,12 +35,13 @@ type CalculationResult = {
 interface CalculatorProps {
   language: Language;
   onOpenQuiz: () => void;
+  defaultCountry?: string; 
 }
 
-export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz }) => {
+export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, defaultCountry }) => {
   const [weight, setWeight] = useState('');
   const [unit, setUnit] = useState('kg'); 
-  const [country, setCountry] = useState('');
+  const [country, setCountry] = useState(defaultCountry || '');
   const [method, setMethod] = useState<ShippingMethod>('air');
   const [error, setError] = useState(false);
   const [result, setResult] = useState<CalculationResult | null>(null);
@@ -51,18 +52,31 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz }) 
   const weightNum = parseFloat(weight) || 0;
   const currentWeightKg = unit === 'pound' ? weightNum * 0.453592 : weightNum;
 
+  // Re-sync country if default changes (e.g. navigation)
+  useEffect(() => {
+    if (defaultCountry) setCountry(defaultCountry);
+  }, [defaultCountry]);
+
+  // Special logic for RU: Air is expensive/rare, Rail/Truck is default
+  useEffect(() => {
+    if (country === 'ru' && method === 'sea') setMethod('rail'); 
+    // RU "Cargo" is essentially Rail/Truck logic in this calculator
+  }, [country]);
+
   const isSeaAvailable = !!SEA_RATES[country];
+  // Rail includes "Truck/Auto" for RU/UAE context here
   const isRailAvailable = !!RAIL_RATES[country];
 
   const canSelectSea = useMemo(() => {
     if (!isSeaAvailable) return false;
-    return currentWeightKg >= 30;
+    return currentWeightKg >= 30; // Standard Sea Limit
   }, [country, isSeaAvailable, currentWeightKg]);
 
   const canSelectRail = useMemo(() => {
     if (!isRailAvailable) return false;
+    if (country === 'ru') return currentWeightKg >= 15; // Lower limit for RU Cargo
     return currentWeightKg >= 30;
-  }, [isRailAvailable, currentWeightKg]);
+  }, [isRailAvailable, currentWeightKg, country]);
 
   useEffect(() => {
     if (method === 'sea' && !canSelectSea) setMethod('air');
@@ -72,7 +86,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz }) 
   const sortedCountries = useMemo(() => {
     const list = COUNTRY_CODES.map(code => ({
       code,
-      name: t.countries[code as keyof typeof t.countries]
+      name: t.countries[code as keyof typeof t.countries] || code.toUpperCase()
     }));
     return list.sort((a, b) => {
       if (a.code === 'other') return 1;
@@ -107,7 +121,13 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz }) 
       if (['pl', 'de', 'es', 'pt'].includes(country)) warning = t.euDisclaimer;
     } else if (method === 'rail' && isRailAvailable) {
       finalPrice = Math.ceil(currentWeightKg * RAIL_RATES[country]);
-      timeEstimate = country === 'ae' ? `12-18 ${t.timeDays}` : `25-35 ${t.timeDays}`;
+      if (country === 'ru') {
+          timeEstimate = `12-18 ${t.timeDays}`; // Auto Fast
+      } else if (country === 'ae') {
+          timeEstimate = `12-18 ${t.timeDays}`;
+      } else {
+          timeEstimate = `25-35 ${t.timeDays}`; // Europe Train
+      }
       if (['pl', 'de', 'fr'].includes(country)) warning = t.euDisclaimer;
     }
 
@@ -140,8 +160,8 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz }) 
                 <button disabled={!isSeaAvailable || currentWeightKg < 30} onClick={() => setMethod('sea')} className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-black text-sm transition-all ${(!isSeaAvailable || currentWeightKg < 30) ? 'opacity-20 cursor-not-allowed' : ''} ${method === 'sea' ? 'bg-white text-brand-blue shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}>
                   <Anchor size={18} /> {t.methodSea}
                 </button>
-                <button disabled={!isRailAvailable || currentWeightKg < 30} onClick={() => setMethod('rail')} className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-black text-sm transition-all ${(!isRailAvailable || currentWeightKg < 30) ? 'opacity-20 cursor-not-allowed' : ''} ${method === 'rail' ? 'bg-white text-brand-blue shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}>
-                  <Truck size={18} /> {t.methodRail}
+                <button disabled={!isRailAvailable || (!canSelectRail)} onClick={() => setMethod('rail')} className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-black text-sm transition-all ${(!isRailAvailable || !canSelectRail) ? 'opacity-20 cursor-not-allowed' : ''} ${method === 'rail' ? 'bg-white text-brand-blue shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}>
+                  <Truck size={18} /> {country === 'ru' ? 'Auto/Cargo' : t.methodRail}
                 </button>
               </div>
 
@@ -212,7 +232,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz }) 
                   ) : (
                     <div className="relative z-10">
                       <p className="text-blue-100 font-black mb-3 text-xs uppercase tracking-[0.2em] bg-white/10 py-2 px-6 rounded-full inline-block">
-                        {result.method === 'air' ? t.methodAir : result.method === 'sea' ? t.methodSea : t.methodRail}
+                        {result.method === 'air' ? t.methodAir : result.method === 'sea' ? t.methodSea : (country === 'ru' ? 'Auto Cargo' : t.methodRail)}
                       </p>
                       <h3 className="text-6xl md:text-8xl font-black mb-4 tracking-tighter drop-shadow-lg">${result.price}</h3>
                       <p className="text-xl md:text-2xl font-bold mb-8 flex items-center justify-center gap-2">

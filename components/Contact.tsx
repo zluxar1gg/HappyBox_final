@@ -73,14 +73,14 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                 onClick={() => trackLead('telegram', 'contact_section', 'click')}
               >
                 <img 
-                  src="https://i.ibb.co/wr46ZsJj/happybox-telegram.webp" 
+                  src="https://i.ibb.co/DHB3gwjL/happybox-telegram-d.webp" 
                   alt="Telegram QR" 
                   width="300" height="300" loading="lazy" className="w-full h-full object-contain"
                 />
               </div>
               <h4 className="text-2xl font-bold text-brand-dark mb-4">Telegram</h4>
               <a 
-                href="https://t.me/HappyBoxDan" 
+                href="https://t.me/d_china_hbl" 
                 target="_blank" rel="noopener noreferrer"
                 onClick={() => trackLead('telegram', 'contact_section', 'click')}
                 className="flex items-center gap-2 bg-brand-blue text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-lg active:scale-95 w-full justify-center"

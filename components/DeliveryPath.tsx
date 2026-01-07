@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { Language, translations } from '../utils/translations';
-import { Warehouse, PackageCheck, ShieldCheck, Truck } from 'lucide-react';
+import { Warehouse, PackageCheck, ShieldCheck, Truck, ShoppingCart } from 'lucide-react';
 
 export const DeliveryPath: React.FC<{ language: Language }> = ({ language }) => {
   const t = translations[language].deliveryPath;
@@ -36,7 +36,8 @@ export const DeliveryPath: React.FC<{ language: Language }> = ({ language }) => 
     };
   }, []);
 
-  const icons = [Warehouse, PackageCheck, ShieldCheck, Truck];
+  // Now we have 5 icons to match the new 5 steps
+  const icons = [ShoppingCart, Warehouse, PackageCheck, ShieldCheck, Truck];
 
   return (
     <section ref={sectionRef} className="py-12 md:py-16 bg-cream overflow-hidden">
@@ -63,12 +64,13 @@ export const DeliveryPath: React.FC<{ language: Language }> = ({ language }) => 
           </div>
 
           {t.steps.map((step, idx) => {
-            const activationThreshold = idx * 25; 
+            // Updated threshold logic for 5 items: 0, 20, 40, 60, 80
+            const activationThreshold = idx * 20; 
             const isActive = scrollPercent >= activationThreshold;
-            const Icon = icons[idx];
+            const Icon = icons[idx] || Warehouse; // Fallback to Warehouse if icon missing
             
             return (
-              <div key={idx} className="relative z-10 flex flex-col items-center text-center lg:w-1/4">
+              <div key={idx} className="relative z-10 flex flex-col items-center text-center lg:w-1/5">
                 <div 
                   className={`w-20 h-20 md:w-24 md:h-24 rounded-[30px] flex items-center justify-center transition-all duration-700 shadow-xl border-4 ${
                     isActive 

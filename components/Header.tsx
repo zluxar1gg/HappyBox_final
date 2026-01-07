@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import { Menu, X, User } from 'lucide-react';
 import { Language, translations } from '../utils/translations';
@@ -7,12 +9,14 @@ interface HeaderProps {
   setLanguage: (lang: Language) => void;
   onLoginClick: () => void;
   isDashboard?: boolean;
+  onNavigate?: (page: any) => void; // Optional for simple pages
 }
 
-export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginClick, isDashboard }) => {
+export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginClick, isDashboard, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const t = translations[language].nav;
 
+  // Simplified navigation
   const navItems = [
     { name: t.services, href: '#services' },
     { name: t.reviews, href: '#reviews' },
@@ -27,6 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
         window.location.href = href;
         return;
     }
+    
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {

@@ -17,6 +17,7 @@ interface ReviewCardProps {
 
 interface ReviewsProps {
   language: Language;
+  customData?: Review[];
 }
 
 const ReviewCard: React.FC<ReviewCardProps> = ({ review, compact }) => {
@@ -68,38 +69,55 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review, compact }) => {
   );
 };
 
-export const Reviews: React.FC<ReviewsProps> = ({ language }) => {
+export const Reviews: React.FC<ReviewsProps> = ({ language, customData }) => {
   const [desktopPage, setDesktopPage] = useState(0);
   const [mobileIndex, setMobileIndex] = useState(0);
   const t = translations[language].reviews;
 
+  const data = customData || t.data;
+
   const testimonialPages = useMemo(() => {
     const pages = [];
-    for (let i = 0; i < t.data.length; i += 3) {
-      pages.push(t.data.slice(i, i + 3));
+    for (let i = 0; i < data.length; i += 3) {
+      pages.push(data.slice(i, i + 3));
     }
     return pages;
-  }, [t.data]);
+  }, [data]);
 
-  const allTestimonials = t.data;
+  const allTestimonials = data;
 
   useEffect(() => {
+    // Safety check for empty data
+    if (testimonialPages.length === 0) return;
+
     const nextDeskPage = (desktopPage + 1) % testimonialPages.length;
     const prevDeskPage = (desktopPage - 1 + testimonialPages.length) % testimonialPages.length;
-    [...testimonialPages[nextDeskPage], ...testimonialPages[prevDeskPage]].forEach(rev => {
-      const img = new Image(); img.src = rev.image;
-    });
+    
+    // Safety check for indices
+    if(testimonialPages[nextDeskPage]) {
+        testimonialPages[nextDeskPage].forEach(rev => { const img = new Image(); img.src = rev.image; });
+    }
+    if(testimonialPages[prevDeskPage]) {
+        testimonialPages[prevDeskPage].forEach(rev => { const img = new Image(); img.src = rev.image; });
+    }
+
     const nextMob = (mobileIndex + 1) % allTestimonials.length;
     const prevMob = (mobileIndex - 1 + allTestimonials.length) % allTestimonials.length;
-    [allTestimonials[nextMob], allTestimonials[prevMob]].forEach(rev => {
-      const img = new Image(); img.src = rev.image;
-    });
+    
+    if(allTestimonials[nextMob]) {
+        const img = new Image(); img.src = allTestimonials[nextMob].image;
+    }
+    if(allTestimonials[prevMob]) {
+        const img = new Image(); img.src = allTestimonials[prevMob].image;
+    }
   }, [desktopPage, mobileIndex, testimonialPages, allTestimonials]);
 
   const nextDesktop = () => setDesktopPage((prev) => (prev + 1) % testimonialPages.length);
   const prevDesktop = () => setDesktopPage((prev) => (prev - 1 + testimonialPages.length) % testimonialPages.length);
   const nextMobile = () => setMobileIndex((prev) => (prev + 1) % allTestimonials.length);
   const prevMobile = () => setMobileIndex((prev) => (prev - 1 + allTestimonials.length) % allTestimonials.length);
+
+  if (!data || data.length === 0) return null;
 
   return (
     <section className="pb-16 md:pb-24 pt-20 md:pt-24 bg-cream">
@@ -110,53 +128,63 @@ export const Reviews: React.FC<ReviewsProps> = ({ language }) => {
         
         {/* DESKTOP */}
         <div className="hidden md:block bg-brand-light rounded-[40px] p-12 lg:p-16 relative shadow-sm border border-brand-blue/5">
-          <div className="grid grid-cols-3 gap-6 lg:gap-8">
-            {testimonialPages[desktopPage].map((review, idx) => (
-              <ReviewCard key={idx} review={review} />
-            ))}
-          </div>
-          <div className="flex justify-center gap-6 mt-12">
-            <button 
-              onClick={prevDesktop} 
-              aria-label="Previous reviews"
-              className="w-14 h-14 rounded-full bg-white text-brand-blue shadow-lg flex items-center justify-center hover:bg-brand-blue hover:text-white transition-all transform hover:scale-110 active:scale-95"
-            >
-              <ChevronLeft size={28} strokeWidth={2.5} />
-            </button>
-            <button 
-              onClick={nextDesktop} 
-              aria-label="Next reviews"
-              className="w-14 h-14 rounded-full bg-white text-brand-blue shadow-lg flex items-center justify-center hover:bg-brand-blue hover:text-white transition-all transform hover:scale-110 active:scale-95"
-            >
-              <ChevronRight size={28} strokeWidth={2.5} />
-            </button>
-          </div>
+          {testimonialPages[desktopPage] && (
+            <div className="grid grid-cols-3 gap-6 lg:gap-8">
+                {testimonialPages[desktopPage].map((review, idx) => (
+                <ReviewCard key={idx} review={review} />
+                ))}
+            </div>
+          )}
+          
+          {testimonialPages.length > 1 && (
+            <div className="flex justify-center gap-6 mt-12">
+                <button 
+                onClick={prevDesktop} 
+                aria-label="Previous reviews"
+                className="w-14 h-14 rounded-full bg-white text-brand-blue shadow-lg flex items-center justify-center hover:bg-brand-blue hover:text-white transition-all transform hover:scale-110 active:scale-95"
+                >
+                <ChevronLeft size={28} strokeWidth={2.5} />
+                </button>
+                <button 
+                onClick={nextDesktop} 
+                aria-label="Next reviews"
+                className="w-14 h-14 rounded-full bg-white text-brand-blue shadow-lg flex items-center justify-center hover:bg-brand-blue hover:text-white transition-all transform hover:scale-110 active:scale-95"
+                >
+                <ChevronRight size={28} strokeWidth={2.5} />
+                </button>
+            </div>
+          )}
         </div>
 
         {/* MOBILE */}
         <div className="md:hidden bg-brand-light rounded-[30px] p-6 relative border border-brand-blue/5">
-          <ReviewCard key="mobile" review={allTestimonials[mobileIndex]} compact={true} />
-          <div className="flex justify-center gap-6 mt-6">
-            <button 
-              onClick={prevMobile} 
-              aria-label="Previous review"
-              className="w-12 h-12 rounded-full bg-white text-brand-blue shadow-md flex items-center justify-center active:scale-95"
-            >
-              <ChevronLeft size={24} strokeWidth={2.5} />
-            </button>
-            <div className="flex items-center gap-2">
-              {allTestimonials.map((_, idx) => (
-                <div key={idx} className={`h-2 rounded-full transition-all ${idx === mobileIndex ? 'bg-brand-blue w-6' : 'bg-brand-blue/20 w-2'}`} />
-              ))}
+          {allTestimonials[mobileIndex] && (
+             <ReviewCard key="mobile" review={allTestimonials[mobileIndex]} compact={true} />
+          )}
+          
+          {allTestimonials.length > 1 && (
+            <div className="flex justify-center gap-6 mt-6">
+                <button 
+                onClick={prevMobile} 
+                aria-label="Previous review"
+                className="w-12 h-12 rounded-full bg-white text-brand-blue shadow-md flex items-center justify-center active:scale-95"
+                >
+                <ChevronLeft size={24} strokeWidth={2.5} />
+                </button>
+                <div className="flex items-center gap-2">
+                {allTestimonials.map((_, idx) => (
+                    <div key={idx} className={`h-2 rounded-full transition-all ${idx === mobileIndex ? 'bg-brand-blue w-6' : 'bg-brand-blue/20 w-2'}`} />
+                ))}
+                </div>
+                <button 
+                onClick={nextMobile} 
+                aria-label="Next review"
+                className="w-12 h-12 rounded-full bg-white text-brand-blue shadow-md flex items-center justify-center active:scale-95"
+                >
+                <ChevronRight size={24} strokeWidth={2.5} />
+                </button>
             </div>
-            <button 
-              onClick={nextMobile} 
-              aria-label="Next review"
-              className="w-12 h-12 rounded-full bg-white text-brand-blue shadow-md flex items-center justify-center active:scale-95"
-            >
-              <ChevronRight size={24} strokeWidth={2.5} />
-            </button>
-          </div>
+          )}
         </div>
       </div>
     </section>

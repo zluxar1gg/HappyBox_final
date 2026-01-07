@@ -27,7 +27,7 @@ export const ShoppingGuides: React.FC<{ language: Language }> = ({ language }) =
 
   const handleBuyForMe = () => {
     trackLead('telegram', 'contact_section', 'click');
-    window.open('https://t.me/HappyBoxDan', '_blank');
+    window.open('https://t.me/d_china_hbl', '_blank');
   };
 
   const getBrandTextStyle = (id: string) => {
@@ -35,37 +35,45 @@ export const ShoppingGuides: React.FC<{ language: Language }> = ({ language }) =
       case '1688': return 'text-[#FF6A00]';
       case 'poizon': return 'text-[#00B2B2]';
       case 'taobao': return 'bg-gradient-to-r from-[#FF8E00] to-[#FF4400] bg-clip-text text-transparent';
+      case 'xianyu': return 'text-[#FFE600] drop-shadow-sm'; // Xianyu Yellow
       default: return 'text-brand-dark';
     }
   };
 
-  const getExpertLabel = () => language === 'en' ? 'Expert Advice' : 'Экспертные советы';
+  const getExpertLabel = () => language === 'en' ? 'Expert Advice' : 'Советы';
 
   return (
-    <section className="py-24 bg-brand-light/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+    <section className="py-12 md:py-24 bg-brand-light/30">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-8 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4 tracking-tight">
             {t.title}
           </h2>
-          <p className="text-gray-600 font-bold max-w-2xl mx-auto text-lg">
+          <p className="text-gray-600 font-bold max-w-2xl mx-auto text-sm md:text-lg">
             {t.subtitle}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* Updated Grid: 2 columns mobile, 4 columns desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8 max-w-7xl mx-auto">
           {t.cards.map((card: any) => (
             <div 
               key={card.id}
               onClick={() => setActiveGuide(card)}
-              className="bg-white p-10 rounded-[45px] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group flex flex-col h-full border border-transparent hover:border-brand-blue/10"
+              className="bg-white p-5 md:p-10 rounded-2xl md:rounded-[45px] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group flex flex-col h-full border border-transparent hover:border-brand-blue/10 justify-between md:justify-start"
             >
-              <h3 className={`text-4xl font-black mb-4 leading-tight tracking-tighter ${getBrandTextStyle(card.id)}`}>
-                {card.title}
-              </h3>
-              <p className="text-gray-500 font-bold mb-10 flex-grow text-lg leading-relaxed">{card.desc}</p>
-              <div className="flex items-center gap-2 text-brand-blue font-black uppercase text-[11px] tracking-[0.2em] pt-4 border-t border-gray-50">
-                {getExpertLabel()} <ArrowRight size={16} />
+              <div>
+                <h3 className={`text-lg md:text-4xl font-black mb-2 md:mb-4 leading-tight tracking-tighter ${getBrandTextStyle(card.id)}`}>
+                  {card.title}
+                </h3>
+                {/* Hide description on mobile to save space */}
+                <p className="text-gray-500 font-bold mb-4 md:mb-10 text-sm md:text-lg leading-relaxed hidden md:block">
+                  {card.desc}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2 text-brand-blue font-black uppercase text-[10px] md:text-[11px] tracking-[0.1em] md:tracking-[0.2em] pt-2 md:pt-4 border-t border-gray-50 mt-auto">
+                {getExpertLabel()} <ArrowRight size={14} className="md:w-4 md:h-4" />
               </div>
             </div>
           ))}
@@ -95,6 +103,11 @@ export const ShoppingGuides: React.FC<{ language: Language }> = ({ language }) =
               </div>
               
               <div className="p-8 pt-6 overflow-y-auto space-y-8">
+                {/* Description visible inside modal for mobile context */}
+                <p className="text-gray-600 font-bold text-lg leading-relaxed md:hidden">
+                    {activeGuide.desc}
+                </p>
+
                 {/* Steps Section */}
                 <div className="space-y-4">
                   <h4 className="text-xs font-black text-brand-blue uppercase tracking-[0.2em] flex items-center gap-2">

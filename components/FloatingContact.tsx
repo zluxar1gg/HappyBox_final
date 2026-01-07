@@ -34,7 +34,7 @@ export const FloatingContact: React.FC = () => {
         <div className="flex flex-col gap-3 mb-2 animate-fade-in">
           {/* Telegram */}
           <a 
-            href="https://t.me/HappyBoxDan" 
+            href="https://t.me/d_china_hbl" 
             target="_blank" 
             rel="noopener noreferrer"
             onClick={() => trackLead('telegram', 'floating', 'click')}

@@ -293,7 +293,7 @@ export const Quiz: React.FC<QuizProps> = ({ language, isOpen, onClose }) => {
 
                  <div className="space-y-3">
                     <a 
-                      href="https://t.me/HappyBoxDan"
+                      href="https://t.me/d_china_hbl"
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => trackLead('telegram', 'hero', 'click')}
