@@ -15,11 +15,12 @@ import { SeoBlock } from './components/SeoBlock';
 import { Analytics } from './components/Analytics';
 import { FloatingContact } from './components/FloatingContact';
 import { QuickAccess } from './components/QuickAccess';
-import { FAQ } from './components/FAQ'; // New Import
+import { FAQ } from './components/FAQ';
 import { UsaShippingPage } from './components/UsaShippingPage'; 
 import { EuShippingPage } from './components/EuShippingPage';
 import { UaeShippingPage } from './components/UaeShippingPage';
 import { RuShippingPage } from './components/RuShippingPage';
+import { ServicePage } from './components/ServicePage'; // New Import
 import { Language, translations } from './utils/translations';
 import { updateMetaTags } from './utils/seo'; 
 import { Loader2, X, Hammer } from 'lucide-react';
@@ -27,7 +28,7 @@ import { Loader2, X, Hammer } from 'lucide-react';
 // Lazy load components
 const Quiz = React.lazy(() => import('./components/Quiz').then(module => ({ default: module.Quiz })));
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing';
 
 const App: React.FC = () => {
   // 1. Initialize language from URL
@@ -66,10 +67,12 @@ const App: React.FC = () => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       const pageParam = params.get('page');
-      if (pageParam === 'usa') return 'usa';
-      if (pageParam === 'eu') return 'eu';
-      if (pageParam === 'uae') return 'uae';
-      if (pageParam === 'ru') return 'ru';
+      
+      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing'];
+      if (pageParam && validPages.includes(pageParam as PageType)) {
+          return pageParam as PageType;
+      }
+      
       return 'home';
     }
     return 'home';
@@ -85,8 +88,10 @@ const App: React.FC = () => {
 
   // Handle navigation and URL updates
   const handleNavigate = (page: string) => {
+    const validPages: PageType[] = ['home', 'usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing'];
     let targetPage: PageType = 'home';
-    if (page === 'usa' || page === 'eu' || page === 'uae' || page === 'ru') {
+    
+    if (validPages.includes(page as PageType)) {
         targetPage = page as PageType;
     }
 
@@ -116,12 +121,12 @@ const App: React.FC = () => {
       const pageParam = params.get('page');
       const langParam = params.get('lang');
       
-      // Update page
-      if (pageParam === 'usa') setCurrentPage('usa');
-      else if (pageParam === 'eu') setCurrentPage('eu');
-      else if (pageParam === 'uae') setCurrentPage('uae');
-      else if (pageParam === 'ru') setCurrentPage('ru');
-      else setCurrentPage('home');
+      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing'];
+      if (pageParam && validPages.includes(pageParam as PageType)) {
+          setCurrentPage(pageParam as PageType);
+      } else {
+          setCurrentPage('home');
+      }
 
       // Update language from URL
       setLanguageState(langParam === 'ru' ? 'ru' : 'en');
@@ -147,6 +152,11 @@ const App: React.FC = () => {
       if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home')} />;
       if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home')} />;
       if (currentPage === 'ru') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home')} />;
+      
+      // Service Pages
+      if (currentPage === 'taobao' || currentPage === '1688' || currentPage === 'inspection' || currentPage === 'warehousing') {
+          return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleNavigate('home')} />;
+      }
 
       // Default Home
       return (

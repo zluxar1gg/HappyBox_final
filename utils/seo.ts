@@ -1,7 +1,7 @@
 
 import { Language } from './translations';
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing';
 
 interface MetaData {
   title: string;
@@ -29,6 +29,22 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     ru: {
       title: "Cargo to Russia | Auto & Train Delivery | HappyBox Logistics",
       description: "Reliable Cargo shipping to Russia via Moscow. Insurance included. Assistance with payments to Chinese suppliers (RMB/USD). 12-18 days delivery."
+    },
+    taobao: {
+      title: "Taobao Agent China | 0% Fee Shopping Service | HappyBox",
+      description: "Buy from Taobao & Tmall without a Chinese bank card. We act as your agent: 0% fee for links you provide. Consolidation, inspection, and shipping worldwide."
+    },
+    1688: {
+      title: "1688 Agent & Sourcing | Direct Factory Buy | HappyBox",
+      description: "Sourcing directly from 1688 factories. We negotiate MOQ, verify suppliers, consolidate samples, and handle bulk payments. Your reliable B2B partner in China."
+    },
+    inspection: {
+      title: "Quality Control & Inspection Service in China | HappyBox",
+      description: "Avoid receiving damaged or wrong items. We inspect every product at our Guangzhou warehouse before shipping. Detailed photo/video reports included."
+    },
+    warehousing: {
+      title: "Free China Warehouse & Consolidation Service | HappyBox",
+      description: "Store your goods for free in our secure Guangzhou warehouse. We consolidate orders from multiple suppliers into one shipment to save you up to 70% on shipping costs."
     }
   },
   ru: {
@@ -51,6 +67,22 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     ru: {
       title: "Карго доставка из Китая в Россию | Авто и ЖД | Люблино",
       description: "Надежное Карго (Авто/ЖД) через Москву (Люблино/Южные Ворота). Помощь с оплатой поставщикам в Китае. Страховка 100%. Выкуп 1688 и Taobao."
+    },
+    taobao: {
+      title: "Посредник Таобао (Taobao) | Выкуп 0% | HappyBox",
+      description: "Выкуп с Taobao и Tmall без китайской карты. Комиссия 0% при наличии ссылок. Консолидация, проверка фото и доставка в Россию и по миру."
+    },
+    1688: {
+      title: "Посредник 1688 | Выкуп оптом из Китая | HappyBox",
+      description: "Закупки напрямую с фабрик 1688.com. Договариваемся о снижении минимального заказа (MOQ), проверяем поставщиков и собираем образцы. Ваш B2B партнер."
+    },
+    inspection: {
+      title: "Проверка качества товара в Китае (Инспекция) | HappyBox",
+      description: "Не платите за доставку брака. Мы проверяем каждый товар на складе в Гуанчжоу перед отправкой. Фото и видео отчеты, возврат брака продавцу."
+    },
+    warehousing: {
+      title: "Бесплатный склад в Китае и Консолидация | HappyBox",
+      description: "Храните товары бесплатно на нашем охраняемом складе. Мы объединяем заказы от разных поставщиков в одну посылку, чтобы вы экономили на доставке."
     }
   }
 };

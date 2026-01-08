@@ -12,6 +12,16 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Service Pages -->
+  <url><loc>https://happyboxlogistics.com/?page=taobao&amp;lang=en</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=taobao&amp;lang=ru</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=1688&amp;lang=en</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=1688&amp;lang=ru</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=inspection&amp;lang=en</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=inspection&amp;lang=ru</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=warehousing&amp;lang=en</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=warehousing&amp;lang=ru</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
   <!-- USA Shipping Page -->
   <url>
     <loc>https://happyboxlogistics.com/?page=usa&amp;lang=en</loc>

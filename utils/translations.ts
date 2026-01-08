@@ -425,6 +425,36 @@ export const translations = {
       1688: 'Wholesale sourcing direct from factories',
       inspection: 'Quality check before international shipping',
       warehousing: 'Free storage and consolidation'
+    },
+    servicePages: {
+      taobao: {
+        title: 'Taobao Shopping Service',
+        desc: "Taobao is the world's biggest treasure hunt, but it can be hard to navigate without a Chinese payment method. We act as your personal agent. You simply send us the links (or photos) of what you want, and we buy it for you. We communicate with sellers, check domestic shipping, and ensure the correct items arrive at our warehouse.",
+        features: ['0% Service Fee for self-found links', 'Negotiation with Chinese sellers', 'Consolidation of multiple orders', 'Real photos before international shipping'],
+        startBtn: 'Start Shopping',
+        backBtn: 'Back to Home'
+      },
+      1688: {
+        title: '1688 Bulk Purchasing',
+        desc: "1688.com is where suppliers and factories sell directly. Prices are much lower than Alibaba.com, but the MOQ (Minimum Order Quantity) applies. We specialize in B2B sourcing here. We verify factory reliability, negotiate bulk prices, and consolidate samples from different factories into one shipment for you to review.",
+        features: ['Direct Factory Pricing', 'MOQ Negotiation', 'Sample Consolidation', 'Quality Control for bulk batches'],
+        startBtn: 'Start Sourcing',
+        backBtn: 'Back to Home'
+      },
+      inspection: {
+        title: 'Quality Inspection',
+        desc: "Don't pay for shipping just to receive a broken or wrong item. Our inspection service checks every item when it arrives at our Guangzhou warehouse. We check for quantity, color, size, and obvious visual defects. If there is an issue, we return or exchange it domestically in China, saving you expensive international return costs.",
+        features: ['Detailed Photo/Video Report', 'Size & Color Verification', 'Defect Removal', 'Returns handling'],
+        startBtn: 'Request Inspection',
+        backBtn: 'Back to Home'
+      },
+      warehousing: {
+        title: 'Free Warehousing & Consolidation',
+        desc: "Stop paying for shipping every single package. With HappyBox, you get a dedicated storage space in our warehouse. You can collect items from 20 different suppliers over several weeks. Once everything arrives, we remove unnecessary boxes (shoe boxes, etc.) to reduce volumetric weight and combine everything into one compact shipment.",
+        features: ['Unlimited Free Storage Time', 'Repacking to Reduce Volume', 'Combining Multiple Orders', 'Secure CCTV Monitoring'],
+        startBtn: 'Get Warehouse Address',
+        backBtn: 'Back to Home'
+      }
     }
   },
   ru: {
@@ -849,6 +879,36 @@ export const translations = {
       1688: 'Оптовые закупки напрямую с фабрик',
       inspection: 'Проверка качества перед отправкой',
       warehousing: 'Бесплатное хранение и консолидация'
+    },
+    servicePages: {
+      taobao: {
+        title: 'Выкуп с Taobao и Tmall',
+        desc: "Taobao — это бесконечный выбор товаров, но покупка там требует китайских платежных систем. Мы выступаем вашим агентом: вы присылаете ссылки или фото, а мы выкупаем товар, общаемся с продавцами и контролируем доставку по Китаю до нашего склада.",
+        features: ['0% комиссия при наличии ссылок', 'Переговоры с продавцами на китайском', 'Консолидация множества заказов', 'Фотоотчет перед отправкой'],
+        startBtn: 'Начать покупки',
+        backBtn: 'На главную'
+      },
+      1688: {
+        title: 'Оптовый выкуп с 1688',
+        desc: "1688.com — это площадка, где торгуют фабрики. Цены здесь ниже, чем на Alibaba, но есть минимальный заказ (MOQ). Мы специализируемся на B2B закупках: проверяем надежность фабрик, договариваемся о снижении MOQ и собираем образцы от разных поставщиков в одну посылку.",
+        features: ['Цены напрямую от фабрик', 'Переговоры по MOQ', 'Сбор образцов', 'Контроль качества оптовых партий'],
+        startBtn: 'Начать закупку',
+        backBtn: 'На главную'
+      },
+      inspection: {
+        title: 'Проверка качества и брака',
+        desc: "Не платите за доставку брака. Наша услуга инспекции включает проверку каждого товара при поступлении на склад. Мы сверяем количество, цвет, размер и визуальные дефекты. Если есть проблема, мы обменяем товар внутри Китая, сэкономив вам деньги на международном возврате.",
+        features: ['Детальный фото/видео отчет', 'Сверка размеров и цветов', 'Отбраковка дефектов', 'Оформление возврата продавцу'],
+        startBtn: 'Заказать проверку',
+        backBtn: 'На главную'
+      },
+      warehousing: {
+        title: 'Бесплатный Склад и Консолидация',
+        desc: "Перестаньте платить за доставку каждой отдельной посылки. С HappyBox у вас есть место на складе. Вы можете собирать товары от 20 разных продавцов в течение нескольких недель. Когда всё придет, мы уберем лишнюю упаковку (коробки от обуви и т.д.) для уменьшения объемного веса и соберем всё в одну компактную посылку.",
+        features: ['Бесплатное хранение без лимита', 'Переупаковка для снижения объема', 'Объединение заказов', 'Круглосуточное видеонаблюдение'],
+        startBtn: 'Получить адрес склада',
+        backBtn: 'На главную'
+      }
     }
   }
 };
