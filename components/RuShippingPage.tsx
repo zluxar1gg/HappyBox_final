@@ -6,7 +6,7 @@ import { Footer } from './Footer';
 import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
-import { Check, Truck, FileCheck, Lock, CreditCard, ShieldCheck, Send } from 'lucide-react';
+import { Truck, FileCheck, Lock, CreditCard, ShieldCheck, Send, Check } from 'lucide-react';
 
 interface RuShippingPageProps {
   language: Language;
@@ -34,7 +34,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                     title: "TIR Auto (White)",
                     tag: "Official Import",
                     desc: "Full 'White' customs clearance. No inspections at transit borders. VAT deduction available.",
-                    price: "From $1.2/kg",
+                    price: "From $1.6/kg",
                     speed: "12–18 days",
                     color: "bg-blue-50 text-brand-blue"
                 },
@@ -96,7 +96,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                     title: "TIR Авто (Белая)",
                     tag: "Официально",
                     desc: "Полная «белая» таможня. Без досмотров на транзите. Полный вычет НДС для вашего бизнеса.",
-                    price: "От $1.2/кг",
+                    price: "От $1.6/кг",
                     speed: "12–18 дней",
                     color: "bg-blue-50 text-brand-blue"
                 },

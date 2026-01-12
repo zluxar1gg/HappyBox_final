@@ -10,6 +10,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Language, translations } from '../utils/translations';
+import { DestinationsGrid } from './DestinationsGrid';
 
 interface QuickAccessProps {
   language: Language;
@@ -36,17 +37,10 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
     { id: 'destinations', label: isEn ? 'Destinations' : 'Куда везем', icon: Globe },
   ];
 
-  const destinations = [
-    { id: 'eu', title: isEn ? 'Europe' : 'Европа', price: '$6.0/kg', flag: '🇪🇺' },
-    { id: 'usa', title: isEn ? 'USA' : 'США', price: '$5.5/kg', flag: '🇺🇸', tag: 'HOT' },
-    { id: 'uae', title: isEn ? 'UAE' : 'ОАЭ', price: '$4.5/kg', flag: '🇦🇪' },
-    { id: 'ru', title: isEn ? 'Russia' : 'Россия', price: '$2.5/kg', flag: '🇷🇺' },
-  ];
-
   const shoppingItems = [
     { 
       id: 'taobao', 
-      title: isEn ? 'Taobao Agent' : 'Байер Taobao', 
+      title: isEn ? 'Buy from Taobao with joy' : 'Байер Taobao', 
       seoText: t.taobao,
       icon: ShoppingCart, 
       color: 'text-orange-500', 
@@ -78,41 +72,8 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
     }
   ];
 
-  const renderDestinations = () => (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 animate-fade-in">
-      {destinations.map((item) => {
-        const isInternalPage = ['usa', 'eu', 'uae', 'ru'].includes(item.id);
-        const href = isInternalPage ? getPageUrl(item.id) : '#cost';
-
-        return (
-          <a 
-            key={item.id}
-            href={href}
-            onClick={(e) => {
-              e.preventDefault();
-              if (isInternalPage) onNavigate(item.id);
-              else document.getElementById('cost')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="bg-white border border-gray-100 rounded-2xl p-4 flex flex-col items-start gap-3 hover:shadow-lg hover:border-brand-blue/30 transition-all cursor-pointer group relative overflow-hidden block"
-          >
-            {item.tag && (
-              <span className="absolute top-0 right-0 bg-brand-yellow text-[10px] font-black px-2 py-0.5 rounded-bl-lg">
-                {item.tag}
-              </span>
-            )}
-            <div className="text-3xl bg-gray-50 w-10 h-10 flex items-center justify-center rounded-full shadow-sm">{item.flag}</div>
-            <div>
-              <h4 className="font-bold text-brand-dark leading-tight group-hover:text-brand-blue transition-colors">{item.title}</h4>
-              <p className="text-xs text-gray-500 font-medium mt-1">{isEn ? 'from' : 'от'} <span className="text-brand-dark font-bold">{item.price}</span></p>
-            </div>
-          </a>
-        );
-      })}
-    </div>
-  );
-
   const renderShopping = () => (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 animate-fade-in">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 animate-fade-in mt-6 md:mt-8">
       {shoppingItems.map((item) => (
         <a 
           key={item.id}
@@ -121,21 +82,35 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
             e.preventDefault();
             onNavigate(item.id);
           }}
-          className="bg-white border border-gray-100 rounded-2xl p-6 flex flex-col items-center text-center gap-4 hover:shadow-lg hover:border-brand-blue/30 transition-all cursor-pointer group block"
+          className="bg-white border border-gray-100 rounded-[20px] md:rounded-[25px] p-4 md:p-6 flex flex-row md:flex-col items-center md:items-center text-left md:text-center gap-4 md:gap-3 hover:shadow-xl hover:-translate-y-1 hover:border-brand-blue/30 transition-all cursor-pointer group min-h-[100px] md:min-h-[220px] relative justify-between"
         >
-          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${item.bg} ${item.color} mb-1 group-hover:scale-110 transition-transform shadow-sm`}>
-            <item.icon size={28} />
+          {/* Top Content: Icon + Text */}
+          <div className="flex flex-row md:flex-col items-center gap-4 md:gap-3 w-full">
+            {/* Icon Wrapper */}
+            <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex-shrink-0 flex items-center justify-center ${item.bg} ${item.color} group-hover:scale-110 transition-transform shadow-sm`}>
+              <item.icon size={24} className="md:w-[28px] md:h-[28px]" />
+            </div>
+            
+            {/* Text Wrapper */}
+            <div className="flex-1 md:w-full">
+              <h4 className="font-extrabold text-brand-dark text-lg md:text-lg leading-tight group-hover:text-brand-blue transition-colors mb-1 md:mb-2">
+                  {item.title}
+              </h4>
+              <p className="text-xs text-gray-400 font-medium leading-tight line-clamp-2 md:line-clamp-3">
+                  {item.seoText}
+              </p>
+            </div>
           </div>
-          <div>
-            <h4 className="font-bold text-brand-dark text-base leading-tight group-hover:text-brand-blue transition-colors mb-2">
-                {item.title}
-            </h4>
-            <p className="text-xs text-gray-400 font-medium leading-tight px-1">
-                {item.seoText}
-            </p>
-          </div>
-          <div className="mt-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold uppercase tracking-wider text-gray-400 flex items-center gap-1">
-             {isEn ? 'Learn More' : 'Подробнее'} <ArrowRight size={12} />
+
+          {/* Footer / Action Arrow */}
+          {/* Mobile: Simple Arrow on right. Desktop: Full footer with "Details" text */}
+          <div className="md:w-full md:mt-2 md:pt-3 md:border-t md:border-gray-50 flex items-center justify-center md:justify-between flex-shrink-0">
+             <span className="hidden md:block text-[10px] font-black uppercase tracking-widest text-gray-400">
+                {isEn ? 'Details' : 'Подробнее'}
+             </span>
+             <div className="w-8 h-8 rounded-full flex items-center justify-center transition-all bg-gray-50 text-gray-400 group-hover:bg-brand-blue group-hover:text-white">
+                 <ArrowRight size={16} />
+             </div>
           </div>
         </a>
       ))}
@@ -143,19 +118,19 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
   );
 
   return (
-    <section className="py-12 bg-cream relative">
+    <section className="py-12 bg-cream relative" id="quick-access">
       <div className="container mx-auto px-4 xl:px-0">
         
         <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4 tracking-tight">
             {isEn ? 'What are you looking for?' : 'Что вы ищете?'}
           </h2>
-          <p className="text-sm text-gray-500 font-bold">
+          <p className="text-sm md:text-lg text-gray-500 font-bold max-w-2xl mx-auto">
             {isEn ? 'Select a category to find the best shipping route' : 'Выберите категорию для поиска лучшего маршрута'}
           </p>
         </div>
 
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-0">
           <div className="bg-white p-1.5 rounded-2xl shadow-sm border border-gray-100 inline-flex w-full md:w-auto">
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;
@@ -177,9 +152,9 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
           </div>
         </div>
 
-        <div className="min-h-[200px]">
+        <div className="min-h-[180px]">
           {activeTab === 'shopping' && renderShopping()}
-          {activeTab === 'destinations' && renderDestinations()}
+          {activeTab === 'destinations' && <DestinationsGrid language={language} onNavigate={onNavigate} />}
         </div>
 
       </div>

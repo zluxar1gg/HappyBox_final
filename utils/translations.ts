@@ -1,5 +1,6 @@
 
 
+
 export type Language = 'en' | 'ru';
 
 export const translations = {
@@ -206,7 +207,7 @@ export const translations = {
         {
           name: "Polina K.",
           location: "Warsaw, Poland",
-          text: "Заказала фен Dyson. It's the real deal! Works with my voltage perfectly. The team checked the serial number for me before shipping. Highly recommended.",
+          text: "Ordered a Dyson hairdryer. It's the real deal! Works with my voltage perfectly. The team checked the serial number for me before shipping. Highly recommended.",
           image: "https://i.ibb.co/6JmvY3Kp/Happy-Box-review7.webp"
         },
         {
@@ -218,25 +219,25 @@ export const translations = {
         {
           name: "Sarah Weber",
           location: "Munich, Germany",
-          text: "Очень профессиональная логистика. Трекинг был точным до самой двери. Тарифы на тяжелые грузы очень конкурентные. Буду пользоваться снова.",
+          text: "Very professional logistics. Tracking was accurate right up to my door. Heavy cargo rates are very competitive. Will use again.",
           image: "https://i.ibb.co/4RF5Hdbw/Happy-Box-review10.webp"
         },
         {
-          name: "Софи Мартин",
-          location: "Париж, Франция",
-          text: "Моя сумка Hermes пришла! Не верится, что купила по такой цене. Фото с инспекции успокоили меня перед отправкой. Она прекрасна.",
+          name: "Sophie Martin",
+          location: "Paris, France",
+          text: "My Hermes bag arrived! Can't believe I got it at this price. Inspection photos calmed me down before shipping. It's beautiful.",
           image: "https://i.ibb.co/ZRC3B1k5/Happy-Box-review.webp"
         },
         {
-          name: "Мария Гонзалес",
-          location: "Мадрид, Испания",
-          text: "Эти брендовые ботинки потрясающие. Кожа отличная. HappyBox проверили размер, так что подошли идеально. Доставка в Мадрид была быстрой.",
+          name: "Maria Gonzalez",
+          location: "Madrid, Spain",
+          text: "These designer boots are stunning. The leather is great. HappyBox checked the size so they fit perfectly. Delivery to Madrid was fast.",
           image: "https://i.ibb.co/BKrDsfWw/Happy-Box-review2.webp"
         },
         {
-          name: "Дэниел Ким",
-          location: "Ванкувер, Канада",
-          text: "Надежный сервис. Была небольшая проблема с трек-номером, но поддержка в Telegram решила все за 10 минут. Чувствуется забота о клиенте.",
+          name: "Daniel Kim",
+          location: "Vancouver, Canada",
+          text: "Reliable service. Had a small issue with the tracking number, but support on Telegram fixed it in 10 minutes. You can feel they care about the customer.",
           image: "https://i.ibb.co/xycMWf1/Happy-Box-review4.webp"
         }
       ]

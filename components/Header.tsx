@@ -17,8 +17,9 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
   const t = translations[language].nav;
 
   // Simplified navigation
+  // Services link now points to #quick-access because the dedicated Services section was empty/removed
   const navItems = [
-    { name: t.services, href: '#services' },
+    { name: t.services, href: '#quick-access' },
     { name: t.reviews, href: '#reviews' },
     { name: t.cost, href: '#cost' },
     { name: t.tracking, href: '#tracking' },
@@ -93,19 +94,22 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
           )}
           
           <div className="flex items-center gap-6 border-l border-gray-200 pl-6 h-8">
-            <button 
-                onClick={toggleLanguage}
-                aria-label={language === 'en' ? 'Switch to Russian' : 'Переключить на русский язык'}
-                className="text-gray-500 font-bold text-sm cursor-pointer hover:text-brand-blue tracking-wide select-none outline-none"
-            >
-                {language.toUpperCase()} ▼
-            </button>
+            {/* Fixed width container to prevent jittering when switching languages */}
+            <div className="w-[60px] flex justify-center">
+                <button 
+                    onClick={toggleLanguage}
+                    aria-label={language === 'en' ? 'Switch to Russian' : 'Переключить на русский язык'}
+                    className="text-gray-500 font-bold text-sm cursor-pointer hover:text-brand-blue tracking-wide select-none outline-none"
+                >
+                    {language.toUpperCase()} ▼
+                </button>
+            </div>
 
             {!isDashboard && (
                 <button 
                     onClick={onLoginClick}
                     aria-label={language === 'en' ? 'Sign In' : 'Войти в личный кабинет'}
-                    className="flex items-center gap-2 bg-brand-dark text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-brand-blue transition-colors shadow-lg shadow-gray-200 active:scale-95"
+                    className="flex items-center gap-2 bg-brand-dark text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-brand-blue transition-colors shadow-lg shadow-gray-200 active:scale-95 whitespace-nowrap"
                 >
                     <User size={16} />
                     {language === 'en' ? 'Sign In' : 'Войти'}

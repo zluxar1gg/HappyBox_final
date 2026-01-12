@@ -122,7 +122,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
     } else if (method === 'rail' && isRailAvailable) {
       finalPrice = Math.ceil(currentWeightKg * RAIL_RATES[country]);
       if (country === 'ru') {
-          timeEstimate = `12-18 ${t.timeDays}`; // Auto Fast
+          timeEstimate = `12-18 ${t.timeDays}`; // TIR Fast
       } else if (country === 'ae') {
           timeEstimate = `12-18 ${t.timeDays}`;
       } else {
@@ -161,7 +161,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
                   <Anchor size={18} /> {t.methodSea}
                 </button>
                 <button disabled={!isRailAvailable || (!canSelectRail)} onClick={() => setMethod('rail')} className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-black text-sm transition-all ${(!isRailAvailable || !canSelectRail) ? 'opacity-20 cursor-not-allowed' : ''} ${method === 'rail' ? 'bg-white text-brand-blue shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}>
-                  <Truck size={18} /> {country === 'ru' ? 'Auto/Cargo' : t.methodRail}
+                  <Truck size={18} /> {country === 'ru' ? 'TIR / Truck' : t.methodRail}
                 </button>
               </div>
 
@@ -232,7 +232,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
                   ) : (
                     <div className="relative z-10">
                       <p className="text-blue-100 font-black mb-3 text-xs uppercase tracking-[0.2em] bg-white/10 py-2 px-6 rounded-full inline-block">
-                        {result.method === 'air' ? t.methodAir : result.method === 'sea' ? t.methodSea : (country === 'ru' ? 'Auto Cargo' : t.methodRail)}
+                        {result.method === 'air' ? t.methodAir : result.method === 'sea' ? t.methodSea : (country === 'ru' ? 'TIR Express' : t.methodRail)}
                       </p>
                       <h3 className="text-6xl md:text-8xl font-black mb-4 tracking-tighter drop-shadow-lg">${result.price}</h3>
                       <p className="text-xl md:text-2xl font-bold mb-8 flex items-center justify-center gap-2">

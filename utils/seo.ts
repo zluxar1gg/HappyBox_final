@@ -1,9 +1,11 @@
 
 
 
+
+
 import { Language } from './translations';
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon';
 
 interface MetaData {
   title: string;
@@ -31,6 +33,10 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     ru: {
       title: "TIR Shipping from China to Russia | White Import with VAT | HappyBox",
       description: "Official 'White' delivery from China to Russia via TIR system. Rates from $1.5/kg. Full document package (VAT), assistance with payments, Chestny Znak labeling."
+    },
+    amazon: {
+      title: "Amazon FBA Shipping from China | FBA Prep & Labeling Service | HappyBox",
+      description: "Professional Amazon FBA shipping from China to USA & Europe. Includes FNSKU labeling, prep service, and DDP shipping (taxes included). Rates from $1.2/kg."
     },
     taobao: {
       title: "Taobao Agent Service | Buy from Taobao & 1688 with HappyBox",
@@ -69,6 +75,10 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     ru: {
       title: "TIR доставка из Китая в Россию | Белый импорт с НДС | HappyBox",
       description: "Официальная белая доставка из Китая в РФ по системе TIR (МДП). Тарифы от $1.5/кг. Полный пакет документов, помощь с оплатой поставщику, маркировка Честный Знак."
+    },
+    amazon: {
+      title: "Доставка на Amazon FBA из Китая | Преп-центр и Маркировка | HappyBox",
+      description: "Профессиональная доставка на Amazon FBA в США и Европу. Наклейка FNSKU, услуги преп-центра и DDP доставка (налоги включены). Ставки от $1.2/кг."
     },
     taobao: {
       title: "Посредник Таобао (Taobao Agent) | Выкуп с Taobao и 1688 | HappyBox",

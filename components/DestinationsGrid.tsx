@@ -1,7 +1,6 @@
 
-
 import React from 'react';
-import { ArrowRight, Plane, Ship, Truck } from 'lucide-react';
+import { ArrowRight, Plane, Ship, Truck, Box, ShoppingBag } from 'lucide-react';
 import { Language } from '../utils/translations';
 
 interface DestinationsGridProps {
@@ -12,118 +11,136 @@ interface DestinationsGridProps {
 export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, onNavigate }) => {
   const isEn = language === 'en';
 
+  // Helper to format price strings
+  const from = isEn ? 'from' : 'от';
+
   const destinations = [
-    {
-      id: 'eu',
-      title: isEn ? 'Europe' : 'Европа',
-      desc: isEn ? 'Germany, France, Poland' : 'Германия, Франция, Польша',
-      price: '$6.0/kg',
-      image: 'https://images.unsplash.com/photo-1467269204594-9661b133dd2b?auto=format&fit=crop&w=800&q=80',
-      flag: '🇪🇺'
-    },
     {
       id: 'usa',
       title: isEn ? 'USA' : 'США',
-      desc: isEn ? 'DDP Shipping, Amazon FBA' : 'DDP Доставка, Amazon FBA',
-      price: '$5.5/kg',
-      image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=800&q=80',
+      methods: [
+        { label: isEn ? `Sea: ${from} $1.2` : `Море: ${from} $1.2`, icon: Ship },
+        { label: isEn ? `Air: ${from} $10` : `Авиа: ${from} $10`, icon: Plane },
+      ],
       flag: '🇺🇸',
       tag: 'HOT'
     },
     {
+      id: 'eu',
+      title: isEn ? 'Europe' : 'Европа',
+      methods: [
+        { label: isEn ? `Land: ${from} $3` : `Авто: ${from} $3`, icon: Truck },
+        { label: isEn ? `Air: ${from} $10` : `Авиа: ${from} $10`, icon: Plane },
+      ],
+      flag: '🇪🇺'
+    },
+    {
       id: 'uae',
       title: isEn ? 'UAE (Dubai)' : 'ОАЭ (Дубай)',
-      desc: isEn ? 'Fast Air & Sea lines' : 'Быстрое Авиа и Море',
-      price: '$4.5/kg',
-      image: 'https://images.unsplash.com/photo-1512453979798-5ea904ac6605?auto=format&fit=crop&w=800&q=80',
+      methods: [
+        { label: isEn ? `Sea: ${from} $0.8` : `Море: ${from} $0.8`, icon: Ship },
+        { label: isEn ? `Air: ${from} $6` : `Авиа: ${from} $6`, icon: Plane },
+      ],
       flag: '🇦🇪'
     },
     {
       id: 'ru',
       title: isEn ? 'Russia' : 'Россия',
-      desc: isEn ? 'Auto/Truck delivery' : 'Авто доставка (Карго)',
-      price: '$2.5/kg',
-      image: 'https://images.unsplash.com/photo-1513326738677-b964603b136d?auto=format&fit=crop&w=800&q=80',
+      methods: [
+        { label: isEn ? `TIR: ${from} $1.6` : `TIR: ${from} $1.6`, icon: Truck }
+      ],
       flag: '🇷🇺'
+    },
+    {
+      id: 'amazon',
+      title: 'Amazon FBA',
+      methods: [
+        { label: isEn ? 'Prep & Labeling' : 'Преп-центр', icon: Box },
+        { label: isEn ? 'DDP Shipping' : 'DDP Доставка', icon: ShoppingBag },
+      ],
+      flag: '📦',
+      special: true
     }
   ];
 
   return (
-    <section id="destinations" className="py-20 bg-white">
-      <div className="container mx-auto px-6 xl:px-0">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4 tracking-tight">
-              {isEn ? 'Popular Destinations' : 'Популярные направления'}
-            </h2>
-            <p className="text-gray-500 font-bold text-lg">
-              {isEn 
-                ? 'We ship to over 150 countries. Choose your destination to see specific rates and requirements.' 
-                : 'Мы доставляем в более чем 150 стран. Выберите направление, чтобы узнать тарифы и условия.'}
-            </p>
-          </div>
-          <button className="hidden md:flex items-center gap-2 font-black text-brand-blue uppercase tracking-widest hover:gap-4 transition-all">
-            {isEn ? 'View All Countries' : 'Смотреть все страны'} <ArrowRight size={20} />
-          </button>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {destinations.map((dest) => (
+    <section id="destinations" className="bg-cream animate-fade-in mt-6 md:mt-8">
+      <div className="container mx-auto px-4 xl:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-4">
+          {destinations.map((dest, idx) => (
             <div 
-              key={dest.id}
-              onClick={() => {
-                if (dest.id === 'usa') {
-                  onNavigate('usa');
-                  window.scrollTo(0, 0);
-                }
-              }}
-              className="group relative h-[400px] rounded-[30px] overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500"
+              key={idx}
+              onClick={() => onNavigate(dest.id)}
+              className={`relative rounded-[20px] md:rounded-[25px] p-4 md:p-6 cursor-pointer transition-all duration-300 group border flex md:flex-col items-center md:items-start text-left justify-between min-h-[100px] md:min-h-[220px] hover:-translate-y-1 hover:shadow-xl ${
+                  dest.special 
+                  ? 'bg-brand-dark text-white border-brand-dark' 
+                  : 'bg-white border-gray-100 hover:border-brand-blue/30 text-brand-dark'
+              }`}
             >
-              {/* Background Image with Zoom Effect */}
-              <div className="absolute inset-0">
-                <img 
-                  src={dest.image} 
-                  alt={dest.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-              </div>
+              {/* Tag Absolute */}
+              {dest.tag && (
+                  <span className={`absolute top-3 right-3 text-[9px] font-black px-1.5 py-0.5 rounded-md uppercase tracking-wider ${
+                      dest.special ? 'bg-brand-yellow text-brand-dark' : 'bg-brand-yellow text-brand-dark'
+                  }`}>
+                      {dest.tag}
+                  </span>
+              )}
 
-              {/* Content */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-                <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 text-sm font-bold flex items-center gap-2">
-                  <span>{dest.flag}</span>
-                  <span>{isEn ? 'From' : 'От'} {dest.price}</span>
-                </div>
-
-                {dest.tag && (
-                  <div className="absolute top-6 left-6 bg-brand-yellow text-brand-dark px-3 py-1 rounded-lg text-xs font-black uppercase tracking-widest">
-                    {dest.tag}
-                  </div>
-                )}
-
-                <h3 className="text-3xl font-black mb-2 group-hover:-translate-y-2 transition-transform duration-300">
-                  {dest.title}
-                </h3>
-                
-                <p className="text-white/80 font-medium mb-6 opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 transition-all duration-300 delay-75">
-                  {dest.desc}
-                </p>
-
-                <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100">
-                  <div className="w-10 h-10 rounded-full bg-white text-brand-dark flex items-center justify-center">
-                    <ArrowRight size={20} />
-                  </div>
-                  <span className="font-bold text-sm uppercase tracking-wider">{isEn ? 'View Rates' : 'Тарифы'}</span>
+              {/* Header: Flag + Title */}
+              {/* Mobile: Row center. Desktop: Col left (items-start) */}
+              <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-2 mb-0 md:mb-2 w-full mt-1">
+                <span className="text-4xl md:text-4xl leading-none filter drop-shadow-sm">{dest.flag}</span>
+                <div className="flex flex-col w-full">
+                    <h3 className="text-lg md:text-lg font-extrabold leading-tight">
+                        {dest.title}
+                    </h3>
+                    
+                    {/* Methods List - Mobile: visible under title. Desktop: separate block */}
+                    <div className="md:hidden space-y-1 mt-1">
+                        {dest.methods.map((m, i) => (
+                            <div key={i} className={`flex items-center gap-1.5 text-xs font-bold ${dest.special ? 'text-gray-300' : 'text-gray-500'}`}>
+                                <div className={`p-0.5 rounded-md flex-shrink-0 ${dest.special ? 'text-brand-yellow' : 'text-brand-blue'}`}>
+                                    <m.icon size={12} />
+                                </div>
+                                <span className="truncate max-w-full">{m.label}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
               </div>
+
+              {/* Desktop Methods List (Hidden on Mobile) */}
+              {/* Desktop: align items to left (items-start) */}
+              <div className="hidden md:flex space-y-1.5 mb-3 w-full flex-col items-start">
+                {dest.methods.map((m, i) => (
+                    <div key={i} className={`flex items-center gap-1.5 text-[10px] md:text-xs font-bold ${dest.special ? 'text-gray-300' : 'text-gray-500'}`}>
+                        <div className={`p-0.5 rounded-md flex-shrink-0 ${dest.special ? 'text-brand-yellow' : 'text-brand-blue'}`}>
+                            <m.icon size={12} className="md:w-[14px] md:h-[14px]" />
+                        </div>
+                        <span className="truncate max-w-full">{m.label}</span>
+                    </div>
+                ))}
+              </div>
+
+              {/* Footer: Action */}
+              {/* Mobile: Arrow right. Desktop: Full width, justified */}
+              <div className={`md:w-full md:mt-auto md:pt-3 md:border-t md:flex md:items-center md:justify-between ${dest.special ? 'border-gray-700' : 'border-gray-50'} ml-auto md:ml-0 flex-shrink-0`}>
+                 <span className={`hidden md:block text-[9px] md:text-[10px] font-black uppercase tracking-widest ${dest.special ? 'text-gray-500' : 'text-gray-400'}`}>
+                    {isEn ? 'Details' : 'Подробнее'}
+                 </span>
+
+                 <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
+                     dest.special 
+                     ? 'bg-brand-yellow text-brand-dark group-hover:bg-white' 
+                     : 'bg-gray-50 text-gray-400 group-hover:bg-brand-blue group-hover:text-white'
+                 }`}>
+                     <ArrowRight size={16} />
+                 </div>
+              </div>
+
             </div>
           ))}
         </div>
-
-        <button className="md:hidden w-full mt-8 py-4 rounded-2xl border-2 border-gray-100 font-black text-brand-dark uppercase tracking-widest flex items-center justify-center gap-2">
-            {isEn ? 'View All Countries' : 'Смотреть все страны'} <ArrowRight size={20} />
-        </button>
       </div>
     </section>
   );

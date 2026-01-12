@@ -7,7 +7,7 @@ import { SeoBlock } from './SeoBlock';
 import { Language, translations } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
 import { 
-    CheckCircle2, 
+    CircleCheck, 
     ShoppingCart, 
     Search, 
     ClipboardCheck, 
@@ -106,7 +106,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                 {extraContent.howItWorks.steps.map((step: any, idx: number) => {
                                     // Icons mapping based on index
                                     const stepIcons = [Search, Link, ClipboardCheck, Package];
-                                    const StepIcon = stepIcons[idx] || CheckCircle2;
+                                    const StepIcon = stepIcons[idx] || CircleCheck;
                                     
                                     return (
                                         <div key={idx} className="bg-white p-5 rounded-[25px] shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-all hover:border-brand-blue/20 group">
@@ -173,7 +173,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                     isFree ? 'bg-green-50 border-green-100 hover:border-green-200' : 'bg-gray-50 border-gray-100 hover:border-brand-blue/20'
                                 }`}>
                                     <div className={`mt-1 flex-shrink-0 ${isFree ? 'text-green-600' : 'text-brand-blue'}`}>
-                                        <CheckCircle2 size={24} />
+                                        <CircleCheck size={24} />
                                     </div>
                                     <div>
                                         <h4 className={`text-lg font-bold leading-snug mb-1 ${isFree ? 'text-green-800' : 'text-brand-dark'}`}>

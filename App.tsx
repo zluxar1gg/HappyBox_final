@@ -3,7 +3,7 @@ import React, { useState, Suspense, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { Services } from './components/Services';
+// Services component removed as content is moved to dedicated pages
 import { Reviews } from './components/Reviews';
 import { Calculator } from './components/Calculator';
 import { DeliveryPath } from './components/DeliveryPath';
@@ -20,7 +20,8 @@ import { UsaShippingPage } from './components/UsaShippingPage';
 import { EuShippingPage } from './components/EuShippingPage';
 import { UaeShippingPage } from './components/UaeShippingPage';
 import { RuShippingPage } from './components/RuShippingPage';
-import { ServicePage } from './components/ServicePage'; // New Import
+import { AmazonPage } from './components/AmazonPage';
+import { ServicePage } from './components/ServicePage';
 import { Language, translations } from './utils/translations';
 import { updateMetaTags } from './utils/seo'; 
 import { Loader2, X, Hammer } from 'lucide-react';
@@ -28,7 +29,7 @@ import { Loader2, X, Hammer } from 'lucide-react';
 // Lazy load components
 const Quiz = React.lazy(() => import('./components/Quiz').then(module => ({ default: module.Quiz })));
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon';
 
 const App: React.FC = () => {
   // 1. Initialize language from URL
@@ -68,7 +69,7 @@ const App: React.FC = () => {
       const params = new URLSearchParams(window.location.search);
       const pageParam = params.get('page');
       
-      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing'];
+      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon'];
       if (pageParam && validPages.includes(pageParam as PageType)) {
           return pageParam as PageType;
       }
@@ -87,8 +88,8 @@ const App: React.FC = () => {
   const t = translations[language].devModal;
 
   // Handle navigation and URL updates
-  const handleNavigate = (page: string) => {
-    const validPages: PageType[] = ['home', 'usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing'];
+  const handleNavigate = (page: string, sectionId?: string) => {
+    const validPages: PageType[] = ['home', 'usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon'];
     let targetPage: PageType = 'home';
     
     if (validPages.includes(page as PageType)) {
@@ -110,8 +111,27 @@ const App: React.FC = () => {
     
     window.history.pushState(null, '', newUrl);
     
-    // Scroll to top
-    window.scrollTo(0, 0);
+    // Navigation Scroll Logic
+    if (targetPage === 'home') {
+        if (sectionId) {
+            // Give React a moment to render the Home components before scrolling
+            // Increased timeout to 300ms to allow mobile devices to render layout
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    // Offset for sticky header
+                    const headerOffset = 80;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            }, 300);
+        } else {
+            window.scrollTo(0, 0);
+        }
+    } else {
+        window.scrollTo(0, 0);
+    }
   };
 
   // Listen for browser "Back" button
@@ -121,7 +141,7 @@ const App: React.FC = () => {
       const pageParam = params.get('page');
       const langParam = params.get('lang');
       
-      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing'];
+      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon'];
       if (pageParam && validPages.includes(pageParam as PageType)) {
           setCurrentPage(pageParam as PageType);
       } else {
@@ -148,14 +168,16 @@ const App: React.FC = () => {
 
   // --- ROUTER VIEW ---
   const renderContent = () => {
-      if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home')} />;
-      if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home')} />;
-      if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home')} />;
-      if (currentPage === 'ru') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home')} />;
+      // Country pages return to "destinations" section
+      if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'destinations')} />;
+      if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'destinations')} />;
+      if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'destinations')} />;
+      if (currentPage === 'ru') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'destinations')} />;
+      if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'destinations')} />;
       
-      // Service Pages
+      // Service pages return to "quick-access" section
       if (currentPage === 'taobao' || currentPage === '1688' || currentPage === 'inspection' || currentPage === 'warehousing') {
-          return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleNavigate('home')} />;
+          return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleNavigate('home', 'quick-access')} />;
       }
 
       // Default Home
@@ -173,9 +195,6 @@ const App: React.FC = () => {
             <Hero language={language} />
             <QuickAccess language={language} onNavigate={handleNavigate} />
 
-            <div id="services" className="scroll-mt-28">
-              <Services language={language} />
-            </div>
             <div id="about" className="scroll-mt-28">
               <About language={language} />
             </div>
