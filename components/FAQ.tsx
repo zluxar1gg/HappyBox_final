@@ -8,7 +8,7 @@ interface FAQProps {
 }
 
 export const FAQ: React.FC<FAQProps> = ({ language }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const t = translations[language].faq;
 
   const toggle = (index: number) => {

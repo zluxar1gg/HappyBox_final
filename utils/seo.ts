@@ -1,4 +1,6 @@
 
+
+
 import { Language } from './translations';
 
 type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing';
@@ -15,36 +17,36 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
       description: "Reliable Freight Forwarder from China to USA, EU, UAE. We act as your Shopping Agent for 1688, Taobao, Poizon. Free consolidation, inspection & DDP shipping."
     },
     usa: {
-      title: "Shipping from China to USA (DDP) | Amazon FBA Prep | HappyBox",
-      description: "Direct Air & Sea freight to USA. DDP Service (Delivered Duty Paid). We handle customs & taxes. Expert handling for Amazon FBA shipments and personal cargo."
+      title: "Shipping from China to USA | DDP Sea & Air Freight | HappyBox",
+      description: "Affordable shipping from China to the USA. Sea freight from $1.2/kg, Air freight from $10/kg. We handle customs clearance and DDP delivery to your door or Amazon FBA."
     },
     eu: {
-      title: "Shipping from China to Europe | IOSS & VAT Free | HappyBox",
-      description: "Tax-Free (DDP) shipping to Germany, France, Poland, Italy. We cover VAT/IOSS. Rail and Air freight options. Safe delivery for branded goods and electronics."
+      title: "Shipping from China to Europe | DDP Tax-Free Delivery | HappyBox",
+      description: "Fast and affordable shipping from China to Germany, France, Poland, Italy, and Spain. Air, Land, and Sea freight with all taxes and customs (DDP) included. Prices from $1.5/kg."
     },
     uae: {
-      title: "Shipping from China to Dubai (UAE) | Door-to-Door Cargo",
-      description: "Express Cargo to Dubai, Abu Dhabi, Sharjah. Rates include customs & VAT. Fast Air Freight (5-8 days) and Sea shipping. Auto parts, electronics, fashion."
+      title: "Shipping from China to Dubai, UAE | Sea $0.8/kg, Air $6/kg | HappyBox",
+      description: "Affordable door-to-door shipping from China to the UAE. Sea freight from $0.8/kg, Air freight from $6/kg. Tax-free (DDP) delivery to Dubai and Abu Dhabi. Free consolidation included."
     },
     ru: {
-      title: "Cargo to Russia | Auto & Train Delivery | HappyBox Logistics",
-      description: "Reliable Cargo shipping to Russia via Moscow. Insurance included. Assistance with payments to Chinese suppliers (RMB/USD). 12-18 days delivery."
+      title: "TIR Shipping from China to Russia | White Import with VAT | HappyBox",
+      description: "Official 'White' delivery from China to Russia via TIR system. Rates from $1.5/kg. Full document package (VAT), assistance with payments, Chestny Znak labeling."
     },
     taobao: {
-      title: "Taobao Agent China | 0% Fee Shopping Service | HappyBox",
-      description: "Buy from Taobao & Tmall without a Chinese bank card. We act as your agent: 0% fee for links you provide. Consolidation, inspection, and shipping worldwide."
+      title: "Taobao Agent Service | Buy from Taobao & 1688 with HappyBox",
+      description: "Looking for a reliable Taobao Agent? HappyBox helps you buy from Taobao, 1688, and Poizon. Free quality inspection, consolidation, and worldwide shipping."
     },
     1688: {
-      title: "1688 Agent & Sourcing | Direct Factory Buy | HappyBox",
-      description: "Sourcing directly from 1688 factories. We negotiate MOQ, verify suppliers, consolidate samples, and handle bulk payments. Your reliable B2B partner in China."
+      title: "1688 Sourcing Agent | Wholesale & Bulk Purchasing from China | HappyBox",
+      description: "Need a reliable 1688 agent? HappyBox offers expert sourcing, factory negotiation, and quality control for bulk orders from 1688.com. Lowest 2% commission and DDP shipping worldwide."
     },
     inspection: {
-      title: "Quality Control & Inspection Service in China | HappyBox",
-      description: "Avoid receiving damaged or wrong items. We inspect every product at our Guangzhou warehouse before shipping. Detailed photo/video reports included."
+      title: "Quality Control China | Professional Factory Inspection Services | HappyBox",
+      description: "Secure your supply chain with HappyBox. We provide professional on-site factory audits and pre-shipment inspections across all China provinces. Detailed reports within 24h."
     },
     warehousing: {
-      title: "Free China Warehouse & Consolidation Service | HappyBox",
-      description: "Store your goods for free in our secure Guangzhou warehouse. We consolidate orders from multiple suppliers into one shipment to save you up to 70% on shipping costs."
+      title: "Free Warehouse in China | Parcel Consolidation & Storage | HappyBox",
+      description: "Get a free warehouse address in China. HappyBox offers unlimited free storage, parcel consolidation, and quality inspection. Save on shipping from China to the USA, Europe, and UAE."
     }
   },
   ru: {
@@ -53,32 +55,32 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
       description: "Надежное Карго в Россию, СНГ и мир. Выкуп товаров с 1688, Taobao, Poizon (Dewu). Бесплатная консолидация, проверка на брак, страховка 100%. Оплата в рублях."
     },
     usa: {
-      title: "Доставка из Китая в США (DDP) | Без пошлин | Логистика Amazon",
-      description: "Прямая доставка в США «под ключ» (DDP). Мы платим пошлины за вас. Идеально для Amazon FBA и личных посылок. Сроки 8-12 дней."
+      title: "Доставка из Китая в США | DDP Авиа и Море | HappyBox",
+      description: "Доступная доставка из Китая в США. Море от $1.2/кг, Авиа от $10/кг. Таможенная очистка и DDP доставка до двери или на склады Amazon FBA."
     },
     eu: {
-      title: "Доставка из Китая в Европу (Германия, Польша) | Без НДС и Таможни",
-      description: "Карго доставка в Европу без головной боли с таможней. DDP сервис: мы оплачиваем НДС. ЖД и Авиа доставка до двери в Германии, Франции, Италии."
+      title: "Доставка из Китая в Европу | DDP без налогов | HappyBox",
+      description: "Быстрая и доступная доставка из Китая в Германию, Францию, Польшу. Авиа, ЖД и Море «под ключ» (DDP). Мы платим НДС и пошлины. Цены от $1.5/кг."
     },
     uae: {
-      title: "Карго доставка в Дубай (ОАЭ) | Экспресс Авиа и Море | HappyBox",
-      description: "Доставка грузов из Китая в ОАЭ «до двери». Включая таможню и НДС. Быстрое авиа (5-8 дней). Возим электронику, одежду, запчасти."
+      title: "Доставка из Китая в Дубай (ОАЭ) | Море $0.8/кг, Авиа $6/кг | HappyBox",
+      description: "Выгодная доставка «до двери» из Китая в ОАЭ. Море от $0.8/кг, Авиа от $6/кг. Без пошлин (DDP). Бесплатная консолидация и склад."
     },
     ru: {
-      title: "Карго доставка из Китая в Россию | Авто и ЖД | Люблино",
-      description: "Надежное Карго (Авто/ЖД) через Москву (Люблино/Южные Ворота). Помощь с оплатой поставщикам в Китае. Страховка 100%. Выкуп 1688 и Taobao."
+      title: "TIR доставка из Китая в Россию | Белый импорт с НДС | HappyBox",
+      description: "Официальная белая доставка из Китая в РФ по системе TIR (МДП). Тарифы от $1.5/кг. Полный пакет документов, помощь с оплатой поставщику, маркировка Честный Знак."
     },
     taobao: {
-      title: "Посредник Таобао (Taobao) | Выкуп 0% | HappyBox",
-      description: "Выкуп с Taobao и Tmall без китайской карты. Комиссия 0% при наличии ссылок. Консолидация, проверка фото и доставка в Россию и по миру."
+      title: "Посредник Таобао (Taobao Agent) | Выкуп с Taobao и 1688 | HappyBox",
+      description: "Ищете надежного посредника Таобао? HappyBox поможет выкупить товары с Taobao, 1688 и Poizon. Бесплатная проверка качества, консолидация и доставка по миру."
     },
     1688: {
-      title: "Посредник 1688 | Выкуп оптом из Китая | HappyBox",
-      description: "Закупки напрямую с фабрик 1688.com. Договариваемся о снижении минимального заказа (MOQ), проверяем поставщиков и собираем образцы. Ваш B2B партнер."
+      title: "Агент 1688 | Оптовые закупки из Китая и Посредник | HappyBox",
+      description: "Ищете надежного агента 1688? HappyBox предлагает профессиональный поиск, переговоры с фабриками и контроль качества. Комиссия 2%, доставка DDP по всему миру."
     },
     inspection: {
-      title: "Проверка качества товара в Китае (Инспекция) | HappyBox",
-      description: "Не платите за доставку брака. Мы проверяем каждый товар на складе в Гуанчжоу перед отправкой. Фото и видео отчеты, возврат брака продавцу."
+      title: "Контроль качества в Китае | Профессиональная инспекция фабрик | HappyBox",
+      description: "Защитите свой бизнес с HappyBox. Мы проводим профессиональные выездные аудиты фабрик и пред-отгрузочные инспекции во всех провинциях Китая. Отчеты за 24 часа."
     },
     warehousing: {
       title: "Бесплатный склад в Китае и Консолидация | HappyBox",

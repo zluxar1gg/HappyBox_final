@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X, User } from 'lucide-react';
+import { Menu, X, User, ArrowLeft } from 'lucide-react';
 import { Language, translations } from '../utils/translations';
 
 interface HeaderProps {
@@ -8,10 +8,11 @@ interface HeaderProps {
   setLanguage: (lang: Language) => void;
   onLoginClick: () => void;
   isDashboard?: boolean;
-  onNavigate?: (page: any) => void; // Optional for simple pages
+  onNavigate?: (page: any) => void; 
+  onBack?: () => void; // New prop for back navigation
 }
 
-export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginClick, isDashboard, onNavigate }) => {
+export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginClick, isDashboard, onNavigate, onBack }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const t = translations[language].nav;
 
@@ -43,7 +44,13 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
     }
   };
 
-  const scrollToTop = () => { window.location.reload(); };
+  const scrollToTop = () => { 
+      if (onBack) {
+          onBack();
+      } else {
+          window.location.reload(); 
+      }
+  };
 
   const toggleLanguage = () => { setLanguage(language === 'en' ? 'ru' : 'en'); };
 
@@ -58,7 +65,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
         </div>
 
         <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
-          {!isDashboard && (
+          {!isDashboard && !onBack && (
             <ul className="flex gap-6 xl:gap-8 list-none">
                 {navItems.map((item) => (
                 <li key={item.href}>
@@ -72,6 +79,17 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
                 </li>
                 ))}
             </ul>
+          )}
+
+          {/* Sticky Back Button Desktop - Highlighted */}
+          {onBack && (
+             <button 
+                onClick={onBack}
+                className="flex items-center gap-2.5 bg-brand-blue/10 hover:bg-brand-blue text-brand-blue hover:text-white px-6 py-2.5 rounded-full font-bold transition-all group shadow-sm active:scale-95"
+             >
+                <ArrowLeft size={18} className="transition-colors" />
+                {language === 'en' ? 'Back to Home' : 'На главную'}
+             </button>
           )}
           
           <div className="flex items-center gap-6 border-l border-gray-200 pl-6 h-8">
@@ -116,18 +134,30 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
             )}
 
             {!isDashboard && (
-                <button 
-                className="text-brand-dark"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                aria-expanded={isMenuOpen}
-                >
-                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
+                <>
+                    {onBack ? (
+                        <button 
+                            className="text-brand-blue w-12 h-12 bg-brand-blue/10 rounded-full flex items-center justify-center active:scale-90 transition-all border border-brand-blue/20 shadow-sm"
+                            onClick={onBack}
+                            aria-label="Back"
+                        >
+                            <ArrowLeft size={24} strokeWidth={2.5} />
+                        </button>
+                    ) : (
+                        <button 
+                            className="text-brand-dark"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                            aria-expanded={isMenuOpen}
+                        >
+                            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                        </button>
+                    )}
+                </>
             )}
         </div>
 
-        {isMenuOpen && !isDashboard && (
+        {isMenuOpen && !isDashboard && !onBack && (
           <div className="absolute top-full left-0 w-full bg-white shadow-lg py-6 px-4 flex flex-col gap-4 lg:hidden border-t border-gray-100 animate-fade-in">
             {navItems.map((item) => (
               <a 

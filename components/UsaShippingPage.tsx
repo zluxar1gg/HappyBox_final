@@ -1,13 +1,12 @@
 
 import React, { useEffect } from 'react';
 import { Header } from './Header';
-import { Calculator } from './Calculator';
 import { Contact } from './Contact';
 import { Footer } from './Footer';
 import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
-import { Check, ShieldCheck, Plane, Clock, ArrowLeft } from 'lucide-react';
+import { Check, ShieldCheck, Plane, Anchor, ShoppingBag, Box, Send, FileCheck, Layers } from 'lucide-react';
 
 interface UsaShippingPageProps {
   language: Language;
@@ -25,70 +24,138 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
             badge: "US Direct Line",
             titlePrefix: "Shipping from China to",
             titleHighlight: "USA",
-            subtitle: "The most reliable route for e-commerce and personal cargo. We handle everything from China to any US State.",
-            trusted: "Trusted by 12,000+ US importers",
-            whyChoose: "Why choose our US Direct Line?",
-            whyDesc: "We optimized every step of the logistics chain to offer the best balance of speed and price.",
-            navTitle: "Navigating US Customs Made Easy",
-            navDesc: "Shipping to the USA requires navigating complex customs regulations and import duties. With HappyBox's DDP (Delivered Duty Paid) service, we handle all the paperwork and payments. The price you see is the final price.",
-            benefits: [
+            subtitle: "Fast, Affordable & DDP Tax-Free. Reliable door-to-door delivery from China to any state in the US.",
+            introTitle: "Seamless Logistics Across the United States",
+            introText: "Whether you are shipping to California, New York, Texas, Florida, or any other state, HappyBox provides a streamlined logistics experience. We cover the entire country, from the West Coast to the East Coast. We specialize in DDP (Delivered Duty Paid) shipping. This means the price you pay includes all ocean/air freight, customs clearance, and import duties. No hidden fees, no surprise bills from Customs and Border Protection (CBP).",
+            methodsTitle: "Our Shipping Methods & Rates",
+            methods: [
                 {
-                    icon: Clock,
-                    title: "8-12 Days Delivery",
-                    desc: "Direct flights ensuring the fastest arrival time."
+                    icon: Plane,
+                    title: "Air Freight",
+                    tag: "Express Delivery",
+                    desc: "The best choice for high-value goods, electronics, or urgent restocks.",
+                    price: "From $10/kg",
+                    speed: "5–9 days",
+                    color: "bg-blue-50 text-brand-blue"
                 },
                 {
-                    icon: ShieldCheck,
-                    title: "DDP Service Included",
-                    desc: "Delivered Duty Paid. We handle all US Customs clearance and taxes. No hidden fees."
+                    icon: Anchor,
+                    title: "Sea Freight",
+                    tag: "Economy & Bulk",
+                    desc: "The most cost-effective way to ship large volumes, heavy machinery, or furniture. LCL & FCL available.",
+                    price: "From $1.2/kg",
+                    speed: "25–35 days",
+                    color: "bg-teal-50 text-teal-600"
                 }
             ],
-            list: ['No Hidden Fees', 'Customs Clearance Included', 'Door-to-Door Delivery', 'Real-time Tracking'],
-            card: {
-                route: "Route",
-                routeVal: "CN ➔ USA",
-                time: "Transit Time",
-                timeVal: "8-15 Days",
-                customs: "Customs",
-                customsVal: "Included (DDP)",
-                lastMile: "Last Mile",
-                lastMileVal: "UPS / FedEx"
-            },
+            fbaTitle: "Specialized Amazon FBA Prep & Shipping",
+            fbaText: "Are you an Amazon seller? We are experts in Amazon FBA logistics. We don't just ship; we prepare your goods to meet Amazon's strict requirements:",
+            fbaItems: [
+                { title: "FNSKU Labeling", desc: "We apply your product labels correctly." },
+                { title: "Bundle & Poly-bagging", desc: "We prepare your items for individual sale." },
+                { title: "Direct Delivery", desc: "We ship directly to FBA centers (ONT8, FTW1, JFK8, etc)." },
+                { title: "Palletizing", desc: "Professional palletizing to meet Amazon’s warehouse standards." }
+            ],
+            whyTitle: "Why Choose HappyBox?",
+            benefits: [
+                {
+                    icon: FileCheck,
+                    title: "Hassle-Free Customs",
+                    desc: "We handle all the paperwork, including ISF (10+2) filings and Customs Bonds."
+                },
+                {
+                    icon: Box,
+                    title: "Free Consolidation",
+                    desc: "Shop from Taobao, 1688, or factories. We combine your items into one shipment to save you money."
+                },
+                {
+                    icon: Plane,
+                    title: "Real-Time Tracking",
+                    desc: "Stay updated with end-to-end tracking from our warehouse in Guangdong to your US address."
+                },
+                {
+                    icon: Layers,
+                    title: "Secure Warehousing",
+                    desc: "Free storage and professional repacking to protect your goods during the long journey."
+                }
+            ],
+            stepsTitle: "How to Get Started",
+            steps: [
+                "Get Your Address",
+                "Order Your Goods",
+                "Review Photos",
+                "Ship to USA"
+            ],
+            cta: "Get a Shipping Quote",
             back: "Back to Home"
         },
         ru: {
             badge: "Прямая линия в США",
             titlePrefix: "Доставка из Китая в",
             titleHighlight: "США",
-            subtitle: "Самый надежный маршрут для электронной коммерции и личных грузов. Мы берем на себя всё: от Китая до любого штата США.",
-            trusted: "Нам доверяют 12,000+ импортеров",
-            whyChoose: "Почему выбирают нашу линию в США?",
-            whyDesc: "Мы оптимизировали каждый этап логистической цепочки, чтобы предложить лучший баланс скорости и цены.",
-            navTitle: "Таможня США — это просто",
-            navDesc: "Доставка в США требует знания сложных таможенных правил. С услугой DDP (Delivered Duty Paid) от HappyBox мы берем на себя все документы и платежи. Цена, которую вы видите — окончательная. Никаких сюрпризов.",
-            benefits: [
+            subtitle: "Быстро, доступно и без налогов (DDP). Надежная доставка до двери в любой штат США.",
+            introTitle: "Бесшовная логистика по всей Америке",
+            introText: "Отправляете ли вы в Калифорнию, Нью-Йорк, Техас или Флориду — HappyBox обеспечивает отлаженную логистику от побережья до побережья. Мы специализируемся на доставке DDP (Delivered Duty Paid). Это значит, что цена включает фрахт, таможенную очистку и пошлины. Никаких скрытых комиссий и счетов от таможни.",
+            methodsTitle: "Наши тарифы и способы доставки",
+            methods: [
                 {
-                    icon: Clock,
-                    title: "Доставка 8-12 дней",
-                    desc: "Прямые рейсы обеспечивают минимальное время в пути."
+                    icon: Plane,
+                    title: "Авиа (Air Freight)",
+                    tag: "Экспресс",
+                    desc: "Лучший выбор для дорогих товаров, электроники и срочного пополнения стока.",
+                    price: "От $10/кг",
+                    speed: "5–9 дней",
+                    color: "bg-blue-50 text-brand-blue"
                 },
                 {
-                    icon: ShieldCheck,
-                    title: "DDP (Без пошлин)",
-                    desc: "Delivered Duty Paid. Мы оплачиваем все пошлины и налоги за вас. Никаких скрытых платежей."
+                    icon: Anchor,
+                    title: "Море (Sea Freight)",
+                    tag: "Эконом",
+                    desc: "Самый выгодный способ для больших объемов. Доступны контейнерные (FCL) и сборные (LCL) грузы.",
+                    price: "От $1.2/кг",
+                    speed: "25–35 дней",
+                    color: "bg-teal-50 text-teal-600"
                 }
             ],
-            list: ['Нет скрытых комиссий', 'Таможня включена', 'Доставка до двери', 'Трекинг в реальном времени'],
-            card: {
-                route: "Маршрут",
-                routeVal: "Китай ➔ США",
-                time: "В пути",
-                timeVal: "8-15 Дней",
-                customs: "Таможня",
-                customsVal: "Включена (DDP)",
-                lastMile: "Доставка",
-                lastMileVal: "UPS / FedEx"
-            },
+            fbaTitle: "Специализированная подготовка для Amazon FBA",
+            fbaText: "Вы продавец на Amazon? Мы эксперты в логистике FBA. Мы не просто доставляем, мы готовим товары по строгим требованиям Amazon:",
+            fbaItems: [
+                { title: "Маркировка FNSKU", desc: "Наклеим штрих-коды Amazon на каждый товар." },
+                { title: "Упаковка и наборы", desc: "Упакуем в полибэги и соберем наборы (бандлы)." },
+                { title: "Прямая доставка", desc: "Везем сразу на склады FBA (ONT8, FTW1 и др)." },
+                { title: "Паллетирование", desc: "Укладка на паллеты по стандартам складов Amazon." }
+            ],
+            whyTitle: "Почему выбирают HappyBox?",
+            benefits: [
+                {
+                    icon: FileCheck,
+                    title: "Таможня без проблем",
+                    desc: "Мы берем на себя все бумаги, включая ISF (10+2) и Customs Bonds."
+                },
+                {
+                    icon: Box,
+                    title: "Бесплатная консолидация",
+                    desc: "Покупайте на Taobao, 1688. Мы объединим все в одну посылку для экономии."
+                },
+                {
+                    icon: Plane,
+                    title: "Трекинг",
+                    desc: "Отслеживание на всем пути: от нашего склада в Гуандуне до вашей двери в США."
+                },
+                {
+                    icon: Layers,
+                    title: "Безопасное хранение",
+                    desc: "Бесплатный склад и профессиональная переупаковка для защиты груза в пути."
+                }
+            ],
+            stepsTitle: "Как начать",
+            steps: [
+                "Получите адрес",
+                "Закажите товар",
+                "Проверьте фото",
+                "Отправьте в США"
+            ],
+            cta: "Рассчитать стоимость",
             back: "На главную"
         }
     };
@@ -102,22 +169,13 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                 setLanguage={setLanguage} 
                 onLoginClick={() => {}}
                 isDashboard={false}
+                onBack={onBack}
             />
 
             <main>
                 {/* 1. Custom Hero for USA */}
                 <section className="py-12 lg:py-24 bg-cream">
                     <div className="container mx-auto px-6 xl:px-0">
-                         {/* Back Button */}
-                         {onBack && (
-                           <button 
-                             onClick={onBack}
-                             className="mb-10 flex items-center gap-2 text-gray-500 hover:text-brand-blue font-bold uppercase text-sm tracking-wider transition-colors"
-                           >
-                             <ArrowLeft size={20} /> {t.back}
-                           </button>
-                         )}
-
                          <div className="max-w-5xl mx-auto text-center">
                                 <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-100/50 text-brand-blue font-bold text-sm mb-8 uppercase tracking-wider border border-blue-100">
                                     <span className="text-lg">🇨🇳</span> 
@@ -136,91 +194,126 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                                 <p className="text-xl text-gray-600 mb-10 font-medium leading-relaxed max-w-2xl mx-auto">
                                     {t.subtitle}
                                 </p>
-                                
-                                <div className="mt-8">
-                                    <div className="inline-block bg-brand-yellow px-8 py-4 rounded-2xl shadow-lg shadow-brand-yellow/20 transform hover:scale-105 transition-transform cursor-default border border-brand-yellow">
-                                        <p className="text-brand-dark font-black text-base tracking-wide">
-                                            {t.trusted}
-                                        </p>
-                                    </div>
-                                </div>
                          </div>
                     </div>
                 </section>
 
-                {/* 2. Benefits / SEO Content Block */}
-                <section id="details" className="py-20 bg-white rounded-[50px] my-8 container mx-auto shadow-sm p-8 lg:p-20">
-                    <div className="max-w-6xl mx-auto">
-                        <div className="text-center mb-16">
-                             <h2 className="text-3xl md:text-5xl font-black text-brand-dark mb-6">{t.whyChoose}</h2>
-                             <p className="text-xl text-gray-500 max-w-2xl mx-auto">{t.whyDesc}</p>
-                        </div>
+                {/* 2. Main Content Block */}
+                <section id="details" className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
+                    <div className="max-w-4xl mx-auto text-center mb-16">
+                        <h2 className="text-3xl font-black text-brand-dark mb-6">{t.introTitle}</h2>
+                        <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                            {t.introText}
+                        </p>
+                    </div>
 
-                        <div className="grid md:grid-cols-2 gap-8 mb-16">
-                            {t.benefits.map((b, idx) => (
-                                <div key={idx} className="bg-gray-50 p-8 rounded-[30px] border border-gray-100 hover:border-brand-blue/30 transition-colors group text-center md:text-left">
-                                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-brand-blue shadow-sm mb-6 group-hover:scale-110 transition-transform mx-auto md:mx-0">
-                                        <b.icon size={32} />
+                    <h3 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
+                        {t.methodsTitle}
+                    </h3>
+
+                    {/* Rate Cards */}
+                    <div className="grid md:grid-cols-2 gap-6 mb-20 max-w-4xl mx-auto">
+                        {t.methods.map((method, idx) => (
+                            <div key={idx} className="bg-white rounded-[30px] p-8 border-2 border-gray-100 hover:border-brand-blue/30 transition-all hover:-translate-y-1 shadow-sm flex flex-col">
+                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${method.color}`}>
+                                    <method.icon size={28} />
+                                </div>
+                                <div className="flex justify-between items-start mb-2">
+                                    <h4 className="font-bold text-xl text-brand-dark">{method.title}</h4>
+                                    <span className="text-[10px] font-black uppercase bg-gray-100 px-2 py-1 rounded-md text-gray-500 tracking-wider">{method.tag}</span>
+                                </div>
+                                <p className="text-sm text-gray-500 font-medium mb-6 flex-grow leading-relaxed">
+                                    {method.desc}
+                                </p>
+                                <div className="mt-auto pt-6 border-t border-gray-50">
+                                    <div className="flex justify-between items-center mb-2">
+                                        <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Price' : 'Цена'}</span>
+                                        <span className="text-xl font-black text-brand-dark">{method.price}</span>
                                     </div>
-                                    <h3 className="font-bold text-2xl mb-4 text-brand-dark">{b.title}</h3>
-                                    <p className="text-gray-600 font-medium leading-relaxed">{b.desc}</p>
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Time' : 'Срок'}</span>
+                                        <span className="font-bold text-brand-blue">{method.speed}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* FBA Section */}
+                    <div className="bg-orange-50/50 rounded-[40px] p-8 lg:p-12 mb-20 border border-orange-100">
+                        <div className="text-center mb-10">
+                            <h3 className="text-3xl font-black text-brand-dark mb-4">{t.fbaTitle}</h3>
+                            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-medium">{t.fbaText}</p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {t.fbaItems.map((item, idx) => (
+                                <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-orange-100/50">
+                                    <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mb-4">
+                                        <ShoppingBag size={20} />
+                                    </div>
+                                    <h4 className="font-bold text-brand-dark mb-2">{item.title}</h4>
+                                    <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
                                 </div>
                             ))}
                         </div>
+                    </div>
 
-                        <div className="bg-brand-blue/5 rounded-[30px] p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-10">
-                            <div className="lg:w-2/3">
-                                <h3 className="text-2xl font-bold text-brand-dark mb-4">{t.navTitle}</h3>
-                                <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                                    {t.navDesc}
-                                </p>
-                                <ul className="grid sm:grid-cols-2 gap-3">
-                                    {t.list.map(item => (
-                                        <li key={item} className="flex items-center gap-2 font-bold text-brand-dark">
-                                            <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white"><Check size={12} /></div>
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="lg:w-1/3 w-full">
-                                <div className="bg-white p-6 rounded-3xl shadow-lg border border-gray-100">
-                                    <div className="flex justify-between items-center mb-4 border-b border-gray-100 pb-4">
-                                        <span className="text-gray-500 font-bold">{t.card.route}</span>
-                                        <span className="text-brand-blue font-black">{t.card.routeVal}</span>
+                    {/* Why Choose Grid */}
+                    <div className="mb-20">
+                         <h3 className="text-3xl font-black text-brand-dark mb-12 text-center">{t.whyTitle}</h3>
+                         <div className="grid md:grid-cols-2 gap-8">
+                            {t.benefits.map((benefit, idx) => (
+                                <div key={idx} className="flex gap-5 items-start">
+                                    <div className="w-12 h-12 rounded-full bg-brand-light flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm mt-1">
+                                        <benefit.icon size={24} />
                                     </div>
-                                    <div className="space-y-4">
-                                        <div className="flex justify-between">
-                                            <span className="text-gray-500">{t.card.time}</span>
-                                            <span className="font-bold">{t.card.timeVal}</span>
-                                        </div>
-                                        <div className="flex justify-between">
-                                            <span className="text-gray-500">{t.card.customs}</span>
-                                            <span className="font-bold text-green-600">{t.card.customsVal}</span>
-                                        </div>
-                                        <div className="flex justify-between">
-                                            <span className="text-gray-500">{t.card.lastMile}</span>
-                                            <span className="font-bold">{t.card.lastMileVal}</span>
-                                        </div>
+                                    <div>
+                                        <h4 className="font-bold text-lg text-brand-dark mb-2">{benefit.title}</h4>
+                                        <p className="text-gray-600 font-medium leading-relaxed">{benefit.desc}</p>
                                     </div>
                                 </div>
-                            </div>
+                            ))}
+                         </div>
+                    </div>
+
+                    {/* How to Start (Steps) */}
+                    <div className="bg-gray-50 rounded-[40px] p-8 lg:p-12 border border-gray-100">
+                        <h3 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
+                            {t.stepsTitle}
+                        </h3>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                            {t.steps.map((step, idx) => (
+                                <div key={idx} className="text-center relative">
+                                    {idx < 3 && (
+                                        <div className="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-gray-200 -z-0" />
+                                    )}
+                                    <div className="w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4 relative z-10 shadow-lg">
+                                        {idx + 1}
+                                    </div>
+                                    <p className="font-bold text-brand-dark text-sm md:text-base px-2 leading-tight">
+                                        {step}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="text-center mt-10">
+                            <button 
+                                onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-lg active:scale-95 inline-flex items-center gap-2"
+                            >
+                                <Send size={20} />
+                                {t.cta}
+                            </button>
                         </div>
                     </div>
+
                 </section>
 
-                {/* 3. Pre-configured Calculator */}
-                <div id="cost">
-                    <Calculator
-                        language={language}
-                        onOpenQuiz={() => {}}
-                        defaultCountry="us" 
-                    />
+                <div id="contacts">
+                    <Contact language={language} />
                 </div>
-
-                {/* 5. Standard Footer Stuff */}
-                <Contact language={language} />
-                <SeoBlock language={language} onNavigate={() => {}} /> {/* Empty navigate since we are already on a subpage */}
+                
+                <SeoBlock language={language} onNavigate={() => {}} /> 
                 <Footer language={language} />
                 <FloatingContact />
             </main>

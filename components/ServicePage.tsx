@@ -6,7 +6,19 @@ import { Footer } from './Footer';
 import { SeoBlock } from './SeoBlock';
 import { Language, translations } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
-import { ArrowLeft, CheckCircle2, ShoppingCart, Search, ClipboardCheck, Warehouse, Send } from 'lucide-react';
+import { 
+    CheckCircle2, 
+    ShoppingCart, 
+    Search, 
+    ClipboardCheck, 
+    Warehouse, 
+    Send,
+    Lightbulb,
+    Package,
+    Link,
+    Store,
+    Globe
+} from 'lucide-react';
 import { trackLead } from '../utils/analytics';
 
 interface ServicePageProps {
@@ -22,28 +34,15 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
     }, []);
 
     const t = translations[language].servicePages[serviceId];
-
-    const getIcon = () => {
-        switch (serviceId) {
-            case 'taobao': return <ShoppingCart size={48} className="text-orange-500" />;
-            case '1688': return <Search size={48} className="text-red-500" />;
-            case 'inspection': return <ClipboardCheck size={48} className="text-purple-500" />;
-            case 'warehousing': return <Warehouse size={48} className="text-blue-500" />;
-        }
-    };
-
-    const getColors = () => {
-        switch (serviceId) {
-            case 'taobao': return 'bg-orange-50 text-orange-500';
-            case '1688': return 'bg-red-50 text-red-500';
-            case 'inspection': return 'bg-purple-50 text-purple-500';
-            case 'warehousing': return 'bg-blue-50 text-blue-500';
-        }
-    };
+    // Helper to safely access potential new fields (they might be undefined on other service pages)
+    const extraContent = t as any; 
 
     const handleAction = () => {
         trackLead('telegram', 'hero', 'click');
-        document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' });
+        const contactSection = document.getElementById('contacts');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     return (
@@ -53,25 +52,28 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                 setLanguage={setLanguage} 
                 onLoginClick={() => {}}
                 isDashboard={false}
+                onBack={onBack}
             />
 
             <main>
                 <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
                     <div className="container mx-auto px-6 xl:px-0 relative z-10">
-                         <button 
-                             onClick={onBack}
-                             className="mb-10 flex items-center gap-2 text-gray-500 hover:text-brand-blue font-bold uppercase text-sm tracking-wider transition-colors"
-                           >
-                             <ArrowLeft size={20} /> {t.backBtn}
-                           </button>
-
                          <div className="max-w-4xl mx-auto text-center">
-                                <div className={`w-24 h-24 rounded-[30px] flex items-center justify-center mx-auto mb-8 shadow-sm ${getColors()}`}>
-                                    {getIcon()}
-                                </div>
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-brand-dark mb-8 tracking-tight">
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-brand-dark mb-6 tracking-tight">
                                     {t.title}
                                 </h1>
+
+                                {/* 0% Commission Badge ONLY for Taobao */}
+                                {(serviceId === 'taobao') && (
+                                    <div className="mb-8 animate-fade-in">
+                                         <div className="inline-block bg-brand-yellow px-6 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default">
+                                            <span className="text-base font-bold text-brand-dark tracking-wide">
+                                                {language === 'en' ? '0% Service Fee / Commission' : '0% Комиссия за выкуп'}
+                                            </span>
+                                        </div>
+                                    </div>
+                                )}
+
                                 <p className="text-xl text-gray-600 mb-10 font-medium leading-relaxed max-w-2xl mx-auto">
                                     {t.desc}
                                 </p>
@@ -82,24 +84,154 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                 </section>
 
                 <section className="py-12 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm p-8 lg:p-20 max-w-5xl">
-                    <h2 className="text-2xl font-black text-brand-dark mb-8 text-center uppercase tracking-widest opacity-80">
+                    
+                    {/* OPTIONAL: Why You Need (Text Block) */}
+                    {extraContent.whyNeed && (
+                        <div className="mb-16 text-center max-w-3xl mx-auto">
+                            <h2 className="text-3xl font-black text-brand-dark mb-6">{extraContent.whyNeed.title}</h2>
+                            <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                                {extraContent.whyNeed.text}
+                            </p>
+                        </div>
+                    )}
+
+                    {/* OPTIONAL: How It Works (Steps) - Compact Cards */}
+                    {extraContent.howItWorks && (
+                        <div className="mb-16">
+                            <h2 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
+                                {extraContent.howItWorks.title}
+                            </h2>
+                            
+                            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                                {extraContent.howItWorks.steps.map((step: any, idx: number) => {
+                                    // Icons mapping based on index
+                                    const stepIcons = [Search, Link, ClipboardCheck, Package];
+                                    const StepIcon = stepIcons[idx] || CheckCircle2;
+                                    
+                                    return (
+                                        <div key={idx} className="bg-white p-5 rounded-[25px] shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-all hover:border-brand-blue/20 group">
+                                            {/* Header Row: Number, Title, Icon */}
+                                            <div className="flex items-center justify-between mb-2">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-8 h-8 rounded-full bg-white border-2 border-brand-light text-brand-blue flex items-center justify-center font-black text-base flex-shrink-0 shadow-sm group-hover:bg-brand-blue group-hover:text-white group-hover:border-brand-blue transition-colors">
+                                                        {idx + 1}
+                                                    </div>
+                                                    <h4 className="font-bold text-base md:text-lg text-brand-dark leading-tight mt-1">
+                                                        {step.title}
+                                                    </h4>
+                                                </div>
+                                                <StepIcon className="w-5 h-5 text-gray-300 group-hover:text-brand-blue transition-colors flex-shrink-0" />
+                                            </div>
+                                            
+                                            {/* Description Row - Indented to align with title */}
+                                            <p className="text-sm text-gray-500 font-medium leading-relaxed pl-11">
+                                                {step.desc}
+                                            </p>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* OPTIONAL: Pro Tip (Highlighted Box) */}
+                    {extraContent.proTip && (
+                        <div className="mb-16 bg-brand-yellow/10 border-2 border-brand-yellow/50 p-8 rounded-[30px] relative overflow-hidden">
+                            <div className="relative z-10 flex flex-col md:flex-row gap-6 items-start md:items-center">
+                                <div className="w-16 h-16 rounded-full bg-brand-yellow flex-shrink-0 flex items-center justify-center text-brand-dark shadow-sm">
+                                    <Lightbulb size={32} />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-black text-brand-dark mb-2 uppercase tracking-wide">
+                                        {extraContent.proTip.title}
+                                    </h3>
+                                    <p className="text-brand-dark/80 font-bold leading-relaxed text-lg italic">
+                                        "{extraContent.proTip.text}"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Features Grid (Updated to support rich descriptions) */}
+                    <h2 className="text-2xl font-black text-brand-dark mb-8 text-center uppercase tracking-widest opacity-80 mt-12">
                         {language === 'en' ? 'Key Benefits' : 'Ключевые преимущества'}
                     </h2>
                     
                     <div className="grid md:grid-cols-2 gap-6 mb-12">
-                        {t.features.map((feature, idx) => (
-                            <div key={idx} className="flex gap-4 items-start p-6 bg-gray-50 rounded-[25px] border border-gray-100 hover:border-brand-blue/20 transition-colors">
-                                <div className="mt-1 flex-shrink-0 text-brand-blue">
-                                    <CheckCircle2 size={24} />
+                        {t.features.map((feature, idx) => {
+                            // Check if feature is string or object
+                            const isString = typeof feature === 'string';
+                            const title = isString ? feature : (feature as any).title;
+                            const desc = isString ? null : (feature as any).desc;
+                            
+                            // Check for "Free" keyword for highlighting
+                            const isFree = title.toLowerCase().includes('free') || title.toLowerCase().includes('бесплатн');
+
+                            return (
+                                <div key={idx} className={`flex gap-4 items-start p-6 rounded-[25px] border transition-colors ${
+                                    isFree ? 'bg-green-50 border-green-100 hover:border-green-200' : 'bg-gray-50 border-gray-100 hover:border-brand-blue/20'
+                                }`}>
+                                    <div className={`mt-1 flex-shrink-0 ${isFree ? 'text-green-600' : 'text-brand-blue'}`}>
+                                        <CheckCircle2 size={24} />
+                                    </div>
+                                    <div>
+                                        <h4 className={`text-lg font-bold leading-snug mb-1 ${isFree ? 'text-green-800' : 'text-brand-dark'}`}>
+                                            {title}
+                                        </h4>
+                                        {desc && (
+                                            <p className={`text-sm font-medium leading-relaxed ${isFree ? 'text-green-700/80' : 'text-gray-600'}`}>
+                                                {desc}
+                                            </p>
+                                        )}
+                                    </div>
                                 </div>
-                                <p className="text-lg font-bold text-brand-dark leading-snug">
-                                    {feature}
-                                </p>
-                            </div>
-                        ))}
+                            )
+                        })}
                     </div>
 
-                    <div className="text-center">
+                    {/* OPTIONAL: Beyond Taobao (Rich Grid) */}
+                    {extraContent.beyond && (
+                        <div className="mb-12 pt-8 border-t border-gray-100">
+                             <h2 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
+                                {extraContent.beyond.title}
+                            </h2>
+                            <div className="grid md:grid-cols-2 gap-4">
+                                {extraContent.beyond.items.map((item: any, idx: number) => (
+                                    <div key={idx} className="p-6 flex items-start gap-4 hover:bg-gray-50 rounded-2xl transition-colors border border-transparent hover:border-gray-100">
+                                        <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue flex-shrink-0">
+                                            <Store size={24} />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold text-brand-dark text-lg mb-2">{item.title}</h4>
+                                            <p className="text-sm text-gray-500 font-medium leading-relaxed">{item.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* OPTIONAL: Shipping Info (Bottom Block) */}
+                    {extraContent.shippingInfo && (
+                        <div className="mb-12 bg-blue-50/50 p-8 rounded-[30px] border border-blue-100 text-center md:text-left">
+                            <div className="flex flex-col md:flex-row items-center gap-6">
+                                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-brand-blue shadow-sm flex-shrink-0">
+                                    <Globe size={32} />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-black text-brand-dark mb-2">
+                                        {extraContent.shippingInfo.title}
+                                    </h3>
+                                    <p className="text-gray-600 font-medium leading-relaxed">
+                                        {extraContent.shippingInfo.text}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="text-center mt-12">
                         <button 
                             onClick={handleAction}
                             className="bg-brand-dark text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-brand-blue transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 active:scale-[0.98] inline-flex items-center gap-3"
@@ -110,7 +242,10 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                     </div>
                 </section>
 
-                <Contact language={language} />
+                <div id="contacts" className="scroll-mt-28">
+                    <Contact language={language} />
+                </div>
+                
                 <SeoBlock language={language} onNavigate={() => {}} />
                 <Footer language={language} />
                 <FloatingContact />

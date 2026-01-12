@@ -152,19 +152,9 @@ export const translations = {
       text: 'We are one of the **most trusted purchasing and forwarding services**, with our own automated warehouse in China and Hong Kong. We ensure your delivery gets straight to your doorstep.'
     },
     services: {
-      title: 'Warehouse Services',
+      title: 'Our Services',
       amazonTitle: 'Amazon Logistics',
-      items: {
-        reception: { title: 'Parcel Reception – Free of Charge', text: 'No matter the store, number of items, or weight, we receive all incoming parcels at our warehouse completely free.' },
-        storage: { title: 'Storage – Free of Charge', text: 'All your purchases are stored for free—no time limits. Enjoy worry-free storage while we handle your parcels.' },
-        consolidation: { title: 'Consolidation – Free of Charge', text: 'We combine any number of orders from one or multiple stores into a single package for free, helping you save on shipping costs.' },
-        purchasing: { title: 'Purchasing Items by Our Specialists – 1% of the item\'s value', text: '(minimum RMB 120 for online stores, RMB 200 for offline stores) Prefer to shop yourself? There\'s no commission at all! If you\'d like our specialists to purchase items for you, we handle it carefully and efficiently, making the process effortless.' },
-        photo: { title: 'Product Photo/Video – Free of Charge', text: 'We can take photos or videos of your items—or specific parts—so you can check them before shipment.' },
-        splitting: { title: 'Splitting One Order into Multiple Shipments – Free of Charge', text: 'Need to split a large order into multiple shipments? We do it for free, making shipping flexible and convenient for you.' },
-        packing: { title: 'Package Packing – Free of Charge', text: 'We provide high-quality packaging suitable for international shipping at no extra cost, ensuring your purchases arrive safely.' },
-        insurance: { title: 'Package Insurance – Optional', text: 'At your request, we can insure your package to minimize delivery risks. Pricing: 150 RMB per $100 declared value for Asia, 130 RMB per $100 for Europe.' },
-        returns: { title: 'Return of Item to Store – Free of Charge', text: 'Only the shipping cost within the store\'s country applies; everything else is handled by us for free.' }
-      },
+      items: {}, // Moved to Warehousing Page
       amazonItems: {
         fba: { title: 'FBA Prep Services', text: 'We handle FNSKU labeling, poly-bagging, bubble wrapping, and bundling to ensure your products meet Amazon US and EU strict requirements before they leave China.' },
         direct: { title: 'Direct Shipping to Amazon FBA (USA & EU)', text: 'We ship directly from China to Amazon FBA fulfillment centers in the USA, UK, and Europe. We utilize optimal routes to bypass intermediate storage, saving you time and money.' },
@@ -228,17 +218,17 @@ export const translations = {
         {
           name: "Sarah Weber",
           location: "Munich, Germany",
-          text: "Very professional logistics. Tracking was accurate all the way to my door in Munich. The rates for heavy shipments are very competitive. Will definitely use again.",
+          text: "Очень профессиональная логистика. Трекинг был точным до самой двери. Тарифы на тяжелые грузы очень конкурентные. Буду пользоваться снова.",
           image: "https://i.ibb.co/4RF5Hdbw/Happy-Box-review10.webp"
         },
         {
-          name: "Sophie Martin",
-          location: "Paris, France",
-          text: "My Hermes bag arrived! I can't believe I got it for this price. The inspection photos gave me peace of mind before shipping. It's absolutely beautiful.",
+          name: "Софи Мартин",
+          location: "Париж, Франция",
+          text: "Моя сумка Hermes пришла! Не верится, что купила по такой цене. Фото с инспекции успокоили меня перед отправкой. Она прекрасна.",
           image: "https://i.ibb.co/ZRC3B1k5/Happy-Box-review.webp"
         },
         {
-          name: "Maria Gonzalez",
+          name: "Мария Гонзалес",
           location: "Мадрид, Испания",
           text: "Эти брендовые ботинки потрясающие. Кожа отличная. HappyBox проверили размер, так что подошли идеально. Доставка в Мадрид была быстрой.",
           image: "https://i.ibb.co/BKrDsfWw/Happy-Box-review2.webp"
@@ -404,7 +394,7 @@ export const translations = {
       items: [
         {
           question: 'Do you charge a fee for purchasing on 1688 or Taobao?',
-          answer: 'If you provide the links, we charge 0% commission! We only charge for the shipping. If you need us to find a supplier (Sourcing), the fee is 1%.'
+          answer: 'We charge 0% commission! We only charge for the shipping!'
         },
         {
           question: 'What if my item arrives damaged at your warehouse?',
@@ -428,30 +418,136 @@ export const translations = {
     },
     servicePages: {
       taobao: {
-        title: 'Taobao Shopping Service',
-        desc: "Taobao is the world's biggest treasure hunt, but it can be hard to navigate without a Chinese payment method. We act as your personal agent. You simply send us the links (or photos) of what you want, and we buy it for you. We communicate with sellers, check domestic shipping, and ensure the correct items arrive at our warehouse.",
-        features: ['0% Service Fee for self-found links', 'Negotiation with Chinese sellers', 'Consolidation of multiple orders', 'Real photos before international shipping'],
+        title: 'Taobao Agent Service: Shop from China and Ship Worldwide',
+        desc: "Shop on Taobao, 1688, or Tmall like a local. We handle the purchasing, inspection, and international shipping so you can enjoy the best prices from China without the hassle.",
+        whyNeed: {
+            title: "Why You Need a Taobao Agent",
+            text: "Buying from Taobao directly is difficult if you live outside of China. Most sellers don’t speak English and only ship within Mainland China. HappyBox acts as your professional Taobao Agent. We solve the language barrier, provide secure payment methods, and offer a dedicated free warehouse in China to receive and consolidate all your goods."
+        },
+        howItWorks: {
+            title: "How It Works: 4 Simple Steps",
+            steps: [
+                { title: "Find Your Items", desc: "Browse Taobao.com or the app. Copy the links of products you want." },
+                { title: "Submit Order", desc: "Send us the links. We verify price and availability." },
+                { title: "We Buy & Inspect", desc: "We purchase and check items for defects upon arrival." },
+                { title: "Consolidate & Ship", desc: "We combine orders to save 70% on shipping." }
+            ]
+        },
+        proTip: {
+            title: "Pro Tip: Personal Sourcing",
+            text: "Don't want to search yourself? If you find Taobao difficult or don't have time, our Personal Sourcing Service is here. Send us a photo or description, and our experts will find the best quality product from a trusted seller."
+        },
+        features: [
+            { title: 'No Chinese Phone Number Required', desc: 'You don’t need to deal with Taobao’s complex registration or blocked accounts.' },
+            { title: 'Free Quality Check (QC)', desc: 'We are your eyes in China. We check for defects, wrong sizes, or incorrect colors before the item leaves the country.' },
+            { title: 'Free Consolidation & Storage', desc: 'Shop from different sellers over several days. We store your items for free and pack them into ONE box to save you up to 60% on shipping.' },
+            { title: 'Expert Repacking', desc: 'International shipping can be rough. We use high-quality materials to ensure your items arrive in perfect condition.' },
+            { title: 'Flexible Payment Options', desc: 'Pay for your orders via Bank Transfer, WeChat pay, AliPay, Crypto safely and easily.' }
+        ],
+        beyond: {
+            title: "Beyond Taobao: 1688, Poizon, and More",
+            items: [
+                { title: "1688.com", desc: "Best for wholesale prices and sourcing directly from factories. We help you negotiate with suppliers, manage bulk orders, and handle B2B logistics with ease." },
+                { title: "Poizon (Dewu)", desc: "The top choice for authentic sneakers, luxury goods, and branded streetwear. Use HappyBox to secure genuine items, verified by Poizon experts, and delivered safely to your address." },
+                { title: "Tmall", desc: "High-quality brands and official flagship stores. Perfect for customers seeking premium goods, home electronics, and authentic fashion from world-renowned manufacturers." },
+                { title: "Offline Stores", desc: "We provide sourcing services for physical markets in China. Whether you need furniture from Foshan or electronics from the markets of Shenzhen, our team can handle offline purchases for you within Guandong province and Hong Kong." },
+                { title: "Any other Chinese platform", desc: "From Pinduoduo and Xianyu (second-hand goods) to Weidian and niche marketplaces. If a seller is based in China, we can buy and ship it for you."}
+            ]
+        },
+        shippingInfo: {
+            title: "Shipping from China to Your Doorstep",
+            text: "We offer competitive rates for worldwide delivery, including the USA, UAE, Europe (Poland, Germany, Spain, France), and beyond. Whether it’s a small parcel of clothes or a large furniture shipment, HappyBox ensures a smooth logistics experience."
+        },
         startBtn: 'Start Shopping',
         backBtn: 'Back to Home'
       },
       1688: {
-        title: '1688 Bulk Purchasing',
-        desc: "1688.com is where suppliers and factories sell directly. Prices are much lower than Alibaba.com, but the MOQ (Minimum Order Quantity) applies. We specialize in B2B sourcing here. We verify factory reliability, negotiate bulk prices, and consolidate samples from different factories into one shipment for you to review.",
-        features: ['Direct Factory Pricing', 'MOQ Negotiation', 'Sample Consolidation', 'Quality Control for bulk batches'],
-        startBtn: 'Start Sourcing',
-        backBtn: 'Back to Home'
+        title: '1688 Sourcing Agent: Bulk Purchasing & Wholesale from China',
+        desc: "Access the true factory prices of China. We help you source, negotiate, and ship wholesale orders from 1688.com directly to your warehouse.",
+        whyNeed: {
+            title: "Why Choose 1688.com over Alibaba?",
+            text: "While Alibaba.com is designed for international buyers with higher markups, 1688.com is the internal marketplace for Chinese manufacturers. Prices on 1688 are significantly lower, but the platform is entirely in Chinese and sellers usually only ship within Mainland China. HappyBox bridges this gap. We act as your professional 1688 Sourcing Agent, handling the language barrier, local payments (Alipay/Bank Transfer), and complex B2B logistics."
+        },
+        howItWorks: {
+            title: "How we streamline your B2B sourcing",
+            steps: [
+                { title: "Sourcing", desc: "You send us links or product photos; we find the best manufacturers." },
+                { title: "Purchasing", desc: "We pay the suppliers using our local corporate accounts — no need for you to have a Chinese bank account." },
+                { title: "Storage", desc: "1688 sellers often ship quickly; we provide free warehousing to hold your goods." },
+                { title: "Logistics", desc: "We offer DDP terms, so your business goods arrive with all customs and taxes already handled." }
+            ]
+        },
+        proTip: {
+            title: "Full Hands-Off Sourcing",
+            text: "Don’t want to navigate 1688 or deal with technical specs? No problem. Simply send us a photo or a description of the products you need. Our team will handle the entire cycle: from finding the most reliable factory and negotiating the best price to quality inspection and door-to-door delivery. You focus on your sales; we handle the entire supply chain."
+        },
+        features: [
+            { title: 'Lowest Purchasing Commission', desc: 'Only 2% of the order amount.' },
+            { title: 'Direct Factory Access', desc: 'Buy at the same prices Chinese domestic companies pay.' },
+            { title: 'Professional Repacking', desc: 'If your orders need extra protection — such as wooden crates, reinforced pallets, or bubble wrap — we’ve got you covered.' }
+        ],
+        beyond: {
+            title: "Наши специализированные услуги по 1688",
+            items: [
+                { title: "Проверка поставщиков и фабрик", desc: "Не рискуйте капиталом. Мы проверяем надежность фабрики, бизнес-лицензию и реальную репутацию перед оплатой." },
+                { title: "Переговоры по MOQ и цене", desc: "Считаете, что минимальный заказ (MOQ) слишком высок? Наша команда договаривается напрямую с менеджерами фабрик о снижении MOQ и лучших оптовых ценах." },
+                { title: "Консолидация образцов", desc: "Тестируете разных поставщиков? Мы соберем образцы с 5-10 разных фабрик в одну посылку и отправим вам для проверки перед большим заказом." },
+                { title: "Контроль качества (QC) Оптовых партий", desc: "Мы проводим выборочную или полную инспекцию партии на нашем складе. Проверяем количество, целостность упаковки и характеристики, чтобы избежать дорогих возвратов." }
+            ]
+        },
+        startBtn: 'Начать закупку',
+        backBtn: 'На главную'
       },
       inspection: {
-        title: 'Quality Inspection',
-        desc: "Don't pay for shipping just to receive a broken or wrong item. Our inspection service checks every item when it arrives at our Guangzhou warehouse. We check for quantity, color, size, and obvious visual defects. If there is an issue, we return or exchange it domestically in China, saving you expensive international return costs.",
-        features: ['Detailed Photo/Video Report', 'Size & Color Verification', 'Defect Removal', 'Returns handling'],
+        title: 'Professional Quality Control & Factory Inspection Services in China',
+        desc: "Don’t leave your business to chance. Our network of professional inspectors provides on-site quality control across all Chinese provinces to ensure your goods meet 100% of your specifications before they leave the factory.",
+        whyNeed: {
+            title: "Why On-Site Inspection is Critical",
+            text: "When ordering bulk quantities or high-value items, a simple photo at the warehouse isn’t enough. Once a shipment leaves China, returning defective goods is nearly impossible. HappyBox provides professional \"eyes and ears\" on the ground to catch issues at the source—the factory floor."
+        },
+        features: [
+            { title: 'Nationwide Network', desc: 'Local experts in Guangdong, Zhejiang, Jiangsu, Fujian, and beyond ready to visit within 24–48 hours.' },
+            { title: 'Detailed Inspection Reports', desc: 'Comprehensive PDF reports within 24h including high-res photos, videos, and a detailed defect list.' },
+            { title: 'Pass/Fail Recommendation', desc: 'Professional assessment based on your specific requirements and international AQL standards.' },
+            { title: 'Defect Classification', desc: 'We categorize defects into Critical, Major, and Minor so you can make informed decisions.' }
+        ],
+        beyond: {
+            title: "Our QC Service Tiers",
+            items: [
+                { title: "Factory Audit", desc: "Before you pay: We verify the supplier is a legitimate manufacturer, checking business licenses and production capacity." },
+                { title: "During Production Check (DUPRO)", desc: "Inspectors visit when 20–30% of your order is finished to catch systemic defects early in the process." },
+                { title: "Pre-Shipment Inspection (PSI)", desc: "The most popular service. A randomized AQL check when 100% of the order is produced and 80% is packed." },
+                { title: "Container Loading Supervision (CLS)", desc: "We ensure the correct quantity is loaded and goods are handled with care to prevent transit damage." }
+            ]
+        },
+        proTip: {
+            title: "Hands-Off Quality Management",
+            text: "Not sure what to check? Let us handle it. Simply send us your product requirements or a sample photo. Our experts will create a custom inspection checklist for your specific product type. We deal with the factory managers and the logistics of getting an inspector to the site so you can focus on growing your brand."
+        },
         startBtn: 'Request Inspection',
         backBtn: 'Back to Home'
       },
       warehousing: {
-        title: 'Free Warehousing & Consolidation',
-        desc: "Stop paying for shipping every single package. With HappyBox, you get a dedicated storage space in our warehouse. You can collect items from 20 different suppliers over several weeks. Once everything arrives, we remove unnecessary boxes (shoe boxes, etc.) to reduce volumetric weight and combine everything into one compact shipment.",
-        features: ['Unlimited Free Storage Time', 'Repacking to Reduce Volume', 'Combining Multiple Orders', 'Secure CCTV Monitoring'],
+        title: 'Free China Warehouse & Consolidation Service',
+        desc: "Stop paying separate shipping fees for every single package. Save up to 80% on international delivery by combining your orders into one secure shipment.",
+        whyNeed: {
+            title: "Why Choose Our Warehouse Services?",
+            text: "With HappyBox, you get a dedicated storage space in our Guangdong warehouse. Whether you are a retail shopper or a business, you can collect items from dozens of different suppliers over several weeks. We’ll wait for everything to arrive, optimize the packaging, and ship it to you in one go."
+        },
+        features: [
+            { title: 'Unlimited Free Storage', desc: 'No time limits, no hidden fees. All your purchases are stored for free while you wait for other items to arrive.' },
+            { title: 'Free Consolidation', desc: 'We combine any number of orders from Taobao, 1688, or other stores into a single package to drastically reduce shipping costs.' },
+            { title: 'Free Parcel Reception', desc: 'No matter the store or the weight, we receive all incoming parcels at our warehouse completely free of charge.' },
+            { title: 'Free Photo & Video Inspection', desc: 'We are your eyes in China. We take high-quality photos or videos of your items so you can check them before they leave the country.' },
+            { title: 'Volumetric Weight Optimization', desc: 'We don\'t just put boxes into a bigger box. We remove unnecessary original packaging (like heavy shoe boxes) and repacks everything to make the final parcel as compact as possible.' },
+            { title: 'Advanced Order Handling', desc: 'Need to split one large order into multiple shipments or return an item to the store? We handle it for free (you only pay the local shipping fee).' },
+            { title: 'Secure Packing & Insurance', desc: 'We provide high-quality international-standard packaging for free. For high-value items, we offer optional insurance to minimize any delivery risks.' },
+            { title: 'Secure CCTV Monitoring', desc: 'Your goods are safe with us. Our warehouse is under 24/7 video surveillance.' }
+        ],
+        proTip: {
+            title: "Don't want to manage it yourself?",
+            text: "If you don’t want to track multiple tracking numbers and communicate with sellers, let us handle it. Our Full Concierge Service includes purchasing, warehouse management, and door-to-door delivery. You just tell us what you want, and we’ll make it happen."
+        },
         startBtn: 'Get Warehouse Address',
         backBtn: 'Back to Home'
       }
@@ -608,17 +704,7 @@ export const translations = {
     services: {
       title: 'Складские услуги',
       amazonTitle: 'Логистика Amazon',
-      items: {
-        reception: { title: 'Прием посылок – Бесплатно', text: 'Независимо от магазина, количества товаров или веса, мы принимаем все входящие посылки бесплатно.' },
-        storage: { title: 'Хранение – Бесплатно', text: 'Все ваши покупки хранятся бесплатно без ограничений по времени.' },
-        consolidation: { title: 'Консолидация – Бесплатно', text: 'Мы объединяем любое количество заказов в одну посылку бесплатно, чтобы вы экономили на доставке.' },
-        purchasing: { title: 'Выкуп товаров – 1% от стоимости', text: '(минимум 120 юаней для онлайн, 200 для офлайн). Предпочитаете покупать сами? Комиссии нет! Если нужен выкуп, наши специалисты сделают это быстро и надежно.' },
-        photo: { title: 'Фото/Видео товара – Бесплатно', text: 'Мы можем сделать фото или видео ваших товаров, чтобы вы проверили их перед отправкой.' },
-        splitting: { title: 'Разделение заказа – Бесплатно', text: 'Нужно разделить большой заказ на несколько посылок? Мы сделаем это бесплатно.' },
-        packing: { title: 'Упаковка – Бесплатно', text: 'Мы предоставляем качественную упаковку для международной доставки без доплаты.' },
-        insurance: { title: 'Страхование – Опционально', text: 'По вашему запросу мы можем застраховать посылку. 150 юаней за $100 объявленной стоимости для Азии, 130 юаней для Европы.' },
-        returns: { title: 'Возврат товара – Бесплатно', text: 'Оплачивается только доставка по Китаю, наши услуги по оформлению возврата бесплатны.' }
-      },
+      items: {}, // Moved to Warehousing Page
       amazonItems: {
         fba: { title: 'Подготовка FBA', text: 'Маркировка FNSKU, упаковка в пакеты, пупырчатую пленку и комплектация наборов согласно требованиям Amazon.' },
         direct: { title: 'Прямая доставка на FBA (США и ЕС)', text: 'Мы доставляем напрямую из Китая на склады Amazon FBA в США, Великобритании и Европе.' },
@@ -858,7 +944,7 @@ export const translations = {
       items: [
         {
           question: 'Берете ли вы комиссию за выкуп с 1688 или Таобао?',
-          answer: 'Если вы присылаете ссылки — комиссия 0%! Вы платите только за доставку. Если нужен поиск поставщика (Сорсинг) — комиссия 1%.'
+          answer: 'Мы берем 0% комиссии! Вы платите только за доставку!'
         },
         {
           question: 'Что если товар придет с браком на склад?',
@@ -882,30 +968,136 @@ export const translations = {
     },
     servicePages: {
       taobao: {
-        title: 'Выкуп с Taobao и Tmall',
-        desc: "Taobao — это бесконечный выбор товаров, но покупка там требует китайских платежных систем. Мы выступаем вашим агентом: вы присылаете ссылки или фото, а мы выкупаем товар, общаемся с продавцами и контролируем доставку по Китаю до нашего склада.",
-        features: ['0% комиссия при наличии ссылок', 'Переговоры с продавцами на китайском', 'Консолидация множества заказов', 'Фотоотчет перед отправкой'],
+        title: 'Посредник Таобао (Taobao Agent) – Покупайте в Китае без проблем',
+        desc: "Покупайте на Taobao, 1688 или Tmall как местный житель. Мы берем на себя выкуп, проверку брака и международную доставку, чтобы вы наслаждались лучшими ценами Китая без сложностей с оплатой и логистикой.",
+        whyNeed: {
+            title: "Зачем нужен посредник Таобао?",
+            text: "Покупать на Таобао напрямую сложно, если вы не живете в Китае. Большинство продавцов не говорят по-английски, не принимают иностранные карты и доставляют только внутри материкового Китая. HappyBox выступает вашим профессиональным агентом: мы решаем языковой барьер, предоставляем безопасные способы оплаты и даем адрес склада для бесплатной консолидации."
+        },
+        howItWorks: {
+            title: "Как это работает: 4 простых шага",
+            steps: [
+                { title: "Найдите товар", desc: "Ищите на Taobao.com или в приложении. Скопируйте ссылки на нужные товары." },
+                { title: "Оформите заказ", desc: "Пришлите нам ссылки. Мы проверим наличие и стоимость доставки по Китаю." },
+                { title: "Мы выкупаем и проверяем", desc: "Мы выкупаем товары и при поступлении на склад проверяем их на брак (фотоотчет)." },
+                { title: "Консолидация и Отправка", desc: "Мы объединяем заказы в одну посылку, экономя до 70% на доставке, и отправляем вам." }
+            ]
+        },
+        proTip: {
+            title: "Совет профи: Поиск по фото",
+            text: "Не хотите искать сами? Если Taobao кажется сложным или у вас нет времени, наша услуга 'Персональный поиск' для вас. Просто пришлите нам фото или описание товара, и наши эксперты найдут лучший вариант у проверенного продавца."
+        },
+        features: [
+            { title: 'Китайский номер не нужен', desc: 'Вам не нужно мучиться со сложной регистрацией на Таобао или блокировками аккаунтов.' },
+            { title: 'Бесплатная проверка (QC)', desc: 'Мы — ваши глаза в Китае. Мы проверяем брак, размеры и цвета до того, как товар покинет страну.' },
+            { title: 'Бесплатная консолидация', desc: 'Покупайте у разных продавцов. Мы бесплатно храним и объединяем товары, чтобы снизить вес посылки.' },
+            { title: 'Надежная переупаковка', desc: 'Международная доставка бывает суровой. Мы используем качественные материалы, чтобы все доехало в идеале.' },
+            { title: 'Гибкая оплата', desc: 'Оплачивайте безопасно: Банковский перевод, карты, USDT (Крипта).' }
+        ],
+        beyond: {
+            title: "Не только Таобао: 1688, Poizon и другие",
+            items: [
+                { title: "1688.com", desc: "Оптовые закупки напрямую с фабрик (B2B). Мы поможем договориться с поставщиками, оформить оптовый заказ и решить логистику." },
+                { title: "Poizon (Dewu)", desc: "Лучший выбор оригинальных кроссовок и люкса. HappyBox выкупит проверенный товар и доставит вам." },
+                { title: "Tmall", desc: "Официальные магазины брендов. Идеально для тех, кто ищет премиум качество и оригинальную электронику." },
+                { title: "Офлайн рынки", desc: "Мы предоставляем услуги поиска на физических рынках. Мебель из Фошаня или электроника из Шэньчжэня — мы поможем." },
+                { title: "Любая другая платформа", desc: "От Pinduoduo и Xianyu (б/у товары) до Weidian. Если продавец в Китае — мы сможем выкупить и отправить." }
+            ]
+        },
+        shippingInfo: {
+            title: "Доставка из Китая до вашей двери",
+            text: "Мы предлагаем конкурентные тарифы на доставку по всему миру, включая США, ОАЭ, Европу (Польша, Германия, Испания, Франция) и страны СНГ. Будь то маленькая посылка с одеждой или крупная партия мебели, HappyBox обеспечит гладкую логистику."
+        },
         startBtn: 'Начать покупки',
         backBtn: 'На главную'
       },
       1688: {
-        title: 'Оптовый выкуп с 1688',
-        desc: "1688.com — это площадка, где торгуют фабрики. Цены здесь ниже, чем на Alibaba, но есть минимальный заказ (MOQ). Мы специализируемся на B2B закупках: проверяем надежность фабрик, договариваемся о снижении MOQ и собираем образцы от разных поставщиков в одну посылку.",
-        features: ['Цены напрямую от фабрик', 'Переговоры по MOQ', 'Сбор образцов', 'Контроль качества оптовых партий'],
+        title: 'Агент 1688: Оптовые закупки из Китая',
+        desc: "Получите доступ к реальным фабричным ценам Китая. Мы поможем найти поставщиков, провести переговоры и доставить оптовые заказы с 1688.com на ваш склад.",
+        whyNeed: {
+            title: "Почему 1688.com, а не Alibaba?",
+            text: "В то время как Alibaba.com ориентирована на иностранных покупателей с более высокими наценками, 1688.com — это внутренний рынок для китайских производителей. Цены на 1688 значительно ниже, но платформа полностью на китайском языке, и продавцы обычно доставляют только по Китаю. HappyBox решает эту проблему. Мы выступаем вашим профессиональным агентом 1688: решаем языковой барьер, проводим местные платежи (Alipay/Bank Transfer) и организуем сложную B2B логистику."
+        },
+        howItWorks: {
+            title: "Как мы упрощаем ваш B2B сорсинг",
+            steps: [
+                { title: "Поиск", desc: "Вы присылаете ссылки или фото товаров; мы находим лучших производителей." },
+                { title: "Выкуп", desc: "Мы платим поставщикам с наших местных корпоративных счетов — вам не нужен китайский счет." },
+                { title: "Хранение", desc: "Продавцы 1688 доставляют быстро; мы предоставляем бесплатный склад, чтобы временно хранить ваш груз." },
+                { title: "Логистика", desc: "Мы предлагаем условия DDP, так что ваши товары прибудут с уже решенными вопросами таможни и налогов." }
+            ]
+        },
+        proTip: {
+            title: "Выкуп «Под Ключ» (Hands-Off)",
+            text: "Не хотите разбираться в 1688 или технических деталях? Нет проблем. Просто пришлите нам фото или описание нужных товаров. Наша команда возьмет на себя весь цикл: от поиска самой надежной фабрики и переговоров о цене до проверки качества и доставки до двери. Вы фокусируетесь на продажах, мы — на цепочке поставок."
+        },
+        features: [
+            { title: 'Минимальная комиссия', desc: 'Всего 2% от суммы заказа.' },
+            { title: 'Прямой доступ к фабрикам', desc: 'Покупайте по тем же ценам, что и китайские компании.' },
+            { title: 'Профессиональная переупаковка', desc: 'Если грузу нужна защита — деревянная обрешетка, паллеты или пупырчатая пленка — мы всё сделаем.' }
+        ],
+        beyond: {
+            title: "Наши специализированные услуги по 1688",
+            items: [
+                { title: "Проверка поставщиков и фабрик", desc: "Не рискуйте капиталом. Мы проверяем надежность фабрики, бизнес-лицензию и реальную репутацию перед оплатой." },
+                { title: "Переговоры по MOQ и цене", desc: "Считаете, что минимальный заказ (MOQ) слишком высок? Наша команда договаривается напрямую с менеджерами фабрик о снижении MOQ и лучших оптовых ценах." },
+                { title: "Консолидация образцов", desc: "Тестируете разных поставщиков? Мы соберем образцы с 5-10 разных фабрик в одну посылку и отправим вам для проверки перед большим заказом." },
+                { title: "Контроль качества (QC) Оптовых партий", desc: "Мы проводим выборочную или полную инспекцию партии на нашем складе. Проверяем количество, целостность упаковки и характеристики, чтобы избежать дорогих возвратов." }
+            ]
+        },
         startBtn: 'Начать закупку',
         backBtn: 'На главную'
       },
       inspection: {
-        title: 'Проверка качества и брака',
-        desc: "Не платите за доставку брака. Наша услуга инспекции включает проверку каждого товара при поступлении на склад. Мы сверяем количество, цвет, размер и визуальные дефекты. Если есть проблема, мы обменяем товар внутри Китая, сэкономив вам деньги на международном возврате.",
-        features: ['Детальный фото/видео отчет', 'Сверка размеров и цветов', 'Отбраковка дефектов', 'Оформление возврата продавцу'],
+        title: 'Профессиональный контроль качества и инспекция фабрик в Китае',
+        desc: "Не полагайтесь на удачу. Наша сеть профессиональных инспекторов обеспечивает контроль качества на месте во всех провинциях Китая, гарантируя, что товар на 100% соответствует вашим требованиям.",
+        whyNeed: {
+            title: "Почему инспекция на месте критически важна?",
+            text: "При оптовых закупках или заказе дорогих товаров простого фото на складе недостаточно. Вернуть брак после отправки из Китая почти невозможно. HappyBox — это ваши профессиональные «глаза и уши» на производстве, чтобы устранить проблемы у источника."
+        },
+        features: [
+            { title: 'Всекитайская сеть', desc: 'Эксперты в Гуандуне, Чжэцзяне, Цзянсу, Фуцзяни и других регионах, готовые к выезду за 24-48 часов.' },
+            { title: 'Детальные отчеты', desc: 'Полный PDF отчет в течение 24 часов: фото и видео высокого разрешения, список дефектов.' },
+            { title: 'Профессиональное заключение', desc: 'Оценка «Pass/Fail» на основе ваших требований и международных стандартов AQL.' },
+            { title: 'Классификация брака', desc: 'Мы разделяем дефекты на Критические, Значительные и Незначительные для принятия верных решений.' }
+        ],
+        beyond: {
+            title: "Наши уровни контроля качества",
+            items: [
+                { title: "Аудит фабрики", desc: "До оплаты: Мы проверяем, что поставщик — реальный производитель, его лицензии и производственные мощности." },
+                { title: "Проверка в процессе (DUPRO)", desc: "Инспекторы посещают фабрику, когда готово 20–30% заказа, чтобы выявить системный брак на ранней стадии." },
+                { title: "Пред-отгрузочная инспекция (PSI)", desc: "Самый популярный выбор. Выборочная проверка по AQL, когда 100% товара произведено и 80% упаковано." },
+                { title: "Контроль погрузки (CLS)", desc: "Мы следим за тем, чтобы загрузили правильное количество и товар не повредили при погрузке в контейнер." }
+            ]
+        },
+        proTip: {
+            title: "Управление качеством «Под ключ»",
+            text: "Не знаете, что проверять? Предоставьте это нам. Просто пришлите фото или требования. Наши эксперты составят чек-лист и договорятся с менеджерами фабрики об инспекции, пока вы занимаетесь развитием бренда."
+        },
         startBtn: 'Заказать проверку',
         backBtn: 'На главную'
       },
       warehousing: {
-        title: 'Бесплатный Склад и Консолидация',
-        desc: "Перестаньте платить за доставку каждой отдельной посылки. С HappyBox у вас есть место на складе. Вы можете собирать товары от 20 разных продавцов в течение нескольких недель. Когда всё придет, мы уберем лишнюю упаковку (коробки от обуви и т.д.) для уменьшения объемного веса и соберем всё в одну компактную посылку.",
-        features: ['Бесплатное хранение без лимита', 'Переупаковка для снижения объема', 'Объединение заказов', 'Круглосуточное видеонаблюдение'],
+        title: 'Бесплатный склад в Китае и Консолидация',
+        desc: "Перестаньте платить за доставку каждой отдельной посылки. Сэкономьте до 80% на международной доставке, объединив ваши заказы в одну надежную посылку.",
+        whyNeed: {
+            title: "Почему выбирают наш склад?",
+            text: "С HappyBox вы получаете выделенное место на нашем складе в Гуандуне. Будь вы розничный покупатель или бизнес, вы можете собирать товары от десятков разных поставщиков в течение нескольких недель. Мы дождемся прибытия всего, оптимизируем упаковку и отправим вам одной партией."
+        },
+        features: [
+            { title: 'Безлимитное бесплатное хранение', desc: 'Никаких лимитов по времени и скрытых комиссий. Все ваши покупки хранятся бесплатно, пока вы ждете остальные товары.' },
+            { title: 'Бесплатная консолидация', desc: 'Мы объединяем любое количество заказов с Taobao, 1688 или других магазинов в одну посылку, чтобы кардинально снизить стоимость доставки.' },
+            { title: 'Бесплатный прием посылок', desc: 'Неважно какой магазин или вес, мы принимаем все входящие посылки на наш склад абсолютно бесплатно.' },
+            { title: 'Бесплатный фото и видео отчет', desc: 'Мы — ваши глаза в Китае. Мы делаем качественные фото или видео ваших товаров, чтобы вы проверили их до отправки из страны.' },
+            { title: 'Оптимизация объемного веса', desc: 'Мы не просто кладем коробки в большую коробку. Мы убираем лишнюю заводскую упаковку (например, тяжелые коробки от обуви) и переупаковываем всё, чтобы сделать итоговую посылку максимально компактной.' },
+            { title: 'Сложная обработка заказов', desc: 'Нужно разделить большой заказ на части или вернуть товар в магазин? Мы сделаем это бесплатно (вы платите только за доставку по Китаю).' },
+            { title: 'Надежная упаковка и страховка', desc: 'Мы предоставляем качественную упаковку международного стандарта бесплатно. Для дорогих товаров предлагаем опциональную страховку.' },
+            { title: 'Круглосуточное видеонаблюдение', desc: 'Ваши грузы в безопасности. Наш склад находится под наблюдением 24/7.' }
+        ],
+        proTip: {
+            title: "Не хотите заниматься этим сами?",
+            text: "Если вы не хотите отслеживать кучу трек-номеров и общаться с продавцами, предоставьте это нам. Наш сервис 'Полное сопровождение' включает выкуп, управление складом и доставку до двери. Вы просто говорите, что хотите, а мы делаем."
+        },
         startBtn: 'Получить адрес склада',
         backBtn: 'На главную'
       }
