@@ -5,9 +5,9 @@ import {
   X, 
   ArrowRight, 
   Send, 
-  CircleCheck, 
+  CheckCircle2, 
   Lightbulb,
-  CircleArrowDown,
+  ArrowDownCircle,
   TrendingDown
 } from 'lucide-react';
 import { trackLead } from '../utils/analytics';
@@ -111,13 +111,13 @@ export const ShoppingGuides: React.FC<{ language: Language }> = ({ language }) =
                 {/* Steps Section */}
                 <div className="space-y-4">
                   <h4 className="text-xs font-black text-brand-blue uppercase tracking-[0.2em] flex items-center gap-2">
-                    <CircleArrowDown size={16} /> {language === 'en' ? 'Step-by-Step' : 'Пошагово'}
+                    <ArrowDownCircle size={16} /> {language === 'en' ? 'Step-by-Step' : 'Пошагово'}
                   </h4>
                   <ul className="space-y-4">
                     {activeGuide.steps.map((step: string, idx: number) => (
                       <li key={idx} className="flex gap-4 items-start bg-gray-50 p-4 rounded-2xl border border-gray-100">
                         <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue mt-1">
-                          <CircleCheck size={16} />
+                          <CheckCircle2 size={16} />
                         </div>
                         <p className="text-brand-dark font-semibold leading-relaxed">
                           {step}
