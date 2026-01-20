@@ -5,7 +5,7 @@ import {
   ShoppingBag, 
   Search, 
   ShoppingCart, 
-  ClipboardCheck,
+  ClipboardCheck, 
   Warehouse,
   ArrowRight
 } from 'lucide-react';
@@ -40,7 +40,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
   const shoppingItems = [
     { 
       id: 'taobao', 
-      title: isEn ? 'Buy from Taobao with joy' : 'Байер Taobao', 
+      title: isEn ? 'Taobao Buyer' : 'Байер Taobao', 
       seoText: t.taobao,
       icon: ShoppingCart, 
       color: 'text-orange-500', 
@@ -118,7 +118,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
   );
 
   return (
-    <section className="py-12 bg-cream relative" id="quick-access">
+    <section className="py-12 bg-cream relative scroll-mt-28" id="services">
       <div className="container mx-auto px-4 xl:px-0">
         
         <div className="text-center mb-8">

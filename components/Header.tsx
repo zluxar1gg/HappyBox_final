@@ -17,11 +17,11 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
   const t = translations[language].nav;
 
   // Simplified navigation
-  // Services link now points to #quick-access because the dedicated Services section was empty/removed
+  // Services link now points to #services
   const navItems = [
-    { name: t.services, href: '#quick-access' },
+    { name: t.services, href: '#services' },
     { name: t.reviews, href: '#reviews' },
-    { name: t.cost, href: '#cost' },
+    { name: t.cost, href: '#calc' }, // Updated from #cost to #calc
     { name: t.tracking, href: '#tracking' },
     { name: t.contacts, href: '#contacts' },
     { name: t.faq, href: '#faq' },

@@ -54,7 +54,7 @@ const App: React.FC = () => {
       }
       
       const search = params.toString();
-      const newUrl = search ? `${window.location.pathname}?${search}` : window.location.pathname;
+      const newUrl = `${window.location.pathname}${search ? '?' + search : ''}${window.location.hash}`;
       
       window.history.pushState(null, '', newUrl);
     }
@@ -96,9 +96,10 @@ const App: React.FC = () => {
         targetPage = page as PageType;
     }
 
+    // Update State
     setCurrentPage(targetPage);
     
-    // Update URL keeping the lang param if it exists
+    // Update URL logic
     const params = new URLSearchParams(window.location.search);
     if (targetPage === 'home') {
         params.delete('page');
@@ -106,33 +107,38 @@ const App: React.FC = () => {
         params.set('page', targetPage);
     }
       
+    // Construct Hash logic: Only append hash if we are going home and have a sectionId
+    const hash = (targetPage === 'home' && sectionId) ? `#${sectionId}` : '';
     const search = params.toString();
-    const newUrl = search ? `${window.location.pathname}?${search}` : window.location.pathname;
+    const newUrl = `${window.location.pathname}${search ? '?' + search : ''}${hash}`;
     
     window.history.pushState(null, '', newUrl);
-    
-    // Navigation Scroll Logic
-    if (targetPage === 'home') {
-        if (sectionId) {
-            // Give React a moment to render the Home components before scrolling
-            // Increased timeout to 300ms to allow mobile devices to render layout
+  };
+
+  // Scroll Handling Effect
+  // This replaces the manual scrollTo/setTimeout in handleNavigate
+  useEffect(() => {
+    // If we are on Home page
+    if (currentPage === 'home') {
+        // Check if there is a hash in the URL (e.g., #services)
+        if (window.location.hash) {
+            const id = window.location.hash.replace('#', '');
+            // Small timeout to ensure DOM is fully ready after React re-render
             setTimeout(() => {
-                const element = document.getElementById(sectionId);
+                const element = document.getElementById(id);
                 if (element) {
-                    // Offset for sticky header
-                    const headerOffset = 80;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    element.scrollIntoView({ behavior: 'smooth' });
                 }
-            }, 300);
+            }, 100);
         } else {
+            // No hash? Go to top
             window.scrollTo(0, 0);
         }
     } else {
+        // Any other page? Go to top
         window.scrollTo(0, 0);
     }
-  };
+  }, [currentPage]);
 
   // Listen for browser "Back" button
   useEffect(() => {
@@ -168,16 +174,16 @@ const App: React.FC = () => {
 
   // --- ROUTER VIEW ---
   const renderContent = () => {
-      // Country pages return to "destinations" section
-      if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'destinations')} />;
-      if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'destinations')} />;
-      if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'destinations')} />;
-      if (currentPage === 'ru') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'destinations')} />;
-      if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'destinations')} />;
+      // Country pages return to "services" section (QuickAccess wrapper)
+      if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
+      if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
+      if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
+      if (currentPage === 'ru') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
+      if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
       
-      // Service pages return to "quick-access" section
+      // Service pages return to "services" section
       if (currentPage === 'taobao' || currentPage === '1688' || currentPage === 'inspection' || currentPage === 'warehousing') {
-          return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleNavigate('home', 'quick-access')} />;
+          return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleNavigate('home', 'services')} />;
       }
 
       // Default Home
@@ -205,7 +211,7 @@ const App: React.FC = () => {
             <div id="reviews" className="scroll-mt-28">
               <Reviews language={language} />
             </div>
-            <div id="cost" className="scroll-mt-28">
+            <div id="calc" className="scroll-mt-28">
               <Calculator language={language} onOpenQuiz={() => setIsQuizOpen(true)} />
             </div>
             
