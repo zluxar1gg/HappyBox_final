@@ -1,5 +1,5 @@
 
-import React, { useState, Suspense, useEffect } from 'react';
+import React, { useState, Suspense, useEffect, useLayoutEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -79,6 +79,14 @@ const App: React.FC = () => {
     return 'home';
   });
 
+  // --- SCROLL RESTORATION FIX ---
+  // Disable browser's automatic scroll restoration to prevent fighting with our custom logic
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
   // --- SEO EFFECT ---
   // Updates title, description, and canonical URL whenever page or language changes
   useEffect(() => {
@@ -116,20 +124,19 @@ const App: React.FC = () => {
   };
 
   // Scroll Handling Effect
-  // This replaces the manual scrollTo/setTimeout in handleNavigate
-  useEffect(() => {
+  // Using useLayoutEffect to scroll BEFORE paint to prevent visual jumps
+  useLayoutEffect(() => {
     // If we are on Home page
     if (currentPage === 'home') {
         // Check if there is a hash in the URL (e.g., #services)
         if (window.location.hash) {
             const id = window.location.hash.replace('#', '');
-            // Small timeout to ensure DOM is fully ready after React re-render
-            setTimeout(() => {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
+            const element = document.getElementById(id);
+            if (element) {
+                // 'auto' ensures instant placement before paint
+                // scroll-margin-top in CSS handles the header offset
+                element.scrollIntoView({ behavior: 'auto' });
+            }
         } else {
             // No hash? Go to top
             window.scrollTo(0, 0);
