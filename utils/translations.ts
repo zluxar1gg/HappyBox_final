@@ -1,4 +1,6 @@
 
+
+
 export type Language = 'en' | 'ru';
 
 export const translations = {
@@ -148,7 +150,7 @@ export const translations = {
     },
     about: {
       title: 'For over 9 years, we\'ve been providing reliable shipping and purchasing services from China and Hong Kong.',
-      text: 'We are one of the **most trusted purchasing and forwarding services**, with our own automated warehouse in China and Hong Kong. We ensure your delivery gets straight to your doorstep.'
+      text: 'We are one of the **most trusted purchasing and forwarding services**, with our own warehouses in China and Hong Kong. We ensure your delivery gets straight to your doorstep.'
     },
     services: {
       title: 'Our Services',
@@ -400,8 +402,8 @@ export const translations = {
           answer: 'We inspect every incoming package. If an item is damaged or does not match the description, we will return it to the Chinese seller immediately for a refund or exchange.'
         },
         {
-          question: 'How do I pay you? Do you accept Crypto?',
-          answer: 'Yes! We accept USDT (Crypto), Bank Transfers (USD/EUR) to our Hong Kong or US companies, and even Rubles for our CIS clients. You can pay securely before shipment.'
+          question: 'How can I make a payment?',
+          answer: 'We accept Bank Transfers (USD) to our Hong Kong or US companies, AliPay, WeChatPay, USDT, RUB and UAH. You can pay securely before shipment.'
         },
         {
           question: 'What is DDP shipping?',
@@ -490,7 +492,7 @@ export const translations = {
             items: [
                 { title: "Supplier Verification", desc: "Don't risk your capital. We check the factory's reliability, business license, and real reputation before paying." },
                 { title: "MOQ & Price Negotiation", desc: "Think the Minimum Order Quantity (MOQ) is too high? Our team negotiates directly with factory managers to lower MOQs and get better wholesale prices." },
-                { title: "Sample Consolidation", desc: "Testing different suppliers? We will collect samples from 5-10 different factories into one package and send them to you for verification before a bulk order." },
+                { title: "Sample Consolidation", desc: "Testing different suppliers? We will collect samples from 5-10 different factories into one package and send them to you in one package for verification before a bulk order." },
                 { title: "Wholesale Quality Control (QC)", desc: "We conduct random or full inspections of the batch at our warehouse. We check quantity, packaging integrity, and specifications to avoid expensive returns." }
             ]
         },
@@ -562,14 +564,14 @@ export const translations = {
       faq: 'FAQ'
     },
     hero: {
-      title: 'Быстрая и надежная доставка из Китая в Россию, США, Европу и ОАЭ.',
+      title: 'Быстрая и надежная доставка из Китая в Европу, США, ОАЭ и Россию.',
       minWeightBadge: 'Без минимального веса — доставка от 0.1 кг',
       features: {
         operating: 'Работаем с 2016 года',
-        warehouse: 'Бесплатный склад и консолидация',
-        buy: 'Выкуп товаров с любых площадок',
-        packaging: 'Надежная упаковка',
-        payment: 'Удобные способы оплаты',
+        warehouse: 'Бесплатное хранение и консолидация',
+        buy: 'Выкуп товаров с любых маркетплейсов',
+        packaging: 'Бережная и надежная упаковка',
+        payment: 'Разнообразные варианты оплаты',
         support: 'Поддержка 24/7',
         worldwide: 'Доставка по всему миру',
         appreciate: 'Ценим каждого клиента'
@@ -579,15 +581,15 @@ export const translations = {
     deliveryPath: {
       title: 'Путь вашей посылки',
       steps: [
-        { title: 'Заказ', desc: 'Вы заказываете или мы выкупаем' },
+        { title: 'Заказ', desc: 'Оформление и выкуп' },
         { title: 'Склад', desc: 'Приемка и проверка' },
-        { title: 'Обработка', desc: 'Консолидация и упаковка' },
-        { title: 'Таможня', desc: 'Очистка и оформление' },
+        { title: 'Обработка', desc: 'Объединение и упаковка' },
+        { title: 'Таможня', desc: 'Оформление и пошлины' },
         { title: 'Доставка', desc: 'Прямо до вашей двери' }
       ]
     },
     guides: {
-      title: 'Советы экспертов',
+      title: 'Экспертные советы',
       subtitle: 'Секреты выгодного шопинга в Китае от профессионалов',
       cards: [
         { 
@@ -607,7 +609,7 @@ export const translations = {
         { 
           id: 'poizon', 
           title: 'Poizon (Dewu)', 
-          desc: 'Оригинальные бренды на 30-50% дешевле чем в РФ.',
+          desc: 'Оригинальные бренды на 30-50% дешевле чем в местных магазинах.',
           steps: [
             'Цена зависит от размера. Проверьте соседние размеры, можно сэкономить до 30%.',
             '"95 New" — это б/у в отличном состоянии. "Damaged Box" — новый товар с мятой коробкой.',
@@ -698,7 +700,7 @@ export const translations = {
     },
     about: {
       title: 'Уже более 9 лет мы обеспечиваем надежную доставку и выкуп товаров из Китая и Гонконга.',
-      text: 'Мы — один из **самых надежных сервисов по выкупу и доставке**, с собственным автоматизированным складом в Китае. Гарантируем доставку прямо до вашей двери.'
+      text: 'Мы — один из **самых надежных сервисов по выкупу и доставке**, с собственными складами в Китае и Гонконге. Гарантируем доставку прямо до вашей двери.'
     },
     services: {
       title: 'Наши Услуги',
@@ -735,7 +737,7 @@ export const translations = {
           image: "https://i.ibb.co/0y8mfkkB/Happy-Box-review12.webp"
         },
         {
-          name: "Михаил Чен",
+          name: "Майкл Чен",
           location: "Торонто, Канада",
           text: "Искал электрофойл везде. Команда HappyBox помогла найти поставщика на 1688 намного дешевле, чем я сам находил. Сэкономил больше $1000!",
           image: "https://i.ibb.co/whXdYLzr/Happy-Box-review6.webp"
@@ -792,7 +794,7 @@ export const translations = {
     },
     calculator: {
       title: 'Калькулятор доставки',
-      subtitle: 'Доставка «до двери». Цены включают все налоги и таможенные пошлины (DDP).',
+      subtitle: 'Доставка «до двери». Цены включают все налоги и таможенные пошлины.',
       weightPlaceholder: 'Вес',
       minWeightHint: 'Минимальный вес — 0.1 кг',
       kg: 'Килограммы (кг)',
@@ -950,8 +952,8 @@ export const translations = {
           answer: 'Мы проверяем каждую входящую посылку. Если товар поврежден или не соответствует описанию, мы вернем его продавцу для обмена или возврата денег.'
         },
         {
-          question: 'Как вам платить? Принимаете крипту?',
-          answer: 'Да! Мы принимаем USDT (Crypto), Рубли на карты РФ, а также банковские переводы (USD/EUR). Оплата происходит безопасно перед отправкой.'
+          question: 'Как я могу оплатить услуги?',
+          answer: 'Мы принимаем банковские переводы (USD) на наши компании в Гонконге или США, AliPay, WeChatPay, USDT, RUB и UAH. Вы можете безопасно оплатить перед отправкой.'
         },
         {
           question: 'Что такое DDP доставка?',

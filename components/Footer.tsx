@@ -121,6 +121,10 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                     <Mail className="w-5 h-5" />
                 </a>
               </div>
+              
+              <div className="ml-2 text-sm text-gray-500 font-semibold max-w-xs opacity-80 leading-relaxed">
+                Head Office: 27B, Nanjinyuan Building, Shenzhen, Guangdong, China
+              </div>
             </div>
             
             {/* Center Column: Links and Mobile Image */}

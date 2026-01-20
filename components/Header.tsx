@@ -49,7 +49,11 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
       if (onBack) {
           onBack();
       } else {
-          window.location.reload(); 
+          // Remove hash from URL to prevent auto-scrolling back on refresh
+          if (window.location.hash) {
+              window.history.pushState("", document.title, window.location.pathname + window.location.search);
+          }
+          window.scrollTo({ top: 0, behavior: 'smooth' });
       }
   };
 

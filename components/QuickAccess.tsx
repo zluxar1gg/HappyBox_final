@@ -126,7 +126,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
             {isEn ? 'What are you looking for?' : 'Что вы ищете?'}
           </h2>
           <p className="text-sm md:text-lg text-gray-500 font-bold max-w-2xl mx-auto">
-            {isEn ? 'Select a category to find the best shipping route' : 'Выберите категорию для поиска лучшего маршрута'}
+            {isEn ? 'Select the category that best fits your needs' : 'Выберите наиболее подходящую категорию'}
           </p>
         </div>
 
