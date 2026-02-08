@@ -159,7 +159,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                 {/* Mobile/Tablet Mascot */}
                 <div className="block lg:hidden -mb-4 -mr-4">
                     <img 
-                        src="https://i.ibb.co/TBF1tWsQ/happyboxbottom-r.webp" 
+                        src="/images/main/happyboxbottom_r.webp" 
                         alt="Happy Box Mascot Mascot" 
                         width="300"
                         height="300"
@@ -174,7 +174,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             {/* Right Column: Desktop Mascot */}
             <div className="hidden lg:block ml-auto self-end mr-10 -mb-8">
                  <img 
-                    src="https://i.ibb.co/TBF1tWsQ/happyboxbottom-r.webp" 
+                    src="/images/main/happyboxbottom_r.webp" 
                     alt="Happy Box Mascot" 
                     width="300"
                     height="300"
@@ -182,9 +182,6 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                     decoding="async"
                     className="w-[250px] h-auto object-contain drop-shadow-xl"
                     referrerPolicy="no-referrer"
-                    onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                    }}
                  />
             </div>
           </div>

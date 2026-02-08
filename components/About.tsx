@@ -23,16 +23,13 @@ export const About: React.FC<AboutProps> = ({ language }) => {
             {/* Image Column */}
             <div className="flex justify-center lg:justify-end order-last lg:order-first">
                 <img 
-                  src="https://i.ibb.co/C55Gbh27/happyboxdelivery.webp" 
+                  src="/images/main/happyboxdelivery.webp" 
                   alt="Happy Box Delivery Illustration" 
                   width="800"
                   height="800"
                   loading="lazy"
                   decoding="async"
                   className="w-full max-w-[600px] object-contain drop-shadow-2xl"
-                  onError={(e) => {
-                    e.currentTarget.src = "https://images.unsplash.com/photo-1586810724476-c294fb7ac01b?auto=format&fit=crop&w=800&q=80";
-                  }}
                 />
             </div>
 
