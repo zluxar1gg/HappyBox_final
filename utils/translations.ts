@@ -438,13 +438,13 @@ export const translations = {
             steps: [
                 { title: "Find Your Items", desc: "Browse Taobao.com or the app. Copy the links of products you want." },
                 { title: "Submit Order", desc: "Send us the links. We verify price and availability." },
-                { title: "We Buy & Inspect", desc: "We purchase the items and perform a free quality check. If broken or wrong — we return it." },
+                { title: "We Buy & Inspect", desc: "We purchase the items and perform a free quality check. If item arrives broken or wrong — we return it." },
                 { title: "Consolidate & Ship", desc: "We store for free, combine into one package, and ship worldwide with premium repacking." }
             ]
         },
         proTip: {
-            title: "Pro Tip: Personal Sourcing",
-            text: "Don't want to search yourself? If you find Taobao difficult or don't have time, our Personal Sourcing Service is here. Send us a photo or description, and our experts will find the best quality product from a trusted seller."
+            title: "Pro Tip: Let us do the searching!",
+            text: "Struggling to find that perfect item on Taobao? Don’t waste your time scrolling through endless listings. Just send us a photo or a quick description, and our experts will track down the best quality from sellers we actually trust."
         },
         features: [
             { title: 'No Chinese Phone Number Required', desc: 'You don’t need to deal with Taobao’s complex registration or blocked accounts.' },
@@ -978,30 +978,30 @@ export const translations = {
     },
     servicePages: {
       taobao: {
-        title: 'Посредник Taobao: Покупки в Китае с доставкой по миру',
+        title: 'Посредник Таобао: Покупки в Китае с доставкой по миру',
         desc: "Покупайте на Taobao, 1688 и Tmall с комиссией 0%. Мы берем на себя выкуп, проверку и международную доставку, чтобы вы наслаждались лучшими ценами Китая без хлопот. HappyBox выкупает, проверяет, консолидирует и отправляет ваши заказы по всему миру.",
         whyNeed: {
-            title: "Почему сложно покупать самому, и как мы это решаем",
+            title: "Какие есть сложности, и как мы их решаем",
             problems: [
                 "Для покупок нужен адрес склада в Китае и китайские платежные методы.",
-                "Продавцы редко говорят по-английски и почти не отправляют за границу.",
+                "Продавцы редко говорят по-английски и не отправляют за границу.",
                 "Высокий риск получить брак, не тот цвет или размер без проверки."
             ],
             solutionTitle: "Решение от HappyBox",
-            solution: "HappyBox — ваш профессиональный агент Taobao. Мы убираем языковой барьер, принимаем удобную оплату, проводим Контроль Качества (QC) и предоставляем бесплатный склад для сбора и консолидации всех ваших покупок."
+            solution: "С HappyBox покупать на Taobao просто. Мы помогаем преодолеть языковой барьер, гарантируем безопасность оплаты и проверяем каждый товар перед отправкой. К вашим услугам — наш бесплатный склад в Китае для консолидации и надежной упаковки всех ваших посылок."
         },
         howItWorks: {
             title: "Как это работает: 4 простых шага",
             steps: [
                 { title: "Найдите товары", desc: "Ищите на Taobao.com или в приложении. Копируйте ссылки на товары." },
                 { title: "Оформите заказ", desc: "Пришлите ссылки нам. Мы проверим наличие и цену." },
-                { title: "Выкуп и Проверка", desc: "Мы выкупаем и бесплатно проверяем на брак. Если что-то не так — вернем." },
-                { title: "Консолидация", desc: "Храним бесплатно, объединяем в одну посылку и отправляем по миру." }
+                { title: "Выкуп и Проверка", desc: "Мы берем выкуп и проверку на себя. Если товар окажется бракованным или не тем, что вы заказывали, — мы быстро организуем возврат." },
+                { title: "Консолидация", desc: "Бесплатное хранение, консолидация и международная доставка. Гарантируем премиум-упаковку для сохранности ваших вещей." }
             ]
         },
         proTip: {
-            title: "Совет: Поиск товаров",
-            text: "Не хотите искать сами? Если вам сложно разобраться с Taobao, пришлите нам фото или описание. Наши эксперты найдут товар лучшего качества у проверенного продавца."
+            title: "Лайфхак: Личный байер",
+            text: "Некогда искать или сложно разобраться в поиске? Мы всё сделаем за вас! Просто пришлите фото или описание нужной вещи — наши эксперты найдут лучший вариант у проверенных продавцов."
         },
         features: [
             { title: 'Китайский номер не нужен', desc: 'Вам не нужно регистрироваться на Taobao и бояться блокировок аккаунта.' },
