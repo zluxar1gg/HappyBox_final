@@ -1,6 +1,8 @@
 
 
 
+
+
 export type Language = 'en' | 'ru';
 
 export const translations = {
@@ -420,18 +422,24 @@ export const translations = {
     servicePages: {
       taobao: {
         title: 'Taobao Agent Service: Shop from China and Ship Worldwide',
-        desc: "Shop on Taobao, 1688, or Tmall like a local. We handle the purchasing, inspection, and international shipping so you can enjoy the best prices from China without the hassle.",
+        desc: "Shop on Taobao, 1688, or Tmall like a local. We handle the purchasing, inspection, and international shipping so you can enjoy the best prices from China without language barriers, blocked accounts, or overpriced shipping. HappyBox buys, inspects, consolidates, and ships your orders worldwide — hassle-free.",
         whyNeed: {
-            title: "Why You Need a Taobao Agent",
-            text: "Buying from Taobao directly is difficult if you live outside of China. Most sellers don’t speak English and only ship within Mainland China. HappyBox acts as your professional Taobao Agent. We solve the language barrier, provide secure payment methods, and offer a dedicated free warehouse in China to receive and consolidate all your goods."
+            title: "Why Most People Fail Buying from China, and How We Fix It",
+            problems: [
+                "Buying from Taobao is nearly impossible without a Chinese shipping address or local payment methods.",
+                "Most sellers don’t speak English and rarely ship internationally.",
+                "Risk of receiving wrong items, poor quality, or damaged goods."
+            ],
+            solutionTitle: "How HappyBox Fixes It",
+            solution: "HappyBox acts as your professional Taobao Agent: we bridge the language gap, provide secure payment methods, perform Quality Control (QC), and offer a dedicated free warehouse in China to receive, consolidate, and repack all your goods."
         },
         howItWorks: {
             title: "How It Works: 4 Simple Steps",
             steps: [
                 { title: "Find Your Items", desc: "Browse Taobao.com or the app. Copy the links of products you want." },
                 { title: "Submit Order", desc: "Send us the links. We verify price and availability." },
-                { title: "We Buy & Inspect", desc: "We purchase and check items for defects upon arrival." },
-                { title: "Consolidate & Ship", desc: "We combine orders to save 70% on shipping." }
+                { title: "We Buy & Inspect", desc: "We purchase the items and perform a free quality check. If broken or wrong — we return it." },
+                { title: "Consolidate & Ship", desc: "We store for free, combine into one package, and ship worldwide with premium repacking." }
             ]
         },
         proTip: {
@@ -443,7 +451,8 @@ export const translations = {
             { title: 'Free Quality Check (QC)', desc: 'We are your eyes in China. We check for defects, wrong sizes, or incorrect colors before the item leaves the country.' },
             { title: 'Free Consolidation & Storage', desc: 'Shop from different sellers over several days. We store your items for free and pack them into ONE box to save you up to 60% on shipping.' },
             { title: 'Expert Repacking', desc: 'International shipping can be rough. We use high-quality materials to ensure your items arrive in perfect condition.' },
-            { title: 'Flexible Payment Options', desc: 'Pay for your orders via Bank Transfer, WeChat pay, AliPay, Crypto safely and easily.' }
+            { title: 'Flexible Payment Options', desc: 'Pay for your orders via Bank Transfer, WeChat pay, AliPay, Crypto safely and easily.' },
+            { title: 'Transparent Tracking', desc: 'Watch your parcel\'s journey from China to your door. We provide a reliable tracking number so you always know where your goods are.' }
         ],
         beyond: {
             title: "Beyond Taobao: 1688, Poizon, and More",
@@ -456,7 +465,7 @@ export const translations = {
             ]
         },
         shippingInfo: {
-            title: "Shipping from China to Your Doorstep",
+            title: "Shipping from China to USA, Europe, and UAE",
             text: "We offer competitive rates for worldwide delivery, including the USA, UAE, Europe (Poland, Germany, Spain, France), and beyond. Whether it’s a small parcel of clothes or a large furniture shipment, HappyBox ensures a smooth logistics experience."
         },
         startBtn: 'Start Shopping',
@@ -970,18 +979,24 @@ export const translations = {
     servicePages: {
       taobao: {
         title: 'Посредник Taobao: Покупки в Китае с доставкой по миру',
-        desc: "Покупайте на Taobao, 1688 или Tmall как местный житель. Мы берем на себя выкуп, проверку и международную доставку, чтобы вы наслаждались лучшими ценами Китая без хлопот.",
+        desc: "Покупайте на Taobao, 1688 и Tmall с комиссией 0%. Мы берем на себя выкуп, проверку и международную доставку, чтобы вы наслаждались лучшими ценами Китая без хлопот. HappyBox выкупает, проверяет, консолидирует и отправляет ваши заказы по всему миру.",
         whyNeed: {
-            title: "Зачем нужен посредник Taobao",
-            text: "Покупать на Taobao напрямую сложно, если вы не живете в Китае. Большинство продавцов не говорят по-английски и отправляют только по материковому Китаю. HappyBox — ваш профессиональный агент. Мы решаем проблемы с языком, оплатой и предоставляем бесплатный склад для консолидации."
+            title: "Почему сложно покупать самому, и как мы это решаем",
+            problems: [
+                "Для покупок нужен адрес склада в Китае и китайские платежные методы.",
+                "Продавцы редко говорят по-английски и почти не отправляют за границу.",
+                "Высокий риск получить брак, не тот цвет или размер без проверки."
+            ],
+            solutionTitle: "Решение от HappyBox",
+            solution: "HappyBox — ваш профессиональный агент Taobao. Мы убираем языковой барьер, принимаем удобную оплату, проводим Контроль Качества (QC) и предоставляем бесплатный склад для сбора и консолидации всех ваших покупок."
         },
         howItWorks: {
             title: "Как это работает: 4 простых шага",
             steps: [
                 { title: "Найдите товары", desc: "Ищите на Taobao.com или в приложении. Копируйте ссылки на товары." },
                 { title: "Оформите заказ", desc: "Пришлите ссылки нам. Мы проверим наличие и цену." },
-                { title: "Выкуп и Проверка", desc: "Мы выкупаем и проверяем товары на брак при получении." },
-                { title: "Консолидация", desc: "Объединяем заказы в одну посылку, экономя до 70% на доставке." }
+                { title: "Выкуп и Проверка", desc: "Мы выкупаем и бесплатно проверяем на брак. Если что-то не так — вернем." },
+                { title: "Консолидация", desc: "Храним бесплатно, объединяем в одну посылку и отправляем по миру." }
             ]
         },
         proTip: {
@@ -993,7 +1008,8 @@ export const translations = {
             { title: 'Бесплатная проверка (QC)', desc: 'Мы — ваши глаза. Проверяем на брак, размер и цвет до того, как товар покинет Китай.' },
             { title: 'Бесплатная консолидация', desc: 'Покупайте у разных продавцов. Мы соберем все в одну коробку, чтобы сэкономить до 60% на доставке.' },
             { title: 'Надежная упаковка', desc: 'Международная доставка бывает суровой. Мы используем качественные материалы, чтобы все доехало целым.' },
-            { title: 'Удобная оплата', desc: 'Платите за заказы Рублями, USDT, Wechat Pay или банковским переводом легко и безопасно.' }
+            { title: 'Удобная оплата', desc: 'Платите за заказы Рублями, USDT, Wechat Pay или банковским переводом легко и безопасно.' },
+            { title: 'Прозрачный трекинг', desc: 'Следите за путем вашей посылки от Китая до двери. Мы предоставляем надежный трек-номер, чтобы вы всегда знали, где находится ваш груз.' }
         ],
         beyond: {
             title: "Не только Taobao: 1688, Poizon и другое",
@@ -1006,8 +1022,8 @@ export const translations = {
             ]
         },
         shippingInfo: {
-            title: "Доставка из Китая до вашей двери",
-            text: "Мы предлагаем выгодные тарифы по всему миру: США, Европа, ОАЭ, Россия и СНГ. Будь то маленькая посылка с одеждой или мебель — HappyBox обеспечит надежную логистику."
+            title: "Доставка из Китая в США, Европу и ОАЭ",
+            text: "Мы предлагаем выгодные тарифы по всему миру: США, Европа (Германия, Польша, Франция), ОАЭ и СНГ. Будь то маленькая посылка с одеждой или мебель — HappyBox обеспечит надежную логистику."
         },
         startBtn: 'Начать шопинг',
         backBtn: 'На главную'

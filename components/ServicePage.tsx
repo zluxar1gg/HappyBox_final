@@ -17,7 +17,8 @@ import {
     Package,
     Link,
     Store,
-    Globe
+    Globe,
+    XCircle
 } from 'lucide-react';
 import { trackLead } from '../utils/analytics';
 
@@ -85,13 +86,45 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
 
                 <section className="py-12 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm p-8 lg:p-20 max-w-5xl">
                     
-                    {/* OPTIONAL: Why You Need (Text Block) */}
+                    {/* Why You Need (Supports both simple text and new 'Problems vs Solution' layout) */}
                     {extraContent.whyNeed && (
-                        <div className="mb-16 text-center max-w-3xl mx-auto">
-                            <h2 className="text-3xl font-black text-brand-dark mb-6">{extraContent.whyNeed.title}</h2>
-                            <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                                {extraContent.whyNeed.text}
-                            </p>
+                        <div className="mb-16 max-w-4xl mx-auto">
+                            <h2 className="text-3xl font-black text-brand-dark mb-10 text-center">{extraContent.whyNeed.title}</h2>
+                            
+                            {/* Check if we have the new 'problems' array */}
+                            {extraContent.whyNeed.problems ? (
+                                <div className="grid md:grid-cols-2 gap-8">
+                                    {/* Problems Column */}
+                                    <div className="bg-red-50/50 p-8 rounded-[30px] border border-red-100">
+                                        <div className="flex items-center gap-2 mb-6 text-red-600 font-bold uppercase tracking-wider text-sm">
+                                            <XCircle size={18} /> {language === 'en' ? 'The Problem' : 'Проблема'}
+                                        </div>
+                                        <ul className="space-y-4">
+                                            {extraContent.whyNeed.problems.map((prob: string, idx: number) => (
+                                                <li key={idx} className="flex gap-3 items-start">
+                                                    <XCircle size={20} className="text-red-400 flex-shrink-0 mt-0.5" />
+                                                    <span className="text-gray-700 font-medium leading-relaxed">{prob}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    {/* Solution Column */}
+                                    <div className="bg-green-50/50 p-8 rounded-[30px] border border-green-100">
+                                        <div className="flex items-center gap-2 mb-6 text-green-700 font-bold uppercase tracking-wider text-sm">
+                                            <CheckCircle2 size={18} /> {extraContent.whyNeed.solutionTitle || (language === 'en' ? 'The Solution' : 'Решение')}
+                                        </div>
+                                        <p className="text-gray-700 font-medium leading-relaxed">
+                                            {extraContent.whyNeed.solution}
+                                        </p>
+                                    </div>
+                                </div>
+                            ) : (
+                                // Fallback for old simple text structure
+                                <p className="text-lg text-gray-600 leading-relaxed font-medium text-center max-w-3xl mx-auto">
+                                    {extraContent.whyNeed.text}
+                                </p>
+                            )}
                         </div>
                     )}
 
@@ -111,7 +144,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                     return (
                                         <div key={idx} className="bg-white p-5 rounded-[25px] shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-all hover:border-brand-blue/20 group">
                                             {/* Header Row: Number, Title, Icon */}
-                                            <div className="flex items-center justify-between mb-2">
+                                            <div className="flex items-center justify-between mb-3">
                                                 <div className="flex items-center gap-3">
                                                     <div className="w-8 h-8 rounded-full bg-white border-2 border-brand-light text-brand-blue flex items-center justify-center font-black text-base flex-shrink-0 shadow-sm group-hover:bg-brand-blue group-hover:text-white group-hover:border-brand-blue transition-colors">
                                                         {idx + 1}
@@ -123,8 +156,8 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                                 <StepIcon className="w-5 h-5 text-gray-300 group-hover:text-brand-blue transition-colors flex-shrink-0" />
                                             </div>
                                             
-                                            {/* Description Row - Indented to align with title */}
-                                            <p className="text-sm text-gray-500 font-medium leading-relaxed pl-11">
+                                            {/* Description Row - FULL WIDTH (Removed pl-11) */}
+                                            <p className="text-sm text-gray-500 font-medium leading-relaxed">
                                                 {step.desc}
                                             </p>
                                         </div>

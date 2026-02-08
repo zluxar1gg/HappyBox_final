@@ -3,6 +3,7 @@
 
 
 
+
 import { Language } from './translations';
 
 type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon';
@@ -39,8 +40,8 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
       description: "Professional Amazon FBA shipping from China to USA & Europe. Includes FNSKU labeling, prep service, and DDP shipping (taxes included). Rates from $1.2/kg."
     },
     taobao: {
-      title: "Taobao Agent Service | Buy from Taobao & 1688 with HappyBox",
-      description: "Looking for a reliable Taobao Agent? HappyBox helps you buy from Taobao, 1688, and Poizon. Free quality inspection, consolidation, and worldwide shipping."
+      title: "Taobao Agent Service | 0% Commission | Buy & Ship from China",
+      description: "Shop on Taobao, 1688, and Tmall with 0% service fee. HappyBox provides free quality checks, consolidation, and worldwide shipping. Save up to 70% on shipping costs now!"
     },
     1688: {
       title: "1688 Sourcing Agent | Wholesale & Bulk Purchasing from China | HappyBox",
@@ -81,8 +82,8 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
       description: "Профессиональная доставка на Amazon FBA в США и Европу. Наклейка FNSKU, услуги преп-центра и DDP доставка (налоги включены). Ставки от $1.2/кг."
     },
     taobao: {
-      title: "Посредник Таобао (Taobao Agent) | Выкуп с Taobao и 1688 | HappyBox",
-      description: "Ищете надежного посредника Таобао? HappyBox поможет выкупить товары с Taobao, 1688 и Poizon. Бесплатная проверка качества, консолидация и доставка по миру."
+      title: "Посредник Taobao (0% Комиссия) | Выкуп и Доставка из Китая | HappyBox",
+      description: "Покупайте на Taobao, 1688 и Tmall с комиссией 0%. HappyBox предлагает бесплатную проверку качества, консолидацию и доставку по всему миру. Сэкономьте до 70% на доставке!"
     },
     1688: {
       title: "Агент 1688 | Оптовые закупки из Китая и Посредник | HappyBox",
