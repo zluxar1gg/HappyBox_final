@@ -103,7 +103,7 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
           <div className="flex flex-col">
             <div className="lg:hidden mb-12 flex justify-center">
                 <img 
-                  src="/images/main/happyboxtop.webp" 
+                  src="images/main/happyboxtop.webp" 
                   alt="Happy Box Services Mascot" 
                   width="800"
                   height="800"
@@ -134,7 +134,7 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
 
           <div className="hidden lg:flex justify-center">
             <img 
-              src="/images/main/happyboxtop.webp" 
+              src="images/main/happyboxtop.webp" 
               alt="Happy Box Services Mascot" 
               width="800"
               height="800"

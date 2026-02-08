@@ -73,7 +73,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                 onClick={() => trackLead('telegram', 'contact_section', 'click')}
               >
                 <img 
-                  src="/images/main/happybox_telegram_d.webp" 
+                  src="images/main/happybox_telegram_d.webp" 
                   alt="Telegram QR" 
                   width="300" height="300" loading="lazy" className="w-full h-full object-contain"
                 />
@@ -99,7 +99,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                 onClick={() => trackLead('whatsapp', 'contact_section', 'click')}
               >
                 <img 
-                  src="/images/main/happybox_wa.webp" 
+                  src="images/main/happybox_wa.webp" 
                   alt="WhatsApp QR" 
                   width="300" height="300" loading="lazy" className="w-full h-full object-contain"
                 />
@@ -124,7 +124,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                 onMouseLeave={() => cancelHover('wechat')}
               >
                 <img 
-                  src="/images/main/happybox_wechat.webp" 
+                  src="images/main/happybox_wechat.webp" 
                   alt="WeChat QR" 
                   width="300" height="300" loading="lazy" className="w-full h-full object-contain"
                 />
