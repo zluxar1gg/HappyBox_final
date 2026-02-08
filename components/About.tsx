@@ -23,7 +23,7 @@ export const About: React.FC<AboutProps> = ({ language }) => {
             {/* Image Column */}
             <div className="flex justify-center lg:justify-end order-last lg:order-first">
                 <img 
-                  src="images/main/happyboxdelivery.webp" 
+                  src="https://i.ibb.co/C55Gbh27/happyboxdelivery.webp" 
                   alt="Happy Box Delivery Illustration" 
                   width="800"
                   height="800"
