@@ -18,18 +18,21 @@ import {
     Link,
     Store,
     Globe,
-    XCircle
+    XCircle,
+    ShieldCheck,
+    ArrowRight
 } from 'lucide-react';
 import { trackLead } from '../utils/analytics';
 
 interface ServicePageProps {
   language: Language;
   setLanguage: (lang: Language) => void;
-  serviceId: 'taobao' | '1688' | 'inspection' | 'warehousing';
+  serviceId: 'taobao' | '1688' | 'inspection' | 'warehousing' | 'poizon' | 'tmall';
   onBack: () => void;
+  onNavigate?: (page: string) => void;
 }
 
-export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage, serviceId, onBack }) => {
+export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage, serviceId, onBack, onNavigate }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -44,6 +47,24 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
         if (contactSection) {
             contactSection.scrollIntoView({ behavior: 'smooth' });
         }
+    };
+
+    const handleBeyondClick = (item: any) => {
+        if (item.id && onNavigate) {
+            // If the item has an ID and navigation function is provided, navigate to that page
+            onNavigate(item.id);
+        } else {
+            // Fallback: scroll to contacts (treat as CTA)
+            handleAction();
+        }
+    };
+
+    // Helper for bold text parsing (**text**)
+    const renderText = (text: string) => {
+        const parts = text.split('**');
+        return parts.map((part, index) => 
+            index % 2 === 1 ? <span key={index} className="font-bold text-brand-dark">{part}</span> : part
+        );
     };
 
     return (
@@ -64,8 +85,8 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                     {t.title}
                                 </h1>
 
-                                {/* 0% Commission Badge ONLY for Taobao */}
-                                {(serviceId === 'taobao') && (
+                                {/* 0% Commission Badge ONLY for Taobao/Poizon/Tmall */}
+                                {(serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall') && (
                                     <div className="mb-8 animate-fade-in">
                                          <div className="inline-block bg-brand-yellow px-6 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default">
                                             <span className="text-base font-bold text-brand-dark tracking-wide">
@@ -112,7 +133,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                     {/* Solution Column */}
                                     <div className="bg-green-50/50 p-8 rounded-[30px] border border-green-100">
                                         <div className="flex items-center gap-2 mb-6 text-green-700 font-bold uppercase tracking-wider text-sm">
-                                            <CheckCircle2 size={18} /> {extraContent.whyNeed.solutionTitle || (language === 'en' ? 'The Solution' : 'Решение')}
+                                            <CheckCircle2 size={18} /> {extraContent.whyNeed.solutionTitle || (language === 'en' ? 'The Solution' : 'Решение от HappyBox')}
                                         </div>
                                         <p className="text-gray-700 font-medium leading-relaxed">
                                             {extraContent.whyNeed.solution}
@@ -138,7 +159,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                                 {extraContent.howItWorks.steps.map((step: any, idx: number) => {
                                     // Icons mapping based on index
-                                    const stepIcons = [Search, Link, ClipboardCheck, Package];
+                                    const stepIcons = [Search, Link, ClipboardCheck, Package, Send];
                                     const StepIcon = stepIcons[idx] || CheckCircle2;
                                     
                                     return (
@@ -156,7 +177,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                                 <StepIcon className="w-5 h-5 text-gray-300 group-hover:text-brand-blue transition-colors flex-shrink-0" />
                                             </div>
                                             
-                                            {/* Description Row - FULL WIDTH (Removed pl-11) */}
+                                            {/* Description Row - FULL WIDTH */}
                                             <p className="text-sm text-gray-500 font-medium leading-relaxed">
                                                 {step.desc}
                                             </p>
@@ -179,7 +200,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                         {extraContent.proTip.title}
                                     </h3>
                                     <p className="text-brand-dark/80 font-bold leading-relaxed text-lg italic">
-                                        "{extraContent.proTip.text}"
+                                        "{renderText(extraContent.proTip.text)}"
                                     </p>
                                 </div>
                             </div>
@@ -223,7 +244,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                         })}
                     </div>
 
-                    {/* OPTIONAL: Beyond Taobao (Rich Grid) */}
+                    {/* OPTIONAL: Beyond Taobao (Rich Grid with Click handling) */}
                     {extraContent.beyond && (
                         <div className="mb-12 pt-8 border-t border-gray-100">
                              <h2 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
@@ -231,12 +252,25 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                             </h2>
                             <div className="grid md:grid-cols-2 gap-4">
                                 {extraContent.beyond.items.map((item: any, idx: number) => (
-                                    <div key={idx} className="p-6 flex items-start gap-4 hover:bg-gray-50 rounded-2xl transition-colors border border-transparent hover:border-gray-100">
+                                    <div 
+                                        key={idx} 
+                                        onClick={() => handleBeyondClick(item)}
+                                        className={`p-6 flex items-start gap-4 rounded-2xl transition-all border border-transparent group ${
+                                            item.id ? 'hover:bg-gray-50 hover:shadow-md cursor-pointer hover:border-brand-blue/10' : 'hover:bg-gray-50 cursor-default'
+                                        }`}
+                                    >
                                         <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue flex-shrink-0">
                                             <Store size={24} />
                                         </div>
-                                        <div>
-                                            <h4 className="font-bold text-brand-dark text-lg mb-2">{item.title}</h4>
+                                        <div className="flex-1">
+                                            <div className="flex justify-between items-start">
+                                                <h4 className="font-bold text-brand-dark text-lg mb-2">{item.title}</h4>
+                                                {item.id && (
+                                                    <div className="text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1">
+                                                        <ArrowRight size={18} />
+                                                    </div>
+                                                )}
+                                            </div>
                                             <p className="text-sm text-gray-500 font-medium leading-relaxed">{item.desc}</p>
                                         </div>
                                     </div>
@@ -245,19 +279,26 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                         </div>
                     )}
 
-                    {/* OPTIONAL: Shipping Info (Bottom Block) */}
+                    {/* OPTIONAL: Shipping Info (Bottom Block) - ENHANCED FOR DDP */}
                     {extraContent.shippingInfo && (
-                        <div className="mb-12 bg-blue-50/50 p-8 rounded-[30px] border border-blue-100 text-center md:text-left">
-                            <div className="flex flex-col md:flex-row items-center gap-6">
-                                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-brand-blue shadow-sm flex-shrink-0">
-                                    <Globe size={32} />
+                        <div className="mb-12 bg-green-50/50 p-8 rounded-[30px] border border-green-100 text-center md:text-left relative overflow-hidden">
+                            {/* DDP Badge */}
+                            {(serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall') && (
+                                <div className="absolute top-0 right-0 bg-green-200 text-green-800 text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase tracking-widest">
+                                    {language === 'en' ? '🛡️ NO Customs Fees' : '🛡️ Без доплат при получении'}
+                                </div>
+                            )}
+
+                            <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
+                                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-green-600 shadow-sm flex-shrink-0">
+                                    {serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall' ? <ShieldCheck size={32} /> : <Globe size={32} />}
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-black text-brand-dark mb-2">
+                                    <h3 className="text-xl font-black text-brand-dark mb-2 leading-tight">
                                         {extraContent.shippingInfo.title}
                                     </h3>
                                     <p className="text-gray-600 font-medium leading-relaxed">
-                                        {extraContent.shippingInfo.text}
+                                        {renderText(extraContent.shippingInfo.text)}
                                     </p>
                                 </div>
                             </div>

@@ -5,9 +5,9 @@ import {
   ShoppingBag, 
   Search, 
   ShoppingCart, 
-  ClipboardCheck, 
-  Warehouse,
-  ArrowRight
+  ArrowRight,
+  ScanBarcode,
+  Store
 } from 'lucide-react';
 import { Language, translations } from '../utils/translations';
 import { DestinationsGrid } from './DestinationsGrid';
@@ -55,20 +55,20 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       bg: 'bg-red-50' 
     },
     { 
-      id: 'inspection', 
-      title: isEn ? 'Inspection' : 'Проверка брака', 
-      seoText: t.inspection,
-      icon: ClipboardCheck, 
-      color: 'text-purple-500', 
-      bg: 'bg-purple-50' 
+      id: 'poizon', 
+      title: 'Poizon (Dewu)', 
+      seoText: isEn ? 'Authentic Sneakers' : 'Оригинал с Poizon',
+      icon: ScanBarcode, 
+      color: 'text-teal-500', 
+      bg: 'bg-teal-50' 
     },
     { 
-      id: 'warehousing', 
-      title: isEn ? 'Warehousing' : 'Склад', 
-      seoText: t.warehousing,
-      icon: Warehouse, 
-      color: 'text-blue-500', 
-      bg: 'bg-blue-50' 
+      id: 'tmall', 
+      title: 'Tmall Global', 
+      seoText: isEn ? 'Official Brands' : 'Официальные бренды',
+      icon: Store, 
+      color: 'text-rose-600', 
+      bg: 'bg-rose-50' 
     }
   ];
 

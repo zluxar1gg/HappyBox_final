@@ -29,7 +29,7 @@ import { Loader2, X, Hammer } from 'lucide-react';
 // Lazy load components
 const Quiz = React.lazy(() => import('./components/Quiz').then(module => ({ default: module.Quiz })));
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall';
 
 const App: React.FC = () => {
   // 1. Initialize language from URL
@@ -69,7 +69,7 @@ const App: React.FC = () => {
       const params = new URLSearchParams(window.location.search);
       const pageParam = params.get('page');
       
-      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon'];
+      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall'];
       if (pageParam && validPages.includes(pageParam as PageType)) {
           return pageParam as PageType;
       }
@@ -97,7 +97,7 @@ const App: React.FC = () => {
 
   // Handle navigation and URL updates
   const handleNavigate = (page: string, sectionId?: string) => {
-    const validPages: PageType[] = ['home', 'usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon'];
+    const validPages: PageType[] = ['home', 'usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall'];
     let targetPage: PageType = 'home';
     
     if (validPages.includes(page as PageType)) {
@@ -154,7 +154,7 @@ const App: React.FC = () => {
       const pageParam = params.get('page');
       const langParam = params.get('lang');
       
-      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon'];
+      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall'];
       if (pageParam && validPages.includes(pageParam as PageType)) {
           setCurrentPage(pageParam as PageType);
       } else {
@@ -189,8 +189,8 @@ const App: React.FC = () => {
       if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
       
       // Service pages return to "services" section
-      if (currentPage === 'taobao' || currentPage === '1688' || currentPage === 'inspection' || currentPage === 'warehousing') {
-          return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleNavigate('home', 'services')} />;
+      if (currentPage === 'taobao' || currentPage === '1688' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall') {
+          return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleNavigate('home', 'services')} onNavigate={handleNavigate} />;
       }
 
       // Default Home

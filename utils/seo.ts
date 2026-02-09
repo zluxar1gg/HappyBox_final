@@ -4,9 +4,11 @@
 
 
 
+
+
 import { Language } from './translations';
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall';
 
 interface MetaData {
   title: string;
@@ -46,6 +48,14 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     1688: {
       title: "1688 Sourcing Agent | Wholesale & Bulk Purchasing from China | HappyBox",
       description: "Need a reliable 1688 agent? HappyBox offers expert sourcing, factory negotiation, and quality control for bulk orders from 1688.com. Lowest 2% commission and DDP shipping worldwide."
+    },
+    poizon: {
+      title: "Poizon (Dewu) Agent | Authentic Sneakers & Luxury from China",
+      description: "Shop on Poizon (Dewu) like a local. HappyBox handles purchasing, legit check, and DDP shipping. 0% Service Fee. Buy authentic sneakers and streetwear for less."
+    },
+    tmall: {
+      title: "Tmall Global Agent | Official Brands & Flagship Stores from China",
+      description: "Buy authentic brands from Tmall with HappyBox. Access official flagship stores, 0% commission, and DDP delivery worldwide. Secure shopping from China."
     },
     inspection: {
       title: "Quality Control China | Professional Factory Inspection Services | HappyBox",
@@ -88,6 +98,14 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     1688: {
       title: "Агент 1688 | Оптовые закупки из Китая и Посредник | HappyBox",
       description: "Ищете надежного агента 1688? HappyBox предлагает профессиональный поиск, переговоры с фабриками и контроль качества. Комиссия 2%, доставка DDP по всему миру."
+    },
+    poizon: {
+      title: "Посредник Пойзон (Деву) | Оригинальные кроссовки и бренды без наценок",
+      description: "Покупайте на Poizon (Dewu) с HappyBox. Комиссия 0%. Честный курс, проверка на оригинал (Legit Check), доставка DDP и Карго в РФ. Бирюзовая коробка и сертификат."
+    },
+    tmall: {
+      title: "Посредник Tmall Global | Официальные бренды Китая | HappyBox",
+      description: "Выкуп товаров с Tmall Global без комиссии. Официальные магазины брендов, гарантия оригинала. Доставка в Россию и по миру."
     },
     inspection: {
       title: "Контроль качества в Китае | Профессиональная инспекция фабрик | HappyBox",

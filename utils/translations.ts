@@ -457,16 +457,16 @@ export const translations = {
         beyond: {
             title: "Beyond Taobao: 1688, Poizon, and More",
             items: [
-                { title: "1688.com", desc: "Best for wholesale prices and sourcing directly from factories. We help you negotiate with suppliers, manage bulk orders, and handle B2B logistics with ease." },
-                { title: "Poizon (Dewu)", desc: "The top choice for authentic sneakers, luxury goods, and branded streetwear. Use HappyBox to secure genuine items, verified by Poizon experts, and delivered safely to your address." },
-                { title: "Tmall", desc: "High-quality brands and official flagship stores. Perfect for customers seeking premium goods, home electronics, and authentic fashion from world-renowned manufacturers." },
+                { id: '1688', title: "1688.com", desc: "Best for wholesale prices and sourcing directly from factories. We help you negotiate with suppliers, manage bulk orders, and handle B2B logistics with ease." },
+                { id: 'poizon', title: "Poizon (Dewu)", desc: "The top choice for authentic sneakers, luxury goods, and branded streetwear. Use HappyBox to secure genuine items, verified by Poizon experts, and delivered safely to your address." },
+                { id: 'tmall', title: "Tmall", desc: "High-quality brands and official flagship stores. Perfect for customers seeking premium goods, home electronics, and authentic fashion from world-renowned manufacturers." },
                 { title: "Offline Stores", desc: "We provide sourcing services for physical markets in China. Whether you need furniture from Foshan or electronics from the markets of Shenzhen, our team can handle offline purchases for you within Guandong province and Hong Kong." },
                 { title: "Any other Chinese platform", desc: "From Pinduoduo and Xianyu (second-hand goods) to Weidian and niche marketplaces. If a seller is based in China, we can buy and ship it for you."}
             ]
         },
         shippingInfo: {
-            title: "Shipping from China to USA, Europe, and UAE",
-            text: "We offer competitive rates for worldwide delivery, including the USA, UAE, Europe (Poland, Germany, Spain, France), and beyond. Whether it’s a small parcel of clothes or a large furniture shipment, HappyBox ensures a smooth logistics experience."
+            title: "Hassle-Free DDP Shipping from China to USA, Europe, Canada and more",
+            text: "We specialize in **DDP (Delivered Duty Paid)** logistics. This means **we handle all customs clearance and pay import duties for you**. Whether you are shipping to New York, Berlin, or Dubai, the shipping price you pay is final. No surprise bills from customs, no paperwork for you. Just wait for the doorbell."
         },
         startBtn: 'Start Shopping',
         backBtn: 'Back to Home'
@@ -506,6 +506,74 @@ export const translations = {
             ]
         },
         startBtn: 'Start Sourcing',
+        backBtn: 'Back to Home'
+      },
+      poizon: {
+        title: 'Poizon (Dewu) Agent Service: Buy Authentic Sneakers & Luxury from China',
+        desc: "Shop on Poizon (Dewu) – China's top marketplace for genuine branded items. Access originals at prices 20-50% lower than global retail. 0% Service Fee.",
+        whyNeed: {
+            title: "What Makes Buying Directly Difficult",
+            problems: [
+                "China-Only Access: The app is in Chinese, requires a local ID, and payment methods like Alipay/WeChat are difficult for foreigners to access.",
+                "No International Shipping: Sellers do not export. Without an agent, you face language barriers and shipping blocks.",
+                "Hidden Fees Elsewhere: Many agents charge 15-50% hidden markups on currency exchange rates."
+            ],
+            solutionTitle: "How HappyBox Fixes It",
+            solution: "HappyBox acts as your professional bridge. We handle the language gap, use secure local payments, and leverage Poizon's rigorous authenticity system. We use transparent currency rates close to market spot rates (no hidden 30% markups) and ensure all items come with the famous 'Turquoise Box' and Certificate."
+        },
+        howItWorks: {
+            title: "How It Works (5 Steps)",
+            steps: [
+                { title: "Download & Register", desc: "Download Dewu (Poizon). Register with your international phone number." },
+                { title: "Find Your Items", desc: "Search using English keywords. Note: Prices vary by size." },
+                { title: "Submit Order", desc: "Share the link with us. We verify price and delivery speed." },
+                { title: "We Buy & Inspect", desc: "We purchase. Poizon performs Legit Check. If it passes, it comes to us." },
+                { title: "Consolidate & Ship", desc: "We repack, store for free if needed, and ship to your door." }
+            ]
+        },
+        proTip: {
+            title: "Confused by the app buttons?",
+            text: "The **Turquoise Button** usually means 'Ship in 48h' (Instant), while the **Black Button** means standard shipping. Avoid the **Gray Button** with '95' text unless you want used items. If you can't find what you need, just send us a photo!"
+        },
+        features: [
+            { title: '100% Authenticity Guarantee', desc: 'Every item passes Poizon’s lab verification. If it\'s fake, they refund us immediately. You get the Certificate and Blue Tag.' },
+            { title: 'Double Box Protection', desc: 'We ship all sneakers in reinforced double boxes to ensure the original brand box arrives in pristine condition.' },
+            { title: 'Fair Pricing', desc: 'We don\'t hide fees in the exchange rate. You pay the real price.' },
+            { title: 'Free Quality Check (QC)', desc: 'We send you photos of the item, the certificate, and the tag before international shipping.' }
+        ],
+        shippingInfo: {
+            title: "Safe International Shipping for High-Value Goods",
+            text: "We specialize in **DDP (Delivered Duty Paid)** shipping for high-value items. We handle **customs clearance and import taxes**, so you can receive your sneakers without surprise fees."
+        },
+        startBtn: 'Buy from Poizon',
+        backBtn: 'Back to Home'
+      },
+      tmall: {
+        title: 'Tmall Global Agent: Official Brands & Flagship Stores',
+        desc: "Shop from official brand flagship stores on Tmall.com with 100% confidence. Tmall is the premium B2C platform of Alibaba, hosting major international and Chinese brands. HappyBox helps you buy and ship Tmall products worldwide.",
+        whyNeed: {
+            title: "Why Tmall instead of Taobao?",
+            text: "While Taobao is C2C (Consumer to Consumer), Tmall is B2C (Business to Consumer). Tmall sellers are verified businesses or official brand representatives. This means: 100% Authentic products, higher service standards, and often better return policies. It is the best place to buy electronics, cosmetics, and branded fashion."
+        },
+        howItWorks: {
+            title: "Shopping on Tmall with HappyBox",
+            steps: [
+                { title: "Browse Tmall", desc: "Look for the red Tmall logo on product listings." },
+                { title: "Send Link", desc: "Paste the product URL to us." },
+                { title: "Purchase", desc: "We buy directly from the official store." },
+                { title: "Delivery", desc: "We consolidate with your other items and ship." }
+            ]
+        },
+        features: [
+            { title: 'Official Flagship Stores', desc: 'Access official stores of Apple, Nike, Dyson, Uniqlo, and thousands more.' },
+            { title: 'Quality Assurance', desc: 'Tmall has stricter quality control than regular Taobao.' },
+            { title: '0% Purchasing Fee', desc: 'We do not charge a commission for Tmall purchases.' }
+        ],
+        proTip: {
+            title: "Look for the Red Icon",
+            text: "When searching on Taobao/Tmall, look for the red 'Cat' icon. This indicates the seller is a Tmall merchant with a verified business license and a deposit paid to Alibaba."
+        },
+        startBtn: 'Start Shopping Tmall',
         backBtn: 'Back to Home'
       },
       inspection: {
@@ -1014,16 +1082,16 @@ export const translations = {
         beyond: {
             title: "Не только Taobao: 1688, Poizon и другое",
             items: [
-                { title: "1688.com", desc: "Лучшее для опта и закупок с фабрик. Поможем договориться с поставщиками и оформить оптовый заказ." },
-                { title: "Poizon (Dewu)", desc: "Топ для оригинальных кроссовок и люкса. Выкупим, проверим и бережно доставим." },
-                { title: "Tmall", desc: "Официальные магазины брендов. Идеально для тех, кто ищет премиум качество и гарантию оригинальности." },
+                { id: '1688', title: "1688.com", desc: "Лучшее для опта и закупок с фабрик. Поможем договориться с поставщиками и оформить оптовый заказ." },
+                { id: 'poizon', title: "Poizon (Dewu)", desc: "Топ для оригинальных кроссовок и люкса. Выкупим, проверим и бережно доставим." },
+                { id: 'tmall', title: "Tmall", desc: "Официальные магазины брендов. Идеально для тех, кто ищет премиум качество и гарантию оригинальности." },
                 { title: "Офлайн магазины", desc: "Нужна мебель из Фошаня или электроника с рынков Шэньчжэня? Мы можем организовать выкуп офлайн." },
                 { title: "Любая другая площадка", desc: "Pinduoduo, Xianyu (б/у), Weidian. Если продавец в Китае — мы можем это выкупить."}
             ]
         },
         shippingInfo: {
-            title: "Доставка из Китая в США, Европу и ОАЭ",
-            text: "Мы предлагаем выгодные тарифы по всему миру: США, Европа (Германия, Польша, Франция), ОАЭ и СНГ. Будь то маленькая посылка с одеждой или мебель — HappyBox обеспечит надежную логистику."
+            title: "DDP Доставка из Китая в США, Европу, Канаду и ОАЭ: Таможня и Налоги включены",
+            text: "Мы специализируемся на доставке по системе **DDP (Delivered Duty Paid)**. Это значит, что **мы берем на себя всю таможенную очистку и уплату пошлин**. Вам не нужно общаться с таможней или платить налоги при получении. Цена доставки окончательная — никаких скрытых сюрпризов."
         },
         startBtn: 'Начать шопинг',
         backBtn: 'На главную'
@@ -1063,6 +1131,74 @@ export const translations = {
             ]
         },
         startBtn: 'Начать закупку',
+        backBtn: 'На главную'
+      },
+      poizon: {
+        title: 'Посредник Пойзон (Деву) | Оригинальные кроссовки и бренды без наценок',
+        desc: "Покупайте на Poizon (Dewu) — главной площадке оригинальных вещей в Китае. Цены на 30-50% ниже, чем в РФ и Европе. Комиссия за выкуп 0%.",
+        whyNeed: {
+            title: "Почему сложно купить напрямую?",
+            problems: [
+                "Приложение для Китая: Интерфейс только на китайском, для оплаты нужны Alipay или WeChat, продавцы не отправляют за границу.",
+                "Скрытые комиссии: Многие посредники заявляют низкую комиссию, но накручивают 15-30% на курсе юаня.",
+                "Сложности с логистикой: Риск, что дорогая вещь потеряется или придет мятой без правильной упаковки."
+            ],
+            solutionTitle: "Решение от HappyBox",
+            solution: "Мы — ваш профессиональный агент. Мы берем на себя выкуп, проверку и логистику. Мы считаем юань по справедливому курсу (максимально близкому к биржевому/ЦБ), без скрытых наценок. Вы получаете полный комплект защиты Poizon: бирюзовая коробка, сертификат с QR-кодом и синяя пломба."
+        },
+        howItWorks: {
+            title: "Как это работает (5 Шагов)",
+            steps: [
+                { title: "Скачайте приложение", desc: "Найдите Dewu (Poizon) в App Store. Регистрация работает на российские номера (+7)." },
+                { title: "Найдите товар", desc: "Вбивайте название на английском. Цена зависит от размера." },
+                { title: "Оформите заказ", desc: "Пришлите нам ссылку (кнопка 'Поделиться'). Мы проверим наличие." },
+                { title: "Выкуп и Legit Check", desc: "Мы выкупаем. Poizon проверяет товар в своей лаборатории перед отправкой нам." },
+                { title: "Склад и Доставка", desc: "Мы получаем, делаем фотоотчет, упаковываем и отправляем вам." }
+            ]
+        },
+        proTip: {
+            title: "Совет эксперта",
+            text: "Путаетесь в кнопках? **Бирюзовая кнопка** — это 'Быстрая доставка' со склада Poizon. **Черная кнопка** — товар едет от продавца (чуть дольше, но дешевле). Избегайте кнопок с цифрой **'95'** — это б/у вещи или товары с дефектами коробки."
+        },
+        features: [
+            { title: 'Оригинал 100%', desc: 'Многоступенчатая проверка Poizon исключает подделки. Если товар не пройдет проверку, деньги вернутся нам, а мы вернем их вам.' },
+            { title: 'Double Box (Двойная коробка)', desc: 'Обувь и сумки мы упаковываем в дополнительную жесткую коробку, чтобы оригинальная упаковка приехала идеальной.' },
+            { title: 'Оплата в рублях', desc: 'Принимаем переводы на карты РФ, USDT или наличные. Вам не нужно искать китайские карты.' },
+            { title: 'Бесплатный фотоотчет', desc: 'Вы увидите свои кроссовки и сертификат до того, как они вылетят из Китая.' }
+        ],
+        shippingInfo: {
+            title: "Бережная доставка ценных грузов",
+            text: "Для дорогих брендовых вещей мы используем надежные маршруты (Карго или Белая доставка) с полной страховкой. Мы знаем, как возить люкс, чтобы у таможни не возникало вопросов."
+        },
+        startBtn: 'Заказать с Poizon',
+        backBtn: 'На главную'
+      },
+      tmall: {
+        title: 'Посредник Tmall Global: Официальные бренды Китая',
+        desc: "Покупайте в официальных флагманских магазинах на Tmall.com с полной уверенностью. Tmall — это премиальная B2C платформа Alibaba, где представлены мировые и китайские бренды. HappyBox поможет выкупить и доставить товары с Tmall в Россию.",
+        whyNeed: {
+            title: "Почему Tmall, а не Taobao?",
+            text: "Если Taobao — это рынок (C2C), то Tmall — это торговый центр (B2C). Продавцы на Tmall — это проверенные юрлица или официальные представители брендов. Это значит: 100% оригинал, выше стандарты обслуживания и качественная упаковка. Идеально для покупки техники, косметики и брендовой одежды."
+        },
+        howItWorks: {
+            title: "Покупки на Tmall с HappyBox",
+            steps: [
+                { title: "Поиск", desc: "Ищите товары с красным значком Tmall." },
+                { title: "Ссылка", desc: "Пришлите нам ссылку на товар." },
+                { title: "Выкуп", desc: "Мы выкупаем напрямую у официального магазина." },
+                { title: "Доставка", desc: "Консолидируем с другими покупками и отправляем." }
+            ]
+        },
+        features: [
+            { title: 'Официальные магазины', desc: 'Доступ к магазинам Apple, Xiaomi, Uniqlo, Zara и тысяч других брендов.' },
+            { title: 'Гарантия качества', desc: 'Tmall имеет более строгий контроль качества, чем обычный Taobao.' },
+            { title: 'Комиссия 0%', desc: 'Мы не берем комиссию за выкуп с Tmall.' }
+        ],
+        proTip: {
+            title: "Ищите красного кота",
+            text: "При поиске обращайте внимание на иконку красного кота. Это знак того, что продавец — верифицированный мерчант Tmall с лицензией и депозитом в Alibaba."
+        },
+        startBtn: 'Начать шопинг Tmall',
         backBtn: 'На главную'
       },
       inspection: {
