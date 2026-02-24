@@ -20,14 +20,17 @@ import {
     Globe,
     XCircle,
     ShieldCheck,
-    ArrowRight
+    ArrowRight,
+    PackageCheck,
+    Tag,
+    Recycle
 } from 'lucide-react';
 import { trackLead } from '../utils/analytics';
 
 interface ServicePageProps {
   language: Language;
   setLanguage: (lang: Language) => void;
-  serviceId: 'taobao' | '1688' | 'inspection' | 'warehousing' | 'poizon' | 'tmall';
+  serviceId: 'taobao' | '1688' | 'inspection' | 'warehousing' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu';
   onBack: () => void;
   onNavigate?: (page: string) => void;
 }
@@ -38,6 +41,25 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
     }, []);
 
     const t = translations[language].servicePages[serviceId];
+    
+    if (!t) {
+        return (
+            <div className="min-h-screen bg-cream pt-20 flex items-center justify-center">
+                <div className="text-center p-8">
+                    <h1 className="text-2xl font-bold mb-4 text-brand-dark">Service Not Found</h1>
+                    <p className="text-gray-600 mb-6">Sorry, the requested service page "{serviceId}" could not be loaded.</p>
+                    <p className="text-xs text-gray-400 mb-6">Debug: Language={language}, ServiceID={serviceId}</p>
+                    <button 
+                        onClick={onBack} 
+                        className="bg-brand-blue text-white px-6 py-2 rounded-xl font-bold hover:bg-brand-dark transition-colors"
+                    >
+                        Go Back
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
     // Helper to safely access potential new fields (they might be undefined on other service pages)
     const extraContent = t as any; 
 
@@ -51,10 +73,8 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
 
     const handleBeyondClick = (item: any) => {
         if (item.id && onNavigate) {
-            // If the item has an ID and navigation function is provided, navigate to that page
             onNavigate(item.id);
         } else {
-            // Fallback: scroll to contacts (treat as CTA)
             handleAction();
         }
     };
@@ -65,6 +85,19 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
         return parts.map((part, index) => 
             index % 2 === 1 ? <span key={index} className="font-bold text-brand-dark">{part}</span> : part
         );
+    };
+
+    // Helper to get Icon and Color for Service Buttons
+    const getServiceIcon = (id: string) => {
+        switch(id) {
+            case 'taobao': return { icon: ShoppingCart, color: 'text-orange-500 bg-orange-50' };
+            case 'tmall': return { icon: Store, color: 'text-red-600 bg-red-50' };
+            case '1688': return { icon: Warehouse, color: 'text-orange-600 bg-orange-100' };
+            case 'pinduoduo': return { icon: Tag, color: 'text-pink-600 bg-pink-50' };
+            case 'poizon': return { icon: CheckCircle2, color: 'text-teal-500 bg-teal-50' };
+            case 'xianyu': return { icon: Recycle, color: 'text-yellow-500 bg-yellow-50' };
+            default: return { icon: Globe, color: 'text-brand-blue bg-brand-light' };
+        }
     };
 
     return (
@@ -85,8 +118,8 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                     {t.title}
                                 </h1>
 
-                                {/* 0% Commission Badge ONLY for Taobao/Poizon/Tmall */}
-                                {(serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall') && (
+                                {/* 0% Commission Badge ONLY for Taobao/Poizon/Tmall/Pinduoduo */}
+                                {(serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall' || serviceId === 'pinduoduo') && (
                                     <div className="mb-8 animate-fade-in">
                                          <div className="inline-block bg-brand-yellow px-6 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default">
                                             <span className="text-base font-bold text-brand-dark tracking-wide">
@@ -244,46 +277,69 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                         })}
                     </div>
 
-                    {/* OPTIONAL: Beyond Taobao (Rich Grid with Click handling) */}
+                    {/* NEW Beyond Section Layout (Grid Buttons + Highlighted Box) */}
                     {extraContent.beyond && (
                         <div className="mb-12 pt-8 border-t border-gray-100">
                              <h2 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
                                 {extraContent.beyond.title}
                             </h2>
-                            <div className="grid md:grid-cols-2 gap-4">
-                                {extraContent.beyond.items.map((item: any, idx: number) => (
-                                    <div 
-                                        key={idx} 
-                                        onClick={() => handleBeyondClick(item)}
-                                        className={`p-6 flex items-start gap-4 rounded-2xl transition-all border border-transparent group ${
-                                            item.id ? 'hover:bg-gray-50 hover:shadow-md cursor-pointer hover:border-brand-blue/10' : 'hover:bg-gray-50 cursor-default'
-                                        }`}
-                                    >
-                                        <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue flex-shrink-0">
-                                            <Store size={24} />
-                                        </div>
-                                        <div className="flex-1">
-                                            <div className="flex justify-between items-start">
-                                                <h4 className="font-bold text-brand-dark text-lg mb-2">{item.title}</h4>
-                                                {item.id && (
-                                                    <div className="text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1">
-                                                        <ArrowRight size={18} />
-                                                    </div>
-                                                )}
+                            
+                            {/* 1. The Grid of Service Buttons */}
+                            <div className="grid md:grid-cols-2 gap-4 mb-6">
+                                {extraContent.beyond.items.filter((item: any) => item.id).map((item: any, idx: number) => {
+                                    const { icon: Icon, color } = getServiceIcon(item.id);
+                                    
+                                    return (
+                                        <div 
+                                            key={idx} 
+                                            onClick={() => handleBeyondClick(item)}
+                                            className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md cursor-pointer hover:border-brand-blue/20 transition-all group flex items-center justify-between"
+                                        >
+                                            <div className="flex items-center gap-4 overflow-hidden">
+                                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${color}`}>
+                                                    <Icon size={24} />
+                                                </div>
+                                                <div className="flex flex-col min-w-0">
+                                                    <h4 className="font-bold text-lg text-brand-dark leading-tight group-hover:text-brand-blue transition-colors truncate">
+                                                        {item.title}
+                                                    </h4>
+                                                    <p className="text-xs text-gray-500 font-medium leading-snug truncate pr-2">
+                                                        {item.desc}
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <p className="text-sm text-gray-500 font-medium leading-relaxed">{item.desc}</p>
+                                            <div className="text-gray-300 group-hover:text-brand-blue transition-colors flex-shrink-0">
+                                                <ArrowRight size={20} />
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    )
+                                })}
                             </div>
+
+                            {/* 2. The Highlighted Consolidation Info Box */}
+                            {extraContent.beyond.items.filter((item: any) => !item.id).map((item: any, idx: number) => (
+                                <div key={idx} className="bg-brand-blue/5 border border-brand-blue/10 p-6 rounded-[25px] flex flex-col md:flex-row items-center gap-6 text-center md:text-left relative overflow-hidden">
+                                    <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-blue shadow-sm flex-shrink-0 z-10">
+                                        <PackageCheck size={28} />
+                                    </div>
+                                    <div className="z-10">
+                                        <h4 className="font-bold text-xl text-brand-dark mb-2">{item.title}</h4>
+                                        <p className="text-brand-dark/80 font-medium leading-relaxed text-sm md:text-base">
+                                            {renderText(item.desc)}
+                                        </p>
+                                    </div>
+                                    {/* Decorative background element */}
+                                    <div className="absolute right-0 bottom-0 w-32 h-32 bg-brand-blue/5 rounded-full blur-2xl -mr-10 -mb-10"></div>
+                                </div>
+                            ))}
                         </div>
                     )}
 
                     {/* OPTIONAL: Shipping Info (Bottom Block) - ENHANCED FOR DDP */}
                     {extraContent.shippingInfo && (
-                        <div className="mb-12 bg-green-50/50 p-8 rounded-[30px] border border-green-100 text-center md:text-left relative overflow-hidden">
+                        <div className="mb-12 bg-green-50/50 p-8 rounded-[30px] border border-green-100 text-center md:text-left relative overflow-hidden mt-8">
                             {/* DDP Badge */}
-                            {(serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall') && (
+                            {(serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall' || serviceId === 'pinduoduo') && (
                                 <div className="absolute top-0 right-0 bg-green-200 text-green-800 text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase tracking-widest">
                                     {language === 'en' ? '🛡️ NO Customs Fees' : '🛡️ Без доплат при получении'}
                                 </div>
@@ -291,7 +347,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
 
                             <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
                                 <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-green-600 shadow-sm flex-shrink-0">
-                                    {serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall' ? <ShieldCheck size={32} /> : <Globe size={32} />}
+                                    {serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall' || serviceId === 'pinduoduo' ? <ShieldCheck size={32} /> : <Globe size={32} />}
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-black text-brand-dark mb-2 leading-tight">

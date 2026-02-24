@@ -42,7 +42,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       id: 'taobao', 
       title: isEn ? 'Taobao Buyer' : 'Байер Taobao', 
       seoText: t.taobao,
-      icon: ShoppingCart, 
+      image: 'https://i.ibb.co/Rp3G3V4h/tao.webp',
       color: 'text-orange-500', 
       bg: 'bg-orange-50' 
     },
@@ -50,7 +50,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       id: '1688', 
       title: isEn ? '1688 Agent' : 'Выкуп 1688', 
       seoText: t['1688'],
-      icon: Search, 
+      image: 'https://i.ibb.co/fRfBQNF/1688.webp',
       color: 'text-red-500', 
       bg: 'bg-red-50' 
     },
@@ -58,7 +58,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       id: 'poizon', 
       title: 'Poizon (Dewu)', 
       seoText: isEn ? 'Authentic Sneakers' : 'Оригинал с Poizon',
-      icon: ScanBarcode, 
+      image: 'https://i.ibb.co/7t5t5phb/poizon.webp',
       color: 'text-teal-500', 
       bg: 'bg-teal-50' 
     },
@@ -66,14 +66,30 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       id: 'tmall', 
       title: 'Tmall Global', 
       seoText: isEn ? 'Official Brands' : 'Официальные бренды',
-      icon: Store, 
+      image: 'https://i.ibb.co/6762BbbX/tmall.webp',
       color: 'text-rose-600', 
       bg: 'bg-rose-50' 
+    },
+    { 
+      id: 'pinduoduo', 
+      title: 'Pinduoduo', 
+      seoText: t.pinduoduo,
+      image: 'https://i.ibb.co/qFkVHCjb/pdd.webp',
+      color: 'text-pink-600', 
+      bg: 'bg-pink-50' 
+    },
+    { 
+      id: 'xianyu', 
+      title: 'Xianyu', 
+      seoText: t.xianyu,
+      image: 'https://i.ibb.co/RGVCGTjn/xy.webp',
+      color: 'text-yellow-500', 
+      bg: 'bg-yellow-50' 
     }
   ];
 
   const renderShopping = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 animate-fade-in mt-6 md:mt-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 animate-fade-in mt-6 md:mt-8">
       {shoppingItems.map((item) => (
         <a 
           key={item.id}
@@ -82,21 +98,21 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
             e.preventDefault();
             onNavigate(item.id);
           }}
-          className="bg-white border border-gray-100 rounded-[20px] md:rounded-[25px] p-4 md:p-6 flex flex-row md:flex-col items-center md:items-center text-left md:text-center gap-4 md:gap-3 hover:shadow-xl hover:-translate-y-1 hover:border-brand-blue/30 transition-all cursor-pointer group min-h-[100px] md:min-h-[220px] relative justify-between"
+          className="bg-white border border-gray-100 rounded-[20px] md:rounded-[25px] p-4 md:p-5 flex flex-row md:flex-col items-center md:items-center text-left md:text-center gap-4 md:gap-3 hover:shadow-xl hover:-translate-y-1 hover:border-brand-blue/30 transition-all cursor-pointer group min-h-[100px] md:min-h-[180px] relative justify-between overflow-hidden"
         >
           {/* Top Content: Icon + Text */}
-          <div className="flex flex-row md:flex-col items-center gap-4 md:gap-3 w-full">
+          <div className="flex flex-row md:flex-col items-center gap-4 md:gap-3 w-full relative z-10">
             {/* Icon Wrapper */}
-            <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex-shrink-0 flex items-center justify-center ${item.bg} ${item.color} group-hover:scale-110 transition-transform shadow-sm`}>
-              <item.icon size={24} className="md:w-[28px] md:h-[28px]" />
+            <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl flex-shrink-0 flex items-center justify-center bg-white group-hover:scale-110 transition-transform shadow-sm border border-gray-50 overflow-hidden`}>
+              <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
             </div>
             
             {/* Text Wrapper */}
             <div className="flex-1 md:w-full">
-              <h4 className="font-extrabold text-brand-dark text-lg md:text-lg leading-tight group-hover:text-brand-blue transition-colors mb-1 md:mb-2">
+              <h4 className="font-extrabold text-brand-dark text-lg md:text-lg leading-tight group-hover:text-brand-blue transition-colors mb-1 md:mb-1">
                   {item.title}
               </h4>
-              <p className="text-xs text-gray-400 font-medium leading-tight line-clamp-2 md:line-clamp-3">
+              <p className="text-xs text-gray-400 font-medium leading-tight line-clamp-2 md:line-clamp-2">
                   {item.seoText}
               </p>
             </div>
@@ -104,7 +120,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
 
           {/* Footer / Action Arrow */}
           {/* Mobile: Simple Arrow on right. Desktop: Full footer with "Details" text */}
-          <div className="md:w-full md:mt-2 md:pt-3 md:border-t md:border-gray-50 flex items-center justify-center md:justify-between flex-shrink-0">
+          <div className="md:w-full md:mt-2 md:pt-2 md:border-t md:border-gray-50 flex items-center justify-center md:justify-between flex-shrink-0 relative z-10">
              <span className="hidden md:block text-[10px] font-black uppercase tracking-widest text-gray-400">
                 {isEn ? 'Details' : 'Подробнее'}
              </span>

@@ -417,9 +417,47 @@ export const translations = {
       taobao: 'Buy from Taobao with joy',
       1688: 'Wholesale sourcing direct from factories',
       inspection: 'Quality check before international shipping',
-      warehousing: 'Free storage and consolidation'
+      warehousing: 'Free storage and consolidation',
+      pinduoduo: 'Group buying deals & discounts',
+      xianyu: 'Second-hand & Vintage market'
     },
     servicePages: {
+      xianyu: {
+        title: 'Xianyu Agent: China\'s Largest Second-Hand Market',
+        desc: "Buy vintage luxury, rare collectibles, and slightly used tech at a fraction of the price. Xianyu (Idle Fish) is Alibaba's flea market where you can find amazing deals on everything from designer bags to gaming consoles.",
+        whyNeed: {
+            title: "Why use an agent for Xianyu?",
+            text: "Sellers on Xianyu are individuals, not professional shops. They typically do not speak English and absolutely do not ship internationally. Furthermore, buying used items carries risk. HappyBox acts as your safety net: we negotiate prices, handle the payment, and most importantly, we physically inspect the item's condition before it leaves China."
+        },
+        howItWorks: {
+            title: "How to buy from Xianyu",
+            steps: [
+                { title: "Find Treasure", desc: "Browse the Xianyu app for unique finds." },
+                { title: "We Negotiate", desc: "Send us the link. We often can negotiate the price down by 10-20%." },
+                { title: "Video Inspection", desc: "For expensive items, we request a video from the seller before buying." },
+                { title: "Final QC", desc: "When it arrives at our warehouse, we check it again against the description." }
+            ]
+        },
+        features: [
+            { title: 'Bargaining Service', desc: 'We communicate with the seller to get you the best possible price.' },
+            { title: 'Risk Management', desc: 'We check the seller\'s "Sesame Credit" rating to ensure they are trustworthy.' },
+            { title: 'Detailed Photo Report', desc: 'Since it is a used item, we provide extra detailed photos of any wear and tear.' }
+        ],
+        proTip: {
+            title: "No Returns Policy",
+            text: "Remember that most Xianyu sellers do not accept returns unless the item is fake or significantly different from the description. Our inspection service is your best protection."
+        },
+        beyond: {
+            title: "Mix New & Old",
+            items: [
+                { id: 'poizon', title: "Poizon", desc: "Combine vintage finds with brand new sneakers." },
+                { id: 'taobao', title: "Taobao", desc: "Add new accessories to your order." },
+                { title: "Consolidation", desc: "We combine your Xianyu treasures with regular Taobao orders into one shipment." }
+            ]
+        },
+        startBtn: 'Start Hunting',
+        backBtn: 'Back to Home'
+      },
       taobao: {
         title: 'Taobao Agent Service: Shop from China and Ship Worldwide',
         desc: "Shop on Taobao, 1688, or Tmall like a local. We handle the purchasing, inspection, and international shipping so you can enjoy the best prices from China without language barriers, blocked accounts, or overpriced shipping. HappyBox buys, inspects, consolidates, and ships your orders worldwide — hassle-free.",
@@ -457,11 +495,10 @@ export const translations = {
         beyond: {
             title: "Beyond Taobao: 1688, Poizon, and More",
             items: [
-                { id: '1688', title: "1688.com", desc: "Best for wholesale prices and sourcing directly from factories. We help you negotiate with suppliers, manage bulk orders, and handle B2B logistics with ease." },
-                { id: 'poizon', title: "Poizon (Dewu)", desc: "The top choice for authentic sneakers, luxury goods, and branded streetwear. Use HappyBox to secure genuine items, verified by Poizon experts, and delivered safely to your address." },
-                { id: 'tmall', title: "Tmall", desc: "High-quality brands and official flagship stores. Perfect for customers seeking premium goods, home electronics, and authentic fashion from world-renowned manufacturers." },
-                { title: "Offline Stores", desc: "We provide sourcing services for physical markets in China. Whether you need furniture from Foshan or electronics from the markets of Shenzhen, our team can handle offline purchases for you within Guandong province and Hong Kong." },
-                { title: "Any other Chinese platform", desc: "From Pinduoduo and Xianyu (second-hand goods) to Weidian and niche marketplaces. If a seller is based in China, we can buy and ship it for you."}
+                { id: '1688', title: "1688.com", desc: "Best for wholesale prices and sourcing directly from factories." },
+                { id: 'poizon', title: "Poizon (Dewu)", desc: "Authentic sneakers and luxury goods." },
+                { id: 'tmall', title: "Tmall", desc: "High-quality brands and official flagship stores." },
+                { title: "Offline Stores", desc: "We provide sourcing services for physical markets in China. Whether you need furniture from Foshan or electronics from the markets of Shenzhen, our team can handle offline purchases for you within Guandong province and Hong Kong." }
             ]
         },
         shippingInfo: {
@@ -542,8 +579,18 @@ export const translations = {
             { title: 'Free Quality Check (QC)', desc: 'We send you photos of the item, the certificate, and the tag before international shipping.' }
         ],
         shippingInfo: {
-            title: "Safe International Shipping for High-Value Goods",
-            text: "We specialize in **DDP (Delivered Duty Paid)** shipping for high-value items. We handle **customs clearance and import taxes**, so you can receive your sneakers without surprise fees."
+            title: "Hassle-Free DDP Shipping from China to USA, Europe, Canada and more",
+            text: "We specialize in **DDP (Delivered Duty Paid)** logistics. This means **we handle all customs clearance and pay import duties for you**. Whether you are shipping to New York, Berlin, or Dubai, the shipping price you pay is final. No surprise bills from customs, no paperwork for you. Just wait for the doorbell."
+        },
+        beyond: {
+            title: "More Than Just Poizon",
+            items: [
+                { id: 'taobao', title: "Taobao", desc: "Everyday fashion & accessories." },
+                { id: 'tmall', title: "Tmall", desc: "Official tech & cosmetics." },
+                { id: '1688', title: "1688.com", desc: "Wholesale & bulk orders." },
+                { id: 'pinduoduo', title: "Pinduoduo", desc: "Unbeatable deals & group buying." },
+                { title: "The Magic of Consolidation", desc: "Poizon sneakers + Taobao clothes + Pinduoduo gadgets = One Parcel. We store for free and combine shipments." }
+            ]
         },
         startBtn: 'Buy from Poizon',
         backBtn: 'Back to Home'
@@ -573,7 +620,53 @@ export const translations = {
             title: "Look for the Red Icon",
             text: "When searching on Taobao/Tmall, look for the red 'Cat' icon. This indicates the seller is a Tmall merchant with a verified business license and a deposit paid to Alibaba."
         },
+        beyond: {
+            title: "Beyond Tmall",
+            items: [
+                { id: 'taobao', title: "Taobao", desc: "Find cheaper alternatives and consumer goods." },
+                { id: 'poizon', title: "Poizon", desc: "Best for limited edition sneakers and luxury street fashion." },
+                { id: '1688', title: "1688.com", desc: "Wholesale prices for bulk orders." },
+                { id: 'pinduoduo', title: "Pinduoduo", desc: "Incredible discounts on gadgets and home goods." },
+                { title: "Consolidation Logic", desc: "Combine your premium Tmall electronics with cheap Taobao accessories in one parcel." }
+            ]
+        },
         startBtn: 'Start Shopping Tmall',
+        backBtn: 'Back to Home'
+      },
+      pinduoduo: {
+        title: 'Pinduoduo Agent: Group Buying & Unbeatable Prices',
+        desc: "Unlock the lowest prices in China. Pinduoduo is famous for its group buying model and incredible discounts on everything from gadgets to home goods. We make buying from Pinduoduo easy and secure.",
+        whyNeed: {
+            title: "Why Pinduoduo?",
+            text: "Pinduoduo often offers lower prices than Taobao for the exact same items. The catch? The app is only in Chinese and the interface can be overwhelming with its gamified discounts. HappyBox acts as your agent: we navigate the app, secure the group-buy price, and handle shipping."
+        },
+        howItWorks: {
+            title: "How to buy from Pinduoduo",
+            steps: [
+                { title: "Browse App", desc: "Download Pinduoduo (拼多多). Find items you like." },
+                { title: "Share Link", desc: "Click the share button and send us the product link." },
+                { title: "We Buy", desc: "We purchase using the 'Group Buy' price for maximum savings." },
+                { title: "Delivery", desc: "We receive, inspect, and ship it to you." }
+            ]
+        },
+        features: [
+            { title: 'Best Prices in China', desc: 'Known for subsidized pricing on everyday items.' },
+            { title: '0% Commission', desc: 'We charge no service fee for standard Pinduoduo orders.' },
+            { title: 'Consolidation', desc: 'Perfect for adding small, cheap items to your main parcel.' }
+        ],
+        proTip: {
+            title: "Don't ignore the timer",
+            text: "Pinduoduo deals are often time-sensitive. If you see a great price, send it to us quickly so we can lock it in before the group-buy window closes."
+        },
+        beyond: {
+            title: "Combine & Save",
+            items: [
+                { id: 'taobao', title: "Taobao", desc: "Wider variety of fashion." },
+                { id: '1688', title: "1688.com", desc: "Bulk orders." },
+                { title: "Smart Shopping", desc: "Use Pinduoduo for cheap gadgets and home essentials, and Taobao for fashion. We ship them together." }
+            ]
+        },
+        startBtn: 'Start Pinduoduo',
         backBtn: 'Back to Home'
       },
       inspection: {
@@ -1042,9 +1135,47 @@ export const translations = {
       taobao: 'Покупки на Taobao и Tmall без границ',
       1688: 'Оптовые закупки напрямую с фабрик',
       inspection: 'Проверка качества перед отправкой',
-      warehousing: 'Бесплатное хранение и консолидация'
+      warehousing: 'Бесплатное хранение и консолидация',
+      pinduoduo: 'Групповые покупки и супер скидки',
+      xianyu: 'Вторичный рынок и винтаж'
     },
     servicePages: {
+      xianyu: {
+        title: 'Посредник Xianyu: Б/У товары и винтаж из Китая',
+        desc: "Покупайте брендовые вещи, технику и коллекционные предметы в 2-3 раза дешевле. Xianyu (Idle Fish) — это китайский Авито от Alibaba, где можно найти уникальные предложения: от винтажных сумок до игровых консолей.",
+        whyNeed: {
+            title: "Зачем нужен посредник для Xianyu?",
+            text: "Продавцы на Xianyu — это частные лица, а не магазины. Они не говорят по-английски и не отправляют товары за границу. Покупка б/у товаров всегда несет риски. HappyBox — ваша защита: мы торгуемся с продавцом, проводим оплату и, самое главное, проверяем состояние товара на нашем складе перед отправкой."
+        },
+        howItWorks: {
+            title: "Как покупать на Xianyu",
+            steps: [
+                { title: "Найдите товар", desc: "Ищите уникальные лоты в приложении Xianyu." },
+                { title: "Мы торгуемся", desc: "Пришлите ссылку. Часто нам удается сбить цену на 10-20%." },
+                { title: "Видео-отчет", desc: "Для дорогих вещей мы запрашиваем видео у продавца перед выкупом." },
+                { title: "Финальная проверка", desc: "По прибытии на склад мы сверяем товар с описанием." }
+            ]
+        },
+        features: [
+            { title: 'Услуга торга', desc: 'Мы общаемся с продавцом, чтобы получить для вас лучшую цену.' },
+            { title: 'Проверка надежности', desc: 'Мы проверяем рейтинг "Sesame Credit" продавца, чтобы исключить мошенников.' },
+            { title: 'Детальный фотоотчет', desc: 'Так как это б/у товар, мы делаем подробные фото всех дефектов и следов носки.' }
+        ],
+        proTip: {
+            title: "Политика возвратов",
+            text: "Помните, что большинство продавцов на Xianyu не принимают возвраты, если товар соответствует описанию. Наша проверка на складе — ваша главная гарантия."
+        },
+        beyond: {
+            title: "Миксуйте новое и старое",
+            items: [
+                { id: 'poizon', title: "Poizon", desc: "Объедините винтаж с новыми кроссовками." },
+                { id: 'taobao', title: "Taobao", desc: "Добавьте новые аксессуары к заказу." },
+                { title: "Консолидация", desc: "Мы соберем ваши находки с Xianyu и покупки с Taobao в одну посылку." }
+            ]
+        },
+        startBtn: 'Начать охоту',
+        backBtn: 'Назад'
+      },
       taobao: {
         title: 'Посредник Таобао: Покупки в Китае с доставкой по миру',
         desc: "Покупайте на Taobao, 1688 и Tmall с комиссией 0%. Мы берем на себя выкуп, проверку и международную доставку, чтобы вы наслаждались лучшими ценами Китая без хлопот. HappyBox выкупает, проверяет, консолидирует и отправляет ваши заказы по всему миру.",
@@ -1167,8 +1298,18 @@ export const translations = {
             { title: 'Бесплатный фотоотчет', desc: 'Вы увидите свои кроссовки и сертификат до того, как они вылетят из Китая.' }
         ],
         shippingInfo: {
-            title: "Бережная доставка ценных грузов",
-            text: "Для дорогих брендовых вещей мы используем надежные маршруты (Карго или Белая доставка) с полной страховкой. Мы знаем, как возить люкс, чтобы у таможни не возникало вопросов."
+            title: "DDP Доставка из Китая в США, Европу, Канаду и ОАЭ: Таможня и Налоги включены",
+            text: "Мы специализируемся на доставке по системе **DDP (Delivered Duty Paid)**. Это значит, что **мы берем на себя всю таможенную очистку и уплату пошлин**. Вам не нужно общаться с таможней или платить налоги при получении. Цена доставки окончательная — никаких скрытых сюрпризов."
+        },
+        beyond: {
+            title: "Больше, чем просто Poizon",
+            items: [
+                { id: 'taobao', title: "Taobao", desc: "Модная одежда и аксессуары." },
+                { id: 'tmall', title: "Tmall", desc: "Официальная техника и косметика." },
+                { id: '1688', title: "1688.com", desc: "Оптовые заказы." },
+                { id: 'pinduoduo', title: "Pinduoduo", desc: "Супер скидки и групповые покупки." },
+                { title: "Магия консолидации", desc: "Кроссовки с Poizon + одежда с Taobao + мелочи с Pinduoduo = Одна посылка. Мы храним бесплатно и объединяем всё." }
+            ]
         },
         startBtn: 'Заказать с Poizon',
         backBtn: 'На главную'
@@ -1198,7 +1339,53 @@ export const translations = {
             title: "Ищите красного кота",
             text: "При поиске обращайте внимание на иконку красного кота. Это знак того, что продавец — верифицированный мерчант Tmall с лицензией и депозитом в Alibaba."
         },
+        beyond: {
+            title: "Больше чем Tmall",
+            items: [
+                { id: 'taobao', title: "Taobao", desc: "Найдите дешевые аналоги и товары народного потребления." },
+                { id: 'poizon', title: "Poizon", desc: "Лучшее для лимитированных кроссовок и уличной моды." },
+                { id: '1688', title: "1688.com", desc: "Оптовые цены для бизнеса." },
+                { id: 'pinduoduo', title: "Pinduoduo", desc: "Невероятные скидки на гаджеты и товары для дома." },
+                { title: "Консолидация", desc: "Объедините премиальную технику с Tmall и дешевые мелочи с Taobao в одной посылке." }
+            ]
+        },
         startBtn: 'Начать шопинг Tmall',
+        backBtn: 'На главную'
+      },
+      pinduoduo: {
+        title: 'Посредник Pinduoduo: Групповые покупки и Низкие цены',
+        desc: "Откройте для себя самые низкие цены в Китае. Pinduoduo известен своей моделью групповых покупок и невероятными скидками на всё: от гаджетов до товаров для дома. Мы делаем покупки с Pinduoduo простыми и безопасными.",
+        whyNeed: {
+            title: "Почему Pinduoduo?",
+            text: "Pinduoduo часто предлагает цены ниже, чем на Taobao, за те же самые товары. В чем подвох? Приложение только на китайском, а интерфейс перенасыщен акциями. HappyBox — ваш агент: мы разберемся в приложении, выкупим по цене групповой покупки и организуем доставку."
+        },
+        howItWorks: {
+            title: "Как покупать на Pinduoduo",
+            steps: [
+                { title: "Найдите товар", desc: "Скачайте Pinduoduo (拼多多). Выберите, что нравится." },
+                { title: "Поделитесь ссылкой", desc: "Нажмите кнопку поделиться и отправьте ссылку нам." },
+                { title: "Мы выкупим", desc: "Выкупаем по цене 'Group Buy' для максимальной экономии." },
+                { title: "Доставка", desc: "Получим, проверим и отправим вам." }
+            ]
+        },
+        features: [
+            { title: 'Лучшие цены в Китае', desc: 'Известен субсидированными ценами на повседневные товары.' },
+            { title: 'Комиссия 0%', desc: 'Мы не берем комиссию за стандартные заказы с Pinduoduo.' },
+            { title: 'Консолидация', desc: 'Идеально для добавления недорогих мелочей в основную посылку.' }
+        ],
+        proTip: {
+            title: "Не игнорируйте таймер",
+            text: "Скидки на Pinduoduo часто ограничены по времени. Если видите отличную цену, присылайте нам ссылку быстрее, чтобы мы успели выкупить до закрытия окна групповой покупки."
+        },
+        beyond: {
+            title: "Комбинируйте и Экономьте",
+            items: [
+                { id: 'taobao', title: "Taobao", desc: "Больше выбора одежды." },
+                { id: '1688', title: "1688.com", desc: "Оптовые заказы." },
+                { title: "Умный шопинг", desc: "Используйте Pinduoduo для дешевых гаджетов, а Taobao для моды. Мы отправим всё вместе." }
+            ]
+        },
+        startBtn: 'Начать Pinduoduo',
         backBtn: 'На главную'
       },
       inspection: {

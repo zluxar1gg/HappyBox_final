@@ -29,6 +29,11 @@ export const SeoBlock: React.FC<SeoBlockProps> = ({ language, onNavigate }) => {
     // Services & Platforms
     else if (lowerText.includes('taobao') || lowerText.includes('таобао')) pageId = 'taobao';
     else if (lowerText.includes('1688')) pageId = '1688';
+    else if (lowerText.includes('tmall')) pageId = 'tmall';
+    else if (lowerText.includes('poizon') || lowerText.includes('dewu')) pageId = 'poizon';
+    else if (lowerText.includes('pinduoduo')) pageId = 'pinduoduo';
+    else if (lowerText.includes('xianyu')) pageId = 'xianyu';
+    else if (lowerText.includes('amazon')) pageId = 'amazon';
     else if (lowerText.includes('inspection') || lowerText.includes('quality') || lowerText.includes('инспекция') || lowerText.includes('брак')) pageId = 'inspection';
     else if (lowerText.includes('warehousing') || lowerText.includes('storage') || lowerText.includes('consolidation') || lowerText.includes('хранение') || lowerText.includes('консолидация')) pageId = 'warehousing';
 

@@ -8,7 +8,7 @@
 
 import { Language } from './translations';
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu';
 
 interface MetaData {
   title: string;
@@ -56,6 +56,14 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     tmall: {
       title: "Tmall Global Agent | Official Brands & Flagship Stores from China",
       description: "Buy authentic brands from Tmall with HappyBox. Access official flagship stores, 0% commission, and DDP delivery worldwide. Secure shopping from China."
+    },
+    pinduoduo: {
+      title: "Pinduoduo Agent | Group Buying & Best Deals from China | HappyBox",
+      description: "Shop on Pinduoduo with HappyBox. Access group buying deals, 0% commission, and DDP shipping. Save big on gadgets and home goods."
+    },
+    xianyu: {
+      title: "Xianyu Agent | Buy Second-hand & Vintage from China | HappyBox",
+      description: "Buy from Xianyu (Idle Fish) safely. We negotiate, inspect, and ship second-hand goods worldwide. Authentic vintage finds and collectibles."
     },
     inspection: {
       title: "Quality Control China | Professional Factory Inspection Services | HappyBox",
@@ -106,6 +114,14 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     tmall: {
       title: "Посредник Tmall Global | Официальные бренды Китая | HappyBox",
       description: "Выкуп товаров с Tmall Global без комиссии. Официальные магазины брендов, гарантия оригинала. Доставка в Россию и по миру."
+    },
+    pinduoduo: {
+      title: "Посредник Pinduoduo | Групповые покупки и скидки | HappyBox",
+      description: "Покупайте на Pinduoduo с HappyBox. Доступ к групповым ценам, 0% комиссии и доставка DDP. Экономьте на гаджетах и товарах для дома."
+    },
+    xianyu: {
+      title: "Посредник Xianyu | Б/У товары и винтаж из Китая | HappyBox",
+      description: "Безопасные покупки на Xianyu (Idle Fish). Мы торгуемся, проверяем и доставляем б/у товары по всему миру. Оригинальный винтаж и коллекционные вещи."
     },
     inspection: {
       title: "Контроль качества в Китае | Профессиональная инспекция фабрик | HappyBox",
