@@ -21,6 +21,14 @@
   <url><loc>https://happyboxlogistics.com/?page=inspection&amp;lang=ru</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://happyboxlogistics.com/?page=warehousing</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://happyboxlogistics.com/?page=warehousing&amp;lang=ru</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=poizon</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=poizon&amp;lang=ru</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=tmall</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=tmall&amp;lang=ru</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=pinduoduo</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=pinduoduo&amp;lang=ru</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=xianyu</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/?page=xianyu&amp;lang=ru</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
   <!-- USA Shipping Page -->
   <url>
@@ -66,6 +74,17 @@
   </url>
   <url>
     <loc>https://happyboxlogistics.com/?page=ru&amp;lang=ru</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Amazon FBA Page -->
+  <url>
+    <loc>https://happyboxlogistics.com/?page=amazon</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://happyboxlogistics.com/?page=amazon&amp;lang=ru</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

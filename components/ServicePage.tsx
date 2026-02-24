@@ -8,22 +8,17 @@ import { Language, translations } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
 import { 
     CheckCircle2, 
-    ShoppingCart, 
     Search, 
     ClipboardCheck, 
-    Warehouse, 
     Send,
     Lightbulb,
     Package,
     Link,
-    Store,
     Globe,
     XCircle,
     ShieldCheck,
     ArrowRight,
-    PackageCheck,
-    Tag,
-    Recycle
+    PackageCheck
 } from 'lucide-react';
 import { trackLead } from '../utils/analytics';
 
@@ -34,6 +29,15 @@ interface ServicePageProps {
   onBack: () => void;
   onNavigate?: (page: string) => void;
 }
+
+const serviceImages: Record<string, string> = {
+    '1688': 'https://i.ibb.co/fRfBQNF/1688.webp',
+    'pinduoduo': 'https://i.ibb.co/qFkVHCjb/pdd.webp',
+    'poizon': 'https://i.ibb.co/7t5t5phb/poizon.webp',
+    'taobao': 'https://i.ibb.co/Rp3G3V4h/tao.webp',
+    'tmall': 'https://i.ibb.co/6762BbbX/tmall.webp',
+    'xianyu': 'https://i.ibb.co/RGVCGTjn/xy.webp'
+};
 
 export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage, serviceId, onBack, onNavigate }) => {
     useEffect(() => {
@@ -85,19 +89,6 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
         return parts.map((part, index) => 
             index % 2 === 1 ? <span key={index} className="font-bold text-brand-dark">{part}</span> : part
         );
-    };
-
-    // Helper to get Icon and Color for Service Buttons
-    const getServiceIcon = (id: string) => {
-        switch(id) {
-            case 'taobao': return { icon: ShoppingCart, color: 'text-orange-500 bg-orange-50' };
-            case 'tmall': return { icon: Store, color: 'text-red-600 bg-red-50' };
-            case '1688': return { icon: Warehouse, color: 'text-orange-600 bg-orange-100' };
-            case 'pinduoduo': return { icon: Tag, color: 'text-pink-600 bg-pink-50' };
-            case 'poizon': return { icon: CheckCircle2, color: 'text-teal-500 bg-teal-50' };
-            case 'xianyu': return { icon: Recycle, color: 'text-yellow-500 bg-yellow-50' };
-            default: return { icon: Globe, color: 'text-brand-blue bg-brand-light' };
-        }
     };
 
     return (
@@ -287,7 +278,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                             {/* 1. The Grid of Service Buttons */}
                             <div className="grid md:grid-cols-2 gap-4 mb-6">
                                 {extraContent.beyond.items.filter((item: any) => item.id).map((item: any, idx: number) => {
-                                    const { icon: Icon, color } = getServiceIcon(item.id);
+                                    const imageUrl = serviceImages[item.id];
                                     
                                     return (
                                         <div 
@@ -296,8 +287,12 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                             className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md cursor-pointer hover:border-brand-blue/20 transition-all group flex items-center justify-between"
                                         >
                                             <div className="flex items-center gap-4 overflow-hidden">
-                                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${color}`}>
-                                                    <Icon size={24} />
+                                                <div className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center bg-white border border-gray-50 overflow-hidden">
+                                                    {imageUrl ? (
+                                                        <img src={imageUrl} alt={item.title} className="w-full h-full object-cover" />
+                                                    ) : (
+                                                        <Globe className="text-brand-blue" size={24} />
+                                                    )}
                                                 </div>
                                                 <div className="flex flex-col min-w-0">
                                                     <h4 className="font-bold text-lg text-brand-dark leading-tight group-hover:text-brand-blue transition-colors truncate">

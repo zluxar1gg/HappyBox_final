@@ -43,13 +43,13 @@ export const ShoppingGuides: React.FC<{ language: Language }> = ({ language }) =
   const getExpertLabel = () => language === 'en' ? 'Expert Advice' : 'Советы';
 
   return (
-    <section className="py-12 md:py-24 bg-brand-light/30">
+    <section className="py-12 md:py-24 bg-brand-light/20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-8 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4 tracking-tight">
             {t.title}
           </h2>
-          <p className="text-gray-600 font-bold max-w-2xl mx-auto text-sm md:text-lg">
+          <p className="text-gray-500 font-bold max-w-2xl mx-auto text-lg md:text-xl">
             {t.subtitle}
           </p>
         </div>
@@ -63,11 +63,11 @@ export const ShoppingGuides: React.FC<{ language: Language }> = ({ language }) =
               className="bg-white p-5 md:p-10 rounded-2xl md:rounded-[45px] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group flex flex-col h-full border border-transparent hover:border-brand-blue/10 justify-between md:justify-start"
             >
               <div>
-                <h3 className={`text-lg md:text-4xl font-black mb-2 md:mb-4 leading-tight tracking-tighter ${getBrandTextStyle(card.id)}`}>
+                <h3 className={`text-lg md:text-xl font-bold mb-2 md:mb-2 leading-tight tracking-tighter ${getBrandTextStyle(card.id)}`}>
                   {card.title}
                 </h3>
                 {/* Hide description on mobile to save space */}
-                <p className="text-gray-500 font-bold mb-4 md:mb-10 text-sm md:text-lg leading-relaxed hidden md:block">
+                <p className="text-gray-500 font-medium mb-4 md:mb-4 text-sm leading-relaxed hidden md:block">
                   {card.desc}
                 </p>
               </div>

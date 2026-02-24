@@ -23,7 +23,7 @@ export const translations = {
         warehouse: 'We store and consolidate your orders for free',
         buy: 'We can buy from any store you choose',
         packaging: 'Careful and secure packaging',
-        payment: 'Flexible payment options – choose what\'s most convenient',
+        payment: 'Flexible payment options',
         support: '24/7 customer support',
         worldwide: 'Worldwide delivery',
         appreciate: 'We genuinely appreciate every customer'
@@ -152,7 +152,8 @@ export const translations = {
     },
     about: {
       title: 'For over 9 years, we\'ve been providing reliable shipping and purchasing services from China and Hong Kong.',
-      text: 'We are one of the **most trusted purchasing and forwarding services**, with our own warehouses in China and Hong Kong. We ensure your delivery gets straight to your doorstep.'
+      trustedText: 'We are one of the **most trusted purchasing and forwarding services**, with our own warehouses in China and Hong Kong. We ensure your delivery gets straight to your doorstep.',
+      text: 'Your peace of mind is our priority. We handle negotiations with suppliers, offer free photo reports, and consolidate your packages to minimize shipping costs. Whether you are ordering a single pair of sneakers or a commercial batch of electronics - we remove language barriers and customs headaches, making cross-border shopping as easy as buying locally. No bots, no automated replies — just real experts helping you navigate the world\'s biggest marketplace.'
     },
     services: {
       title: 'Our Services',
@@ -419,7 +420,9 @@ export const translations = {
       inspection: 'Quality check before international shipping',
       warehousing: 'Free storage and consolidation',
       pinduoduo: 'Group buying deals & discounts',
-      xianyu: 'Second-hand & Vintage market'
+      xianyu: 'Second-hand & Vintage market',
+      shoppingNote: 'Need a different service related to China? Contact us to discuss. We are not limited to just these platforms.',
+      destinationsNote: 'Didn\'t find your destination? Contact us for details. We ship worldwide.'
     },
     servicePages: {
       xianyu: {
@@ -452,6 +455,8 @@ export const translations = {
             items: [
                 { id: 'poizon', title: "Poizon", desc: "Combine vintage finds with brand new sneakers." },
                 { id: 'taobao', title: "Taobao", desc: "Add new accessories to your order." },
+                { id: '1688', title: "1688.com", desc: "For bulk orders." },
+                { id: 'pinduoduo', title: "Pinduoduo", desc: "For cheap gadgets." },
                 { title: "Consolidation", desc: "We combine your Xianyu treasures with regular Taobao orders into one shipment." }
             ]
         },
@@ -498,6 +503,7 @@ export const translations = {
                 { id: '1688', title: "1688.com", desc: "Best for wholesale prices and sourcing directly from factories." },
                 { id: 'poizon', title: "Poizon (Dewu)", desc: "Authentic sneakers and luxury goods." },
                 { id: 'tmall', title: "Tmall", desc: "High-quality brands and official flagship stores." },
+                { id: 'xianyu', title: "Xianyu", desc: "Second-hand luxury and vintage finds." },
                 { title: "Offline Stores", desc: "We provide sourcing services for physical markets in China. Whether you need furniture from Foshan or electronics from the markets of Shenzhen, our team can handle offline purchases for you within Guandong province and Hong Kong." }
             ]
         },
@@ -534,12 +540,13 @@ export const translations = {
             { title: 'Professional Repacking', desc: 'If your orders need extra protection — such as wooden crates, reinforced pallets, or bubble wrap — we’ve got you covered.' }
         ],
         beyond: {
-            title: "Our specialized 1688 services",
+            title: "Beyond 1688: Retail & Brands",
             items: [
-                { title: "Supplier Verification", desc: "Don't risk your capital. We check the factory's reliability, business license, and real reputation before paying." },
-                { title: "MOQ & Price Negotiation", desc: "Think the Minimum Order Quantity (MOQ) is too high? Our team negotiates directly with factory managers to lower MOQs and get better wholesale prices." },
-                { title: "Sample Consolidation", desc: "Testing different suppliers? We will collect samples from 5-10 different factories into one package and send them to you in one package for verification before a bulk order." },
-                { title: "Wholesale Quality Control (QC)", desc: "We conduct random or full inspections of the batch at our warehouse. We check quantity, packaging integrity, and specifications to avoid expensive returns." }
+                { id: 'taobao', title: "Taobao", desc: "For single items and personal shopping." },
+                { id: 'tmall', title: "Tmall", desc: "Official brands and flagship stores." },
+                { id: 'poizon', title: "Poizon", desc: "Authentic sneakers and streetwear." },
+                { id: 'pinduoduo', title: "Pinduoduo", desc: "Group buying deals & discounts." },
+                { title: "Consolidation", desc: "We combine your wholesale 1688 orders with personal shopping from other platforms." }
             ]
         },
         startBtn: 'Start Sourcing',
@@ -663,6 +670,8 @@ export const translations = {
             items: [
                 { id: 'taobao', title: "Taobao", desc: "Wider variety of fashion." },
                 { id: '1688', title: "1688.com", desc: "Bulk orders." },
+                { id: 'poizon', title: "Poizon", desc: "Authentic luxury & sneakers." },
+                { id: 'tmall', title: "Tmall", desc: "Premium brands." },
                 { title: "Smart Shopping", desc: "Use Pinduoduo for cheap gadgets and home essentials, and Taobao for fashion. We ship them together." }
             ]
         },
@@ -870,7 +879,8 @@ export const translations = {
     },
     about: {
       title: 'Уже более 9 лет мы обеспечиваем надежную доставку и выкуп товаров из Китая и Гонконга.',
-      text: 'Мы — один из **самых надежных сервисов по выкупу и доставке**, с собственными складами в Китае и Гонконге. Гарантируем доставку прямо до вашей двери.'
+      trustedText: 'Мы — один из **самых надежных сервисов по выкупу и доставке**, с собственными складами в Китае и Гонконге. Гарантируем доставку прямо до вашей двери.',
+      text: 'Ваше спокойствие — наш приоритет. Мы берем на себя переговоры с поставщиками, предоставляем бесплатные фотоотчеты и консолидируем ваши посылки для минимизации стоимости доставки. Заказываете ли вы одну пару кроссовок или коммерческую партию электроники — мы устраняем языковые барьеры и таможенные сложности, делая международный шопинг таким же простым, как покупки в местном магазине. Никаких ботов и автоответчиков — только реальные эксперты, помогающие вам ориентироваться на крупнейшем рынке мира.'
     },
     services: {
       title: 'Наши Услуги',
@@ -1137,7 +1147,9 @@ export const translations = {
       inspection: 'Проверка качества перед отправкой',
       warehousing: 'Бесплатное хранение и консолидация',
       pinduoduo: 'Групповые покупки и супер скидки',
-      xianyu: 'Вторичный рынок и винтаж'
+      xianyu: 'Вторичный рынок и винтаж',
+      shoppingNote: 'Нужен другой сервис, связанный с Китаем? Напишите нам для обсуждения. Мы не ограничиваемся только этими площадками.',
+      destinationsNote: 'Не нашли нужное направление? Напишите нам для уточнения. Мы доставляем по всему миру.'
     },
     servicePages: {
       xianyu: {
@@ -1170,6 +1182,8 @@ export const translations = {
             items: [
                 { id: 'poizon', title: "Poizon", desc: "Объедините винтаж с новыми кроссовками." },
                 { id: 'taobao', title: "Taobao", desc: "Добавьте новые аксессуары к заказу." },
+                { id: '1688', title: "1688.com", desc: "Оптовые закупки." },
+                { id: 'pinduoduo', title: "Pinduoduo", desc: "Дешевые гаджеты." },
                 { title: "Консолидация", desc: "Мы соберем ваши находки с Xianyu и покупки с Taobao в одну посылку." }
             ]
         },
@@ -1216,6 +1230,7 @@ export const translations = {
                 { id: '1688', title: "1688.com", desc: "Лучшее для опта и закупок с фабрик. Поможем договориться с поставщиками и оформить оптовый заказ." },
                 { id: 'poizon', title: "Poizon (Dewu)", desc: "Топ для оригинальных кроссовок и люкса. Выкупим, проверим и бережно доставим." },
                 { id: 'tmall', title: "Tmall", desc: "Официальные магазины брендов. Идеально для тех, кто ищет премиум качество и гарантию оригинальности." },
+                { id: 'xianyu', title: "Xianyu", desc: "Вторичный рынок брендов и винтажа." },
                 { title: "Офлайн магазины", desc: "Нужна мебель из Фошаня или электроника с рынков Шэньчжэня? Мы можем организовать выкуп офлайн." },
                 { title: "Любая другая площадка", desc: "Pinduoduo, Xianyu (б/у), Weidian. Если продавец в Китае — мы можем это выкупить."}
             ]
@@ -1253,12 +1268,13 @@ export const translations = {
             { title: 'Спец. упаковка', desc: 'Обрешетка, паллеты, уголки — защитим груз для долгой дороги.' }
         ],
         beyond: {
-            title: "Наши специализированные услуги по 1688",
+            title: "Больше чем 1688: Розница и Бренды",
             items: [
-                { title: "Проверка поставщиков", desc: "Не рискуйте деньгами. Проверим лицензию фабрики и реальность производства перед оплатой." },
-                { title: "Торг и MOQ", desc: "Менеджеры договорятся о снижении минимального заказа (MOQ) и скидках на объем." },
-                { title: "Консолидация образцов", desc: "Соберем образцы с 5 фабрик в одну коробку и отправим вам экспрессом для теста." },
-                { title: "Контроль качества (QC)", desc: "Проверим партию на брак перед отправкой из Китая, чтобы избежать возвратов." }
+                { id: 'taobao', title: "Taobao", desc: "Для штучных покупок и личного пользования." },
+                { id: 'tmall', title: "Tmall", desc: "Официальные бренды и флагманские магазины." },
+                { id: 'poizon', title: "Poizon", desc: "Оригинальные кроссовки и уличная мода." },
+                { id: 'pinduoduo', title: "Pinduoduo", desc: "Групповые покупки и скидки." },
+                { title: "Консолидация", desc: "Мы объединим ваши оптовые заказы с 1688 с личными покупками с других платформ." }
             ]
         },
         startBtn: 'Начать закупку',
@@ -1382,6 +1398,8 @@ export const translations = {
             items: [
                 { id: 'taobao', title: "Taobao", desc: "Больше выбора одежды." },
                 { id: '1688', title: "1688.com", desc: "Оптовые заказы." },
+                { id: 'poizon', title: "Poizon", desc: "Оригинальные кроссовки и люкс." },
+                { id: 'tmall', title: "Tmall", desc: "Премиальные бренды." },
                 { title: "Умный шопинг", desc: "Используйте Pinduoduo для дешевых гаджетов, а Taobao для моды. Мы отправим всё вместе." }
             ]
         },

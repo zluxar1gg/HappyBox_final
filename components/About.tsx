@@ -19,9 +19,14 @@ export const About: React.FC<AboutProps> = ({ language }) => {
   return (
     <section className="py-20 bg-cream">
       <div className="container mx-auto px-6 xl:px-0">
+        {/* Full Width Title */}
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-12 md:mb-20 text-center max-w-5xl mx-auto leading-tight tracking-tight">
+            {t.title}
+        </h2>
+
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Image Column */}
-            <div className="flex justify-center lg:justify-end order-last lg:order-first">
+            <div className="flex justify-center lg:justify-center">
                 <img 
                   src="https://i.ibb.co/C55Gbh27/happyboxdelivery.webp" 
                   alt="Happy Box Delivery Illustration" 
@@ -29,15 +34,15 @@ export const About: React.FC<AboutProps> = ({ language }) => {
                   height="800"
                   loading="lazy"
                   decoding="async"
-                  className="w-full max-w-[600px] object-contain drop-shadow-2xl"
+                  className="w-full max-w-[500px] lg:max-w-[600px] object-contain drop-shadow-2xl"
                 />
             </div>
 
             {/* Text Column */}
-            <div className="text-center lg:text-left">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-8 leading-tight tracking-tight">
-                    {t.title}
-                </h2>
+            <div className="text-center lg:text-left space-y-6">
+                <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
+                    {renderText(t.trustedText)}
+                </p>
                 <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
                     {renderText(t.text)}
                 </p>

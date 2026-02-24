@@ -109,10 +109,10 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
             
             {/* Text Wrapper */}
             <div className="flex-1 md:w-full">
-              <h4 className="font-extrabold text-brand-dark text-lg md:text-lg leading-tight group-hover:text-brand-blue transition-colors mb-1 md:mb-1">
+              <h4 className="font-bold text-brand-dark text-lg md:text-xl leading-tight group-hover:text-brand-blue transition-colors mb-1 md:mb-1">
                   {item.title}
               </h4>
-              <p className="text-xs text-gray-400 font-medium leading-tight line-clamp-2 md:line-clamp-2">
+              <p className="text-sm text-gray-500 font-medium leading-tight line-clamp-2 md:line-clamp-2">
                   {item.seoText}
               </p>
             </div>
@@ -134,14 +134,14 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
   );
 
   return (
-    <section className="py-12 bg-cream relative scroll-mt-28" id="services">
+    <section className="py-12 bg-brand-light/20 relative scroll-mt-28" id="services">
       <div className="container mx-auto px-4 xl:px-0">
         
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4 tracking-tight">
             {isEn ? 'What are you looking for?' : 'Что вы ищете?'}
           </h2>
-          <p className="text-sm md:text-lg text-gray-500 font-bold max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-500 font-bold max-w-2xl mx-auto">
             {isEn ? 'Select the category that best fits your needs' : 'Выберите наиболее подходящую категорию'}
           </p>
         </div>
@@ -169,8 +169,22 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
         </div>
 
         <div className="min-h-[180px]">
-          {activeTab === 'shopping' && renderShopping()}
-          {activeTab === 'destinations' && <DestinationsGrid language={language} onNavigate={onNavigate} />}
+          {activeTab === 'shopping' && (
+            <>
+              {renderShopping()}
+              <p className="text-center text-black text-sm font-medium mt-8 max-w-2xl mx-auto animate-fade-in">
+                {t.shoppingNote}
+              </p>
+            </>
+          )}
+          {activeTab === 'destinations' && (
+            <>
+              <DestinationsGrid language={language} onNavigate={onNavigate} />
+              <p className="text-center text-black text-sm font-medium mt-8 max-w-2xl mx-auto animate-fade-in">
+                {t.destinationsNote}
+              </p>
+            </>
+          )}
         </div>
 
       </div>

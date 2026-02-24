@@ -146,7 +146,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
       <div className="container mx-auto">
         <div className="bg-white rounded-[40px] p-8 lg:p-16 max-w-[1150px] mx-auto shadow-sm border border-gray-100">
           <div className="mb-12 text-center lg:text-left">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-brand-blue mb-4 tracking-tighter">{t.title}</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4 tracking-tighter">{t.title}</h2>
             <p className="text-lg md:text-xl text-gray-500 font-bold max-w-3xl">{t.subtitle}</p>
           </div>
 
@@ -172,7 +172,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
                     value={weight} 
                     onChange={(e) => setWeight(e.target.value)} 
                     placeholder={t.weightPlaceholder} 
-                    className={`w-full p-4 border-2 border-gray-100 rounded-2xl text-lg font-bold outline-none bg-gray-50/50 text-brand-dark transition-all focus:border-brand-blue ${error && !weight ? 'border-red-200' : ''}`} 
+                    className={`w-full p-4 border-2 border-gray-100 rounded-2xl text-base font-bold outline-none bg-gray-50/50 text-brand-dark transition-all focus:border-brand-blue ${error && !weight ? 'border-red-200' : ''}`} 
                   />
                   <p className="text-[10px] text-gray-400 font-black ml-3 mt-1 uppercase tracking-widest">{t.minWeightHint}</p>
                 </div>
@@ -186,7 +186,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
                 <select 
                   value={country} 
                   onChange={(e) => setCountry(e.target.value)} 
-                  className={`w-full p-4 border-2 border-gray-100 rounded-2xl text-lg font-bold focus:border-brand-blue outline-none bg-gray-50/50 text-brand-dark cursor-pointer appearance-none transition-all ${error && !country ? 'border-red-200' : ''}`}
+                  className={`w-full p-4 border-2 border-gray-100 rounded-2xl text-base font-bold focus:border-brand-blue outline-none bg-gray-50/50 text-brand-dark cursor-pointer appearance-none transition-all ${error && !country ? 'border-red-200' : ''}`}
                 >
                   <option value="">{t.selectCountry}</option>
                   {sortedCountries.map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}

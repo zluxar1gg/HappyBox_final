@@ -81,8 +81,8 @@ export const DeliveryPath: React.FC<{ language: Language }> = ({ language }) => 
                   <Icon size={isMobile ? 32 : 40} />
                 </div>
                 <div className={`mt-8 transition-all duration-700 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-40 translate-y-6'}`}>
-                  <h3 className="font-black text-xl md:text-2xl text-brand-dark leading-tight">{step.title}</h3>
-                  <p className="text-gray-500 font-bold text-sm md:text-base mt-2">{step.desc}</p>
+                  <h3 className="font-bold text-lg md:text-xl text-brand-dark leading-tight">{step.title}</h3>
+                  <p className="text-gray-500 font-medium text-sm mt-2">{step.desc}</p>
                 </div>
               </div>
             );
