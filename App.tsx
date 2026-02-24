@@ -93,6 +93,20 @@ const App: React.FC = () => {
     updateMetaTags(currentPage, language);
   }, [currentPage, language]);
 
+  // --- URL CLEANUP EFFECT ---
+  // Removes 'lang=en' from URL to ensure consistency with canonical tags
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('lang') === 'en') {
+        params.delete('lang');
+        const search = params.toString();
+        const newUrl = `${window.location.pathname}${search ? '?' + search : ''}${window.location.hash}`;
+        window.history.replaceState(null, '', newUrl);
+      }
+    }
+  }, []);
+
   const t = translations[language].devModal;
 
   // Handle navigation and URL updates
