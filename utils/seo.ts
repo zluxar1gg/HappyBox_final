@@ -8,7 +8,7 @@
 
 import { Language } from './translations';
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
 
 interface MetaData {
   title: string;
@@ -64,6 +64,10 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     xianyu: {
       title: "Xianyu Agent | Buy Second-hand & Vintage from China | HappyBox",
       description: "Buy from Xianyu (Idle Fish) safely. We negotiate, inspect, and ship second-hand goods worldwide. Authentic vintage finds and collectibles."
+    },
+    weidian: {
+      title: "Weidian Agent | Exclusive Streetwear & Indie Brands from China | HappyBox",
+      description: "Shop on Weidian with HappyBox. Access exclusive streetwear, indie brands, and rare finds. We handle payment, inspection, and shipping worldwide."
     },
     inspection: {
       title: "Quality Control China | Professional Factory Inspection Services | HappyBox",
@@ -122,6 +126,10 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     xianyu: {
       title: "Посредник Xianyu | Б/У товары и винтаж из Китая | HappyBox",
       description: "Безопасные покупки на Xianyu (Idle Fish). Мы торгуемся, проверяем и доставляем б/у товары по всему миру. Оригинальный винтаж и коллекционные вещи."
+    },
+    weidian: {
+      title: "Посредник Weidian | Эксклюзивный стритвир и бренды из Китая | HappyBox",
+      description: "Покупайте на Weidian с HappyBox. Эксклюзивный стритвир, инди-бренды и редкие вещи. Мы берем на себя выкуп, проверку и доставку по всему миру."
     },
     inspection: {
       title: "Контроль качества в Китае | Профессиональная инспекция фабрик | HappyBox",

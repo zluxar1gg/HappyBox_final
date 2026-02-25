@@ -7,7 +7,7 @@ import { About } from './components/About';
 import { Reviews } from './components/Reviews';
 import { Calculator } from './components/Calculator';
 import { DeliveryPath } from './components/DeliveryPath';
-import { ShoppingGuides } from './components/ShoppingGuides';
+import { WhyUs } from './components/WhyUs';
 import { Tracking } from './components/Tracking';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -29,7 +29,7 @@ import { Loader2, X, Hammer } from 'lucide-react';
 // Lazy load components
 const Quiz = React.lazy(() => import('./components/Quiz').then(module => ({ default: module.Quiz })));
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
 
 const App: React.FC = () => {
   // 1. Initialize language from URL
@@ -69,7 +69,7 @@ const App: React.FC = () => {
       const params = new URLSearchParams(window.location.search);
       const pageParam = params.get('page');
       
-      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu'];
+      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian'];
       if (pageParam && validPages.includes(pageParam as PageType)) {
           return pageParam as PageType;
       }
@@ -111,7 +111,7 @@ const App: React.FC = () => {
 
   // Handle navigation and URL updates
   const handleNavigate = (page: string, sectionId?: string) => {
-    const validPages: PageType[] = ['home', 'usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu'];
+    const validPages: PageType[] = ['home', 'usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian'];
     let targetPage: PageType = 'home';
     
     if (validPages.includes(page as PageType)) {
@@ -168,7 +168,7 @@ const App: React.FC = () => {
       const pageParam = params.get('page');
       const langParam = params.get('lang');
       
-      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu'];
+      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian'];
       if (pageParam && validPages.includes(pageParam as PageType)) {
           setCurrentPage(pageParam as PageType);
       } else {
@@ -203,7 +203,7 @@ const App: React.FC = () => {
       if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
       
       // Service pages return to "services" section
-      if (currentPage === 'taobao' || currentPage === '1688' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'pinduoduo' || currentPage === 'xianyu') {
+      if (currentPage === 'taobao' || currentPage === '1688' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'pinduoduo' || currentPage === 'xianyu' || currentPage === 'weidian') {
           return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleNavigate('home', 'services')} onNavigate={handleNavigate} />;
       }
 
@@ -226,7 +226,7 @@ const App: React.FC = () => {
               <About language={language} />
             </div>
             
-            <ShoppingGuides language={language} />
+            <WhyUs language={language} />
             <DeliveryPath language={language} />
 
             <div id="reviews" className="scroll-mt-28">

@@ -25,7 +25,7 @@ import { trackLead } from '../utils/analytics';
 interface ServicePageProps {
   language: Language;
   setLanguage: (lang: Language) => void;
-  serviceId: 'taobao' | '1688' | 'inspection' | 'warehousing' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu';
+  serviceId: 'taobao' | '1688' | 'inspection' | 'warehousing' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
   onBack: () => void;
   onNavigate?: (page: string) => void;
 }
@@ -36,7 +36,8 @@ const serviceImages: Record<string, string> = {
     'poizon': 'https://i.ibb.co/7t5t5phb/poizon.webp',
     'taobao': 'https://i.ibb.co/Rp3G3V4h/tao.webp',
     'tmall': 'https://i.ibb.co/6762BbbX/tmall.webp',
-    'xianyu': 'https://i.ibb.co/RGVCGTjn/xy.webp'
+    'xianyu': 'https://i.ibb.co/RGVCGTjn/xy.webp',
+    'weidian': 'https://i.ibb.co/WW5hhcvP/wd.webp'
 };
 
 export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage, serviceId, onBack, onNavigate }) => {

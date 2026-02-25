@@ -417,6 +417,7 @@ export const translations = {
     quickAccess: {
       taobao: 'Buy from Taobao with joy',
       1688: 'Wholesale sourcing direct from factories',
+      weidian: 'Exclusive streetwear & indie brands',
       inspection: 'Quality check before international shipping',
       warehousing: 'Free storage and consolidation',
       pinduoduo: 'Group buying deals & discounts',
@@ -447,8 +448,8 @@ export const translations = {
             { title: 'Detailed Photo Report', desc: 'Since it is a used item, we provide extra detailed photos of any wear and tear.' }
         ],
         proTip: {
-            title: "No Returns Policy",
-            text: "Remember that most Xianyu sellers do not accept returns unless the item is fake or significantly different from the description. Our inspection service is your best protection."
+            title: "Expert Advice for Xianyu",
+            text: "**Seller Rating:** Look for \"Excellent\" Sesame Credit. This is the most reliable indicator of a trustworthy seller.\n\n**Video Confirmation:** Since items are used, always ask the seller for a current video of the product before purchasing.\n\n**No Returns:** Be aware that most sellers on Xianyu do not accept returns. Detailed inspection is key.\n\n**Bargaining:** It is common to negotiate! Prices can often be lowered by 10-20%.\n\n**No Returns Policy:** Remember that most Xianyu sellers do not accept returns unless the item is fake or significantly different from the description. Our inspection service is your best protection."
         },
         beyond: {
             title: "Mix New & Old",
@@ -461,6 +462,44 @@ export const translations = {
             ]
         },
         startBtn: 'Start Hunting',
+        backBtn: 'Back to Home'
+      },
+      weidian: {
+        title: 'Weidian Agent: Exclusive Streetwear & Indie Brands',
+        desc: "Discover unique items from independent designers and exclusive streetwear sellers. Weidian is the go-to platform for niche fashion, limited drops, and high-quality replicas that you can't find on Taobao.",
+        whyNeed: {
+            title: "Why shop on Weidian?",
+            text: "Weidian is a mobile-first platform popular with independent sellers and streetwear enthusiasts. Many exclusive items and high-tier replicas are only available here. However, the app is purely in Chinese and sellers rarely deal with international buyers. HappyBox gives you full access to this exclusive market."
+        },
+        howItWorks: {
+            title: "How to buy from Weidian",
+            steps: [
+                { title: "Browse Weidian", desc: "Use the Weidian app or mobile links to find products." },
+                { title: "Send Link", desc: "Share the product link with us. We verify the seller's reputation." },
+                { title: "We Purchase", desc: "We handle the payment via WeChat Pay or Alipay." },
+                { title: "QC & Ship", desc: "We receive the item, inspect quality, and ship it to you." }
+            ]
+        },
+        features: [
+            { title: 'Access to Exclusive Sellers', desc: 'Buy from sellers who only operate on Weidian.' },
+            { title: 'Detailed QC Photos', desc: 'We provide high-res photos so you can check the quality of materials and stitching.' },
+            { title: 'Secure Payment', desc: 'We protect your money. If the seller doesn\'t ship, we get your refund.' }
+        ],
+        proTip: {
+            title: "Check the Return Policy",
+            text: "Many Weidian sellers (especially for limited items) do not accept returns. Always ask us to confirm the return policy with the seller before purchasing."
+        },
+        beyond: {
+            title: "Complete Your Look",
+            items: [
+                { id: 'poizon', title: "Poizon", desc: "Match with authentic sneakers." },
+                { id: 'taobao', title: "Taobao", desc: "Basics and accessories." },
+                { id: '1688', title: "1688.com", desc: "Bulk basics." },
+                { id: 'xianyu', title: "Xianyu", desc: "Vintage finds." },
+                { title: "Consolidation", desc: "Combine your Weidian finds with other orders to save on shipping." }
+            ]
+        },
+        startBtn: 'Start Shopping Weidian',
         backBtn: 'Back to Home'
       },
       taobao: {
@@ -486,8 +525,8 @@ export const translations = {
             ]
         },
         proTip: {
-            title: "Pro Tip: Let us do the searching!",
-            text: "Struggling to find that perfect item on Taobao? Don’t waste your time scrolling through endless listings. Just send us a photo or a quick description, and our experts will track down the best quality from sellers we actually trust."
+            title: "Expert Advice for Taobao",
+            text: "**Tmall (red icon)** features official brands/dealers with near-zero defect risk. Regular Taobao is cheaper.\n\n**Live Photos:** Always look for the camera icon in reviews to see \"Live Photos\" instead of studio renders.\n\n**Seller History:** Prioritize sellers active for 5–10 years; they value their reputation and history on the platform.\n\n**Consolidation:** Use our warehouse for \"Consolidation\". Buy small items from 10 different stores, and we will pack them into ONE box to save you up to 60% on shipping.\n\n**Let us do the searching!** Struggling to find that perfect item on Taobao? Don’t waste your time scrolling through endless listings. Just send us a photo or a quick description, and our experts will track down the best quality from sellers we actually trust."
         },
         features: [
             { title: 'No Chinese Phone Number Required', desc: 'You don’t need to deal with Taobao’s complex registration or blocked accounts.' },
@@ -531,8 +570,8 @@ export const translations = {
             ]
         },
         proTip: {
-            title: "Full Hands-Off Sourcing",
-            text: "Don’t want to navigate 1688 or deal with technical specs? No problem. Simply send us a photo or a description of the products you need. Our team will handle the entire cycle: from finding the most reliable factory and negotiating the best price to quality inspection and door-to-door delivery. You focus on your sales; we handle the entire supply chain."
+            title: "Expert Advice for 1688",
+            text: "**Rating 5–4** is the standard for reliability. Sellers with ratings below 4.0 are risky and often slow.\n\n**Verify real weight/dimensions:** listings often have inaccurate data. Ask before paying to avoid shipping surprises.\n\n**Electronics:** Check electronics for 220V compatibility and specify your required plug type.\n\n**Packaging:** Specify individual packaging for items like clothes, notebooks, plush toys, etc. otherwise they may arrive in a bulk \"bag\".\n\n**Fragile Items:** For fragile items, request a \"wood crate\" for safer transit within China.\n\n**Stock numbers** on 1688 are often inaccurate. Always send us the link first so our agent can verify the REAL availability before you pay.\n\n**Full Hands-Off Sourcing:** Don’t want to navigate 1688 or deal with technical specs? No problem. Simply send us a photo or a description of the products you need. Our team will handle the entire cycle: from finding the most reliable factory and negotiating the best price to quality inspection and door-to-door delivery. You focus on your sales; we handle the entire supply chain."
         },
         features: [
             { title: 'Lowest Purchasing Commission', desc: 'Only 2% of the order amount.' },
@@ -576,8 +615,8 @@ export const translations = {
             ]
         },
         proTip: {
-            title: "Confused by the app buttons?",
-            text: "The **Turquoise Button** usually means 'Ship in 48h' (Instant), while the **Black Button** means standard shipping. Avoid the **Gray Button** with '95' text unless you want used items. If you can't find what you need, just send us a photo!"
+            title: "Expert Advice for Poizon",
+            text: "**Prices vary by size** because it's a stock-market model. Check adjacent sizes to save up to 30%.\n\n**\"95 New\"** means USED/Pre-owned (95% condition). \"Damaged Box\" means BRAND NEW with a dented box.\n\n**Verification system:** Poizon inspects every item, which significantly reduces counterfeit risks.\n\n**Keep the blue tag and NFC certificate!** They are essential for proving authenticity and resale value.\n\n**Use the price chart** to buy during dips. Never remove the blue tag until you are 100% sure about the item.\n\n**Confused by the app buttons?** The **Turquoise Button** usually means 'Ship in 48h' (Instant), while the **Black Button** means standard shipping. Avoid the **Gray Button** with '95' text unless you want used items. If you can't find what you need, just send us a photo!"
         },
         features: [
             { title: '100% Authenticity Guarantee', desc: 'Every item passes Poizon’s lab verification. If it\'s fake, they refund us immediately. You get the Certificate and Blue Tag.' },
@@ -1144,6 +1183,7 @@ export const translations = {
     quickAccess: {
       taobao: 'Покупки на Taobao и Tmall без границ',
       1688: 'Оптовые закупки напрямую с фабрик',
+      weidian: 'Эксклюзивный стритвир и инди-бренды',
       inspection: 'Проверка качества перед отправкой',
       warehousing: 'Бесплатное хранение и консолидация',
       pinduoduo: 'Групповые покупки и супер скидки',
@@ -1188,6 +1228,44 @@ export const translations = {
             ]
         },
         startBtn: 'Начать охоту',
+        backBtn: 'Назад'
+      },
+      weidian: {
+        title: 'Посредник Weidian: Эксклюзивный стритвир и инди-бренды',
+        desc: "Откройте для себя уникальные вещи от независимых дизайнеров и эксклюзивных продавцов стритвира. Weidian — это платформа для нишевой моды, лимитированных дропов и качественных реплик, которые не найти на Taobao.",
+        whyNeed: {
+            title: "Почему стоит покупать на Weidian?",
+            text: "Weidian — это мобильная платформа, популярная среди независимых продавцов и энтузиастов уличной моды. Многие эксклюзивные вещи и топовые реплики доступны только здесь. Однако приложение полностью на китайском, и продавцы редко работают с иностранцами. HappyBox открывает вам полный доступ к этому закрытому рынку."
+        },
+        howItWorks: {
+            title: "Как покупать на Weidian",
+            steps: [
+                { title: "Найдите товар", desc: "Используйте приложение Weidian или мобильные ссылки." },
+                { title: "Пришлите ссылку", desc: "Поделитесь ссылкой на товар. Мы проверим репутацию продавца." },
+                { title: "Мы выкупаем", desc: "Мы оплачиваем через WeChat Pay или Alipay." },
+                { title: "Проверка и доставка", desc: "Получаем, проверяем качество и отправляем вам." }
+            ]
+        },
+        features: [
+            { title: 'Доступ к эксклюзивам', desc: 'Покупайте у продавцов, которые работают только на Weidian.' },
+            { title: 'Детальные фото (QC)', desc: 'Мы делаем фото высокого разрешения, чтобы вы могли проверить качество материалов и швов.' },
+            { title: 'Безопасная оплата', desc: 'Мы защищаем ваши деньги. Если продавец не отправит товар, мы вернем средства.' }
+        ],
+        proTip: {
+            title: "Проверяйте условия возврата",
+            text: "Многие продавцы на Weidian (особенно лимитированных вещей) не принимают возвраты. Всегда просите нас уточнить политику возврата у продавца перед покупкой."
+        },
+        beyond: {
+            title: "Соберите полный образ",
+            items: [
+                { id: 'poizon', title: "Poizon", desc: "Добавьте оригинальные кроссовки." },
+                { id: 'taobao', title: "Taobao", desc: "Базовые вещи и аксессуары." },
+                { id: '1688', title: "1688.com", desc: "Базовые вещи оптом." },
+                { id: 'xianyu', title: "Xianyu", desc: "Винтажные находки." },
+                { title: "Консолидация", desc: "Объедините покупки с Weidian с другими заказами для экономии на доставке." }
+            ]
+        },
+        startBtn: 'Начать шопинг Weidian',
         backBtn: 'Назад'
       },
       taobao: {

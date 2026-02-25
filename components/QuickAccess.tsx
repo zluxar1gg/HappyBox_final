@@ -63,10 +63,10 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       bg: 'bg-teal-50' 
     },
     { 
-      id: 'tmall', 
-      title: 'Tmall Global', 
-      seoText: isEn ? 'Official Brands' : 'Официальные бренды',
-      image: 'https://i.ibb.co/6762BbbX/tmall.webp',
+      id: 'weidian', 
+      title: 'Weidian', 
+      seoText: t.weidian,
+      image: 'https://i.ibb.co/WW5hhcvP/wd.webp',
       color: 'text-rose-600', 
       bg: 'bg-rose-50' 
     },

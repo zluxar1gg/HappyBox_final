@@ -99,7 +99,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                 onClick={() => trackLead('whatsapp', 'contact_section', 'click')}
               >
                 <img 
-                  src="https://i.ibb.co/MK48T9C/happybox-wa.webp" 
+                  src="https://i.ibb.co/jkVdFCpn/happybox-wa.webp" 
                   alt="WhatsApp QR" 
                   width="300" height="300" loading="lazy" className="w-full h-full object-contain"
                 />

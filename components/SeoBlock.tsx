@@ -33,6 +33,7 @@ export const SeoBlock: React.FC<SeoBlockProps> = ({ language, onNavigate }) => {
     else if (lowerText.includes('poizon') || lowerText.includes('dewu')) pageId = 'poizon';
     else if (lowerText.includes('pinduoduo')) pageId = 'pinduoduo';
     else if (lowerText.includes('xianyu')) pageId = 'xianyu';
+    else if (lowerText.includes('weidian')) pageId = 'weidian';
     else if (lowerText.includes('amazon')) pageId = 'amazon';
     else if (lowerText.includes('inspection') || lowerText.includes('quality') || lowerText.includes('инспекция') || lowerText.includes('брак')) pageId = 'inspection';
     else if (lowerText.includes('warehousing') || lowerText.includes('storage') || lowerText.includes('consolidation') || lowerText.includes('хранение') || lowerText.includes('консолидация')) pageId = 'warehousing';
