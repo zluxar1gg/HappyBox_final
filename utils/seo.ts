@@ -165,6 +165,7 @@ export const updateMetaTags = (page: PageType, language: Language) => {
     const params = new URLSearchParams();
     if (p !== 'home') params.set('page', p);
     if (l === 'ru') params.set('lang', 'ru');
+    // We intentionally do NOT set lang=en to keep URLs clean
     const str = params.toString();
     return str ? `?${str}` : '';
   };

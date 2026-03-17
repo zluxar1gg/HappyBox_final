@@ -63,8 +63,8 @@ export const WhyUs: React.FC<WhyUsProps> = ({ language }) => {
       icon: Headphones,
       title: isEn ? 'Friendly Support' : 'Дружелюбная Поддержка',
       description: isEn
-        ? 'Real humans, not bots. Our support team speaks English and Russian and is ready to help you find products, negotiate with sellers, and solve any issues.'
-        : 'Живые люди, а не боты. Наша поддержка говорит на русском и английском, готова помочь найти товар, договориться с продавцом и решить любой вопрос.',
+        ? 'Real humans, not bots. Our support team speaks English, Spanish, German, Russian and Chinese and is ready to help you find products, negotiate with sellers, and solve any issues.'
+        : 'Живые люди, а не боты. Наша поддержка говорит на английском, испанском, немецком, русском и китайском языках, готова помочь найти товар, договориться с продавцом и решить любой вопрос.',
       image: 'https://i.ibb.co/zHJSbLBn/happybox-support.webp',
       color: 'bg-pink-50 text-pink-600'
     }
