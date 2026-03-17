@@ -26,10 +26,9 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
 
   // Helper to generate SEO friendly URLs for anchors
   const getPageUrl = (page: string) => {
-    const params = new URLSearchParams();
-    params.set('page', page);
-    if (language === 'ru') params.set('lang', 'ru');
-    return `/?${params.toString()}`;
+    const langPrefix = language === 'ru' ? '/ru' : '';
+    const path = page === 'home' ? '' : `/${page}`;
+    return `${langPrefix}${path}` || '/';
   };
 
   const tabs = [

@@ -8,7 +8,7 @@
 
 import { Language } from './translations';
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
 
 interface MetaData {
   title: string;
@@ -33,7 +33,7 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
       title: "Shipping from China to Dubai, UAE | Sea $0.8/kg, Air $6/kg | HappyBox",
       description: "Affordable door-to-door shipping from China to the UAE. Sea freight from $0.8/kg, Air freight from $6/kg. Tax-free (DDP) delivery to Dubai and Abu Dhabi. Free consolidation included."
     },
-    ru: {
+    russia: {
       title: "TIR Shipping from China to Russia | White Import with VAT | HappyBox",
       description: "Official 'White' delivery from China to Russia via TIR system. Rates from $1.5/kg. Full document package (VAT), assistance with payments, Chestny Znak labeling."
     },
@@ -95,7 +95,7 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
       title: "Доставка из Китая в Дубай (ОАЭ) | Море $0.8/кг, Авиа $6/кг | HappyBox",
       description: "Выгодная доставка «до двери» из Китая в ОАЭ. Море от $0.8/кг, Авиа от $6/кг. Без пошлин (DDP). Бесплатная консолидация и склад."
     },
-    ru: {
+    russia: {
       title: "TIR доставка из Китая в Россию | Белый импорт с НДС | HappyBox",
       description: "Официальная белая доставка из Китая в РФ по системе TIR (МДП). Тарифы от $1.5/кг. Полный пакет документов, помощь с оплатой поставщику, маркировка Честный Знак."
     },
@@ -158,21 +158,18 @@ export const updateMetaTags = (page: PageType, language: Language) => {
   metaDescription.setAttribute('content', data.description);
 
   // 3. Construct Base URL logic
-  const baseUrl = window.location.origin + window.location.pathname;
+  const baseUrl = window.location.origin;
   
-  // Helper to create search params string
-  const getQuery = (p: PageType, l: Language) => {
-    const params = new URLSearchParams();
-    if (p !== 'home') params.set('page', p);
-    if (l === 'ru') params.set('lang', 'ru');
-    // We intentionally do NOT set lang=en to keep URLs clean
-    const str = params.toString();
-    return str ? `?${str}` : '';
+  // Helper to create path string
+  const getPath = (p: PageType, l: Language) => {
+    const langPrefix = l === 'ru' ? '/ru' : '';
+    const pagePath = p === 'home' ? '' : `/${p}`;
+    return `${langPrefix}${pagePath}` || '/';
   };
 
-  const currentFullUrl = baseUrl + getQuery(page, language);
-  const enUrl = baseUrl + getQuery(page, 'en');
-  const ruUrl = baseUrl + getQuery(page, 'ru');
+  const currentFullUrl = baseUrl + getPath(page, language);
+  const enUrl = baseUrl + getPath(page, 'en');
+  const ruUrl = baseUrl + getPath(page, 'ru');
 
   // 4. Update Canonical URL (Self-referencing)
   let canonicalLink = document.querySelector('link[rel="canonical"]');

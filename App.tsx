@@ -1,9 +1,9 @@
 
 import React, { useState, Suspense, useEffect, useLayoutEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation, useParams } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-// Services component removed as content is moved to dedicated pages
 import { Reviews } from './components/Reviews';
 import { Calculator } from './components/Calculator';
 import { DeliveryPath } from './components/DeliveryPath';
@@ -29,58 +29,36 @@ import { Loader2, X, Hammer } from 'lucide-react';
 // Lazy load components
 const Quiz = React.lazy(() => import('./components/Quiz').then(module => ({ default: module.Quiz })));
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'ru' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
 
-const App: React.FC = () => {
-  // 1. Initialize language from URL
-  const [language, setLanguageState] = useState<Language>(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      return params.get('lang') === 'ru' ? 'ru' : 'en';
-    }
-    return 'en';
-  });
-
-  // 2. Custom setter to update URL query param
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      if (lang === 'ru') {
-        params.set('lang', 'ru');
-      } else {
-        params.delete('lang');
-      }
-      
-      const search = params.toString();
-      const newUrl = `${window.location.pathname}${search ? '?' + search : ''}${window.location.hash}`;
-      
-      window.history.pushState(null, '', newUrl);
-    }
-  };
+const AppContent: React.FC<{ language: Language }> = ({ language }) => {
+  const { page } = useParams<{ page?: string }>();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isDevModalOpen, setIsDevModalOpen] = useState(false);
+
+  const validPages: PageType[] = ['usa', 'eu', 'uae', 'russia', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian'];
   
-  // Initialize page from URL parameter
-  const [currentPage, setCurrentPage] = useState<PageType>(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const pageParam = params.get('page');
-      
-      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian'];
-      if (pageParam && validPages.includes(pageParam as PageType)) {
-          return pageParam as PageType;
-      }
-      
-      return 'home';
-    }
-    return 'home';
-  });
+  // Determine current page from URL params
+  const currentPage: PageType = (page && validPages.includes(page as PageType)) ? (page as PageType) : 'home';
+
+  // Custom setter to update URL
+  const setLanguage = (lang: Language) => {
+    const prefix = lang === 'ru' ? '/ru' : '';
+    const path = currentPage === 'home' ? '' : `/${currentPage}`;
+    navigate(`${prefix}${path}${location.hash}`);
+  };
+
+  const handleNavigate = (targetPage: string, sectionId?: string) => {
+    const prefix = language === 'ru' ? '/ru' : '';
+    const path = targetPage === 'home' ? '' : `/${targetPage}`;
+    const hash = (targetPage === 'home' && sectionId) ? `#${sectionId}` : '';
+    navigate(`${prefix}${path}${hash}`);
+  };
 
   // --- SCROLL RESTORATION FIX ---
-  // Disable browser's automatic scroll restoration to prevent fighting with our custom logic
   useEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
@@ -88,100 +66,26 @@ const App: React.FC = () => {
   }, []);
 
   // --- SEO EFFECT ---
-  // Updates title, description, and canonical URL whenever page or language changes
   useEffect(() => {
     updateMetaTags(currentPage, language);
   }, [currentPage, language]);
 
-  // --- URL CLEANUP EFFECT ---
-  // Removes 'lang=en' from URL to ensure consistency with canonical tags
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('lang') === 'en') {
-        params.delete('lang');
-        const search = params.toString();
-        const newUrl = `${window.location.pathname}${search ? '?' + search : ''}${window.location.hash}`;
-        window.history.replaceState(null, '', newUrl);
-      }
-    }
-  }, []);
-
-  const t = translations[language].devModal;
-
-  // Handle navigation and URL updates
-  const handleNavigate = (page: string, sectionId?: string) => {
-    const validPages: PageType[] = ['home', 'usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian'];
-    let targetPage: PageType = 'home';
-    
-    if (validPages.includes(page as PageType)) {
-        targetPage = page as PageType;
-    }
-
-    // Update State
-    setCurrentPage(targetPage);
-    
-    // Update URL logic
-    const params = new URLSearchParams(window.location.search);
-    if (targetPage === 'home') {
-        params.delete('page');
-    } else {
-        params.set('page', targetPage);
-    }
-      
-    // Construct Hash logic: Only append hash if we are going home and have a sectionId
-    const hash = (targetPage === 'home' && sectionId) ? `#${sectionId}` : '';
-    const search = params.toString();
-    const newUrl = `${window.location.pathname}${search ? '?' + search : ''}${hash}`;
-    
-    window.history.pushState(null, '', newUrl);
-  };
-
   // Scroll Handling Effect
-  // Using useLayoutEffect to scroll BEFORE paint to prevent visual jumps
   useLayoutEffect(() => {
-    // If we are on Home page
     if (currentPage === 'home') {
-        // Check if there is a hash in the URL (e.g., #services)
-        if (window.location.hash) {
-            const id = window.location.hash.replace('#', '');
-            const element = document.getElementById(id);
-            if (element) {
-                // 'auto' ensures instant placement before paint
-                // scroll-margin-top in CSS handles the header offset
-                element.scrollIntoView({ behavior: 'auto' });
-            }
-        } else {
-            // No hash? Go to top
-            window.scrollTo(0, 0);
+      if (location.hash) {
+        const id = location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'auto' });
         }
-    } else {
-        // Any other page? Go to top
-        window.scrollTo(0, 0);
-    }
-  }, [currentPage]);
-
-  // Listen for browser "Back" button
-  useEffect(() => {
-    const handlePopState = (event: PopStateEvent) => {
-      const params = new URLSearchParams(window.location.search);
-      const pageParam = params.get('page');
-      const langParam = params.get('lang');
-      
-      const validPages: PageType[] = ['usa', 'eu', 'uae', 'ru', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian'];
-      if (pageParam && validPages.includes(pageParam as PageType)) {
-          setCurrentPage(pageParam as PageType);
       } else {
-          setCurrentPage('home');
+        window.scrollTo(0, 0);
       }
-
-      // Update language from URL
-      setLanguageState(langParam === 'ru' ? 'ru' : 'en');
-    };
-
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [currentPage, location.hash]);
 
   // Handle body scroll locking
   useEffect(() => {
@@ -193,13 +97,14 @@ const App: React.FC = () => {
     return () => { document.body.style.overflow = 'unset'; };
   }, [isQuizOpen, isDevModalOpen]);
 
-  // --- ROUTER VIEW ---
+  const t = translations[language].devModal;
+
   const renderContent = () => {
       // Country pages return to "services" section (QuickAccess wrapper)
       if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
       if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
       if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
-      if (currentPage === 'ru') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
+      if (currentPage === 'russia') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
       if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
       
       // Service pages return to "services" section
@@ -318,6 +223,19 @@ const App: React.FC = () => {
             </div>
         )}
       </>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AppContent language="en" />} />
+        <Route path="/ru" element={<AppContent language="ru" />} />
+        <Route path="/:page" element={<AppContent language="en" />} />
+        <Route path="/ru/:page" element={<AppContent language="ru" />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

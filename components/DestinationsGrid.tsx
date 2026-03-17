@@ -44,7 +44,7 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       flag: '🇦🇪'
     },
     {
-      id: 'ru',
+      id: 'russia',
       title: isEn ? 'Russia' : 'Россия',
       methods: [
         { label: isEn ? `TIR: ${from} $1.6` : `TIR: ${from} $1.6`, icon: Truck }
@@ -67,10 +67,19 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
     <div id="destinations" className="animate-fade-in mt-6 md:mt-8">
       <div className="container mx-auto px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-4">
-          {destinations.map((dest, idx) => (
-            <div 
+          {destinations.map((dest, idx) => {
+            const langPrefix = language === 'ru' ? '/ru' : '';
+            const path = dest.id === 'home' ? '' : `/${dest.id}`;
+            const href = `${langPrefix}${path}` || '/';
+
+            return (
+            <a 
               key={idx}
-              onClick={() => onNavigate(dest.id)}
+              href={href}
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate(dest.id);
+              }}
               className={`relative rounded-[20px] md:rounded-[25px] p-4 md:p-5 cursor-pointer transition-all duration-300 group border flex md:flex-col items-center md:items-start text-left justify-between min-h-[100px] md:min-h-[180px] hover:-translate-y-1 hover:shadow-xl ${
                   dest.special 
                   ? 'bg-brand-dark text-white border-brand-dark' 
@@ -139,9 +148,9 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
                      <ArrowRight size={16} />
                  </div>
               </div>
-
-            </div>
-          ))}
+            </a>
+          );
+        })}
         </div>
       </div>
     </div>

@@ -24,7 +24,7 @@ export const SeoBlock: React.FC<SeoBlockProps> = ({ language, onNavigate }) => {
     if (lowerText.includes('usa') || lowerText.includes('сша')) pageId = 'usa';
     else if (lowerText.includes('uae') || lowerText.includes('dubai') || lowerText.includes('оаэ') || lowerText.includes('дубай')) pageId = 'uae';
     else if (lowerText.includes('europe') || lowerText.includes('germany') || lowerText.includes('france') || lowerText.includes('европа') || lowerText.includes('германию') || lowerText.includes('францию')) pageId = 'eu';
-    else if (lowerText.includes('russia') || lowerText.includes('россию')) pageId = 'ru';
+    else if (lowerText.includes('russia') || lowerText.includes('россию')) pageId = 'russia';
     
     // Services & Platforms
     else if (lowerText.includes('taobao') || lowerText.includes('таобао')) pageId = 'taobao';
@@ -39,8 +39,9 @@ export const SeoBlock: React.FC<SeoBlockProps> = ({ language, onNavigate }) => {
     else if (lowerText.includes('warehousing') || lowerText.includes('storage') || lowerText.includes('consolidation') || lowerText.includes('хранение') || lowerText.includes('консолидация')) pageId = 'warehousing';
 
     if (pageId) {
-        params.set('page', pageId);
-        return { href: `/?${params.toString()}`, pageId };
+        const langPrefix = language === 'ru' ? '/ru' : '';
+        const path = pageId === 'home' ? '' : `/${pageId}`;
+        return { href: `${langPrefix}${path}` || '/', pageId };
     }
     
     // Default fallback (no link, just text)
