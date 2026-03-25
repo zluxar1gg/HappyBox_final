@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/seo-router.ts": {
+      "includeFiles": "dist/index.html"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/([^.]*)",
+      "destination": "/api/seo-router"
+    }
+  ]
+}
