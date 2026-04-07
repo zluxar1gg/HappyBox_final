@@ -176,7 +176,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
                   />
                   <p className="text-[10px] text-gray-400 font-black ml-3 mt-1 uppercase tracking-widest">{t.minWeightHint}</p>
                 </div>
-                <select value={unit} onChange={(e) => setUnit(e.target.value)} className="p-4 border-2 border-gray-100 rounded-2xl font-black outline-none bg-gray-50/50 h-[60px] cursor-pointer focus:border-brand-blue transition-all">
+                <select aria-label={language === 'en' ? 'Select weight unit' : 'Выберите единицу измерения'} value={unit} onChange={(e) => setUnit(e.target.value)} className="p-4 border-2 border-gray-100 rounded-2xl font-black outline-none bg-gray-50/50 h-[60px] cursor-pointer focus:border-brand-blue transition-all">
                   <option value="kg">{t.kg}</option>
                   <option value="pound">{t.lb}</option>
                 </select>
@@ -184,6 +184,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
 
               <div className="relative">
                 <select 
+                  aria-label={language === 'en' ? 'Select destination country' : 'Выберите страну назначения'}
                   value={country} 
                   onChange={(e) => setCountry(e.target.value)} 
                   className={`w-full p-4 border-2 border-gray-100 rounded-2xl text-base font-bold focus:border-brand-blue outline-none bg-gray-50/50 text-brand-dark cursor-pointer appearance-none transition-all ${error && !country ? 'border-red-200' : ''}`}

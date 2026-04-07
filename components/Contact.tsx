@@ -51,16 +51,16 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
     <section className="pt-12 pb-20 bg-brand-light/20">
       <div className="container mx-auto">
         <div className="bg-white rounded-[30px] p-8 lg:p-16 text-center shadow-sm max-w-[1200px] mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark mb-8 tracking-tight">
+          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark mb-8 tracking-tight">
             {t.title} <span className="text-brand-blue">HappyBox</span>!
-          </h2>
+          </div>
           
           <p className="text-lg leading-relaxed text-gray-600 max-w-4xl mx-auto mb-12 font-medium">
             {t.text}
           </p>
           
           <div className="text-center mt-12">
-            <h3 className="text-3xl md:text-4xl font-bold mb-10 text-brand-dark tracking-tight">{t.contactUs}</h3>
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-brand-dark tracking-tight">{t.contactUs}</h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto mt-4 mb-12">
@@ -78,7 +78,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                   width="300" height="300" loading="lazy" className="w-full h-full object-contain"
                 />
               </div>
-              <h4 className="text-2xl font-bold text-brand-dark mb-4">Telegram</h4>
+              <h3 className="text-2xl font-bold text-brand-dark mb-4">Telegram</h3>
               <a 
                 href="https://t.me/d_china_hbl" 
                 target="_blank" rel="noopener noreferrer"
@@ -104,7 +104,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                   width="300" height="300" loading="lazy" className="w-full h-full object-contain"
                 />
               </div>
-              <h4 className="text-2xl font-bold text-brand-dark mb-4">WhatsApp</h4>
+              <h3 className="text-2xl font-bold text-brand-dark mb-4">WhatsApp</h3>
               <a 
                 href="https://wa.me/8613048875834" 
                 target="_blank" rel="noopener noreferrer"
@@ -129,7 +129,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                   width="300" height="300" loading="lazy" className="w-full h-full object-contain"
                 />
               </div>
-              <h4 className="text-2xl font-bold text-brand-dark mb-4">WeChat</h4>
+              <h3 className="text-2xl font-bold text-brand-dark mb-4">WeChat</h3>
               <button 
                 onClick={handleCopyWeChat}
                 className="flex items-center gap-2 bg-[#07C160] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#06ad56] transition-all shadow-lg active:scale-95 w-full justify-center"
@@ -147,7 +147,7 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
                 <Mail size={32} />
               </div>
               <div className="text-left">
-                <h4 className="text-2xl font-bold text-brand-dark">Email</h4>
+                <h3 className="text-2xl font-bold text-brand-dark">Email</h3>
                 <p className="text-gray-500 font-medium">{fullEmail}</p>
               </div>
             </div>

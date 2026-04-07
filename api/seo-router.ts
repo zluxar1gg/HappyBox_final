@@ -144,6 +144,10 @@ export default function handler(req: any, res: any) {
         /<title>.*<\/title>/,
         `<title>${pageSeo.title}</title>`
       );
+      modifiedHtml = modifiedHtml.replace(
+        /<meta name="title" content="[^"]*" \/>/,
+        `<meta name="title" content="${pageSeo.title}" />`
+      );
       
       // Подменяем Description
       modifiedHtml = modifiedHtml.replace(
@@ -174,6 +178,16 @@ export default function handler(req: any, res: any) {
       modifiedHtml = modifiedHtml.replace(
         /<\/head>/,
         `  <link rel="canonical" href="${canonicalUrl}" />\n</head>`
+      );
+
+      // Подменяем URL для OG и Twitter
+      modifiedHtml = modifiedHtml.replace(
+        /<meta property="og:url" content="[^"]*" \/>/,
+        `<meta property="og:url" content="${canonicalUrl}" />`
+      );
+      modifiedHtml = modifiedHtml.replace(
+        /<meta property="twitter:url" content="[^"]*" \/>/,
+        `<meta property="twitter:url" content="${canonicalUrl}" />`
       );
 
       // Добавляем скрипт для визуальной очистки URL в браузере

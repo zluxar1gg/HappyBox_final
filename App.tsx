@@ -24,6 +24,7 @@ import { AmazonPage } from './components/AmazonPage';
 import { ServicePage } from './components/ServicePage';
 import { Language, translations } from './utils/translations';
 import { updateMetaTags } from './utils/seo'; 
+import { SchemaMarkup } from './components/SchemaMarkup';
 import { Loader2, X, Hammer } from 'lucide-react';
 
 // Lazy load components
@@ -180,6 +181,7 @@ const AppContent: React.FC<{ language: Language }> = ({ language }) => {
 
   return (
       <>
+        <SchemaMarkup />
         <Analytics />
         {renderContent()}
         {/* Under Development Modal */}
