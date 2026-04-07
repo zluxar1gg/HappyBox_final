@@ -5,48 +5,34 @@
     }
   },
   "redirects": [
-    {
-      "source": "/",
-      "has": [
-        { "type": "query", "key": "page", "value": "ru" }
-      ],
-      "destination": "/ru?",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        { "type": "query", "key": "page", "value": "(?<page>.+)" },
-        { "type": "query", "key": "lang", "value": "ru" }
-      ],
-      "destination": "/ru/:page?",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        { "type": "query", "key": "page", "value": "(?<page>.+)" },
-        { "type": "query", "key": "lang", "value": "en" }
-      ],
-      "destination": "/:page?",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        { "type": "query", "key": "page", "value": "(?<page>.+)" }
-      ],
-      "destination": "/:page?",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        { "type": "query", "key": "lang", "value": "ru" }
-      ],
-      "destination": "/ru?",
-      "permanent": true
-    }
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "ru" }], "destination": "/ru?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "usa" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/usa?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "usa" }], "destination": "/usa?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "uae" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/uae?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "uae" }], "destination": "/uae?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "eu" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/eu?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "eu" }], "destination": "/eu?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "russia" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/russia?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "russia" }], "destination": "/russia?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "taobao" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/taobao?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "taobao" }], "destination": "/taobao?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "1688" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/1688?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "1688" }], "destination": "/1688?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "poizon" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/poizon?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "poizon" }], "destination": "/poizon?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "pinduoduo" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/pinduoduo?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "pinduoduo" }], "destination": "/pinduoduo?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "weidian" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/weidian?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "weidian" }], "destination": "/weidian?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "xianyu" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/xianyu?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "xianyu" }], "destination": "/xianyu?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "amazon" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/amazon?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "amazon" }], "destination": "/amazon?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "inspection" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/inspection?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "inspection" }], "destination": "/inspection?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "warehousing" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/warehousing?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "page", "value": "warehousing" }], "destination": "/warehousing?", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru?", "permanent": true }
   ],
   "rewrites": [
     {
