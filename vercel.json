@@ -10,7 +10,7 @@
       "has": [
         { "type": "query", "key": "page", "value": "ru" }
       ],
-      "destination": "/ru",
+      "destination": "/ru?",
       "permanent": true
     },
     {
@@ -19,7 +19,7 @@
         { "type": "query", "key": "page", "value": "(?<page>.+)" },
         { "type": "query", "key": "lang", "value": "ru" }
       ],
-      "destination": "/ru/:page",
+      "destination": "/ru/:page?",
       "permanent": true
     },
     {
@@ -28,7 +28,7 @@
         { "type": "query", "key": "page", "value": "(?<page>.+)" },
         { "type": "query", "key": "lang", "value": "en" }
       ],
-      "destination": "/:page",
+      "destination": "/:page?",
       "permanent": true
     },
     {
@@ -36,7 +36,7 @@
       "has": [
         { "type": "query", "key": "page", "value": "(?<page>.+)" }
       ],
-      "destination": "/:page",
+      "destination": "/:page?",
       "permanent": true
     },
     {
@@ -44,7 +44,7 @@
       "has": [
         { "type": "query", "key": "lang", "value": "ru" }
       ],
-      "destination": "/ru",
+      "destination": "/ru?",
       "permanent": true
     }
   ],
