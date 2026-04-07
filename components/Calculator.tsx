@@ -258,6 +258,8 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
                    <img 
                     src="https://i.ibb.co/Fqyggpqt/happyboxcalc.webp" 
                     alt="Happy Box Calculator Mascot" 
+                    width="400"
+                    height="400"
                     className="w-full max-w-[240px] md:max-w-[300px] lg:max-w-[400px] h-auto object-contain drop-shadow-xl animate-float"
                   />
                 </div>
