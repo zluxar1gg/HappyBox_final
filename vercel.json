@@ -4,6 +4,50 @@
       "includeFiles": "dist/index.html"
     }
   },
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "page", "value": "ru" }
+      ],
+      "destination": "/ru",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "page", "value": "(?<page>.+)" },
+        { "type": "query", "key": "lang", "value": "ru" }
+      ],
+      "destination": "/ru/:page",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "page", "value": "(?<page>.+)" },
+        { "type": "query", "key": "lang", "value": "en" }
+      ],
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "page", "value": "(?<page>.+)" }
+      ],
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "lang", "value": "ru" }
+      ],
+      "destination": "/ru",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/([^.]*)",

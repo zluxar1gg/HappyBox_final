@@ -120,38 +120,7 @@ const seoData: Record<string, { title: string; description: string }> = {
 };
 
 export default function handler(req: any, res: any) {
-  // 1. Логика 301 редиректов (перенаправление старых ссылок на новые)
-  const urlString = req.url || '';
-  const [_, queryString] = urlString.split('?');
-  
-  if (queryString) {
-    const searchParams = new URLSearchParams(queryString);
-    const page = searchParams.get('page');
-    const lang = searchParams.get('lang');
-
-    if (page || lang) {
-      let newPath = '';
-      
-      if (page === 'ru') {
-        newPath = lang === 'en' ? '/' : '/ru';
-      } else if (page) {
-        newPath = lang === 'ru' ? `/ru/${page}` : `/${page}`;
-      } else if (lang === 'ru') {
-        newPath = '/ru';
-      } else if (lang === 'en') {
-        newPath = '/';
-      }
-
-      if (newPath) {
-        // Отправляем 301 Moved Permanently
-        res.writeHead(301, { Location: newPath });
-        res.end();
-        return;
-      }
-    }
-  }
-
-  // 2. Стандартная логика отдачи страниц и SEO-тегов
+  // Стандартная логика отдачи страниц и SEO-тегов
   const indexPath = path.join(process.cwd(), 'dist', 'index.html');
   
   fs.readFile(indexPath, 'utf8', (err, htmlData) => {
