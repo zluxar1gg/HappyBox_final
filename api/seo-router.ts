@@ -169,6 +169,23 @@ export default function handler(req: any, res: any) {
         `<meta property="twitter:description" content="${pageSeo.description}" />`
       );
       
+      // Добавляем Canonical тег
+      const canonicalUrl = `https://happyboxlogistics.com${cleanPath}`;
+      modifiedHtml = modifiedHtml.replace(
+        /<\/head>/,
+        `  <link rel="canonical" href="${canonicalUrl}" />\n</head>`
+      );
+
+      // Добавляем скрипт для визуальной очистки URL в браузере
+      modifiedHtml = modifiedHtml.replace(
+        /<\/head>/,
+        `  <script>
+    if (window.location.search) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  </script>\n</head>`
+      );
+      
       return res.status(200).send(modifiedHtml);
     }
 
