@@ -4,11 +4,11 @@ import path from 'path';
 const seoData: Record<string, { title: string; description: string }> = {
   // Home
   '/': {
-    title: 'DDP Shipping from China to USA, UAE, EU, Canada & Australia | HappyBox Logistics',
+    title: 'DDP Shipping from China | HappyBox Logistics',
     description: 'Reliable freight forwarder in China. Professional DDP shipping to USA, Canada, UAE & EU. Sea, Air & TIR. Free warehousing and consolidation. Get a free quote!'
   },
   '/ru': {
-    title: 'Доставка из Китая под ключ в США, ЕС, Россию, ОАЭ, Канаду и Австралию | Карго HappyBox',
+    title: 'Доставка из Китая под ключ: США, ЕС, ОАЭ, Россия | HappyBox',
     description: 'Надежный посредник и доставка из Китая. DDP доставка в США, Канаду, Европу, Россию и Дубай. Авиа, море и авто. Бесплатная консолидация и склад. Рассчитайте стоимость!'
   },
   // Destinations
@@ -21,7 +21,7 @@ const seoData: Record<string, { title: string; description: string }> = {
     description: 'Надежная доставка грузов из Китая в США. Море от $1.2/кг, Авиа от $10/кг. Таможенная очистка включена, без пошлин и скрытых комиссий. Узнайте цену!'
   },
   '/uae': {
-    title: 'Shipping from China to UAE & Dubai | DDP Delivery | HappyBox Logistics',
+    title: 'DDP Shipping from China to UAE & Dubai | HappyBox Logistics',
     description: 'Direct door-to-door shipping from China to Dubai and UAE. Sea freight from $0.8/kg, Air from $6/kg. Customs clearance included. Start shipping today!'
   },
   '/ru/uae': {
@@ -29,7 +29,7 @@ const seoData: Record<string, { title: string; description: string }> = {
     description: 'Прямая доставка из Китая в Эмираты. Море от $0.8/кг, Авиа от $6/кг. Доставка от двери до двери с полной растаможкой. Рассчитать стоимость доставки!'
   },
   '/eu': {
-    title: 'Shipping from China to Europe | DDP Air, Sea & Truck | HappyBox Logistics',
+    title: 'DDP Shipping from China to Europe | HappyBox Logistics',
     description: 'DDP shipping from China to EU (Germany, Poland, France, etc.). Land freight from $3/kg, Air from $10/kg. Tax-free door-to-door delivery. Get your rates now!'
   },
   '/ru/eu': {
@@ -37,7 +37,7 @@ const seoData: Record<string, { title: string; description: string }> = {
     description: 'DDP доставка из Китая в страны ЕС (Германия, Франция, Польша). Авто от $3/кг, Авиа от $10/кг. Доставка до двери без налогов для получателя. Закажите расчет!'
   },
   '/russia': {
-    title: 'Shipping from China to Russia | TIR & Express Cargo | HappyBox Logistics',
+    title: 'Cargo Shipping from China to Russia | HappyBox Logistics',
     description: 'Reliable cargo delivery from China to Russia. Fast TIR trucking from $1.6/kg. White import, customs clearance, and secure logistics. Get a quote!'
   },
   '/ru/russia': {
@@ -50,7 +50,7 @@ const seoData: Record<string, { title: string; description: string }> = {
     description: 'Trusted Taobao shopping agent. We buy, check, and ship items worldwide. 0% commission, free consolidation & photo reports. Start shopping from China now!'
   },
   '/ru/taobao': {
-    title: 'Посредник Таобао: Выкуп из Китая под 0% | Карго HappyBox',
+    title: 'Посредник Таобао: Выкуп из Китая под 0% | HappyBox',
     description: 'Надежный посредник для покупок на Taobao. Выкупим, проверим на брак и доставим ваш заказ. Комиссия 0%, бесплатный склад и фотоотчет. Закажите выкуп!'
   },
   '/1688': {
@@ -62,7 +62,7 @@ const seoData: Record<string, { title: string; description: string }> = {
     description: 'Профессиональный агент 1688. Поможем купить оптом напрямую с фабрик Китая. Проверка качества, переговоры и доставка под ключ. Начните работать с Китаем!'
   },
   '/poizon': {
-    title: 'Poizon Dewu Agent: Buy Authentic Sneakers from China | HappyBox Logistics',
+    title: 'Poizon Dewu Agent: Authentic Sneakers from China | HappyBox Logistics',
     description: 'Buy original sneakers and streetwear from Poizon Dewu. We provide purchasing assistance, legit checks, and fast shipping. Order your authentic gear now!'
   },
   '/ru/poizon': {
@@ -70,15 +70,15 @@ const seoData: Record<string, { title: string; description: string }> = {
     description: 'Доставка оригинальных кроссовок и одежды с Poizon Dewu. Быстрый выкуп, Legit Check, проверка на складе и надежная отправка в вашу страну. Закажите оригинал!'
   },
   '/pinduoduo': {
-    title: 'Pinduoduo Agent | Cheap Shopping from China | HappyBox Logistics',
+    title: 'Pinduoduo Agent | Affordable Goods Directly from China | HappyBox Logistics',
     description: 'Buy items at the lowest prices from Pinduoduo. We help you navigate the app, consolidate your orders, and ship them globally. Get a free quote!'
   },
   '/ru/pinduoduo': {
-    title: 'Выкуп с Pinduoduo: Дешевые товары из Китая | Карго HappyBox',
+    title: 'Выкуп с Pinduoduo: Дешевые товары из Китая | HappyBox',
     description: 'Покупайте товары по самым низким ценам на Pinduoduo. Поможем с выкупом, объединим посылки на складе и отправим удобным способом. Узнайте тарифы!'
   },
   '/weidian': {
-    title: 'Weidian Agent | Buy Streetwear & Replicas from China | HappyBox Logistics',
+    title: 'Weidian Agent | Streetwear & Independent Brands from China | HappyBox Logistics',
     description: 'Your guide to shopping on Weidian. We help you buy from independent sellers, check item quality, and provide secure international shipping. Request a quote!'
   },
   '/ru/weidian': {
@@ -94,11 +94,11 @@ const seoData: Record<string, { title: string; description: string }> = {
     description: 'Помощь в покупке редких и б/у товаров на барахолке Xianyu. Договоримся с продавцом, проверим товар на складе и доставим вам. Рассчитайте стоимость!'
   },
   '/amazon': {
-    title: 'Amazon FBA Prep Center in China | DDP Shipping to USA & EU | HappyBox Logistics',
+    title: 'Amazon FBA Prep Center China | DDP to USA & EU | HappyBox Logistics',
     description: 'Full-service Amazon FBA prep in China: labeling, bundling, and quality inspection. Direct DDP shipping to Amazon warehouses in USA/EU. Grow your FBA business!'
   },
   '/ru/amazon': {
-    title: 'Преп-центр в Китае: Доставка на Amazon FBA США и Европа',
+    title: 'Преп-центр в Китае: Доставка на Amazon FBA | HappyBox',
     description: 'Услуги преп-центра для селлеров Amazon. Маркировка, упаковка, проверка и прямая DDP доставка на склады Амазон в США и ЕС. Оптимизируйте свою логистику!'
   },
   '/inspection': {
