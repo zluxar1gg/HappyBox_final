@@ -51,7 +51,7 @@ const seoData: Record<string, { title: string; description: string }> = {
   },
   '/ru/taobao': {
     title: 'Посредник Таобао: Выкуп из Китая под 0% | HappyBox',
-    description: 'Надежный посредник для покупок на Taobao. Выкупим, проверим на брак и доставим ваш заказ. Комиссия 0%, бесплатный склад и фотоотчет. Закажите выкуп!'
+    description: 'Надежный посредник для покупок на Taobao. Выкупим, проверим на брак и доставим ваш заказ. Комиссия 0%, бесплатный склад и фотоотчет. Рассчитайте стоимость выкупа прямо сейчас!'
   },
   '/1688': {
     title: '1688 Agent & Sourcing: Wholesale from China | HappyBox Logistics',

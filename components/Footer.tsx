@@ -160,7 +160,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                 <div className="block lg:hidden -mb-4 -mr-4">
                     <img 
                         src="https://i.ibb.co/TBF1tWsQ/happyboxbottom-r.webp" 
-                        alt="Happy Box Mascot Mascot" 
+                        alt="Happy Box Mascot" 
                         width="300"
                         height="300"
                         loading="lazy"

@@ -29,7 +29,7 @@ export const About: React.FC<AboutProps> = ({ language }) => {
             <div className="flex justify-center lg:justify-center">
                 <img 
                   src="https://i.ibb.co/C55Gbh27/happyboxdelivery.webp" 
-                  alt="Happy Box Delivery Illustration" 
+                  alt={t.imageAlt} 
                   width="800"
                   height="800"
                   loading="lazy"
