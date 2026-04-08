@@ -143,43 +143,13 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    const indexPath = path.join(distPath, 'index.html');
     
-    app.use(express.static(distPath, { index: false }));
+    // Serve static files, automatically serving index.html for directories
+    app.use(express.static(distPath));
     
-    // Express v5 uses *all instead of *
+    // Fallback for any unmatched routes (SPA fallback)
     app.get('*all', (req, res) => {
-      fs.readFile(indexPath, 'utf8', (err, htmlData) => {
-        if (err) {
-          console.error('Error reading index.html:', err);
-          return res.status(500).send('Error loading page');
-        }
-
-        // Clean up the path (remove trailing slash, ignore query params)
-        let cleanPath = req.path.replace(/\/$/, '');
-        if (cleanPath === '') cleanPath = '/';
-
-        const pageSeo = seoData[cleanPath];
-
-        if (pageSeo) {
-          // Replace title
-          let modifiedHtml = htmlData.replace(
-            /<title>.*<\/title>/,
-            `<title>${pageSeo.title}</title>`
-          );
-          
-          // Replace description
-          modifiedHtml = modifiedHtml.replace(
-            /<meta name="description" content="[^"]*" \/>/,
-            `<meta name="description" content="${pageSeo.description}" />`
-          );
-          
-          return res.send(modifiedHtml);
-        }
-
-        // If no specific SEO data found, send the default HTML
-        res.send(htmlData);
-      });
+      res.sendFile(path.join(distPath, 'index.html'));
     });
   }
 

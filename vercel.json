@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "api/seo-router.ts": {
-      "includeFiles": "dist/index.html"
-    }
-  },
   "redirects": [
     { "source": "/", "has": [{ "type": "query", "key": "page", "value": "ru" }], "destination": "/ru?", "permanent": true },
     { "source": "/", "has": [{ "type": "query", "key": "page", "value": "usa" }, { "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru/usa?", "permanent": true },
@@ -34,10 +29,6 @@
     { "source": "/", "has": [{ "type": "query", "key": "page", "value": "warehousing" }], "destination": "/warehousing?", "permanent": true },
     { "source": "/", "has": [{ "type": "query", "key": "lang", "value": "ru" }], "destination": "/ru?", "permanent": true }
   ],
-  "rewrites": [
-    {
-      "source": "/([^.]*)",
-      "destination": "/api/seo-router"
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }

@@ -228,15 +228,21 @@ const AppContent: React.FC<{ language: Language }> = ({ language }) => {
   );
 };
 
+export const AppRoutes: React.FC = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<AppContent language="en" />} />
+      <Route path="/ru" element={<AppContent language="ru" />} />
+      <Route path="/:page" element={<AppContent language="en" />} />
+      <Route path="/ru/:page" element={<AppContent language="ru" />} />
+    </Routes>
+  );
+};
+
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AppContent language="en" />} />
-        <Route path="/ru" element={<AppContent language="ru" />} />
-        <Route path="/:page" element={<AppContent language="en" />} />
-        <Route path="/ru/:page" element={<AppContent language="ru" />} />
-      </Routes>
+      <AppRoutes />
     </BrowserRouter>
   );
 };
