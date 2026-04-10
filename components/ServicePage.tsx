@@ -369,7 +369,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                 </section>
 
                 <div id="contacts" className="scroll-mt-28">
-                    <Contact language={language} />
+                    <Contact language={language} currentPage={serviceId} />
                 </div>
                 
                 <SeoBlock language={language} onNavigate={() => {}} />

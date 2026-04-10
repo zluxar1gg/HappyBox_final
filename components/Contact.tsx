@@ -6,6 +6,7 @@ import { trackLead, MessengerPlatform } from '../utils/analytics';
 
 interface ContactProps {
   language: Language;
+  currentPage?: string;
 }
 
 const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
@@ -14,7 +15,7 @@ const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number, className?
   </svg>
 );
 
-export const Contact: React.FC<ContactProps> = ({ language }) => {
+export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home' }) => {
   const t = translations[language].contact;
   const [copied, setCopied] = useState(false);
   
@@ -47,13 +48,53 @@ export const Contact: React.FC<ContactProps> = ({ language }) => {
   const emailDomain = 'happyboxlogistics.com';
   const fullEmail = `${emailUser}@${emailDomain}`;
 
+  const getDynamicHeading = () => {
+    if (language === 'ru') {
+      switch (currentPage) {
+        case 'taobao': return 'Выкуп и доставка с Таобао — проще простого с HappyBox!';
+        case '1688': return 'Оптовые закупки на 1688 — проще простого с HappyBox!';
+        case 'poizon': return 'Заказ оригиналов с Poizon — проще простого с HappyBox!';
+        case 'usa': return 'Доставка грузов из Китая в США — проще простого с HappyBox!';
+        case 'eu': return 'Доставка из Китая в Европу — проще простого с HappyBox!';
+        case 'russia': return 'Белая доставка из Китая в Россию — проще простого с HappyBox!';
+        case 'uae': return 'Доставка из Китая в Эмираты — проще простого с HappyBox!';
+        case 'amazon': return 'Доставка на склады Amazon FBA — проще простого с HappyBox!';
+        case 'warehousing': return 'Консолидация и хранение в Китае — проще простого с HappyBox!';
+        case 'inspection': return 'Проверка качества в Китае — проще простого с HappyBox!';
+        case 'tmall': return 'Выкуп с Tmall — проще простого с HappyBox!';
+        case 'pinduoduo': return 'Выкуп с Pinduoduo — проще простого с HappyBox!';
+        case 'xianyu': return 'Выкуп с Xianyu — проще простого с HappyBox!';
+        case 'weidian': return 'Выкуп с Weidian — проще простого с HappyBox!';
+        default: return 'Доставка из Китая и Гонконга проще простого с HappyBox!';
+      }
+    } else {
+      switch (currentPage) {
+        case 'taobao': return 'Taobao shopping and shipping is easy with HappyBox!';
+        case '1688': return 'Wholesale from 1688 is easy with HappyBox!';
+        case 'poizon': return 'Ordering from Poizon is easy with HappyBox!';
+        case 'usa': return 'Shipping from China to the USA is easy with HappyBox!';
+        case 'eu': return 'Shipping from China to Europe is easy with HappyBox!';
+        case 'russia': return 'Shipping from China to Russia is easy with HappyBox!';
+        case 'uae': return 'Shipping from China to the UAE is easy with HappyBox!';
+        case 'amazon': return 'Shipping to Amazon FBA is easy with HappyBox!';
+        case 'warehousing': return 'Warehousing in China is easy with HappyBox!';
+        case 'inspection': return 'Quality inspection in China is easy with HappyBox!';
+        case 'tmall': return 'Shopping on Tmall is easy with HappyBox!';
+        case 'pinduoduo': return 'Shopping on Pinduoduo is easy with HappyBox!';
+        case 'xianyu': return 'Shopping on Xianyu is easy with HappyBox!';
+        case 'weidian': return 'Shopping on Weidian is easy with HappyBox!';
+        default: return 'Shipping from China and Hong Kong has never been easier with HappyBox!';
+      }
+    }
+  };
+
   return (
     <section className="pt-12 pb-20 bg-brand-light/20">
       <div className="container mx-auto">
         <div className="bg-white rounded-[30px] p-8 lg:p-16 text-center shadow-sm max-w-[1200px] mx-auto">
-          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark mb-8 tracking-tight">
-            {t.title} <span className="text-brand-blue">HappyBox</span>!
-          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark mb-8 tracking-tight">
+            {getDynamicHeading()}
+          </h2>
           
           <p className="text-lg leading-relaxed text-gray-600 max-w-4xl mx-auto mb-12 font-medium">
             {t.text}

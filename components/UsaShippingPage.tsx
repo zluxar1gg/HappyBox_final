@@ -310,7 +310,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                 </section>
 
                 <div id="contacts">
-                    <Contact language={language} />
+                    <Contact language={language} currentPage="usa" />
                 </div>
                 
                 <SeoBlock language={language} onNavigate={() => {}} /> 

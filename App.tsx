@@ -49,14 +49,19 @@ const AppContent: React.FC<{ language: Language }> = ({ language }) => {
   const setLanguage = (lang: Language) => {
     const prefix = lang === 'ru' ? '/ru' : '';
     const path = currentPage === 'home' ? '' : `/${currentPage}`;
-    navigate(`${prefix}${path}${location.hash}`);
+    let newPath = `${prefix}${path}`;
+    if (newPath === '') newPath = '/';
+    
+    const finalUrl = location.hash ? `${newPath}${location.hash}` : newPath;
+    navigate(finalUrl);
   };
 
   const handleNavigate = (targetPage: string, sectionId?: string) => {
     const prefix = language === 'ru' ? '/ru' : '';
     const path = targetPage === 'home' ? '' : `/${targetPage}`;
     const hash = (targetPage === 'home' && sectionId) ? `#${sectionId}` : '';
-    navigate(`${prefix}${path}${hash}`);
+    const newPath = `${prefix}${path}` || '/';
+    navigate(`${newPath}${hash}`);
   };
 
   // --- SCROLL RESTORATION FIX ---
@@ -76,10 +81,12 @@ const AppContent: React.FC<{ language: Language }> = ({ language }) => {
     if (currentPage === 'home') {
       if (location.hash) {
         const id = location.hash.replace('#', '');
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'auto' });
-        }
+        setTimeout(() => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'auto' });
+          }
+        }, 50);
       } else {
         window.scrollTo(0, 0);
       }
@@ -165,7 +172,7 @@ const AppContent: React.FC<{ language: Language }> = ({ language }) => {
             </div>
             
             <div id="contacts" className="scroll-mt-28">
-              <Contact language={language} />
+              <Contact language={language} currentPage={currentPage} />
             </div>
 
             <FAQ language={language} />

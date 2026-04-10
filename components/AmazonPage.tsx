@@ -329,7 +329,7 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                 </section>
 
                 <div id="contacts">
-                    <Contact language={language} />
+                    <Contact language={language} currentPage="amazon" />
                 </div>
                 
                 <SeoBlock language={language} onNavigate={() => {}} />

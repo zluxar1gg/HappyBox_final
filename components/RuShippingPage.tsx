@@ -279,7 +279,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                 </section>
 
                 <div id="contacts">
-                    <Contact language={language} />
+                    <Contact language={language} currentPage="russia" />
                 </div>
 
                 <SeoBlock language={language} onNavigate={() => {}} />

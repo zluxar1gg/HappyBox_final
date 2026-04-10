@@ -273,7 +273,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                 </section>
 
                 <div id="contacts">
-                    <Contact language={language} />
+                    <Contact language={language} currentPage="uae" />
                 </div>
 
                 <SeoBlock language={language} onNavigate={() => {}} />
