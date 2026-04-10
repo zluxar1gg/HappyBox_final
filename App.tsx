@@ -188,7 +188,7 @@ const AppContent: React.FC<{ language: Language }> = ({ language }) => {
 
   return (
       <>
-        <SchemaMarkup />
+        <SchemaMarkup currentPage={currentPage} language={language} />
         <Analytics />
         {renderContent()}
         {/* Under Development Modal */}

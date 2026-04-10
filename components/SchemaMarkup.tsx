@@ -1,11 +1,16 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Language, translations } from '../utils/translations';
 
-export const SchemaMarkup: React.FC = () => {
-  const location = useLocation();
-  const isTaobaoRu = location.pathname === '/ru/taobao';
+interface SchemaMarkupProps {
+  currentPage: string;
+  language: Language;
+}
 
-  const baseSchema = {
+export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ currentPage, language }) => {
+  const t = translations[language];
+
+  // 1. Organization Schema (Always present)
+  const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "HappyBox Logistics",
@@ -26,57 +31,46 @@ export const SchemaMarkup: React.FC = () => {
     ]
   };
 
-  const taobaoSchema = isTaobaoRu ? [
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Выкуп с Taobao",
-      "provider": {
-        "@type": "Organization",
-        "name": "HappyBox Logistics"
-      },
-      "description": "Покупайте на Taobao, 1688 и Tmall с комиссией 0%. HappyBox предлагает бесплатную проверку качества, консолидацию и доставку по всему миру.",
-      "areaServed": ["RU", "US", "AE", "EU"],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "description": "0% комиссия за выкуп"
-      }
-    },
-    {
+  // 2. Service Schema (For service/destination pages)
+  let serviceSchema = null;
+  if (currentPage !== 'home') {
+    const serviceT = (t as any)[currentPage];
+    if (serviceT) {
+      serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": serviceT.title || "Logistics Service",
+        "provider": {
+          "@type": "Organization",
+          "name": "HappyBox Logistics"
+        },
+        "description": serviceT.desc || serviceT.text || "Professional logistics and sourcing services from China.",
+        "areaServed": ["RU", "US", "AE", "EU", "BY", "KZ"],
+        "url": `https://happyboxlogistics.com${language === 'ru' ? '/ru' : ''}/${currentPage}`
+      };
+    }
+  }
+
+  // 3. FAQPage Schema (Only for home page, where FAQ is rendered)
+  let faqSchema = null;
+  if (currentPage === 'home' && t.faq && t.faq.items) {
+    faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Какая комиссия за выкуп с Таобао?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Мы выкупаем товары с Taobao, 1688 и Tmall с комиссией 0%."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Нужен ли китайский номер телефона?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Нет, вам не нужно регистрироваться на Taobao. Мы берем весь процесс выкупа на себя."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Вы проверяете товары перед отправкой?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Да, мы предоставляем бесплатную проверку на брак, размер и цвет (QC) на нашем складе в Китае."
-          }
+      "mainEntity": t.faq.items.map((item: any) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
         }
-      ]
-    }
-  ] : [];
+      }))
+    };
+  }
 
-  const schemas = [baseSchema, ...taobaoSchema];
+  const schemas = [organizationSchema];
+  if (serviceSchema) schemas.push(serviceSchema);
+  if (faqSchema) schemas.push(faqSchema);
 
   return (
     <>

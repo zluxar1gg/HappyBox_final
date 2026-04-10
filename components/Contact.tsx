@@ -88,6 +88,46 @@ export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home'
     }
   };
 
+  const getDynamicText = () => {
+    if (language === 'ru') {
+      switch (currentPage) {
+        case 'taobao': return 'Поможем найти, выкупить и проверить любые товары с Таобао. Организуем надежную доставку ваших покупок прямо до двери без скрытых комиссий.';
+        case '1688': return 'Организуем оптовые закупки на 1688 напрямую у фабрик. Проверим поставщиков, консолидируем груз и доставим партию в целости и сохранности.';
+        case 'poizon': return 'Оригинальные кроссовки, одежда и аксессуары с Poizon (Dewu). Выкупаем быстро, проверяем на складе и доставляем с сохранением фирменной упаковки.';
+        case 'usa': return 'Надежная логистика из Китая в США. Предлагаем оптимальные маршруты авиа и морской доставки для личных посылок и коммерческих грузов.';
+        case 'eu': return 'Доставляем грузы из Китая в страны Европы с полным таможенным оформлением (DDP). Быстро, надежно и без лишних хлопот с документами.';
+        case 'russia': return 'Белая доставка из Китая в Россию со всеми закрывающими документами. Оптимальные логистические решения для бизнеса любого масштаба.';
+        case 'uae': return 'Регулярные отправки из Китая в ОАЭ. Доставляем товары для маркетплейсов, бизнеса и личного пользования точно в срок.';
+        case 'amazon': return 'Полный комплекс услуг по доставке на склады Amazon FBA. Маркировка, упаковка по стандартам платформы и прямая отгрузка.';
+        case 'warehousing': return 'Собственные склады в Китае для консолидации, хранения и обработки ваших грузов. Бесплатное хранение, надежная упаковка и фотоотчеты.';
+        case 'inspection': return 'Тщательная проверка качества товаров перед отправкой. Выявим брак, проверим соответствие размерам и цветам, предоставим детальный отчет.';
+        case 'tmall': return 'Выкуп брендовых товаров с Tmall. Гарантия подлинности, быстрая обработка заказов и бережная доставка ваших покупок.';
+        case 'pinduoduo': return 'Поможем выкупить товары по самым выгодным ценам с Pinduoduo. Объединим множество мелких посылок в одну для экономии на доставке.';
+        case 'xianyu': return 'Безопасный выкуп б/у и редких товаров с Xianyu (Idle Fish). Договоримся с продавцом, проверим состояние товара и надежно упакуем.';
+        case 'weidian': return 'Выкуп товаров из магазинов Weidian. Удобный сервис для заказа эксклюзивных вещей напрямую от китайских продавцов.';
+        default: return t.text;
+      }
+    } else {
+      switch (currentPage) {
+        case 'taobao': return 'We will help you find, purchase, and inspect any goods from Taobao. We organize reliable delivery of your purchases right to your door with no hidden fees.';
+        case '1688': return 'We organize wholesale purchases on 1688 directly from factories. We verify suppliers, consolidate cargo, and deliver your batch safely and securely.';
+        case 'poizon': return 'Original sneakers, clothing, and accessories from Poizon (Dewu). We purchase quickly, inspect at our warehouse, and deliver preserving the original packaging.';
+        case 'usa': return 'Reliable logistics from China to the USA. We offer optimal air and sea freight routes for personal parcels and commercial cargo.';
+        case 'eu': return 'We deliver cargo from China to European countries with full customs clearance (DDP). Fast, reliable, and without paperwork hassle.';
+        case 'russia': return 'Official delivery from China to Russia with all required documentation. Optimal logistics solutions for businesses of any scale.';
+        case 'uae': return 'Regular shipments from China to the UAE. We deliver goods for marketplaces, businesses, and personal use right on time.';
+        case 'amazon': return 'Full range of services for delivery to Amazon FBA warehouses. Labeling, packaging according to platform standards, and direct shipment.';
+        case 'warehousing': return 'Our own warehouses in China for consolidation, storage, and processing of your cargo. Free storage, reliable packaging, and photo reports.';
+        case 'inspection': return 'Thorough quality inspection of goods before shipment. We detect defects, check size and color accuracy, and provide a detailed report.';
+        case 'tmall': return 'Purchasing branded goods from Tmall. Authenticity guarantee, fast order processing, and careful delivery of your purchases.';
+        case 'pinduoduo': return 'We will help you buy goods at the best prices from Pinduoduo. We consolidate multiple small parcels into one to save on shipping.';
+        case 'xianyu': return 'Safe purchase of used and rare goods from Xianyu (Idle Fish). We negotiate with the seller, check the item\'s condition, and pack it securely.';
+        case 'weidian': return 'Purchasing goods from Weidian stores. A convenient service for ordering exclusive items directly from Chinese sellers.';
+        default: return t.text;
+      }
+    }
+  };
+
   return (
     <section className="pt-12 pb-20 bg-brand-light/20">
       <div className="container mx-auto">
@@ -97,7 +137,7 @@ export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home'
           </h2>
           
           <p className="text-lg leading-relaxed text-gray-600 max-w-4xl mx-auto mb-12 font-medium">
-            {t.text}
+            {getDynamicText()}
           </p>
           
           <div className="text-center mt-12">

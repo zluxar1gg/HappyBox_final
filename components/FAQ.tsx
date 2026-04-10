@@ -15,31 +15,6 @@ export const FAQ: React.FC<FAQProps> = ({ language }) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // Inject JSON-LD Schema for SEO
-  useEffect(() => {
-    const schemaData = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": t.items.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": item.answer
-        }
-      }))
-    };
-
-    const script = document.createElement('script');
-    script.type = "application/ld+json";
-    script.text = JSON.stringify(schemaData);
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, [language, t.items]);
-
   return (
     <section className="py-20 bg-cream" id="faq">
       <div className="container mx-auto px-4 md:px-0">
