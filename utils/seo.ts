@@ -171,6 +171,33 @@ export const updateMetaTags = (page: PageType, language: Language) => {
   const enUrl = baseUrl + getPath(page, 'en');
   const ruUrl = baseUrl + getPath(page, 'ru');
 
+  // Helper function to update or create meta tags
+  const setMetaTag = (selector: string, attribute: string, value: string) => {
+    let element = document.querySelector(selector);
+    if (!element) {
+      element = document.createElement('meta');
+      if (selector.includes('property=')) {
+        const propMatch = selector.match(/property="([^"]+)"/);
+        if (propMatch) element.setAttribute('property', propMatch[1]);
+      } else if (selector.includes('name=')) {
+        const nameMatch = selector.match(/name="([^"]+)"/);
+        if (nameMatch) element.setAttribute('name', nameMatch[1]);
+      }
+      document.head.appendChild(element);
+    }
+    element.setAttribute(attribute, value);
+  };
+
+  // Update Open Graph tags
+  setMetaTag('meta[property="og:title"]', 'content', data.title);
+  setMetaTag('meta[property="og:description"]', 'content', data.description);
+  setMetaTag('meta[property="og:url"]', 'content', currentFullUrl);
+  
+  // Update Twitter tags
+  setMetaTag('meta[name="twitter:title"]', 'content', data.title);
+  setMetaTag('meta[name="twitter:description"]', 'content', data.description);
+  setMetaTag('meta[name="twitter:url"]', 'content', currentFullUrl);
+
   // 4. Update Canonical URL (Self-referencing)
   let canonicalLink = document.querySelector('link[rel="canonical"]');
   if (!canonicalLink) {

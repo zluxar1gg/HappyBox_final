@@ -74,6 +74,7 @@ const AppContent: React.FC<{ language: Language }> = ({ language }) => {
   // --- SEO EFFECT ---
   useEffect(() => {
     updateMetaTags(currentPage, language);
+    document.documentElement.lang = language;
   }, [currentPage, language]);
 
   // Scroll Handling Effect
