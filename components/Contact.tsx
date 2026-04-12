@@ -154,7 +154,7 @@ export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home'
                 onClick={() => trackLead('telegram', 'contact_section', 'click')}
               >
                 <img 
-                  src="https://i.ibb.co/DHB3gwjL/happybox-telegram-d.webp" 
+                  src="https://i.ibb.co/h19jVqpz/happybox-tg.webp" 
                   alt="Telegram QR" 
                   width="300" height="300" loading="lazy" className="w-full h-full object-contain"
                 />
