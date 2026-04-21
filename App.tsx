@@ -22,6 +22,9 @@ import { UaeShippingPage } from './components/UaeShippingPage';
 import { RuShippingPage } from './components/RuShippingPage';
 import { AmazonPage } from './components/AmazonPage';
 import { ServicePage } from './components/ServicePage';
+import { BlogCatalog } from './components/BlogCatalog';
+import { BlogPost } from './components/BlogPost';
+import { getBlogPostBySlug } from './utils/blogData';
 import { Language, translations } from './utils/translations';
 import { updateMetaTags } from './utils/seo'; 
 import { SchemaMarkup } from './components/SchemaMarkup';
@@ -30,25 +33,33 @@ import { Loader2, X, Hammer } from 'lucide-react';
 // Lazy load components
 const Quiz = React.lazy(() => import('./components/Quiz').then(module => ({ default: module.Quiz })));
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian' | 'blog' | 'blogPost';
 
-const AppContent: React.FC<{ language: Language }> = ({ language }) => {
-  const { page } = useParams<{ page?: string }>();
+const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ language, isBlogPost }) => {
+  const { page, slug } = useParams<{ page?: string, slug?: string }>();
   const navigate = useNavigate();
   const location = useLocation();
 
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isDevModalOpen, setIsDevModalOpen] = useState(false);
 
-  const validPages: PageType[] = ['usa', 'eu', 'uae', 'russia', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian'];
+  const validPages: PageType[] = ['usa', 'eu', 'uae', 'russia', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian', 'blog'];
   
   // Determine current page from URL params
-  const currentPage: PageType = (page && validPages.includes(page as PageType)) ? (page as PageType) : 'home';
+  let currentPage: PageType = (page && validPages.includes(page as PageType)) ? (page as PageType) : 'home';
+  if (isBlogPost) {
+    currentPage = 'blogPost';
+  }
 
   // Custom setter to update URL
   const setLanguage = (lang: Language) => {
     const prefix = lang === 'ru' ? '/ru' : '';
-    const path = currentPage === 'home' ? '' : `/${currentPage}`;
+    let path = '';
+    if (currentPage === 'blogPost' && slug) {
+      path = `/blog/${slug}`;
+    } else if (currentPage !== 'home') {
+      path = `/${currentPage}`;
+    }
     let newPath = `${prefix}${path}`;
     if (newPath === '') newPath = '/';
     
@@ -73,9 +84,18 @@ const AppContent: React.FC<{ language: Language }> = ({ language }) => {
 
   // --- SEO EFFECT ---
   useEffect(() => {
-    updateMetaTags(currentPage, language);
+    if (currentPage === 'blogPost' && slug) {
+      const post = getBlogPostBySlug(slug, language);
+      if (post) {
+        updateMetaTags(currentPage, language, { title: post.title, description: post.excerpt, slug: post.slug });
+      } else {
+        updateMetaTags(currentPage, language);
+      }
+    } else {
+      updateMetaTags(currentPage, language);
+    }
     document.documentElement.lang = language;
-  }, [currentPage, language]);
+  }, [currentPage, language, slug]);
 
   // Scroll Handling Effect
   useLayoutEffect(() => {
@@ -109,6 +129,21 @@ const AppContent: React.FC<{ language: Language }> = ({ language }) => {
   const t = translations[language].devModal;
 
   const renderContent = () => {
+      if (currentPage === 'blog') return (
+        <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
+          <Header language={language} setLanguage={setLanguage} onLoginClick={() => setIsDevModalOpen(true)} isDashboard={false} onNavigate={handleNavigate} />
+          <BlogCatalog language={language} />
+          <Footer language={language} />
+        </div>
+      );
+      if (currentPage === 'blogPost') return (
+        <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
+          <Header language={language} setLanguage={setLanguage} onLoginClick={() => setIsDevModalOpen(true)} isDashboard={false} onNavigate={handleNavigate} />
+          <BlogPost language={language} />
+          <Footer language={language} />
+        </div>
+      );
+
       // Country pages return to "services" section (QuickAccess wrapper)
       if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
       if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
@@ -241,6 +276,8 @@ export const AppRoutes: React.FC = () => {
     <Routes>
       <Route path="/" element={<AppContent language="en" />} />
       <Route path="/ru" element={<AppContent language="ru" />} />
+      <Route path="/blog/:slug" element={<AppContent language="en" isBlogPost />} />
+      <Route path="/ru/blog/:slug" element={<AppContent language="ru" isBlogPost />} />
       <Route path="/:page" element={<AppContent language="en" />} />
       <Route path="/ru/:page" element={<AppContent language="ru" />} />
     </Routes>

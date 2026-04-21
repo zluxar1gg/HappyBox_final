@@ -8,7 +8,7 @@
 
 import { Language } from './translations';
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
+type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian' | 'blog' | 'blogPost';
 
 interface MetaData {
   title: string;
@@ -76,6 +76,14 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     warehousing: {
       title: "Free Warehouse in China | Parcel Consolidation & Storage | HappyBox",
       description: "Get a free warehouse address in China. HappyBox offers unlimited free storage, parcel consolidation, and quality inspection. Save on shipping from China to the USA, Europe, and UAE."
+    },
+    blog: {
+      title: "Logistics Blog & Insights | Shipping from China Guides | HappyBox",
+      description: "Expert guides, news, and tips for shipping from China. Learn how to buy on 1688, Taobao, and optimize your Amazon FBA supply chain."
+    },
+    blogPost: {
+      title: "Logistics Insights | HappyBox",
+      description: "Read our latest insights on shipping, sourcing, and logistics from China."
     }
   },
   ru: {
@@ -138,15 +146,26 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
     warehousing: {
       title: "Бесплатный склад в Китае и Консолидация | HappyBox",
       description: "Храните товары бесплатно на нашем охраняемом складе. Мы объединяем заказы от разных поставщиков в одну посылку, чтобы вы экономили на доставке."
+    },
+    blog: {
+      title: "Блог и База Знаний по Логистике | Доставка из Китая | HappyBox",
+      description: "Экспертные статьи, новости и советы по доставке из Китая. Узнайте, как покупать на 1688, Taobao и оптимизировать поставки для Amazon FBA."
+    },
+    blogPost: {
+      title: "Статьи по Логистике | HappyBox",
+      description: "Читайте наши последние статьи о доставке, выкупе и логистике из Китая."
     }
   }
 };
 
-export const updateMetaTags = (page: PageType, language: Language) => {
+export const updateMetaTags = (page: PageType, language: Language, dynamicData?: { title?: string, description?: string, slug?: string }) => {
   const data = metaData[language][page];
   
+  const finalTitle = dynamicData?.title || data.title;
+  const finalDescription = dynamicData?.description || data.description;
+
   // 1. Update Title
-  document.title = data.title;
+  document.title = finalTitle;
 
   // 2. Update Description
   let metaDescription = document.querySelector('meta[name="description"]');
@@ -155,7 +174,7 @@ export const updateMetaTags = (page: PageType, language: Language) => {
     metaDescription.setAttribute('name', 'description');
     document.head.appendChild(metaDescription);
   }
-  metaDescription.setAttribute('content', data.description);
+  metaDescription.setAttribute('content', finalDescription);
 
   // 3. Construct Base URL logic
   const baseUrl = window.location.origin;
@@ -163,6 +182,9 @@ export const updateMetaTags = (page: PageType, language: Language) => {
   // Helper to create path string
   const getPath = (p: PageType, l: Language) => {
     const langPrefix = l === 'ru' ? '/ru' : '';
+    if (p === 'blogPost' && dynamicData?.slug) {
+      return `${langPrefix}/blog/${dynamicData.slug}`;
+    }
     const pagePath = p === 'home' ? '' : `/${p}`;
     return `${langPrefix}${pagePath}` || '/';
   };
@@ -189,13 +211,13 @@ export const updateMetaTags = (page: PageType, language: Language) => {
   };
 
   // Update Open Graph tags
-  setMetaTag('meta[property="og:title"]', 'content', data.title);
-  setMetaTag('meta[property="og:description"]', 'content', data.description);
+  setMetaTag('meta[property="og:title"]', 'content', finalTitle);
+  setMetaTag('meta[property="og:description"]', 'content', finalDescription);
   setMetaTag('meta[property="og:url"]', 'content', currentFullUrl);
   
   // Update Twitter tags
-  setMetaTag('meta[name="twitter:title"]', 'content', data.title);
-  setMetaTag('meta[name="twitter:description"]', 'content', data.description);
+  setMetaTag('meta[name="twitter:title"]', 'content', finalTitle);
+  setMetaTag('meta[name="twitter:description"]', 'content', finalDescription);
   setMetaTag('meta[name="twitter:url"]', 'content', currentFullUrl);
 
   // 4. Update Canonical URL (Self-referencing)

@@ -153,6 +153,14 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                             {t.terms}
                         </button>
                         </li>
+                        <li>
+                        <a 
+                            href={language === 'ru' ? '/ru/blog' : '/blog'}
+                            className="text-gray-800 hover:text-brand-blue transition-colors cursor-pointer font-medium text-base"
+                        >
+                            {language === 'en' ? 'Blog' : 'Блог'}
+                        </a>
+                        </li>
                     </ul>
                 </div>
 

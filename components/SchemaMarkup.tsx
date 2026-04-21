@@ -1,5 +1,7 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { Language, translations } from '../utils/translations';
+import { getBlogPostBySlug } from '../utils/blogData';
 
 interface SchemaMarkupProps {
   currentPage: string;
@@ -8,6 +10,7 @@ interface SchemaMarkupProps {
 
 export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ currentPage, language }) => {
   const t = translations[language];
+  const { slug } = useParams<{ slug?: string }>();
 
   // 1. Organization Schema (Always present)
   const organizationSchema = {
@@ -33,7 +36,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ currentPage, languag
 
   // 2. Service Schema (For service/destination pages)
   let serviceSchema = null;
-  if (currentPage !== 'home') {
+  if (currentPage !== 'home' && currentPage !== 'blog' && currentPage !== 'blogPost') {
     const serviceT = (t as any)[currentPage];
     if (serviceT) {
       serviceSchema = {
@@ -68,9 +71,40 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ currentPage, languag
     };
   }
 
+  // 4. Article Schema (For blog posts)
+  let articleSchema = null;
+  if (currentPage === 'blogPost' && slug) {
+    const post = getBlogPostBySlug(slug, language);
+    if (post) {
+      articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": post.title,
+        "image": [post.imageUrl],
+        "datePublished": post.date,
+        "dateModified": post.date,
+        "author": [{
+            "@type": "Organization",
+            "name": "HappyBox Logistics",
+            "url": "https://happyboxlogistics.com"
+        }],
+        "publisher": {
+            "@type": "Organization",
+            "name": "HappyBox Logistics",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://i.ibb.co/629m3RB/favicon.png"
+            }
+        },
+        "description": post.excerpt
+      };
+    }
+  }
+
   const schemas = [organizationSchema];
   if (serviceSchema) schemas.push(serviceSchema);
   if (faqSchema) schemas.push(faqSchema);
+  if (articleSchema) schemas.push(articleSchema);
 
   return (
     <>

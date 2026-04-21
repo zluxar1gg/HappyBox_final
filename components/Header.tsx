@@ -25,16 +25,27 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
     { name: t.tracking, href: '#tracking' },
     { name: t.contacts, href: '#contacts' },
     { name: t.faq, href: '#faq' },
+    { name: language === 'en' ? 'Blog' : 'Блог', href: '/blog', isRoute: true },
   ];
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, item: any) => {
     e.preventDefault();
+    if (item.isRoute) {
+      if (onNavigate) {
+        onNavigate('blog');
+      } else {
+        window.location.href = language === 'ru' ? '/ru/blog' : '/blog';
+      }
+      setIsMenuOpen(false);
+      return;
+    }
+
     if (isDashboard) {
-        window.location.href = href;
+        window.location.href = item.href;
         return;
     }
     
-    const targetId = href.replace('#', '');
+    const targetId = item.href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
       const headerOffset = 80;
@@ -42,12 +53,27 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       setIsMenuOpen(false);
+    } else {
+      // If element not found (e.g. we are on a blog page), navigate to home with hash
+      if (onNavigate) {
+        onNavigate('home', targetId);
+      } else {
+        window.location.href = (language === 'ru' ? '/ru' : '/') + item.href;
+      }
+      setIsMenuOpen(false);
     }
   };
 
   const scrollToTop = () => { 
       if (onBack) {
           onBack();
+      } else if (onNavigate) {
+          onNavigate('home');
+          // Remove hash from URL to prevent auto-scrolling back on refresh
+          if (window.location.hash) {
+              window.history.pushState("", document.title, window.location.pathname + window.location.search);
+          }
+          window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
           // Remove hash from URL to prevent auto-scrolling back on refresh
           if (window.location.hash) {
@@ -76,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
                 <li key={item.href}>
                     <a 
                     href={item.href} 
-                    onClick={(e) => handleScroll(e, item.href)}
+                    onClick={(e) => handleScroll(e, item)}
                     className="text-brand-dark font-semibold text-sm hover:text-brand-blue transition-colors cursor-pointer tracking-wide"
                     >
                     {item.name}
@@ -171,7 +197,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
               <a 
                 key={item.href} 
                 href={item.href}
-                onClick={(e) => handleScroll(e, item.href)} 
+                onClick={(e) => handleScroll(e, item)} 
                 className="text-lg font-bold py-3 border-b border-gray-100 last:border-0 text-center text-brand-dark"
               >
                 {item.name}
