@@ -108,9 +108,9 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
             
             {/* Text Wrapper */}
             <div className="flex-1 md:w-full">
-              <h4 className="font-bold text-brand-dark text-lg md:text-xl leading-tight group-hover:text-brand-blue transition-colors mb-1 md:mb-1">
+              <h3 className="font-bold text-brand-dark text-lg md:text-xl leading-tight group-hover:text-brand-blue transition-colors mb-1 md:mb-1">
                   {item.title}
-              </h4>
+              </h3>
               <p className="text-sm text-gray-500 font-medium leading-tight line-clamp-2 md:line-clamp-2">
                   {item.seoText}
               </p>
@@ -138,7 +138,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
         
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4 tracking-tight">
-            {isEn ? 'What are you looking for?' : 'Что вы ищете?'}
+            {isEn ? 'HappyBox Logistics & Sourcing Services from China' : 'HappyBox доставка и поиск товара'}
           </h2>
           <p className="text-lg md:text-xl text-gray-500 font-bold max-w-2xl mx-auto">
             {isEn ? 'Select the category that best fits your needs' : 'Выберите наиболее подходящую категорию'}

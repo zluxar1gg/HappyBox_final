@@ -65,7 +65,7 @@ export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home'
         case 'pinduoduo': return 'Выкуп с Pinduoduo — проще простого с HappyBox!';
         case 'xianyu': return 'Выкуп с Xianyu — проще простого с HappyBox!';
         case 'weidian': return 'Выкуп с Weidian — проще простого с HappyBox!';
-        default: return 'Доставка из Китая и Гонконга проще простого с HappyBox!';
+        default: return 'Начните закупки и доставку из Китая уже сегодня';
       }
     } else {
       switch (currentPage) {
@@ -83,7 +83,7 @@ export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home'
         case 'pinduoduo': return 'Shopping on Pinduoduo is easy with HappyBox!';
         case 'xianyu': return 'Shopping on Xianyu is easy with HappyBox!';
         case 'weidian': return 'Shopping on Weidian is easy with HappyBox!';
-        default: return 'Shipping from China and Hong Kong has never been easier with HappyBox!';
+        default: return 'Start Your Sourcing and Shipping from China Today';
       }
     }
   };

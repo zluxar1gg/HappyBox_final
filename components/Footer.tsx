@@ -168,7 +168,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                 <div className="block lg:hidden -mb-4 -mr-4">
                     <img 
                         src="https://i.ibb.co/TBF1tWsQ/happyboxbottom-r.webp" 
-                        alt="Happy Box Mascot" 
+                        alt="HappyBox Logistics Mascot" 
                         width="300"
                         height="300"
                         loading="lazy"
@@ -183,7 +183,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             <div className="hidden lg:block ml-auto self-end mr-10 -mb-8">
                  <img 
                     src="https://i.ibb.co/TBF1tWsQ/happyboxbottom-r.webp" 
-                    alt="Happy Box Mascot" 
+                    alt="HappyBox Logistics Support Mascot" 
                     width="300"
                     height="300"
                     loading="lazy"
