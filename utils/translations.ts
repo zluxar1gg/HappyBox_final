@@ -154,7 +154,7 @@ export const translations = {
       title: 'For over 9 years, we\'ve been providing reliable shipping and purchasing services from China and Hong Kong.',
       trustedText: 'We are one of the **most trusted purchasing and forwarding services**, with our own warehouses in China and Hong Kong. We ensure your delivery gets straight to your doorstep.',
       text: 'Your peace of mind is our priority. We handle negotiations with suppliers, offer free photo reports, and consolidate your packages to minimize shipping costs. Whether you are ordering a single pair of sneakers or a commercial batch of electronics - we remove language barriers and customs headaches, making cross-border shopping as easy as buying locally. No bots, no automated replies — just real experts helping you navigate the world\'s biggest marketplace.',
-      imageAlt: 'China Shipping Agent - HappyBox Logistics'
+      imageAlt: 'HappyBox Logistics - Fast & Reliable Shipping from China'
     },
     services: {
       title: 'Our Services',
@@ -921,7 +921,7 @@ export const translations = {
       title: 'Уже более 9 лет мы обеспечиваем надежную доставку и выкуп товаров из Китая и Гонконга.',
       trustedText: 'Мы — один из **самых надежных сервисов по выкупу и доставке**, с собственными складами в Китае и Гонконге. Гарантируем доставку прямо до вашей двери.',
       text: 'Ваше спокойствие — наш приоритет. Мы берем на себя переговоры с поставщиками, предоставляем бесплатные фотоотчеты и консолидируем ваши посылки для минимизации стоимости доставки. Заказываете ли вы одну пару кроссовок или коммерческую партию электроники — мы устраняем языковые барьеры и таможенные сложности, делая международный шопинг таким же простым, как покупки в местном магазине. Никаких ботов и автоответчиков — только реальные эксперты, помогающие вам ориентироваться на крупнейшем рынке мира.',
-      imageAlt: 'Посредник Таобао в Китае — HappyBox Logistics'
+      imageAlt: 'HappyBox Logistics - Быстрая и надежная доставка из Китая'
     },
     services: {
       title: 'Наши Услуги',
