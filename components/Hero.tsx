@@ -107,7 +107,6 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
                   alt="HappyBox Logistics Delivery Mascot China" 
                   width="800"
                   height="800"
-                  fetchPriority="high"
                   decoding="async"
                   className="w-full max-w-[600px] h-auto object-contain"
                 />
@@ -138,7 +137,6 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
               alt="HappyBox Logistics Delivery Mascot China" 
               width="800"
               height="800"
-              fetchPriority="high"
               decoding="async"
               className="w-full max-w-[600px] h-auto object-contain"
             />

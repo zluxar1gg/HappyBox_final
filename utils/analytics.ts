@@ -1,6 +1,6 @@
 
 export type MessengerPlatform = 'telegram' | 'whatsapp' | 'wechat' | 'email';
-export type ClickLocation = 'header' | 'hero' | 'contact_section' | 'footer' | 'floating';
+export type ClickLocation = 'header' | 'hero' | 'contact_section' | 'footer' | 'floating' | 'blog_cta';
 export type InteractionType = 'click' | 'hover' | 'copy';
 
 /**

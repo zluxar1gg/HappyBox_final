@@ -1,20 +1,29 @@
-
 import React from 'react';
-import { ArrowRight, Plane, Ship, Truck, Box, ShoppingBag } from 'lucide-react';
+import { ArrowRight, Plane, Ship, Truck, Box, ShoppingBag, Globe, Map } from 'lucide-react';
 import { Language } from '../utils/translations';
 
 interface DestinationsGridProps {
   language: Language;
   onNavigate: (page: string) => void;
+  limit?: number;
+  grouped?: boolean;
 }
 
-export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, onNavigate }) => {
+export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, onNavigate, limit, grouped }) => {
   const isEn = language === 'en';
-
-  // Helper to format price strings
   const from = isEn ? 'from' : 'от';
 
-  const destinations = [
+  const allDestinations = [
+    {
+      id: 'eu',
+      title: isEn ? 'Europe' : 'Европа',
+      methods: [
+        { label: isEn ? `Land: ${from} $3` : `Авто: ${from} $3`, icon: Truck },
+        { label: isEn ? `Air: ${from} $10` : `Авиа: ${from} $10`, icon: Plane },
+      ],
+      flag: '🇪🇺',
+      tag: 'HOT'
+    },
     {
       id: 'usa',
       title: isEn ? 'USA' : 'США',
@@ -26,15 +35,6 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       tag: 'HOT'
     },
     {
-      id: 'eu',
-      title: isEn ? 'Europe' : 'Европа',
-      methods: [
-        { label: isEn ? `Land: ${from} $3` : `Авто: ${from} $3`, icon: Truck },
-        { label: isEn ? `Air: ${from} $10` : `Авиа: ${from} $10`, icon: Plane },
-      ],
-      flag: '🇪🇺'
-    },
-    {
       id: 'uae',
       title: isEn ? 'UAE (Dubai)' : 'ОАЭ (Дубай)',
       methods: [
@@ -44,12 +44,13 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       flag: '🇦🇪'
     },
     {
-      id: 'russia',
-      title: isEn ? 'Russia' : 'Россия',
+      id: 'canada',
+      title: isEn ? 'Canada' : 'Канада',
       methods: [
-        { label: isEn ? `TIR: ${from} $1.6` : `TIR: ${from} $1.6`, icon: Truck }
+        { label: isEn ? `Sea: ${from} $0.8` : `Море: ${from} $0.8`, icon: Ship },
+        { label: isEn ? `Air: ${from} $9` : `Авиа: ${from} $9`, icon: Plane },
       ],
-      flag: '🇷🇺'
+      flag: '🇨🇦'
     },
     {
       id: 'amazon',
@@ -58,101 +59,226 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
         { label: isEn ? 'Prep & Labeling' : 'Преп-центр', icon: Box },
         { label: isEn ? 'DDP Shipping' : 'DDP Доставка', icon: ShoppingBag },
       ],
-      flag: '📦',
-      special: true
+      flag: '📦'
+    },
+    {
+      id: 'russia',
+      title: isEn ? 'Russia' : 'Россия',
+      methods: [
+        { label: isEn ? `TIR: ${from} $1.6` : `TIR: ${from} $1.6`, icon: Truck },
+        { label: isEn ? `Auto: ${from} $2.5` : `Авто: ${from} $2.5`, icon: Truck },
+      ],
+      flag: '🇷🇺'
+    },
+    {
+      id: 'thailand',
+      title: isEn ? 'Thailand' : 'Таиланд',
+      methods: [
+        { label: isEn ? `Sea Logistics` : `Морская перевозка`, icon: Ship },
+        { label: isEn ? `Air Cargo` : `Авиадоставка`, icon: Plane },
+      ],
+      flag: '🇹🇭'
+    },
+    {
+      id: 'indonesia',
+      title: isEn ? 'Indonesia' : 'Индонезия',
+      methods: [
+        { label: isEn ? `Sea Freight` : `Морской фрахт`, icon: Ship },
+        { label: isEn ? `Air Freight` : `Авиафрахт`, icon: Plane },
+      ],
+      flag: '🇮🇩'
+    },
+    {
+      id: 'argentina',
+      title: isEn ? 'Argentina' : 'Аргентина',
+      methods: [
+        { label: isEn ? `Ocean Freight` : `Доставка морем`, icon: Ship },
+        { label: isEn ? `Air Freight` : `Доставка самолетом`, icon: Plane },
+      ],
+      flag: '🇦🇷'
+    },
+    {
+      id: 'south-africa',
+      title: isEn ? 'South Africa' : 'ЮАР',
+      methods: [
+        { label: isEn ? `Sea Transport` : `Морская транспортировка`, icon: Ship },
+        { label: isEn ? `Air Transport` : `Авиа транспортировка`, icon: Plane },
+      ],
+      flag: '🇿🇦'
+    },
+    {
+      id: 'georgia',
+      title: isEn ? 'Georgia' : 'Грузия',
+      methods: [
+        { label: isEn ? `Truck Delivery` : `Автомобильная доставка`, icon: Truck },
+        { label: isEn ? `Air Express` : `Авиа экспресс`, icon: Plane },
+      ],
+      flag: '🇬🇪'
+    },
+    {
+      id: 'israel',
+      title: isEn ? 'Israel' : 'Израиль',
+      methods: [
+        { label: isEn ? `Sea Freight` : `Морская доставка`, icon: Ship },
+        { label: isEn ? `Air Freight` : `Авиадоставка`, icon: Plane },
+      ],
+      flag: '🇮🇱'
     }
   ];
 
-  return (
-    <div id="destinations" className="animate-fade-in mt-6 md:mt-8">
-      <div className="container mx-auto px-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-4">
-          {destinations.map((dest, idx) => {
-            const langPrefix = language === 'ru' ? '/ru' : '';
-            const path = dest.id === 'home' ? '' : `/${dest.id}`;
-            const href = `${langPrefix}${path}` || '/';
+  const displayedDestinations = limit ? allDestinations.slice(0, limit) : allDestinations;
 
-            return (
-            <a 
-              key={idx}
-              href={href}
-              onClick={(e) => {
-                e.preventDefault();
-                onNavigate(dest.id);
-              }}
-              className={`relative rounded-[20px] md:rounded-[25px] p-4 md:p-5 cursor-pointer transition-all duration-300 group border flex md:flex-col items-center md:items-start text-left justify-between min-h-[100px] md:min-h-[180px] hover:-translate-y-1 hover:shadow-xl ${
-                  dest.special 
-                  ? 'bg-brand-dark text-white border-brand-dark' 
-                  : 'bg-white border-gray-100 hover:border-brand-blue/30 text-brand-dark'
-              }`}
-            >
-              {/* Tag Absolute */}
-              {dest.tag && (
-                  <span className={`absolute top-3 right-3 text-[9px] font-black px-1.5 py-0.5 rounded-md uppercase tracking-wider ${
-                      dest.special ? 'bg-brand-yellow text-brand-dark' : 'bg-brand-yellow text-brand-dark'
-                  }`}>
-                      {dest.tag}
-                  </span>
-              )}
+  const renderCard = (dest: typeof allDestinations[0]) => (
+    <a 
+      key={dest.id}
+      href={`/${dest.id}`}
+      onClick={(e) => {
+        e.preventDefault();
+        onNavigate(dest.id);
+      }}
+      className="bg-white border border-gray-100 text-left rounded-[20px] md:rounded-[25px] p-4 md:p-5 flex flex-col justify-between cursor-pointer group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-brand-blue/30 shadow-sm"
+    >
+      {/* Tag */}
+      {dest.tag && (
+         <div className="absolute top-4 right-4 bg-brand-yellow text-brand-dark text-[11px] font-black px-3 py-1 rounded-md uppercase tracking-wider z-10 shadow-sm">
+            {dest.tag}
+         </div>
+      )}
 
-              {/* Header: Flag + Title */}
-              {/* Mobile: Row center. Desktop: Col left (items-start) -> NOW: Row center for both to save height */}
-              <div className="flex flex-row items-center gap-4 w-full mt-1 mb-2">
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl flex-shrink-0 flex items-center justify-center text-4xl md:text-5xl leading-none filter drop-shadow-sm overflow-hidden">
-                    {dest.flag}
-                </div>
-                
-                <div className="flex flex-col flex-1">
-                    <h3 className={`text-lg md:text-xl font-bold leading-tight ${dest.special ? 'text-white' : 'text-brand-dark'}`}>
-                        {dest.title}
-                    </h3>
-                    
-                    {/* Methods List - Mobile: visible under title. Desktop: separate block */}
-                    <div className="md:hidden space-y-1 mt-1">
-                        {dest.methods.map((m, i) => (
-                            <div key={i} className={`flex items-center gap-1.5 text-sm font-medium ${dest.special ? 'text-gray-300' : 'text-gray-500'}`}>
-                                <div className={`p-0.5 rounded-md flex-shrink-0 ${dest.special ? 'text-brand-yellow' : 'text-brand-blue'}`}>
-                                    <m.icon size={14} />
-                                </div>
-                                <span className="truncate max-w-full">{m.label}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-              </div>
-
-              {/* Desktop Methods List (Now visible on all screens, below header) */}
-              <div className="hidden md:flex space-y-1.5 mb-3 w-full flex-col items-start pl-0 md:pl-0 mt-2">
-                {dest.methods.map((m, i) => (
-                    <div key={i} className={`flex items-center gap-2 text-sm font-medium ${dest.special ? 'text-gray-300' : 'text-gray-500'}`}>
-                        <div className={`p-0.5 rounded-md flex-shrink-0 ${dest.special ? 'text-brand-yellow' : 'text-brand-blue'}`}>
-                            <m.icon size={16} />
-                        </div>
-                        <span className="truncate max-w-full leading-tight">{m.label}</span>
-                    </div>
-                ))}
-              </div>
-
-              {/* Footer: Action */}
-              {/* Mobile: Arrow right. Desktop: Full width, justified */}
-              <div className={`md:w-full md:mt-auto md:pt-3 md:border-t md:flex md:items-center md:justify-between ${dest.special ? 'border-gray-700' : 'border-gray-50'} ml-auto md:ml-0 flex-shrink-0`}>
-                 <span className={`hidden md:block text-[10px] font-black uppercase tracking-widest ${dest.special ? 'text-gray-500' : 'text-gray-400'}`}>
-                    {isEn ? 'Details' : 'Подробнее'}
-                 </span>
-
-                 <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-                     dest.special 
-                     ? 'bg-brand-yellow text-brand-dark group-hover:bg-white' 
-                     : 'bg-gray-50 text-gray-400 group-hover:bg-brand-blue group-hover:text-white'
-                 }`}>
-                     <ArrowRight size={16} />
-                 </div>
-              </div>
-            </a>
-          );
-        })}
+      {/* Top Content: Flag + Text */}
+      <div className="flex items-center gap-4 w-full relative z-10 mb-2">
+        {/* Flag Wrapper */}
+        <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl flex-shrink-0 flex items-center justify-center bg-gray-50 text-2xl md:text-3xl group-hover:scale-110 transition-transform shadow-sm border border-gray-100 overflow-hidden`}>
+          <span className="drop-shadow-sm">{dest.flag}</span>
+        </div>
+        
+        {/* Text Wrapper */}
+        <div className="flex-1">
+          <h3 className="font-bold text-brand-dark text-lg md:text-xl leading-tight group-hover:text-brand-blue transition-colors mb-0">
+              {dest.title}
+          </h3>
         </div>
       </div>
+
+      <div className="space-y-2 mt-2 flex-1 w-full relative z-10">
+        {dest.methods.map((m, i) => (
+            <div key={i} className="flex items-center gap-3 text-sm font-medium text-gray-500">
+                <div className="flex-shrink-0 text-brand-blue">
+                    <m.icon size={16} strokeWidth={2} />
+                </div>
+                <span>{m.label}</span>
+            </div>
+        ))}
+      </div>
+
+      {/* Footer / Action Arrow */}
+      <div className="w-full mt-2 pt-4 border-t flex items-center justify-between flex-shrink-0 relative z-10 border-gray-50">
+         <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">
+            {isEn ? 'Details' : 'Подробнее'}
+         </span>
+         <div className="w-8 h-8 rounded-full flex items-center justify-center transition-all bg-gray-50 text-gray-400 group-hover:bg-brand-blue group-hover:text-white">
+             <ArrowRight size={16} />
+         </div>
+      </div>
+    </a>
+  );
+
+  if (grouped) {
+    const regions = [
+      { id: 'americas', title: isEn ? 'North & South America' : 'Америка', items: ['usa', 'canada', 'argentina'] },
+      { id: 'europe', title: isEn ? 'Europe & CIS' : 'Европа и СНГ', items: ['eu', 'russia', 'georgia'] },
+      { id: 'asia', title: isEn ? 'Asia' : 'Азия', items: ['thailand', 'indonesia'] },
+      { id: 'mea', title: isEn ? 'Middle East & Africa' : 'Ближний Восток и Африка', items: ['uae', 'israel', 'south-africa'] },
+      { id: 'special', title: isEn ? 'E-Commerce' : 'Для Маркетплейсов', items: ['amazon'] },
+    ];
+
+    return (
+      <div className="space-y-12 animate-fade-in">
+        {regions.map(region => {
+          const regionDestinations = region.items
+            .map(id => allDestinations.find(d => d.id === id))
+            .filter(Boolean); // Filter out undefined items
+          
+          if (regionDestinations.length === 0) return null;
+
+          return (
+            <div key={region.id}>
+              <h2 className="text-2xl font-black mb-6 text-brand-dark flex items-center gap-3 border-b border-gray-100 pb-4">
+                {region.title}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                {regionDestinations.map(dest => dest && renderCard(dest))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 animate-fade-in mt-6 md:mt-8">
+      {displayedDestinations.map((dest) => {
+        const destCard = renderCard(dest);
+
+        // Render View All right before Amazon if limit is provided
+        const viewAllCard = (limit && dest.id === 'amazon') ? (
+          <a 
+            key="view-all"
+            href="/destinations"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('destinations');
+            }}
+            className="bg-white border border-gray-100 text-left rounded-[20px] md:rounded-[25px] p-4 md:p-5 flex flex-col justify-between cursor-pointer group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-brand-blue/30 shadow-sm"
+          >
+            {/* Header */}
+            <div className="flex items-center gap-4 w-full relative z-10 mb-2">
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl flex-shrink-0 flex items-center justify-center bg-gray-50 text-2xl md:text-3xl group-hover:scale-110 transition-transform shadow-sm border border-gray-100 overflow-hidden">
+                <span className="drop-shadow-sm">🌍</span>
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-brand-dark text-lg md:text-xl leading-tight group-hover:text-brand-blue transition-colors mb-0">
+                    {isEn ? 'All destinations' : 'Все направления'}
+                </h3>
+              </div>
+            </div>
+
+            {/* Vertical Menu */}
+            <div className="space-y-2 mt-2 flex-1 w-full relative z-10">
+              <div className="flex items-center gap-3 text-sm font-medium text-gray-500">
+                  <div className="flex-shrink-0 text-brand-blue">
+                      <Map size={16} strokeWidth={2} />
+                  </div>
+                  <span>{isEn ? 'Explore all the routes' : 'Смотреть все маршруты'}</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm font-medium text-gray-500">
+                  <div className="flex-shrink-0 text-brand-blue">
+                      <Ship size={16} strokeWidth={2} />
+                  </div>
+                  <span>{isEn ? 'Global door-to-door' : 'По всему миру'}</span>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="w-full mt-2 pt-4 border-t border-gray-50 flex items-center justify-between flex-shrink-0 relative z-10">
+               <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">
+                  {isEn ? 'View All' : 'Смотреть все'}
+               </span>
+               <div className="w-8 h-8 rounded-full flex items-center justify-center transition-all bg-gray-50 text-gray-400 group-hover:bg-brand-blue group-hover:text-white">
+                   <ArrowRight size={16} />
+               </div>
+            </div>
+          </a>
+        ) : null;
+
+        return (
+          <React.Fragment key={`frag-${dest.id}`}>
+            {viewAllCard}
+            {destCard}
+          </React.Fragment>
+        );
+      })}
     </div>
   );
 };

@@ -8,7 +8,7 @@ interface HeaderProps {
   setLanguage: (lang: Language) => void;
   onLoginClick: () => void;
   isDashboard?: boolean;
-  onNavigate?: (page: any) => void; 
+  onNavigate?: (page: any, targetId?: string) => void;
   onBack?: () => void; // New prop for back navigation
 }
 
@@ -119,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
                 className="flex items-center gap-2.5 bg-brand-blue/10 hover:bg-brand-blue text-brand-blue hover:text-white px-6 py-2.5 rounded-full font-bold transition-all group shadow-sm active:scale-95"
              >
                 <ArrowLeft size={18} className="transition-colors" />
-                {language === 'en' ? 'Back to Home' : 'На главную'}
+                {language === 'en' ? 'Back' : 'Назад'}
              </button>
           )}
           

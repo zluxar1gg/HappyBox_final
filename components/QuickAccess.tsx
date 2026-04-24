@@ -178,7 +178,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
           )}
           {activeTab === 'destinations' && (
             <>
-              <DestinationsGrid language={language} onNavigate={onNavigate} />
+              <DestinationsGrid language={language} onNavigate={onNavigate} limit={5} />
               <p className="text-center text-black text-sm font-medium mt-8 max-w-2xl mx-auto animate-fade-in">
                 {t.destinationsNote}
               </p>

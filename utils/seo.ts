@@ -8,14 +8,14 @@
 
 import { Language } from './translations';
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian' | 'blog' | 'blogPost';
+export type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian' | 'blog' | 'blogPost' | 'destinations' | 'canada' | 'thailand' | 'indonesia' | 'argentina' | 'south-africa' | 'georgia' | 'israel';
 
 interface MetaData {
   title: string;
   description: string;
 }
 
-const metaData: Record<Language, Record<PageType, MetaData>> = {
+const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
   en: {
     home: {
       title: "China Shipping Agent & 1688/Taobao Broker | HappyBox Cargo",
@@ -159,7 +159,7 @@ const metaData: Record<Language, Record<PageType, MetaData>> = {
 };
 
 export const updateMetaTags = (page: PageType, language: Language, dynamicData?: { title?: string, description?: string, slug?: string }) => {
-  const data = metaData[language][page];
+  const data = metaData[language][page] || metaData[language]['home'] || { title: 'HappyBox Logistics', description: 'Logistics from China' };
   
   const finalTitle = dynamicData?.title || data.title;
   const finalDescription = dynamicData?.description || data.description;

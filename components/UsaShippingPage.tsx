@@ -177,23 +177,20 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                 <section className="py-12 lg:py-24 bg-cream">
                     <div className="container mx-auto px-6 xl:px-0">
                          <div className="max-w-5xl mx-auto text-center">
-                                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-100/50 text-brand-blue font-bold text-sm mb-8 uppercase tracking-wider border border-blue-100">
-                                    <span className="text-lg">🇨🇳</span> 
-                                    <Plane size={16} /> 
-                                    <span className="text-lg">🇺🇸</span> 
-                                    {t.badge}
-                                </div>
-                                <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
-                                    {t.titlePrefix} <span className="text-brand-blue relative inline-block">
-                                        {t.titleHighlight}
-                                        <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-yellow z-[-1]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                                           <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" opacity="0.6" />
-                                        </svg>
-                                    </span>
-                                </h1>
-                                <p className="text-xl text-gray-600 mb-10 font-medium leading-relaxed max-w-2xl mx-auto">
-                                    {t.subtitle}
-                                </p>
+                            <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
+                                {language === 'en' ? 'USA-Direct Line' : 'Прямая линия в США'}
+                            </span>
+                            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
+                                {t.titlePrefix} <span className="text-brand-blue relative inline-block">
+                                    {t.titleHighlight}
+                                    <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-yellow z-[-1]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                       <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" opacity="0.6" />
+                                    </svg>
+                                </span>
+                            </h1>
+                            <p className="text-xl text-gray-600 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
+                                {t.subtitle}
+                            </p>
                          </div>
                     </div>
                 </section>

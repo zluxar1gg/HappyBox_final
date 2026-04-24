@@ -35,7 +35,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ currentPage, languag
   };
 
   // 2. Service Schema (For service/destination pages)
-  let serviceSchema = null;
+  let serviceSchema: any = null;
   if (currentPage !== 'home' && currentPage !== 'blog' && currentPage !== 'blogPost') {
     const serviceT = (t as any)[currentPage];
     if (serviceT) {
@@ -55,7 +55,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ currentPage, languag
   }
 
   // 3. FAQPage Schema (Only for home page, where FAQ is rendered)
-  let faqSchema = null;
+  let faqSchema: any = null;
   if (currentPage === 'home' && t.faq && t.faq.items) {
     faqSchema = {
       "@context": "https://schema.org",
@@ -72,7 +72,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ currentPage, languag
   }
 
   // 4. Article Schema (For blog posts)
-  let articleSchema = null;
+  let articleSchema: any = null;
   if (currentPage === 'blogPost' && slug) {
     const post = getBlogPostBySlug(slug, language);
     if (post) {

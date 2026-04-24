@@ -1,6 +1,6 @@
 
 import React, { useState, Suspense, useEffect, useLayoutEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate, useLocation, useParams } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation, useParams, useNavigationType } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -24,26 +24,28 @@ import { AmazonPage } from './components/AmazonPage';
 import { ServicePage } from './components/ServicePage';
 import { BlogCatalog } from './components/BlogCatalog';
 import { BlogPost } from './components/BlogPost';
+import { AllDestinationsPage } from './components/AllDestinationsPage';
+import { GenericDestinationPage } from './components/GenericDestinationPage';
 import { getBlogPostBySlug } from './utils/blogData';
 import { Language, translations } from './utils/translations';
-import { updateMetaTags } from './utils/seo'; 
+import { updateMetaTags, PageType } from './utils/seo'; 
 import { SchemaMarkup } from './components/SchemaMarkup';
 import { Loader2, X, Hammer } from 'lucide-react';
 
 // Lazy load components
 const Quiz = React.lazy(() => import('./components/Quiz').then(module => ({ default: module.Quiz })));
 
-type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian' | 'blog' | 'blogPost';
-
 const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ language, isBlogPost }) => {
   const { page, slug } = useParams<{ page?: string, slug?: string }>();
   const navigate = useNavigate();
   const location = useLocation();
+  const navType = useNavigationType();
 
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isDevModalOpen, setIsDevModalOpen] = useState(false);
 
-  const validPages: PageType[] = ['usa', 'eu', 'uae', 'russia', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian', 'blog'];
+  const validPages: PageType[] = ['usa', 'eu', 'uae', 'russia', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian', 'blog', 'destinations', 'canada', 'thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel'];
+
   
   // Determine current page from URL params
   let currentPage: PageType = (page && validPages.includes(page as PageType)) ? (page as PageType) : 'home';
@@ -67,6 +69,14 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
     navigate(finalUrl);
   };
 
+  const handleBack = (fallbackPage: string, fallbackSectionId?: string) => {
+    if (window.history.state && window.history.state.idx > 0) {
+      navigate(-1);
+    } else {
+      handleNavigate(fallbackPage, fallbackSectionId);
+    }
+  };
+
   const handleNavigate = (targetPage: string, sectionId?: string) => {
     const prefix = language === 'ru' ? '/ru' : '';
     const path = targetPage === 'home' ? '' : `/${targetPage}`;
@@ -81,6 +91,25 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       window.history.scrollRestoration = 'manual';
     }
   }, []);
+
+  // Track and save scroll positions
+  useEffect(() => {
+    const handleScroll = () => {
+      sessionStorage.setItem(`scroll-${location.pathname}`, window.scrollY.toString());
+    };
+    
+    let timeout: ReturnType<typeof setTimeout>;
+    const throttledScroll = () => {
+       if (timeout) clearTimeout(timeout);
+       timeout = setTimeout(handleScroll, 100);
+    };
+
+    window.addEventListener('scroll', throttledScroll);
+    return () => {
+        window.removeEventListener('scroll', throttledScroll);
+        if (timeout) clearTimeout(timeout);
+    };
+  }, [location.pathname]);
 
   // --- SEO EFFECT ---
   useEffect(() => {
@@ -99,6 +128,18 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
 
   // Scroll Handling Effect
   useLayoutEffect(() => {
+    // If navigation is a POP (e.g. Back/Forward), restore saved scroll
+    if (navType === 'POP') {
+       const savedScroll = sessionStorage.getItem(`scroll-${location.pathname}`);
+       if (savedScroll) {
+          // Timeout ensures DOM is fully rendered before scrolling
+          setTimeout(() => {
+             window.scrollTo(0, parseInt(savedScroll, 10));
+          }, 10);
+       }
+       return;
+    }
+
     if (currentPage === 'home') {
       if (location.hash) {
         const id = location.hash.replace('#', '');
@@ -114,7 +155,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
     } else {
       window.scrollTo(0, 0);
     }
-  }, [currentPage, location.hash]);
+  }, [currentPage, location.hash, navType, location.pathname]);
 
   // Handle body scroll locking
   useEffect(() => {
@@ -145,15 +186,22 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       );
 
       // Country pages return to "services" section (QuickAccess wrapper)
-      if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
-      if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
-      if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
-      if (currentPage === 'russia') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
-      if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleNavigate('home', 'services')} />;
+      if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
+      if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
+      if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
+      if (currentPage === 'russia') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
+      if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
       
+      if (currentPage === 'destinations') return <AllDestinationsPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
+
+      const genericDestinations: PageType[] = ['canada', 'thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel'];
+      if (genericDestinations.includes(currentPage)) {
+          return <GenericDestinationPage language={language} setLanguage={setLanguage} countryId={currentPage} onBack={() => handleBack('destinations')} onNavigate={handleNavigate} />;
+      }
+
       // Service pages return to "services" section
       if (currentPage === 'taobao' || currentPage === '1688' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'pinduoduo' || currentPage === 'xianyu' || currentPage === 'weidian') {
-          return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleNavigate('home', 'services')} onNavigate={handleNavigate} />;
+          return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
       }
 
       // Default Home
