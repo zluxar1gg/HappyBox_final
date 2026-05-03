@@ -50,8 +50,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Shop on Taobao, 1688, and Tmall with 0% service fee. HappyBox provides free quality checks, consolidation, and worldwide shipping. Save up to 70% on shipping costs now!"
     },
     1688: {
-      title: "1688 Sourcing Agent | Wholesale & Bulk Purchasing from China | HappyBox",
-      description: "Need a reliable 1688 agent? HappyBox offers expert sourcing, factory negotiation, and quality control for bulk orders from 1688.com. Lowest 2% commission and DDP shipping worldwide."
+      title: "1688 Sourcing Agent: Wholesale from China & Dropshipping | HappyBox",
+      description: "Access true factory prices on 1688.com without a Chinese account. We provide full-service sourcing, factory negotiation, quality inspection, and DDP shipping. 2% flat fee."
     },
     poizon: {
       title: "Poizon (Dewu) Agent | Authentic Sneakers & Luxury from China",
@@ -124,8 +124,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Покупайте на Taobao, 1688 и Tmall с комиссией 0%. HappyBox предлагает бесплатную проверку качества, консолидацию и доставку по всему миру. Сэкономьте до 70% на доставке! Рассчитайте стоимость выкупа прямо сейчас!"
     },
     1688: {
-      title: "Агент 1688 | Оптовые закупки из Китая и Посредник | HappyBox",
-      description: "Ищете надежного агента 1688? HappyBox предлагает профессиональный поиск, переговоры с фабриками и контроль качества. Комиссия 2%, доставка DDP по всему миру."
+      title: "Посредник 1688: Оптовые закупки из Китая напрямую | HappyBox",
+      description: "Выкуп и сорсинг на 1688.com по реальным заводским ценам. Оплата в рублях, помощь с выбором фабрик на китайском языке. Инспекция качества и DDP доставка от 2% комиссии."
     },
     poizon: {
       title: "Посредник Пойзон (Деву) | Оригинальные кроссовки и бренды без наценок",

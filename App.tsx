@@ -27,6 +27,7 @@ import { BlogPost } from './components/BlogPost';
 import { AllDestinationsPage } from './components/AllDestinationsPage';
 import { GenericDestinationPage } from './components/GenericDestinationPage';
 import { CaShippingPage } from './components/CaShippingPage';
+import { P1688Page } from './components/P1688Page';
 import { getBlogPostBySlug } from './utils/blogData';
 import { Language, translations } from './utils/translations';
 import { updateMetaTags, PageType } from './utils/seo'; 
@@ -202,7 +203,11 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       }
 
       // Service pages return to "services" section
-      if (currentPage === 'taobao' || currentPage === '1688' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'pinduoduo' || currentPage === 'xianyu' || currentPage === 'weidian') {
+      if (currentPage === '1688') {
+          return <P1688Page language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
+      }
+      
+      if (currentPage === 'taobao' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'pinduoduo' || currentPage === 'xianyu' || currentPage === 'weidian') {
           return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
       }
 
