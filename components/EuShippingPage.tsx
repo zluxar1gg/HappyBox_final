@@ -6,7 +6,8 @@ import { Footer } from './Footer';
 import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
-import { Check, ShieldCheck, Plane, Truck, Anchor, Zap, Box, Send, MapPin } from 'lucide-react';
+import { EuAdvancedLogisticsGuide } from './EuAdvancedLogisticsGuide';
+import { Check, ShieldCheck, Plane, Truck, Anchor, Zap, Box, Send, MapPin, ArrowRight } from 'lucide-react';
 
 interface EuShippingPageProps {
   language: Language;
@@ -23,139 +24,155 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
         en: {
             badge: "Europe Direct Line",
             titlePrefix: "Shipping from China to",
-            titleHighlight: "Europe",
-            subtitle: "Fast, Reliable & Tax-Free (DDP). Door-to-door delivery from China to Germany, France, Poland, Italy and beyond.",
-            introTitle: "Seamless Logistics for the Entire European Union",
-            introText: "One of the biggest advantages of shipping to Europe is the unified customs regulations within the EU. Whether your package is headed to Germany, France, Poland, Italy, or Spain, the process remains consistent and highly efficient. At HappyBox, we treat the European Union as a single, seamless delivery zone. We clear customs at major transit hubs and use reliable local couriers (UPS, DHL, DPD) for final delivery.",
+            titleHighlight: "Europe: Professional DDP",
+            subtitle: <>Stop worrying about customs, import VAT, and supplier mistakes. We provide a secure bridge between your Chinese manufacturers and your EU destination - all duties and taxes paid upfront, no charges on delivery. No minimum weight requirement — we ship from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span>.</>,
+            introTitle: "Seamless Logistics Across the European Union",
+            introText: "Whether you are shipping to Germany, France, Italy, Spain, Poland, or any other EU member state, HappyBox provides a streamlined logistics experience. We specialize in DDP (Delivered Duty Paid) shipping. What this means for you: the price you pay includes ocean/rail/air freight, customs clearance, and all import duties and VAT. No hidden fees, no surprise invoices from local tax authorities.",
             methodsTitle: "Our Shipping Methods & Rates",
             methods: [
                 {
                     icon: Plane,
                     title: "Air Freight",
                     tag: "Priority Delivery",
-                    desc: "The fastest way to get your goods. Ideal for electronics, fashion, and high-value parcels.",
-                    price: "From $10/kg",
-                    speed: "7–12 days",
+                    desc: "Electronics, fashion, and high-value goods.",
+                    price: "From €9/kg",
+                    speed: "6–10 days",
                     color: "bg-blue-50 text-brand-blue"
                 },
                 {
                     icon: Truck,
-                    title: "Land/Trucking",
+                    title: "Rail Freight",
                     tag: "Best Value",
-                    desc: "The perfect balance between cost and speed. Highly recommended for heavy commercial cargo.",
-                    price: "From $3/kg",
-                    speed: "18–25 days",
+                    desc: "The sweet spot between cost and speed. Eco-friendly and reliable for commercial cargo.",
+                    price: "From €2.5/kg",
+                    speed: "18–24 days",
                     color: "bg-orange-50 text-orange-600"
                 },
                 {
                     icon: Anchor,
                     title: "Sea Freight",
                     tag: "Economy",
-                    desc: "The most cost-effective solution for large-scale shipments, furniture, or bulk manufacturing orders.",
-                    price: "From $1.5/kg",
+                    desc: "Bulk orders, furniture, and heavy machinery.",
+                    price: "From €1.1/kg",
                     speed: "35–45 days",
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "Why HappyBox is the Top Choice",
+            whyTitle: "HappyBox: Your Local Office in Shenzhen",
+            whyIntro: "We act as your eyes and ears in China so you never need to fly there.",
             benefits: [
                 {
-                    icon: ShieldCheck,
-                    title: "Zero VAT & Customs Hassle",
-                    desc: "We use specialized DDP channels where we handle all customs clearance and tax payments. The receiver pays €0 in additional fees."
-                },
-                {
-                    icon: MapPin,
-                    title: "EU-Wide Coverage",
-                    desc: "Our network covers all 27 EU member states, including the Netherlands, Belgium, Austria, Sweden, and more."
-                },
-                {
                     icon: Box,
-                    title: "Free Consolidation",
-                    desc: "Shop from multiple Taobao or 1688 sellers. We combine them into one secure box to save you money on shipping."
+                    title: "Order Consolidation",
+                    desc: "We collect goods from 1688, Alibaba, and Taobao at our Shenzhen warehouse and ship them as one cargo to reduce your costs."
+                },
+                {
+                    icon: ShieldCheck,
+                    title: "Strict Quality Inspection",
+                    desc: "We provide photos, videos, and technical checks before the cargo leaves China. If it's broken, it stays in China - not on a ship to Rotterdam."
                 },
                 {
                     icon: Zap,
-                    title: "Real-Time Tracking",
-                    desc: "From the moment your parcel leaves our warehouse until it reaches your door in Europe, track it online 24/7."
+                    title: "Total VAT & Customs Management",
+                    desc: "We use our own EORI number and handle all EU customs paperwork. You don't deal with any of it."
+                },
+                {
+                    icon: MapPin,
+                    title: "EU-Wide Door-to-Door Delivery",
+                    desc: "Final-mile delivery to your warehouse or home via DHL, DPD, or UPS - anywhere in all 27 member states."
                 }
             ],
-            stepsTitle: "How to Start",
-            steps: [
-                "Get Your Warehouse Address",
-                "Send Your Goods to Us",
-                "We Inspect & Pack",
-                "Pay & Receive"
+            fearsTitle: "Solving Your Biggest Importing Fears",
+            fearsList: [
+                { q: "What if my supplier sends defective goods?", a: "Our Shenzhen warehouse is your quality buffer. We inspect every shipment with photos and technical checks before it leaves China. Defective items go back to the factory immediately." },
+                { q: "What if the cargo is lost or damaged?", a: "We provide All-Risk cargo insurance. If your goods are lost or damaged in transit, you receive a 100% refund of the declared value. No fine print." },
+                { q: "Am I too small for you?", a: <>Our minimums are accessible: from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span> for Air and from 1 CBM for Sea. Startups and established brands get the same service level.</> },
+                { q: "What about Chinese holidays and EU port delays?", a: "Chinese New Year, Golden Week, and seasonal port congestion are predictable. We plan your shipment calendar around them so you never run out of stock." }
             ],
-            cta: "Get a Shipping Quote",
+            stepsTitle: "How to Get Started",
+            steps: [
+                "Get your Shenzhen warehouse address",
+                "Order from your suppliers",
+                "We inspect and confirm",
+                "Pay and track to your door"
+            ],
+            cta: "Get a Free Shipping Quote",
             back: "Back to Home"
         },
         ru: {
             badge: "Прямая линия в Европу",
             titlePrefix: "Доставка из Китая в",
-            titleHighlight: "Европу",
-            subtitle: "Быстро, надежно и без налогов (DDP). Доставка «до двери» в Германию, Францию, Польшу, Италию и другие страны ЕС.",
+            titleHighlight: "Европу: Профессиональный DDP",
+            subtitle: <>Забудьте о таможне, НДС и ошибках поставщиков. Мы обеспечиваем надежный мост между китайскими фабриками и Европой - все налоги и пошлины включены в цену, никаких доплат при получении. Нет минимального веса — доставляем от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span>.</>,
             introTitle: "Бесшовная логистика по всему Евросоюзу",
-            introText: "Одно из главных преимуществ доставки в Европу — единые таможенные правила внутри ЕС. Будь то Германия, Франция, Польша или Испания — процесс остается стабильным и эффективным. HappyBox рассматривает ЕС как единую зону доставки. Мы проходим таможню в крупных транзитных хабах и используем надежных местных курьеров (UPS, DHL, DPD) для финальной доставки.",
+            introText: "Отправляете ли вы в Германию, Францию, Италию, Испанию, Польшу или любую другую страну ЕС - процесс остается стабильным. Мы специализируемся на доставке DDP (Delivered Duty Paid). Это значит, что цена включает фрахт, таможенную очистку и уплату всех ввозных пошлин и НДС. Никаких скрытых платежей или неожиданных счетов от местных налоговых органов.",
             methodsTitle: "Наши тарифы и способы доставки",
             methods: [
                 {
                     icon: Plane,
                     title: "Авиадоставка",
                     tag: "Приоритет",
-                    desc: "Самый быстрый способ. Идеально для электроники, модной одежды и ценных посылок.",
-                    price: "От $10/кг",
-                    speed: "7–12 дней",
+                    desc: "Электроника, мода и дорогостоящие товары.",
+                    price: "От €9/кг",
+                    speed: "6–10 дней",
                     color: "bg-blue-50 text-brand-blue"
                 },
                 {
                     icon: Truck,
-                    title: "Авто / ЖД",
+                    title: "Ж/Д доставка",
                     tag: "Оптимально",
-                    desc: "Идеальный баланс цены и скорости. Рекомендуем для тяжелых коммерческих грузов.",
-                    price: "От $3/кг",
-                    speed: "18–25 дней",
+                    desc: "Идеальный баланс цены и скорости. Надежно для коммерческих грузов.",
+                    price: "От €2.5/кг",
+                    speed: "18–24 дня",
                     color: "bg-orange-50 text-orange-600"
                 },
                 {
                     icon: Anchor,
                     title: "Морская доставка",
                     tag: "Эконом",
-                    desc: "Самое выгодное решение для крупных партий, мебели или оптовых заказов с фабрик.",
-                    price: "От $1.5/кг",
+                    desc: "Объемные партии, мебель, тяжелое оборудование.",
+                    price: "От €1.1/кг",
                     speed: "35–45 дней",
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "Почему выбирают HappyBox",
+            whyTitle: "HappyBox: Ваш местный офис в Шэньчжэне",
+            whyIntro: "Мы - ваши глаза и уши в Китае. Вам больше не нужно туда летать.",
             benefits: [
                 {
-                    icon: ShieldCheck,
-                    title: "Никакого НДС и Таможни",
-                    desc: "Мы используем каналы DDP: сами оформляем таможню и платим налоги. Получатель не платит ни копейки сверх тарифа."
-                },
-                {
-                    icon: MapPin,
-                    title: "Покрытие всего ЕС",
-                    desc: "Наша сеть покрывает все 27 стран-членов ЕС, включая Нидерланды, Бельгию, Австрию, Швецию и другие."
-                },
-                {
                     icon: Box,
-                    title: "Бесплатная Консолидация",
-                    desc: "Покупайте у разных продавцов. Мы объединим всё в одну коробку на нашем складе, чтобы вы сэкономили на доставке."
+                    title: "Консолидация заказов",
+                    desc: "Мы собираем товары с 1688, Alibaba и Taobao на нашем складе и отправляем их одним грузом для экономии на доставке."
+                },
+                {
+                    icon: ShieldCheck,
+                    title: "Строгий контроль качества",
+                    desc: "Предоставляем фото, видео и технические проверки до отправки. Брак остается в Китае, а не плывет в Европу."
                 },
                 {
                     icon: Zap,
-                    title: "Трекинг в реальном времени",
-                    desc: "Отслеживайте посылку онлайн 24/7 с момента выхода со склада в Китае до прибытия к вашей двери."
+                    title: "Полное управление НДС и Таможней",
+                    desc: "Используем собственный EORI номер и решаем все вопросы с таможней ЕС. Вам не о чем беспокоиться."
+                },
+                {
+                    icon: MapPin,
+                    title: "Доставка до двери",
+                    desc: "Финальная доставка на ваш склад или дом местными курьерами (DHL, DPD, UPS) по всем 27 странам ЕС."
                 }
+            ],
+            fearsTitle: "Решение ваших главных страхов при импорте",
+            fearsList: [
+                { q: "А что если поставщик пришлет брак?", a: "Наш склад в Шэньчжэне служит буфером качества. Мы проверяем каждую партию с фотоотчетами до отправки из Китая. Бракованный товар немедленно возвращается на фабрику." },
+                { q: "А что если груз потеряется или повредится?", a: "Мы предоставляем страховку от всех рисков (All-Risk). В случае порчи или утери груза в пути, вы получаете 100% возврат заявленной стоимости. Никакого мелкого шрифта." },
+                { q: "Я не слишком маленький клиент для вас?", a: <>У нас реалистичные минимумы: от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span> для авиа и от 1 куба (CBM) для моря. И стартапы, и крупные бренды получают одинаково высокий уровень сервиса.</> },
+                { q: "А как же праздники и задержки в портах?", a: "Китайский Новый год, Золотая Неделя и пробки в портах можно предвидеть. Мы планируем календарь отправок так, чтобы у вас всегда был товар на складе." }
             ],
             stepsTitle: "Как начать",
             steps: [
-                "Получите адрес склада",
-                "Отправьте товары нам",
-                "Мы проверим и упакуем",
-                "Оплатите и получите"
+                "Получите адрес нашего склада в Шэньчжэне",
+                "Сделайте заказ у поставщиков",
+                "Мы проверяем и подтверждаем груз",
+                "Оплачивайте и отслеживайте доставку до двери"
             ],
             cta: "Рассчитать стоимость",
             back: "На главную"
@@ -238,19 +255,33 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
                         ))}
                     </div>
 
-                    {/* Why Choose Grid */}
-                    <div className="mb-20">
-                         <h3 className="text-3xl font-black text-brand-dark mb-12 text-center">{t.whyTitle}</h3>
-                         <div className="grid md:grid-cols-2 gap-8">
+                    {/* Why Choose Block (Your Local Office) */}
+                    <div className="bg-brand-blue/5 rounded-[40px] p-8 lg:p-12 mb-20 border border-brand-blue/10">
+                        <div className="text-center mb-10">
+                            <h3 className="text-3xl font-black text-brand-dark mb-4">{t.whyTitle}</h3>
+                            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">{t.whyIntro}</p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {t.benefits.map((benefit, idx) => (
-                                <div key={idx} className="flex gap-5 items-start">
-                                    <div className="w-12 h-12 rounded-full bg-brand-light flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm mt-1">
-                                        <benefit.icon size={24} />
+                                <div key={idx} className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-brand-blue/10 h-full">
+                                    <div className="text-brand-blue mb-4">
+                                        <benefit.icon size={28} />
                                     </div>
-                                    <div>
-                                        <h4 className="font-bold text-lg text-brand-dark mb-2">{benefit.title}</h4>
-                                        <p className="text-gray-600 font-medium leading-relaxed">{benefit.desc}</p>
-                                    </div>
+                                    <h4 className="font-bold text-brand-dark mb-3 text-lg leading-snug">{benefit.title}</h4>
+                                    <p className="text-gray-600 leading-relaxed font-medium">{benefit.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Fears Section */}
+                    <div className="mb-20">
+                         <h3 className="text-3xl font-black text-brand-dark mb-12 text-center">{t.fearsTitle}</h3>
+                         <div className="grid md:grid-cols-2 gap-8">
+                            {t.fearsList.map((fear, idx) => (
+                                <div key={idx} className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-gray-100">
+                                    <h4 className="font-bold text-lg text-brand-dark mb-3 leading-snug">{fear.q}</h4>
+                                    <p className="text-gray-600 font-medium leading-relaxed">{fear.a}</p>
                                 </div>
                             ))}
                          </div>
@@ -287,7 +318,27 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
                         </div>
                     </div>
 
+                    <a href={language === 'ru' ? '/ru/amazon' : '/amazon'} className="group flex flex-col sm:flex-row items-center justify-between w-full max-w-4xl mx-auto mt-12 mb-6 bg-white border-2 border-gray-100 rounded-[30px] p-6 sm:p-8 transition-all shadow-md hover:shadow-xl hover:border-[#FF9900]/30 cursor-pointer">
+                        <div className="flex-grow mb-6 sm:mb-0 text-center sm:text-left sm:pr-8">
+                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-brand-dark mb-2 leading-tight">
+                                {language === 'ru' ? 'Вам нужна доставка на ' : 'Shipping to '} 
+                                <span className="text-[#FF9900] block sm:inline mt-1 sm:mt-0">Amazon FBA Europe</span>?
+                            </h4>
+                            <p className="text-gray-500 text-sm sm:text-base font-medium leading-relaxed">
+                                {language === 'ru' ? 'Специальные условия, маркировка и доставка напрямую на склады FBA в Германии, Франции и Польше.' : 'Specialized rates, prep services, and direct delivery to FBA warehouses in Germany, France, and Poland.'}
+                            </p>
+                        </div>
+                        <div className="flex-shrink-0 w-full sm:w-auto">
+                            <span className="flex w-full sm:w-auto items-center justify-center gap-2 bg-[#FF9900] text-white font-bold py-4 px-8 rounded-full group-hover:bg-[#e68a00] transition-colors shadow-sm sm:text-lg">
+                                {language === 'ru' ? 'Подробнее' : 'Learn More'}
+                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                            </span>
+                        </div>
+                    </a>
+
                 </section>
+
+                <EuAdvancedLogisticsGuide language={language} />
 
                 <div id="contacts">
                     <Contact language={language} currentPage="eu" />

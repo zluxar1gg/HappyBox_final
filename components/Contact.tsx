@@ -51,20 +51,20 @@ export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home'
   const getDynamicHeading = () => {
     if (language === 'ru') {
       switch (currentPage) {
-        case 'taobao': return 'Выкуп и доставка с Таобао — проще простого с HappyBox!';
-        case '1688': return 'Оптовые закупки на 1688 — проще простого с HappyBox!';
-        case 'poizon': return 'Заказ оригиналов с Poizon — проще простого с HappyBox!';
-        case 'usa': return 'Доставка грузов из Китая в США — проще простого с HappyBox!';
-        case 'eu': return 'Доставка из Китая в Европу — проще простого с HappyBox!';
-        case 'russia': return 'Белая доставка из Китая в Россию — проще простого с HappyBox!';
-        case 'uae': return 'Доставка из Китая в Эмираты — проще простого с HappyBox!';
-        case 'amazon': return 'Доставка на склады Amazon FBA — проще простого с HappyBox!';
-        case 'warehousing': return 'Консолидация и хранение в Китае — проще простого с HappyBox!';
-        case 'inspection': return 'Проверка качества в Китае — проще простого с HappyBox!';
-        case 'tmall': return 'Выкуп с Tmall — проще простого с HappyBox!';
-        case 'pinduoduo': return 'Выкуп с Pinduoduo — проще простого с HappyBox!';
-        case 'xianyu': return 'Выкуп с Xianyu — проще простого с HappyBox!';
-        case 'weidian': return 'Выкуп с Weidian — проще простого с HappyBox!';
+        case 'taobao': return 'Выкуп и доставка с Таобао - проще простого с HappyBox!';
+        case '1688': return 'Оптовые закупки на 1688 - проще простого с HappyBox!';
+        case 'poizon': return 'Заказ оригиналов с Poizon - проще простого с HappyBox!';
+        case 'usa': return 'Доставка грузов из Китая в США - проще простого с HappyBox!';
+        case 'eu': return 'Доставка из Китая в Европу - проще простого с HappyBox!';
+        case 'russia': return 'Белая доставка из Китая в Россию - проще простого с HappyBox!';
+        case 'uae': return 'Доставка из Китая в Эмираты - проще простого с HappyBox!';
+        case 'amazon': return 'Доставка на склады Amazon FBA - проще простого с HappyBox!';
+        case 'warehousing': return 'Консолидация и хранение в Китае - проще простого с HappyBox!';
+        case 'inspection': return 'Проверка качества в Китае - проще простого с HappyBox!';
+        case 'tmall': return 'Выкуп с Tmall - проще простого с HappyBox!';
+        case 'pinduoduo': return 'Выкуп с Pinduoduo - проще простого с HappyBox!';
+        case 'xianyu': return 'Выкуп с Xianyu - проще простого с HappyBox!';
+        case 'weidian': return 'Выкуп с Weidian - проще простого с HappyBox!';
         default: return 'Начните закупки и доставку из Китая уже сегодня';
       }
     } else {
@@ -129,7 +129,7 @@ export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home'
   };
 
   return (
-    <section className="pt-12 pb-20 bg-brand-light/20">
+    <section className="pt-12 pb-20">
       <div className="container mx-auto">
         <div className="bg-white rounded-[30px] p-8 lg:p-16 text-center shadow-sm max-w-[1200px] mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark mb-8 tracking-tight">

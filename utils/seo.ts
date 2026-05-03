@@ -25,6 +25,10 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       title: "Shipping from China to USA | DDP Sea & Air Freight | HappyBox",
       description: "Affordable shipping from China to the USA. Sea freight from $1.2/kg, Air freight from $10/kg. We handle customs clearance and DDP delivery to your door or Amazon FBA."
     },
+    canada: {
+      title: "Shipping from China to Canada | DDP Sea & Air Freight | HappyBox",
+      description: "Air and Sea freight from China to Canada. We handle CBSA customs, GST/HST, and delivery to your door. DDP shipping from $0.8/kg."
+    },
     eu: {
       title: "Shipping from China to Europe | DDP Tax-Free Delivery | HappyBox",
       description: "Fast and affordable shipping from China to Germany, France, Poland, Italy, and Spain. Air, Land, and Sea freight with all taxes and customs (DDP) included. Prices from $1.5/kg."
@@ -94,6 +98,10 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
     usa: {
       title: "Доставка из Китая в США | DDP Авиа и Море | HappyBox",
       description: "Доступная доставка из Китая в США. Море от $1.2/кг, Авиа от $10/кг. Таможенная очистка и DDP доставка до двери или на склады Amazon FBA."
+    },
+    canada: {
+      title: "Доставка из Китая в Канаду | DDP Авиа и Море | HappyBox",
+      description: "Профессиональная DDP доставка грузов из Китая в Канаду. Море от $0.8/кг, Авиа от $9/кг. Налоги и пошлины (GST/HST) включены."
     },
     eu: {
       title: "Доставка из Китая в Европу | DDP без налогов | HappyBox",

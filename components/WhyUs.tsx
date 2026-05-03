@@ -81,7 +81,7 @@ export const WhyUs: React.FC<WhyUsProps> = ({ language }) => {
           <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-bold">
             {isEn 
               ? 'A service by people, for people, driven by real connection and support. We simplify cross-border shopping with transparent pricing and premium services at no extra cost.' 
-              : 'Наш сервис создан людьми для людей — с живым общением и искренней поддержкой. Мы делаем покупки за рубежом простыми и понятными: честные цены и премиальное обслуживание, которое уже включено в стоимость.'}
+              : 'Наш сервис создан людьми для людей - с живым общением и искренней поддержкой. Мы делаем покупки за рубежом простыми и понятными: честные цены и премиальное обслуживание, которое уже включено в стоимость.'}
           </p>
         </div>
 

@@ -24,7 +24,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
             badge: "TIR White Import",
             titlePrefix: "Shipping from China to",
             titleHighlight: "Russia",
-            subtitle: "Official TIR Shipping: Fast, \"White\" Import with full documents. Accelerated border crossing via TIR system with complete transparency.",
+            subtitle: <>Official TIR Shipping: Fast, "White" Import with full documents. Accelerated border crossing via TIR system with complete transparency. No minimum weight requirement — we ship from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span>.</>,
             introTitle: "What is TIR Shipping?",
             introText: "TIR (Transports Internationaux Routiers) is an international customs transit system. The cargo is sealed in China and travels to the customs post in Russia under a single document (TIR Carnet). The Key Benefit: Your cargo is NOT opened or inspected at transit borders (e.g., Kazakhstan), eliminating the risk of damage or theft.",
             methodsTitle: "Turnkey Rates & Terms",
@@ -86,9 +86,9 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
             badge: "TIR Белый Импорт",
             titlePrefix: "Доставка из Китая в",
             titleHighlight: "Россию",
-            subtitle: "TIR-доставка из Китая: Быстрый «Белый» Импорт. Официальные поставки с полным пакетом документов и ускоренным прохождением границ.",
+            subtitle: <>TIR-доставка из Китая: Быстрый «Белый» Импорт. Официальные поставки с полным пакетом документов и ускоренным прохождением границ. Нет минимального веса — доставляем от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span>.</>,
             introTitle: "Что такое TIR-доставка?",
-            introText: "TIR (Transports Internationaux Routiers) — это международная система таможенного транзита. Груз пломбируется в Китае и следует до таможенного поста в РФ по единому документу (книжке МДП). Главное преимущество: Ваш груз не вскрывают и не досматривают на транзитных границах (например, в Казахстане). Это исключает риск повреждения или кражи товара в пути.",
+            introText: "TIR (Transports Internationaux Routiers) - это международная система таможенного транзита. Груз пломбируется в Китае и следует до таможенного поста в РФ по единому документу (книжке МДП). Главное преимущество: Ваш груз не вскрывают и не досматривают на транзитных границах (например, в Казахстане). Это исключает риск повреждения или кражи товара в пути.",
             methodsTitle: "Сроки и тарифы «под ключ»",
             methods: [
                 {
@@ -111,7 +111,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                 }
             ],
             whiteTitle: "«Белая» доставка: Работаем официально",
-            whiteText: "Если вашему бизнесу нужны закрывающие документы, вычет НДС и полная легальность, наш сервис «белой» доставки — идеальное решение.",
+            whiteText: "Если вашему бизнесу нужны закрывающие документы, вычет НДС и полная легальность, наш сервис «белой» доставки - идеальное решение.",
             benefits: [
                 {
                     icon: FileCheck,

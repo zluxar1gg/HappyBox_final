@@ -198,6 +198,86 @@ export const blogPosts: BlogPost[] = [
       { type: 'paragraph', content: 'All three platforms work on the same logic: purchasing within China + delivery to a warehouse + consolidated shipping abroad. Paying via crypto (USDT) to forwarders in 2026 removes any headaches associated with bank cards.' },
       { type: 'paragraph', content: 'If you haven\'t mastered the basics yet, read our guide "How to Buy on Taobao in 2026". By setting up this process once, you gain access to all Chinese marketplaces simultaneously!' }
     ]
+  },
+  {
+    id: '5',
+    slug: 'chinese-holidays-calendar-2026',
+    language: 'ru',
+    title: 'Календарь китайских праздников 2026: как планировать доставку',
+    excerpt: 'Узнайте точные даты Китайского Нового года, Майских праздников и Золотой недели в 2026 году. Планируйте закупки заранее, чтобы избежать задержек.',
+    category: 'news',
+    date: '2026-05-02',
+    imageUrl: 'https://images.unsplash.com/photo-1543169722-e64e52bf33fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    readTime: 5,
+    content: [
+      { type: 'paragraph', content: 'Доставка из Китая требует строгого учета национальных праздников. Во время Китайского Нового года (CNY) и Золотой недели жизнь в стране буквально замирает: заводы закрываются, порты работают на минимуме мощности, а логистические цепочки растягиваются. Ошибка в планировании может стоить вам недель ожидания и пустых полок на Amazon или маркетплейсах.' },
+      { type: 'h2', content: 'Китайский Новый Год 2026 (CNY)' },
+      { type: 'paragraph', content: 'В 2026 году Китайский Новый год выпадает на 17 февраля (Год Огненной Лошади). Однако фактическая остановка производства и логистики начинается гораздо раньше.' },
+      { type: 'list', content: [
+        'Официальные выходные: 16–22 февраля 2026.',
+        'Закрытие фабрик: большинство заводов перестанут принимать новые заказы уже в середине января.',
+        'Коллапс в портах: конец января — начало февраля. Все пытаются отправить грузы до праздников, что вызывает овербукинг судов и резкий рост тарифов.',
+        'Возвращение к работе: заводы полностью восстанавливают мощности только к середине марта, так как многие рабочие не сразу возвращаются из провинций.'
+      ]},
+      { type: 'h3', content: 'Что делать?' },
+      { type: 'paragraph', content: 'Размещайте заказы на весенний сезон не позднее первой недели декабря 2025 года. Ваш груз должен заехать на склад в Шэньчжэне до 25 января 2026 года.' },
+      { type: 'h2', content: 'Праздник Труда (Майские праздники)' },
+      { type: 'paragraph', content: 'Традиционные майские каникулы, во время которых фабрики обычно отдыхают 3–5 дней.' },
+      { type: 'list', content: [
+        'Официальные выходные: 1–5 мая 2026.',
+        'Влияние на логистику: локальное. Склады работают, но отправка может задержаться на несколько дней.'
+      ]},
+      { type: 'h2', content: 'Золотая Неделя и День образования КНР' },
+      { type: 'paragraph', content: 'Второй по значимости праздник в году. Миллионы китайцев путешествуют по стране, фабрики и многие компании не работают.' },
+      { type: 'list', content: [
+        'Официальные выходные: 1–7 октября 2026.',
+        'Задержки доставок: значительные. К этому моменту накладывается предновогодний пик отправки (заказы на Чёрную пятницу и Рождество в США и Европе).'
+      ]},
+      { type: 'h3', content: 'Что делать?' },
+      { type: 'paragraph', content: 'Грузы для сезона скидок (Q4) должны быть готовы и отправлены в конце августа — начале сентября. Попытка отправить груз в конце сентября обернется огромными переплатами за фрахт.' },
+      { type: 'h2', content: 'Ключевой вывод' },
+      { type: 'paragraph', content: 'При работе с Китаем логистику для Q1 нужно планировать в Q4 предыдущего года, а логистику для Q4 — в конце лета. Использование нашего склада в Шэньчжэне позволит вам консолидировать грузы до пиковых нагрузок и спокойно отправить их по оптимальным тарифам.' }
+    ]
+  },
+  {
+    id: '6',
+    slug: 'chinese-holidays-calendar-2026',
+    language: 'en',
+    title: 'Chinese Holidays Calendar 2026: Shipping Deadlines',
+    excerpt: 'Find out the exact dates for Chinese New Year, Labor Day, and Golden Week in 2026. Plan your inventory to completely avoid supply chain disruptions.',
+    category: 'news',
+    date: '2026-05-02',
+    imageUrl: 'https://images.unsplash.com/photo-1543169722-e64e52bf33fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    readTime: 5,
+    content: [
+      { type: 'paragraph', content: 'Shipping from China requires strict attention to national holidays. During Chinese New Year (CNY) and Golden Week, life in the country literally stops: factories close, ports operate at minimum capacity, and supply chains stretch to the breaking point. A mistake in planning can cost you weeks of waiting and out-of-stock listings on Amazon or other marketplaces.' },
+      { type: 'h2', content: 'Chinese New Year 2026 (CNY)' },
+      { type: 'paragraph', content: 'In 2026, Chinese New Year falls on February 17th (Year of the Red Fire Horse). However, the actual shutdown of production and logistics begins much earlier.' },
+      { type: 'list', content: [
+        'Official public holiday: February 16–22, 2026.',
+        'Factory closures: Most factories will stop taking new orders by mid-January.',
+        'Port congestion: Late January to early February. Everyone tries to push cargo out before the holiday, causing vessel overbooking and a massive spike in freight rates.',
+        'Return to normal: Factories fully restore capacity only by mid-March, as many workers do not return immediately from rural provinces.'
+      ]},
+      { type: 'h3', content: 'What should you do?' },
+      { type: 'paragraph', content: 'Place your spring inventory orders no later than the first week of December 2025. Your cargo must arrive at our Shenzhen warehouse before January 25, 2026, to be safely exported.' },
+      { type: 'h2', content: 'Labor Day Holidays' },
+      { type: 'paragraph', content: 'The traditional May holidays, during which factories usually rest for 3 to 5 days.' },
+      { type: 'list', content: [
+        'Official public holiday: May 1–5, 2026.',
+        'Impact on logistics: Localized. Warehouses generally operate, but departures may be delayed by a few days.'
+      ]},
+      { type: 'h2', content: 'Golden Week & National Day' },
+      { type: 'paragraph', content: 'The second most important holiday of the year. Millions of people travel domestically, and factories shut down.' },
+      { type: 'list', content: [
+        'Official public holiday: October 1–7, 2026.',
+        'Shipping delays: Significant. This perfectly coincides with the pre-holiday shipping peak for Black Friday and Christmas inventory in the US and Europe.'
+      ]},
+      { type: 'h3', content: 'What should you do?' },
+      { type: 'paragraph', content: 'Q4 holiday cargo should be manufactured and shipped by late August or early September. Attempting to ship in late September will result in massive freight premiums and standard roll-overs at the port.' },
+      { type: 'h2', content: 'Key Takeaway' },
+      { type: 'paragraph', content: 'When importing from China, Q1 logistics must be planned in Q4 of the previous year, and Q4 sales must be fulfilled by late summer. Utilizing our Shenzhen facility allows you to consolidate early, beat the rush, and ship at normal rates.' }
+    ]
   }
 ];
 

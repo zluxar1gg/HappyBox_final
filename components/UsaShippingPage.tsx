@@ -6,7 +6,8 @@ import { Footer } from './Footer';
 import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
-import { Check, ShieldCheck, Plane, Anchor, ShoppingBag, Box, Send, FileCheck, Layers } from 'lucide-react';
+import { UsaAdvancedLogisticsGuide } from './UsaAdvancedLogisticsGuide';
+import { Check, ShieldCheck, Plane, Anchor, ShoppingBag, Box, Send, FileCheck, Layers, ArrowRight } from 'lucide-react';
 
 interface UsaShippingPageProps {
   language: Language;
@@ -23,8 +24,8 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
         en: {
             badge: "US Direct Line",
             titlePrefix: "Shipping from China to",
-            titleHighlight: "USA",
-            subtitle: "Fast, Affordable & DDP Tax-Free. Reliable door-to-door delivery from China to any state in the US.",
+            titleHighlight: "USA: Professional DDP",
+            subtitle: <>Stop worrying about customs, taxes, and supplier mistakes. We provide a secure bridge between your Chinese manufacturers and your US destination with 100% transparent pricing. No minimum weight requirement — we ship from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span>.</>,
             introTitle: "Seamless Logistics Across the United States",
             introText: "Whether you are shipping to California, New York, Texas, Florida, or any other state, HappyBox provides a streamlined logistics experience. We cover the entire country, from the West Coast to the East Coast. We specialize in DDP (Delivered Duty Paid) shipping. This means the price you pay includes all ocean/air freight, customs clearance, and import duties. No hidden fees, no surprise bills from Customs and Border Protection (CBP).",
             methodsTitle: "Our Shipping Methods & Rates",
@@ -48,15 +49,22 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            fbaTitle: "Specialized Amazon FBA Prep & Shipping",
-            fbaText: "Are you an Amazon seller? We are experts in Amazon FBA logistics. We don't just ship; we prepare your goods to meet Amazon's strict requirements:",
+            fbaTitle: "HappyBox is the Top Choice for US Importers",
+            fbaText: "We act as your local office in Shenzhen, ensuring your business runs smoothly without you ever needing to fly to China. We handle the \"heavy lifting\" so you can focus on your sales:",
             fbaItems: [
-                { title: "FNSKU Labeling", desc: "We apply your product labels correctly." },
-                { title: "Bundle & Poly-bagging", desc: "We prepare your items for individual sale." },
-                { title: "Direct Delivery", desc: "We ship directly to FBA centers (ONT8, FTW1, JFK8, etc)." },
-                { title: "Palletizing", desc: "Professional palletizing to meet Amazon’s warehouse standards." }
+                { title: "Order Consolidation", desc: "We collect goods from multiple suppliers (1688, Alibaba, Taobao) at our Shenzhen warehouse and ship them as one single cargo to significantly reduce your shipping costs." },
+                { title: "Strict Quality Inspection", desc: "Don't find out your products are defective when they are already in the US. We provide photos, videos, and detailed checks before your cargo leaves China." },
+                { title: "Total Customs Management (DDP)", desc: "We handle the ISF filing, customs bonds, and all import duties. You don't need to worry about complex US Customs and Border Protection (CBP) paperwork." },
+                { title: "Nationwide Door-to-Door Delivery", desc: "Whether it’s a residential address or a commercial warehouse, we provide \"last-mile\" delivery to any US state via trusted partners like UPS, FedEx, or local trucking." }
             ],
-            whyTitle: "Why Choose HappyBox?",
+            fearsTitle: "Solving Your Biggest Importing Fears",
+            fearsList: [
+                { q: "What if my supplier sends junk?", a: "Our Shenzhen Warehouse acts as your quality buffer. We provide photos, videos, and technical checks before the cargo leaves China. If it's broken, we return it to the factory immediately." },
+                { q: "What if the cargo is lost or damaged?", a: "We offer Zero-Risk Insurance. Unlike others who hide this in the fine print, we offer \"All-Risk\" coverage for a small fee. If your goods are lost during transit, you receive a 100% refund of the declared value." },
+                { q: "Am I too small for you?", a: <>We work with growing businesses. Our minimums are realistic: starting from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span> for Air and 51 kg for Sea Freight. Whether you are a startup or an established brand, you get the same level of expertise.</> },
+                { q: "What about holidays and delays?", a: "Logistics isn't always perfect. We provide a Realistic Shipping Calendar, accounting for Chinese New Year, Golden Week, and US port congestion (like LAX or Long Beach) to ensure you never run out of stock." }
+            ],
+            whyTitle: "Working with HappyBox is",
             benefits: [
                 {
                     icon: FileCheck,
@@ -92,40 +100,47 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
         ru: {
             badge: "Прямая линия в США",
             titlePrefix: "Доставка из Китая в",
-            titleHighlight: "США",
-            subtitle: "Быстро, доступно и без налогов (DDP). Надежная доставка до двери в любой штат США.",
-            introTitle: "Бесшовная логистика по всей Америке",
-            introText: "Отправляете ли вы в Калифорнию, Нью-Йорк, Техас или Флориду — HappyBox обеспечивает отлаженную логистику от побережья до побережья. Мы специализируемся на доставке DDP (Delivered Duty Paid). Это значит, что цена включает фрахт, таможенную очистку и пошлины. Никаких скрытых комиссий и счетов от таможни.",
-            methodsTitle: "Наши тарифы и способы доставки",
+            titleHighlight: "США: профессиональный сервис DDP",
+            subtitle: <>Забудьте о сложностях с таможней, налогами и ошибками поставщиков. Мы обеспечиваем надежный мост между вашими китайскими производителями и пунктом назначения в США со 100% прозрачным ценообразованием. Никаких ограничений по минимальному весу — отправляем от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span>.</>,
+            introTitle: "Бесшовная логистика по всей территории Соединенных Штатов",
+            introText: "Калифорния, Нью-Йорк, Техас или Флорида — HappyBox обеспечивает четкую логистику в любой штат, от Западного до Восточного побережья. Мы специализируемся на доставке DDP (Delivered Duty Paid). Это значит, что в цену уже включены авиа или морской фрахт, растаможка и все импортные пошлины. Никаких скрытых сборов и внезапных счетов от Таможенно-пограничной службы США (CBP).",
+            methodsTitle: "Методы доставки и тарифы",
             methods: [
                 {
                     icon: Plane,
-                    title: "Авиа (Air Freight)",
-                    tag: "Экспресс",
-                    desc: "Лучший выбор для дорогих товаров, электроники и срочного пополнения стока.",
+                    title: "Авиафрахт",
+                    tag: "Экспресс-доставка",
+                    desc: "Лучший выбор для дорогостоящих товаров, электроники или срочного пополнения стока.",
                     price: "От $10/кг",
                     speed: "5–9 дней",
                     color: "bg-blue-50 text-brand-blue"
                 },
                 {
                     icon: Anchor,
-                    title: "Море (Sea Freight)",
-                    tag: "Эконом",
-                    desc: "Самый выгодный способ для больших объемов. Доступны контейнерные (FCL) и сборные (LCL) грузы.",
+                    title: "Морские перевозки",
+                    tag: "Экономия и опт",
+                    desc: "Самый выгодный способ перевозки больших объемов, оборудования или мебели. Доступны варианты LCL (сборный груз) и FCL (целый контейнер).",
                     price: "От $1.2/кг",
                     speed: "25–35 дней",
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            fbaTitle: "Специализированная подготовка для Amazon FBA",
-            fbaText: "Вы продавец на Amazon? Мы эксперты в логистике FBA. Мы не просто доставляем, мы готовим товары по строгим требованиям Amazon:",
+            fbaTitle: "Почему американские импортеры выбирают HappyBox",
+            fbaText: "Мы работаем как ваш локальный офис в Шэньчжэне. Пока вы фокусируетесь на продажах, мы берем на себя всю «грязную работу»:",
             fbaItems: [
-                { title: "Маркировка FNSKU", desc: "Наклеим штрих-коды Amazon на каждый товар." },
-                { title: "Упаковка и наборы", desc: "Упакуем в полибэги и соберем наборы (бандлы)." },
-                { title: "Прямая доставка", desc: "Везем сразу на склады FBA (ONT8, FTW1 и др)." },
-                { title: "Паллетирование", desc: "Укладка на паллеты по стандартам складов Amazon." }
+                { title: "Консолидация заказов", desc: "Соберем товары от разных поставщиков (1688, Alibaba, Taobao) на нашем складе и отправим единым грузом, чтобы максимально снизить стоимость доставки." },
+                { title: "Строгий контроль качества", desc: "Не ждите, пока брак приедет в США. Мы делаем фото, видео и детальную проверку товара еще в Китае." },
+                { title: "Полное управление таможней (DDP)", desc: "Мы берем на себя подачу формы ISF, оформление таможенных бондов и оплату пошлин. Вам не нужно возиться со сложной документацией CBP." },
+                { title: "Доставка «до двери» по всей стране", desc: "Привезем груз на любой адрес — будь то частный дом или коммерческий склад — через проверенных партнеров (UPS, FedEx или локальные траковые компании)." }
             ],
-            whyTitle: "Почему выбирают HappyBox?",
+            fearsTitle: "Решаем главные проблемы импорта",
+            fearsList: [
+                { q: "Что если поставщик пришлет мусор?", a: "Наш склад в Шэньчжэне — это ваш фильтр качества. Мы проверяем всё до отправки. Если нашли брак — сразу возвращаем товар на завод." },
+                { q: "Что если груз потеряют или повредят?", a: "Мы предлагаем страховку «от всех рисков» (All-Risk). В случае утери или повреждения вы получаете 100% возврат заявленной стоимости. Никакого мелкого шрифта." },
+                { q: "У меня небольшой заказ, вы со мной работаете?", a: <>Да. Наши лимиты: от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span> для авиа и от 51 кг для моря. Мы даем одинаковый уровень экспертизы и стартапам, и крупным брендам.</> },
+                { q: "Как быть с праздниками и задержками?", a: "Мы предоставляем реалистичный календарь отгрузок с учетом китайского Нового года и заторов в портах (LAX или Long Beach), чтобы ваш бизнес работал без пауз." }
+            ],
+            whyTitle: "Работа с HappyBox - это",
             benefits: [
                 {
                     icon: FileCheck,
@@ -148,14 +163,14 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                     desc: "Бесплатный склад и профессиональная переупаковка для защиты груза в пути."
                 }
             ],
-            stepsTitle: "Как начать",
+            stepsTitle: "С чего начать",
             steps: [
-                "Получите адрес",
-                "Закажите товар",
-                "Проверьте фото",
-                "Отправьте в США"
+                "Получите адрес склада в Шэньчжэне",
+                "Закажите товар у поставщиков",
+                "Проверьте фото и отчеты",
+                "Получите груз в США"
             ],
-            cta: "Рассчитать стоимость",
+            cta: "Узнать стоимость доставки",
             back: "На главную"
         }
     };
@@ -236,23 +251,33 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                         ))}
                     </div>
 
-                    {/* FBA Section */}
-                    <div className="bg-orange-50/50 rounded-[40px] p-8 lg:p-12 mb-20 border border-orange-100">
+                    {/* Top Choice Section */}
+                    <div className="bg-brand-blue/5 rounded-[40px] p-8 lg:p-12 mb-20 border border-brand-blue/10">
                         <div className="text-center mb-10">
                             <h3 className="text-3xl font-black text-brand-dark mb-4">{t.fbaTitle}</h3>
-                            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-medium">{t.fbaText}</p>
+                            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">{t.fbaText}</p>
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {t.fbaItems.map((item, idx) => (
-                                <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-orange-100/50">
-                                    <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mb-4">
-                                        <ShoppingBag size={20} />
-                                    </div>
-                                    <h4 className="font-bold text-brand-dark mb-2">{item.title}</h4>
-                                    <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                                <div key={idx} className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-brand-blue/10 h-full">
+                                    <h4 className="font-bold text-brand-dark mb-3 text-lg leading-snug">{item.title}</h4>
+                                    <p className="text-gray-600 leading-relaxed font-medium">{item.desc}</p>
                                 </div>
                             ))}
                         </div>
+                    </div>
+
+                    {/* Fears Section */}
+                    <div className="mb-20">
+                         <h3 className="text-3xl font-black text-brand-dark mb-12 text-center">{t.fearsTitle}</h3>
+                         <div className="grid md:grid-cols-2 gap-8">
+                            {t.fearsList.map((fear, idx) => (
+                                <div key={idx} className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-gray-100">
+                                    <h4 className="font-bold text-lg text-brand-dark mb-3 leading-snug">{fear.q}</h4>
+                                    <p className="text-gray-600 font-medium leading-relaxed">{fear.a}</p>
+                                </div>
+                            ))}
+                         </div>
                     </div>
 
                     {/* Why Choose Grid */}
@@ -304,7 +329,43 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                         </div>
                     </div>
 
+                    <a href={language === 'ru' ? '/ru/amazon' : '/amazon'} className="group flex flex-col sm:flex-row items-center justify-between w-full max-w-4xl mx-auto mt-12 mb-6 bg-white border-2 border-gray-100 rounded-[30px] p-6 sm:p-8 transition-all shadow-md hover:shadow-xl hover:border-[#FF9900]/30 cursor-pointer">
+                        <div className="flex-grow mb-6 sm:mb-0 text-center sm:text-left sm:pr-8">
+                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-brand-dark mb-2 leading-tight">
+                                {language === 'ru' ? 'Вам нужна доставка на ' : 'Shipping to '} 
+                                <span className="text-[#FF9900] block sm:inline mt-1 sm:mt-0">Amazon FBA</span>?
+                            </h4>
+                            <p className="text-gray-500 text-sm sm:text-base font-medium leading-relaxed">
+                                {language === 'ru' ? 'Специальные условия, маркировка и доставка напрямую на склады FBA.' : 'Specialized rates, prep services, and direct delivery to FBA warehouses.'}
+                            </p>
+                        </div>
+                        <div className="flex-shrink-0 w-full sm:w-auto">
+                            <span className="flex w-full sm:w-auto items-center justify-center gap-2 bg-[#FF9900] text-white font-bold py-4 px-8 rounded-full group-hover:bg-[#e68a00] transition-colors shadow-sm sm:text-lg">
+                                {language === 'ru' ? 'Подробнее' : 'Learn More'}
+                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                            </span>
+                        </div>
+                    </a>
+
+                    <a href={language === 'ru' ? '/ru/blog/chinese-holidays-calendar-2026' : '/blog/chinese-holidays-calendar-2026'} className="group flex flex-col sm:flex-row items-center justify-between w-full max-w-4xl mx-auto mb-4 bg-brand-dark border-2 border-gray-800 rounded-[30px] p-6 sm:p-8 transition-all shadow-md hover:shadow-xl hover:border-brand-blue cursor-pointer">
+                        <div className="flex-grow mb-6 sm:mb-0 text-center sm:text-left sm:pr-8">
+                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-white mb-2 leading-tight">
+                                {language === 'ru' ? 'Календарь Китайских Праздников 2026' : 'Chinese Holidays Calendar 2026'} 
+                            </h4>
+                            <p className="text-gray-400 text-sm sm:text-base font-medium leading-relaxed">
+                                {language === 'ru' ? 'Узнайте точные даты, когда останавливается логистика, и как заранее отправить груз.' : 'Find out exact dates when logistics stop and how to ship your cargo ahead of time.'}
+                            </p>
+                        </div>
+                        <div className="flex-shrink-0 w-full sm:w-auto">
+                            <span className="flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-blue text-white font-bold py-4 px-8 rounded-full group-hover:bg-blue-600 transition-colors shadow-sm sm:text-lg">
+                                {language === 'ru' ? 'Читать Гайд' : 'Read Guide'}
+                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                            </span>
+                        </div>
+                    </a>
                 </section>
+
+                <UsaAdvancedLogisticsGuide language={language} />
 
                 <div id="contacts">
                     <Contact language={language} currentPage="usa" />

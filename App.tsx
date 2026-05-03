@@ -26,6 +26,7 @@ import { BlogCatalog } from './components/BlogCatalog';
 import { BlogPost } from './components/BlogPost';
 import { AllDestinationsPage } from './components/AllDestinationsPage';
 import { GenericDestinationPage } from './components/GenericDestinationPage';
+import { CaShippingPage } from './components/CaShippingPage';
 import { getBlogPostBySlug } from './utils/blogData';
 import { Language, translations } from './utils/translations';
 import { updateMetaTags, PageType } from './utils/seo'; 
@@ -172,14 +173,14 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
   const renderContent = () => {
       if (currentPage === 'blog') return (
         <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
-          <Header language={language} setLanguage={setLanguage} onLoginClick={() => setIsDevModalOpen(true)} isDashboard={false} onNavigate={handleNavigate} />
+          <Header language={language} setLanguage={setLanguage} onLoginClick={() => setIsDevModalOpen(true)} isDashboard={false} onNavigate={handleNavigate} onBack={() => handleBack('home')} />
           <BlogCatalog language={language} />
           <Footer language={language} />
         </div>
       );
       if (currentPage === 'blogPost') return (
         <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
-          <Header language={language} setLanguage={setLanguage} onLoginClick={() => setIsDevModalOpen(true)} isDashboard={false} onNavigate={handleNavigate} />
+          <Header language={language} setLanguage={setLanguage} onLoginClick={() => setIsDevModalOpen(true)} isDashboard={false} onNavigate={handleNavigate} onBack={() => handleBack('blog')} />
           <BlogPost language={language} />
           <Footer language={language} />
         </div>
@@ -191,10 +192,11 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
       if (currentPage === 'russia') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
       if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
+      if (currentPage === 'canada') return <CaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('destinations')} />;
       
       if (currentPage === 'destinations') return <AllDestinationsPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
 
-      const genericDestinations: PageType[] = ['canada', 'thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel'];
+      const genericDestinations: PageType[] = ['thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel'];
       if (genericDestinations.includes(currentPage)) {
           return <GenericDestinationPage language={language} setLanguage={setLanguage} countryId={currentPage} onBack={() => handleBack('destinations')} onNavigate={handleNavigate} />;
       }

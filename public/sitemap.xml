@@ -41,4 +41,24 @@
   <!-- Russia Cargo Page -->
   <url><loc>https://happyboxlogistics.com/russia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://happyboxlogistics.com/ru/russia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- All Destinations -->
+  <url><loc>https://happyboxlogistics.com/destinations</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/ru/destinations</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- More Destinations -->
+  <url><loc>https://happyboxlogistics.com/canada</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/ru/canada</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/thailand</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/ru/thailand</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/indonesia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/ru/indonesia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/argentina</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/ru/argentina</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/south-africa</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/ru/south-africa</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/georgia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/ru/georgia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/israel</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/ru/israel</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>
