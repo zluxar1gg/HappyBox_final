@@ -11,57 +11,64 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
 
     const content = {
         en: {
-            title: "1688 Buyer's Guide 2026: How to Source Wholesale from China",
-            subtitle: "Everything international buyers need to know about purchasing from 1688.com without a Chinese Account.",
+            title: "1688 Buyer's Guide 2026: How to Source Wholesale from China Without a Chinese Account",
+            subtitle: "Everything international buyers need to know about purchasing from 1688.com.",
             sections: [
                 {
                     title: "1. 1688 vs Alibaba vs DHgate: Which Platform Is Actually Cheaper?",
-                    items: [
-                        { label: "Why the price difference exists:", text: "Alibaba is built for international trade. Every seller knows they're dealing with foreign buyers and prices accordingly (export documentation, English communication, processing). Typical markup over domestic price: 30–100%. 1688 is China's internal B2B marketplace. Sellers list at prices intended for Chinese businesses. No export premium." },
-                        { label: "Real price comparison by category:", text: "• Electronics: Alibaba $8–12 / 1688 $3–5 (50–60% cheaper)\n• Clothing: Alibaba $15–25 / 1688 $6–12 (40–55% cheaper)\n• Home goods: Alibaba $20–40 / 1688 $8–18 (45–55% cheaper)" },
-                        { label: "When Alibaba makes more sense:", text: "Small sample orders where 1688 MOQ is too high. Suppliers who specifically cater to export with all documentation ready." }
-                    ]
+                    contentPre: "Why the price difference exists:\nAlibaba is built for international trade. Every seller knows they're dealing with foreign buyers and prices accordingly — export documentation, English communication, and international payment processing are all factored into the margin. Typical markup over domestic price: 30–100% depending on category.\n\n1688 is China's internal B2B marketplace — the equivalent of a domestic wholesale trade show that the rest of the world can't easily access. Sellers list at prices intended for Chinese businesses. No export premium.\n\nReal price comparison by category:",
+                    table: {
+                        headers: ["Category", "Typical Alibaba price", "Typical 1688 price", "Difference"],
+                        rows: [
+                            ["Electronics accessories", "$8–12/unit", "$3–5/unit", "50–60% cheaper"],
+                            ["Clothing & apparel", "$15–25/piece", "$6–12/piece", "40–55% cheaper"],
+                            ["Home goods & decor", "$20–40/unit", "$8–18/unit", "45–55% cheaper"],
+                            ["Footwear", "$25–45/pair", "$10–20/pair", "40–55% cheaper"]
+                        ]
+                    },
+                    afterTable: "Prices are illustrative ranges — actual savings depend on category, volume, and supplier.\n\nWhen Alibaba makes more sense:\nSmall sample orders where 1688 MOQ is too high. Suppliers who specifically cater to export with all documentation ready. Products where the quality gap between platforms is unclear without established relationships."
                 },
                 {
                     title: "2. How to Buy from 1688 Without a Chinese Bank Account",
-                    items: [
-                        { label: "The Payment Barrier", text: "1688 sellers only accept Chinese domestic payment methods — Alipay and domestic bank transfer. Foreign credit cards and PayPal are not accepted." },
-                        { label: "How a buying agent solves this:", text: "HappyBox holds Chinese corporate accounts and pays suppliers directly on your behalf.\n1. You send us links.\n2. We verify availability and confirm price.\n3. You transfer funds to us in USD.\n4. We pay the supplier from our Chinese account." }
-                    ]
+                    contentPre: "This is the main barrier for international buyers. 1688 sellers only accept Chinese domestic payment methods — Alipay and domestic bank transfer. Foreign credit cards and PayPal are not accepted.\n\nHow a buying agent solves this:\nA 1688 buying agent like HappyBox holds Chinese corporate accounts and pays suppliers directly on your behalf:\n\n• You send us product links or descriptions\n• We verify availability and confirm the price\n• You transfer the purchase amount to us in USD or your local currency\n• We pay the 1688 supplier from our Chinese account\n• Goods ship to our Shenzhen warehouse for inspection and consolidation\n\nNo Chinese account required. No Alipay registration. No VPN needed.\nOur fee: 2% of the order value."
                 },
                 {
                     title: "3. 1688 Minimum Order Quantities: What to Expect",
-                    items: [
-                        { label: "Typical MOQ ranges on 1688:", text: "• Clothing: 1 piece to 50+ per style/color\n• Electronics: 10–100 units\n• Home goods: 1–10 units\n• Custom/OEM: 100–500+ units" },
-                        { label: "MOQ negotiation:", text: "Many 1688 suppliers will negotiate MOQ — particularly if you're ordering multiple SKUs. Our sourcing team negotiates in Chinese, which consistently yields better terms." },
-                        { label: "Sample orders:", text: "Some suppliers offer samples at higher per-unit price. We verify sample availability before you commit to a bulk order." }
-                    ]
+                    contentPre: "Typical MOQ ranges on 1688:",
+                    table: {
+                        headers: ["Category", "Typical MOQ"],
+                        rows: [
+                            ["Clothing & apparel", "1 piece to 50+ per style/color"],
+                            ["Electronics accessories", "10–100 units"],
+                            ["Home goods", "1–10 units"],
+                            ["Custom/OEM products", "100–500+ units"],
+                            ["Raw materials", "Often weight-based (50kg+)"]
+                        ]
+                    },
+                    afterTable: "MOQ negotiation:\nMany 1688 suppliers will negotiate MOQ — particularly if you're ordering multiple SKUs or committing to repeat orders. Our sourcing team negotiates in Chinese, which consistently yields better terms than international buyers negotiating directly in English.\n\nSample orders:\nSome suppliers offer samples at higher per-unit price. We verify sample availability before you commit to a bulk order — a step most buyers skip and regret."
                 },
                 {
                     title: "4. How to Find and Verify Suppliers on 1688",
-                    items: [
-                        { label: "Supplier rating system", text: "1688 uses an internal rating from 1–5. Ratings of 4.0 and above indicate reliable fulfillment history. Suppliers below 4.0 carry meaningful risk. We do not purchase from suppliers rated below 4.0 without additional verification." },
-                        { label: "What to check beyond the rating:", text: "Transaction volume, response time, factory vs trading company status, and actual stock vs listed stock." },
-                        { label: "Our verification process:", text: "We message the supplier in Chinese, confirm stock, verify real dimensions and weight, request product photos, and check the return policy before recommending a purchase." }
-                    ]
+                    contentPre: "Supplier rating system:\n1688 uses an internal rating from 1–5. Ratings of 4.0 and above indicate reliable fulfillment history. Suppliers below 4.0 carry meaningful risk — delayed shipping, quality issues, and poor communication are common. We do not purchase from suppliers rated below 4.0 without additional verification.\n\nWhat to check beyond the rating:\n• Transaction volume — high numbers indicate an active, established supplier, not a new listing with no history.\n• Response time — suppliers who respond within a few hours are operationally active. Slow response at the inquiry stage predicts slow fulfillment.\n• Factory vs. trading company — factories offer lower prices; trading companies offer more flexibility on small MOQs and mixed SKUs. We identify which you're dealing with before purchase.\n• Actual stock vs. listed stock — 1688 stock numbers frequently reflect production capacity rather than available inventory. We verify real availability before you pay.\n\nOur verification process:\nWe message the supplier in Chinese, confirm stock, verify real dimensions and weight, request product photos, and check return policy before recommending a purchase."
                 },
                 {
                     title: "5. Common 1688 Buying Mistakes (And How to Avoid Them)",
-                    items: [
-                        { label: "Trusting listed stock numbers", text: "Stock on 1688 often reflects production capacity, not inventory. Always verify before paying." },
-                        { label: "Ignoring actual weight and dimensions", text: "Listings frequently show incorrect weight/dimensions. We weigh and measure every shipment at our warehouse before you're committed to freight costs." },
-                        { label: "Not specifying packaging", text: "Default packaging is often a bulk bag. We request individual packaging from the supplier if you need it for resale." },
-                        { label: "Skipping quality inspection", text: "1688 suppliers are domestic sellers. Without a physical inspection in China, defects only surface at your warehouse after customs clearance. We inspect every shipment." }
-                    ]
+                    contentPre: "Trusting listed stock numbers\nStock on 1688 often reflects what the supplier can produce, not what's in inventory. Always verify before paying. We do this for every order.\n\nIgnoring actual weight and dimensions\n1688 listings frequently show incorrect weight and dimensions. This matters because international freight is calculated by actual or volumetric weight, whichever is higher. We weigh and measure every shipment at our warehouse and flag discrepancies before you're committed to a freight cost.\n\nNot specifying individual packaging\nDefault packaging for items like clothing, notebooks, and plush toys is often a bulk bag. If you need individual packaging for resale, specify this before the order is confirmed. We communicate this to the supplier in Chinese.\n\nOrdering electronics without voltage and plug check\nChinese domestic electronics are built for 220V. If your market uses 110V or different plug standards, specify this at the order stage. We verify voltage and plug compatibility before purchase for all electronics orders.\n\nSkipping quality inspection\n1688 suppliers are domestic sellers with no export accountability. Without a physical inspection in China, defects only surface at your warehouse — after customs clearance, after the return window has closed. We inspect every shipment with photos before international packing.\n\nOrdering fragile items without packaging request\nCeramics, glassware, and marble products need reinforced packaging or a wooden crate for international transit. Standard 1688 packaging is designed for domestic courier, not long-haul sea freight. We request appropriate packaging from the supplier and add protection at our warehouse when needed."
                 },
                 {
-                    title: "6. 1688 vs Other Chinese Platforms",
-                    items: [
-                        { label: "1688.com", text: "Best for B2B wholesale, bulk orders. Lowest factory prices." },
-                        { label: "Alibaba.com", text: "Best for export-ready suppliers. Prices 30-100% above 1688." },
-                        { label: "Taobao / Tmall", text: "Best for single items, personal shopping, and official brand stores." },
-                        { label: "Poizon (Dewu) / Pinduoduo", text: "Best for authenticated sneakers and deep discounts." }
-                    ]
+                    title: "6. 1688 vs Alibaba vs Taobao vs Pinduoduo: Full Platform Comparison",
+                    table: {
+                        headers: ["Platform", "Best for", "Pricing", "Language", "International payment"],
+                        rows: [
+                            ["1688.com", "B2B wholesale, bulk orders", "Lowest — factory price", "Chinese only", "Not supported"],
+                            ["Alibaba.com", "B2B, export-ready suppliers", "30–100% above 1688", "English", "Yes"],
+                            ["Taobao", "B2C, single items, personal shopping", "Retail price", "Chinese", "Not supported"],
+                            ["Tmall", "Official brand stores", "Retail/brand price", "Chinese", "Not supported"],
+                            ["Poizon (Dewu)", "Authenticated sneakers & streetwear", "Market price", "Chinese", "Not supported"],
+                            ["Pinduoduo", "Group buying, deep discounts", "Low — social commerce", "Chinese", "Not supported"]
+                        ]
+                    },
+                    afterTable: "Which platform for which situation:\n• Reselling wholesale inventory → 1688\n• Official branded goods → Tmall\n• Personal shopping, single items → Taobao\n• Authenticated sneakers → Poizon\n• Maximum discount on consumer goods → Pinduoduo\n\nWe support purchasing and consolidation across all six platforms into one international shipment."
                 }
             ],
             readMore: "Read the 1688 Buyer's Guide",
@@ -69,50 +76,63 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
         },
         ru: {
             title: "Гайд по 1688 (2026): как покупать оптом без китайского счета",
-            subtitle: "Все, что нужно знать о закупках на 1688.com для международного бизнеса.",
+            subtitle: "Все, что нужно знать о закупках на 1688.com.",
             sections: [
                 {
                     title: "1. 1688 vs Alibaba vs DHgate: где на самом деле дешевле?",
-                    items: [
-                        { label: "В чем разница?", text: "Alibaba ориентирована на мир. Продавцы закладывают в цену расходы на англоязычный персонал, международный маркетинг и экспорт. Наценка составляет от 30% до 100%. 1688 — это «внутренняя кухня» Китая. Цены здесь такие же, как на профессиональных выставках внутри страны." },
-                        { label: "Сравнение цен по категориям:", text: "• Электроника: Alibaba $8–12 / 1688 $3–5 (выгода ~60%)\n• Одежда: Alibaba $15–25 / 1688 $6–12 (выгода ~50%)\n• Товары для дома: Alibaba $20–40 / 1688 $8–18 (выгода ~55%)" }
-                    ]
+                    contentPre: "Почему существует разница в ценах:\nAlibaba ориентирована на мир. Продавцы закладывают в цену расходы на англоязычный персонал, международный маркетинг и комиссии за переводы. Наценка на экспорт составляет от 30% до 100% к цене внутреннего рынка.\n\n1688 — это «внутренняя кухня» Китая. Эквивалент «для своих». Цены здесь такие же, как на профессиональных выставках внутри страны.\n\nРеальное сравнение цен по категориям:",
+                    table: {
+                        headers: ["Категория", "Цена Alibaba", "Цена 1688", "Разница"],
+                        rows: [
+                            ["Электроника и аксессуары", "$8–12", "$3–5", "на 50–60% дешевле"],
+                            ["Одежда", "$15–25", "$6–12", "на 40–55% дешевле"],
+                            ["Товары для дома", "$20–40", "$8–18", "на 45–55% дешевле"],
+                            ["Обувь", "$25–45", "$10–20", "на 40–55% дешевле"]
+                        ]
+                    },
+                    afterTable: "Когда стоит выбрать Alibaba:\nДля мелких заказов-образцов, если MOQ на 1688 слишком велик. А также если вам нужен поставщик, готовый к прямому экспорту и предоставляющий все сертификаты на английском."
                 },
                 {
-                    title: "2. Как платить, если нет китайской карты?",
-                    items: [
-                        { label: "Проблема платежей", text: "1688 не принимает иностранные кредитки или PayPal. Только Alipay и переводы внутри Китая." },
-                        { label: "Решение", text: "Агент (HappyBox) решает эту проблему: вы переводите нам сумму в USD (или другой валюте), а мы мгновенно оплачиваем товар продавцу с наших юаневых счетов. Без VPN и регистрации в Alipay." }
-                    ]
+                    title: "2. Как покупать на 1688 без китайского счета",
+                    contentPre: "Это главный барьер для иностранцев. 1688 не работает с зарубежными банковскими картами и PayPal. Только Alipay и переводы внутри Китая (WeChat, местные карты).\n\nКак мы решаем эту проблему:\nВам не нужен китайский счет, Alipay или VPN. Баинг-агент (мы) оплачивает ваши заказы со своих корпоративных счетов в юанях:\n\n• Вы присылаете нам ссылки на товар\n• Мы подтверждаем наличие и финальную стоимость\n• Вы переводите деньги нам (в USD/EUR/RUB)\n• Мы мгновенно выкупаем товар у продавца на 1688\n• Товар едет на наш склад в Шэньчжэне для проверки\n\nНаша комиссия: 2% от стоимости заказа."
                 },
                 {
                     title: "3. Минимальный заказ (MOQ) на 1688",
-                    items: [
-                        { label: "Условия", text: "Обычно на 1688 можно купить от 2–3 штук одного артикула. Если вам нужно меньше или вы хотите заказать образцы — мы договоримся с поставщиком." },
-                        { label: "Переговоры", text: "Наша команда ведет переговоры на китайском, что всегда дает лучшие условия по сравнению с попытками общаться на английском через онлайн-переводчик." }
-                    ]
+                    contentPre: "Ожидаемый MOQ по категориям:",
+                    table: {
+                        headers: ["Категория", "Типичный MOQ"],
+                        rows: [
+                            ["Одежда", "от 1 до 50+ шт. на размер/цвет"],
+                            ["Электроника", "10–100 шт."],
+                            ["Товары для дома", "1–10 шт."],
+                            ["Кастомное (OEM)", "100–500+ шт."],
+                            ["Сырье", "Часто от 50 кг и выше"]
+                        ]
+                    },
+                    afterTable: "Торг по MOQ:\nМногие поставщики на 1688 готовы снижать MOQ, если вы берете разные артикулы (сборный заказ). Наша команда торгуется на китайском языке, что дает значительно лучший результат.\n\nЗаказ образцов:\nИногда можно купить образец по более высокой розничной цене. Мы проверяем такую возможность до крупного заказа."
                 },
                 {
-                    title: "4. Как проверить поставщика?",
-                    items: [
-                        { label: "Рейтинг", text: "Мы ориентируемся на внутренний рейтинг 1688 (шкала от 1 до 5). Мы стараемся не работать с продавцами с рейтингом ниже 4.0." },
-                        { label: "Дополнительные проверки", text: "Объем транзакций (показывает, что магазин живой), скорость ответа, а также проверяем, завод это или перекуп." }
-                    ]
+                    title: "4. Как найти и проверить поставщиков на 1688",
+                    contentPre: "Рейтинг поставщиков:\n1688 использует внутренний рейтинг от 1 до 5. Мы стараемся не выкупать у продавцов с рейтингом ниже 4.0 без дополнительной проверки, так как это несет реальные риски задержек и брака.\n\nНа что смотреть кроме рейтинга:\n• Объем транзакций — большие цифры показывают, что магазин работает и отгружает товар.\n• Скорость ответа — активные продавцы отвечают в течение пары часов. Долгие ответы на этапе запроса = долгая отправка груза.\n• Фабрика или торговая компания (перекуп) — фабрики дают лучшую цену, но перекупы лояльнее к мелким MOQ и сборным грузам. Мы определяем статус магазина.\n• Реальные запасы товара — остатки на сайте часто отражают «возможность произвести», а не то, что лежит на складе. Мы проверяем наличие до оплаты.\n\nНаш процесс проверки:\nМы связываемся с поставщиком в чате на китайском, уточняем наличие, просим реальные фото, проверяем габариты и правила возврата."
                 },
                 {
-                    title: "5. Типичные ошибки новичков",
-                    items: [
-                        { label: "Вера в остатки на сайте", text: "Всегда нужно уточнять наличие «в моменте». Мы делаем это перед каждой оплатой." },
-                        { label: "Игнорирование веса", text: "Продавцы часто пишут примерный вес. Мы перевешиваем каждую коробку на складе, чтобы расчет доставки был честным." },
-                        { label: "Отсутствие инспекции", text: "Поставщики на 1688 не несут ответственности перед иностранцами. Без проверки в Китае брак обнаружится только у вас дома, поэтому мы проверяем весь товар в Шэньчжэне." }
-                    ]
+                    title: "5. Ошибки при покупке на 1688 (и как их избежать)",
+                    contentPre: "Верить заявленным остаткам\nЦифры на сайте часто виртуальны. Нужно уточнять наличие. Мы делаем это перед каждой оплатой.\n\nИгнорировать габариты и вес\nПродавцы пишут примерные цифры. Это критично, так как международная доставка рассчитывается по объемному весу. Мы перевешиваем каждую посылку на нашем складе.\n\nНе уточнять вид упаковки\nЧасто товары кидают в один общий мешок. Если вам нужна индивидуальная упаковка для каждого товара, это нужно просить отдельно. Мы обговариваем это с продавцом.\n\nЗаказывать электронику без проверки вилки/вольтажа\nТехника для рынка Китая идет с китайской вилкой и напряжением 220V. Обязательно нужно проверять совместимость с вашей страной.\n\nОтказываться от проверки (инспекции) в Китае\nПродавцы 1688 не несут ответственности за международную пересылку. Если вы проверите товар уже в своей стране — оформить возврат будет невозможно. Мы проверяем товары на складе в Шэньчжэне с предоставлением фото.\n\nЗабывать про деревянную обрешетку\nСтекло и хрупкие вещи не доедут в стандартных коробках. Мы организуем деревянную обрешетку или паллетирование на нашем складе."
                 },
                 {
-                    title: "6. Сравнение платформ Китая",
-                    items: [
-                        { label: "1688.com vs Alibaba", text: "1688 для опта и бизнеса с самыми низкими ценами. Alibaba для готового экспорта по завышенной цене." },
-                        { label: "Taobao vs Poizon", text: "Taobao для розницы и личных вещей. Poizon для оригинальных брендовых кроссовок." }
-                    ]
+                    title: "6. 1688 vs Alibaba vs Taobao vs Pinduoduo: Сравнение платформ",
+                    table: {
+                        headers: ["Платформа", "Для чего", "Уровень цен", "Язык", "Международная оплата"],
+                        rows: [
+                            ["1688.com", "B2B опт, крупные заказы", "Самые низкие (фабрики)", "Китайский", "Нет (нужен агент)"],
+                            ["Alibaba.com", "B2B, готово к экспорту", "На 30–100% выше", "Английский", "Да"],
+                            ["Taobao", "B2C, поштучно, личное", "Розничные", "Китайский", "Нет"],
+                            ["Tmall", "Официальные бренды", "Розничные (бренды)", "Китайский", "Нет"],
+                            ["Poizon (Dewu)", "Оригинальные кроссовки", "Рыночные", "Китайский", "Нет"],
+                            ["Pinduoduo", "Совместные покупки", "Низкие (дисконт)", "Китайский", "Нет"]
+                        ]
+                    },
+                    afterTable: "Какую платформу выбрать:\n• Перепродажа оптовых партий → 1688\n• Официальные товары брендов → Tmall\n• Поштучно и личный шопинг → Taobao\n• 100% оригинальные кроссовки → Poizon\n• Максимальная скидка в Рознице → Pinduoduo\n\nМы осуществляем выкуп и объединяем заказы со всех шести платформ в одну международную отправку."
                 }
             ],
             readMore: "Читать гайд по закупкам 1688",
@@ -158,16 +178,43 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                                     <h4 className="text-xl font-bold text-brand-dark mb-6 tracking-tight border-b border-gray-100 pb-3">
                                         {section.title}
                                     </h4>
-                                    <div className="space-y-4">
-                                        {section.items.map((item, itemIdx) => (
-                                            <div key={itemIdx} className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
-                                                <h5 className="font-bold text-brand-dark mb-2">{item.label}</h5>
-                                                <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">
-                                                    {item.text}
-                                                </p>
-                                            </div>
-                                        ))}
-                                    </div>
+                                    
+                                    {section.contentPre && (
+                                        <div className="text-gray-600 font-medium leading-relaxed whitespace-pre-line mb-6">
+                                            {section.contentPre}
+                                        </div>
+                                    )}
+
+                                    {section.table && (
+                                        <div className="overflow-x-auto mb-6 rounded-xl border border-gray-200">
+                                            <table className="w-full text-left border-collapse">
+                                                <thead>
+                                                    <tr className="bg-gray-100/50">
+                                                        {section.table.headers.map((h, i) => (
+                                                            <th key={i} className="p-4 font-bold text-brand-dark border-b border-gray-200">{h}</th>
+                                                        ))}
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {section.table.rows.map((row, rIdx) => (
+                                                        <tr key={rIdx} className="hover:bg-gray-50 transition-colors">
+                                                            {row.map((cell, cIdx) => (
+                                                                <td key={cIdx} className="p-4 text-gray-600 border-b border-gray-100 text-sm leading-snug">
+                                                                    {cell}
+                                                                </td>
+                                                            ))}
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    )}
+
+                                    {section.afterTable && (
+                                        <div className="text-gray-600 font-medium leading-relaxed whitespace-pre-line">
+                                            {section.afterTable}
+                                        </div>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -177,3 +224,4 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
         </section>
     );
 };
+

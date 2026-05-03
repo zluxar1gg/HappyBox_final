@@ -24,7 +24,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
         en: {
             badge: "Sourcing & Purchasing",
             titlePrefix: "1688 Sourcing Agent:",
-            titleHighlight: "Wholesale from China",
+            titleHighlight: "Wholesale & Bulk Purchasing from China",
             subtitle: <>Access true factory prices. We source, negotiate, purchase, and consolidate wholesale orders from 1688.com directly at our Shenzhen warehouse — no Chinese bank account, no language barrier, no middleman markup.</>,
             whyTitle: "Why 1688.com — Not Alibaba",
             whyText1: "Most international buyers default to Alibaba. That's exactly why Alibaba prices are higher — the platform is built for export, with margins baked in at every level. 1688.com is China's domestic wholesale marketplace where the same factories sell to Chinese businesses at real factory prices.",
@@ -150,38 +150,19 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
             />
 
             <main>
-                <section className="py-12 lg:py-24 bg-cream">
-                    <div className="container mx-auto px-6 xl:px-0 flex flex-col lg:flex-row items-center gap-12">
-                         <div className="lg:w-1/2 text-center lg:text-left">
-                            <span className="inline-flex items-center justify-center bg-brand-yellow/20 text-brand-dark px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
-                                {t.badge}
-                            </span>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-6 tracking-tight">
-                                {t.titlePrefix} <br className="hidden lg:block"/>
-                                <span className="text-brand-blue relative inline-block">
-                                    {t.titleHighlight}
-                                    <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-yellow z-[-1]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                                       <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" opacity="0.6" />
-                                    </svg>
-                                </span>
-                            </h1>
-                            <p className="text-lg text-gray-600 mb-10 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                                {t.subtitle}
-                            </p>
-                            <button 
-                                onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-lg active:scale-95 inline-flex items-center gap-2"
-                            >
-                                <Search size={20} />
-                                {t.cta}
-                            </button>
-                         </div>
-                         <div className="lg:w-1/2 w-full max-w-lg mx-auto">
-                            <div className="aspect-square bg-white rounded-[40px] shadow-xl p-4 flex items-center justify-center overflow-hidden border-8 border-white">
-                                <img src={targetUrl} alt="1688 Website Screen" className="w-full h-full object-cover rounded-[32px] hover:scale-105 transition-transform duration-700" />
-                            </div>
+                <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
+                    <div className="container mx-auto px-6 xl:px-0 relative z-10">
+                         <div className="max-w-4xl mx-auto text-center">
+                                <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-brand-dark mb-6 tracking-tight">
+                                    {t.titlePrefix} <span className="text-brand-blue">{t.titleHighlight}</span>
+                                </h1>
+
+                                <p className="text-lg md:text-xl text-gray-600 mb-10 font-medium leading-relaxed max-w-2xl mx-auto">
+                                    {t.subtitle}
+                                </p>
                          </div>
                     </div>
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-white rounded-full blur-3xl opacity-50 -z-0 pointer-events-none"></div>
                 </section>
 
                 <section id="details" className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
