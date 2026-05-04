@@ -103,11 +103,13 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
           <div className="flex flex-col">
             <div className="lg:hidden mb-12 flex justify-center">
                 <img 
+                  srcSet="https://wsrv.nl/?url=i.ibb.co/cS2GvWht/happyboxtop.webp&w=400&output=webp 400w, https://wsrv.nl/?url=i.ibb.co/cS2GvWht/happyboxtop.webp&w=800&output=webp 800w"
+                  sizes="(max-width: 1024px) 100vw, 600px"
                   src="https://i.ibb.co/cS2GvWht/happyboxtop.webp" 
                   alt="HappyBox Logistics Delivery Mascot China" 
                   width="800"
                   height="800"
-                  decoding="async"
+                  fetchPriority="high"
                   className="w-full max-w-[600px] h-auto object-contain"
                 />
             </div>
@@ -133,11 +135,13 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
 
           <div className="hidden lg:flex justify-center">
             <img 
+              srcSet="https://wsrv.nl/?url=i.ibb.co/cS2GvWht/happyboxtop.webp&w=400&output=webp 400w, https://wsrv.nl/?url=i.ibb.co/cS2GvWht/happyboxtop.webp&w=800&output=webp 800w"
+              sizes="(max-width: 1024px) 100vw, 600px"
               src="https://i.ibb.co/cS2GvWht/happyboxtop.webp" 
               alt="HappyBox Logistics Delivery Mascot China" 
               width="800"
               height="800"
-              decoding="async"
+              fetchPriority="high"
               className="w-full max-w-[600px] h-auto object-contain"
             />
           </div>

@@ -28,6 +28,8 @@ export const About: React.FC<AboutProps> = ({ language }) => {
             {/* Image Column */}
             <div className="flex justify-center lg:justify-center">
                 <img 
+                  srcSet="https://wsrv.nl/?url=i.ibb.co/C55Gbh27/happyboxdelivery.webp&w=400&output=webp 400w, https://wsrv.nl/?url=i.ibb.co/C55Gbh27/happyboxdelivery.webp&w=800&output=webp 800w"
+                  sizes="(max-width: 1024px) 100vw, 600px"
                   src="https://i.ibb.co/C55Gbh27/happyboxdelivery.webp" 
                   alt={t.imageAlt} 
                   width="800"

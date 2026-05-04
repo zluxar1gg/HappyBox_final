@@ -31,13 +31,13 @@ interface ServicePageProps {
 }
 
 const serviceImages: Record<string, string> = {
-    '1688': 'https://i.ibb.co/fRfBQNF/1688.webp',
-    'pinduoduo': 'https://i.ibb.co/qFkVHCjb/pdd.webp',
-    'poizon': 'https://i.ibb.co/7t5t5phb/poizon.webp',
-    'taobao': 'https://i.ibb.co/Rp3G3V4h/tao.webp',
-    'tmall': 'https://i.ibb.co/6762BbbX/tmall.webp',
-    'xianyu': 'https://i.ibb.co/RGVCGTjn/xy.webp',
-    'weidian': 'https://i.ibb.co/WW5hhcvP/wd.webp'
+    '1688': 'https://wsrv.nl/?url=i.ibb.co/fRfBQNF/1688.webp&w=400&output=webp',
+    'pinduoduo': 'https://wsrv.nl/?url=i.ibb.co/qFkVHCjb/pdd.webp&w=400&output=webp',
+    'poizon': 'https://wsrv.nl/?url=i.ibb.co/7t5t5phb/poizon.webp&w=400&output=webp',
+    'taobao': 'https://wsrv.nl/?url=i.ibb.co/Rp3G3V4h/tao.webp&w=400&output=webp',
+    'tmall': 'https://wsrv.nl/?url=i.ibb.co/6762BbbX/tmall.webp&w=400&output=webp',
+    'xianyu': 'https://wsrv.nl/?url=i.ibb.co/RGVCGTjn/xy.webp&w=400&output=webp',
+    'weidian': 'https://wsrv.nl/?url=i.ibb.co/WW5hhcvP/wd.webp&w=400&output=webp'
 };
 
 export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage, serviceId, onBack, onNavigate }) => {

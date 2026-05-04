@@ -41,7 +41,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       id: 'taobao', 
       title: isEn ? 'Taobao Buyer' : 'Байер Taobao', 
       seoText: t.taobao,
-      image: 'https://i.ibb.co/Rp3G3V4h/tao.webp',
+      image: 'https://wsrv.nl/?url=i.ibb.co/Rp3G3V4h/tao.webp&w=128&output=webp&q=80',
       color: 'text-orange-500', 
       bg: 'bg-orange-50' 
     },
@@ -49,7 +49,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       id: '1688', 
       title: isEn ? '1688 Agent' : 'Выкуп 1688', 
       seoText: t['1688'],
-      image: 'https://i.ibb.co/fRfBQNF/1688.webp',
+      image: 'https://wsrv.nl/?url=i.ibb.co/fRfBQNF/1688.webp&w=128&output=webp&q=80',
       color: 'text-red-500', 
       bg: 'bg-red-50' 
     },
@@ -57,7 +57,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       id: 'poizon', 
       title: 'Poizon (Dewu)', 
       seoText: isEn ? 'Authentic Sneakers' : 'Оригинал с Poizon',
-      image: 'https://i.ibb.co/7t5t5phb/poizon.webp',
+      image: 'https://wsrv.nl/?url=i.ibb.co/7t5t5phb/poizon.webp&w=128&output=webp&q=80',
       color: 'text-teal-500', 
       bg: 'bg-teal-50' 
     },
@@ -65,7 +65,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       id: 'weidian', 
       title: 'Weidian', 
       seoText: t.weidian,
-      image: 'https://i.ibb.co/WW5hhcvP/wd.webp',
+      image: 'https://wsrv.nl/?url=i.ibb.co/WW5hhcvP/wd.webp&w=128&output=webp&q=80',
       color: 'text-rose-600', 
       bg: 'bg-rose-50' 
     },
@@ -73,7 +73,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       id: 'pinduoduo', 
       title: 'Pinduoduo', 
       seoText: t.pinduoduo,
-      image: 'https://i.ibb.co/qFkVHCjb/pdd.webp',
+      image: 'https://wsrv.nl/?url=i.ibb.co/qFkVHCjb/pdd.webp&w=128&output=webp&q=80',
       color: 'text-pink-600', 
       bg: 'bg-pink-50' 
     },
@@ -81,7 +81,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       id: 'xianyu', 
       title: 'Xianyu', 
       seoText: t.xianyu,
-      image: 'https://i.ibb.co/RGVCGTjn/xy.webp',
+      image: 'https://wsrv.nl/?url=i.ibb.co/RGVCGTjn/xy.webp&w=128&output=webp&q=80',
       color: 'text-yellow-500', 
       bg: 'bg-yellow-50' 
     }
