@@ -43,6 +43,12 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
   const location = useLocation();
   const navType = useNavigationType();
 
+  const getCleanPath = (pathname: string) => {
+    let cleanPath = pathname.replace(/^\/ru(\/|$)/, '/');
+    if (cleanPath === '') cleanPath = '/';
+    return cleanPath;
+  };
+
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isDevModalOpen, setIsDevModalOpen] = useState(false);
 
@@ -68,23 +74,20 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
     if (newPath === '') newPath = '/';
     
     const finalUrl = location.hash ? `${newPath}${location.hash}` : newPath;
-    navigate(finalUrl);
+    navigate(finalUrl, { replace: true, state: { ...location.state, retainScroll: true, previousScrollY: window.scrollY } });
   };
 
   const handleBack = (fallbackPage: string, fallbackSectionId?: string) => {
-    if (window.history.state && window.history.state.idx > 0) {
-      navigate(-1);
-    } else {
-      handleNavigate(fallbackPage, fallbackSectionId);
-    }
+    handleNavigate(fallbackPage, fallbackSectionId, { isBack: true });
   };
 
-  const handleNavigate = (targetPage: string, sectionId?: string) => {
+  const handleNavigate = (targetPage: string, sectionId?: string, stateObj?: any) => {
     const prefix = language === 'ru' ? '/ru' : '';
     const path = targetPage === 'home' ? '' : `/${targetPage}`;
     const hash = (targetPage === 'home' && sectionId) ? `#${sectionId}` : '';
-    const newPath = `${prefix}${path}` || '/';
-    navigate(`${newPath}${hash}`);
+    let newPath = `${prefix}${path}`;
+    if (newPath === '') newPath = '/';
+    navigate(`${newPath}${hash}`, { state: { ...stateObj, from: currentPage } });
   };
 
   // --- SCROLL RESTORATION FIX ---
@@ -97,7 +100,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
   // Track and save scroll positions
   useEffect(() => {
     const handleScroll = () => {
-      sessionStorage.setItem(`scroll-${location.pathname}`, window.scrollY.toString());
+      sessionStorage.setItem(`scroll-${getCleanPath(location.pathname)}`, window.scrollY.toString());
     };
     
     let timeout: ReturnType<typeof setTimeout>;
@@ -130,9 +133,18 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
 
   // Scroll Handling Effect
   useLayoutEffect(() => {
-    // If navigation is a POP (e.g. Back/Forward), restore saved scroll
-    if (navType === 'POP') {
-       const savedScroll = sessionStorage.getItem(`scroll-${location.pathname}`);
+    // Check if we requested to retain scroll position (e.g., during language switch)
+    if (location.state && (location.state as any).retainScroll) {
+       // Timeout ensures DOM is fully rendered before scrolling
+       setTimeout(() => {
+           window.scrollTo(0, (location.state as any).previousScrollY);
+       }, 10);
+       return;
+    }
+
+    // If navigation is a POP (e.g. Back/Forward) or simulated back, restore saved scroll
+    if (navType === 'POP' || (location.state && (location.state as any).isBack)) {
+       const savedScroll = sessionStorage.getItem(`scroll-${getCleanPath(location.pathname)}`);
        if (savedScroll) {
           // Timeout ensures DOM is fully rendered before scrolling
           setTimeout(() => {
@@ -157,7 +169,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
     } else {
       window.scrollTo(0, 0);
     }
-  }, [currentPage, location.hash, navType, location.pathname]);
+  }, [currentPage, location.hash, navType, location.pathname, location.state]);
 
   // Handle body scroll locking
   useEffect(() => {
@@ -187,13 +199,13 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
         </div>
       );
 
-      // Country pages return to "services" section (QuickAccess wrapper)
-      if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
-      if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
-      if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
-      if (currentPage === 'russia') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
-      if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} />;
-      if (currentPage === 'canada') return <CaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack('destinations')} />;
+      // Country pages return dynamically to where they came from
+      if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
+      if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
+      if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
+      if (currentPage === 'russia') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
+      if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
+      if (currentPage === 'canada') return <CaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
       
       if (currentPage === 'destinations') return <AllDestinationsPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
 

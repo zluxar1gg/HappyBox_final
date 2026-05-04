@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, BookOpen, AlertCircle } from 'lucide-react';
+import React from 'react';
+import { BookOpen, AlertCircle } from 'lucide-react';
 import { Language } from '../utils/translations';
 
 interface CaAdvancedLogisticsGuideProps {
@@ -7,7 +7,6 @@ interface CaAdvancedLogisticsGuideProps {
 }
 
 export const CaAdvancedLogisticsGuide: React.FC<CaAdvancedLogisticsGuideProps> = ({ language }) => {
-    const [isOpen, setIsOpen] = useState(false);
 
     const content = {
         en: {
@@ -143,56 +142,39 @@ export const CaAdvancedLogisticsGuide: React.FC<CaAdvancedLogisticsGuideProps> =
     const t = content[language];
 
     return (
-        <section className="bg-white border-y border-gray-100 py-6 mb-12">
-            <div className="container mx-auto px-6 max-w-4xl">
-                <button 
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="w-full flex items-center justify-between p-6 bg-brand-light/30 hover:bg-brand-light/50 rounded-2xl transition-colors group"
-                >
-                    <div className="flex items-center gap-4 text-left">
-                        <div className="w-12 h-12 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                            <BookOpen size={24} />
-                        </div>
-                        <div>
-                            <h3 className="font-bold text-lg md:text-xl text-brand-dark">{t.title}</h3>
-                            <p className="text-gray-500 text-sm hidden md:block">{t.subtitle}</p>
-                        </div>
+        <section className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
+            <div className="max-w-5xl mx-auto text-gray-600">
+                <div className="max-w-4xl mx-auto text-center mb-16">
+                    <div className="w-16 h-16 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center mx-auto mb-6 shrink-0">
+                        <BookOpen size={32} />
                     </div>
-                    <div className="shrink-0 text-brand-blue">
-                        {isOpen ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
-                    </div>
-                </button>
+                    <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight leading-tight">
+                        {t.title}
+                    </h2>
+                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        {t.subtitle}
+                    </p>
+                </div>
 
-                {isOpen && (
-                    <div className="mt-8 px-2 md:px-6 animate-fade-in pb-8">
-                        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 mb-10 flex gap-4">
-                            <AlertCircle className="text-brand-blue shrink-0" size={24} />
-                            <p className="text-sm text-gray-700 leading-relaxed">
-                                {t.subtitle}
-                            </p>
-                        </div>
-                        
-                        <div className="space-y-12">
-                            {t.sections.map((section, idx) => (
-                                <div key={idx}>
-                                    <h4 className="text-xl font-bold text-brand-dark mb-6 tracking-tight border-b border-gray-100 pb-3">
-                                        {section.title}
-                                    </h4>
-                                    <div className="space-y-6">
-                                        {section.items.map((item, itemIdx) => (
-                                            <div key={itemIdx} className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
-                                                <h5 className="font-bold text-brand-dark mb-2">{item.label}</h5>
-                                                <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">
-                                                    {item.text}
-                                                </p>
-                                            </div>
-                                        ))}
+                <div className="space-y-16">
+                    {t.sections.map((section, idx) => (
+                        <div key={idx} className="scroll-mt-28">
+                            <h3 className="text-2xl font-black text-brand-dark mb-6 leading-tight">
+                                {section.title}
+                            </h3>
+                            <div className="space-y-6">
+                                {section.items.map((item, itemIdx) => (
+                                    <div key={itemIdx} className="bg-gray-50 rounded-2xl p-6 border border-gray-100/50">
+                                        <h4 className="font-bold text-brand-dark text-lg mb-2">{item.label}</h4>
+                                        <p className="text-gray-600 text-base leading-relaxed whitespace-pre-line">
+                                            {item.text}
+                                        </p>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                )}
+                    ))}
+                </div>
             </div>
         </section>
     );

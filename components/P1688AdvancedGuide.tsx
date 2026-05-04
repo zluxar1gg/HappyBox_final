@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, BookOpen, AlertCircle } from 'lucide-react';
+import React from 'react';
+import { BookOpen, AlertCircle } from 'lucide-react';
 import { Language } from '../utils/translations';
 
 interface P1688AdvancedGuideProps {
@@ -7,8 +7,6 @@ interface P1688AdvancedGuideProps {
 }
 
 export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
     const content = {
         en: {
             title: "1688 Buyer's Guide 2026: How to Source Wholesale from China Without a Chinese Account",
@@ -143,83 +141,68 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
     const t = content[language];
 
     return (
-        <section className="bg-white border-y border-gray-100 py-6 mb-12">
-            <div className="container mx-auto px-6 max-w-4xl">
-                <button 
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="w-full flex items-center justify-between p-6 bg-brand-light/30 hover:bg-brand-light/50 rounded-2xl transition-colors group"
-                >
-                    <div className="flex items-center gap-4 text-left">
-                        <div className="w-12 h-12 rounded-full bg-brand-yellow/20 text-brand-dark flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                            <BookOpen size={24} />
-                        </div>
-                        <div>
-                            <h3 className="font-bold text-lg md:text-xl text-brand-dark">{t.title}</h3>
-                            <p className="text-gray-500 text-sm hidden md:block">{t.subtitle}</p>
-                        </div>
+        <section className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
+            <div className="max-w-5xl mx-auto text-gray-600">
+                <div className="max-w-4xl mx-auto text-center mb-16">
+                    <div className="w-16 h-16 rounded-full bg-brand-yellow/20 text-brand-dark flex items-center justify-center mx-auto mb-6 shrink-0">
+                        <BookOpen size={32} />
                     </div>
-                    <div className="shrink-0 text-brand-dark opacity-50">
-                        {isOpen ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
-                    </div>
-                </button>
+                    <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight leading-tight">
+                        {t.title}
+                    </h2>
+                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        {t.subtitle}
+                    </p>
+                </div>
 
-                {isOpen && (
-                    <div className="mt-8 px-2 md:px-6 animate-fade-in pb-8">
-                        <div className="bg-yellow-50 border border-yellow-100 rounded-2xl p-6 mb-10 flex gap-4">
-                            <AlertCircle className="text-brand-dark shrink-0" size={24} />
-                            <p className="text-sm text-gray-700 leading-relaxed font-medium">
-                                {t.subtitle}
-                            </p>
-                        </div>
-                        
-                        <div className="space-y-12">
-                            {t.sections.map((section, idx) => (
-                                <div key={idx}>
-                                    <h4 className="text-xl font-bold text-brand-dark mb-6 tracking-tight border-b border-gray-100 pb-3">
-                                        {section.title}
-                                    </h4>
-                                    
-                                    {section.contentPre && (
-                                        <div className="text-gray-600 font-medium leading-relaxed whitespace-pre-line mb-6">
-                                            {section.contentPre}
-                                        </div>
-                                    )}
+                <div className="space-y-16">
+                    {t.sections.map((section, idx) => (
+                        <div key={idx} className="scroll-mt-28">
+                            <h3 className="text-2xl font-black text-brand-dark mb-6 leading-tight">
+                                {section.title}
+                            </h3>
+                            
+                            {section.contentPre && (
+                                <p className="mb-6 leading-relaxed font-medium text-gray-600 whitespace-pre-line">
+                                    {section.contentPre}
+                                </p>
+                            )}
 
-                                    {section.table && (
-                                        <div className="overflow-x-auto mb-6 rounded-xl border border-gray-200">
-                                            <table className="w-full text-left border-collapse">
-                                                <thead>
-                                                    <tr className="bg-gray-100/50">
-                                                        {section.table.headers.map((h, i) => (
-                                                            <th key={i} className="p-4 font-bold text-brand-dark border-b border-gray-200">{h}</th>
-                                                        ))}
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {section.table.rows.map((row, rIdx) => (
-                                                        <tr key={rIdx} className="hover:bg-gray-50 transition-colors">
-                                                            {row.map((cell, cIdx) => (
-                                                                <td key={cIdx} className="p-4 text-gray-600 border-b border-gray-100 text-sm leading-snug">
-                                                                    {cell}
-                                                                </td>
-                                                            ))}
-                                                        </tr>
+                            {section.table && (
+                                <div className="overflow-x-auto rounded-2xl border border-gray-100 mb-6 drop-shadow-sm">
+                                    <table className="w-full text-left border-collapse">
+                                        <thead>
+                                            <tr className="bg-gray-50 border-b border-gray-100">
+                                                {section.table.headers.map((h, i) => (
+                                                    <th key={i} className="py-4 px-6 font-bold text-brand-dark whitespace-nowrap">{h}</th>
+                                                ))}
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-100 text-sm">
+                                            {section.table.rows.map((row, rIdx) => (
+                                                <tr key={rIdx}>
+                                                    {row.map((cell, cIdx) => (
+                                                        <td key={cIdx} className="py-4 px-6 text-gray-600 leading-relaxed">
+                                                            {cell}
+                                                        </td>
                                                     ))}
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    )}
-
-                                    {section.afterTable && (
-                                        <div className="text-gray-600 font-medium leading-relaxed whitespace-pre-line">
-                                            {section.afterTable}
-                                        </div>
-                                    )}
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
                                 </div>
-                            ))}
+                            )}
+
+                            {section.afterTable && (
+                                <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 mb-6">
+                                    <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+                                        {section.afterTable}
+                                    </p>
+                                </div>
+                            )}
                         </div>
-                    </div>
-                )}
+                    ))}
+                </div>
             </div>
         </section>
     );
