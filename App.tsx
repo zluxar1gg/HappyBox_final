@@ -28,6 +28,7 @@ import { AllDestinationsPage } from './components/AllDestinationsPage';
 import { GenericDestinationPage } from './components/GenericDestinationPage';
 import { CaShippingPage } from './components/CaShippingPage';
 import { P1688Page } from './components/P1688Page';
+import { DynamicSeo } from './components/DynamicSeo';
 import { getBlogPostBySlug } from './utils/blogData';
 import { Language, translations } from './utils/translations';
 import { updateMetaTags, PageType } from './utils/seo'; 
@@ -291,6 +292,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
 
   return (
       <>
+        <DynamicSeo language={language} currentPage={currentPage} slug={slug} />
         <SchemaMarkup currentPage={currentPage} language={language} />
         <Analytics />
         {renderContent()}

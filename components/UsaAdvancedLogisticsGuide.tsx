@@ -1,6 +1,7 @@
 import React from 'react';
 import { Language } from '../utils/translations';
 import { Anchor, ShieldCheck, Scale, Calculator, Package, Info } from 'lucide-react';
+import { TableWrapper } from './TableWrapper';
 
 interface Props {
   language: Language;
@@ -390,7 +391,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
             <p className="mb-6 leading-relaxed font-medium">{t.sec3.desc}</p>
             
             <h4 className="font-bold text-brand-dark text-lg mb-4">{t.sec3.tableTitle}</h4>
-            <div className="overflow-x-auto rounded-2xl border border-gray-100 mb-6">
+            <TableWrapper language={language}>
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-gray-50 border-b border-gray-100">
@@ -409,7 +410,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
                   ))}
                 </tbody>
               </table>
-            </div>
+            </TableWrapper>
             
             <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 mb-6">
                 <p className="text-gray-600 leading-relaxed mb-4">{t.sec3.bottom1}</p>

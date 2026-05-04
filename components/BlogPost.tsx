@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Language } from '../utils/translations';
-import { getBlogPostBySlug, BlogBlock } from '../utils/blogData';
+import { getBlogPostBySlug, BlogBlock, blogPosts } from '../utils/blogData';
 import { ArrowLeft, Clock, Calendar, Send } from 'lucide-react';
 import { trackLead } from '../utils/analytics';
 
@@ -81,14 +81,20 @@ export const BlogPost: React.FC<BlogPostProps> = ({ language }) => {
   return (
     <div className="min-h-screen bg-cream pt-32 pb-20 px-6">
       <div className="container mx-auto max-w-4xl">
-        {/* Back Button */}
-        <button 
-          onClick={() => navigate(language === 'ru' ? '/ru/blog' : '/blog')}
-          className="flex items-center text-gray-500 hover:text-brand-blue font-bold mb-10 transition-colors"
-        >
-          <ArrowLeft size={20} className="mr-2" />
-          {language === 'en' ? 'Back to Blog' : 'Назад в блог'}
-        </button>
+        {/* Breadcrumbs */}
+        <nav className="flex items-center text-sm font-medium text-gray-500 mb-8 whitespace-nowrap overflow-x-auto pb-2">
+          <button onClick={() => navigate(language === 'ru' ? '/ru' : '/')} className="hover:text-brand-blue transition-colors">
+            {language === 'en' ? 'Home' : 'Главная'}
+          </button>
+          <span className="mx-2 text-gray-300">/</span>
+          <button onClick={() => navigate(language === 'ru' ? '/ru/blog' : '/blog')} className="hover:text-brand-blue transition-colors">
+            {language === 'en' ? 'Blog' : 'Блог'}
+          </button>
+          <span className="mx-2 text-gray-300">/</span>
+          <span className="text-gray-900 truncate">
+            {post.title}
+          </span>
+        </nav>
 
         {/* Article Header */}
         <header className="mb-12">
@@ -137,6 +143,59 @@ export const BlogPost: React.FC<BlogPostProps> = ({ language }) => {
             </a>
           </div>
         </div>
+
+        {/* Related Posts */}
+        {(() => {
+          const relatedPosts = blogPosts
+            .filter(p => p.language === language && p.slug !== post.slug)
+            .slice(0, 2);
+            
+          if (relatedPosts.length === 0) return null;
+          
+          return (
+            <div className="mt-20 border-t border-gray-200 pt-16">
+              <h3 className="text-2xl font-black text-brand-dark mb-8">
+                {language === 'en' ? 'Read Also' : 'Читайте также'}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {relatedPosts.map(related => (
+                  <div 
+                    key={related.id} 
+                    onClick={() => navigate((language === 'ru' ? '/ru/blog/' : '/blog/') + related.slug)}
+                    className="bg-white rounded-[20px] overflow-hidden shadow-lg hover:shadow-xl transition-all cursor-pointer group flex flex-col h-full border border-gray-100"
+                  >
+                    <div className="overflow-hidden aspect-video relative">
+                      <img 
+                        src={related.imageUrl} 
+                        alt={related.title} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-brand-yellow text-brand-dark px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                          {related.category}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <h4 className="text-xl font-bold text-brand-dark group-hover:text-brand-blue transition-colors mb-3 leading-tight line-clamp-2">
+                        {related.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                        {related.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between text-xs text-gray-400 font-medium mt-auto pt-4 border-t border-gray-50">
+                        <div className="flex flex-col gap-1">
+                          <span className="flex items-center gap-1"><Calendar size={12} /> {related.date}</span>
+                        </div>
+                        <span className="flex items-center gap-1"><Clock size={12} /> {related.readTime} {language === 'en' ? 'min' : 'мин'}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
       </div>
     </div>
   );

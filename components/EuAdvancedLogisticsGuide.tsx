@@ -1,6 +1,7 @@
 import React from 'react';
 import { Language } from '../utils/translations';
 import { Anchor, ShieldCheck, Scale, Calculator, Package, Info, Train } from 'lucide-react';
+import { TableWrapper } from './TableWrapper';
 
 interface Props {
   language: Language;
