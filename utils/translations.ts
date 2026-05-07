@@ -380,7 +380,7 @@ export const translations = {
           ]
         },
         platforms: {
-          title: 'Shopping Agents',
+          title: 'Shopping Platforms',
           items: [
             'Taobao Agent',
             '1688 Agent',
@@ -391,6 +391,329 @@ export const translations = {
             'Xianyu Second-hand Agent'
           ]
         }
+      },
+      pageOverrides: {
+        usa: [
+          {
+            title: 'Shipping Destinations',
+            items: [
+              { text: 'Shipping from China to UK', link: 'eu' },
+              { text: 'Delivery from China to UAE', link: 'uae' },
+              { text: 'Shipping from China to Germany', link: 'eu' },
+              { text: 'Shipping from China to Canada', link: 'canada' },
+              { text: 'Delivery from China to Australia', link: 'australia' },
+              { text: 'Shipping from Hong Kong to Europe', link: 'eu' }
+            ]
+          },
+          {
+            title: 'Value-added Services',
+            items: [
+              { text: 'Amazon FBA Delivery', link: 'amazon' },
+              { text: 'Package Consolidation', link: 'warehousing' },
+              { text: 'Free Warehousing in China', link: 'warehousing' },
+              { text: 'Quality Inspection', link: 'inspection' }
+            ]
+          },
+          {
+            title: 'Top Platforms for USA',
+            items: [
+              { text: 'Alibaba to USA Sourcing', link: 'alibaba' },
+              { text: '1688 Suppliers for USA', link: '1688' },
+              { text: 'Poizon Sneakers to USA', link: 'poizon' },
+              { text: 'Taobao Retail to USA', link: 'taobao' }
+            ]
+          }
+        ],
+        alibaba: [
+           {
+             title: 'Popular Destinations',
+             items: [
+               { text: 'Alibaba to USA', link: 'usa' },
+               { text: 'Alibaba to Europe', link: 'eu' },
+               { text: 'Alibaba to UAE', link: 'uae' },
+               { text: 'Alibaba to Australia', link: 'australia' }
+             ]
+           },
+           {
+            title: 'Services for Alibaba',
+            items: [
+              { text: 'Alibaba Goods Inspection', link: 'inspection' },
+              { text: 'Consolidation for Alibaba Orders', link: 'warehousing' },
+              { text: 'Ship directly to Amazon FBA', link: 'amazon' },
+              { text: 'Repacking Service', link: 'warehousing' }
+            ]
+           },
+           {
+             title: 'Other Platforms',
+             items: [
+               { text: '1688 Agent', link: '1688' },
+               { text: 'Taobao Purchasing', link: 'taobao' },
+               { text: 'Poizon Delivery', link: 'poizon' },
+               { text: 'Weidian Agent', link: 'weidian' }
+             ]
+           }
+        ],
+        '1688': [
+           {
+            title: '1688 Services',
+            items: [
+              { text: 'Supplier Sourcing', link: '1688#details' },
+              { text: 'Order Consolidation', link: 'warehousing' },
+              { text: 'Quality Inspection', link: 'inspection' },
+              { text: 'Factory Negotiation', link: '1688#details' }
+            ]
+           },
+           {
+             title: 'Shipping 1688 Orders',
+             items: [
+               { text: 'To Russia & CIS', link: 'russia' },
+               { text: 'To USA', link: 'usa' },
+               { text: 'To Europe', link: 'eu' },
+               { text: 'To the Middle East', link: 'uae' }
+             ]
+           },
+           {
+             title: 'Other Platforms',
+             items: [
+               { text: 'Taobao Agent', link: 'taobao' },
+               { text: 'Buy from Alibaba', link: 'alibaba' },
+               { text: 'Tmall Sourcing', link: 'tmall' },
+               { text: 'POIZON / Dewu', link: 'poizon' }
+             ]
+           }
+        ],
+        eu: [
+          {
+            title: 'Shipping Destinations',
+            items: [
+              { text: 'Delivery from China to USA', link: 'usa' },
+              { text: 'Delivery from China to UAE', link: 'uae' },
+              { text: 'Shipping from China to Canada', link: 'canada' },
+              { text: 'Shipping to Russia & CIS', link: 'russia' }
+            ]
+          },
+          {
+            title: 'Value-added Services',
+            items: [
+              { text: 'Amazon FBA to Europe', link: 'amazon' },
+              { text: 'Package Consolidation', link: 'warehousing' },
+              { text: 'Free Warehousing in China', link: 'warehousing' },
+              { text: 'Quality Inspection', link: 'inspection' }
+            ]
+          },
+          {
+            title: 'Top Platforms for Europe',
+            items: [
+              { text: 'Alibaba to Europe', link: 'alibaba' },
+              { text: '1688 Suppliers for EU', link: '1688' },
+              { text: 'Poizon Sneakers Delivery', link: 'poizon' },
+              { text: 'Taobao Retail to Europe', link: 'taobao' }
+            ]
+          }
+        ],
+        uae: [
+          {
+            title: 'Shipping Destinations',
+            items: [
+              { text: 'Delivery from China to USA', link: 'usa' },
+              { text: 'Shipping from China to UK', link: 'eu' },
+              { text: 'Shipping from China to Germany', link: 'eu' },
+              { text: 'Shipping from China to Canada', link: 'canada' }
+            ]
+          },
+          {
+            title: 'Value-added Services',
+            items: [
+              { text: 'Amazon FBA Delivery', link: 'amazon' },
+              { text: 'Package Consolidation', link: 'warehousing' },
+              { text: 'Free Warehousing in China', link: 'warehousing' },
+              { text: 'Quality Inspection', link: 'inspection' }
+            ]
+          },
+          {
+            title: 'Top Platforms for UAE',
+            items: [
+              { text: 'Alibaba to UAE Sourcing', link: 'alibaba' },
+              { text: '1688 Suppliers for UAE', link: '1688' },
+              { text: 'Poizon Sneakers to Dubai', link: 'poizon' },
+              { text: 'Taobao Retail to UAE', link: 'taobao' }
+            ]
+          }
+        ],
+        canada: [
+          {
+            title: 'Shipping Destinations',
+            items: [
+              { text: 'Delivery from China to USA', link: 'usa' },
+              { text: 'Shipping from China to UK', link: 'eu' },
+              { text: 'Delivery from China to UAE', link: 'uae' },
+              { text: 'Shipping from China to Germany', link: 'eu' }
+            ]
+          },
+          {
+            title: 'Value-added Services',
+            items: [
+              { text: 'Amazon FBA to Canada', link: 'amazon' },
+              { text: 'Package Consolidation', link: 'warehousing' },
+              { text: 'Free Warehousing in China', link: 'warehousing' },
+              { text: 'Quality Inspection', link: 'inspection' }
+            ]
+          },
+          {
+            title: 'Top Platforms for Canada',
+            items: [
+              { text: 'Alibaba to Canada Sourcing', link: 'alibaba' },
+              { text: '1688 Suppliers for Canada', link: '1688' },
+              { text: 'Poizon Sneakers to Canada', link: 'poizon' },
+              { text: 'Taobao Retail to Canada', link: 'taobao' }
+            ]
+          }
+        ],
+        russia: [
+          {
+            title: 'Shipping Destinations',
+            items: [
+              { text: 'Delivery from China to USA', link: 'usa' },
+              { text: 'Shipping from China to UK', link: 'eu' },
+              { text: 'Delivery from China to UAE', link: 'uae' },
+              { text: 'Shipping to Kazakhstan', link: 'russia' }
+            ]
+          },
+          {
+            title: 'Value-added Services',
+            items: [
+              { text: 'Package Consolidation', link: 'warehousing' },
+              { text: 'Free Warehousing in China', link: 'warehousing' },
+              { text: 'Quality Inspection', link: 'inspection' },
+              { text: 'Customs Clearance', link: 'russia' }
+            ]
+          },
+          {
+            title: 'Top Platforms for Russia',
+            items: [
+              { text: '1688 Suppliers Sourcing', link: '1688' },
+              { text: 'Poizon (Dewu) to Russia', link: 'poizon' },
+              { text: 'Taobao Retail to Russia', link: 'taobao' },
+              { text: 'Alibaba to Russia Sourcing', link: 'alibaba' }
+            ]
+          }
+        ],
+        taobao: [
+           {
+             title: 'Popular Destinations',
+             items: [
+               { text: 'Taobao to USA', link: 'usa' },
+               { text: 'Taobao to Europe', link: 'eu' },
+               { text: 'Taobao to Russia & CIS', link: 'russia' },
+               { text: 'Taobao to UAE', link: 'uae' }
+             ]
+           },
+           {
+            title: 'Services for Taobao',
+            items: [
+              { text: 'Taobao Goods Inspection', link: 'inspection' },
+              { text: 'Consolidation for Taobao', link: 'warehousing' },
+              { text: 'Repacking Service', link: 'warehousing' },
+              { text: 'Photo Report', link: 'inspection' }
+            ]
+           },
+           {
+             title: 'Other Platforms',
+             items: [
+               { text: '1688 Agent', link: '1688' },
+               { text: 'Alibaba Purchasing', link: 'alibaba' },
+               { text: 'Poizon Delivery', link: 'poizon' },
+               { text: 'Weidian Agent', link: 'weidian' }
+             ]
+           }
+        ],
+        poizon: [
+           {
+             title: 'Popular Destinations',
+             items: [
+               { text: 'Poizon to USA', link: 'usa' },
+               { text: 'Poizon to Europe', link: 'eu' },
+               { text: 'Poizon to Russia & CIS', link: 'russia' },
+               { text: 'Poizon to UAE', link: 'uae' }
+             ]
+           },
+           {
+            title: 'Services for Poizon',
+            items: [
+              { text: 'Sneaker Legit Check Verify', link: 'inspection' },
+              { text: 'Consolidation for Poizon', link: 'warehousing' },
+              { text: 'Extra Protection Packing', link: 'warehousing' },
+              { text: 'Quality Inspection', link: 'inspection' }
+            ]
+           },
+           {
+             title: 'Other Platforms',
+             items: [
+               { text: 'Taobao Purchasing', link: 'taobao' },
+               { text: '1688 Agent', link: '1688' },
+               { text: 'Alibaba Sourcing', link: 'alibaba' },
+               { text: 'Weidian Agent', link: 'weidian' }
+             ]
+           }
+        ],
+        inspection: [
+           {
+             title: 'Popular Destinations',
+             items: [
+               { text: 'Shipping to USA', link: 'usa' },
+               { text: 'Shipping to Europe', link: 'eu' },
+               { text: 'Shipping to Russia & CIS', link: 'russia' },
+               { text: 'Shipping to UAE', link: 'uae' }
+             ]
+           },
+           {
+            title: 'Other Services',
+            items: [
+              { text: 'Warehousing in China', link: 'warehousing' },
+              { text: 'Order Consolidation', link: 'warehousing' },
+              { text: 'Repacking Service', link: 'warehousing' },
+              { text: 'Amazon FBA Prep', link: 'amazon' }
+            ]
+           },
+           {
+             title: 'Shopping Platforms',
+             items: [
+               { text: '1688 Agent', link: '1688' },
+               { text: 'Taobao Purchasing', link: 'taobao' },
+               { text: 'Alibaba Sourcing', link: 'alibaba' },
+               { text: 'Poizon Delivery', link: 'poizon' }
+             ]
+           }
+        ],
+        warehousing: [
+           {
+             title: 'Popular Destinations',
+             items: [
+               { text: 'Consolidation to USA', link: 'usa' },
+               { text: 'Consolidation to Europe', link: 'eu' },
+               { text: 'Consolidation to Russia & CIS', link: 'russia' },
+               { text: 'Consolidation to UAE', link: 'uae' }
+             ]
+           },
+           {
+            title: 'Other Services',
+            items: [
+              { text: 'Quality Inspection', link: 'inspection' },
+              { text: 'Photo Report', link: 'inspection' },
+              { text: 'Amazon FBA Prep', link: 'amazon' },
+              { text: 'Customs Clearance', link: 'usa' }
+            ]
+           },
+           {
+             title: 'Shopping Platforms',
+             items: [
+               { text: '1688 Agent', link: '1688' },
+               { text: 'Taobao Purchasing', link: 'taobao' },
+               { text: 'Alibaba Sourcing', link: 'alibaba' },
+               { text: 'Poizon Delivery', link: 'poizon' }
+             ]
+           }
+        ]
       }
     },
     faq: {
@@ -418,6 +741,7 @@ export const translations = {
     quickAccess: {
       taobao: 'Buy from Taobao with joy',
       1688: 'Wholesale sourcing direct from factories',
+      alibaba: 'Alibaba B2B sourcing and shipping',
       weidian: 'Exclusive streetwear & indie brands',
       inspection: 'Quality check before international shipping',
       warehousing: 'Free storage and consolidation',
@@ -427,6 +751,50 @@ export const translations = {
       destinationsNote: 'Didn\'t find your destination? Contact us for details. We ship worldwide.'
     },
     servicePages: {
+      alibaba: {
+        title: 'Alibaba Sourcing Agent & Shipping: Buy Safely from China',
+        desc: "Source products from Alibaba (B2B) securely. We handle negotiations, quality control, and international DDP shipping. Don't risk your money — let us verify suppliers and inspect goods before they leave China.",
+        whyNeed: {
+            title: "Why use an agent for Alibaba?",
+            problems: [
+                "High Shipping Markups: Many Alibaba sellers overcharge significantly on international shipping.",
+                "Quality Risks: Sellers may send defective or different items, and international returns are prohibitively expensive.",
+                "Communication Barriers: Misunderstandings regarding product specifications lead to costly mistakes."
+            ],
+            solutionTitle: "How HappyBox Protects You",
+            solution: "We provide an Alibaba fulfillment service. You negotiate the price of the goods, or we do it for you. We then receive the goods at our China warehouse, conduct strict quality control (QC), and consolidate your orders before shipping them to your country using our heavily discounted shipping rates."
+        },
+        howItWorks: {
+            title: "How to ship Alibaba orders with HappyBox",
+            steps: [
+                { title: "Find Supplier", desc: "Select a supplier on Alibaba and negotiate product prices (or ask us to do it)." },
+                { title: "Ship to Our Warehouse", desc: "Ask the supplier to ship the goods to our warehouse in China." },
+                { title: "Quality Check", desc: "We receive the goods, inspect them for defects, and verify quantities." },
+                { title: "International Shipping", desc: "We ship the goods to you via Sea, Air, or Rail with all taxes paid (DDP)." }
+            ]
+        },
+        features: [
+            { title: 'Save on Shipping', desc: 'Our shipping rates are often 30-50% cheaper than what Alibaba suppliers offer directly.' },
+            { title: 'Free Quality Check', desc: 'Secure your investment. We check your goods before they leave China.' },
+            { title: 'Consolidation', desc: 'Ordering from 5 different Alibaba suppliers? We combine them into a single shipment to reduce costs.' },
+            { title: 'Secure Payment', desc: 'Pay us via Bank Transfer, Crypto, or local payment methods, and we will safely pay the supplier.' }
+        ],
+        proTip: {
+            title: "Expert Advice for Alibaba",
+            text: "• **Always Compare Shipping:** Always ask the Alibaba supplier for the 'EXW' (Ex Works) price and compare their shipping quote with ours. \n\n• **Trade Assurance:** If you pay the supplier directly, always use Alibaba Trade Assurance. \n\n• **Sample Orders:** Always order a sample before placing a bulk order. We can consolidate samples from multiple factories into one small package for you."
+        },
+        beyond: {
+            title: "Alternative Sourcing Options",
+            items: [
+                { id: '1688', title: "1688.com", desc: "Often cheaper than Alibaba, but strictly in Chinese. We can buy from there for you." },
+                { id: 'taobao', title: "Taobao", desc: "Ideal for small MOQs and retail shopping." },
+                { id: 'poizon', title: "Poizon", desc: "Best for authentic branded sneakers and apparel." },
+                { title: "Factory Audits", desc: "Request our advanced Factory Inspection service before transferring large amounts of money." }
+            ]
+        },
+        startBtn: 'Get Alibaba Shipping Quote',
+        backBtn: 'Back to Home'
+      },
       xianyu: {
         title: 'Xianyu Agent: China\'s Largest Second-Hand Market',
         desc: "Buy vintage luxury, rare collectibles, and slightly used tech at a fraction of the price. Xianyu (Idle Fish) is Alibaba's flea market where you can find amazing deals on everything from designer bags to gaming consoles.",
@@ -1147,7 +1515,7 @@ export const translations = {
           ]
         },
         platforms: {
-          title: 'Площадки',
+          title: 'Шопинг-платформы',
           items: [
             'Посредник Taobao',
             'Посредник 1688',
@@ -1158,6 +1526,329 @@ export const translations = {
             'Выкуп с Xianyu'
           ]
         }
+      },
+      pageOverrides: {
+        usa: [
+          {
+            title: 'Куда доставляем',
+            items: [
+              { text: 'Доставка из Китая в Великобританию', link: 'eu' },
+              { text: 'Доставка из Китая в ОАЭ', link: 'uae' },
+              { text: 'Доставка из Китая в Германию', link: 'eu' },
+              { text: 'Доставка из Китая в Канаду', link: 'canada' },
+              { text: 'Доставка из Китая в Австралию', link: 'australia' },
+              { text: 'Доставка из Гонконга в Европу', link: 'eu' }
+            ]
+          },
+          {
+            title: 'Полезные сервисы',
+            items: [
+              { text: 'Доставка Amazon FBA в США', link: 'amazon' },
+              { text: 'Консолидация посылок', link: 'warehousing' },
+              { text: 'Бесплатный склад в Китае', link: 'warehousing' },
+              { text: 'Проверка качества', link: 'inspection' }
+            ]
+          },
+          {
+            title: 'Что покупают в США',
+            items: [
+              { text: 'Выкупить с Alibaba в США', link: 'alibaba' },
+              { text: 'Поиск поставщиков на 1688', link: '1688' },
+              { text: 'Доставка кроссовок с Poizon', link: 'poizon' },
+              { text: 'Розничные покупки на Taobao', link: 'taobao' }
+            ]
+          }
+        ],
+        alibaba: [
+           {
+             title: 'Популярные направления',
+             items: [
+               { text: 'Из Alibaba в США', link: 'usa' },
+               { text: 'Из Alibaba в Европу', link: 'eu' },
+               { text: 'Из Alibaba в ОАЭ', link: 'uae' },
+               { text: 'Из Alibaba в Австралию', link: 'australia' }
+             ]
+           },
+           {
+            title: 'Услуги для заказов с Alibaba',
+            items: [
+              { text: 'Инспекция товаров с Alibaba', link: 'inspection' },
+              { text: 'Склад для консолидации заказов', link: 'warehousing' },
+              { text: 'Отправка напрямую на Amazon FBA', link: 'amazon' },
+              { text: 'Переупаковка коробок', link: 'warehousing' }
+            ]
+           },
+           {
+             title: 'Другие платформы',
+             items: [
+               { text: 'Посредник 1688', link: '1688' },
+               { text: 'Выкуп с Taobao', link: 'taobao' },
+               { text: 'Доставка с Poizon', link: 'poizon' },
+               { text: 'Посредник Weidian', link: 'weidian' }
+             ]
+           }
+        ],
+        '1688': [
+           {
+            title: 'Услуги на 1688',
+            items: [
+              { text: 'Поиск поставщиков', link: '1688#details' },
+              { text: 'Консолидация заказов', link: 'warehousing' },
+              { text: 'Проверка качества', link: 'inspection' },
+              { text: 'Переговоры с фабриками', link: '1688#details' }
+            ]
+           },
+           {
+             title: 'Доставка покупок с 1688',
+             items: [
+               { text: 'В Россию и СНГ', link: 'russia' },
+               { text: 'В США', link: 'usa' },
+               { text: 'В Европу', link: 'eu' },
+               { text: 'В ОАЭ', link: 'uae' }
+             ]
+           },
+           {
+             title: 'Другие платформы',
+             items: [
+               { text: 'Посредник Taobao', link: 'taobao' },
+               { text: 'Выкуп с Alibaba', link: 'alibaba' },
+               { text: 'Выкуп с TMall', link: 'tmall' },
+               { text: 'Доставка с POIZON', link: 'poizon' }
+             ]
+           }
+        ],
+        eu: [
+          {
+            title: 'Куда доставляем',
+            items: [
+              { text: 'Доставка из Китая в США', link: 'usa' },
+              { text: 'Доставка из Китая в ОАЭ', link: 'uae' },
+              { text: 'Доставка из Китая в Канаду', link: 'canada' },
+              { text: 'Доставка в Россию и СНГ', link: 'russia' }
+            ]
+          },
+          {
+            title: 'Полезные сервисы',
+            items: [
+              { text: 'Доставка Amazon FBA в Европу', link: 'amazon' },
+              { text: 'Консолидация посылок', link: 'warehousing' },
+              { text: 'Бесплатный склад в Китае', link: 'warehousing' },
+              { text: 'Проверка качества', link: 'inspection' }
+            ]
+          },
+          {
+            title: 'Что покупают в Европе',
+            items: [
+              { text: 'Выкупить с Alibaba в Европу', link: 'alibaba' },
+              { text: 'Поиск поставщиков на 1688', link: '1688' },
+              { text: 'Доставка кроссовок с Poizon', link: 'poizon' },
+              { text: 'Розничные покупки на Taobao', link: 'taobao' }
+            ]
+          }
+        ],
+        uae: [
+          {
+            title: 'Куда доставляем',
+            items: [
+              { text: 'Доставка из Китая в США', link: 'usa' },
+              { text: 'Доставка из Китая в Великобританию', link: 'eu' },
+              { text: 'Доставка из Китая в Германию', link: 'eu' },
+              { text: 'Доставка из Китая в Канаду', link: 'canada' }
+            ]
+          },
+          {
+            title: 'Полезные сервисы',
+            items: [
+              { text: 'Доставка Amazon FBA', link: 'amazon' },
+              { text: 'Консолидация посылок', link: 'warehousing' },
+              { text: 'Бесплатный склад в Китае', link: 'warehousing' },
+              { text: 'Проверка качества', link: 'inspection' }
+            ]
+          },
+          {
+            title: 'Что покупают в ОАЭ',
+            items: [
+              { text: 'Выкупить с Alibaba в ОАЭ', link: 'alibaba' },
+              { text: 'Поиск поставщиков на 1688', link: '1688' },
+              { text: 'Доставка кроссовок с Poizon', link: 'poizon' },
+              { text: 'Розничные покупки на Taobao', link: 'taobao' }
+            ]
+          }
+        ],
+        canada: [
+          {
+            title: 'Куда доставляем',
+            items: [
+              { text: 'Доставка из Китая в США', link: 'usa' },
+              { text: 'Доставка из Китая в Великобританию', link: 'eu' },
+              { text: 'Доставка из Китая в ОАЭ', link: 'uae' },
+              { text: 'Доставка из Китая в Германию', link: 'eu' }
+            ]
+          },
+          {
+            title: 'Полезные сервисы',
+            items: [
+              { text: 'Доставка Amazon FBA в Канаду', link: 'amazon' },
+              { text: 'Консолидация посылок', link: 'warehousing' },
+              { text: 'Бесплатный склад в Китае', link: 'warehousing' },
+              { text: 'Проверка качества', link: 'inspection' }
+            ]
+          },
+          {
+            title: 'Что покупают в Канаде',
+            items: [
+              { text: 'Выкупить с Alibaba в Канаду', link: 'alibaba' },
+              { text: 'Поиск поставщиков на 1688', link: '1688' },
+              { text: 'Доставка кроссовок с Poizon', link: 'poizon' },
+              { text: 'Розничные покупки на Taobao', link: 'taobao' }
+            ]
+          }
+        ],
+        russia: [
+          {
+            title: 'Куда доставляем',
+            items: [
+              { text: 'Доставка из Китая в США', link: 'usa' },
+              { text: 'Доставка из Китая в Европу', link: 'eu' },
+              { text: 'Доставка из Китая в ОАЭ', link: 'uae' },
+              { text: 'Доставка в Казахстан', link: 'russia' }
+            ]
+          },
+          {
+            title: 'Полезные сервисы',
+            items: [
+              { text: 'Консолидация посылок', link: 'warehousing' },
+              { text: 'Бесплатный склад в Китае', link: 'warehousing' },
+              { text: 'Проверка качества', link: 'inspection' },
+              { text: 'Таможенное оформление', link: 'russia' }
+            ]
+          },
+          {
+            title: 'Что покупают в России',
+            items: [
+              { text: 'Поиск поставщиков на 1688', link: '1688' },
+              { text: 'Доставка с Poizon (Dewu)', link: 'poizon' },
+              { text: 'Покупки на Taobao', link: 'taobao' },
+              { text: 'Выкупить с Alibaba', link: 'alibaba' }
+            ]
+          }
+        ],
+        taobao: [
+           {
+             title: 'Популярные направления',
+             items: [
+               { text: 'Из Taobao в США', link: 'usa' },
+               { text: 'Из Taobao в Европу', link: 'eu' },
+               { text: 'Из Taobao в Россию и СНГ', link: 'russia' },
+               { text: 'Из Taobao в ОАЭ', link: 'uae' }
+             ]
+           },
+           {
+            title: 'Услуги для заказов с Taobao',
+            items: [
+              { text: 'Инспекция товаров с Taobao', link: 'inspection' },
+              { text: 'Склад для консолидации заказов', link: 'warehousing' },
+              { text: 'Переупаковка коробок', link: 'warehousing' },
+              { text: 'Фотоотчет', link: 'inspection' }
+            ]
+           },
+           {
+             title: 'Другие платформы',
+             items: [
+               { text: 'Посредник 1688', link: '1688' },
+               { text: 'Выкуп с Alibaba', link: 'alibaba' },
+               { text: 'Доставка с Poizon', link: 'poizon' },
+               { text: 'Посредник Weidian', link: 'weidian' }
+             ]
+           }
+        ],
+        poizon: [
+           {
+             title: 'Популярные направления',
+             items: [
+               { text: 'Из Poizon в США', link: 'usa' },
+               { text: 'Из Poizon в Европу', link: 'eu' },
+               { text: 'Из Poizon в Россию и СНГ', link: 'russia' },
+               { text: 'Из Poizon в ОАЭ', link: 'uae' }
+             ]
+           },
+           {
+            title: 'Услуги для заказов с Poizon',
+            items: [
+              { text: 'Проверка оригинальности (Legit Check)', link: 'inspection' },
+              { text: 'Консолидация заказов Poizon', link: 'warehousing' },
+              { text: 'Усиленная упаковка', link: 'warehousing' },
+              { text: 'Инспекция товаров', link: 'inspection' }
+            ]
+           },
+           {
+             title: 'Другие платформы',
+             items: [
+               { text: 'Выкуп с Taobao', link: 'taobao' },
+               { text: 'Посредник 1688', link: '1688' },
+               { text: 'Агент Alibaba', link: 'alibaba' },
+               { text: 'Посредник Weidian', link: 'weidian' }
+             ]
+           }
+        ],
+        inspection: [
+           {
+             title: 'Популярные направления',
+             items: [
+               { text: 'Доставка в США', link: 'usa' },
+               { text: 'Доставка в Европу', link: 'eu' },
+               { text: 'Доставка в Россию и СНГ', link: 'russia' },
+               { text: 'Доставка в ОАЭ', link: 'uae' }
+             ]
+           },
+           {
+            title: 'Другие услуги',
+            items: [
+              { text: 'Склад в Китае', link: 'warehousing' },
+              { text: 'Консолидация посылок', link: 'warehousing' },
+              { text: 'Переупаковка товаров', link: 'warehousing' },
+              { text: 'Подготовка к Amazon FBA', link: 'amazon' }
+            ]
+           },
+           {
+             title: 'Шопинг-платформы',
+             items: [
+               { text: 'Посредник 1688', link: '1688' },
+               { text: 'Выкуп с Taobao', link: 'taobao' },
+               { text: 'Агент Alibaba', link: 'alibaba' },
+               { text: 'Доставка с Poizon', link: 'poizon' }
+             ]
+           }
+        ],
+        warehousing: [
+           {
+             title: 'Популярные направления',
+             items: [
+               { text: 'Консолидация для США', link: 'usa' },
+               { text: 'Консолидация для Европы', link: 'eu' },
+               { text: 'Консолидация для России и СНГ', link: 'russia' },
+               { text: 'Консолидация для ОАЭ', link: 'uae' }
+             ]
+           },
+           {
+            title: 'Другие услуги',
+            items: [
+              { text: 'Инспекция и проверка брака', link: 'inspection' },
+              { text: 'Детальный фотоотчет', link: 'inspection' },
+              { text: 'Подготовка к Amazon FBA', link: 'amazon' },
+              { text: 'Таможенное оформление', link: 'usa' }
+            ]
+           },
+           {
+             title: 'Шопинг-платформы',
+             items: [
+               { text: 'Посредник 1688', link: '1688' },
+               { text: 'Выкуп с Taobao', link: 'taobao' },
+               { text: 'Агент Alibaba', link: 'alibaba' },
+               { text: 'Доставка с Poizon', link: 'poizon' }
+             ]
+           }
+        ]
       }
     },
     faq: {
@@ -1185,6 +1876,7 @@ export const translations = {
     quickAccess: {
       taobao: 'Покупки на Taobao и Tmall без границ',
       1688: 'Оптовые закупки напрямую с фабрик',
+      alibaba: 'Доставка и выкуп с Alibaba',
       weidian: 'Эксклюзивный стритвир и инди-бренды',
       inspection: 'Проверка качества перед отправкой',
       warehousing: 'Бесплатное хранение и консолидация',
@@ -1194,6 +1886,50 @@ export const translations = {
       destinationsNote: 'Не нашли нужное направление? Напишите нам для уточнения. Мы доставляем по всему миру.'
     },
     servicePages: {
+      alibaba: {
+        title: 'Посредник и Доставка с Alibaba: Ваш надежный партнер',
+        desc: "Безопасные закупки на Alibaba (B2B). Мы берем на себя общение с китайскими поставщиками, проверку качества и международную доставку DDP. Не рискуйте деньгами — проверьте партию до отправки из Китая.",
+        whyNeed: {
+            title: "Зачем нужен посредник для Alibaba?",
+            problems: [
+                "Завышенная стоимость доставки: Многие поставщики на Alibaba сильно завышают цены на международную доставку.",
+                "Риск брака: Если вы получите бракованный товар в своей стране, вернуть его обратно в Китай будет дороже самого товара.",
+                "Потери при консолидации: Если у вас 5 разных поставщиков, они отправят 5 разных посылок, что кратно увеличит стоимость логистики."
+            ],
+            solutionTitle: "Как работает защита от HappyBox",
+            solution: "Вы договариваетесь с поставщиком, а мы выступаем вашим местным складом в Китае. Поставщик отправляет товар нам, мы проводим инспекцию качества, объединяем грузы от разных фабрик и отправляем вам по выгодным 'карго' тарифами без сюрпризов на таможне."
+        },
+        howItWorks: {
+            title: "Как доставить заказ с Alibaba с HappyBox",
+            steps: [
+                { title: "Выбор товара", desc: "Найдите поставщика на Alibaba и запросите цену товара без учета доставки (EXW)." },
+                { title: "Отправка на склад", desc: "Дайте поставщику адрес нашего склада в Шэньчжэне или Иу." },
+                { title: "Проверка качества", desc: "Мы получаем груз, пересчитываем, проверяем на брак и высылаем фотоотчет." },
+                { title: "Доставка DDP", desc: "Отправляем груз в вашу страну (Авиа, Море, Авто) с уже включенными налогами." }
+            ]
+        },
+        features: [
+            { title: 'Экономия на логистике', desc: 'Наши тарифы на доставку часто на 30-50% ниже тех, что предлагают фабрики напрямую.' },
+            { title: 'Бесплатная проверка качества (QC)', desc: 'Защитите свои вложения. Мы проверим товар до того, как он покинет Китай.' },
+            { title: 'Консолидация грузов', desc: 'Объединяем заказы от разных производителей в одну партию, чтобы снизить ваши расходы.' },
+            { title: 'Помощь с оплатой', desc: 'У нас есть возможность перевести деньги фабрике внутри Китая юанями, если это необходимо.' }
+        ],
+        proTip: {
+            title: "Совет эксперта по Alibaba",
+            text: "• **Сравнивайте доставку:** Всегда просите у фабрики расчет стоимости отправки на местный склад (EXW) и сравнивайте итоговую доставку с нашими тарифами.\n\n• **Торгуйтесь:** Цены на Alibaba не являются окончательными. Всегда уточняйте реальную стоимость.\n\n• **Заказывайте образцы (Сэмплы):** Мы можем получить образцы от 10 разных фабрик, положить их в одну маленькую коробку и отправить вам для тестирования."
+        },
+        beyond: {
+            title: "Альтернативные платформы",
+            items: [
+                { id: '1688', title: "1688", desc: "Внутренний оптовый рынок Китая. Цены часто ниже, чем на Alibaba." },
+                { id: 'taobao', title: "Taobao", desc: "Розничные покупки и мелкий опт." },
+                { id: 'inspection', title: "Инспекция Фабрики", desc: "Проверка производства на месте до отправки крупных сумм." },
+                { title: "Выкуп под ключ", desc: "Если вы не хотите общаться с менеджерами фабрик, доверьте переговоры нам." }
+            ]
+        },
+        startBtn: 'Рассчитать доставку с Alibaba',
+        backBtn: 'На главную'
+      },
       xianyu: {
         title: 'Посредник Xianyu: Б/У товары и винтаж из Китая',
         desc: "Покупайте брендовые вещи, технику и коллекционные предметы в 2-3 раза дешевле. Xianyu (Idle Fish) — это китайский Авито от Alibaba, где можно найти уникальные предложения: от винтажных сумок до игровых консолей.",

@@ -449,7 +449,7 @@ export const EuAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
             </div>
 
             <h4 className="font-bold text-brand-dark text-lg mb-4">{t.sections.transit.referenceTitle}</h4>
-            <div className="overflow-x-auto rounded-2xl border border-gray-100 mb-6">
+            <TableWrapper language={language}>
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-gray-50 border-b border-gray-100">
@@ -466,7 +466,7 @@ export const EuAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
                   ))}
                 </tbody>
               </table>
-            </div>
+            </TableWrapper>
           </div>
 
           {/* Section 2 */}
@@ -511,7 +511,7 @@ export const EuAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
             <p className="mb-6 leading-relaxed font-medium">{t.sections.tariffs.desc}</p>
             
             <h4 className="font-bold text-brand-dark text-lg mb-4">{t.sections.tariffs.calcTitle}</h4>
-            <div className="overflow-x-auto rounded-2xl border border-gray-100 mb-6">
+            <TableWrapper language={language}>
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-gray-50 border-b border-gray-100">
@@ -530,7 +530,7 @@ export const EuAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
                   ))}
                 </tbody>
               </table>
-            </div>
+            </TableWrapper>
 
             <div className="bg-brand-dark text-white rounded-[20px] p-6 lg:p-8 shadow-lg mb-8">
               <h4 className="font-bold text-white/60 mb-2 uppercase tracking-wide text-sm">{t.sections.tariffs.formulaBoxTitle}</h4>

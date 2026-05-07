@@ -36,6 +36,7 @@ export const GenericDestinationPage: React.FC<GenericDestinationPageProps> = ({
     'south-africa': { en: 'South Africa', ru: 'ЮАР' },
     'georgia': { en: 'Georgia', ru: 'Грузию' },
     'israel': { en: 'Israel', ru: 'Израиль' },
+    'australia': { en: 'Australia', ru: 'Австралию' },
   };
 
   const name = destinations[countryId]?.[language] || countryId;

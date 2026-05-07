@@ -254,7 +254,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                     <Contact language={language} currentPage="1688" />
                 </div>
                 
-                <SeoBlock language={language} onNavigate={() => {}} /> 
+                <SeoBlock language={language} onNavigate={onNavigate} currentPage="1688" /> 
                 <Footer language={language} />
                 <FloatingContact />
             </main>

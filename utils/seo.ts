@@ -8,7 +8,7 @@
 
 import { Language } from './translations';
 
-export type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian' | 'blog' | 'blogPost' | 'destinations' | 'canada' | 'thailand' | 'indonesia' | 'argentina' | 'south-africa' | 'georgia' | 'israel';
+export type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'alibaba' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian' | 'blog' | 'blogPost' | 'destinations' | 'canada' | 'thailand' | 'indonesia' | 'argentina' | 'south-africa' | 'georgia' | 'israel' | 'australia';
 
 interface MetaData {
   title: string;
@@ -53,6 +53,10 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       title: "1688 Sourcing Agent: Wholesale from China & Dropshipping | HappyBox",
       description: "Access true factory prices on 1688.com without a Chinese account. We provide full-service sourcing, factory negotiation, quality inspection, and DDP shipping. 2% flat fee."
     },
+    alibaba: {
+      title: "Alibaba Shipping & Sourcing Agent | HappyBox",
+      description: "Buy safely from Alibaba with HappyBox. We provide quality control in China, consolidate orders from multiple suppliers, and offer affordable DDP shipping."
+    },
     poizon: {
       title: "Poizon (Dewu) Agent | Authentic Sneakers & Luxury from China",
       description: "Shop on Poizon (Dewu) like a local. HappyBox handles purchasing, legit check, and DDP shipping. 0% Service Fee. Buy authentic sneakers and streetwear for less."
@@ -84,6 +88,10 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
     blog: {
       title: "Logistics Blog & Insights | Shipping from China Guides | HappyBox",
       description: "Expert guides, news, and tips for shipping from China. Learn how to buy on 1688, Taobao, and optimize your Amazon FBA supply chain."
+    },
+    australia: {
+      title: "Shipping from China to Australia | Ocean & Air Freight | HappyBox",
+      description: "Cost-effective DDP shipping from China to Australia. Combine your packages at our warehouse and ship them securely via Ocean freight or Air express. Taxes and duties handled."
     },
     blogPost: {
       title: "Logistics Insights | HappyBox",
@@ -127,6 +135,10 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       title: "Посредник 1688: Оптовые закупки из Китая напрямую | HappyBox",
       description: "Выкуп и сорсинг на 1688.com по реальным заводским ценам. Оплата в рублях, помощь с выбором фабрик на китайском языке. Инспекция качества и DDP доставка от 2% комиссии."
     },
+    alibaba: {
+      title: "Посредник и Доставка с Alibaba | Инспекция и DDP | HappyBox",
+      description: "Безопасные закупки на Alibaba. Проверка качества в Китае, переупаковка, консолидация заказов от разных поставщиков. Дешевая карго доставка DDP."
+    },
     poizon: {
       title: "Посредник Пойзон (Деву) | Оригинальные кроссовки и бренды без наценок",
       description: "Покупайте на Poizon (Dewu) с HappyBox. Комиссия 0%. Честный курс, проверка на оригинал (Legit Check), доставка DDP и Карго в РФ. Бирюзовая коробка и сертификат."
@@ -158,6 +170,10 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
     blog: {
       title: "Блог и База Знаний по Логистике | Доставка из Китая | HappyBox",
       description: "Экспертные статьи, новости и советы по доставке из Китая. Узнайте, как покупать на 1688, Taobao и оптимизировать поставки для Amazon FBA."
+    },
+    australia: {
+      title: "Доставка из Китая в Австралию | DDP Море и Авиа | HappyBox",
+      description: "Недорогая Карго доставка DDP из Китая в Австралию. Консолидация посылок на нашем складе, дешевое море и быстрые авиа перевозки. Таможенная очистка включена."
     },
     blogPost: {
       title: "Статьи по Логистике | HappyBox",

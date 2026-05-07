@@ -1,6 +1,7 @@
 import React from 'react';
 import { BookOpen, AlertCircle } from 'lucide-react';
 import { Language } from '../utils/translations';
+import { TableWrapper } from './TableWrapper';
 
 interface P1688AdvancedGuideProps {
   language: Language;
@@ -169,7 +170,7 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                             )}
 
                             {section.table && (
-                                <div className="overflow-x-auto rounded-2xl border border-gray-100 mb-6 drop-shadow-sm">
+                                <TableWrapper language={language}>
                                     <table className="w-full text-left border-collapse">
                                         <thead>
                                             <tr className="bg-gray-50 border-b border-gray-100">
@@ -190,7 +191,7 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                                             ))}
                                         </tbody>
                                     </table>
-                                </div>
+                                </TableWrapper>
                             )}
 
                             {section.afterTable && (

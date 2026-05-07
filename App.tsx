@@ -53,7 +53,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isDevModalOpen, setIsDevModalOpen] = useState(false);
 
-  const validPages: PageType[] = ['usa', 'eu', 'uae', 'russia', 'taobao', '1688', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian', 'blog', 'destinations', 'canada', 'thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel'];
+  const validPages: PageType[] = ['usa', 'eu', 'uae', 'russia', 'taobao', '1688', 'alibaba', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian', 'blog', 'destinations', 'canada', 'thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel', 'australia'];
 
   
   // Determine current page from URL params
@@ -83,9 +83,16 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
   };
 
   const handleNavigate = (targetPage: string, sectionId?: string, stateObj?: any) => {
+    let finalTarget = targetPage;
+    let finalSection = sectionId;
+    if (targetPage.includes('#')) {
+      const parts = targetPage.split('#');
+      finalTarget = parts[0];
+      finalSection = finalSection || parts[1];
+    }
     const prefix = language === 'ru' ? '/ru' : '';
-    const path = targetPage === 'home' ? '' : `/${targetPage}`;
-    const hash = (targetPage === 'home' && sectionId) ? `#${sectionId}` : '';
+    const path = finalTarget === 'home' ? '' : `/${finalTarget}`;
+    const hash = finalSection ? `#${finalSection}` : '';
     let newPath = `${prefix}${path}`;
     if (newPath === '') newPath = '/';
     navigate(`${newPath}${hash}`, { state: { ...stateObj, from: currentPage } });
@@ -155,18 +162,14 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
        return;
     }
 
-    if (currentPage === 'home') {
-      if (location.hash) {
-        const id = location.hash.replace('#', '');
-        setTimeout(() => {
-          const element = document.getElementById(id);
-          if (element) {
-            element.scrollIntoView({ behavior: 'auto' });
-          }
-        }, 50);
-      } else {
-        window.scrollTo(0, 0);
-      }
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'auto' });
+        }
+      }, 50);
     } else {
       window.scrollTo(0, 0);
     }
@@ -201,27 +204,35 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       );
 
       // Country pages return dynamically to where they came from
-      if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
-      if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
-      if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
-      if (currentPage === 'russia') return <RuShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
-      if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
-      if (currentPage === 'canada') return <CaShippingPage language={language} setLanguage={setLanguage} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
+      if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
+      if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
+      if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
+      if (currentPage === 'russia') return <RuShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
+      if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
+      if (currentPage === 'canada') return <CaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
       
       if (currentPage === 'destinations') return <AllDestinationsPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
 
-      const genericDestinations: PageType[] = ['thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel'];
+      const genericDestinations: PageType[] = ['thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel', 'australia'];
       if (genericDestinations.includes(currentPage)) {
           return <GenericDestinationPage language={language} setLanguage={setLanguage} countryId={currentPage} onBack={() => handleBack('destinations')} onNavigate={handleNavigate} />;
       }
 
+      const getGoBackFallback = () => {
+        const from = (location.state as any)?.from;
+        if (from && from !== 'home') return { page: from, section: undefined };
+        return { page: 'home', section: 'services' };
+      };
+
       // Service pages return to "services" section
       if (currentPage === '1688') {
-          return <P1688Page language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
+          const fallback = getGoBackFallback();
+          return <P1688Page language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
       }
       
-      if (currentPage === 'taobao' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'pinduoduo' || currentPage === 'xianyu' || currentPage === 'weidian') {
-          return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
+      if (currentPage === 'taobao' || currentPage === 'alibaba' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'pinduoduo' || currentPage === 'xianyu' || currentPage === 'weidian') {
+          const fallback = getGoBackFallback();
+          return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
       }
 
       // Default Home

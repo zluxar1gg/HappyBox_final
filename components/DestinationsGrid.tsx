@@ -53,6 +53,24 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       flag: '🇨🇦'
     },
     {
+      id: 'thailand',
+      title: isEn ? 'Thailand' : 'Таиланд',
+      methods: [
+        { label: isEn ? `Sea Logistics` : `Морская перевозка`, icon: Ship },
+        { label: isEn ? `Air Cargo` : `Авиадоставка`, icon: Plane },
+      ],
+      flag: '🇹🇭'
+    },
+    {
+      id: 'argentina',
+      title: isEn ? 'Argentina' : 'Аргентина',
+      methods: [
+        { label: isEn ? `Ocean Freight` : `Доставка морем`, icon: Ship },
+        { label: isEn ? `Air Freight` : `Доставка самолетом`, icon: Plane },
+      ],
+      flag: '🇦🇷'
+    },
+    {
       id: 'amazon',
       title: 'Amazon FBA',
       methods: [
@@ -71,15 +89,6 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       flag: '🇷🇺'
     },
     {
-      id: 'thailand',
-      title: isEn ? 'Thailand' : 'Таиланд',
-      methods: [
-        { label: isEn ? `Sea Logistics` : `Морская перевозка`, icon: Ship },
-        { label: isEn ? `Air Cargo` : `Авиадоставка`, icon: Plane },
-      ],
-      flag: '🇹🇭'
-    },
-    {
       id: 'indonesia',
       title: isEn ? 'Indonesia' : 'Индонезия',
       methods: [
@@ -87,15 +96,6 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
         { label: isEn ? `Air Freight` : `Авиафрахт`, icon: Plane },
       ],
       flag: '🇮🇩'
-    },
-    {
-      id: 'argentina',
-      title: isEn ? 'Argentina' : 'Аргентина',
-      methods: [
-        { label: isEn ? `Ocean Freight` : `Доставка морем`, icon: Ship },
-        { label: isEn ? `Air Freight` : `Доставка самолетом`, icon: Plane },
-      ],
-      flag: '🇦🇷'
     },
     {
       id: 'south-africa',
@@ -123,6 +123,15 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
         { label: isEn ? `Air Freight` : `Авиадоставка`, icon: Plane },
       ],
       flag: '🇮🇱'
+    },
+    {
+      id: 'australia',
+      title: isEn ? 'Australia' : 'Австралия',
+      methods: [
+        { label: isEn ? `Sea: ${from} $1.5` : `Море: ${from} $1.5`, icon: Ship },
+        { label: isEn ? `Air: ${from} $12` : `Авиа: ${from} $12`, icon: Plane },
+      ],
+      flag: '🇦🇺'
     }
   ];
 
@@ -136,7 +145,7 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
         e.preventDefault();
         onNavigate(dest.id);
       }}
-      className="bg-white border border-gray-100 text-left rounded-[20px] md:rounded-[25px] p-4 md:p-5 flex flex-col justify-between cursor-pointer group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-brand-blue/30 shadow-sm"
+      className="bg-white border border-gray-100 text-left rounded-[20px] md:rounded-[25px] p-4 md:p-5 flex flex-col justify-between cursor-pointer group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-brand-blue/30 shadow-sm h-full min-h-[160px] md:min-h-[240px]"
     >
       {/* Tag */}
       {dest.tag && (
@@ -187,7 +196,7 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
     const regions = [
       { id: 'americas', title: isEn ? 'North & South America' : 'Америка', items: ['usa', 'canada', 'argentina'] },
       { id: 'europe', title: isEn ? 'Europe & CIS' : 'Европа и СНГ', items: ['eu', 'russia', 'georgia'] },
-      { id: 'asia', title: isEn ? 'Asia' : 'Азия', items: ['thailand', 'indonesia'] },
+      { id: 'asia', title: isEn ? 'Asia & Oceania' : 'Азия и Океания', items: ['thailand', 'indonesia', 'australia'] },
       { id: 'mea', title: isEn ? 'Middle East & Africa' : 'Ближний Восток и Африка', items: ['uae', 'israel', 'south-africa'] },
       { id: 'special', title: isEn ? 'E-Commerce' : 'Для Маркетплейсов', items: ['amazon'] },
     ];
@@ -217,7 +226,7 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 animate-fade-in mt-6 md:mt-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 animate-fade-in mt-6 md:mt-8">
       {displayedDestinations.map((dest) => {
         const destCard = renderCard(dest);
 
@@ -230,7 +239,7 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
               e.preventDefault();
               onNavigate('destinations');
             }}
-            className="bg-white border border-gray-100 text-left rounded-[20px] md:rounded-[25px] p-4 md:p-5 flex flex-col justify-between cursor-pointer group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-brand-blue/30 shadow-sm"
+            className="bg-white border border-gray-100 text-left rounded-[20px] md:rounded-[25px] p-4 md:p-5 flex flex-col justify-between cursor-pointer group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-brand-blue/30 shadow-sm h-full min-h-[160px] md:min-h-[240px]"
           >
             {/* Header */}
             <div className="flex items-center gap-4 w-full relative z-10 mb-2">

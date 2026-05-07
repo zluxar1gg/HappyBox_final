@@ -12,9 +12,10 @@ interface RuShippingPageProps {
   language: Language;
   setLanguage: (lang: Language) => void;
   onBack?: () => void;
+  onNavigate?: (page: string) => void;
 }
 
-export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLanguage, onBack }) => {
+export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLanguage, onBack, onNavigate }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -279,7 +280,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                     <Contact language={language} currentPage="russia" />
                 </div>
 
-                <SeoBlock language={language} onNavigate={() => {}} />
+                <SeoBlock language={language} onNavigate={onNavigate || (() => {})} currentPage="russia" />
                 <Footer language={language} />
                 <FloatingContact />
             </main>

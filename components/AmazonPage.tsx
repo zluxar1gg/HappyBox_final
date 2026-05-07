@@ -12,9 +12,10 @@ interface AmazonPageProps {
   language: Language;
   setLanguage: (lang: Language) => void;
   onBack?: () => void;
+  onNavigate?: (page: string) => void;
 }
 
-export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, onBack }) => {
+export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, onBack, onNavigate }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -332,7 +333,7 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                     <Contact language={language} currentPage="amazon" />
                 </div>
                 
-                <SeoBlock language={language} onNavigate={() => {}} />
+                <SeoBlock language={language} onNavigate={onNavigate || (() => {})} currentPage="amazon" />
                 <Footer language={language} />
                 <FloatingContact />
             </main>

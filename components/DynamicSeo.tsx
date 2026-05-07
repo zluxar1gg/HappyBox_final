@@ -131,6 +131,10 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
 
   const { title, description } = getSeoData();
 
+  // Temporarily disable DynamicSeo as requested
+  return null;
+
+  /*
   return (
     <Helmet>
       <title>{title}</title>
@@ -141,4 +145,5 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
       <html lang={language === 'ru' ? 'ru' : 'en'} />
     </Helmet>
   );
+  */
 };

@@ -32,7 +32,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
   };
 
   const tabs = [
-    { id: 'shopping', label: isEn ? 'Shopping & Services' : 'Шопинг и Услуги', icon: ShoppingBag },
+    { id: 'shopping', label: isEn ? 'Platforms' : 'Маркетплейсы', icon: ShoppingBag },
     { id: 'destinations', label: isEn ? 'Destinations' : 'Куда везем', icon: Globe },
   ];
 
@@ -84,11 +84,27 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       image: 'https://wsrv.nl/?url=i.ibb.co/RGVCGTjn/xy.webp&w=128&output=webp&q=80',
       color: 'text-yellow-500', 
       bg: 'bg-yellow-50' 
+    },
+    { 
+      id: 'tmall', 
+      title: 'Tmall', 
+      seoText: isEn ? 'Premium Brands' : 'Бренды на Tmall',
+      image: 'https://wsrv.nl/?url=i.ibb.co/6762BbbX/tmall.webp&w=128&output=webp&q=80',
+      color: 'text-red-600', 
+      bg: 'bg-red-50' 
+    },
+    { 
+      id: 'alibaba', 
+      title: 'Alibaba', 
+      seoText: isEn ? 'Wholesale Sourcing' : 'Оптовые закупки',
+      image: 'https://wsrv.nl/?url=i.ibb.co/gL2gjBjk/alibaba.webp&w=128&output=webp&q=80',
+      color: 'text-orange-600', 
+      bg: 'bg-orange-50' 
     }
   ];
 
   const renderShopping = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 animate-fade-in mt-6 md:mt-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 animate-fade-in mt-6 md:mt-8">
       {shoppingItems.map((item) => (
         <a 
           key={item.id}
@@ -97,7 +113,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
             e.preventDefault();
             onNavigate(item.id);
           }}
-          className="bg-white border border-gray-100 rounded-[20px] md:rounded-[25px] p-4 md:p-5 flex flex-row md:flex-col items-center md:items-center text-left md:text-center gap-4 md:gap-3 hover:shadow-xl hover:-translate-y-1 hover:border-brand-blue/30 transition-all cursor-pointer group min-h-[100px] md:min-h-[180px] relative justify-between overflow-hidden"
+          className="bg-white border border-gray-100 rounded-[20px] md:rounded-[25px] p-4 md:p-5 flex flex-row md:flex-col items-center md:items-center text-left md:text-center gap-4 md:gap-3 hover:shadow-xl hover:-translate-y-1 hover:border-brand-blue/30 transition-all cursor-pointer group h-full min-h-[160px] md:min-h-[240px] relative justify-between overflow-hidden"
         >
           {/* Top Content: Icon + Text */}
           <div className="flex flex-row md:flex-col items-center gap-4 md:gap-3 w-full relative z-10">
@@ -178,7 +194,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
           )}
           {activeTab === 'destinations' && (
             <>
-              <DestinationsGrid language={language} onNavigate={onNavigate} limit={5} />
+              <DestinationsGrid language={language} onNavigate={onNavigate} limit={7} />
               <p className="text-center text-black text-sm font-medium mt-8 max-w-2xl mx-auto animate-fade-in">
                 {t.destinationsNote}
               </p>

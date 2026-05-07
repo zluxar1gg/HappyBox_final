@@ -25,7 +25,7 @@ import { trackLead } from '../utils/analytics';
 interface ServicePageProps {
   language: Language;
   setLanguage: (lang: Language) => void;
-  serviceId: 'taobao' | '1688' | 'inspection' | 'warehousing' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
+  serviceId: 'taobao' | '1688' | 'alibaba' | 'inspection' | 'warehousing' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
   onBack: () => void;
   onNavigate?: (page: string) => void;
 }
@@ -37,7 +37,8 @@ const serviceImages: Record<string, string> = {
     'taobao': 'https://wsrv.nl/?url=i.ibb.co/Rp3G3V4h/tao.webp&w=400&output=webp',
     'tmall': 'https://wsrv.nl/?url=i.ibb.co/6762BbbX/tmall.webp&w=400&output=webp',
     'xianyu': 'https://wsrv.nl/?url=i.ibb.co/RGVCGTjn/xy.webp&w=400&output=webp',
-    'weidian': 'https://wsrv.nl/?url=i.ibb.co/WW5hhcvP/wd.webp&w=400&output=webp'
+    'weidian': 'https://wsrv.nl/?url=i.ibb.co/WW5hhcvP/wd.webp&w=400&output=webp',
+    'alibaba': 'https://wsrv.nl/?url=i.ibb.co/gL2gjBjk/alibaba.webp&w=400&output=webp'
 };
 
 export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage, serviceId, onBack, onNavigate }) => {
@@ -372,7 +373,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                     <Contact language={language} currentPage={serviceId} />
                 </div>
                 
-                <SeoBlock language={language} onNavigate={() => {}} />
+                <SeoBlock language={language} onNavigate={onNavigate} currentPage={serviceId as any} />
                 <Footer language={language} />
                 <FloatingContact />
             </main>

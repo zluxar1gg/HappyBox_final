@@ -13,9 +13,10 @@ interface UaeShippingPageProps {
   language: Language;
   setLanguage: (lang: Language) => void;
   onBack?: () => void;
+  onNavigate?: (page: string) => void;
 }
 
-export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setLanguage, onBack }) => {
+export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setLanguage, onBack, onNavigate }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -365,7 +366,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                     <Contact language={language} currentPage="uae" />
                 </div>
                 
-                <SeoBlock language={language} onNavigate={() => {}} />
+                <SeoBlock language={language} onNavigate={onNavigate || (() => {})} currentPage="uae" />
                 <Footer language={language} />
                 <FloatingContact />
             </main>
