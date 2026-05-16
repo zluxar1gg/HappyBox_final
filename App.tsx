@@ -27,6 +27,7 @@ import { BlogPost } from './components/BlogPost';
 import { AllDestinationsPage } from './components/AllDestinationsPage';
 import { GenericDestinationPage } from './components/GenericDestinationPage';
 import { CaShippingPage } from './components/CaShippingPage';
+import { AmazonCanadaPage } from './components/AmazonCanadaPage';
 import { P1688Page } from './components/P1688Page';
 import { DynamicSeo } from './components/DynamicSeo';
 import { getBlogPostBySlug } from './utils/blogData';
@@ -53,7 +54,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isDevModalOpen, setIsDevModalOpen] = useState(false);
 
-  const validPages: PageType[] = ['usa', 'eu', 'uae', 'russia', 'taobao', '1688', 'alibaba', 'inspection', 'warehousing', 'amazon', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian', 'blog', 'destinations', 'canada', 'thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel', 'australia'];
+  const validPages: PageType[] = ['usa', 'eu', 'uae', 'russia', 'taobao', '1688', 'alibaba', 'inspection', 'warehousing', 'amazon', 'amazon-canada', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian', 'blog', 'destinations', 'canada', 'thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel', 'australia'];
 
   
   // Determine current page from URL params
@@ -210,6 +211,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       if (currentPage === 'russia') return <RuShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       if (currentPage === 'canada') return <CaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
+      if (currentPage === 'amazon-canada') return <AmazonCanadaPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       
       if (currentPage === 'destinations') return <AllDestinationsPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
 

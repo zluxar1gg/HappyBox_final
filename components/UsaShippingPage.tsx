@@ -189,7 +189,6 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
             />
 
             <main>
-                {/* 1. Custom Hero for USA */}
                 <section className="py-12 lg:py-24 bg-cream">
                     <div className="container mx-auto px-6 xl:px-0">
                          <div className="max-w-5xl mx-auto text-center">
@@ -211,162 +210,171 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                     </div>
                 </section>
 
-                {/* 2. Main Content Block */}
                 <section id="details" className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
-                    <div className="max-w-4xl mx-auto text-center mb-16">
-                        <h2 className="text-3xl font-black text-brand-dark mb-6">{t.introTitle}</h2>
-                        <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                            {t.introText}
-                        </p>
-                    </div>
-
-                    <h3 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
-                        {t.methodsTitle}
-                    </h3>
-
-                    {/* Rate Cards */}
-                    <div className="grid md:grid-cols-2 gap-6 mb-20 max-w-4xl mx-auto">
-                        {t.methods.map((method, idx) => (
-                            <div key={idx} className="bg-white rounded-[30px] p-8 border-2 border-gray-100 hover:border-brand-blue/30 transition-all hover:-translate-y-1 shadow-sm flex flex-col">
-                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${method.color}`}>
-                                    <method.icon size={28} />
-                                </div>
-                                <div className="flex justify-between items-start mb-2">
-                                    <h4 className="font-bold text-xl text-brand-dark">{method.title}</h4>
-                                    <span className="text-[10px] font-black uppercase bg-gray-100 px-2 py-1 rounded-md text-gray-500 tracking-wider">{method.tag}</span>
-                                </div>
-                                <p className="text-sm text-gray-500 font-medium mb-6 flex-grow leading-relaxed">
-                                    {method.desc}
+                    <div className="max-w-4xl mx-auto space-y-12 text-gray-800 text-lg leading-relaxed">
+                            
+                            {/* Intro Section */}
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl font-black text-brand-dark mb-6 tracking-tight">{t.introTitle}</h2>
+                                <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                                    {t.introText}
                                 </p>
-                                <div className="mt-auto pt-6 border-t border-gray-50">
-                                    <div className="flex justify-between items-center mb-2">
-                                        <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Price' : 'Цена'}</span>
-                                        <span className="text-xl font-black text-brand-dark">{method.price}</span>
+                            </div>
+
+                            {/* Rates and Methods */}
+                            <h3 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80 pt-10">
+                                {t.methodsTitle}
+                            </h3>
+                            <div className="grid md:grid-cols-3 gap-6 mb-20 max-w-5xl mx-auto">
+                                {t.methods.map((method, idx) => (
+                                    <div key={idx} className="bg-white rounded-[30px] p-6 border-2 border-gray-100 hover:border-brand-blue/30 transition-all hover:-translate-y-1 shadow-sm flex flex-col">
+                                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${method.color}`}>
+                                            <method.icon size={28} />
+                                        </div>
+                                        <div className="flex justify-between items-start mb-2">
+                                            <h4 className="font-bold text-xl text-brand-dark">{method.title}</h4>
+                                            <span className="text-[10px] font-black uppercase bg-gray-100 px-2 py-1 rounded-md text-gray-500 tracking-wider">{method.tag}</span>
+                                        </div>
+                                        <p className="text-sm text-gray-500 font-medium mb-6 flex-grow leading-relaxed">
+                                            {method.desc}
+                                        </p>
+                                        <div className="mt-auto pt-6 border-t border-gray-50">
+                                            <div className="flex justify-between items-center mb-2">
+                                                <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Price' : 'Цена'}</span>
+                                                <span className="text-xl font-black text-brand-dark">{method.price}</span>
+                                            </div>
+                                            <div className="flex justify-between items-center">
+                                                <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Time' : 'Срок'}</span>
+                                                <span className="font-bold text-brand-blue">{method.speed}</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Time' : 'Срок'}</span>
-                                        <span className="font-bold text-brand-blue">{method.speed}</span>
-                                    </div>
+                                ))}
+                            </div>
+
+                            {/* FBA Section */}
+                            <div className="mb-20">
+                                <h3 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight">{t.fbaTitle}</h3>
+                                <p className="text-lg text-gray-700 mb-8">{t.fbaText}</p>
+                                <div className="space-y-6">
+                                    {t.fbaItems.map((item, idx) => (
+                                        <div key={idx}>
+                                            <h4 className="font-bold text-xl text-brand-dark mb-2">{item.title}</h4>
+                                            <p className="text-gray-700">{item.desc}</p>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
-                        ))}
-                    </div>
 
-                    {/* Top Choice Section */}
-                    <div className="bg-brand-blue/5 rounded-[40px] p-8 lg:p-12 mb-20 border border-brand-blue/10">
-                        <div className="text-center mb-10">
-                            <h3 className="text-3xl font-black text-brand-dark mb-4">{t.fbaTitle}</h3>
-                            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">{t.fbaText}</p>
-                        </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {t.fbaItems.map((item, idx) => (
-                                <div key={idx} className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-brand-blue/10 h-full">
-                                    <h4 className="font-bold text-brand-dark mb-3 text-lg leading-snug">{item.title}</h4>
-                                    <p className="text-gray-600 leading-relaxed font-medium">{item.desc}</p>
+                            {/* Fears Container */}
+                            <div className="mb-20 bg-brand-light/30 p-8 sm:p-12 rounded-[40px] border border-brand-blue/10">
+                                 <h3 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">{t.fearsTitle}</h3>
+                                 <div className="space-y-8">
+                                    {t.fearsList.map((f, idx) => (
+                                        <div key={idx}>
+                                            <h4 className="font-bold text-xl text-brand-dark mb-2">Q: {f.q}</h4>
+                                            <p className="text-gray-700"><strong>A:</strong> {f.a}</p>
+                                        </div>
+                                    ))}
+                                 </div>
+                            </div>
+
+                            {/* Why Choose Us */}
+                            <div className="mb-20">
+                                 <h3 className="text-3xl font-black text-brand-dark mb-12">{t.whyTitle}</h3>
+                                 <div className="space-y-8">
+                                    {t.benefits.map((benefit, idx) => (
+                                        <div key={idx} className="flex gap-5 items-start">
+                                            <div className="w-12 h-12 rounded-full bg-brand-light flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm mt-1">
+                                                <benefit.icon size={24} />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold text-lg text-brand-dark mb-2">{benefit.title}</h4>
+                                                <p className="text-gray-600 font-medium leading-relaxed">{benefit.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                 </div>
+                            </div>
+
+                            {/* Steps Container */}
+                            <div className="mb-20">
+                                <h3 className="text-3xl font-black text-brand-dark mb-10">
+                                    {t.stepsTitle}
+                                </h3>
+                                <div className="space-y-6">
+                                    {t.steps.map((step, idx) => (
+                                        <div key={idx} className="flex items-center gap-4">
+                                            <div className="w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center font-bold relative z-10 shadow-sm shrink-0">
+                                                {idx + 1}
+                                            </div>
+                                            <p className="font-bold text-brand-dark text-lg leading-tight">
+                                                {step}
+                                            </p>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
-                    </div>
+                            </div>
 
-                    {/* Fears Section */}
-                    <div className="mb-20">
-                         <h3 className="text-3xl font-black text-brand-dark mb-12 text-center">{t.fearsTitle}</h3>
-                         <div className="grid md:grid-cols-2 gap-8">
-                            {t.fearsList.map((fear, idx) => (
-                                <div key={idx} className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-gray-100">
-                                    <h4 className="font-bold text-lg text-brand-dark mb-3 leading-snug">{fear.q}</h4>
-                                    <p className="text-gray-600 font-medium leading-relaxed">{fear.a}</p>
-                                </div>
-                            ))}
-                         </div>
-                    </div>
-
-                    {/* Why Choose Grid */}
-                    <div className="mb-20">
-                         <h3 className="text-3xl font-black text-brand-dark mb-12 text-center">{t.whyTitle}</h3>
-                         <div className="grid md:grid-cols-2 gap-8">
-                            {t.benefits.map((benefit, idx) => (
-                                <div key={idx} className="flex gap-5 items-start">
-                                    <div className="w-12 h-12 rounded-full bg-brand-light flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm mt-1">
-                                        <benefit.icon size={24} />
+                            {/* Banners */}
+                            <div className="pt-10 border-t border-gray-100 space-y-6">
+                                <a href={language === 'ru' ? '/ru/amazon' : '/amazon'} className="block w-full bg-gray-50 border border-gray-200 rounded-3xl p-6 sm:p-8 hover:bg-orange-50 hover:border-orange-200 transition-colors group cursor-pointer">
+                                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                                        <div className="text-center sm:text-left">
+                                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-brand-dark mb-2 leading-tight">
+                                                {language === 'ru' ? 'Вам нужна доставка на ' : 'Shipping to '} 
+                                                <span className="text-[#FF9900] block sm:inline">Amazon FBA</span>?
+                                            </h4>
+                                            <p className="text-gray-600 font-medium">
+                                                {language === 'ru' ? 'Специальные условия, маркировка и доставка напрямую на склады FBA.' : 'Specialized rates, prep services, and direct delivery to FBA warehouses.'}
+                                            </p>
+                                        </div>
+                                        <div className="flex-shrink-0">
+                                            <span className="inline-flex items-center gap-2 bg-[#FF9900] text-white font-bold py-3 px-6 rounded-2xl group-hover:bg-[#e68a00] transition-colors shadow-sm">
+                                                {language === 'ru' ? 'Подробнее' : 'Learn More'}
+                                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h4 className="font-bold text-lg text-brand-dark mb-2">{benefit.title}</h4>
-                                        <p className="text-gray-600 font-medium leading-relaxed">{benefit.desc}</p>
+                                </a>
+
+                                <a href={language === 'ru' ? '/ru/blog/chinese-holidays-calendar-2026' : '/blog/chinese-holidays-calendar-2026'} className="block w-full bg-brand-dark border border-gray-800 rounded-3xl p-6 sm:p-8 hover:border-brand-blue transition-colors group cursor-pointer">
+                                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                                        <div className="text-center sm:text-left">
+                                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-white mb-2 leading-tight">
+                                                {language === 'ru' ? 'Календарь Китайских Праздников 2026' : 'Chinese Holidays Calendar 2026'} 
+                                            </h4>
+                                            <p className="text-gray-400 font-medium">
+                                                {language === 'ru' ? 'Узнайте точные даты, когда останавливается логистика, и как заранее отправить груз.' : 'Find out exact dates when logistics stop and how to ship your cargo ahead of time.'}
+                                            </p>
+                                        </div>
+                                        <div className="flex-shrink-0">
+                                            <span className="inline-flex items-center gap-2 bg-brand-blue text-white font-bold py-3 px-6 rounded-2xl group-hover:bg-blue-600 transition-colors shadow-sm">
+                                                {language === 'ru' ? 'Читать Гайд' : 'Read Guide'}
+                                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
-                         </div>
-                    </div>
+                                </a>
+                            </div>
 
-                    {/* How to Start (Steps) */}
-                    <div className="bg-gray-50 rounded-[40px] p-8 lg:p-12 border border-gray-100">
-                        <h3 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
-                            {t.stepsTitle}
-                        </h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                            {t.steps.map((step, idx) => (
-                                <div key={idx} className="text-center relative">
-                                    {idx < 3 && (
-                                        <div className="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-gray-200 -z-0" />
-                                    )}
-                                    <div className="w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4 relative z-10 shadow-lg">
-                                        {idx + 1}
-                                    </div>
-                                    <p className="font-bold text-brand-dark text-sm md:text-base px-2 leading-tight">
-                                        {step}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="text-center mt-10">
-                            <button 
-                                onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-lg active:scale-95 inline-flex items-center gap-2"
-                            >
-                                <Send size={20} />
-                                {t.cta}
-                            </button>
-                        </div>
-                    </div>
+                            <div className="pt-10 border-t border-gray-100">
+                                <UsaAdvancedLogisticsGuide language={language} simplified />
+                            </div>
 
-                    <a href={language === 'ru' ? '/ru/amazon' : '/amazon'} className="group flex flex-col sm:flex-row items-center justify-between w-full max-w-4xl mx-auto mt-12 mb-6 bg-white border-2 border-gray-100 rounded-[30px] p-6 sm:p-8 transition-all shadow-md hover:shadow-xl hover:border-[#FF9900]/30 cursor-pointer">
-                        <div className="flex-grow mb-6 sm:mb-0 text-center sm:text-left sm:pr-8">
-                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-brand-dark mb-2 leading-tight">
-                                {language === 'ru' ? 'Вам нужна доставка на ' : 'Shipping to '} 
-                                <span className="text-[#FF9900] block sm:inline mt-1 sm:mt-0">Amazon FBA</span>?
-                            </h4>
-                            <p className="text-gray-500 text-sm sm:text-base font-medium leading-relaxed">
-                                {language === 'ru' ? 'Специальные условия, маркировка и доставка напрямую на склады FBA.' : 'Specialized rates, prep services, and direct delivery to FBA warehouses.'}
-                            </p>
-                        </div>
-                        <div className="flex-shrink-0 w-full sm:w-auto">
-                            <span className="flex w-full sm:w-auto items-center justify-center gap-2 bg-[#FF9900] text-white font-bold py-4 px-8 rounded-full group-hover:bg-[#e68a00] transition-colors shadow-sm sm:text-lg">
-                                {language === 'ru' ? 'Подробнее' : 'Learn More'}
-                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                            </span>
-                        </div>
-                    </a>
+                            {/* CTA */}
+                            <div className="text-center pt-16 pb-12">
+                                <button 
+                                    onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
+                                    className="bg-brand-dark text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-black transition-all shadow-lg active:scale-95 inline-flex items-center gap-3"
+                                >
+                                    <Send size={24} />
+                                    {t.cta}
+                                </button>
+                            </div>
 
-                    <a href={language === 'ru' ? '/ru/blog/chinese-holidays-calendar-2026' : '/blog/chinese-holidays-calendar-2026'} className="group flex flex-col sm:flex-row items-center justify-between w-full max-w-4xl mx-auto mb-4 bg-brand-dark border-2 border-gray-800 rounded-[30px] p-6 sm:p-8 transition-all shadow-md hover:shadow-xl hover:border-brand-blue cursor-pointer">
-                        <div className="flex-grow mb-6 sm:mb-0 text-center sm:text-left sm:pr-8">
-                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-white mb-2 leading-tight">
-                                {language === 'ru' ? 'Календарь Китайских Праздников 2026' : 'Chinese Holidays Calendar 2026'} 
-                            </h4>
-                            <p className="text-gray-400 text-sm sm:text-base font-medium leading-relaxed">
-                                {language === 'ru' ? 'Узнайте точные даты, когда останавливается логистика, и как заранее отправить груз.' : 'Find out exact dates when logistics stop and how to ship your cargo ahead of time.'}
-                            </p>
                         </div>
-                        <div className="flex-shrink-0 w-full sm:w-auto">
-                            <span className="flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-blue text-white font-bold py-4 px-8 rounded-full group-hover:bg-blue-600 transition-colors shadow-sm sm:text-lg">
-                                {language === 'ru' ? 'Читать Гайд' : 'Read Guide'}
-                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                            </span>
-                        </div>
-                    </a>
                 </section>
-
-                <UsaAdvancedLogisticsGuide language={language} />
 
                 <div id="contacts">
                     <Contact language={language} currentPage="usa" />

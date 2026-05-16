@@ -8,7 +8,7 @@
 
 import { Language } from './translations';
 
-export type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'alibaba' | 'inspection' | 'warehousing' | 'amazon' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian' | 'blog' | 'blogPost' | 'destinations' | 'canada' | 'thailand' | 'indonesia' | 'argentina' | 'south-africa' | 'georgia' | 'israel' | 'australia';
+export type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'alibaba' | 'inspection' | 'warehousing' | 'amazon' | 'amazon-canada' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian' | 'blog' | 'blogPost' | 'destinations' | 'canada' | 'thailand' | 'indonesia' | 'argentina' | 'south-africa' | 'georgia' | 'israel' | 'australia';
 
 interface MetaData {
   title: string;
@@ -42,8 +42,12 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Official 'White' delivery from China to Russia via TIR system. Rates from $1.5/kg. Full document package (VAT), assistance with payments, Chestny Znak labeling."
     },
     amazon: {
-      title: "Amazon FBA Shipping from China | FBA Prep & Labeling Service | HappyBox",
-      description: "Professional Amazon FBA shipping from China to USA & Europe. Includes FNSKU labeling, prep service, and DDP shipping (taxes included). Rates from $1.2/kg."
+      title: "Amazon FBA USA Shipping | FBA Prep & Labeling Service | HappyBox",
+      description: "Professional Amazon FBA shipping from China to USA. Includes FNSKU labeling, prep service, and DDP shipping (taxes included). Rates from $1.2/kg."
+    },
+    'amazon-canada': {
+      title: "Amazon FBA Canada Shipping | FBA Prep & DDP Delivery | HappyBox",
+      description: "Expert shipping from China to Amazon FBA Canada. We handle CBSA customs, GST/HST, and prep your products according to Canadian requirements."
     },
     taobao: {
       title: "Taobao Agent Service | 0% Commission | Buy & Ship from China",
@@ -124,8 +128,12 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Официальная белая доставка из Китая в РФ по системе TIR (МДП). Тарифы от $1.5/кг. Полный пакет документов, помощь с оплатой поставщику, маркировка Честный Знак."
     },
     amazon: {
-      title: "Доставка на Amazon FBA из Китая | Преп-центр и Маркировка | HappyBox",
-      description: "Профессиональная доставка на Amazon FBA в США и Европу. Наклейка FNSKU, услуги преп-центра и DDP доставка (налоги включены). Ставки от $1.2/кг."
+      title: "Доставка на Amazon FBA США | Преп-центр | HappyBox",
+      description: "Профессиональная доставка на Amazon FBA в США. Наклейка FNSKU, услуги преп-центра и DDP доставка (налоги включены). Ставки от $1.2/кг."
+    },
+    'amazon-canada': {
+      title: "Доставка на Amazon FBA Канада | Преп-центр | HappyBox",
+      description: "Доставка из Китая на склады Amazon FBA Канады. Оформление CBSA, GST/HST и DDP доставка. Услуги преп-центра."
     },
     taobao: {
       title: "Посредник Taobao (0% Комиссия) | Выкуп и Доставка из Китая | HappyBox",

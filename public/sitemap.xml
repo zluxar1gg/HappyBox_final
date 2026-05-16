@@ -26,6 +26,9 @@
   <url><loc>https://happyboxlogistics.com/amazon</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://happyboxlogistics.com/ru/amazon</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
+  <url><loc>https://happyboxlogistics.com/amazon-canada</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/ru/amazon-canada</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
   <!-- USA Shipping Page -->
   <url><loc>https://happyboxlogistics.com/usa</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://happyboxlogistics.com/ru/usa</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -61,4 +64,6 @@
   <url><loc>https://happyboxlogistics.com/ru/georgia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://happyboxlogistics.com/israel</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://happyboxlogistics.com/ru/israel</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/australia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://happyboxlogistics.com/ru/australia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>

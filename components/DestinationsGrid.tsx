@@ -72,12 +72,21 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
     },
     {
       id: 'amazon',
-      title: 'Amazon FBA',
+      title: isEn ? 'Amazon FBA USA' : 'Amazon FBA США',
       methods: [
         { label: isEn ? 'Prep & Labeling' : 'Преп-центр', icon: Box },
         { label: isEn ? 'DDP Shipping' : 'DDP Доставка', icon: ShoppingBag },
       ],
-      flag: '📦'
+      flag: '🇺🇸'
+    },
+    {
+      id: 'amazon-canada',
+      title: isEn ? 'Amazon FBA Canada' : 'Amazon FBA Канада',
+      methods: [
+        { label: isEn ? 'Prep & Labeling' : 'Преп-центр', icon: Box },
+        { label: isEn ? 'DDP Shipping' : 'DDP Доставка', icon: ShoppingBag },
+      ],
+      flag: '🇨🇦'
     },
     {
       id: 'russia',
@@ -137,60 +146,64 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
 
   const displayedDestinations = limit ? allDestinations.slice(0, limit) : allDestinations;
 
-  const renderCard = (dest: typeof allDestinations[0]) => (
-    <a 
-      key={dest.id}
-      href={`/${dest.id}`}
-      onClick={(e) => {
-        e.preventDefault();
-        onNavigate(dest.id);
-      }}
-      className="bg-white border border-gray-100 text-left rounded-[20px] md:rounded-[25px] p-4 md:p-5 flex flex-col justify-between cursor-pointer group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-brand-blue/30 shadow-sm h-full min-h-[160px] md:min-h-[240px]"
-    >
-      {/* Tag */}
-      {dest.tag && (
-         <div className="absolute top-4 right-4 bg-brand-yellow text-brand-dark text-[11px] font-black px-3 py-1 rounded-md uppercase tracking-wider z-10 shadow-sm">
-            {dest.tag}
-         </div>
-      )}
+  const renderCard = (dest: typeof allDestinations[0]) => {
+    const isAmazon = dest.id.includes('amazon');
+    
+    return (
+      <a 
+        key={dest.id}
+        href={`/${dest.id}`}
+        onClick={(e) => {
+          e.preventDefault();
+          onNavigate(dest.id);
+        }}
+        className={`${isAmazon ? 'bg-[#111111] border-[#333333] hover:border-[#FF9900]/50' : 'bg-white border-gray-100 hover:border-brand-blue/30'} border text-left rounded-[20px] md:rounded-[25px] p-4 md:p-5 flex flex-col justify-between cursor-pointer group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl shadow-sm h-full min-h-[160px] md:min-h-[240px]`}
+      >
+        {/* Tag */}
+        {dest.tag && (
+           <div className={`absolute top-4 right-4 text-[11px] font-black px-3 py-1 rounded-md uppercase tracking-wider z-10 shadow-sm ${isAmazon ? 'bg-[#FF9900] text-black' : 'bg-brand-yellow text-brand-dark'}`}>
+              {dest.tag}
+           </div>
+        )}
 
-      {/* Top Content: Flag + Text */}
-      <div className="flex items-center gap-4 w-full relative z-10 mb-2">
-        {/* Flag Wrapper */}
-        <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl flex-shrink-0 flex items-center justify-center bg-gray-50 text-2xl md:text-3xl group-hover:scale-110 transition-transform shadow-sm border border-gray-100 overflow-hidden`}>
-          <span className="drop-shadow-sm">{dest.flag}</span>
+        {/* Top Content: Flag + Text */}
+        <div className="flex items-center gap-4 w-full relative z-10 mb-2">
+          {/* Flag Wrapper */}
+          <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl flex-shrink-0 flex items-center justify-center text-2xl md:text-3xl group-hover:scale-110 transition-transform shadow-sm border overflow-hidden ${isAmazon ? 'bg-[#222222] border-[#333333]' : 'bg-gray-50 border-gray-100'}`}>
+            <span className="drop-shadow-sm">{dest.flag}</span>
+          </div>
+          
+          {/* Text Wrapper */}
+          <div className="flex-1">
+            <h3 className={`font-bold text-lg md:text-xl leading-tight transition-colors mb-0 ${isAmazon ? 'text-[#FF9900] group-hover:text-white' : 'text-brand-dark group-hover:text-brand-blue'}`}>
+                {dest.title}
+            </h3>
+          </div>
         </div>
-        
-        {/* Text Wrapper */}
-        <div className="flex-1">
-          <h3 className="font-bold text-brand-dark text-lg md:text-xl leading-tight group-hover:text-brand-blue transition-colors mb-0">
-              {dest.title}
-          </h3>
+
+        <div className="space-y-2 mt-2 flex-1 w-full relative z-10">
+          {dest.methods.map((m, i) => (
+              <div key={i} className={`flex items-center gap-3 text-sm font-medium ${isAmazon ? 'text-gray-300' : 'text-gray-500'}`}>
+                  <div className={`flex-shrink-0 ${isAmazon ? 'text-[#FF9900]' : 'text-brand-blue'}`}>
+                      <m.icon size={16} strokeWidth={2} />
+                  </div>
+                  <span>{m.label}</span>
+              </div>
+          ))}
         </div>
-      </div>
 
-      <div className="space-y-2 mt-2 flex-1 w-full relative z-10">
-        {dest.methods.map((m, i) => (
-            <div key={i} className="flex items-center gap-3 text-sm font-medium text-gray-500">
-                <div className="flex-shrink-0 text-brand-blue">
-                    <m.icon size={16} strokeWidth={2} />
-                </div>
-                <span>{m.label}</span>
-            </div>
-        ))}
-      </div>
-
-      {/* Footer / Action Arrow */}
-      <div className="w-full mt-2 pt-4 border-t flex items-center justify-between flex-shrink-0 relative z-10 border-gray-50">
-         <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">
-            {isEn ? 'Details' : 'Подробнее'}
-         </span>
-         <div className="w-8 h-8 rounded-full flex items-center justify-center transition-all bg-gray-50 text-gray-400 group-hover:bg-brand-blue group-hover:text-white">
-             <ArrowRight size={16} />
-         </div>
-      </div>
-    </a>
-  );
+        {/* Footer / Action Arrow */}
+        <div className={`w-full mt-2 pt-4 border-t flex items-center justify-between flex-shrink-0 relative z-10 ${isAmazon ? 'border-[#333333]' : 'border-gray-50'}`}>
+           <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">
+              {isEn ? 'Details' : 'Подробнее'}
+           </span>
+           <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${isAmazon ? 'bg-[#222222] text-gray-300 group-hover:bg-[#FF9900] group-hover:text-black' : 'bg-gray-50 text-gray-400 group-hover:bg-brand-blue group-hover:text-white'}`}>
+               <ArrowRight size={16} />
+           </div>
+        </div>
+      </a>
+    );
+  };
 
   if (grouped) {
     const regions = [
@@ -198,7 +211,7 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       { id: 'europe', title: isEn ? 'Europe & CIS' : 'Европа и СНГ', items: ['eu', 'russia', 'georgia'] },
       { id: 'asia', title: isEn ? 'Asia & Oceania' : 'Азия и Океания', items: ['thailand', 'indonesia', 'australia'] },
       { id: 'mea', title: isEn ? 'Middle East & Africa' : 'Ближний Восток и Африка', items: ['uae', 'israel', 'south-africa'] },
-      { id: 'special', title: isEn ? 'E-Commerce' : 'Для Маркетплейсов', items: ['amazon'] },
+      { id: 'special', title: isEn ? 'E-Commerce' : 'Для Маркетплейсов', items: ['amazon', 'amazon-canada'] },
     ];
 
     return (

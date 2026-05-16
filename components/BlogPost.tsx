@@ -105,7 +105,7 @@ export const BlogPost: React.FC<BlogPostProps> = ({ language }) => {
             <span className="flex items-center gap-1"><Calendar size={16} /> {post.date}</span>
             <span className="flex items-center gap-1"><Clock size={16} /> {post.readTime} min read</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-brand-dark leading-tight mb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
             {post.title}
           </h1>
           <img 

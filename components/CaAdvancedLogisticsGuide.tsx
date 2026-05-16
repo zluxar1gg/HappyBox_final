@@ -4,9 +4,10 @@ import { Language } from '../utils/translations';
 
 interface CaAdvancedLogisticsGuideProps {
   language: Language;
+  simplified?: boolean;
 }
 
-export const CaAdvancedLogisticsGuide: React.FC<CaAdvancedLogisticsGuideProps> = ({ language }) => {
+export const CaAdvancedLogisticsGuide: React.FC<CaAdvancedLogisticsGuideProps> = ({ language, simplified }) => {
 
     const content = {
         en: {
@@ -14,60 +15,45 @@ export const CaAdvancedLogisticsGuide: React.FC<CaAdvancedLogisticsGuideProps> =
             subtitle: "The technical reference for Canadian importers who want to understand the full picture.",
             sections: [
                 {
-                    title: "1. Transit Options: Air vs. Sea",
+                    title: "1. The Vancouver Gateway (YVR)",
                     items: [
-                        { label: "Air Freight (6–10 days)", text: "Via Shenzhen (SZX) or Hong Kong (HKG) to Toronto Pearson (YYZ), Vancouver (YVR), or Montreal (YUL). The default for electronics, fashion, and anything time-sensitive. Volumetric weight applies — we repack at our Shenzhen warehouse before booking to minimize your chargeable weight. Lightweight but bulky goods (pillows, plush toys, textiles) can be vacuum-packed at our warehouse to reduce volume by up to 50%." },
-                        { label: "Sea Freight (20–35 days)", text: "Via Vancouver or Prince Rupert, then rail to inland destinations. Most cost-effective for furniture, machinery, and bulk wholesale inventory. LCL for smaller volumes, FCL for full container loads." },
-                        { label: "Quick reference:", text: "Electronics/fashion -> Air. Bulk/furniture -> Sea. Ontario/Quebec cost-sensitive -> Sea via Prince Rupert + rail. BC delivery -> Sea via Vancouver." }
+                        { label: "Main Entry Point", text: "90% of China-to-Canada sea freight enters through the Port of Vancouver. This is the fastest entry point for Western Canada hubs (YVR1, YVR2, YVR3)." }
                     ]
                 },
                 {
-                    title: "2. Canadian Customs & Taxes: What You Actually Pay",
+                    title: "2. Multimodal Rail Link (Sea + Rail)",
                     items: [
-                        { label: "Canada Border Services Agency (CBSA)", text: "All imports into Canada are processed by the CBSA. Unlike the US, Canada has a very low de minimis threshold — duties and taxes apply to most commercial shipments regardless of value." },
-                        { label: "The Canadian tax layers:", text: "• Customs Duty: 0–20% most goods\n• GST: Federal tax (5%)\n• HST: Combined federal + provincial (Ontario, Maritimes) 13–15%\n• PST: Provincial sales tax (BC, Saskatchewan, Manitoba)" },
-                        { label: "How it stacks:", text: "Customs duty is applied to the CIF value first. GST/HST is then applied to the duty-paid value. In Ontario (13% HST) on a $10,000 CIF shipment with 5% duty: Duty = $500 → Tax base = $10,500 → HST = $1,365 → Total charges = $1,865." },
-                        { label: "Business Number (BN) Requirement", text: "Commercial importers typically need a Canadian Business Number with an import-export account. For DDP shipments with HappyBox, we handle the entry using our own account — individual and private importers do not need to register separately." }
+                        { label: "Expedited Rail to East", text: "For warehouses in Ontario (YYZ region) and Quebec (YUL region), we utilize the CP or CN Rail networks. Your cargo lands in Vancouver and moves via expedited rail to the East, offering the best balance between cost and speed." }
                     ]
                 },
                 {
-                    title: "3. Canadian Import Duties 2026: The Full Picture",
+                    title: "3. CBSA & Tax Engineering",
                     items: [
-                        { label: "Canada applies duties based on the CBSA Customs Tariff", text: "The applicable rate depends on your product's HS code. China is not a member of CPTPP, so MFN (Most Favoured Nation) rates apply." },
-                        { label: "Canadian Surtaxes on Chinese Goods (2024–2026)", text: "Canada introduced 100% surtax on Chinese-made electric vehicles and 25% surtax on steel and aluminum products from China. Other categories are under review." },
-                        { label: "Key duty ranges:", text: "Electronics: 0–5%, Clothing: 12–18%, Furniture: 0–9.5%, Footwear: 10–20%, Industrial machinery: 0%." }
+                        { label: "No De Minimis", text: "Canada has no 'De Minimis' for most commercial FBA shipments. We handle the GST (5%) and provincial HST (up to 15%) as part of our DDP service, so your Seller Central account remains clear of tax debts." }
                     ]
                 },
                 {
-                    title: "4. Shipping from China to Canada by Product Type",
+                    title: "4. Major FBA Hub Mapping",
                     items: [
-                        { label: "Electronics", text: "Air freight standard for high-value items. All electronics sold in Canada must comply with ISED standards. Lithium battery products require UN38.3 certification and MSDS documentation." },
-                        { label: "Clothing & Textiles", text: "Canadian textile labeling law requires fiber content, care instructions, and country of origin — in both English and French for retail sale. Clothing carries some of the highest duty rates (12–18%)." },
-                        { label: "Furniture", text: "Sea freight only. Solid wood packaging must meet ISPM-15 phytosanitary standards (heat treatment certification) to prevent the introduction of pests into Canadian forests — strictly enforced by CBSA." },
-                        { label: "Health Products & Supplements", text: "Depending on the product, a Natural Product Number (NPN) or Medical Device License from Health Canada may be required before import." }
+                        { label: "Optimized Routing", text: "We optimize logistics for the most common Canadian destinations: YYZ4 (Brampton), YYZ7 (Milton), YUL2 (Montreal), and YVR1 (Delta)." }
                     ]
                 },
                 {
-                    title: "5. Canadian Ports and Air Hubs",
+                    title: "5. ISPM-15 Pallet Standards",
                     items: [
-                        { label: "Port of Vancouver — Primary West Coast Gateway", text: "Canada's busiest port. Goods clear customs here and move east via CP or CN rail. Rail transit from Vancouver to Toronto: approx 5–7 days." },
-                        { label: "Port of Prince Rupert — The Speed Alternative", text: "Less congested and offers a shorter rail distance to Central Canada. For Ontario/Quebec, Prince Rupert can cut total transit time by 2–3 days compared to Vancouver." },
-                        { label: "Air Hubs", text: "Toronto Pearson (YYZ) for Central Canada, Vancouver International (YVR) for Western Canada, Montreal (YUL) for Eastern Canada." }
+                        { label: "CFIA Strict Compliance", text: "Canada is extremely strict about wood-boring pests. We ensure all wooden pallets are Heat Treated (HT) with a visible IPPC stamp to prevent immediate rejection by the Canadian Food Inspection Agency (CFIA)." }
                     ]
                 },
                 {
-                    title: "6. The Shenzhen Warehouse Workflow",
+                    title: "6. Winter Logistics Resilience",
                     items: [
-                        { label: "Incoming QC & Labeling Check", text: "We inspect for factory defects and verify quantities. We check for 'Made in China' labels — required by CBSA." },
-                        { label: "Consolidation & Volumetric Optimization", text: "Hold goods up to 30 days for free. We repack to reduce volumetric weight. Vacuum packing available for textiles/plush toys." },
-                        { label: "Export Documentation", text: "We generate Commercial Invoice, Packing List, and all documents required for Chinese customs and CBSA import entry." }
+                        { label: "Sub-Zero Protection", text: "Shipping to Canada in Q4 means dealing with sub-zero temperatures. We use heavy-duty 5-ply cartons and reinforced wrapping to protect inventory from moisture and 'freeze-thaw' cycles during rail transit." }
                     ]
                 },
                 {
-                    title: "7. All-Risk Cargo Insurance",
+                    title: "7. NRI (Non-Resident Importer) Support",
                     items: [
-                        { label: "Comprehensive Coverage", text: "We particularly recommend insurance for Canada given the long 4,000+ km rail journey from the West Coast to Toronto." },
-                        { label: "What is covered", text: "Rail transit damage (vibration/load shifting), winter weather damage (cold damage to electronics/liquids during port dwell), General Average, and theft. Coverage from Shenzhen to your Canadian address." }
+                        { label: "No Canadian Entity Required", text: "You don't need a Canadian business entity to sell on Amazon.ca. We act as the bridge, allowing you to import under our compliant structure while maintaining full ownership of your inventory." }
                     ]
                 }
             ],
@@ -79,58 +65,45 @@ export const CaAdvancedLogisticsGuide: React.FC<CaAdvancedLogisticsGuideProps> =
             subtitle: "Технический справочник для канадских импортеров.",
             sections: [
                 {
-                    title: "1. Варианты транзита: Авиа vs Море",
+                    title: "1. Ворота Ванкувера (YVR) и Морской Фрахт",
                     items: [
-                        { label: "Авиафрахт (6–10 дней)", text: "Вылеты из Шэньчжэня (SZX) или Гонконга (HKG) в аэропорты Торонто (YYZ), Ванкувера (YVR) или Монреаля (YUL). Основной выбор для электроники и моды. Легкие, но объемные товары (подушки, игрушки) упаковываем под вакуумом, сокращая объем до 50%." },
-                        { label: "Морские перевозки (20–35 дней)", text: "Через порты Ванкувера или Принс-Руперта с последующей доставкой по железной дороге. Самый выгодный способ для мебели, оборудования и оптовых партий." }
+                        { label: "Главный порт входа", text: "90% морских грузов из Китая в Канаду поступает через порт Ванкувера. Это самый быстрый путь для FBA складов Западной Канады (YVR1, YVR2, YVR3)." }
                     ]
                 },
                 {
-                    title: "2. Таможня и налоги в Канаде: реальные расходы",
+                    title: "2. Мультимодальный транзит (Море + Ж/Д) на восток",
                     items: [
-                        { label: "CBSA (Пограничная служба Канады)", text: "В Канаде очень низкий порог беспошлинного ввоза (de minimis), поэтому налоги и пошлины начисляются практически на все коммерческие грузы." },
-                        { label: "Налоговая структура:", text: "Пошлина: 0–20%. GST: Федеральный налог (5%). HST: Единый налог (13–15%). PST: Провинциальный налог (БК, Саскачеван)." },
-                        { label: "Как это работает:", text: "Сначала на стоимость товара начисляется пошлина. Затем GST/HST начисляется на сумму стоимости товара и пошлины. В сервисе HappyBox DDP все эти расходы уже включены в ваш тариф." },
-                        { label: "Бизнес-номер (BN)", text: "Вам не нужен канадский бизнес-номер импортера для доставки DDP с HappyBox — мы берем оформление на себя." }
+                        { label: "Поезда в Онтарио и Квебек", text: "Для складов в регионе Онтарио (YYZ) и Квебек (YUL) мы используем ж/д сети CP или CN. Груз выгружается в Ванкувере и едет на восток на ускоренных поездах — лучший баланс цены и скорости." }
                     ]
                 },
                 {
-                    title: "3. Импортные пошлины и спецтарифы 2026",
+                    title: "3. CBSA и налоговая оптимизация",
                     items: [
-                        { label: "Базовые пошлины", text: "Канада применяет пошлины на основе режима MFN. Типичные ставки: электроника 0–5%, одежда 12–18%, мебель 0–9.5%." },
-                        { label: "Спецпошлины (сюртоксы) 2024–2026", text: "100% налог на электромобили китайского производства и 25% налог на изделия из стали и алюминия. Мы проверяем актуальность мер до отправки." }
+                        { label: "Отсутствие De Minimis", text: "Для коммерческих посылок FBA в Канаде практически нет необлагаемого минимума. Мы включаем уплату GST (5%) и провинциального HST (до 15%) в DDP тариф, чтобы ваш аккаунт Seller Central оставался чист." }
                     ]
                 },
                 {
-                    title: "4. Особенности логистики по типам товаров",
+                    title: "4. Логистика на главные хабы FBA",
                     items: [
-                        { label: "Электроника", text: "Должна соответствовать стандартам ISED (сертификация радиочастот). Для литиевых батарей нужны отчеты UN38.3 и MSDS." },
-                        { label: "Одежда и текстиль", text: "Бирки должны быть на английском и французском, содержать состав и маркировку страны производства. Пошлины на одежду высокие (12–18%)." },
-                        { label: "Мебель", text: "Деревянная упаковка должна иметь штамп термообработки ISPM-15, иначе CBSA может не допустить груз в страну." },
-                        { label: "Товары для здоровья и БАДы", text: "Регулируются Health Canada. Может потребоваться номер NPN (Natural Product Number)." }
+                        { label: "Оптимизация маршрутов", text: "Мы отправляем основной поток на самые популярные FBA хабы Канады: YYZ4 (Брамптон), YYZ7 (Милтон), YUL2 (Монреаль) и YVR1 (Дельта)." }
                     ]
                 },
                 {
-                    title: "5. Крупнейшие порты и авиахабы",
+                    title: "5. Стандарты паллет ISPM-15",
                     items: [
-                        { label: "Порт Ванкувера", text: "Главные ворота страны. Грузы проходят таможню здесь и далее следуют на восток по железной дороге (CP или CN). До Торонто — 5–7 дней." },
-                        { label: "Порт Принс-Руперт", text: "Более быстрая альтернатива. Порт менее загружен, что сокращает срок доставки в центральную Канаду на 2–3 дня." },
-                        { label: "Авиахабы", text: "Аэропорт Торонто (YYZ) для центральной части, Ванкувер (YVR) для запада." }
+                        { label: "Контроль CFIA", text: "Канада крайне строго относится к древесным вредителям. Мы следим, чтобы все деревянные поддоны были термообработаны (HT) с четким штампом IPPC во избежание конфискации агентством CFIA." }
                     ]
                 },
                 {
-                    title: "6. Складской цикл в Шэньчжэне",
+                    title: "6. Стойкость к зимней логистике",
                     items: [
-                        { label: "Контроль и маркировка", text: "Проверяем товар на брак и наличие маркировки «Made in China» (обязательное требование CBSA)." },
-                        { label: "Консолидация и упаковка", text: "Бесплатное хранение до 30 дней. Вакуумная упаковка для легких объемных грузов." },
-                        { label: "Документация", text: "Готовим инвойсы и упаковочные листы для экспорта из Китая и импорта в Канаду." }
+                        { label: "Защита в Q4", text: "Доставка в Канаду в 4 квартале — это минусовые температуры. Чтобы защитить товар от влаги и циклов 'заморозка-оттаивание' во время ж/д транзита через горы, мы используем прочный 5-слойный картон и усиленную стрейч-пленку." }
                     ]
                 },
                 {
-                    title: "7. Страхование All-Risk",
+                    title: "7. Поддержка NRI (Импортер-нерезидент)",
                     items: [
-                        { label: "Важность страховки", text: "Мы настоятельно рекомендуем страховку для Канады из-за длинного логистического плеча (ж/д путь 4000 км от Ванкувера до Торонто сопряжен с вибрациями)." },
-                        { label: "Покрытие", text: "Повреждения на ж/д, зимние риски (канадские морозы могут повредить груз в порту), общая авария, кража. Ваш товар защищен до передачи на ваш адрес." }
+                        { label: "Без регистрации в Канаде", text: "Вам не нужно регистрировать компанию в Канаде для торговли на Amazon.ca. Мы выступаем мостом (IOR), позволяя вам легально импортировать без присутствия, сохраняя права на товар." }
                     ]
                 }
             ],
@@ -140,6 +113,39 @@ export const CaAdvancedLogisticsGuide: React.FC<CaAdvancedLogisticsGuideProps> =
     };
 
     const t = content[language];
+
+    if (simplified) {
+        return (
+            <div className="space-y-12 text-gray-800 text-lg leading-relaxed pt-10">
+                <div className="mb-12">
+                    <h2 className="text-3xl lg:text-4xl font-extrabold text-brand-dark mb-4 tracking-tight">
+                        {t.title}
+                    </h2>
+                    <p className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed">
+                        {t.subtitle}
+                    </p>
+                </div>
+
+                <div className="space-y-10">
+                    {t.sections.map((section, idx) => (
+                        <div key={idx} className="flex gap-4 sm:gap-6 items-start">
+                            <div className="w-10 h-10 rounded-full bg-gray-100 text-brand-dark font-black flex items-center justify-center flex-shrink-0 text-xl border border-gray-200 mt-1">
+                                {idx + 1}
+                            </div>
+                            <div>
+                                <h3 className="text-2xl font-bold text-brand-dark mb-2 tracking-tight">{section.title.replace(/^\d+\.\s*/, '')}</h3>
+                                {section.items.map((item, itemIdx) => (
+                                    <p key={itemIdx} className="text-gray-700 leading-relaxed font-medium mb-3">
+                                        <strong className="text-brand-dark">{item.label}:</strong> {item.text}
+                                    </p>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    }
 
     return (
         <section className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">

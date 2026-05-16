@@ -45,7 +45,7 @@ export const BlogCatalog: React.FC<BlogCatalogProps> = ({ language }) => {
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-black text-brand-dark mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
             {blogTitle}
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">

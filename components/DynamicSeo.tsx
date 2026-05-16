@@ -43,8 +43,12 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
         desc: { en: 'Air and sea freight from China to Canada for businesses and FBA sellers.', ru: 'Удобная логистика из Китая в страны Северной Америки и Канаду для личных целей и селлеров.' }
       },
       amazon: {
-        title: { en: `Amazon FBA Prep & Shipping | ${baseTitle}`, ru: `Доставка на склады Amazon FBA | ${baseTitle}` },
+        title: { en: `Amazon FBA USA Prep & Shipping | ${baseTitle}`, ru: `Доставка на склады Amazon FBA США | ${baseTitle}` },
         desc: { en: 'End-to-end Amazon FBA prep services. Direct shipping from China to Amazon warehouses globally.', ru: 'Подготовка, стикеровка и отправка товаров из Китая на склады мирового Amazon FBA.' }
+      },
+      'amazon-canada': {
+        title: { en: `Amazon FBA Canada Prep & Shipping | ${baseTitle}`, ru: `Доставка на склады Amazon FBA Канада | ${baseTitle}` },
+        desc: { en: 'Expert FBA Canada delivery. We handle CBSA, GST/HST, and prep your products according to Canadian requirements.', ru: 'Специалисты по доставке в Amazon FBA Канады. DDP доставка, подготовка товара и полная пошлина.' }
       },
       '1688': {
         title: { en: `1688 Sourcing & Purchasing | ${baseTitle}`, ru: `Выкуп товаров с 1688 | ${baseTitle}` },
