@@ -5,9 +5,10 @@ import { TableWrapper } from './TableWrapper';
 
 interface Props {
   language: Language;
+  simplified?: boolean;
 }
 
-export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
+export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplified }) => {
   const content = {
     en: {
       title: "China to UAE Shipping Guide 2026: Costs, Customs & Transit Times",
@@ -30,7 +31,7 @@ export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
           air: {
             title: "Air Freight (5–9 days)",
             desc: "Via Shenzhen (SZX) or Hong Kong (HKG) to Dubai International (DXB) or Abu Dhabi (AUH). Direct flights and connections via Middle Eastern hubs mean frequent departures and consistent transit times. The default choice for electronics, fashion, branded goods, and anything time-sensitive. Volumetric weight applies — we repack at our Shenzhen warehouse before booking to minimize your chargeable weight.",
-            formula: "Air volumetric weight formula: L × W × H (cm) / 6000 = chargeable weight (kg). Example: a 50×50×50 cm box is billed as 20.8 kg regardless of actual weight. Our warehouse team repacks to reduce dead space before booking."
+            formula: "Air volumetric weight formula: L × W × H (cm) / 5000 = chargeable weight (kg). Example: a 50×50×50 cm box is billed as 20.8 kg regardless of actual weight. Our warehouse team repacks to reduce dead space before booking."
           },
           sea: {
             title: "Sea Freight (25–35 days)",
@@ -223,7 +224,7 @@ export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
           air: {
             title: "Авиафрахт (5–9 дней)",
             desc: "Вылеты из Шэньчжэня (SZX) или Гонконга (HKG) в аэропорты Дубая (DXB) или Абу-Даби (AUH). Это основной выбор для электроники, брендов и срочных грузов. Мы переупаковываем товар в Шэньчжэне, чтобы минимизировать объемный вес.",
-            formula: "Формула: Д × Ш × В (см) / 6000 = объемный вес (кг)."
+            formula: "Формула: Д × Ш × В (см) / 5000 = объемный вес (кг)."
           },
           sea: {
             title: "Морские перевозки (25–35 дней)",
@@ -384,6 +385,218 @@ export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
 
   const t = content[language] || content.en;
 
+  if (simplified) {
+      return (
+          <div className="text-gray-800 text-lg leading-relaxed pt-10">
+              <div className="mb-24">
+                  <h2 className="text-3xl lg:text-4xl font-extrabold text-brand-dark mb-4 tracking-tight">
+                      {t.title}
+                  </h2>
+                  <p className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed">
+                      {t.subtitle}
+                  </p>
+              </div>
+
+              <div className="mb-24">
+                  {/* Section 1 */}
+                  <div className="mb-16">
+                      <div className="flex items-center gap-4 mb-6">
+                          <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">1</div>
+                          <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.transit.title.replace(/^\d+\.\s*/, '')}</h3>
+                      </div>
+                      <div className="w-full">
+                          <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sections.transit.desc}</p>
+                          <div className="grid md:grid-cols-2 gap-6 mb-8">
+                              {/* Air Freight Card */}
+                              <div className="bg-gray-50 rounded-[20px] p-6 border border-gray-100 flex flex-col">
+                                  <h4 className="font-bold text-brand-dark text-lg mb-2 flex items-center gap-2">
+                                      <Plane className="text-brand-blue" size={20} />
+                                      {t.sections.transit.air.title}
+                                  </h4>
+                                  <p className="text-sm leading-relaxed text-gray-600 mb-4">{t.sections.transit.air.desc}</p>
+                              </div>
+                              {/* Sea Freight Card */}
+                              <div className="bg-gray-50 rounded-[20px] p-6 border border-gray-100 flex flex-col">
+                                  <h4 className="font-bold text-brand-dark text-lg mb-2 flex items-center gap-2">
+                                      <Anchor className="text-teal-600" size={20} />
+                                      {t.sections.transit.sea.title}
+                                  </h4>
+                                  <p className="text-sm leading-relaxed text-gray-600 mb-4">{t.sections.transit.sea.desc}</p>
+                              </div>
+                          </div>
+                          
+                          <div className="inline-flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-2xl px-6 py-4 mb-8">
+                             <div className="text-sm font-bold text-brand-dark">{language === 'en' ? 'Volumetric Weight Formula:' : 'Формула объемного веса:'}</div>
+                             <div className="font-mono text-brand-blue font-black">{t.sections.transit.air.formula.split('=')[0].replace('Air volumetric weight formula: ', '').replace('Формула: ', '')}</div>
+                          </div>
+
+                          <h4 className="font-bold text-brand-dark text-lg mb-4">{t.sections.transit.referenceTitle}</h4>
+                          <TableWrapper language={language}>
+                              <table className="w-full text-left border-collapse">
+                                  <thead>
+                                      <tr className="bg-gray-50 border-b border-gray-100">
+                                          <th className="py-4 px-6 font-bold text-brand-dark whitespace-nowrap">{t.sections.transit.headers[0]}</th>
+                                          <th className="py-4 px-6 font-bold text-brand-dark">{t.sections.transit.headers[1]}</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody className="divide-y divide-gray-100 text-sm">
+                                      {t.sections.transit.rows.map((row, idx) => (
+                                          <tr key={idx}>
+                                              <td className="py-4 px-6 font-bold text-gray-800">{row[0]}</td>
+                                              <td className="py-4 px-6 text-brand-blue font-bold">{row[1]}</td>
+                                          </tr>
+                                      ))}
+                                  </tbody>
+                              </table>
+                          </TableWrapper>
+                      </div>
+                  </div>
+
+                  {/* Section 2 */}
+                  <div className="mb-16">
+                      <div className="flex items-center gap-4 mb-6">
+                          <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">2</div>
+                          <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.customs.title.replace(/^\d+\.\s*/, '')}</h3>
+                      </div>
+                      <div className="w-full">
+                          <ul className="space-y-6 text-gray-700">
+                              {t.sections.customs.points.map((point, idx) => (
+                                  <li key={idx}>
+                                      <strong className="text-brand-dark block text-lg mb-1">{point.title}</strong>
+                                      <p className="text-gray-700 leading-relaxed font-medium">{point.desc}</p>
+                                  </li>
+                              ))}
+                          </ul>
+                          <div className="mt-8 bg-gray-50 p-6 md:p-8 rounded-[20px] border border-gray-200">
+                              <h4 className="font-bold text-brand-dark text-lg mb-2">{t.sections.customs.vatVsDutyTitle}</h4>
+                              <p className="text-gray-600 leading-relaxed">{t.sections.customs.vatBothIncluded}</p>
+                          </div>
+                      </div>
+                  </div>
+
+                  {/* Section 3 */}
+                  <div className="mb-16">
+                      <div className="flex items-center gap-4 mb-6">
+                          <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">3</div>
+                          <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.tariffs.title.replace(/^\d+\.\s*/, '')}</h3>
+                      </div>
+                      <div className="w-full">
+                          <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sections.tariffs.desc}</p>
+                          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 mb-6">
+                              <h4 className="font-bold text-brand-dark text-xl mb-4">{t.sections.tariffs.calcTitle}</h4>
+                              <ul className="space-y-3 mb-6">
+                                  {t.sections.tariffs.rows.map((row, idx) => (
+                                      <li key={idx} className="text-gray-700 font-medium">
+                                          <span className="font-bold text-brand-dark">{row[0]}:</span> {row[1]} (<span className="font-mono text-sm text-brand-blue">{row[2]}</span>)
+                                      </li>
+                                  ))}
+                              </ul>
+                              <div className="mt-6 pt-6 border-t border-gray-200">
+                                  <h4 className="font-bold text-brand-dark mb-2">{t.sections.tariffs.formulaBoxTitle}</h4>
+                                  <p className="font-mono text-brand-blue font-bold mb-2 whitespace-pre-line">{t.sections.tariffs.formula}</p>
+                                  <p className="text-gray-600 text-sm">{t.sections.tariffs.formulaExample}</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  {/* Section 4 */}
+                  <div className="mb-16">
+                      <div className="flex items-center gap-4 mb-6">
+                          <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">4</div>
+                          <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.productTypes.title.replace(/^\d+\.\s*/, '')}</h3>
+                      </div>
+                      <div className="w-full">
+                          <div className="space-y-6">
+                              {t.sections.productTypes.items.map((item, idx) => (
+                                  <p key={idx} className="text-gray-700 leading-relaxed font-medium">
+                                      <strong className="text-brand-dark block text-lg mb-1">{item.title}:</strong> {item.desc}
+                                  </p>
+                              ))}
+                          </div>
+                      </div>
+                  </div>
+
+                  {/* Section 5 Ports */}
+                  <div className="mb-16">
+                      <div className="flex items-center gap-4 mb-6">
+                          <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">5</div>
+                          <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.ports.title.replace(/^\d+\.\s*/, '')}</h3>
+                      </div>
+                      <div className="w-full">
+                          <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sections.ports.desc}</p>
+                          <div className="space-y-6">
+                              {t.sections.ports.items.map((item, idx) => (
+                                  <div key={idx}>
+                                      <strong className="text-brand-dark block text-xl mb-2">{item.title}</strong>
+                                      <p className="text-gray-700 leading-relaxed font-medium">{item.desc}</p>
+                                  </div>
+                              ))}
+                          </div>
+                      </div>
+                  </div>
+
+                  {/* Section 6 GCC */}
+                  <div className="mb-16">
+                      <div className="flex items-center gap-4 mb-6">
+                          <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">6</div>
+                          <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.gcc.title.replace(/^\d+\.\s*/, '')}</h3>
+                      </div>
+                      <div className="w-full">
+                          <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sections.gcc.desc}</p>
+                          <div className="space-y-4">
+                              <p className="text-gray-700 leading-relaxed font-medium"><strong className="text-brand-dark">{t.sections.gcc.how.title}</strong> {t.sections.gcc.how.desc}</p>
+                              <div>
+                                  <strong className="text-brand-dark block mb-2">{t.sections.gcc.routesTitle}</strong>
+                                  <ul className="list-disc list-inside space-y-1 text-gray-700 font-medium">
+                                      {t.sections.gcc.routes.map((route, idx) => (
+                                          <li key={idx} className="ml-2">{route}</li>
+                                      ))}
+                                  </ul>
+                              </div>
+                              <p className="text-gray-700 leading-relaxed font-medium mt-4"><strong className="text-brand-dark">{t.sections.gcc.planTitle}</strong> {t.sections.gcc.planDesc}</p>
+                          </div>
+                      </div>
+                  </div>
+
+                  {/* Section 7 Warehouse */}
+                  <div className="mb-16">
+                      <div className="flex items-center gap-4 mb-6">
+                          <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">7</div>
+                          <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.warehouse.title.replace(/^\d+\.\s*/, '')}</h3>
+                      </div>
+                      <div className="w-full">
+                          <div className="space-y-6">
+                              {t.sections.warehouse.items.map((item, idx) => (
+                                  <p key={idx} className="text-gray-700 leading-relaxed font-medium">
+                                      <strong className="text-brand-dark block text-lg mb-1">{item.title}:</strong> {item.desc}
+                                  </p>
+                              ))}
+                          </div>
+                      </div>
+                  </div>
+
+                  {/* Section 8 Insurance */}
+                  <div className="mb-16">
+                      <div className="flex items-center gap-4 mb-6">
+                          <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">8</div>
+                          <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.insurance.title.replace(/^\d+\.\s*/, '')}</h3>
+                      </div>
+                      <div className="w-full">
+                          <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sections.insurance.desc}</p>
+                          <ul className="list-disc list-inside space-y-2 mb-6 text-gray-700 font-medium">
+                              {t.sections.insurance.points.map((point, idx) => (
+                                  <li key={idx} className="pl-2">{point.title}</li>
+                              ))}
+                          </ul>
+                          <p className="text-gray-600 font-medium italic">{t.sections.insurance.bottomDesc}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      );
+  }
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -426,14 +639,16 @@ export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto space-y-16">
+        <div className="text-gray-800 text-lg leading-relaxed pt-10">
           
           {/* Section 1 */}
-          <div id="transit" className="scroll-mt-28">
+          <div id="transit" className="scroll-mt-28 mb-24">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sections.transit.title}</h3>
+              <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">1</div>
+              <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.transit.title.replace(/^\d+\.\s*/, '')}</h3>
             </div>
-            <p className="mb-6 leading-relaxed font-medium">{t.sections.transit.desc}</p>
+            <div className="w-full">
+            <p className="mb-8 leading-relaxed font-medium text-gray-700">{t.sections.transit.desc}</p>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-gray-50 rounded-[20px] p-6 border border-gray-100">
                 <h4 className="font-bold text-brand-dark text-lg mb-2">{t.sections.transit.air.title}</h4>
@@ -467,15 +682,17 @@ export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
                 </tbody>
               </table>
             </TableWrapper>
+            </div>
           </div>
 
           {/* Section 2 */}
-          <div id="customs" className="scroll-mt-28">
+          <div id="customs" className="scroll-mt-28 mb-24">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sections.customs.title}</h3>
+              <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">2</div>
+              <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.customs.title.replace(/^\d+\.\s*/, '')}</h3>
             </div>
-            
-            <ul className="space-y-6">
+            <div className="w-full">
+            <ul className="space-y-6 text-gray-700">
               {t.sections.customs.points.map((point, idx) => (
                 <li key={idx} className="flex items-start gap-4">
                   <div className="min-w-2 min-h-2 rounded-full bg-brand-blue mt-2.5"></div>
@@ -487,18 +704,21 @@ export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
               ))}
             </ul>
 
-            <div className="mt-8 bg-gray-50 p-6 rounded-2xl border border-gray-100">
-               <h4 className="font-bold text-brand-dark text-lg mb-2">{t.sections.customs.vatVsDutyTitle}</h4>
-               <p className="font-medium text-brand-blue">{t.sections.customs.vatBothIncluded}</p>
+            <div className="mt-8 bg-brand-blue/5 p-6 md:p-8 rounded-[30px] border border-brand-blue/10">
+               <h4 className="font-bold text-brand-dark text-xl mb-3">{t.sections.customs.vatVsDutyTitle}</h4>
+               <p className="font-medium text-brand-blue leading-relaxed text-lg">{t.sections.customs.vatBothIncluded}</p>
+            </div>
             </div>
           </div>
 
           {/* Section 3 */}
-          <div id="tariffs" className="scroll-mt-28">
+          <div id="tariffs" className="scroll-mt-28 mb-24">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sections.tariffs.title}</h3>
+              <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">3</div>
+              <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.tariffs.title.replace(/^\d+\.\s*/, '')}</h3>
             </div>
-            <p className="mb-6 leading-relaxed font-medium">{t.sections.tariffs.desc}</p>
+            <div className="w-full">
+            <p className="mb-8 leading-relaxed font-medium text-gray-700">{t.sections.tariffs.desc}</p>
             
             <h4 className="font-bold text-brand-dark text-lg mb-4">{t.sections.tariffs.calcTitle}</h4>
             <TableWrapper language={language}>
@@ -522,136 +742,151 @@ export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language }) => {
               </table>
             </TableWrapper>
 
-            <div className="bg-brand-dark text-white rounded-[20px] p-6 lg:p-8 shadow-lg mb-8">
-              <h4 className="font-bold text-white/60 mb-2 uppercase tracking-wide text-sm">{t.sections.tariffs.formulaBoxTitle}</h4>
-              <div className="font-mono text-lg font-bold mb-4 whitespace-pre-wrap leading-loose">
+            <div className="bg-brand-dark text-white rounded-[30px] p-8 lg:p-10 shadow-lg mb-8">
+              <h4 className="font-bold text-white/60 mb-3 uppercase tracking-wide text-sm">{t.sections.tariffs.formulaBoxTitle}</h4>
+              <div className="font-mono text-xl font-bold mb-6 whitespace-pre-wrap leading-loose">
                 <span className="text-brand-yellow font-sans">{t.sections.tariffs.formula}</span>
               </div>
-              <p className="text-white/80 font-medium text-sm">
+              <p className="text-white/80 font-medium text-base leading-relaxed">
                 {t.sections.tariffs.formulaExample}
               </p>
             </div>
             
-            <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100">
-                <h4 className="font-bold text-brand-dark text-lg mb-2">{t.sections.tariffs.categoriesTitle}</h4>
-                <p className="text-gray-600 leading-relaxed mb-3">{t.sections.tariffs.categoriesDesc}</p>
-                <p className="text-gray-600 leading-relaxed mb-4">{t.sections.tariffs.exciseDesc}</p>
-                <p className="text-gray-600 leading-relaxed font-medium"><strong>{language === 'ru' ? 'Что мы делаем:' : 'What we do:'}</strong> {t.sections.tariffs.categoriesAction.replace('What we do: ', '')}</p>
+            <div className="bg-gray-50 p-8 rounded-[30px] border border-gray-100">
+                <h4 className="font-bold text-brand-dark text-xl mb-4">{t.sections.tariffs.categoriesTitle}</h4>
+                <p className="text-gray-700 leading-relaxed mb-4 font-medium">{t.sections.tariffs.categoriesDesc}</p>
+                <p className="text-gray-700 leading-relaxed mb-6 font-medium">{t.sections.tariffs.exciseDesc}</p>
+                <p className="text-gray-700 leading-relaxed font-medium bg-white p-4 rounded-xl border border-gray-100 shadow-sm"><strong>{language === 'ru' ? 'Что мы делаем:' : 'What we do:'}</strong> {t.sections.tariffs.categoriesAction.replace('What we do: ', '').replace('Что мы делаем: ', '')}</p>
+            </div>
             </div>
           </div>
 
           {/* Section 4 */}
-          <div id="product-types" className="scroll-mt-28">
+          <div id="product-types" className="scroll-mt-28 mb-24">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sections.productTypes.title}</h3>
+              <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">4</div>
+              <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.productTypes.title.replace(/^\d+\.\s*/, '')}</h3>
             </div>
+            <div className="w-full">
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-6">
               {t.sections.productTypes.items.map((item, idx) => (
-                <div key={idx} className={`border rounded-2xl p-6 shadow-sm ${idx === 1 ? 'bg-brand-blue text-white border-brand-blue' : 'bg-white border-gray-100'}`}>
-                  <h4 className={`font-bold text-lg mb-2 ${idx === 1 ? 'text-white' : 'text-brand-dark'}`}>{item.title}</h4>
-                  <p className={`text-sm leading-relaxed ${idx === 1 ? 'text-white/80' : 'text-gray-600'}`}>{item.desc}</p>
+                <div key={idx} className={`border rounded-2xl p-6 md:p-8 shadow-sm ${idx === 1 ? 'bg-brand-blue text-white border-brand-blue' : 'bg-white border-gray-100'}`}>
+                  <h4 className={`font-bold text-xl mb-3 ${idx === 1 ? 'text-white' : 'text-brand-dark'}`}>{item.title}</h4>
+                  <p className={`leading-relaxed font-medium ${idx === 1 ? 'text-white/80' : 'text-gray-700'}`}>{item.desc}</p>
                 </div>
               ))}
+            </div>
             </div>
           </div>
 
           {/* Section 5 */}
-          <div id="ports" className="scroll-mt-28">
+          <div id="ports" className="scroll-mt-28 mb-24">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sections.ports.title}</h3>
+              <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">5</div>
+              <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.ports.title.replace(/^\d+\.\s*/, '')}</h3>
             </div>
-            
+            <div className="w-full">
             <div className="space-y-6 mb-8">
-               <div className="grid md:grid-cols-2 gap-6">
+               <div className="space-y-6">
                  {t.sections.ports.items.map((item, idx) => (
-                   <div key={idx} className="border border-gray-100 rounded-2xl p-6 bg-gray-50">
-                       <h4 className="font-bold text-brand-dark text-lg mb-3">{item.title}</h4>
-                       <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                   <div key={idx} className="border border-gray-100 rounded-2xl p-6 md:p-8 bg-gray-50 shadow-sm">
+                       <h4 className="font-bold text-brand-dark text-xl mb-3">{item.title}</h4>
+                       <p className="text-gray-700 font-medium leading-relaxed">{item.desc}</p>
                    </div>
                  ))}
                </div>
             </div>
-            <div className="flex bg-blue-50 text-brand-dark p-4 rounded-xl items-start gap-3 border border-brand-blue/20">
-               <Info className="flex-shrink-0 mt-0.5 text-brand-blue" size={20} />
-               <p className="font-medium text-sm">
+            <div className="flex bg-blue-50 text-brand-dark p-6 rounded-2xl items-start gap-4 border border-brand-blue/20">
+               <Info className="flex-shrink-0 mt-1 text-brand-blue" size={24} />
+               <p className="font-medium leading-relaxed">
                  {t.sections.ports.desc}
                </p>
+            </div>
             </div>
           </div>
 
           {/* Section 6 GCC */}
-          <div id="gcc" className="scroll-mt-28">
+          <div id="gcc" className="scroll-mt-28 mb-24">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sections.gcc.title}</h3>
+              <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">6</div>
+              <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.gcc.title.replace(/^\d+\.\s*/, '')}</h3>
             </div>
-            <p className="mb-6 leading-relaxed font-medium">{t.sections.gcc.desc}</p>
+            <div className="w-full">
+            <p className="mb-8 leading-relaxed font-medium text-gray-700">{t.sections.gcc.desc}</p>
             
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gray-50 border border-gray-100 p-6 rounded-2xl">
-                 <h4 className="font-bold text-brand-dark text-lg mb-2">{t.sections.gcc.how.title}</h4>
-                 <p className="text-gray-600 text-sm leading-relaxed mb-6">{t.sections.gcc.how.desc}</p>
-                 <h4 className="font-bold text-brand-dark text-sm mb-3">{t.sections.gcc.routesTitle}</h4>
-                 <ul className="space-y-2">
+            <div className="space-y-6">
+              <div className="bg-gray-50 border border-gray-100 p-6 md:p-8 rounded-[30px] shadow-sm">
+                 <h4 className="font-bold text-brand-dark text-xl mb-3">{t.sections.gcc.how.title}</h4>
+                 <p className="text-gray-700 font-medium leading-relaxed mb-8">{t.sections.gcc.how.desc}</p>
+                 <h4 className="font-bold text-brand-dark text-lg mb-4">{t.sections.gcc.routesTitle}</h4>
+                 <ul className="space-y-3">
                    {t.sections.gcc.routes.map((route, idx) => (
-                      <li key={idx} className="flex gap-2 text-sm text-gray-600">
-                        <span className="text-brand-blue font-bold opacity-50">→</span>
+                      <li key={idx} className="flex gap-3 text-gray-700 font-medium">
+                        <span className="text-brand-blue font-bold opacity-50 mt-0.5">→</span>
                         {route}
                       </li>
                    ))}
                  </ul>
               </div>
-              <div className="bg-brand-blue/5 border border-brand-blue/10 p-6 rounded-2xl">
-                 <h4 className="font-bold text-brand-dark text-lg mb-2">{t.sections.gcc.planTitle}</h4>
-                 <p className="text-gray-600 text-sm leading-relaxed">{t.sections.gcc.planDesc}</p>
+              <div className="bg-brand-blue/5 border border-brand-blue/10 p-6 md:p-8 rounded-[30px]">
+                 <h4 className="font-bold text-brand-dark text-xl mb-3">{t.sections.gcc.planTitle}</h4>
+                 <p className="text-gray-700 font-medium leading-relaxed">{t.sections.gcc.planDesc}</p>
               </div>
+            </div>
             </div>
           </div>
 
 
           {/* Section 7 */}
-          <div id="warehouse" className="scroll-mt-28">
+          <div id="warehouse" className="scroll-mt-28 mb-24">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sections.warehouse.title}</h3>
+              <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">7</div>
+              <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.warehouse.title.replace(/^\d+\.\s*/, '')}</h3>
             </div>
+            <div className="w-full">
             
-            <div className="space-y-4">
+            <div className="space-y-6">
               {t.sections.warehouse.items.map((item, idx) => (
-                <div key={idx} className="bg-gray-50 p-6 rounded-2xl border border-gray-100 flex gap-4">
-                  <div className="font-black text-brand-blue text-4xl opacity-30 mt-1">0{idx + 1}</div>
+                <div key={idx} className="bg-gray-50 p-6 md:p-8 rounded-[30px] border border-gray-100 flex gap-6 shadow-sm">
+                  <div className="font-black text-brand-blue text-5xl opacity-20 mt-1">0{idx + 1}</div>
                   <div>
-                    <h4 className="font-bold text-brand-dark text-lg mb-1">{item.title}</h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                    <h4 className="font-bold text-brand-dark text-xl mb-3">{item.title}</h4>
+                    <p className="text-gray-700 font-medium leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
+            </div>
           </div>
 
           {/* Section 8 */}
-          <div id="insurance" className="scroll-mt-28">
+          <div id="insurance" className="scroll-mt-28 mb-24">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sections.insurance.title}</h3>
+              <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">8</div>
+              <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sections.insurance.title.replace(/^\d+\.\s*/, '')}</h3>
             </div>
-            <p className="mb-6 leading-relaxed font-medium text-gray-600">{t.sections.insurance.desc}</p>
+            <div className="w-full">
+            <p className="mb-8 leading-relaxed font-medium text-gray-700">{t.sections.insurance.desc}</p>
             <div className="bg-[#e1f3ff] p-8 lg:p-12 rounded-[40px] border border-[#c1e6ff] relative overflow-hidden">
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-6 mb-10">
                   {t.sections.insurance.points.map((point, idx) => (
-                    <li key={idx} className={point.desc ? "flex items-start gap-3" : "flex items-center gap-3"}>
-                      <div className={`w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center flex-shrink-0 ${point.desc ? 'mt-0.5' : ''}`}>
-                         <div className="w-2 h-2 rounded-full bg-brand-blue"></div>
+                    <li key={idx} className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-brand-blue/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                         <div className="w-3 h-3 rounded-full bg-brand-blue"></div>
                       </div>
                       {point.desc ? (
-                        <span><strong className="text-brand-dark block mb-1">{point.title}</strong> <span className="text-brand-dark/80">{point.desc}</span></span>
+                        <span><strong className="text-brand-dark block text-xl mb-2">{point.title}</strong> <span className="text-brand-dark/80 leading-relaxed font-medium">{point.desc}</span></span>
                       ) : (
-                        <span className="font-bold text-brand-dark">{point.title}</span>
+                        <span className="font-bold text-brand-dark text-xl">{point.title}</span>
                       )}
                     </li>
                   ))}
                 </ul>
-                <p className="text-brand-dark/80 font-medium leading-relaxed max-w-2xl">
+                <p className="text-brand-dark/80 font-medium leading-relaxed italic">
                   {t.sections.insurance.bottomDesc}
                 </p>
+            </div>
             </div>
           </div>
 

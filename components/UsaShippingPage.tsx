@@ -211,22 +211,23 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                 </section>
 
                 <section id="details" className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
-                    <div className="max-w-4xl mx-auto space-y-12 text-gray-800 text-lg leading-relaxed">
+                    <div className="max-w-4xl mx-auto text-gray-800 text-lg leading-relaxed">
                             
                             {/* Intro Section */}
-                            <div className="text-center mb-16">
-                                <h2 className="text-3xl font-black text-brand-dark mb-6 tracking-tight">{t.introTitle}</h2>
-                                <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                            <div className="mb-24">
+                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight">{t.introTitle}</h2>
+                                <p className="text-lg text-gray-700 leading-relaxed font-medium">
                                     {t.introText}
                                 </p>
                             </div>
 
                             {/* Rates and Methods */}
-                            <h3 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80 pt-10">
-                                {t.methodsTitle}
-                            </h3>
-                            <div className="grid md:grid-cols-3 gap-6 mb-20 max-w-5xl mx-auto">
-                                {t.methods.map((method, idx) => (
+                            <div className="mb-24">
+                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">
+                                    {t.methodsTitle}
+                                </h2>
+                                <div className="grid md:grid-cols-2 gap-8">
+                                    {t.methods.map((method, idx) => (
                                     <div key={idx} className="bg-white rounded-[30px] p-6 border-2 border-gray-100 hover:border-brand-blue/30 transition-all hover:-translate-y-1 shadow-sm flex flex-col">
                                         <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${method.color}`}>
                                             <method.icon size={28} />
@@ -250,38 +251,39 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                                         </div>
                                     </div>
                                 ))}
+                                </div>
                             </div>
 
                             {/* FBA Section */}
-                            <div className="mb-20">
-                                <h3 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight">{t.fbaTitle}</h3>
-                                <p className="text-lg text-gray-700 mb-8">{t.fbaText}</p>
-                                <div className="space-y-6">
+                            <div className="mb-24">
+                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">{t.fbaTitle}</h2>
+                                <p className="text-lg text-gray-700 leading-relaxed font-medium mb-12">{t.fbaText}</p>
+                                <div className="space-y-8">
                                     {t.fbaItems.map((item, idx) => (
                                         <div key={idx}>
                                             <h4 className="font-bold text-xl text-brand-dark mb-2">{item.title}</h4>
-                                            <p className="text-gray-700">{item.desc}</p>
+                                            <p className="text-gray-700 leading-relaxed font-medium">{item.desc}</p>
                                         </div>
                                     ))}
                                 </div>
                             </div>
 
                             {/* Fears Container */}
-                            <div className="mb-20 bg-brand-light/30 p-8 sm:p-12 rounded-[40px] border border-brand-blue/10">
-                                 <h3 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">{t.fearsTitle}</h3>
+                            <div className="mb-24 bg-brand-light/30 p-8 sm:p-12 rounded-[40px] border border-brand-blue/10">
+                                 <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-12 tracking-tight">{t.fearsTitle}</h2>
                                  <div className="space-y-8">
                                     {t.fearsList.map((f, idx) => (
                                         <div key={idx}>
                                             <h4 className="font-bold text-xl text-brand-dark mb-2">Q: {f.q}</h4>
-                                            <p className="text-gray-700"><strong>A:</strong> {f.a}</p>
+                                            <p className="text-gray-700 leading-relaxed font-medium"><strong>A:</strong> {f.a}</p>
                                         </div>
                                     ))}
                                  </div>
                             </div>
 
                             {/* Why Choose Us */}
-                            <div className="mb-20">
-                                 <h3 className="text-3xl font-black text-brand-dark mb-12">{t.whyTitle}</h3>
+                            <div className="mb-24">
+                                 <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">{t.whyTitle}</h2>
                                  <div className="space-y-8">
                                     {t.benefits.map((benefit, idx) => (
                                         <div key={idx} className="flex gap-5 items-start">
@@ -298,11 +300,11 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                             </div>
 
                             {/* Steps Container */}
-                            <div className="mb-20">
-                                <h3 className="text-3xl font-black text-brand-dark mb-10">
+                            <div className="mb-24">
+                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">
                                     {t.stepsTitle}
-                                </h3>
-                                <div className="space-y-6">
+                                </h2>
+                                <div className="space-y-8">
                                     {t.steps.map((step, idx) => (
                                         <div key={idx} className="flex items-center gap-4">
                                             <div className="w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center font-bold relative z-10 shadow-sm shrink-0">
@@ -317,7 +319,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                             </div>
 
                             {/* Banners */}
-                            <div className="pt-10 border-t border-gray-100 space-y-6">
+                            <div className="pt-12 border-t border-gray-100 mb-24 space-y-6">
                                 <a href={language === 'ru' ? '/ru/amazon' : '/amazon'} className="block w-full bg-gray-50 border border-gray-200 rounded-3xl p-6 sm:p-8 hover:bg-orange-50 hover:border-orange-200 transition-colors group cursor-pointer">
                                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                                         <div className="text-center sm:text-left">

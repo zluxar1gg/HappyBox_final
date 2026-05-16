@@ -317,8 +317,8 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
 
   if (simplified) {
     return (
-        <div className="space-y-12 text-gray-800 text-lg leading-relaxed pt-10">
-            <div className="mb-12">
+        <div className="text-gray-800 text-lg leading-relaxed pt-10">
+            <div className="mb-24">
                 <h2 className="text-3xl lg:text-4xl font-extrabold text-brand-dark mb-4 tracking-tight">
                     {t.title}
                 </h2>
@@ -327,14 +327,16 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </p>
             </div>
 
-            <div className="space-y-12">
+            <div className="mb-24">
                 {/* Section 1 */}
-                <div className="flex gap-4 sm:gap-6 items-start">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 text-brand-dark font-black flex items-center justify-center flex-shrink-0 text-xl border border-gray-200 mt-1">1</div>
-                    <div className="flex-grow">
-                        <h3 className="text-2xl font-bold text-brand-dark mb-2 tracking-tight">{t.sec1.title.replace(/^\d+\.\s*/, '')}</h3>
-                        <p className="text-gray-700 leading-relaxed font-medium mb-4">{t.sec1.desc}</p>
-                        <div className="space-y-3">
+                <div className="mb-16">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">1</div>
+                        <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec1.title.replace(/^\d+\.\s*/, '')}</h3>
+                    </div>
+                    <div className="w-full">
+                        <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sec1.desc}</p>
+                        <div className="space-y-4">
                             {t.sec1.items.map((item, idx) => (
                                 <p key={idx} className="text-gray-700 leading-relaxed">
                                     <strong className="text-brand-dark">{item.title}:</strong> {item.text}
@@ -345,12 +347,14 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 2 */}
-                <div className="flex gap-4 sm:gap-6 items-start">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 text-brand-dark font-black flex items-center justify-center flex-shrink-0 text-xl border border-gray-200 mt-1">2</div>
-                    <div className="flex-grow">
-                        <h3 className="text-2xl font-bold text-brand-dark mb-2 tracking-tight">{t.sec2.title.replace(/^\d+\.\s*/, '')}</h3>
-                        <p className="text-gray-700 leading-relaxed font-medium mb-4">{t.sec2.desc}</p>
-                        <div className="space-y-3">
+                <div className="mb-16">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">2</div>
+                        <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec2.title.replace(/^\d+\.\s*/, '')}</h3>
+                    </div>
+                    <div className="w-full">
+                        <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sec2.desc}</p>
+                        <div className="space-y-4">
                             {t.sec2.items.map((item, idx) => (
                                 <p key={idx} className="text-gray-700 leading-relaxed">
                                     <strong className="text-brand-dark">{item.strong}</strong> {item.text}
@@ -361,37 +365,43 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 3 */}
-                <div className="flex gap-4 sm:gap-6 items-start">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 text-brand-dark font-black flex items-center justify-center flex-shrink-0 text-xl border border-gray-200 mt-1">3</div>
-                    <div className="flex-grow">
-                        <h3 className="text-2xl font-bold text-brand-dark mb-2 tracking-tight">{t.sec3.title.replace(/^\d+\.\s*/, '')}</h3>
-                        <p className="text-gray-700 leading-relaxed font-medium mb-4">{t.sec3.desc}</p>
-                        <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 mb-4">
-                            <h4 className="font-bold text-brand-dark mb-3">{t.sec3.tableTitle}</h4>
-                            <ul className="space-y-2 mb-4">
+                <div className="mb-16">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">3</div>
+                        <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec3.title.replace(/^\d+\.\s*/, '')}</h3>
+                    </div>
+                    <div className="w-full">
+                        <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sec3.desc}</p>
+                        <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 mb-4">
+                            <h4 className="font-bold text-brand-dark text-xl mb-4">{t.sec3.tableTitle}</h4>
+                            <ul className="space-y-3 mb-6">
                                 {t.sec3.rows.map((row, idx) => (
-                                    <li key={idx} className="text-gray-700">
-                                        <span className="font-bold">{row.col1}:</span> {row.col2} (<span className="font-mono text-sm">{row.col3}</span>)
+                                    <li key={idx} className="text-gray-700 font-medium">
+                                        <span className="font-bold text-brand-dark">{row.col1}:</span> {row.col2} (<span className="font-mono text-sm text-brand-blue">{row.col3}</span>)
                                     </li>
                                 ))}
                             </ul>
-                            <p className="text-sm text-gray-600 border-t border-gray-200 pt-3">{t.sec3.bottom1}</p>
-                            <p className="text-sm text-gray-600 mt-2">{t.sec3.bottom2}</p>
-                            {t.sec3.bottom3 && <p className="text-sm text-gray-600 mt-2">{t.sec3.bottom3}</p>}
+                            <div className="space-y-3">
+                                <p className="text-gray-600 border-t border-gray-200 pt-5 leading-relaxed">{t.sec3.bottom1}</p>
+                                <p className="text-gray-600 leading-relaxed">{t.sec3.bottom2}</p>
+                                {t.sec3.bottom3 && <p className="text-gray-600 leading-relaxed">{t.sec3.bottom3}</p>}
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Section 4 */}
-                <div className="flex gap-4 sm:gap-6 items-start">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 text-brand-dark font-black flex items-center justify-center flex-shrink-0 text-xl border border-gray-200 mt-1">4</div>
-                    <div className="flex-grow">
-                        <h3 className="text-2xl font-bold text-brand-dark mb-2 tracking-tight">{t.sec4.title.replace(/^\d+\.\s*/, '')}</h3>
-                        {t.sec4.desc && <p className="text-gray-700 leading-relaxed font-medium mb-4">{t.sec4.desc}</p>}
-                        <div className="space-y-3">
+                <div className="mb-16">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">4</div>
+                        <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec4.title.replace(/^\d+\.\s*/, '')}</h3>
+                    </div>
+                    <div className="w-full">
+                        {t.sec4.desc && <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sec4.desc}</p>}
+                        <div className="space-y-6">
                             {t.sec4.items.map((item, idx) => (
                                 <p key={idx} className="text-gray-700 leading-relaxed">
-                                    <strong className="text-brand-dark">{item.title}:</strong> {item.desc}
+                                    <strong className="text-brand-dark block text-lg mb-1">{item.title}:</strong> {item.desc}
                                 </p>
                             ))}
                         </div>
@@ -399,32 +409,36 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 5 */}
-                <div className="flex gap-4 sm:gap-6 items-start">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 text-brand-dark font-black flex items-center justify-center flex-shrink-0 text-xl border border-gray-200 mt-1">5</div>
-                    <div className="flex-grow">
-                        <h3 className="text-2xl font-bold text-brand-dark mb-2 tracking-tight">{t.sec5.title.replace(/^\d+\.\s*/, '')}</h3>
-                        <p className="text-gray-700 leading-relaxed font-medium mb-4">{t.sec5.desc}</p>
-                        <div className="inline-flex items-center gap-3 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3">
-                            <span className="font-bold text-brand-dark">{t.sec5.formulaTitle}:</span>
-                            <span className="font-mono text-brand-blue">{t.sec5.formulaFormula} / {t.sec5.formulaDiv}</span>
+                <div className="mb-16">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">5</div>
+                        <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec5.title.replace(/^\d+\.\s*/, '')}</h3>
+                    </div>
+                    <div className="w-full">
+                        <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sec5.desc}</p>
+                        <div className="inline-flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-2xl px-8 py-6 mb-4 w-full md:w-auto">
+                            <span className="font-bold text-brand-dark text-lg md:text-xl">{t.sec5.formulaTitle}:</span>
+                            <span className="font-mono text-brand-blue font-black text-xl md:text-2xl">{t.sec5.formulaFormula} / {t.sec5.formulaDiv}</span>
                         </div>
-                        {t.sec5.proTip && <p className="text-gray-600 mt-3 text-sm">{t.sec5.proTip}</p>}
+                        {t.sec5.proTip && <p className="text-gray-600 mt-2 font-medium">{t.sec5.proTip}</p>}
                     </div>
                 </div>
 
                 {/* Section 6 */}
-                <div className="flex gap-4 sm:gap-6 items-start">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 text-brand-dark font-black flex items-center justify-center flex-shrink-0 text-xl border border-gray-200 mt-1">6</div>
-                    <div className="flex-grow">
-                        <h3 className="text-2xl font-bold text-brand-dark mb-2 tracking-tight">{t.sec6.title.replace(/^\d+\.\s*/, '')}</h3>
-                        <p className="text-gray-700 leading-relaxed font-medium mb-4">{t.sec6.desc}</p>
-                        <div className="space-y-4">
+                <div className="mb-16">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">6</div>
+                        <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec6.title.replace(/^\d+\.\s*/, '')}</h3>
+                    </div>
+                    <div className="w-full">
+                        <p className="text-gray-700 leading-relaxed font-medium mb-8">{t.sec6.desc}</p>
+                        <div className="space-y-8">
                             {t.sec6.items.map((item, idx) => (
-                                <div key={idx} className="bg-gray-50 p-4 rounded-2xl border border-gray-200">
-                                    <strong className="text-brand-dark block mb-1">{item.title}</strong>
-                                    <p className="text-sm text-gray-700 mb-1">{item.desc1}</p>
-                                    {item.desc2 && <p className="text-sm text-gray-700 mb-1"><em>{item.desc2}</em></p>}
-                                    {item.desc3 && <p className="text-sm text-gray-500">{item.desc3}</p>}
+                                <div key={idx}>
+                                    <strong className="text-brand-dark block text-xl mb-2">{item.title}</strong>
+                                    <p className="text-gray-700 leading-relaxed">{item.desc1}</p>
+                                    {item.desc2 && <p className="text-gray-700 font-medium mt-1"><em>{item.desc2}</em></p>}
+                                    {item.desc3 && <p className="text-gray-600 italic mt-1">{item.desc3}</p>}
                                 </div>
                             ))}
                         </div>
@@ -432,15 +446,17 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 7 */}
-                <div className="flex gap-4 sm:gap-6 items-start">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 text-brand-dark font-black flex items-center justify-center flex-shrink-0 text-xl border border-gray-200 mt-1">7</div>
-                    <div className="flex-grow">
-                        <h3 className="text-2xl font-bold text-brand-dark mb-2 tracking-tight">{t.sec7.title.replace(/^\d+\.\s*/, '')}</h3>
-                        <p className="text-gray-700 leading-relaxed font-medium mb-4">{t.sec7.desc}</p>
-                        <div className="space-y-3">
+                <div className="mb-16">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">7</div>
+                        <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec7.title.replace(/^\d+\.\s*/, '')}</h3>
+                    </div>
+                    <div className="w-full">
+                        <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sec7.desc}</p>
+                        <div className="space-y-6">
                             {t.sec7.items.map((item, idx) => (
                                 <p key={idx} className="text-gray-700 leading-relaxed">
-                                    <strong className="text-brand-dark">{item.title}:</strong> {item.desc}
+                                    <strong className="text-brand-dark block text-lg mb-1">{item.title}:</strong> {item.desc}
                                 </p>
                             ))}
                         </div>
@@ -448,17 +464,19 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 8 */}
-                <div className="flex gap-4 sm:gap-6 items-start">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 text-brand-dark font-black flex items-center justify-center flex-shrink-0 text-xl border border-gray-200 mt-1">8</div>
-                    <div className="flex-grow">
-                        <h3 className="text-2xl font-bold text-brand-dark mb-2 tracking-tight">{t.sec8.title.replace(/^\d+\.\s*/, '')}</h3>
-                        <p className="text-gray-700 leading-relaxed font-medium mb-4">{t.sec8.desc}</p>
-                        <ul className="list-disc list-inside space-y-1 mb-3 text-gray-700">
+                <div className="mb-16">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">8</div>
+                        <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec8.title.replace(/^\d+\.\s*/, '')}</h3>
+                    </div>
+                    <div className="w-full">
+                        <p className="text-gray-700 leading-relaxed font-medium mb-6">{t.sec8.desc}</p>
+                        <ul className="list-disc list-inside space-y-2 mb-6 text-gray-700 font-medium">
                             {t.sec8.items.map((item, idx) => (
-                                <li key={idx}>{item}</li>
+                                <li key={idx} className="pl-2">{item}</li>
                             ))}
                         </ul>
-                        <p className="text-gray-600 font-medium">{t.sec8.bottomDesc}</p>
+                        <p className="text-gray-600 font-medium italic">{t.sec8.bottomDesc}</p>
                     </div>
                 </div>
             </div>

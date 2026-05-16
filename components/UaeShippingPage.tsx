@@ -190,7 +190,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
         }
     };
 
-    const t = content[language];
+    const t = content[language] || content.en;
 
     return (
         <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
@@ -227,20 +227,21 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
 
                 {/* Intro & Methods Block */}
                 <section id="details" className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
-                    <div className="max-w-4xl mx-auto text-center mb-16">
-                        <h2 className="text-3xl font-black text-brand-dark mb-6">{t.introTitle}</h2>
-                        <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                            {t.introText}
-                        </p>
-                    </div>
+                    <div className="max-w-4xl mx-auto text-gray-800 text-lg leading-relaxed">
+                        <div className="mb-24">
+                            <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight">{t.introTitle}</h2>
+                            <p className="text-lg text-gray-700 leading-relaxed font-medium">
+                                {t.introText}
+                            </p>
+                        </div>
 
-                    <h3 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
-                        {t.methodsTitle}
-                    </h3>
-
-                    {/* Rate Cards */}
-                    <div className="grid md:grid-cols-2 gap-6 mb-20 max-w-4xl mx-auto">
-                        {t.methods.map((method, idx) => (
+                        {/* Rate Cards */}
+                        <div className="mb-24">
+                            <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">
+                                {t.methodsTitle}
+                            </h2>
+                            <div className="grid md:grid-cols-2 gap-8">
+                                {t.methods.map((method, idx) => (
                             <div key={idx} className="bg-white rounded-[30px] p-6 border-2 border-gray-100 hover:border-brand-blue/30 transition-all hover:-translate-y-1 shadow-sm flex flex-col">
                                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${method.color}`}>
                                     <method.icon size={28} />
@@ -264,107 +265,120 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                                 </div>
                             </div>
                         ))}
-                    </div>
-
-                    {/* Why Choose Block (Your Local Office) */}
-                    <div className="bg-brand-blue/5 rounded-[40px] p-8 lg:p-12 mb-20 border border-brand-blue/10">
-                        <div className="text-center mb-10">
-                            <h3 className="text-3xl font-black text-brand-dark mb-4">{t.whyTitle}</h3>
-                            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">{t.whyIntro}</p>
+                            </div>
                         </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {t.benefits.map((benefit, idx) => (
-                                <div key={idx} className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-brand-blue/10 h-full">
-                                    <div className="text-brand-blue mb-4">
-                                        <benefit.icon size={28} />
+
+                            {/* Why Choose Block (Your Local Office) */}
+                            <div className="mb-24">
+                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">{t.whyTitle}</h2>
+                                <p className="text-lg text-gray-700 leading-relaxed font-medium mb-12">{t.whyIntro}</p>
+                                <div className="space-y-8">
+                                    {t.benefits.map((benefit, idx) => (
+                                        <div key={idx} className="flex gap-5 items-start">
+                                            <div className="w-12 h-12 rounded-full bg-brand-light flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm mt-1">
+                                                <benefit.icon size={24} />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold text-lg text-brand-dark mb-2">{benefit.title}</h4>
+                                                <p className="text-gray-600 font-medium leading-relaxed">{benefit.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Fears Container */}
+                            <div className="mb-24 bg-brand-light/30 p-8 sm:p-12 rounded-[40px] border border-brand-blue/10">
+                                 <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-12 tracking-tight">{t.fearsTitle}</h2>
+                                 <div className="space-y-8">
+                                    {t.fearsList.map((f, idx) => (
+                                        <div key={idx}>
+                                            <h4 className="font-bold text-xl text-brand-dark mb-2">Q: {f.q}</h4>
+                                            <p className="text-gray-700 leading-relaxed font-medium"><strong>A:</strong> {f.a}</p>
+                                        </div>
+                                    ))}
+                                 </div>
+                            </div>
+
+                            {/* How to Start (Steps) */}
+                            <div className="mb-24">
+                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">
+                                    {t.stepsTitle}
+                                </h2>
+                                <div className="space-y-8">
+                                    {t.steps.map((step, idx) => (
+                                        <div key={idx} className="flex items-center gap-4">
+                                            <div className="w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center font-bold relative z-10 shadow-sm shrink-0">
+                                                {idx + 1}
+                                            </div>
+                                            <p className="font-bold text-brand-dark text-lg leading-tight">
+                                                {step}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Banners Container */}
+                            <div className="pt-12 border-t border-gray-100 mb-24 space-y-6">
+                                <a href={language === 'ru' ? '/ru/poizon' : '/poizon'} className="block w-full bg-gray-50 border border-gray-200 rounded-3xl p-6 sm:p-8 hover:bg-orange-50 hover:border-orange-200 transition-colors group cursor-pointer">
+                                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                                        <div className="text-center sm:text-left">
+                                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-brand-dark mb-2 leading-tight">
+                                                {t.crossPromo[0].title.split('?')[0]}?
+                                            </h4>
+                                            <p className="text-gray-600 font-medium">
+                                                {t.crossPromo[0].desc}
+                                            </p>
+                                        </div>
+                                        <div className="flex-shrink-0">
+                                            <span className="inline-flex items-center gap-2 bg-[#FF9900] text-white font-bold py-3 px-6 rounded-2xl group-hover:bg-[#e68a00] transition-colors shadow-sm">
+                                                {t.crossPromo[0].action.replace(' →', '')}
+                                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                                            </span>
+                                        </div>
                                     </div>
-                                    <h4 className="font-bold text-brand-dark mb-3 text-lg leading-snug">{benefit.title}</h4>
-                                    <p className="text-gray-600 leading-relaxed font-medium">{benefit.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                                </a>
 
-                    {/* Fears Section */}
-                    <div className="mb-20">
-                         <h3 className="text-3xl font-black text-brand-dark mb-12 text-center">{t.fearsTitle}</h3>
-                         <div className="grid md:grid-cols-2 gap-8">
-                            {t.fearsList.map((fear, idx) => (
-                                <div key={idx} className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-gray-100">
-                                    <h4 className="font-bold text-lg text-brand-dark mb-3 leading-snug">{fear.q}</h4>
-                                    <p className="text-gray-600 font-medium leading-relaxed">{fear.a}</p>
-                                </div>
-                            ))}
-                         </div>
-                    </div>
-
-                    {/* How to Start (Steps) */}
-                    <div className="bg-gray-50 rounded-[40px] p-8 lg:p-12 border border-gray-100">
-                        <h3 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
-                            {t.stepsTitle}
-                        </h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                            {t.steps.map((step, idx) => (
-                                <div key={idx} className="text-center relative">
-                                    {idx < 3 && (
-                                        <div className="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-gray-200 -z-0" />
-                                    )}
-                                    <div className="w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4 relative z-10 shadow-lg">
-                                        {idx + 1}
+                                <a href="#gcc" onClick={(e) => { e.preventDefault(); document.getElementById('gcc')?.scrollIntoView({ behavior: 'smooth' }) }} className="block w-full bg-brand-dark border border-gray-800 rounded-3xl p-6 sm:p-8 hover:border-brand-blue transition-colors group cursor-pointer">
+                                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                                        <div className="text-center sm:text-left">
+                                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-white mb-2 leading-tight">
+                                                {t.crossPromo[1].title.split('?')[0]}?
+                                            </h4>
+                                            <p className="text-gray-400 font-medium">
+                                                {t.crossPromo[1].desc}
+                                            </p>
+                                        </div>
+                                        <div className="flex-shrink-0">
+                                            <span className="inline-flex items-center gap-2 bg-brand-blue text-white font-bold py-3 px-6 rounded-2xl group-hover:bg-blue-600 transition-colors shadow-sm">
+                                                {t.crossPromo[1].action.replace(' →', '')}
+                                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                                            </span>
+                                        </div>
                                     </div>
-                                    <p className="font-bold text-brand-dark text-sm md:text-base px-2 leading-tight">
-                                        {step}
-                                    </p>
-                                </div>
-                            ))}
+                                </a>
+                            </div>
+
+                            <div className="pt-10 border-t border-gray-100">
+                                <UaeAdvancedLogisticsGuide language={language} simplified />
+                            </div>
+
+                            {/* CTA */}
+                            <div className="text-center pt-16 pb-12">
+                                <button 
+                                    onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
+                                    className="bg-brand-dark text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-black transition-all shadow-lg active:scale-95 inline-flex items-center gap-3"
+                                >
+                                    <Send size={24} />
+                                    {t.cta}
+                                </button>
+                            </div>
                         </div>
-                        <div className="text-center mt-10">
-                            <button 
-                                onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-lg active:scale-95 inline-flex items-center gap-2"
-                            >
-                                <Send size={20} />
-                                {t.cta}
-                            </button>
-                        </div>
+                    </section>
+                    <div id="contacts">
+                        <Contact language={language} currentPage="uae" />
                     </div>
-
-                    <div className="grid md:grid-cols-2 gap-6 mt-12 mb-6 max-w-5xl mx-auto">
-                        <a href={language === 'ru' ? '/ru/poizon' : '/poizon'} className="group flex flex-col items-start w-full bg-white border-2 border-gray-100 rounded-[30px] p-6 sm:p-8 transition-all shadow-sm hover:shadow-md hover:border-brand-blue/30 cursor-pointer">
-                            <h4 className="text-xl sm:text-2xl font-black font-sans text-brand-dark mb-3 leading-tight">
-                                {t.crossPromo[0].title}
-                            </h4>
-                            <p className="text-gray-500 text-sm sm:text-base font-medium leading-relaxed flex-grow mb-6">
-                                {t.crossPromo[0].desc}
-                            </p>
-                            <span className="flex w-full items-center justify-center gap-2 bg-gray-50 text-brand-dark font-bold py-3 px-6 rounded-xl group-hover:bg-brand-blue group-hover:text-white transition-colors border border-gray-100">
-                                {t.crossPromo[0].action}
-                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                            </span>
-                        </a>
-
-                        <a href="#gcc" onClick={(e) => { e.preventDefault(); document.getElementById('gcc')?.scrollIntoView({ behavior: 'smooth' }) }} className="group flex flex-col items-start w-full bg-white border-2 border-gray-100 rounded-[30px] p-6 sm:p-8 transition-all shadow-sm hover:shadow-md hover:border-brand-dark/30 cursor-pointer">
-                            <h4 className="text-xl sm:text-2xl font-black font-sans text-brand-dark mb-3 leading-tight flex items-center gap-2">
-                                <Globe className="text-brand-blue" />
-                                {t.crossPromo[1].title}
-                            </h4>
-                            <p className="text-gray-500 text-sm sm:text-base font-medium leading-relaxed flex-grow mb-6">
-                                {t.crossPromo[1].desc}
-                            </p>
-                            <span className="flex w-full items-center justify-center gap-2 bg-gray-50 text-brand-dark font-bold py-3 px-6 rounded-xl group-hover:bg-brand-dark group-hover:text-white transition-colors border border-gray-100">
-                                {t.crossPromo[1].action}
-                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                            </span>
-                        </a>
-                    </div>
-
-                </section>
-
-                <UaeAdvancedLogisticsGuide language={language} />
-
-                <div id="contacts">
-                    <Contact language={language} currentPage="uae" />
-                </div>
                 
                 <SeoBlock language={language} onNavigate={onNavigate || (() => {})} currentPage="uae" />
                 <Footer language={language} />
