@@ -59,7 +59,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                 { q: "What if my inventory is lost in the vast Canadian wilderness?", a: "Canada is huge. We use end-to-end tracking that covers the ocean crossing, the rail journey across the Rockies, and the final truck delivery to the FBA dock." }
             ],
 
-            howTitle: "Expanded Technical Guide for Amazon Canada (Points 1–7)",
+            howTitle: "Expanded Technical Guide for Amazon Canada",
             steps: [
                 { title: "1. The Vancouver Gateway (YVR)", desc: "90% of China-to-Canada sea freight enters through the Port of Vancouver. Fastest entry point for Western Canada hubs (YVR1, YVR2, YVR3)." },
                 { title: "2. Multimodal Rail Link (Sea + Rail)", desc: "For warehouses in Ontario (YYZ region) and Quebec (YUL region), we utilize CP or CN Rail networks. Fast rail to the East." },
@@ -176,7 +176,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                 { q: "Не потеряется ли товар в дикой Канаде?", a: "Канада огромна. Мы используем сквозной трекинг для океана, поездов через Скалистые горы и финального трака на рампу FBA." }
             ],
 
-            howTitle: "Расширенный технический гид (Пункты 1–4)",
+            howTitle: "Расширенный технический гид",
             steps: [
                 { title: "1. Врата Ванкувера (YVR)", desc: "90% морских грузов из Китая проходят через порт Ванкувера. Наибыстрейший вход для YVR1, YVR2, YVR3." },
                 { title: "2. Ж/Д: Море + Поезд", desc: "Для складов в Онтарио (YYZ) и Квебеке (YUL) мы используем сети CP/CN Rail. Быстро на Восток." },
@@ -282,9 +282,6 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                         <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
                             {t.titlePrefix} <span className="text-orange-500 relative inline-block mx-2">
                                 {t.titleHighlight}
-                                <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-yellow z-[-1]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                                   <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" opacity="0.6" />
-                                </svg>
                             </span><br className="hidden md:block" />
                             {t.titleSuffix.replace(/^:\s*/, '')}
                         </h1>
@@ -298,18 +295,18 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                     <div className="max-w-4xl mx-auto space-y-12 text-gray-800 text-lg leading-relaxed">
                         
                         {/* Seamless Delivery */}
-                        <div className="bg-[#FF9900]/5 rounded-[40px] p-8 lg:p-12 mb-20 border border-[#FF9900]/10">
-                            <div className="text-center mb-10">
+                        <div className="mb-20">
+                            <div>
                                 <h3 className="text-3xl font-black text-brand-dark mb-4">{t.seamlessTitle}</h3>
-                                <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">{t.seamlessText}</p>
+                                <p className="text-lg text-gray-600 font-medium leading-relaxed mb-6">{t.seamlessText}</p>
                             </div>
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-[#FF9900]/10 h-full">
-                                    <h4 className="font-bold text-brand-dark mb-3 text-lg leading-snug">{t.ddpTitle}</h4>
+                            <div className="space-y-4">
+                                <div>
+                                    <h4 className="font-bold text-brand-dark mb-1 text-lg leading-snug">{t.ddpTitle}</h4>
                                     <p className="text-gray-600 leading-relaxed font-medium">{t.ddpText}</p>
                                 </div>
-                                <div className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-[#FF9900]/10 h-full">
-                                    <h4 className="font-bold text-brand-dark mb-3 text-lg leading-snug">{t.minWeightTitle}</h4>
+                                <div>
+                                    <h4 className="font-bold text-brand-dark mb-1 text-lg leading-snug">{t.minWeightTitle}</h4>
                                     <p className="text-gray-600 leading-relaxed font-medium">{t.minWeightText}</p>
                                 </div>
                             </div>
@@ -376,15 +373,15 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                         </div>
 
                         {/* Bilingual Labeling */}
-                        <div className="bg-gray-50 rounded-[40px] p-8 lg:p-12 mb-20 border border-gray-100 shadow-sm">
-                            <div className="text-center mb-10">
+                        <div className="mb-20">
+                            <div>
                                 <h3 className="text-3xl font-black text-brand-dark mb-4">{t.prepTitle}</h3>
-                                <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">{t.prepSubtitle}</p>
+                                <p className="text-lg text-gray-600 font-medium leading-relaxed mb-8">{t.prepSubtitle}</p>
                             </div>
-                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div className="space-y-6">
                                 {t.prepItems.map((item, idx) => (
-                                    <div key={idx} className="bg-white p-6 md:p-8 rounded-[30px] h-full shadow-sm border border-gray-100">
-                                        <h4 className="font-bold text-brand-dark mb-3 text-lg leading-snug">{item.title}</h4>
+                                    <div key={idx}>
+                                        <h4 className="font-bold text-brand-dark mb-1 text-lg leading-snug">{item.title}</h4>
                                         <p className="text-gray-600 leading-relaxed font-medium">{item.desc}</p>
                                     </div>
                                 ))}
@@ -406,72 +403,64 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
 
                         {/* Technical Guide 1-8 */}
                         <div className="mb-20">
-                            <h3 className="text-3xl font-black text-brand-dark mb-12 text-center">{t.howTitle}</h3>
-                            <div className="grid md:grid-cols-2 gap-8 mb-16">
+                            <h3 className="text-3xl font-black text-brand-dark mb-12">{t.howTitle}</h3>
+                            <div className="space-y-10">
                                 {t.steps.map((step, idx) => (
-                                    <div key={idx} className="flex gap-5 items-start">
-                                        <div className="w-12 h-12 rounded-full bg-brand-light flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm mt-1">
-                                            <span className="font-black text-lg">{idx + 1}</span>
+                                    <div key={idx} className="flex gap-4 sm:gap-6 items-start">
+                                        <div className="w-10 h-10 rounded-full bg-orange-100 text-[#FF9900] font-black flex items-center justify-center flex-shrink-0 text-xl mt-1">
+                                            {idx + 1}
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-lg text-brand-dark mb-2">{step.title.replace(/^\d+\.\s*/, '')}</h4>
-                                            <p className="text-gray-600 font-medium leading-relaxed">{step.desc}</p>
+                                            <h4 className="font-bold text-2xl text-brand-dark mb-2 tracking-tight">{step.title.replace(/^\d+\.\s*/, '')}</h4>
+                                            <p className="text-gray-700 font-medium leading-relaxed">{step.desc}</p>
                                         </div>
                                     </div>
                                 ))}
-                            </div>
-                                
-                            <div className="bg-white rounded-[40px] p-8 lg:p-12 mb-20 border border-gray-100 shadow-sm">
-                                <div className="space-y-10">
-                                    {t.techSections.map((section, idx) => (
-                                        <div key={idx} className="flex gap-4 sm:gap-6 items-start">
-                                            <div className="w-10 h-10 rounded-full bg-orange-100 text-[#FF9900] font-black flex items-center justify-center flex-shrink-0 text-xl mt-1">
-                                                {idx + 5}
-                                            </div>
-                                            <div>
-                                                <h3 className="text-2xl font-bold text-brand-dark mb-2 tracking-tight">{section.title.replace(/^\d+\.\s*/, '')}</h3>
-                                                <p className="text-gray-700 leading-relaxed font-medium mb-3">{section.text}</p>
-                                                {section.list && section.list.length > 0 && (
-                                                    <ul className="list-disc list-outside ml-6 space-y-2 text-gray-700 font-medium">
-                                                        {section.list.map((li, i) => (
-                                                            <li key={i} className="pl-1">{li}</li>
-                                                        ))}
-                                                    </ul>
-                                                )}
-                                            </div>
+                                {t.techSections.map((section, idx) => (
+                                    <div key={idx + 4} className="flex gap-4 sm:gap-6 items-start">
+                                        <div className="w-10 h-10 rounded-full bg-orange-100 text-[#FF9900] font-black flex items-center justify-center flex-shrink-0 text-xl mt-1">
+                                            {idx + 5}
                                         </div>
-                                    ))}
-                                </div>
+                                        <div>
+                                            <h3 className="text-2xl font-bold text-brand-dark mb-2 tracking-tight">{section.title.replace(/^\d+\.\s*/, '')}</h3>
+                                            <p className="text-gray-700 leading-relaxed font-medium mb-3">{section.text}</p>
+                                            {section.list && section.list.length > 0 && (
+                                                <ul className="list-disc list-outside ml-6 space-y-2 text-gray-700 font-medium">
+                                                    {section.list.map((li, i) => (
+                                                        <li key={i} className="pl-1">{li}</li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
 
                         {/* Extra Sections */}
                         <div className="mb-20">
-                            <div className="grid lg:grid-cols-3 gap-8">
+                            <div className="space-y-12">
                                 {t.extraSections.map((sect, idx) => (
-                                    <div key={idx} className="bg-white p-6 md:p-8 rounded-[30px] border border-gray-100 shadow-sm flex flex-col">
-                                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-brand-light text-brand-blue">
-                                            <sect.icon size={28} />
-                                        </div>
-                                        <h4 className="font-bold text-xl text-brand-dark mb-3">{sect.title}</h4>
-                                        <p className="text-gray-600 font-medium leading-relaxed mb-6 flex-grow">{sect.text}</p>
+                                    <div key={idx}>
+                                        <h4 className="font-bold text-2xl text-brand-dark mb-3 flex items-center gap-3">
+                                            <sect.icon size={28} className="text-[#FF9900]" />
+                                            {sect.title}
+                                        </h4>
+                                        <p className="text-gray-600 font-medium leading-relaxed mb-4">{sect.text}</p>
                                         {sect.list && sect.list.length > 0 && (
-                                            <ul className="space-y-3 pt-6 border-t border-gray-50 text-sm text-gray-700 font-medium">
+                                            <div className="space-y-3 text-gray-700 font-medium">
                                                 {sect.list.map((li, i) => {
                                                     const parts = li.split(': ');
                                                     const boldWord = parts.length > 1 ? parts[0] : null;
                                                     const rest = parts.length > 1 ? parts.slice(1).join(': ') : parts[0];
                                                     return (
-                                                        <li key={i} className="flex gap-2 items-start">
-                                                            <div className="w-1.5 h-1.5 rounded-full bg-brand-blue flex-shrink-0 mt-1.5" />
-                                                            <div>
-                                                                {boldWord && <strong className="text-brand-dark block mb-0.5">{boldWord}:</strong>} 
-                                                                <span className="text-gray-600">{rest}</span>
-                                                            </div>
-                                                        </li>
+                                                        <p key={i} className="mb-1">
+                                                            {boldWord && <strong className="text-brand-dark">{boldWord}: </strong>} 
+                                                            <span className="text-gray-600">{rest}</span>
+                                                        </p>
                                                     );
                                                 })}
-                                            </ul>
+                                            </div>
                                         )}
                                     </div>
                                 ))}
