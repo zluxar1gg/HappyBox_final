@@ -263,7 +263,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
     const t = content[language];
 
     return (
-        <div className="min-h-screen bg-white font-sans text-brand-dark overflow-x-hidden pt-20">
+        <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
             <Header
                 language={language}
                 setLanguage={setLanguage} 
@@ -274,27 +274,28 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
             />
 
             <main>
-                <section className="bg-cream pt-24 pb-20 relative overflow-hidden">
-                    <div className="absolute top-0 inset-x-0 h-4 bg-gradient-to-r from-orange-500 via-orange-400 to-brand-blue"></div>
-                    <div className="container mx-auto px-6 xl:px-0 max-w-4xl relative z-10 text-center">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-brand-dark mb-6 tracking-tight">
-                            {t.titlePrefix} 
-                            <span className="relative inline-block mx-2">
-                                <span className="relative z-10 text-orange-500">{t.titleHighlight}</span>
-                                <svg className="absolute w-full h-3 -bottom-1 left-0 text-orange-200/60 -z-0" viewBox="0 0 100 10" preserveAspectRatio="none">
-                                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" strokeLinecap="round"/>
+                <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
+                    <div className="container mx-auto px-6 xl:px-0 max-w-5xl relative z-10 text-center">
+                        <span className="inline-flex items-center justify-center bg-[#FF9900]/10 text-[#FF9900] px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
+                            {t.badge}
+                        </span>
+                        <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
+                            {t.titlePrefix} <span className="text-orange-500 relative inline-block mx-2">
+                                {t.titleHighlight}
+                                <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-yellow z-[-1]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                   <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" opacity="0.6" />
                                 </svg>
-                            </span>
+                            </span><br className="hidden md:block" />
                             {t.titleSuffix.replace(/^:\s*/, '')}
                         </h1>
-                        <p className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed max-w-3xl mx-auto">
+                        <p className="text-xl md:text-2xl text-gray-600 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
                             {t.subtitle}
                         </p>
                     </div>
                 </section>
 
-                <section className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100 -mt-10 relative z-20">
-                    <div className="max-w-4xl mx-auto text-gray-800 text-lg leading-relaxed">
+                <section id="details" className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
+                    <div className="max-w-4xl mx-auto space-y-12 text-gray-800 text-lg leading-relaxed">
                         
                         {/* Seamless Delivery */}
                         <div className="bg-[#FF9900]/5 rounded-[40px] p-8 lg:p-12 mb-20 border border-[#FF9900]/10">
