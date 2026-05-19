@@ -325,11 +325,29 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 <p className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed">
                     {t.subtitle}
                 </p>
+                <div className="bg-gray-50 rounded-2xl p-4 md:p-6 mt-12 flex flex-col md:flex-row items-center justify-center gap-y-4 gap-x-2 text-sm font-medium flex-wrap max-w-4xl mx-auto">
+                    <span className="text-gray-500 mr-2">{t.jumpTo}</span>
+                    <button onClick={() => scrollToSection('sea-freight')} className="text-brand-blue hover:text-brand-dark transition-colors">1. {t.nav.seaFreight}</button>
+                    <span className="text-gray-300">•</span>
+                    <button onClick={() => scrollToSection('customs')} className="text-brand-blue hover:text-brand-dark transition-colors">2. {t.nav.customs}</button>
+                    <span className="text-gray-300">•</span>
+                    <button onClick={() => scrollToSection('tariffs')} className="text-brand-blue hover:text-brand-dark transition-colors">3. {t.nav.tariffs}</button>
+                    <span className="text-gray-300">•</span>
+                    <button onClick={() => scrollToSection('product-types')} className="text-brand-blue hover:text-brand-dark transition-colors">4. {t.nav.productTypes}</button>
+                    <span className="text-gray-300">•</span>
+                    <button onClick={() => scrollToSection('volumetric')} className="text-brand-blue hover:text-brand-dark transition-colors">5. {t.nav.volumetric}</button>
+                    <span className="text-gray-300">•</span>
+                    <button onClick={() => scrollToSection('ports')} className="text-brand-blue hover:text-brand-dark transition-colors">6. {t.nav.ports}</button>
+                    <span className="text-gray-300">•</span>
+                    <button onClick={() => scrollToSection('warehouse')} className="text-brand-blue hover:text-brand-dark transition-colors">7. {t.nav.warehouse}</button>
+                    <span className="text-gray-300">•</span>
+                    <button onClick={() => scrollToSection('insurance')} className="text-brand-blue hover:text-brand-dark transition-colors">8. {t.nav.insurance}</button>
+                </div>
             </div>
 
             <div className="mb-24">
                 {/* Section 1 */}
-                <div className="mb-16">
+                <div id="sea-freight" className="mb-16 scroll-mt-32">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">1</div>
                         <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec1.title.replace(/^\d+\.\s*/, '')}</h3>
@@ -347,7 +365,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 2 */}
-                <div className="mb-16">
+                <div id="customs" className="mb-16 scroll-mt-32">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">2</div>
                         <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec2.title.replace(/^\d+\.\s*/, '')}</h3>
@@ -365,7 +383,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 3 */}
-                <div className="mb-16">
+                <div id="tariffs" className="mb-16 scroll-mt-32">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">3</div>
                         <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec3.title.replace(/^\d+\.\s*/, '')}</h3>
@@ -391,7 +409,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 4 */}
-                <div className="mb-16">
+                <div id="product-types" className="mb-16 scroll-mt-32">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">4</div>
                         <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec4.title.replace(/^\d+\.\s*/, '')}</h3>
@@ -409,7 +427,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 5 */}
-                <div className="mb-16">
+                <div id="volumetric" className="mb-16 scroll-mt-32">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">5</div>
                         <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec5.title.replace(/^\d+\.\s*/, '')}</h3>
@@ -425,7 +443,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 6 */}
-                <div className="mb-16">
+                <div id="ports" className="mb-16 scroll-mt-32">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">6</div>
                         <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec6.title.replace(/^\d+\.\s*/, '')}</h3>
@@ -446,7 +464,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 7 */}
-                <div className="mb-16">
+                <div id="warehouse" className="mb-16 scroll-mt-32">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">7</div>
                         <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec7.title.replace(/^\d+\.\s*/, '')}</h3>
@@ -464,7 +482,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 </div>
 
                 {/* Section 8 */}
-                <div className="mb-16">
+                <div id="insurance" className="mb-16 scroll-mt-32">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-full bg-brand-light text-brand-blue font-black flex items-center justify-center flex-shrink-0 text-xl border border-brand-blue/20">8</div>
                         <h3 className="text-2xl font-bold text-brand-dark tracking-tight leading-tight">{t.sec8.title.replace(/^\d+\.\s*/, '')}</h3>
@@ -497,25 +515,23 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-gray-50 rounded-2xl p-4 mb-16 border border-gray-100 hidden md:block">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-medium">
+        <div className="max-w-4xl mx-auto bg-gray-50 rounded-2xl p-4 md:p-6 mb-16 flex flex-col md:flex-row items-center justify-center gap-y-4 gap-x-2 text-sm font-medium flex-wrap">
             <span className="text-gray-500 mr-2">{t.jumpTo}</span>
-            <button onClick={() => scrollToSection('sea-freight')} className="text-brand-blue hover:text-brand-dark transition-colors">{t.nav.seaFreight}</button>
+            <button onClick={() => scrollToSection('sea-freight')} className="text-brand-blue hover:text-brand-dark transition-colors">1. {t.nav.seaFreight}</button>
             <span className="text-gray-300">•</span>
-            <button onClick={() => scrollToSection('customs')} className="text-brand-blue hover:text-brand-dark transition-colors">{t.nav.customs}</button>
+            <button onClick={() => scrollToSection('customs')} className="text-brand-blue hover:text-brand-dark transition-colors">2. {t.nav.customs}</button>
             <span className="text-gray-300">•</span>
-            <button onClick={() => scrollToSection('tariffs')} className="text-brand-blue hover:text-brand-dark transition-colors">{t.nav.tariffs}</button>
+            <button onClick={() => scrollToSection('tariffs')} className="text-brand-blue hover:text-brand-dark transition-colors">3. {t.nav.tariffs}</button>
             <span className="text-gray-300">•</span>
-            <button onClick={() => scrollToSection('product-types')} className="text-brand-blue hover:text-brand-dark transition-colors">{t.nav.productTypes}</button>
+            <button onClick={() => scrollToSection('product-types')} className="text-brand-blue hover:text-brand-dark transition-colors">4. {t.nav.productTypes}</button>
             <span className="text-gray-300">•</span>
-            <button onClick={() => scrollToSection('volumetric')} className="text-brand-blue hover:text-brand-dark transition-colors">{t.nav.volumetric}</button>
+            <button onClick={() => scrollToSection('volumetric')} className="text-brand-blue hover:text-brand-dark transition-colors">5. {t.nav.volumetric}</button>
             <span className="text-gray-300">•</span>
-            <button onClick={() => scrollToSection('ports')} className="text-brand-blue hover:text-brand-dark transition-colors">{t.nav.ports}</button>
+            <button onClick={() => scrollToSection('ports')} className="text-brand-blue hover:text-brand-dark transition-colors">6. {t.nav.ports}</button>
             <span className="text-gray-300">•</span>
-            <button onClick={() => scrollToSection('warehouse')} className="text-brand-blue hover:text-brand-dark transition-colors">{t.nav.warehouse}</button>
+            <button onClick={() => scrollToSection('warehouse')} className="text-brand-blue hover:text-brand-dark transition-colors">7. {t.nav.warehouse}</button>
             <span className="text-gray-300">•</span>
-            <button onClick={() => scrollToSection('insurance')} className="text-brand-blue hover:text-brand-dark transition-colors">{t.nav.insurance}</button>
-          </div>
+            <button onClick={() => scrollToSection('insurance')} className="text-brand-blue hover:text-brand-dark transition-colors">8. {t.nav.insurance}</button>
         </div>
 
         <div className="max-w-5xl mx-auto space-y-16">

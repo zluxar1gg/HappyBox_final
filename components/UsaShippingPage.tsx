@@ -210,6 +210,8 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                     </div>
                 </section>
 
+
+
                 <section id="details" className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
                     <div className="max-w-4xl mx-auto text-gray-800 text-lg leading-relaxed">
                             
@@ -222,7 +224,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                             </div>
 
                             {/* Rates and Methods */}
-                            <div className="mb-24">
+                            <div id="rates" className="mb-24 scroll-mt-32">
                                 <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">
                                     {t.methodsTitle}
                                 </h2>
@@ -255,7 +257,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                             </div>
 
                             {/* FBA Section */}
-                            <div className="mb-24">
+                            <div id="features" className="mb-24 scroll-mt-32">
                                 <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">{t.fbaTitle}</h2>
                                 <p className="text-lg text-gray-700 leading-relaxed font-medium mb-12">{t.fbaText}</p>
                                 <div className="space-y-8">
@@ -301,20 +303,33 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
 
                             {/* Steps Container */}
                             <div className="mb-24">
-                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">
+                                <h3 className="text-2xl lg:text-3xl font-black text-gray-700 mb-16 text-center uppercase tracking-widest">
                                     {t.stepsTitle}
-                                </h2>
-                                <div className="space-y-8">
-                                    {t.steps.map((step, idx) => (
-                                        <div key={idx} className="flex items-center gap-4">
-                                            <div className="w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center font-bold relative z-10 shadow-sm shrink-0">
-                                                {idx + 1}
+                                </h3>
+                                <div className="relative">
+                                    <div className="hidden md:block absolute top-6 left-[12%] right-[12%] h-[2px] bg-gray-200 z-0" />
+                                    
+                                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                                        {t.steps.map((step, idx) => (
+                                            <div key={idx} className="text-center">
+                                                <div className="w-12 h-12 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 relative z-10">
+                                                    {idx + 1}
+                                                </div>
+                                                <p className="font-bold text-brand-dark text-base md:text-lg px-2 leading-tight max-w-[200px] mx-auto">
+                                                    {step}
+                                                </p>
                                             </div>
-                                            <p className="font-bold text-brand-dark text-lg leading-tight">
-                                                {step}
-                                            </p>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="text-center mt-12">
+                                    <button
+                                        onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
+                                        className="bg-[#2B9BCB] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#2080A8] transition-all shadow-lg active:scale-95 inline-flex items-center gap-3"
+                                    >
+                                        <Send size={24} />
+                                        {t.cta}
+                                    </button>
                                 </div>
                             </div>
 
@@ -360,25 +375,14 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                                 </a>
                             </div>
 
-                            <div className="pt-10 border-t border-gray-100">
+                            <div id="guide" className="pt-10 border-t border-gray-100 scroll-mt-32">
                                 <UsaAdvancedLogisticsGuide language={language} simplified />
-                            </div>
-
-                            {/* CTA */}
-                            <div className="text-center pt-16 pb-12">
-                                <button 
-                                    onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
-                                    className="bg-brand-dark text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-black transition-all shadow-lg active:scale-95 inline-flex items-center gap-3"
-                                >
-                                    <Send size={24} />
-                                    {t.cta}
-                                </button>
                             </div>
 
                         </div>
                 </section>
 
-                <div id="contacts">
+                <div id="contacts" className="scroll-mt-32">
                     <Contact language={language} currentPage="usa" />
                 </div>
                 

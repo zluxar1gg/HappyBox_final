@@ -80,7 +80,11 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
   };
 
   const handleBack = (fallbackPage: string, fallbackSectionId?: string) => {
-    handleNavigate(fallbackPage, fallbackSectionId, { isBack: true });
+    if (location.key !== 'default') {
+      navigate(-1);
+    } else {
+      handleNavigate(fallbackPage, fallbackSectionId, { isBack: true });
+    }
   };
 
   const handleNavigate = (targetPage: string, sectionId?: string, stateObj?: any) => {

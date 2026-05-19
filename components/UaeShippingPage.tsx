@@ -1,13 +1,8 @@
 
-import React, { useEffect } from 'react';
-import { Header } from './Header';
-import { Contact } from './Contact';
-import { Footer } from './Footer';
-import { SeoBlock } from './SeoBlock';
+import React from 'react';
 import { Language } from '../utils/translations';
-import { FloatingContact } from './FloatingContact';
-import { UaeAdvancedLogisticsGuide } from './UaeAdvancedLogisticsGuide';
-import { Check, ShieldCheck, Plane, Truck, Anchor, Zap, Box, Send, MapPin, ArrowRight, Camera, ShoppingBag, Globe } from 'lucide-react';
+import { DestinationTemplate, DestinationContent } from './DestinationTemplate';
+import { Check, ShieldCheck, Plane, Truck, Anchor, Box, Send, MapPin, ArrowRight, Camera, ShoppingBag, Globe } from 'lucide-react';
 
 interface UaeShippingPageProps {
   language: Language;
@@ -17,61 +12,58 @@ interface UaeShippingPageProps {
 }
 
 export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setLanguage, onBack, onNavigate }) => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
 
-    const content = {
+    const content: Record<'en' | 'ru', DestinationContent> = {
         en: {
             badge: "UAE Direct Line",
             titlePrefix: "Shipping from China to",
-            titleHighlight: "UAE & Dubai",
-            subtitle: <>Stop worrying about Dubai customs, import VAT, and supplier mistakes. We deliver from our Shenzhen warehouse to any emirate — all duties and taxes paid upfront, zero charges on delivery. No minimum weight requirement — we ship from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span>.</>,
+            titleHighlight: "UAE",
+            subtitle: <>Stop worrying about Dubai Customs, VAT registration, or supplier errors. We provide a seamless bridge between Chinese factories (or platforms like Poizon/1688) and your doorstep in the Emirates.</>,
             introTitle: "Your All-in-One Logistics Hub for the UAE",
-            introText: "Whether you are an e-commerce entrepreneur in Dubai, a business owner in Abu Dhabi, or a private shopper in Sharjah — HappyBox provides a specialized DDP service covering all seven emirates. We also handle re-export to the wider GCC region: Saudi Arabia, Qatar, Kuwait, Bahrain, and Oman. What this means for you: the price you pay includes all freight, customs clearance, UAE import duties, and VAT. No hidden fees, no surprise invoices from Aramex or DHL on delivery.",
+            introText: "Whether you are an e-commerce entrepreneur in Dubai, a business owner in Abu Dhabi, or a private shopper in Sharjah, HappyBox provides a specialized DDP (Delivered Duty Paid) service. The HappyBox Promise: The price you pay includes all freight, customs clearance, and UAE import duties/VAT. No hidden fees, no surprise invoices from Aramex or DHL upon delivery.",
             methodsTitle: "Our Shipping Methods & Rates",
             methods: [
                 {
                     icon: Plane,
-                    title: "Air Freight",
-                    tag: "Priority Delivery",
-                    desc: "Electronics, fashion, branded goods, and urgent restocks.",
+                    title: "Priority Air",
+                    tag: "Fast",
+                    desc: "Electronics, Fashion & Poizon Orders.",
                     price: "From $6/kg",
                     speed: "5–9 days",
-                    color: "bg-blue-50 text-brand-blue"
+                    color: "bg-blue-100 text-blue-600"
                 },
                 {
                     icon: Anchor,
                     title: "Sea Freight",
-                    tag: "Maximum Savings",
-                    desc: "Bulk stock, furniture, heavy goods, and commercial inventory.",
+                    tag: "Economical",
+                    desc: "Bulk Stock, Furniture & Heavy Goods.",
                     price: "From $0.8/kg",
                     speed: "25–35 days",
-                    color: "bg-teal-50 text-teal-600"
+                    color: "bg-teal-100 text-teal-600"
                 }
             ],
-            whyTitle: "HappyBox: Your Local Office in Shenzhen",
-            whyIntro: "We act as your eyes and ears in China so you never need to fly there.",
+            whyTitle: "Why UAE Importers Choose HappyBox",
+            whyIntro: "We act as your local office in Shenzhen, ensuring your business runs smoothly without you ever needing to fly to China:",
             benefits: [
                 {
-                    icon: ShoppingBag,
-                    title: "Expertise in Branded Goods",
-                    desc: "We specialize in handling luxury sneakers and apparel from Poizon (Dewu). Original brand boxes are double-boxed and protected — Nike, Yeezy, or LV packaging arrives intact."
+                    icon: Box,
+                    title: "Expertise in Brands (Poizon/Dewu)",
+                    desc: "We are specialists in handling luxury sneakers and apparel. We ensure authentic packaging is preserved and extra protection is added for the journey to the UAE."
                 },
                 {
-                    icon: Box,
+                    icon: ShoppingBag,
                     title: "Order Consolidation",
-                    desc: "Buy from multiple suppliers on 1688, Taobao, or Alibaba. We collect everything at our Shenzhen warehouse and ship as one consolidated cargo — one bill, one customs entry."
+                    desc: "Buying from multiple 1688 sellers or Taobao? We combine everything into one shipment at our Shenzhen warehouse to minimize your \"first-mile\" costs."
                 },
                 {
                     icon: ShieldCheck,
                     title: "Strict Quality Inspection",
-                    desc: "We provide high-resolution photos and videos before anything leaves China. If it's defective, it goes back to the factory — not on a plane to Dubai."
+                    desc: "We provide high-resolution photos and videos. Don't find out your goods are wrong when they are already in Dubai."
                 },
                 {
-                    icon: MapPin,
-                    title: "Door-to-Door to All Emirates",
-                    desc: "From our Shenzhen warehouse to your address in Dubai, Abu Dhabi, Sharjah, Ajman, Fujairah, or Ras Al Khaimah — via trusted local delivery partners."
+                    icon: Truck,
+                    title: "Nationwide Door-to-Door Delivery",
+                    desc: "From our warehouse in Guangdong to any address in the UAE, including Ajman, Fujairah, and Ras Al Khaimah."
                 }
             ],
             fearsTitle: "Solving Your Biggest Importing Fears",
@@ -94,31 +86,124 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                 {
                     title: "Shipping Poizon (Dewu) items to Dubai?",
                     desc: "We specialize in branded goods from Poizon — careful double-box packaging, authenticity-safe handling, and fast air delivery to UAE.",
-                    link: "/poizon", // Using whatever logic exists
-                    action: "Learn More"
+                    link: "poizon", 
+                    action: "Learn More",
+                    isPrimary: true
                 },
                 {
                     title: "Need to ship onward to Saudi Arabia, Qatar, or Kuwait?",
                     desc: "We handle GCC re-export from Dubai. Ask us about cross-border routing to the wider Gulf region.",
-                    link: "#gcc", // Can just link to GCC section
-                    action: "Learn More"
+                    link: "#guide", 
+                    action: "Learn More",
+                    isPrimary: false
                 }
-            ]
+            ],
+            guide: {
+                title: "China to UAE Shipping Guide 2026: Costs, Customs & Jebel Ali Operations",
+                subtitle: "The UAE is a global logistics crossroad. To maintain a competitive edge, importers must understand the technical nuances of the China-UAE route, from volumetric calculations to Federal Customs Authority (FCA) compliance.",
+                jumpTo: "Jump to chapter:",
+                nav: {
+                    "uae-sec1": "Jebel Ali Gateway",
+                    "uae-sec2": "Customs Optimization",
+                    "uae-sec3": "Shipping by Product Type",
+                    "uae-sec4": "Calculating Volumetric Weight",
+                    "uae-sec5": "US/EU vs. UAE Logistics",
+                    "uae-sec6": "The Shenzhen-to-Dubai Workflow",
+                    "uae-sec7": "Risk Mitigation"
+                },
+                sections: [
+                    {
+                        id: "uae-sec1",
+                        title: "1. Strategic Sea Freight: The Jebel Ali Gateway",
+                        desc: "Most sea freight from China enters the UAE through Jebel Ali (Port of Dubai), the largest man-made harbor in the world.",
+                        items: [
+                            { label: "LCL (Less than Container Load)", text: "Perfect for small businesses. We consolidate your cargo with others. You pay only for the volume (CBM) you occupy." },
+                            { label: "FCL (Full Container Load)", text: "For large inventory runs. Direct sailings from Shekou or Yantian (Shenzhen) to Jebel Ali typically take 18–22 days on the water." },
+                            { label: "Transhipment Hubs", text: "We utilize Dubai’s position as a hub. If you are re-exporting to Saudi Arabia or Oman, we can facilitate the transit via Dubai Free Zones." }
+                        ],
+                        listStyle: "bullets"
+                    },
+                    {
+                        id: "uae-sec2",
+                        title: "2. Customs Optimization: VAT & Duties in the Emirates",
+                        desc: "While the UAE is known for being business-friendly, customs compliance is strictly enforced by the FCA.",
+                        items: [
+                            { label: "Customs Duty", text: "Generally 5% on the CIF value of most goods." },
+                            { label: "Value Added Tax (VAT)", text: "A standard rate of 5% applies to the import of goods." },
+                            { label: "Excise Tax", text: "Be aware that \"sin taxes\" (carbonated drinks, sweetened beverages, electronic smoking devices) carry high excise rates (50%–100%)." },
+                            { label: "DDP Advantage", text: "Our DDP service handles the Customs Declaration and payment of all taxes upfront. You do not need to register for a UAE Tax Registration Number (TRN) to import with us." }
+                        ],
+                        listStyle: "bullets"
+                    },
+                    {
+                        id: "uae-sec3",
+                        title: "3. Shipping by Product Type: UAE Market Specifics",
+                        desc: "The UAE market has unique demands that affect logistics packaging and documentation.",
+                        items: [
+                            { label: "Luxury & Sneakers (Poizon/Dewu)", text: "High demand in Dubai requires \"Double-Box\" protection. We ensure that original brand boxes (Nike, Yeezy, LV) are not crushed during air transit." },
+                            { label: "Electronics & Mobile Accessories", text: "Shenzhen is the world's hub for tech. We handle Lithium Battery (UN38.3) compliance and ensure all power adapters meet UAE plug standards (Type G)." },
+                            { label: "Furniture & Home Decor", text: "Often shipped from Foshan (near Shenzhen). We provide professional crating for fragile items like marble or glass to withstand sea freight vibrations." },
+                            { label: "Cosmetics & Beauty", text: "Requires MOIAT (Ministry of Industry and Advanced Technology) or Dubai Municipality approval for commercial lots. We flag these requirements at the quoting stage." }
+                        ],
+                        listStyle: "bullets"
+                    },
+                    {
+                        id: "uae-sec4",
+                        title: "4. Calculating Volumetric Weight (Air Freight)",
+                        desc: "In air logistics, space is as valuable as weight. Your billable weight is determined by the greater of the two.\n\nThe Formula:\nLength (cm) × Width (cm) × Height (cm) / 6000 = Volumetric Weight (kg)\n\nExample: A lightweight but large box of 50x50x50 cm will be charged as 20.8 kg, even if it only weighs 5 kg."
+                    },
+                    {
+                        id: "uae-sec5",
+                        title: "5. US/EU vs. UAE Logistics: Key Differences",
+                        items: [
+                            { label: "Speed", text: "Clearance in Dubai is often faster than in Los Angeles or Rotterdam, provided the paperwork is perfect." },
+                            { label: "Last-Mile", text: "Delivery in the UAE relies heavily on mobile-based location sharing. Our local partners are experts in finding \"no-address\" locations in newer villa communities." }
+                        ],
+                        listStyle: "bullets"
+                    },
+                    {
+                        id: "uae-sec6",
+                        title: "6. The Shenzhen-to-Dubai Workflow",
+                        items: [
+                            { label: "1. Incoming QC", text: "Goods arrive at our Bao'an warehouse. We check for \"Made in China\" labels—mandatory for UAE customs." },
+                            { label: "2. Repacking", text: "We remove unnecessary factory packaging to reduce volumetric weight and save you money." },
+                            { label: "3. Export Clearance", text: "We handle the Chinese Customs export filing." },
+                            { label: "4. Final Mile", text: "Once cleared in Dubai, your cargo is dispatched via local courier or truck directly to your location." }
+                        ],
+                        listStyle: "none"
+                    },
+                    {
+                        id: "uae-sec7",
+                        title: "7. Risk Mitigation: All-Risk Insurance",
+                        desc: "Given the heat and humidity of the Middle East, we recommend All-Risk Insurance for sea freight. This covers:",
+                        items: [
+                            { label: "Damage from extreme temperatures during port dwell time." },
+                            { label: "Theft or non-delivery." },
+                            { label: "General Average (Maritime Law) protection." }
+                        ],
+                        listStyle: "bullets"
+                    }
+                ],
+                verdict: {
+                    title: "The HappyBox Verdict",
+                    desc: "Succeeding in the UAE market requires a logistics partner who understands both Shenzhen supply chains and Jebel Ali customs. Let us handle the complexities so you can focus on growing your business in the Emirates."
+                }
+            }
         },
         ru: {
             badge: "Прямая линия в ОАЭ",
             titlePrefix: "Доставка из Китая в",
-            titleHighlight: "ОАЭ и Дубай: DDP сервис",
-            subtitle: <>Забудьте о сложностях с таможней Дубая, импортным НДС и ошибках поставщиков. Мы доставляем грузы с нашего склада в Шэньчжэне в любой эмират: все пошлины и налоги оплачены заранее, никаких доплат при получении. Нет минимального веса — доставляем от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span>.</>,
+            titleHighlight: "ОАЭ",
+            subtitle: <>Забудьте о сложностях с таможней Дубая, регистрацией НДС и ошибках поставщиков. Мы обеспечиваем надежный мост между китайскими фабриками (или платформами вроде Poizon/1688) и вашей дверью в Эмиратах.</>,
             introTitle: "Ваш единый логистический хаб в ОАЭ",
-            introText: "Работаете ли вы в сфере e-commerce в Дубае, владеете бизнесом в Абу-Даби или заказываете товары для себя в Шардже — HappyBox обеспечит надежный сервис DDP во всех семи эмиратах. Мы также берем на себя реэкспорт в страны Персидского залива (GCC): Саудовскую Аравию, Катар, Кувейт, Бахрейн и Оман. Для вас это значит: цена, которую вы платите, уже включает фрахт, растаможку, импортные пошлины ОАЭ и НДС. Никаких скрытых платежей и внезапных счетов от Aramex или DHL при доставке.",
+            introText: "Работаете ли вы в сфере e-commerce в Дубае, владеете бизнесом в Абу-Даби или заказываете для себя в Шардже — HappyBox предоставляет специализированный DDP сервис. Цена, которую вы платите, уже включает фрахт, растаможку, импортные пошлины ОАЭ и НДС. Никаких скрытых платежей и внезапных счетов от Aramex или DHL при доставке.",
             methodsTitle: "Методы доставки и тарифы",
             methods: [
                 {
                     icon: Plane,
-                    title: "Авиафрахт",
-                    tag: "Приоритетная доставка",
-                    desc: "Электроника, мода, брендовые товары и срочное пополнение стока.",
+                    title: "Приоритетное Авиа",
+                    tag: "Быстро",
+                    desc: "Электроника, мода, брендовые товары и заказы с Poizon.",
                     price: "От $6/кг",
                     speed: "5–9 дней",
                     color: "bg-blue-50 text-brand-blue"
@@ -126,35 +211,35 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                 {
                     icon: Anchor,
                     title: "Морские перевозки",
-                    tag: "Максимальная экономия",
+                    tag: "Экономно",
                     desc: "Оптовые партии, мебель, тяжелые грузы и коммерческие запасы.",
                     price: "От $0.8/кг",
                     speed: "25–35 дней",
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "HappyBox: Ваш офис в Шэньчжэне",
-            whyIntro: "Мы станем вашими глазами и ушами в Китае. Вам больше не нужно летать туда лично для контроля.",
+            whyTitle: "Почему импортеры в ОАЭ выбирают HappyBox",
+            whyIntro: "Мы работаем как ваш локальный офис в Шэньчжэне, обеспечивая бесперебойную работу без необходимости летать в Китай:",
             benefits: [
                 {
-                    icon: ShoppingBag,
-                    title: "Экспертиза в брендовых товарах",
-                    desc: "Мы специализируемся на доставке люксовых кроссовок и одежды с Poizon (Dewu). Оригинальные коробки упаковываются в дополнительный защитный слой — упаковка Nike, Yeezy или LV приедет в идеальном состоянии."
+                    icon: Box,
+                    title: "Экспертиза в брендовых товарах (Poizon/Dewu)",
+                    desc: "Мы специализируемся на доставке люксовых кроссовок и одежды с Poizon. Оригинальные коробки упаковываются в дополнительный защитный слой — упаковка сохранна для ОАЭ."
                 },
                 {
-                    icon: Box,
+                    icon: ShoppingBag,
                     title: "Консолидация заказов",
-                    desc: "Покупайте у разных поставщиков на 1688, Taobao или Alibaba. Мы соберем всё на нашем складе в Шэньчжэне и отправим единым грузом: один счет, одна таможенная декларация."
+                    desc: "Покупаете у нескольких продавцов на 1688 или Taobao? Мы объединяем всё в одну посылку на нашем складе в Шэньчжэне, чтобы снизить ваши затраты на «первую милю»."
                 },
                 {
                     icon: ShieldCheck,
                     title: "Строгий контроль качества",
-                    desc: "Делаем фото и видео в высоком разрешении до того, как товар покинет Китай. Если есть брак — товар возвращается на завод, а не летит в Дубай."
+                    desc: "Делаем фото и видео в высоком разрешении до того, как товар покинет Китай. Не нужно узнавать, что товар с браком, уже в Дубае."
                 },
                 {
                     icon: MapPin,
-                    title: "Доставка «до двери» по всем Эмиратам",
-                    desc: "От склада в Шэньчжэне до вашего адреса в Дубае, Абу-Даби, Шардже, Аджмане, Фуджейре или Рас-эль-Хайме через проверенных локальных партнеров."
+                    title: "Доставка до двери по всем Эмиратам",
+                    desc: "От склада в Шэньчжэне до вашего адреса в Дубае, Абу-Даби, Шардже, Аджмане, Фуджейре или Рас-эль-Хайме."
                 }
             ],
             fearsTitle: "Решаем главные проблемы импорта",
@@ -177,214 +262,121 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                 {
                     title: "Доставляете товары с Poizon (Dewu) в Дубай?",
                     desc: "Мы профи в работе с брендами: двойная упаковка, бережное обращение и быстрая авиадоставка в ОАЭ.",
-                    link: "#", // will redirect appropriately 
-                    action: "Подробнее →"
+                    link: "poizon", 
+                    action: "Подробнее",
+                    isPrimary: true
                 },
                 {
                     title: "Нужен реэкспорт в Саудовскую Аравию, Катар или Кувейт?",
                     desc: "Мы занимаемся отправкой из Дубая по всему региону. Спросите нас о кросс-бордер маршрутах в страны Залива.",
-                    link: "#gcc",
-                    action: "Подробнее →"
+                    link: "#guide",
+                    action: "Подробнее",
+                    isPrimary: false
                 }
-            ]
+            ],
+            guide: {
+                title: "Гид по доставке из Китая в ОАЭ 2026: Цены, таможня и порт Джэбель-Али",
+                subtitle: "ОАЭ — это глобальный логистический перекресток. Для сохранения конкурентного преимущества импортеры должны понимать технические нюансы маршрута Китай-ОАЭ: от расчетов объемного веса до требований Федеральной таможенной службы (FCA).",
+                jumpTo: "Перейти к:",
+                nav: {
+                    "uae-sec1": "Порт Джэбель-Али",
+                    "uae-sec2": "Оптимизация таможни",
+                    "uae-sec3": "Типы товаров",
+                    "uae-sec4": "Объемный вес",
+                    "uae-sec5": "США/ЕС vs. ОАЭ",
+                    "uae-sec6": "Складской цикл",
+                    "uae-sec7": "Страхование рисков"
+                },
+                sections: [
+                    {
+                        id: "uae-sec1",
+                        title: "1. Стратегический морской фрахт: Ворота Джэбель-Али",
+                        desc: "Большая часть морских грузов из Китая поступает в ОАЭ через Джэбель-Али (порт Дубая) — крупнейшую искусственную гавань в мире.",
+                        items: [
+                            { label: "LCL (Сборный груз)", text: "Идеально для малого бизнеса. Мы объединяем ваш груз с другими. Вы платите только за реальный объем (CBM)." },
+                            { label: "FCL (Полный контейнер)", text: "Для крупных партий. Прямые рейсы из Шэкоу или Яньтяня (Шэньчжэнь) в Джэбель-Али обычно занимают 18–22 дня." },
+                            { label: "Транзитные хабы", text: "Мы используем Дубай как хаб. Если вы реэкспортируете в Саудовскую Аравию или Оман, мы организуем транзит через свободные зоны Дубая." }
+                        ],
+                        listStyle: "bullets"
+                    },
+                    {
+                        id: "uae-sec2",
+                        title: "2. Оптимизация таможни: НДС и пошлины в Эмиратах",
+                        desc: "Хотя ОАЭ славится благоприятными условиями для бизнеса, соблюдение таможенных правил строго проверяется FCA.",
+                        items: [
+                            { label: "Таможенная пошлина", text: "Обычно составляет 5% от стоимости CIF для большинства товаров." },
+                            { label: "НДС (VAT)", text: "Стандартная ставка 5% применяется при импорте товаров." },
+                            { label: "Акцизный налог", text: "Имейте в виду, что \"налоги на грех\" (сладкие напитки, электронные сигареты) облагаются высокими акцизами (50%–100%)." },
+                            { label: "Преимущество DDP", text: "Наш сервис DDP берет на себя оформление таможенной декларации и предварительную оплату всех налогов. Вам не нужно регистрировать налоговый номер (TRN) ОАЭ." }
+                        ],
+                        listStyle: "bullets"
+                    },
+                    {
+                        id: "uae-sec3",
+                        title: "3. Специфика доставки ОАЭ: по типу товаров",
+                        desc: "Рынок ОАЭ имеет уникальные требования к логистической упаковке и сертификации.",
+                        items: [
+                            { label: "Кроссовки и обувь (Poizon/Dewu)", text: "Высокий спрос требует защиты Double-Box. Обувь брендов (Nike, Yeezy, LV) не будет повреждена во время транспортировки." },
+                            { label: "Электроника и аксессуары", text: "Шэньчжэнь — мировая столица электроники. Мы соблюдаем правила перевозки батарей (UN38.3) и следим, чтобы вилки подходили для ОАЭ (Type G)." },
+                            { label: "Мебель и декор", text: "Часто из Фошаня. Мы применяем профессиональную обрешетку (мрамор, стекло), чтобы они выдержали вибрации на море." },
+                            { label: "Косметика и бьюти", text: "Требуют одобрения MOIAT или Муниципалитета Дубая. Мы определяем эти требования еще до отправки." }
+                        ],
+                        listStyle: "bullets"
+                    },
+                    {
+                        id: "uae-sec4",
+                        title: "4. Расчет объемного веса (Авиа)",
+                        desc: "В авиалогистике пространство так же ценно, как и вес. Оплачиваемый вес определяется по наибольшему из двух.\n\nФормула:\nДлина (см) × Ширина (см) × Высота (см) / 6000 = Объемный вес (кг)\n\nПример: Легкая коробка размером 50x50x50 см будет оценена как 20.8 кг, даже если она весит всего 5 кг."
+                    },
+                    {
+                        id: "uae-sec5",
+                        title: "5. Ключевые отличия логистики: США/ЕС против ОАЭ",
+                        items: [
+                            { label: "Скорость", text: "Оформление в Дубае часто быстрее, чем в Лос-Анджелесе или Роттердаме (если бумажная работа выполнена безупречно)." },
+                            { label: "Последняя миля", text: "Доставка в ОАЭ сильно зависит от геолокации. Наши локальные партнеры умеют находить «адреса без улиц» в комплексах вилл." }
+                        ],
+                        listStyle: "bullets"
+                    },
+                    {
+                        id: "uae-sec6",
+                        title: "6. Алгоритм Шэньчжэнь-Дубай",
+                        items: [
+                            { label: "1. Входящий контроль (QC)", text: "Товары приходят на наш склад в Баоань. Мы проверяем маркировку \"Made in China\" (обязательно для таможни ОАЭ)." },
+                            { label: "2. Переупаковка", text: "Мы избавляемся от лишней заводской упаковки, чтобы уменьшить объемный вес." },
+                            { label: "3. Экспортная очистка", text: "Мы занимаемся китайской экспортной декларацией." },
+                            { label: "4. Последняя миля", text: "После растаможки в Дубае груз направляется в ваш адрес с помощью местного курьера или грузового авто." }
+                        ],
+                        listStyle: "none"
+                    },
+                    {
+                        id: "uae-sec7",
+                        title: "7. Снижение рисков: Полная страховка (All-Risk Insurance)",
+                        desc: "Из-за жары и влажности Ближнего Востока мы рекомендуем вариант страховки All-Risk для морских перевозок. Она покрывает:",
+                        items: [
+                            { label: "Повреждения из-за экстремальной температуры во время простоя в порту." },
+                            { label: "Кражу или недоставку товара." },
+                            { label: "Защиту в случае «общей аварии» (Морское Право)." }
+                        ],
+                        listStyle: "bullets"
+                    }
+                ],
+                verdict: {
+                    title: "Вердикт HappyBox",
+                    desc: "Успех на рынке ОАЭ требует партнера по логистике, который отлично разбирается в цепях поставок из Шэньчжэня и в таможне Джебель-Али. Предоставьте все сложности нам, а сами сосредоточьтесь на расширении вашего бизнеса в Эмиратах."
+                }
+            }
         }
     };
 
-    const t = content[language] || content.en;
-
     return (
-        <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
-            <Header
-                language={language}
-                setLanguage={setLanguage} 
-                onLoginClick={() => {}}
-                isDashboard={false}
-                onBack={onBack}
-            />
+        <DestinationTemplate 
+            language={language}
+            setLanguage={setLanguage}
+            onBack={onBack}
+            onNavigate={onNavigate}
+            content={content}
+        />
+    );
+};
 
-            <main>
-                {/* Hero */}
-                <section className="py-12 lg:py-24 bg-cream">
-                    <div className="container mx-auto px-6 xl:px-0">
-                         <div className="max-w-5xl mx-auto text-center">
-                            <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
-                                {t.badge}
-                            </span>
-                            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
-                                {t.titlePrefix} <span className="text-brand-blue relative inline-block">
-                                    {t.titleHighlight}
-                                    <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-yellow z-[-1]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                                       <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" opacity="0.6" />
-                                    </svg>
-                                </span>
-                            </h1>
-                            <p className="text-xl text-gray-600 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
-                                {t.subtitle}
-                            </p>
-                         </div>
-                    </div>
-                </section>
-
-                {/* Intro & Methods Block */}
-                <section id="details" className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
-                    <div className="max-w-4xl mx-auto text-gray-800 text-lg leading-relaxed">
-                        <div className="mb-24">
-                            <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight">{t.introTitle}</h2>
-                            <p className="text-lg text-gray-700 leading-relaxed font-medium">
-                                {t.introText}
-                            </p>
-                        </div>
-
-                        {/* Rate Cards */}
-                        <div className="mb-24">
-                            <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">
-                                {t.methodsTitle}
-                            </h2>
-                            <div className="grid md:grid-cols-2 gap-8">
-                                {t.methods.map((method, idx) => (
-                            <div key={idx} className="bg-white rounded-[30px] p-6 border-2 border-gray-100 hover:border-brand-blue/30 transition-all hover:-translate-y-1 shadow-sm flex flex-col">
-                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${method.color}`}>
-                                    <method.icon size={28} />
-                                </div>
-                                <div className="flex justify-between items-start mb-2">
-                                    <h4 className="font-bold text-xl text-brand-dark">{method.title}</h4>
-                                    <span className="text-[10px] font-black uppercase bg-gray-100 px-2 py-1 rounded-md text-gray-500 tracking-wider">{method.tag}</span>
-                                </div>
-                                <p className="text-sm text-gray-500 font-medium mb-6 flex-grow leading-relaxed">
-                                    {method.desc}
-                                </p>
-                                <div className="mt-auto pt-6 border-t border-gray-50">
-                                    <div className="flex justify-between items-center mb-2">
-                                        <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Price' : 'Цена'}</span>
-                                        <span className="text-xl font-black text-brand-dark">{method.price}</span>
-                                    </div>
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Time' : 'Срок'}</span>
-                                        <span className="font-bold text-brand-blue">{method.speed}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                            </div>
-                        </div>
-
-                            {/* Why Choose Block (Your Local Office) */}
-                            <div className="mb-24">
-                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">{t.whyTitle}</h2>
-                                <p className="text-lg text-gray-700 leading-relaxed font-medium mb-12">{t.whyIntro}</p>
-                                <div className="space-y-8">
-                                    {t.benefits.map((benefit, idx) => (
-                                        <div key={idx} className="flex gap-5 items-start">
-                                            <div className="w-12 h-12 rounded-full bg-brand-light flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm mt-1">
-                                                <benefit.icon size={24} />
-                                            </div>
-                                            <div>
-                                                <h4 className="font-bold text-lg text-brand-dark mb-2">{benefit.title}</h4>
-                                                <p className="text-gray-600 font-medium leading-relaxed">{benefit.desc}</p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Fears Container */}
-                            <div className="mb-24 bg-brand-light/30 p-8 sm:p-12 rounded-[40px] border border-brand-blue/10">
-                                 <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-12 tracking-tight">{t.fearsTitle}</h2>
-                                 <div className="space-y-8">
-                                    {t.fearsList.map((f, idx) => (
-                                        <div key={idx}>
-                                            <h4 className="font-bold text-xl text-brand-dark mb-2">Q: {f.q}</h4>
-                                            <p className="text-gray-700 leading-relaxed font-medium"><strong>A:</strong> {f.a}</p>
-                                        </div>
-                                    ))}
-                                 </div>
-                            </div>
-
-                            {/* How to Start (Steps) */}
-                            <div className="mb-24">
-                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">
-                                    {t.stepsTitle}
-                                </h2>
-                                <div className="space-y-8">
-                                    {t.steps.map((step, idx) => (
-                                        <div key={idx} className="flex items-center gap-4">
-                                            <div className="w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center font-bold relative z-10 shadow-sm shrink-0">
-                                                {idx + 1}
-                                            </div>
-                                            <p className="font-bold text-brand-dark text-lg leading-tight">
-                                                {step}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Banners Container */}
-                            <div className="pt-12 border-t border-gray-100 mb-24 space-y-6">
-                                <a href={language === 'ru' ? '/ru/poizon' : '/poizon'} className="block w-full bg-gray-50 border border-gray-200 rounded-3xl p-6 sm:p-8 hover:bg-orange-50 hover:border-orange-200 transition-colors group cursor-pointer">
-                                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                                        <div className="text-center sm:text-left">
-                                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-brand-dark mb-2 leading-tight">
-                                                {t.crossPromo[0].title.split('?')[0]}?
-                                            </h4>
-                                            <p className="text-gray-600 font-medium">
-                                                {t.crossPromo[0].desc}
-                                            </p>
-                                        </div>
-                                        <div className="flex-shrink-0">
-                                            <span className="inline-flex items-center gap-2 bg-[#FF9900] text-white font-bold py-3 px-6 rounded-2xl group-hover:bg-[#e68a00] transition-colors shadow-sm">
-                                                {t.crossPromo[0].action.replace(' →', '')}
-                                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a href="#gcc" onClick={(e) => { e.preventDefault(); document.getElementById('gcc')?.scrollIntoView({ behavior: 'smooth' }) }} className="block w-full bg-brand-dark border border-gray-800 rounded-3xl p-6 sm:p-8 hover:border-brand-blue transition-colors group cursor-pointer">
-                                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                                        <div className="text-center sm:text-left">
-                                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-white mb-2 leading-tight">
-                                                {t.crossPromo[1].title.split('?')[0]}?
-                                            </h4>
-                                            <p className="text-gray-400 font-medium">
-                                                {t.crossPromo[1].desc}
-                                            </p>
-                                        </div>
-                                        <div className="flex-shrink-0">
-                                            <span className="inline-flex items-center gap-2 bg-brand-blue text-white font-bold py-3 px-6 rounded-2xl group-hover:bg-blue-600 transition-colors shadow-sm">
-                                                {t.crossPromo[1].action.replace(' →', '')}
-                                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div className="pt-10 border-t border-gray-100">
-                                <UaeAdvancedLogisticsGuide language={language} simplified />
-                            </div>
-
-                            {/* CTA */}
-                            <div className="text-center pt-16 pb-12">
-                                <button 
-                                    onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
-                                    className="bg-brand-dark text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-black transition-all shadow-lg active:scale-95 inline-flex items-center gap-3"
-                                >
-                                    <Send size={24} />
-                                    {t.cta}
-                                </button>
-                            </div>
-                        </div>
-                    </section>
-                    <div id="contacts">
-                        <Contact language={language} currentPage="uae" />
-                    </div>
-                
-                <SeoBlock language={language} onNavigate={onNavigate || (() => {})} currentPage="uae" />
-                <Footer language={language} />
-                <FloatingContact />
-            </main>
-        </div>
-    )
-}
 
