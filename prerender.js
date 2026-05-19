@@ -10,7 +10,10 @@ const routesToPrerender = [
   '/uae', '/ru/uae',
   '/eu', '/ru/eu',
   '/russia', '/ru/russia',
+  '/canada', '/ru/canada',
+  '/destinations', '/ru/destinations',
   '/taobao', '/ru/taobao',
+  '/alibaba', '/ru/alibaba',
   '/1688', '/ru/1688',
   '/poizon', '/ru/poizon',
   '/tmall', '/ru/tmall',
@@ -18,8 +21,17 @@ const routesToPrerender = [
   '/weidian', '/ru/weidian',
   '/xianyu', '/ru/xianyu',
   '/amazon', '/ru/amazon',
+  '/amazon-canada', '/ru/amazon-canada',
   '/inspection', '/ru/inspection',
-  '/warehousing', '/ru/warehousing'
+  '/warehousing', '/ru/warehousing',
+  '/blog', '/ru/blog',
+  '/thailand', '/ru/thailand',
+  '/indonesia', '/ru/indonesia',
+  '/argentina', '/ru/argentina',
+  '/south-africa', '/ru/south-africa',
+  '/georgia', '/ru/georgia',
+  '/israel', '/ru/israel',
+  '/australia', '/ru/australia'
 ];
 
 const seoData = {
@@ -134,6 +146,102 @@ const seoData = {
   '/ru/warehousing': {
     title: 'Бесплатный склад и консолидация посылок в Китае | HappyBox',
     description: 'Экономьте на доставке с услугами нашего склада. Бесплатное хранение, проверка, переупаковка и объединение ваших заказов в одну посылку. Пользуйтесь бесплатно!'
+  },
+  '/canada': {
+    title: 'Shipping from China to Canada | DDP Delivery | HappyBox Logistics',
+    description: 'Reliable air and sea shipping from China to Canada. Get competitive DDP rates and fast delivery. Request a free quote today!'
+  },
+  '/ru/canada': {
+    title: 'Доставка из Китая в Канаду: Карго DDP под ключ | HappyBox',
+    description: 'Надежное карго из Китая в Канаду. Море и авиадоставка по системе DDP. Без пошлин и скрытых комиссий. Узнайте тарифы!'
+  },
+  '/amazon-canada': {
+    title: 'Amazon FBA Prep Center in China | DDP Shipping to Canada | HappyBox Logistics',
+    description: 'Full-service Amazon FBA prep in China: labeling, bundling, and quality inspection. Direct DDP shipping to Amazon warehouses in Canada. Grow your FBA business!'
+  },
+  '/ru/amazon-canada': {
+    title: 'Преп-центр в Китае: Доставка на Amazon FBA Канада | HappyBox',
+    description: 'Услуги преп-центра для селлеров Amazon. Маркировка, проверка и прямая DDP доставка на склады Амазон в Канаде. Оптимизируйте свою логистику!'
+  },
+  '/destinations': {
+    title: 'Global Shipping Destinations from China | HappyBox Logistics',
+    description: 'Explore our comprehensive sea, air, and train shipping routes from China to North America, Europe, Middle East, and beyond. Find your destination here.'
+  },
+  '/ru/destinations': {
+    title: 'Направления доставки грузов из Китая | Карго HappyBox',
+    description: 'Изучите наши маршруты доставки грузов: море, авиа, Ж/Д авто из Китая в Северную Америку, Европу, страны СНГ и Ближний Восток.'
+  },
+  '/alibaba': {
+    title: 'Alibaba Sourcing Agent: Buy Wholesale Securely | HappyBox Logistics',
+    description: 'Trusted Alibaba sourcing agent. We help you negotiate, audit suppliers, inspect quality, and ship worldwide. Source from China safely and efficiently.'
+  },
+  '/ru/alibaba': {
+    title: 'Посредник Alibaba: Оптовые закупки из Китая под ключ | HappyBox',
+    description: 'Надежный агент для работы с Алибаба. Поможем найти поставщиков, провести переговоры, проверить качество на фабрике и доставить груз.'
+  },
+  '/blog': {
+    title: 'Blog & Logistics News from China | HappyBox Logistics',
+    description: 'Read the latest updates, guides, and tips on shipping from China, sourcing, platform buying (Taobao, 1688, Poizon), and global logistics.'
+  },
+  '/ru/blog': {
+    title: 'Блог и новости логистики Китая | HappyBox',
+    description: 'Читайте последние новости, гайды и советы по доставке из Китая, выкупу с Taobao/1688/Poizon и глобальной логистике.'
+  },
+  '/thailand': {
+    title: 'Shipping from China to Thailand | Air & Sea Freight | HappyBox Logistics',
+    description: 'Reliable freight forwarding from China to Thailand. Competitive rates for import businesses and individuals. Get your shipping quote!'
+  },
+  '/ru/thailand': {
+    title: 'Доставка из Китая в Таиланд: Авиа и Море | Карго HappyBox',
+    description: 'Надежная доставка грузов из Китая в Таиланд (Бангкок, Пхукет, Паттайя). Удобная логистика для бизнеса и частных лиц.'
+  },
+  '/indonesia': {
+    title: 'Shipping from China to Indonesia | Freight Forwarder | HappyBox Logistics',
+    description: 'Professional shipping services from China to Indonesia. Seamless logistics for your business imports. Request a quote.'
+  },
+  '/ru/indonesia': {
+    title: 'Доставка из Китая в Индонезию | Карго HappyBox',
+    description: 'Профессиональная доставка грузов из Китая в Индонезию (Джакарта, Бали). Таможенное оформление и надежная логистика.'
+  },
+  '/argentina': {
+    title: 'Shipping from China to Argentina | HappyBox Logistics',
+    description: 'Cost-effective freight shipping from China to Argentina. Full logistics support for your business needs.'
+  },
+  '/ru/argentina': {
+    title: 'Доставка из Китая в Аргентину | Карго HappyBox',
+    description: 'Оптимальные тарифы на доставку грузов из Китая в Аргентину. Полное логистическое сопровождение для вашего бизнеса.'
+  },
+  '/south-africa': {
+    title: 'Shipping from China to South Africa | HappyBox Logistics',
+    description: 'Reliable cargo delivery from China to South Africa. Sea and air freight solutions tailored to your schedule.'
+  },
+  '/ru/south-africa': {
+    title: 'Доставка из Китая в ЮАР | Карго HappyBox',
+    description: 'Надежная доставка грузов из Китая в Южную Африку. Авиа и морской фрахт для бизнеса.'
+  },
+  '/georgia': {
+    title: 'Shipping from China to Georgia | HappyBox Logistics',
+    description: 'Fast and reliable shipping from China to Georgia. We offer optimal routes to deliver your cargo safely.'
+  },
+  '/ru/georgia': {
+    title: 'Доставка из Китая в Грузию | Карго HappyBox',
+    description: 'Быстрая и надежная доставка из Китая в Грузию (Тбилиси, Батуми). Оптимальные маршруты и выгодные тарифы.'
+  },
+  '/israel': {
+    title: 'Shipping from China to Israel | HappyBox Logistics',
+    description: 'Professional freight forwarding from China to Israel. End-to-end logistics solutions for your supply chain.'
+  },
+  '/ru/israel': {
+    title: 'Доставка из Китая в Израиль | Карго HappyBox',
+    description: 'Профессиональная доставка грузов из Китая в Израиль. Решения под ключ для оптимизации вашей цепи поставок.'
+  },
+  '/australia': {
+    title: 'Shipping from China to Australia | DDP Freight | HappyBox Logistics',
+    description: 'Direct shipping from China to Australia. Sea and air freight options to Sydney, Melbourne, Brisbane, and beyond.'
+  },
+  '/ru/australia': {
+    title: 'Доставка из Китая в Австралию | Карго HappyBox',
+    description: 'Прямая доставка грузов из Китая в Австралию. Авиа и море в Сидней, Мельбурн и Брисбен с таможенным оформлением.'
   }
 };
 
