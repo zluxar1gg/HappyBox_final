@@ -53,11 +53,11 @@ const seoData = {
   },
   '/uae': {
     title: 'Shipping from China to UAE & Dubai | DDP Delivery | HappyBox Logistics',
-    description: 'Direct door-to-door shipping from China to Dubai and UAE. Sea freight from $4/kg, Air from $12/kg. Customs clearance included. Start shipping today!'
+    description: 'Direct door-to-door shipping from China to Dubai and UAE. Sea freight from $4/kg, Air from $14/kg. Customs clearance included. Start shipping today!'
   },
   '/ru/uae': {
     title: 'Доставка из Китая в ОАЭ и Дубай: Карго DDP | HappyBox',
-    description: 'Прямая доставка из Китая в Эмираты. Море от $4/кг, Авиа от $12/кг. Доставка от двери до двери с полной растаможкой. Рассчитать стоимость доставки!'
+    description: 'Прямая доставка из Китая в Эмираты. Море от $4/кг, Авиа от $14/кг. Доставка от двери до двери с полной растаможкой. Рассчитать стоимость доставки!'
   },
   '/eu': {
     title: 'Shipping from China to Europe | DDP Air, Sea & Truck | HappyBox Logistics',
@@ -244,12 +244,12 @@ const seoData = {
     description: 'Профессиональная доставка грузов из Китая в Израиль. Решения под ключ для оптимизации вашей цепи поставок.'
   },
   '/australia': {
-    title: 'Shipping from China to Australia | DDP Freight | HappyBox Logistics',
-    description: 'Direct shipping from China to Australia. Sea and air freight options to Sydney, Melbourne, Brisbane, and beyond.'
+    title: 'Shipping from China to Australia | Hassle-Free DDP | HappyBox',
+    description: 'Cost-effective DDP shipping from China to Australia. Sea freight from $1.3/kg, Air freight from $9/kg. Taxes, duties (GST), and quarantine handled.'
   },
   '/ru/australia': {
-    title: 'Доставка из Китая в Австралию | Карго HappyBox',
-    description: 'Прямая доставка грузов из Китая в Австралию. Авиа и море в Сидней, Мельбурн и Брисбен с таможенным оформлением.'
+    title: 'Доставка из Китая в Австралию | DDP Море и Авиа | HappyBox',
+    description: 'Недорогая Карго доставка DDP из Китая в Австралию. Море от $1.3/кг, Авиа от $9/кг. Налоги (GST), таможня и био-контроль включены.'
   }
 };
 

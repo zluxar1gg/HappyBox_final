@@ -28,7 +28,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                     title: "Priority Air",
                     tag: "Fast",
                     desc: "Electronics, Fashion & Poizon Orders.",
-                    price: "From $12/kg",
+                    price: "From $14/kg",
                     speed: "5–9 days",
                     color: "bg-blue-100 text-blue-600"
                 },
@@ -204,7 +204,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                     title: "Приоритетное Авиа",
                     tag: "Быстро",
                     desc: "Электроника, мода, брендовые товары и заказы с Poizon.",
-                    price: "От $12/кг",
+                    price: "От $14/кг",
                     speed: "5–9 дней",
                     color: "bg-blue-50 text-brand-blue"
                 },

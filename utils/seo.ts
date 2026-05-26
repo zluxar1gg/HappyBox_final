@@ -38,8 +38,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Fast and affordable shipping from China to Germany, France, Poland, Italy, and Spain. Air, Land, and Sea freight with all taxes and customs (DDP) included. Prices from $1.5/kg."
     },
     uae: {
-      title: "Shipping from China to Dubai, UAE | Sea $4/kg, Air $12/kg | HappyBox",
-      description: "Affordable door-to-door shipping from China to the UAE. Sea freight from $4/kg, Air freight from $12/kg. Tax-free (DDP) delivery to Dubai and Abu Dhabi. Free consolidation included."
+      title: "Shipping from China to Dubai, UAE | Sea $4/kg, Air $14/kg | HappyBox",
+      description: "Affordable door-to-door shipping from China to the UAE. Sea freight from $4/kg, Air freight from $14/kg. Tax-free (DDP) delivery to Dubai and Abu Dhabi. Free consolidation included."
     },
     russia: {
       title: "TIR Shipping from China to Russia | White Import with VAT | HappyBox",
@@ -98,8 +98,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Expert guides, news, and tips for shipping from China. Learn how to buy on 1688, Taobao, and optimize your Amazon FBA supply chain."
     },
     australia: {
-      title: "Shipping from China to Australia | Ocean & Air Freight | HappyBox",
-      description: "Cost-effective DDP shipping from China to Australia. Combine your packages at our warehouse and ship them securely via Ocean freight or Air express. Taxes and duties handled."
+      title: "Shipping from China to Australia | Hassle-Free DDP | HappyBox",
+      description: "Cost-effective DDP shipping from China to Australia. Sea freight from $1.3/kg, Air freight from $9/kg. Taxes, duties (GST), and quarantine handled."
     },
     blogPost: {
       title: "Logistics Insights | HappyBox",
@@ -128,8 +128,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Быстрая и доступная доставка из Китая в Германию, Францию, Польшу. Авиа, ЖД и Море «под ключ» (DDP). Мы платим НДС и пошлины. Цены от $1.5/кг."
     },
     uae: {
-      title: "Доставка из Китая в Дубай (ОАЭ) | Море $4/кг, Авиа $12/кг | HappyBox",
-      description: "Выгодная доставка «до двери» из Китая в ОАЭ. Море от $4/кг, Авиа от $12/кг. Без пошлин (DDP). Бесплатная консолидация и склад."
+      title: "Доставка из Китая в Дубай (ОАЭ) | Море $4/кг, Авиа $14/кг | HappyBox",
+      description: "Выгодная доставка «до двери» из Китая в ОАЭ. Море от $4/кг, Авиа от $14/кг. Без пошлин (DDP). Бесплатная консолидация и склад."
     },
     russia: {
       title: "TIR доставка из Китая в Россию | Белый импорт с НДС | HappyBox",
@@ -189,7 +189,7 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
     },
     australia: {
       title: "Доставка из Китая в Австралию | DDP Море и Авиа | HappyBox",
-      description: "Недорогая Карго доставка DDP из Китая в Австралию. Консолидация посылок на нашем складе, дешевое море и быстрые авиа перевозки. Таможенная очистка включена."
+      description: "Недорогая Карго доставка DDP из Китая в Австралию. Море от $1.3/кг, Авиа от $9/кг. Налоги (GST), таможня и био-контроль включены."
     },
     blogPost: {
       title: "Статьи по Логистике | HappyBox",
