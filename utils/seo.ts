@@ -29,13 +29,17 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       title: "Shipping from China to Canada | DDP Sea & Air Freight | HappyBox",
       description: "Air and Sea freight from China to Canada. We handle CBSA customs, GST/HST, and delivery to your door. DDP shipping from $0.8/kg."
     },
+    thailand: {
+      title: "Shipping from China to Thailand | DDP Sea, Air & Land Freight | HappyBox",
+      description: "Fast and affordable shipping from China to Thailand. Land freight from $4/kg, Air freight from $11/kg. Tax-free (DDP) delivery to Bangkok, Chiang Mai, Pattaya."
+    },
     eu: {
       title: "Shipping from China to Europe | DDP Tax-Free Delivery | HappyBox",
       description: "Fast and affordable shipping from China to Germany, France, Poland, Italy, and Spain. Air, Land, and Sea freight with all taxes and customs (DDP) included. Prices from $1.5/kg."
     },
     uae: {
-      title: "Shipping from China to Dubai, UAE | Sea $0.8/kg, Air $6/kg | HappyBox",
-      description: "Affordable door-to-door shipping from China to the UAE. Sea freight from $0.8/kg, Air freight from $6/kg. Tax-free (DDP) delivery to Dubai and Abu Dhabi. Free consolidation included."
+      title: "Shipping from China to Dubai, UAE | Sea $4/kg, Air $12/kg | HappyBox",
+      description: "Affordable door-to-door shipping from China to the UAE. Sea freight from $4/kg, Air freight from $12/kg. Tax-free (DDP) delivery to Dubai and Abu Dhabi. Free consolidation included."
     },
     russia: {
       title: "TIR Shipping from China to Russia | White Import with VAT | HappyBox",
@@ -115,13 +119,17 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       title: "Доставка из Китая в Канаду | DDP Авиа и Море | HappyBox",
       description: "Профессиональная DDP доставка грузов из Китая в Канаду. Море от $0.8/кг, Авиа от $9/кг. Налоги и пошлины (GST/HST) включены."
     },
+    thailand: {
+      title: "Доставка из Китая в Таиланд | DDP Авиа и Авто | HappyBox",
+      description: "Быстрая доставка из Китая в Таиланд. Авто от $4/кг, Авиа от $11/кг. DDP доставка без налогов и пошлин в Бангкок, Пхукет, Паттайю."
+    },
     eu: {
       title: "Доставка из Китая в Европу | DDP без налогов | HappyBox",
       description: "Быстрая и доступная доставка из Китая в Германию, Францию, Польшу. Авиа, ЖД и Море «под ключ» (DDP). Мы платим НДС и пошлины. Цены от $1.5/кг."
     },
     uae: {
-      title: "Доставка из Китая в Дубай (ОАЭ) | Море $0.8/кг, Авиа $6/кг | HappyBox",
-      description: "Выгодная доставка «до двери» из Китая в ОАЭ. Море от $0.8/кг, Авиа от $6/кг. Без пошлин (DDP). Бесплатная консолидация и склад."
+      title: "Доставка из Китая в Дубай (ОАЭ) | Море $4/кг, Авиа $12/кг | HappyBox",
+      description: "Выгодная доставка «до двери» из Китая в ОАЭ. Море от $4/кг, Авиа от $12/кг. Без пошлин (DDP). Бесплатная консолидация и склад."
     },
     russia: {
       title: "TIR доставка из Китая в Россию | Белый импорт с НДС | HappyBox",

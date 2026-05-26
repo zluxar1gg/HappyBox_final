@@ -480,10 +480,12 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                         </div>
                                     ))}
 
-                                    <div className="mt-16 bg-brand-light/30 border border-brand-blue/20 rounded-3xl p-8 sm:p-10 text-left">
-                                        <h3 className="text-2xl font-black text-brand-dark tracking-tight mb-4">{t.guide.verdict.title}</h3>
-                                        <p className="text-base md:text-lg text-gray-700 leading-relaxed">{t.guide.verdict.desc}</p>
-                                    </div>
+                                    {t.guide.verdict && (
+                                        <div className="mt-16 bg-brand-light/30 border border-brand-blue/20 rounded-3xl p-8 sm:p-10 text-left">
+                                            <h3 className="text-2xl font-black text-brand-dark tracking-tight mb-4">{t.guide.verdict.title}</h3>
+                                            <p className="text-base md:text-lg text-gray-700 leading-relaxed">{t.guide.verdict.desc}</p>
+                                        </div>
+                                    )}
                                 </div>
                                 </div>
                             </section>

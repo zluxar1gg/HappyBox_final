@@ -28,11 +28,11 @@ const seoData: Record<string, { title: string; description: string }> = {
   },
   '/uae': {
     title: 'Shipping from China to UAE & Dubai | DDP Delivery | HappyBox Logistics',
-    description: 'Direct door-to-door shipping from China to Dubai and UAE. Sea freight from $0.8/kg, Air from $6/kg. Customs clearance included. Start shipping today!'
+    description: 'Direct door-to-door shipping from China to Dubai and UAE. Sea freight from $4/kg, Air from $12/kg. Customs clearance included. Start shipping today!'
   },
   '/ru/uae': {
     title: 'Доставка из Китая в ОАЭ и Дубай: Карго DDP | HappyBox',
-    description: 'Прямая доставка из Китая в Эмираты. Море от $0.8/кг, Авиа от $6/кг. Доставка от двери до двери с полной растаможкой. Рассчитать стоимость доставки!'
+    description: 'Прямая доставка из Китая в Эмираты. Море от $4/кг, Авиа от $12/кг. Доставка от двери до двери с полной растаможкой. Рассчитать стоимость доставки!'
   },
   '/eu': {
     title: 'Shipping from China to Europe | DDP Air, Sea & Truck | HappyBox Logistics',
@@ -122,6 +122,22 @@ const seoData: Record<string, { title: string; description: string }> = {
   '/ru/warehousing': {
     title: 'Бесплатный склад и консолидация посылок в Китае | HappyBox',
     description: 'Экономьте на доставке с услугами нашего склада. Бесплатное хранение, проверка, переупаковка и объединение ваших заказов в одну посылку. Пользуйтесь бесплатно!'
+  },
+  '/canada': {
+    title: 'Shipping from China to Canada | DDP Delivery | HappyBox Logistics',
+    description: 'Reliable air and sea shipping from China to Canada. Get competitive DDP rates and fast delivery. Request a free quote today!'
+  },
+  '/ru/canada': {
+    title: 'Доставка из Китая в Канаду: Карго DDP под ключ | HappyBox',
+    description: 'Надежное карго из Китая в Канаду. Море и авиадоставка по системе DDP. Без пошлин и скрытых комиссий. Узнайте тарифы!'
+  },
+  '/thailand': {
+    title: 'Shipping from China to Thailand | DDP Sea, Air & Land Freight | HappyBox',
+    description: 'Fast and affordable shipping from China to Thailand. Land freight from $4/kg, Air freight from $11/kg. Tax-free (DDP) delivery to Bangkok, Chiang Mai, Pattaya.'
+  },
+  '/ru/thailand': {
+    title: 'Доставка из Китая в Таиланд | DDP Авиа и Авто | HappyBox',
+    description: 'Быстрая доставка из Китая в Таиланд. Авто от $4/кг, Авиа от $11/кг. DDP доставка без налогов и пошлин в Бангкок, Пхукет, Паттайю.'
   }
 };
 

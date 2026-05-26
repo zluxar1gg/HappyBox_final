@@ -38,8 +38,8 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       id: 'uae',
       title: isEn ? 'UAE (Dubai)' : 'ОАЭ (Дубай)',
       methods: [
-        { label: isEn ? `Sea: ${from} $0.8` : `Море: ${from} $0.8`, icon: Ship },
-        { label: isEn ? `Air: ${from} $6` : `Авиа: ${from} $6`, icon: Plane },
+        { label: isEn ? `Sea: ${from} $4` : `Море: ${from} $4`, icon: Ship },
+        { label: isEn ? `Air: ${from} $12` : `Авиа: ${from} $12`, icon: Plane },
       ],
       flag: '🇦🇪'
     },
@@ -56,8 +56,8 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       id: 'thailand',
       title: isEn ? 'Thailand' : 'Таиланд',
       methods: [
-        { label: isEn ? `Sea Logistics` : `Морская перевозка`, icon: Ship },
-        { label: isEn ? `Air Cargo` : `Авиадоставка`, icon: Plane },
+        { label: isEn ? `Land: ${from} $4` : `Авто: ${from} $4`, icon: Truck },
+        { label: isEn ? `Air: ${from} $11` : `Авиа: ${from} $11`, icon: Plane },
       ],
       flag: '🇹🇭'
     },

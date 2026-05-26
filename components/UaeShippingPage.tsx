@@ -28,7 +28,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                     title: "Priority Air",
                     tag: "Fast",
                     desc: "Electronics, Fashion & Poizon Orders.",
-                    price: "From $6/kg",
+                    price: "From $12/kg",
                     speed: "5–9 days",
                     color: "bg-blue-100 text-blue-600"
                 },
@@ -37,7 +37,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                     title: "Sea Freight",
                     tag: "Economical",
                     desc: "Bulk Stock, Furniture & Heavy Goods.",
-                    price: "From $0.8/kg",
+                    price: "From $4/kg",
                     speed: "25–35 days",
                     color: "bg-teal-100 text-teal-600"
                 }
@@ -204,7 +204,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                     title: "Приоритетное Авиа",
                     tag: "Быстро",
                     desc: "Электроника, мода, брендовые товары и заказы с Poizon.",
-                    price: "От $6/кг",
+                    price: "От $12/кг",
                     speed: "5–9 дней",
                     color: "bg-blue-50 text-brand-blue"
                 },
@@ -213,7 +213,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                     title: "Морские перевозки",
                     tag: "Экономно",
                     desc: "Оптовые партии, мебель, тяжелые грузы и коммерческие запасы.",
-                    price: "От $0.8/кг",
+                    price: "От $4/кг",
                     speed: "25–35 дней",
                     color: "bg-teal-50 text-teal-600"
                 }

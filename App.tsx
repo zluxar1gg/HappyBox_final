@@ -27,6 +27,7 @@ import { BlogPost } from './components/BlogPost';
 import { AllDestinationsPage } from './components/AllDestinationsPage';
 import { GenericDestinationPage } from './components/GenericDestinationPage';
 import { CaShippingPage } from './components/CaShippingPage';
+import { ThailandShippingPage } from './components/ThailandShippingPage';
 import { AmazonCanadaPage } from './components/AmazonCanadaPage';
 import { P1688Page } from './components/P1688Page';
 import { DynamicSeo } from './components/DynamicSeo';
@@ -215,11 +216,12 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       if (currentPage === 'russia') return <RuShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       if (currentPage === 'canada') return <CaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
+      if (currentPage === 'thailand') return <ThailandShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
       if (currentPage === 'amazon-canada') return <AmazonCanadaPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       
       if (currentPage === 'destinations') return <AllDestinationsPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
 
-      const genericDestinations: PageType[] = ['thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel', 'australia'];
+      const genericDestinations: PageType[] = ['indonesia', 'argentina', 'south-africa', 'georgia', 'israel', 'australia'];
       if (genericDestinations.includes(currentPage)) {
           return <GenericDestinationPage language={language} setLanguage={setLanguage} countryId={currentPage} onBack={() => handleBack('destinations')} onNavigate={handleNavigate} />;
       }
