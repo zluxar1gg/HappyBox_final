@@ -204,44 +204,44 @@ const seoData = {
     description: 'Надежная доставка грузов из Китая в Таиланд (Бангкок, Пхукет, Паттайя). Удобная логистика для бизнеса и частных лиц.'
   },
   '/indonesia': {
-    title: 'Shipping from China to Indonesia | Freight Forwarder | HappyBox Logistics',
-    description: 'Professional shipping services from China to Indonesia. Seamless logistics for your business imports. Request a quote.'
+    title: 'Shipping from China to Indonesia | DDP Sea & Air | HappyBox',
+    description: 'Secure Air & Economy Sea Freight from China to Indonesia. DDP Door-to-Door delivery. Air from $10/kg, Sea from $1.1/kg. No Import Licenses needed.'
   },
   '/ru/indonesia': {
-    title: 'Доставка из Китая в Индонезию | Карго HappyBox',
-    description: 'Профессиональная доставка грузов из Китая в Индонезию (Джакарта, Бали). Таможенное оформление и надежная логистика.'
+    title: 'Доставка из Китая в Индонезию | DDP Море и Авиа | HappyBox',
+    description: 'Экономичная DDP доставка в Индонезию. Авиа от $10/кг, Море от $1.1/кг. Полная очистка без необходимости лицензий API и уплаты НДС.'
   },
   '/argentina': {
-    title: 'Shipping from China to Argentina | HappyBox Logistics',
-    description: 'Cost-effective freight shipping from China to Argentina. Full logistics support for your business needs.'
+    title: 'Shipping from China to Argentina | DDP Delivery | HappyBox',
+    description: 'Secure Door-to-Door DDP Logistics from China to Argentina. Ocean freight from $1.8/kg, Air freight from $14/kg. AFIP customs and taxes handled.'
   },
   '/ru/argentina': {
-    title: 'Доставка из Китая в Аргентину | Карго HappyBox',
-    description: 'Оптимальные тарифы на доставку грузов из Китая в Аргентину. Полное логистическое сопровождение для вашего бизнеса.'
+    title: 'Доставка из Китая в Аргентину | DDP Карго до двери | HappyBox',
+    description: 'Прямая DDP доставка из Китая в Аргентину. Море от $1.8/кг, Авиа от $14/кг. Растаможка (AFIP) и налоги (IVA) включены в тариф.'
   },
   '/south-africa': {
-    title: 'Shipping from China to South Africa | HappyBox Logistics',
-    description: 'Reliable cargo delivery from China to South Africa. Sea and air freight solutions tailored to your schedule.'
+    title: 'Shipping from China to South Africa | DDP Sea & Air | HappyBox',
+    description: 'Reliable Air & Sea Freight from China to South Africa. DDP Door-to-Door delivery. Sea from $1.3/kg, Air from $12/kg. SARS obligations handled.'
   },
   '/ru/south-africa': {
-    title: 'Доставка из Китая в ЮАР | Карго HappyBox',
-    description: 'Надежная доставка грузов из Китая в Южную Африку. Авиа и морской фрахт для бизнеса.'
+    title: 'Доставка из Китая в ЮАР | DDP Море и Авиа | HappyBox',
+    description: 'Оптимальная DDP доставка из Китая в ЮАР. Море от $1.3/кг, Авиа от $12/кг. Все таможенные пошлины (SARS) и НДС включены.'
   },
   '/georgia': {
-    title: 'Shipping from China to Georgia | HappyBox Logistics',
-    description: 'Fast and reliable shipping from China to Georgia. We offer optimal routes to deliver your cargo safely.'
+    title: 'Shipping from China to Georgia | Middle Corridor DDP | HappyBox',
+    description: 'Reliable Air & Fast Land Freight from China to Georgia. Direct door-to-door delivery. Trucking from $1.2/kg, Air from $15/kg. Customs handled.'
   },
   '/ru/georgia': {
-    title: 'Доставка из Китая в Грузию | Карго HappyBox',
-    description: 'Быстрая и надежная доставка из Китая в Грузию (Тбилиси, Батуми). Оптимальные маршруты и выгодные тарифы.'
+    title: 'Доставка из Китая в Грузию | DDP Авиа и Авто | HappyBox',
+    description: 'Надежная и быстрая доставка карго из Китая в Грузию. Авто от $1.2/кг, Авиа от $15/кг. Растаможка и НДС включены.'
   },
   '/israel': {
-    title: 'Shipping from China to Israel | HappyBox Logistics',
-    description: 'Professional freight forwarding from China to Israel. End-to-end logistics solutions for your supply chain.'
+    title: 'Shipping from China to Israel | DDP Sea & Air | HappyBox',
+    description: 'Direct Door-to-Door DDP delivery to Israel. Air freight from $15/kg, Sea freight from $1.2/kg. Customs & VAT (Ma\'am) handling included.'
   },
   '/ru/israel': {
-    title: 'Доставка из Китая в Израиль | Карго HappyBox',
-    description: 'Профессиональная доставка грузов из Китая в Израиль. Решения под ключ для оптимизации вашей цепи поставок.'
+    title: 'Доставка из Китая в Израиль | DDP Море и Авиа | HappyBox',
+    description: 'Надежная доставка DDP из Китая в Израиль. Авиа от $15/кг, Море от $1.2/кг. Таможенная очистка и НДС (Маам) включены.'
   },
   '/australia': {
     title: 'Shipping from China to Australia | Hassle-Free DDP | HappyBox',

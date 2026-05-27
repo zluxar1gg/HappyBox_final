@@ -65,8 +65,8 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       id: 'argentina',
       title: isEn ? 'Argentina' : 'Аргентина',
       methods: [
-        { label: isEn ? `Ocean Freight` : `Доставка морем`, icon: Ship },
-        { label: isEn ? `Air Freight` : `Доставка самолетом`, icon: Plane },
+        { label: isEn ? `Sea: ${from} $1.8` : `Море: ${from} $1.8`, icon: Ship },
+        { label: isEn ? `Air: ${from} $14` : `Авиа: ${from} $14`, icon: Plane },
       ],
       flag: '🇦🇷'
     },
@@ -101,8 +101,8 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       id: 'indonesia',
       title: isEn ? 'Indonesia' : 'Индонезия',
       methods: [
-        { label: isEn ? `Sea Freight` : `Морской фрахт`, icon: Ship },
-        { label: isEn ? `Air Freight` : `Авиафрахт`, icon: Plane },
+        { label: isEn ? `Sea: ${from} $1.1` : `Море: ${from} $1.1`, icon: Ship },
+        { label: isEn ? `Air: ${from} $10` : `Авиа: ${from} $10`, icon: Plane },
       ],
       flag: '🇮🇩'
     },
@@ -110,8 +110,8 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       id: 'south-africa',
       title: isEn ? 'South Africa' : 'ЮАР',
       methods: [
-        { label: isEn ? `Sea Transport` : `Морская транспортировка`, icon: Ship },
-        { label: isEn ? `Air Transport` : `Авиа транспортировка`, icon: Plane },
+        { label: isEn ? `Sea: ${from} $1.3` : `Море: ${from} $1.3`, icon: Ship },
+        { label: isEn ? `Air: ${from} $12` : `Авиа: ${from} $12`, icon: Plane },
       ],
       flag: '🇿🇦'
     },
@@ -119,8 +119,8 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       id: 'georgia',
       title: isEn ? 'Georgia' : 'Грузия',
       methods: [
-        { label: isEn ? `Truck Delivery` : `Автомобильная доставка`, icon: Truck },
-        { label: isEn ? `Air Express` : `Авиа экспресс`, icon: Plane },
+        { label: isEn ? `Land: ${from} $1.2` : `Авто: ${from} $1.2`, icon: Truck },
+        { label: isEn ? `Air: ${from} $15` : `Авиа: ${from} $15`, icon: Plane },
       ],
       flag: '🇬🇪'
     },
@@ -128,8 +128,8 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
       id: 'israel',
       title: isEn ? 'Israel' : 'Израиль',
       methods: [
-        { label: isEn ? `Sea Freight` : `Морская доставка`, icon: Ship },
-        { label: isEn ? `Air Freight` : `Авиадоставка`, icon: Plane },
+        { label: isEn ? `Sea: ${from} $1.2` : `Море: ${from} $1.2`, icon: Ship },
+        { label: isEn ? `Air: ${from} $15` : `Авиа: ${from} $15`, icon: Plane },
       ],
       flag: '🇮🇱'
     },

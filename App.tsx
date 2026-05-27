@@ -29,6 +29,11 @@ import { GenericDestinationPage } from './components/GenericDestinationPage';
 import { CaShippingPage } from './components/CaShippingPage';
 import { ThailandShippingPage } from './components/ThailandShippingPage';
 import { AustraliaShippingPage } from './components/AustraliaShippingPage';
+import { ArgentinaShippingPage } from './components/ArgentinaShippingPage';
+import { GeorgiaShippingPage } from './components/GeorgiaShippingPage';
+import { SouthAfricaShippingPage } from './components/SouthAfricaShippingPage';
+import { IndonesiaShippingPage } from './components/IndonesiaShippingPage';
+import { IsraelShippingPage } from './components/IsraelShippingPage';
 import { AmazonCanadaPage } from './components/AmazonCanadaPage';
 import { P1688Page } from './components/P1688Page';
 import { DynamicSeo } from './components/DynamicSeo';
@@ -219,11 +224,16 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       if (currentPage === 'canada') return <CaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
       if (currentPage === 'thailand') return <ThailandShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
       if (currentPage === 'australia') return <AustraliaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
+      if (currentPage === 'argentina') return <ArgentinaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
+      if (currentPage === 'georgia') return <GeorgiaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
+      if (currentPage === 'indonesia') return <IndonesiaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
+      if (currentPage === 'south-africa') return <SouthAfricaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
+      if (currentPage === 'israel') return <IsraelShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
       if (currentPage === 'amazon-canada') return <AmazonCanadaPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       
       if (currentPage === 'destinations') return <AllDestinationsPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
 
-      const genericDestinations: PageType[] = ['indonesia', 'argentina', 'south-africa', 'georgia', 'israel'];
+      const genericDestinations: PageType[] = [];
       if (genericDestinations.includes(currentPage)) {
           return <GenericDestinationPage language={language} setLanguage={setLanguage} countryId={currentPage} onBack={() => handleBack('destinations')} onNavigate={handleNavigate} />;
       }

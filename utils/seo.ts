@@ -33,6 +33,10 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       title: "Shipping from China to Thailand | DDP Sea, Air & Land Freight | HappyBox",
       description: "Fast and affordable shipping from China to Thailand. Land freight from $4/kg, Air freight from $11/kg. Tax-free (DDP) delivery to Bangkok, Chiang Mai, Pattaya."
     },
+    indonesia: {
+      title: "Shipping from China to Indonesia | DDP Sea & Air | HappyBox",
+      description: "Secure Air & Economy Sea Freight from China to Indonesia. DDP Door-to-Door delivery. Air from $10/kg, Sea from $1.1/kg. No Import Licenses needed."
+    },
     eu: {
       title: "Shipping from China to Europe | DDP Tax-Free Delivery | HappyBox",
       description: "Fast and affordable shipping from China to Germany, France, Poland, Italy, and Spain. Air, Land, and Sea freight with all taxes and customs (DDP) included. Prices from $1.5/kg."
@@ -101,6 +105,18 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       title: "Shipping from China to Australia | Hassle-Free DDP | HappyBox",
       description: "Cost-effective DDP shipping from China to Australia. Sea freight from $1.3/kg, Air freight from $9/kg. Taxes, duties (GST), and quarantine handled."
     },
+    'south-africa': {
+      title: "Shipping from China to South Africa | DDP Sea & Air | HappyBox",
+      description: "Reliable Air & Sea Freight from China to South Africa. DDP Door-to-Door delivery. Sea from $1.3/kg, Air from $12/kg. SARS obligations handled."
+    },
+    georgia: {
+      title: "Shipping from China to Georgia | Middle Corridor DDP | HappyBox",
+      description: "Reliable Air & Fast Land Freight from China to Georgia. Direct door-to-door delivery. Trucking from $1.2/kg, Air from $15/kg. Customs handled."
+    },
+    israel: {
+      title: "Shipping from China to Israel | DDP Sea & Air | HappyBox",
+      description: "Direct Door-to-Door DDP delivery to Israel. Air freight from $15/kg, Sea freight from $1.2/kg. Customs & VAT (Ma'am) handling included."
+    },
     blogPost: {
       title: "Logistics Insights | HappyBox",
       description: "Read our latest insights on shipping, sourcing, and logistics from China."
@@ -122,6 +138,10 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
     thailand: {
       title: "Доставка из Китая в Таиланд | DDP Авиа и Авто | HappyBox",
       description: "Быстрая доставка из Китая в Таиланд. Авто от $4/кг, Авиа от $11/кг. DDP доставка без налогов и пошлин в Бангкок, Пхукет, Паттайю."
+    },
+    indonesia: {
+      title: "Доставка из Китая в Индонезию | DDP Море и Авиа | HappyBox",
+      description: "Экономичная DDP доставка в Индонезию. Авиа от $10/кг, Море от $1.1/кг. Полная очистка без необходимости лицензий API и уплаты НДС."
     },
     eu: {
       title: "Доставка из Китая в Европу | DDP без налогов | HappyBox",
@@ -190,6 +210,18 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
     australia: {
       title: "Доставка из Китая в Австралию | DDP Море и Авиа | HappyBox",
       description: "Недорогая Карго доставка DDP из Китая в Австралию. Море от $1.3/кг, Авиа от $9/кг. Налоги (GST), таможня и био-контроль включены."
+    },
+    'south-africa': {
+      title: "Доставка из Китая в ЮАР | DDP Море и Авиа | HappyBox",
+      description: "Оптимальная DDP доставка из Китая в ЮАР. Море от $1.3/кг, Авиа от $12/кг. Все таможенные пошлины (SARS) и НДС включены."
+    },
+    georgia: {
+      title: "Доставка из Китая в Грузию | DDP Авиа и Авто | HappyBox",
+      description: "Надежная и быстрая доставка карго из Китая в Грузию. Авто от $1.2/кг, Авиа от $15/кг. Растаможка и НДС включены."
+    },
+    israel: {
+      title: "Доставка из Китая в Израиль | DDP Море и Авиа | HappyBox",
+      description: "Надежная доставка DDP из Китая в Израиль. Авиа от $15/кг, Море от $1.2/кг. Таможенная очистка и НДС (Маам) включены."
     },
     blogPost: {
       title: "Статьи по Логистике | HappyBox",
