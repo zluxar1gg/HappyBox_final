@@ -29,7 +29,7 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                 },
                 {
                     title: "2. How to Buy from 1688 Without a Chinese Bank Account",
-                    contentPre: "This is the main barrier for international buyers. 1688 sellers only accept Chinese domestic payment methods — Alipay and domestic bank transfer. Foreign credit cards and PayPal are not accepted.\n\nHow a buying agent solves this:\nA 1688 buying agent like HappyBox holds Chinese corporate accounts and pays suppliers directly on your behalf:\n\n• You send us product links or descriptions\n• We verify availability and confirm the price\n• You transfer the purchase amount to us in USD or your local currency\n• We pay the 1688 supplier from our Chinese account\n• Goods ship to our Shenzhen warehouse for inspection and consolidation\n\nNo Chinese account required. No Alipay registration. No VPN needed.\nOur fee: 2% of the order value."
+                    contentPre: "This is the main barrier for international buyers. 1688 sellers only accept Chinese domestic payment methods — Alipay and domestic bank transfer. Foreign credit cards and PayPal are not accepted.\n\nHow a buying agent solves this:\nA 1688 buying agent like HappyBox holds Chinese corporate accounts and pays suppliers directly on your behalf:\n\n• You send us product links or descriptions\n• We verify availability and confirm the price\n• You transfer the purchase amount to us in USD or your local currency\n• We pay the 1688 supplier from our Chinese account\n• Goods ship to our Shenzhen warehouse for inspection and consolidation\n\nNo Chinese account required. No Alipay registration. No VPN needed.\nOur fee: 0%. You pay exactly the price listed on the platform."
                 },
                 {
                     title: "3. 1688 Minimum Order Quantities: What to Expect",
@@ -93,7 +93,7 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                 },
                 {
                     title: "2. Как покупать на 1688 без китайского счета",
-                    contentPre: "Это главный барьер для иностранцев. 1688 не работает с зарубежными банковскими картами и PayPal. Только Alipay и переводы внутри Китая (WeChat, местные карты).\n\nКак мы решаем эту проблему:\nВам не нужен китайский счет, Alipay или VPN. Баинг-агент (мы) оплачивает ваши заказы со своих корпоративных счетов в юанях:\n\n• Вы присылаете нам ссылки на товар\n• Мы подтверждаем наличие и финальную стоимость\n• Вы переводите деньги нам (в USD/EUR/RUB)\n• Мы мгновенно выкупаем товар у продавца на 1688\n• Товар едет на наш склад в Шэньчжэне для проверки\n\nНаша комиссия: 2% от стоимости заказа."
+                    contentPre: "Это главный барьер для иностранцев. 1688 не работает с зарубежными банковскими картами и PayPal. Только Alipay и переводы внутри Китая (WeChat, местные карты).\n\nКак мы решаем эту проблему:\nВам не нужен китайский счет, Alipay или VPN. Баинг-агент (мы) оплачивает ваши заказы со своих корпоративных счетов в юанях:\n\n• Вы присылаете нам ссылки на товар\n• Мы подтверждаем наличие и финальную стоимость\n• Вы переводите деньги нам (в USD/EUR/RUB)\n• Мы мгновенно выкупаем товар у продавца на 1688\n• Товар едет на наш склад в Шэньчжэне для проверки\n\nНаша комиссия: 0% за выкуп. Вы платите ровно по цене платформы без скрытых наценок."
                 },
                 {
                     title: "3. Минимальный заказ (MOQ) на 1688",

@@ -119,7 +119,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
           <div className="flex flex-row md:flex-col items-center gap-4 md:gap-3 w-full relative z-10">
             {/* Icon Wrapper */}
             <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl flex-shrink-0 flex items-center justify-center bg-white group-hover:scale-110 transition-transform shadow-sm border border-gray-50 overflow-hidden`}>
-              <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+              <img src={item.image} alt={item.title} loading="lazy" className="w-full h-full object-cover" />
             </div>
             
             {/* Text Wrapper */}

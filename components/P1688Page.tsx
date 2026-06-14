@@ -66,7 +66,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                 { q: "What if I need to combine 1688 orders with other platforms?", a: "We consolidate 1688 wholesale orders with purchases from Taobao, Tmall, Poizon, and Pinduoduo into one shipment." }
             ],
             feeTitle: "Our Fee",
-            feeText: "Sourcing and purchasing commission: 2% of the order amount — one of the lowest rates in the industry. No markup on shipping.",
+            feeText: "Sourcing and purchasing commission: 0%. You pay exactly the manufacturer's price. We earn revenue exclusively on international shipping.",
             beyondTitle: "Beyond 1688: Other Chinese Platforms We Support",
             beyondPlatforms: [
                 { name: "Taobao", desc: "single items and personal shopping", id: "taobao" },
@@ -122,7 +122,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                 { q: "Можно ли объединить заказы с разных площадок?", a: "Да. Мы соберем в одну посылку опт с 1688, покупки с Taobao, Tmall, Poizon и Pinduoduo." }
             ],
             feeTitle: "Наша комиссия:",
-            feeText: "Комиссия за поиск и выкуп — 2% от суммы заказа. Это одна из самых низких ставок на рынке. Мы не делаем наценок на стоимость доставки.",
+            feeText: "Комиссия за поиск и выкуп — 0%. Вы платите ровно ту цену, которую установил завод-изготовитель на 1688.com. Мы зарабатываем исключительно на международной логистике.",
             beyondTitle: "Кроме 1688 мы работаем с:",
             beyondPlatforms: [
                 { name: "Taobao", desc: "розница и личные покупки.", id: "taobao" },

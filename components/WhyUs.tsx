@@ -23,8 +23,8 @@ export const WhyUs: React.FC<WhyUsProps> = ({ language }) => {
       icon: Wallet,
       title: isEn ? '0% Commission' : '0% Комиссия',
       description: isEn 
-        ? 'We charge absolutely 0% commission for purchasing from Taobao, Poizon, Weidian, and Pinduoduo. You pay exactly the price listed on the marketplace.'
-        : 'Мы берем ровно 0% комиссии за выкуп с Taobao, Poizon, Weidian и Pinduoduo. Вы платите ровно ту цену, которая указана на маркетплейсе.',
+        ? 'We charge absolutely 0% commission for purchasing from 1688, Taobao, Poizon, Weidian, and Pinduoduo. You pay exactly the price listed on the marketplace.'
+        : 'Мы берем ровно 0% комиссии за выкуп с 1688, Taobao, Poizon, Weidian и Pinduoduo. Вы платите ровно ту цену, которая указана на маркетплейсе.',
       image: 'https://i.ibb.co/9mgrcVjH/happypox-free.webp',
       color: 'bg-blue-50 text-blue-600'
     },
@@ -121,6 +121,7 @@ export const WhyUs: React.FC<WhyUsProps> = ({ language }) => {
                 <img 
                   src={features[activeTab].image} 
                   alt={features[activeTab].title} 
+                  loading="lazy"
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                 />
               </div>

@@ -291,7 +291,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                             <div className="flex items-center gap-4 overflow-hidden">
                                                 <div className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center bg-white border border-gray-50 overflow-hidden">
                                                     {imageUrl ? (
-                                                        <img src={imageUrl} alt={item.title} className="w-full h-full object-cover" />
+                                                        <img src={imageUrl} alt={item.title} loading="lazy" className="w-full h-full object-cover" />
                                                     ) : (
                                                         <Globe className="text-brand-blue" size={24} />
                                                     )}

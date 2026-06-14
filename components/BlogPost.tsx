@@ -111,6 +111,7 @@ export const BlogPost: React.FC<BlogPostProps> = ({ language }) => {
           <img 
             src={post.imageUrl} 
             alt={post.title} 
+            fetchPriority="high"
             className="w-full aspect-[21/9] object-cover rounded-[30px] shadow-xl"
           />
         </header>
@@ -168,6 +169,7 @@ export const BlogPost: React.FC<BlogPostProps> = ({ language }) => {
                       <img 
                         src={related.imageUrl} 
                         alt={related.title} 
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute top-4 left-4">

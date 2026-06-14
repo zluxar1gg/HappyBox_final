@@ -263,7 +263,7 @@ export const ClientDashboard: React.FC<ClientDashboardProps> = ({ language, onLo
                         {/* Image */}
                         <div className="w-full sm:w-24 h-24 bg-gray-50 rounded-xl flex-shrink-0 overflow-hidden border border-gray-100">
                             {parcel.imageUrl ? (
-                                <img src={parcel.imageUrl} alt="Parcel" className="w-full h-full object-cover" />
+                                <img src={parcel.imageUrl} alt="Parcel" loading="lazy" className="w-full h-full object-cover" />
                             ) : (
                                 <div className="w-full h-full flex items-center justify-center text-gray-300">
                                     <Package size={24} />

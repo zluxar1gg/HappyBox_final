@@ -101,10 +101,76 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ currentPage, languag
     }
   }
 
+  // 5. Breadcrumb Schema (For subpages)
+  let breadcrumbSchema: any = null;
+  if (currentPage !== 'home') {
+    const listItems = [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": language === 'ru' ? 'Главная' : 'Home',
+        "item": `https://happyboxlogistics.com${language === 'ru' ? '/ru' : ''}`
+      }
+    ];
+
+    let position = 2;
+
+    if (currentPage === 'blogPost' && slug) {
+      listItems.push({
+        "@type": "ListItem",
+        "position": position++,
+        "name": language === 'ru' ? 'Блог' : 'Blog',
+        "item": `https://happyboxlogistics.com${language === 'ru' ? '/ru/blog' : '/blog'}`
+      });
+      const post = getBlogPostBySlug(slug, language);
+      if (post) {
+        listItems.push({
+          "@type": "ListItem",
+          "position": position++,
+          "name": post.title,
+          "item": `https://happyboxlogistics.com${language === 'ru' ? '/ru/blog/' : '/blog/'}${slug}`
+        });
+      }
+    } else if (currentPage !== 'blogPost') {
+        let pageName = currentPage.charAt(0).toUpperCase() + currentPage.slice(1);
+        let pageUrl = `https://happyboxlogistics.com${language === 'ru' ? '/ru' : ''}/${currentPage}`;
+        
+        const serviceT = (t as any)[currentPage];
+        if (serviceT && serviceT.title) {
+           pageName = serviceT.title;
+        }
+
+        if (['usa', 'eu', 'uae', 'russia', 'georgia', 'israel', 'australia', 'indonesia', 'argentina', 'canada', 'south-africa', 'thailand', 'amazon', 'amazon-canada'].includes(currentPage)) {
+           listItems.push({
+             "@type": "ListItem",
+             "position": position++,
+             "name": language === 'ru' ? 'Направления' : 'Destinations',
+             "item": `https://happyboxlogistics.com${language === 'ru' ? '/ru/destinations' : '/destinations'}`
+           });
+        }
+
+        listItems.push({
+            "@type": "ListItem",
+            "position": position++,
+            "name": pageName,
+            "item": pageUrl
+        });
+    }
+
+    if (listItems.length > 1) {
+      breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": listItems
+      };
+    }
+  }
+
   const schemas = [organizationSchema];
   if (serviceSchema) schemas.push(serviceSchema);
   if (faqSchema) schemas.push(faqSchema);
   if (articleSchema) schemas.push(articleSchema);
+  if (breadcrumbSchema) schemas.push(breadcrumbSchema);
 
   return (
     <>
