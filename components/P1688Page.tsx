@@ -66,7 +66,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                 { q: "What if I need to combine 1688 orders with other platforms?", a: "We consolidate 1688 wholesale orders with purchases from Taobao, Tmall, Poizon, and Pinduoduo into one shipment." }
             ],
             feeTitle: "Our Fee",
-            feeText: "Sourcing and purchasing commission: 0%. You pay exactly the manufacturer's price. We earn revenue exclusively on international shipping.",
+            feeText: "Purchasing commission: 0%. You pay exactly the manufacturer's price. We earn revenue exclusively on international shipping.",
             beyondTitle: "Beyond 1688: Other Chinese Platforms We Support",
             beyondPlatforms: [
                 { name: "Taobao", desc: "single items and personal shopping", id: "taobao" },
@@ -122,7 +122,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                 { q: "Можно ли объединить заказы с разных площадок?", a: "Да. Мы соберем в одну посылку опт с 1688, покупки с Taobao, Tmall, Poizon и Pinduoduo." }
             ],
             feeTitle: "Наша комиссия:",
-            feeText: "Комиссия за поиск и выкуп — 0%. Вы платите ровно ту цену, которую установил завод-изготовитель на 1688.com. Мы зарабатываем исключительно на международной логистике.",
+            feeText: "Комиссия за выкуп — 0%. Вы платите ровно ту цену, которую установил завод-изготовитель на 1688.com. Мы зарабатываем исключительно на международной логистике.",
             beyondTitle: "Кроме 1688 мы работаем с:",
             beyondPlatforms: [
                 { name: "Taobao", desc: "розница и личные покупки.", id: "taobao" },
@@ -152,12 +152,15 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
             <main>
                 <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
                     <div className="container mx-auto px-6 xl:px-0 relative z-10">
-                         <div className="max-w-4xl mx-auto text-center">
+                         <div className="max-w-5xl mx-auto text-center">
+                                <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
+                                    {t.badge}
+                                </span>
                                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
-                                    {t.titlePrefix} <span className="text-brand-blue">{t.titleHighlight}</span>
+                                    {t.titlePrefix} <span className="text-brand-blue block mt-2">{t.titleHighlight}</span>
                                 </h1>
 
-                                <p className="text-lg md:text-xl text-gray-600 mb-10 font-medium leading-relaxed max-w-2xl mx-auto">
+                                <p className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed max-w-4xl mx-auto mb-10">
                                     {t.subtitle}
                                 </p>
                          </div>
@@ -167,12 +170,12 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
 
                 <section id="details" className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
                     
-                    <div className="max-w-4xl mx-auto mb-20 bg-gray-50 rounded-[40px] p-8 lg:p-12 border border-gray-100">
-                        <h2 className="text-3xl font-black text-brand-dark mb-6">{t.whyTitle}</h2>
-                        <div className="space-y-4 text-lg text-gray-600 font-medium leading-relaxed">
+                    <div className="max-w-5xl mx-auto text-gray-800 leading-relaxed mb-20">
+                        <h2 className="text-3xl md:text-4xl font-black text-brand-dark mb-6 tracking-tight">{t.whyTitle}</h2>
+                        <div className="space-y-6 text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                             <p>{t.whyText1}</p>
                             <p>{t.whyText2}</p>
-                            <p className="font-bold text-brand-dark bg-brand-yellow/10 p-4 rounded-2xl">{t.whyText3}</p>
+                            <p className="font-bold text-brand-dark text-xl mt-8">{t.whyText3}</p>
                         </div>
                     </div>
 
@@ -213,42 +216,18 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                          </div>
                     </div>
                     
-                    <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 mb-20">
+                    <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 mb-10">
                         <div className="w-24 h-24 bg-brand-yellow rounded-full flex items-center justify-center shrink-0">
                             <Percent size={40} className="text-brand-dark" />
                         </div>
                         <div>
                             <h3 className="text-2xl font-black text-brand-dark mb-2">{t.feeTitle}</h3>
-                            <p className="text-lg text-gray-600 font-medium leading-relaxed">{t.feeText}</p>
-                        </div>
-                    </div>
-
-                    <div className="bg-gray-50 border border-gray-100 rounded-[40px] p-8 lg:p-12 mb-10 max-w-5xl mx-auto">
-                        <div className="text-center mb-10">
-                            <h3 className="text-2xl font-black text-brand-dark mb-4">{t.beyondTitle}</h3>
-                        </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                            {t.beyondPlatforms.map((plat, idx) => (
-                                <div 
-                                    key={idx} 
-                                    onClick={() => onNavigate && onNavigate(plat.id)}
-                                    className="bg-white p-6 rounded-[24px] shadow-sm hover:shadow-md transition-shadow border border-gray-100 cursor-pointer group flex flex-col h-full"
-                                >
-                                    <h4 className="font-bold text-brand-blue mb-2 text-lg group-hover:text-blue-600 transition-colors flex items-center gap-2">
-                                        {plat.name}
-                                        <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all"/>
-                                    </h4>
-                                    <p className="text-gray-500 font-medium text-sm leading-relaxed">{plat.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="mt-8 text-center text-sm font-bold text-gray-400 uppercase tracking-widest">
-                            {t.beyondFooter}
+                            <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{t.feeText}</p>
                         </div>
                     </div>
                 </section>
 
-                <P1688AdvancedGuide language={language} />
+                <P1688AdvancedGuide language={language} onNavigate={onNavigate} />
 
                 <div id="contacts">
                     <Contact language={language} currentPage="1688" />

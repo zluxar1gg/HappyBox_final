@@ -1,13 +1,14 @@
 import React from 'react';
-import { BookOpen, AlertCircle } from 'lucide-react';
+import { BookOpen, AlertCircle, ArrowRight } from 'lucide-react';
 import { Language } from '../utils/translations';
 import { TableWrapper } from './TableWrapper';
 
 interface P1688AdvancedGuideProps {
   language: Language;
+  onNavigate?: (page: string) => void;
 }
 
-export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language }) => {
+export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language, onNavigate }) => {
     const content = {
         en: {
             title: "1688 Buyer's Guide 2026: How to Source Wholesale from China Without a Chinese Account",
@@ -67,7 +68,21 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                             ["Pinduoduo", "Group buying, deep discounts", "Low — social commerce", "Chinese", "Not supported"]
                         ]
                     },
-                    afterTable: "Which platform for which situation:\n• Reselling wholesale inventory → 1688\n• Official branded goods → Tmall\n• Personal shopping, single items → Taobao\n• Authenticated sneakers → Poizon\n• Maximum discount on consumer goods → Pinduoduo\n\nWe support purchasing and consolidation across all six platforms into one international shipment."
+                    beyondPlatforms: [
+                        { name: "Taobao", desc: "single items and personal shopping", id: "taobao" },
+                        { name: "Tmall", desc: "official brand flagship stores", id: "tmall" },
+                        { name: "Poizon (Dewu)", desc: "authentic sneakers and streetwear", id: "poizon" },
+                        { name: "Pinduoduo", desc: "group buying and discount deals", id: "pinduoduo" }
+                    ],
+                    platformSituationTitle: "Which platform for which situation:",
+                    platformSituations: [
+                        "Reselling wholesale inventory → 1688",
+                        "Official branded goods → Tmall",
+                        "Personal shopping, single items → Taobao",
+                        "Authenticated sneakers → Poizon",
+                        "Maximum discount on consumer goods → Pinduoduo"
+                    ],
+                    beyondFooter: "We support purchasing and consolidation across all six platforms into one international shipment."
                 }
             ],
             readMore: "Read the 1688 Buyer's Guide",
@@ -131,7 +146,21 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                             ["Pinduoduo", "Совместные покупки", "Низкие (дисконт)", "Китайский", "Нет"]
                         ]
                     },
-                    afterTable: "Какую платформу выбрать:\n• Перепродажа оптовых партий → 1688\n• Официальные товары брендов → Tmall\n• Поштучно и личный шопинг → Taobao\n• 100% оригинальные кроссовки → Poizon\n• Максимальная скидка в Рознице → Pinduoduo\n\nМы осуществляем выкуп и объединяем заказы со всех шести платформ в одну международную отправку."
+                    beyondPlatforms: [
+                        { name: "Taobao", desc: "розница и личные покупки", id: "taobao" },
+                        { name: "Tmall", desc: "официальные флагманские магазины брендов", id: "tmall" },
+                        { name: "Poizon (Dewu)", desc: "оригинальные кроссовки и брендовая одежда", id: "poizon" },
+                        { name: "Pinduoduo", desc: "низкие цены и групповые закупки", id: "pinduoduo" }
+                    ],
+                    platformSituationTitle: "Какую платформу выбрать:",
+                    platformSituations: [
+                        "Перепродажа оптовых партий → 1688",
+                        "Официальные товары брендов → Tmall",
+                        "Поштучно и личный шопинг → Taobao",
+                        "100% оригинальные кроссовки → Poizon",
+                        "Максимальная скидка в Рознице → Pinduoduo"
+                    ],
+                    beyondFooter: "Мы осуществляем выкуп и объединяем заказы со всех шести платформ в одну международную отправку."
                 }
             ],
             readMore: "Читать гайд по закупкам 1688",
@@ -145,9 +174,6 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
         <section className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
             <div className="max-w-5xl mx-auto text-gray-600">
                 <div className="max-w-4xl mx-auto text-center mb-16">
-                    <div className="w-16 h-16 rounded-full bg-brand-yellow/20 text-brand-dark flex items-center justify-center mx-auto mb-6 shrink-0">
-                        <BookOpen size={32} />
-                    </div>
                     <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight leading-tight">
                         {t.title}
                     </h2>
@@ -192,6 +218,37 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                                         </tbody>
                                     </table>
                                 </TableWrapper>
+                            )}
+
+                            {(section as any).beyondPlatforms && (
+                                <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 mb-6 mt-6">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
+                                        {(section as any).beyondPlatforms.map((plat: any, i: number) => (
+                                            <div key={i} onClick={() => onNavigate && onNavigate(plat.id)} className="bg-white p-6 rounded-[24px] shadow-sm hover:shadow-md transition-shadow border border-gray-100 cursor-pointer group flex flex-col h-full text-left">
+                                                <h4 className="font-bold text-brand-blue mb-2 text-lg group-hover:text-blue-600 transition-colors flex items-center gap-2">
+                                                    {plat.name}
+                                                    <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all"/>
+                                                </h4>
+                                                <p className="text-gray-500 font-medium text-sm leading-relaxed">{plat.desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="text-left w-full text-gray-600 leading-relaxed">
+                                        <p className="mb-2">{(section as any).platformSituationTitle}</p>
+                                        <ul className="space-y-1 mb-6">
+                                            {(section as any).platformSituations?.map((sit: string, sIdx: number) => (
+                                                <li key={sIdx} className="flex gap-2 items-start text-gray-600">
+                                                    <span className="text-gray-600 font-bold">•</span>
+                                                    {sit}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <p className="text-gray-600">
+                                            {(section as any).beyondFooter}
+                                        </p>
+                                    </div>
+                                </div>
                             )}
 
                             {section.afterTable && (
