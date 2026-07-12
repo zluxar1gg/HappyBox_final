@@ -46,7 +46,7 @@ export const ShoppingGuides: React.FC<{ language: Language }> = ({ language }) =
     <section className="py-12 md:py-24 bg-brand-light/20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4 tracking-tight">
             {t.title}
           </h2>
           <p className="text-gray-500 font-bold max-w-2xl mx-auto text-lg md:text-xl">
@@ -91,7 +91,7 @@ export const ShoppingGuides: React.FC<{ language: Language }> = ({ language }) =
             >
               <div className="p-8 pb-6 flex justify-between items-center bg-gray-50/50">
                 <div>
-                  <h2 className={`text-3xl font-black leading-none mb-1.5 tracking-tighter ${getBrandTextStyle(activeGuide.id)}`}>{activeGuide.title}</h2>
+                  <h2 className={`text-3xl font-extrabold leading-none mb-1.5 tracking-tighter ${getBrandTextStyle(activeGuide.id)}`}>{activeGuide.title}</h2>
                   <p className="text-xs text-gray-400 font-bold uppercase tracking-[0.2em]">{getExpertLabel()}</p>
                 </div>
                 <button 

@@ -60,7 +60,7 @@ export const GenericDestinationPage: React.FC<GenericDestinationPageProps> = ({
                     <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                         {isEn ? `${name}-Direct Line` : `Прямая линия в ${name}`}
                     </span>
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
                         {isEn ? `Shipping from China to ${name}` : `Доставка из Китая в ${name}`}
                     </h1>
                     <p className="text-xl text-gray-600 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
@@ -82,7 +82,7 @@ export const GenericDestinationPage: React.FC<GenericDestinationPageProps> = ({
                         </div>
                         <div>
                             <h3 className="text-2xl font-bold mb-3">{isEn ? 'Air Freight' : 'Авиадоставка'}</h3>
-                            <p className="text-gray-600 font-medium leading-relaxed">
+                            <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                 {isEn ? 'The fastest way to get your goods. Ideal for urgent shipments and high-value items.' : 'Самый быстрый способ доставки. Идеально для срочных грузов.'}
                             </p>
                         </div>
@@ -93,7 +93,7 @@ export const GenericDestinationPage: React.FC<GenericDestinationPageProps> = ({
                         </div>
                         <div>
                             <h3 className="text-2xl font-bold mb-3">{isEn ? 'Sea Freight' : 'Морская доставка'}</h3>
-                            <p className="text-gray-600 font-medium leading-relaxed">
+                            <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                 {isEn ? 'Cost-effective solution for bulk orders and heavy equipment.' : 'Экономически выгодное решение для крупных партий.'}
                             </p>
                         </div>

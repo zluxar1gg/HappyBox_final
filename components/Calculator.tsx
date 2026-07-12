@@ -146,7 +146,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
       <div className="container mx-auto">
         <div className="bg-white rounded-[40px] p-8 lg:p-16 max-w-[1150px] mx-auto shadow-sm border border-gray-100">
           <div className="mb-12 text-center lg:text-left">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4 tracking-tighter">{t.title}</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4 tracking-tighter">{t.title}</h2>
             <p className="text-lg md:text-xl text-gray-500 font-bold max-w-3xl">{t.subtitle}</p>
           </div>
 
@@ -226,7 +226,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
                 <div className="w-full text-center p-8 lg:p-12 bg-gradient-to-br from-brand-blue to-blue-400 rounded-[40px] text-white shadow-2xl animate-fade-in flex flex-col justify-center min-h-[400px] lg:min-h-[450px] relative overflow-hidden group">
                   {result.isOther ? (
                     <div className="space-y-6 relative z-10">
-                      <h3 className="text-3xl font-black tracking-tight">{t.contactQuote}</h3>
+                      <h3 className="text-3xl font-extrabold tracking-tight">{t.contactQuote}</h3>
                       <p className="text-blue-50 font-medium opacity-80">{t.contactDesc}</p>
                       <button onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })} className="bg-white text-brand-blue px-10 py-4 rounded-2xl font-black text-lg shadow-lg hover:scale-105 transition-transform active:scale-95">{t.contactBtn}</button>
                     </div>

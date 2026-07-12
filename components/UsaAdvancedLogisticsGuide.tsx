@@ -322,7 +322,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                 <h2 className="text-3xl lg:text-4xl font-extrabold text-brand-dark mb-4 tracking-tight">
                     {t.title}
                 </h2>
-                <p className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed">
+                <p className="text-xl md:text-2xl text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                     {t.subtitle}
                 </p>
                 <div className="bg-gray-50 rounded-2xl p-4 md:p-6 mt-12 flex flex-col md:flex-row items-center justify-center gap-y-4 gap-x-2 text-sm font-medium flex-wrap max-w-4xl mx-auto">
@@ -401,8 +401,8 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                             </ul>
                             <div className="space-y-3">
                                 <p className="text-gray-600 border-t border-gray-200 pt-5 leading-relaxed">{t.sec3.bottom1}</p>
-                                <p className="text-gray-600 leading-relaxed">{t.sec3.bottom2}</p>
-                                {t.sec3.bottom3 && <p className="text-gray-600 leading-relaxed">{t.sec3.bottom3}</p>}
+                                <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{t.sec3.bottom2}</p>
+                                {t.sec3.bottom3 && <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{t.sec3.bottom3}</p>}
                             </div>
                         </div>
                     </div>
@@ -507,10 +507,10 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
       <div className="max-w-5xl mx-auto text-gray-600">
         
         <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6 tracking-tight leading-tight">
             {t.title}
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed font-medium">
+          <p className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed">
             {t.subtitle}
           </p>
         </div>
@@ -539,7 +539,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
           {/* Section 1 */}
           <div id="sea-freight" className="scroll-mt-28">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sec1.title}</h3>
+              <h3 className="text-2xl font-extrabold text-brand-dark leading-tight">{t.sec1.title}</h3>
             </div>
             <p className="mb-6 leading-relaxed font-medium">{t.sec1.desc}</p>
             <div className="grid md:grid-cols-3 gap-6">
@@ -556,7 +556,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
           {/* Section 2 */}
           <div id="customs" className="scroll-mt-28">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sec2.title}</h3>
+              <h3 className="text-2xl font-extrabold text-brand-dark leading-tight">{t.sec2.title}</h3>
             </div>
             <p className="mb-6 leading-relaxed font-medium">{t.sec2.desc}</p>
             <ul className="space-y-4">
@@ -572,7 +572,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
           {/* Section 3 */}
           <div id="tariffs" className="scroll-mt-28">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sec3.title}</h3>
+              <h3 className="text-2xl font-extrabold text-brand-dark leading-tight">{t.sec3.title}</h3>
             </div>
             <p className="mb-6 leading-relaxed font-medium">{t.sec3.desc}</p>
             
@@ -599,16 +599,16 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
             </TableWrapper>
             
             <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 mb-6">
-                <p className="text-gray-600 leading-relaxed mb-4">{t.sec3.bottom1}</p>
-                <p className="text-gray-600 leading-relaxed mb-4">{t.sec3.bottom2}</p>
-                {t.sec3.bottom3 && <p className="text-gray-600 leading-relaxed">{t.sec3.bottom3}</p>}
+                <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-4">{t.sec3.bottom1}</p>
+                <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-4">{t.sec3.bottom2}</p>
+                {t.sec3.bottom3 && <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{t.sec3.bottom3}</p>}
             </div>
           </div>
 
           {/* Section 4 */}
           <div id="product-types" className="scroll-mt-28">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sec4.title}</h3>
+              <h3 className="text-2xl font-extrabold text-brand-dark leading-tight">{t.sec4.title}</h3>
             </div>
             {t.sec4.desc && <p className="mb-6 leading-relaxed font-medium">{t.sec4.desc}</p>}
             
@@ -616,7 +616,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
               {t.sec4.items.map((item, idx) => (
                   <div key={idx} className={`bg-white border border-gray-100 rounded-2xl p-6 shadow-sm ${idx === t.sec4.items.length - 1 && t.sec4.items.length % 2 !== 0 ? 'md:col-span-2' : ''}`}>
                     <h4 className="font-bold text-brand-dark text-lg mb-2">{item.title}</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                    <p className="text-sm text-base md:text-lg text-gray-700 font-medium leading-relaxed">{item.desc}</p>
                   </div>
               ))}
             </div>
@@ -625,7 +625,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
           {/* Section 5 */}
           <div id="volumetric" className="scroll-mt-28">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sec5.title}</h3>
+              <h3 className="text-2xl font-extrabold text-brand-dark leading-tight">{t.sec5.title}</h3>
             </div>
             <p className="mb-6 leading-relaxed font-medium">{t.sec5.desc}</p>
             
@@ -652,7 +652,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
           {/* Section 6 */}
           <div id="ports" className="scroll-mt-28">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sec6.title}</h3>
+              <h3 className="text-2xl font-extrabold text-brand-dark leading-tight">{t.sec6.title}</h3>
             </div>
             {t.sec6.desc && <p className="mb-6 leading-relaxed font-medium">{t.sec6.desc}</p>}
             
@@ -660,8 +660,8 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                {t.sec6.items.map((item, idx) => (
                    <div key={idx} className="border border-gray-100 rounded-2xl p-6 sm:p-8 bg-gray-50">
                        <h4 className="font-bold text-brand-dark text-lg sm:text-xl mb-3">{item.title}</h4>
-                       <p className="text-gray-600 leading-relaxed mb-4">{item.desc1}</p>
-                       {item.desc2 && <p className="text-gray-600 leading-relaxed mb-2"><strong>{language === 'ru' ? 'Лучше для:' : 'Best for:'}</strong> {item.desc2.replace('Best for: ', '')}</p>}
+                       <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-4">{item.desc1}</p>
+                       {item.desc2 && <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-2"><strong>{language === 'ru' ? 'Лучше для:' : 'Best for:'}</strong> {item.desc2.replace('Best for: ', '')}</p>}
                        {item.desc3 && <p className="text-[#FF9900] leading-relaxed"><strong>{language === 'ru' ? 'Внимание:' : 'Watch out for:'}</strong> {item.desc3.replace('Watch out for: ', '')}</p>}
                    </div>
                ))}
@@ -677,7 +677,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
           {/* Section 7 */}
           <div id="warehouse" className="scroll-mt-28">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sec7.title}</h3>
+              <h3 className="text-2xl font-extrabold text-brand-dark leading-tight">{t.sec7.title}</h3>
             </div>
             {t.sec7.desc && <p className="mb-6 leading-relaxed font-medium">{t.sec7.desc}</p>}
             
@@ -697,7 +697,7 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
           {/* Section 8 */}
           <div id="insurance" className="scroll-mt-28">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-2xl font-black text-brand-dark leading-tight">{t.sec8.title}</h3>
+              <h3 className="text-2xl font-extrabold text-brand-dark leading-tight">{t.sec8.title}</h3>
             </div>
             <p className="mb-6 leading-relaxed font-medium text-gray-600">{t.sec8.desc}</p>
             <div className="bg-[#e1f3ff] p-8 lg:p-12 rounded-[40px] border border-[#c1e6ff] relative overflow-hidden">

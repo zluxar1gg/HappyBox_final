@@ -42,7 +42,7 @@ export const DeliveryPath: React.FC<{ language: Language }> = ({ language }) => 
   return (
     <section ref={sectionRef} className="py-12 md:py-16 bg-cream overflow-hidden">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-12 md:mb-16 text-center tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-12 md:mb-16 text-center tracking-tight">
           {t.title}
         </h2>
 

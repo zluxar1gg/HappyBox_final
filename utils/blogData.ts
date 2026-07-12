@@ -1,16 +1,19 @@
-export type BlogCategory = 'guide' | 'amazon' | 'customs' | 'news';
+export type BlogCategory = "guide" | "amazon" | "customs" | "news";
 
 export interface BlogBlock {
-  type: 'paragraph' | 'h2' | 'h3' | 'image' | 'youtube' | 'list';
+  type: 'paragraph' | 'h2' | 'h3' | 'image' | 'youtube' | 'list' | 'cta' | 'table';
   content?: string | string[];
   url?: string;
   alt?: string;
+  linkText?: string;
+  tableHeaders?: string[];
+  tableRows?: string[][];
 }
 
 export interface BlogPost {
   id: string;
   slug: string;
-  language: 'en' | 'ru';
+  language: "en" | "ru";
   title: string;
   excerpt: string;
   category: BlogCategory;
@@ -22,269 +25,917 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: '1',
-    slug: 'taobao-shopping-2026',
-    language: 'ru',
-    title: 'Как покупать на Taobao в 2026 году: полный гайд',
-    excerpt: 'Taobao — крупнейший торговый маркетплейс Китая. Узнайте, как заказывать товары, искать через AI, решать вопросы с оплатой криптой (USDT) и доставкой в 2026 году.',
-    category: 'guide',
-    date: '2026-04-20',
-    imageUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    id: "pinduoduo-dubai-2026",
+    slug: "how-to-ship-from-pinduoduo-to-dubai-uae",
+    language: "en",
+    title: "How to Ship from Pinduoduo to Dubai (UAE): 2026 Step-by-Step Guide",
+    excerpt:
+      "Want to buy from Pinduoduo and ship to Dubai? Learn how to bypass China-only addresses, consolidate parcels, and use HappyBox DDP shipping to the UAE with zero customs hassle.",
+    category: "guide",
+    date: "2026-07-12",
+    imageUrl:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     readTime: 6,
     content: [
-      { type: 'paragraph', content: 'Taobao — крупнейший торговый маркетплейс Китая с более чем миллиардом товарных позиций. Одежда, электроника, мебель, косметика, запчасти — здесь есть буквально всё, причём зачастую в 3–5 раз дешевле, чем в России или СНГ. Однако платформа изначально создавалась для внутреннего китайского рынка, и покупка на ней требует понимания нескольких важных нюансов. В этом гайде разберём всё по шагам — от поиска товара до получения посылки.' },
-      { type: 'h2', content: 'Таобао без регистрации: можно ли смотреть товары' },
-      { type: 'paragraph', content: 'Да — просто зайдите на taobao.com или откройте приложение. Просматривать каталог, смотреть фото, читать описания и даже пользоваться поиском можно таобао без регистрации. Однако для добавления в корзину, общения с продавцом и оформления заказа аккаунт понадобится. Регистрация требует китайского номера телефона, поэтому большинство покупателей из России используют посреднические сервисы или оформляют аккаунт через веб-версию с иностранным номером — это работает, но может потребовать верификации.' },
-      { type: 'h2', content: 'Таобао на русском языке: есть ли официальный сайт' },
-      { type: 'paragraph', content: 'Сразу важный момент: таобао на русском языке официальный сайт не существует. Платформа работает только на китайском (и частично на английском для некоторых разделов). Все «русскоязычные версии» в поиске — это либо посреднические сайты, либо расширения для браузера с автопереводом.' },
-      { type: 'h3', content: 'Для работы с платформой самостоятельно вам помогут:' },
-      { type: 'list', content: [
-        'Браузер Chrome + Google Translate — переводит страницу целиком, включая карточки товаров',
-        'Мобильное приложение Taobao — имеет встроенный переводчик в описаниях',
-        'Визуальный поиск — загрузите фото нужного товара, и система найдёт похожие позиции без ввода текста'
-      ]},
-      { type: 'h2', content: 'Как самому заказать с Таобао: пошаговая инструкция' },
-      { type: 'paragraph', content: 'Если вы хотите разобраться, как самому заказать с Таобао, следуйте этому алгоритму:' },
-      { type: 'list', content: [
-        'Шаг 1. Найдите товар. Используйте визуальный поиск (иконка фотоаппарата в строке поиска) или вводите запрос на китайском через переводчик. Например: «женская куртка» → «女士夹克».',
-        'Шаг 2. Оцените продавца. Обращайте внимание на количество сделок (число рядом с именем магазина), рейтинг (три бриллианта — хороший показатель для небольших магазинов) и отзывы с фото от реальных покупателей.',
-        'Шаг 3. Уточните детали. Размерная сетка на Taobao китайская — всегда сверяйтесь с таблицей размеров в карточке товара. Для сложных позиций (мебель, техника) свяжитесь с продавцом через чат Wangwang прямо в приложении.',
-        'Шаг 4. Оформите заказ. Добавьте товар в корзину, выберите цвет/размер/количество.',
-        'Шаг 5. Укажите китайский адрес доставки. Здесь начинается главная сложность для покупателей из СНГ, которую решает склад в Китае.'
-      ]},
-      { type: 'h2', content: 'Как покупать на Таобао без посредника — реально ли в 2026 году' },
-      { type: 'paragraph', content: 'Технически — да. Но на практике самостоятельная покупка сопряжена с серьёзными препятствиями: продавцы принимают только Alipay с привязанной китайской картой, и они не доставляют товары в Россию или СНГ. Вся коммуникация ведется на китайском языке.' },
-      { type: 'h3', content: 'Оплата криптовалютой (USDT)' },
-      { type: 'paragraph', content: 'В 2026 году один из самых быстрых и выгодных способов работы с посредником — оплата криптовалютой (USDT). Вы переводите стейблкоины без конских банковских комиссий и блокировок, а склад (например, HappyBox) день в день выкупает ваш товар за юани.' },
-      { type: 'h2', content: 'Зачем нужен склад в Китае и как он решает все проблемы' },
-      { type: 'paragraph', content: 'Рабочая схема для самостоятельных покупок на Taobao — использование китайского склада-посредника. Вот как это работает:' },
-      { type: 'list', content: [
-        'Вы регистрируетесь на складском сервисе и получаете китайский адрес доставки.',
-        'Заказываете товар на Taobao, указывая этот адрес.',
-        'Склад принимает посылку, проверяет содержимое (фото по запросу), хранит нужное время.',
-        'Склад консолидирует товары от разных продавцов в одну посылку и отправляет вам.'
-      ]},
-      { type: 'paragraph', content: 'Итоговая экономия нередко достигает 40–60% по сравнению с покупкой тех же товаров через российские маркетплейсы.' },
-      { type: 'h2', content: 'Итог' },
-      { type: 'paragraph', content: 'Taobao в 2026 году остаётся лучшим источником китайских товаров по минимальным ценам. Платформа доступна без регистрации для просмотра, но для полноценных покупок потребуется аккаунт, решение вопроса с оплатой и — самое главное — китайский адрес доставки. Склад в Китае закрывает все три проблемы и превращает Taobao из «сложной иностранной площадки» в удобный инструмент для регулярных покупок.' }
-    ]
+      {
+        type: "paragraph",
+        content:
+          "If you live in Dubai, you’ve probably noticed the massive price gap between local marketplaces (like Noon or Amazon.ae) and China’s ultimate discount app - Pinduoduo. Whether it’s trending electronic gadgets, home decor, or premium fashion, Pinduoduo often lists products at 30% to 50% cheaper than anywhere else. Why? Because the platform heavily subsidizes prices directly from Chinese factories.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "However, there is a catch. The app is almost entirely in Chinese and it only ships to mainland Chinese addresses. So, how do people and smart business owners in Dubai get their hands on Pinduoduo deals?",
+      },
+      {
+        type: "paragraph",
+        content:
+          'In this guide, we will break down exactly how to bypass these restrictions, use HappyBox as your dedicated China shipping partner, and get your parcels delivered straight to your doorstep in <a href="/uae" class="text-brand-blue hover:underline">Dubai</a> with zero customs hassle.',
+      },
+      {
+        type: "h2",
+        content: 'The main problems with shipping from Pinduoduo to the UAE',
+      },
+      {
+        type: "paragraph",
+        content:
+          'Before we look at the solution, let’s talk about the roadblocks most buyers face when trying to order from <a href="/pinduoduo" class="text-brand-blue hover:underline">Pinduoduo</a> to Dubai:',
+      },
+      {
+        type: "list",
+        content: [
+          "The Address Block: You cannot enter a Dubai, Marina, or Downtown address in the app. The system will simply reject it.",
+          "Multiple Packages (The Shipping Trap): If you buy from 5 different sellers on Pinduoduo, you will get 5 separate packages. If you ship them individually to Dubai, the international shipping fees will destroy your profit margins.",
+          "Strict Dubai Customs (2026 Rules): UAE Customs have significantly tightened regulations on importing commercial volumes under the guise of personal parcels. If your paperwork is wrong, your goods can face a 5% import duty + 5% VAT, or worse, get stuck at the Dubai Airport Cargo terminal.",
+        ],
+      },
+      {
+        type: "h2",
+        content: "How HappyBox Solves Your Pinduoduo to Dubai Problems",
+      },
+      {
+        type: "paragraph",
+        content:
+          'With HappyBox, you don’t need to worry about any of the logistics. We act as your physical <a href="/warehousing" class="text-brand-blue hover:underline">warehouse</a> and legal bridge in China. Here is your unfair advantage:',
+      },
+      {
+        type: "list",
+        content: [
+          "Free Package Consolidation: We collect all your separate Pinduoduo orders at our Shenzhen warehouse. We open them, strip away heavy factory cardboard, and pack everything tightly into one single, secure box. This drastically reduces the volumetric weight and slashes your shipping bill.",
+          "Visual Quality Buffer: We send you real photos/videos of your items when they arrive in Shenzhen. If a seller sent the wrong size or a defective item, we help you return it before it leaves China.",
+          "100% DDP (Delivered Duty Paid) Shipping: We handle all Dubai customs clearance under our own commercial licenses. The price you pay HappyBox covers everything - freight, handling, customs clearance, and all UAE taxes. No surprise bills, no hidden fees at your door.",
+        ],
+      },
+      {
+        type: "cta",
+        content: "Start Shipping from Pinduoduo to UAE",
+        alt: "Get your free China warehouse address and start saving today.",
+        linkText: "Message us on WhatsApp",
+        url: "https://wa.me/message/3O2D734VEMWLI1",
+      },
+      {
+        type: "h2",
+        content: "Step-by-Step Guide: How to Order from Pinduoduo to Dubai",
+      },
+      {
+        type: "h3",
+        content: "Step 1: Get Your Free HappyBox Shenzhen Address",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Contact the HappyBox team - we will provide you with your personal shipping address written in Chinese characters, complete with your unique User ID.",
+      },
+      {
+        type: "h3",
+        content: "Step 2: Set Up Your Shipping Address in Pinduoduo",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Open your Pinduoduo app, go to your profile settings, and click on the address management tab. Copy and paste the Chinese address provided by HappyBox exactly as it is. Make sure your unique User ID is included in the recipient name line - this is how our warehouse team knows the box belongs to you!",
+      },
+      { type: "h3", content: "Step 3: Go Shopping!" },
+      {
+        type: "paragraph",
+        content:
+          "Place your orders on Pinduoduo. Pay using your linked international card or WeChat Pay/Alipay. The sellers will ship your items locally to our Shenzhen hub (which usually takes just 1–3 days).",
+      },
+      { type: "h3", content: "Step 4: We Consolidate and Inspect" },
+      {
+        type: "paragraph",
+        content:
+          "Once all your items arrive at our Shenzhen warehouse, we will verify the contents, take photos for your peace of mind, and consolidate them into one optimized shipment.",
+      },
+      { type: "h3", content: "Step 5: Choose Your Shipping Method to Dubai" },
+      {
+        type: "paragraph",
+        content:
+          "We offer two distinct transit options depending on your budget and urgency:",
+      },
+      {
+        type: "table",
+        tableHeaders: ["Method", "Best For", "Transit Time"],
+        tableRows: [
+          [
+            "Express <b class='font-semibold'>Air Freight</b>",
+            "Cosmetics, electronics, fashion & urgent items",
+            "<b class='font-semibold'>6–12 Days</b>",
+          ],
+          [
+            "Economy <b class='font-semibold'>Sea Freight</b>",
+            "Furniture, home decor, heavy bulk & commercial stock",
+            "<b class='font-semibold'>25–35 Days</b>",
+          ],
+        ],
+      },
+      { type: "h3", content: "Step 6: Doorstep Delivery in the UAE" },
+      {
+        type: "paragraph",
+        content:
+          "Relax and wait. We fly or sail your goods to Dubai, pass through Dubai Customs seamlessly using our DDP channel, and hand the box over to our local last-mile courier partners who will deliver it right to your residential or business address.",
+      },
+      { type: "h2", content: "FAQ: Frequently Asked Questions" },
+      { type: "h3", content: "Does Pinduoduo ship directly to Dubai?" },
+      {
+        type: "paragraph",
+        content:
+          "No. Pinduoduo only ships within mainland China. To get your goods to Dubai, you must use a trusted freight forwarder like HappyBox with a physical warehouse in China.",
+      },
+      {
+        type: "h3",
+        content:
+          "Will I have to pay customs duties or VAT when my package arrives in Dubai?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Not if you ship with HappyBox. Our specialized Air and Sea DDP channels include all Dubai customs clearance costs, import duties, and VAT. The price we quote you is 100% final.",
+      },
+      {
+        type: "h3",
+        content: "Can HappyBox ship electronics with batteries from Pinduoduo?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Yes! Pinduoduo is famous for cheap tech gadgets and smart home items. We have dedicated, battery-compliant shipping lanes that safely transport electronic items from China to the UAE without border delays.",
+      },
+      { type: "h2", content: "Start Saving on Your Pinduoduo Shopping Today!" },
+      {
+        type: "paragraph",
+        content:
+          "Don’t let language barriers or customs stress keep you from enjoying China’s best prices. Ready to start your first Pinduoduo to Dubai shipment? Contact HappyBox today to get your free Shenzhen warehouse address!",
+      },
+    ],
   },
   {
-    id: '2',
-    slug: 'weidian-poizon-pinduoduo-guide',
-    language: 'ru',
-    title: 'Weidian, Poizon и Pinduoduo: в чём разница и что где покупать',
-    excerpt: 'Сравнение китайских маркетплейсов: для чего нужен Weidian, как проверить кроссовки на Poizon и какие подводные камни таит Pinduoduo.',
-    category: 'guide',
-    date: '2026-04-21',
-    imageUrl: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    readTime: 7,
-    content: [
-      { type: 'paragraph', content: 'Taobao — далеко не единственная китайская площадка. За последние несколько лет Weidian, Poizon (Dewu) и Pinduoduo прочно вошли в жизнь покупателей из СНГ. У каждой из них — своя ниша, аудитория и свои правила игры.' },
-      { type: 'h2', content: 'Weidian: маленькие магазины и уникальные товары' },
-      { type: 'paragraph', content: 'Weidian (微店) — это китайская платформа для микробизнеса. Здесь тысячи небольших продавцов: мастера handmade, ателье и перекупщики. Weidian популярен среди тех, кто ищет реплики люксовых брендов, дизайнерские изделия или позиции, которых нет на Taobao.' },
-      { type: 'paragraph', content: 'Weidian как покупать — основные шаги: платформа работает через мобильное приложение WeChat или приложение Weidian. Как оплатить на Weidian? Платформа принимает оплату через WeChat Pay и Alipay. Поскольку иностранцу это недоступно, решение стандартное: использовать склад-посредник (например, HappyBox), который примет оплату в рублях или USDT и выкупит товар.' },
-      { type: 'h3', content: 'Опасности и ловушки Weidian' },
-      { type: 'paragraph', content: 'Здесь нет жесткой модерации фабрик. Высок риск купить «паль» под видом люксовой реплики 1:1 или столкнуться с недобросовестным магазином. Поэтому выкуп через склад с услугой проверки (фотоотчет из Шэньчжэня) — обязательное условие.' },
-      { type: 'h2', content: 'Poizon (Dewu): кроссовки и мода с верификацией' },
-      { type: 'paragraph', content: 'Poizon — это китайский аналог StockX. Площадка специализируется на кроссовках и уличной одежде. Главная особенность: каждый товар проходит верификацию — перед отправкой покупателю специалисты проверяют подлинность. Как заказать с Пойзон: приложение доступно на мобильных телефонах, интерфейс интуитивный. Международной доставки нет, так что товар нужно заказывать на китайский склад.' },
-      { type: 'h3', content: 'Чек-лист перед покупкой на Poizon:' },
-      { type: 'list', content: [
-        'Проверить цену (она меняется в зависимости от размера!).',
-        'Убедиться, что выбрана синяя кнопка (быстрая отправка со склада Poizon с верификацией), а не черная (долгая поставка от продавца).',
-        'Скопировать ссылку и скинуть менеджеру HappyBox.'
-      ]},
-      { type: 'h2', content: 'Pinduoduo: масс-маркет и групповые закупки' },
-      { type: 'paragraph', content: 'Pinduoduo (拼多多) фокусируется на сверхдешевых товарах и групповых покупках напрямую с фабрик. Пиндуодуо на русском языке официально не представлен, а оригинальное приложение полностью на китайском (Temu — это международная версия, но там меньше выбор и выше цены).' },
-      { type: 'paragraph', content: 'Но в 2026 году это не проблема: на Pinduoduo поиск по фото стал еще точнее благодаря AI-алгоритмам — просто загрузите скриншот из Instagram, и умная лента найдет нужную фабрику.' },
-      { type: 'h3', content: 'Опасности Pinduoduo' },
-      { type: 'paragraph', content: 'Главная ловушка — откровенно некачественные товары. В гонке за низкой ценой фабрики используют дешевые материалы. Товар может развалиться в руках после первой стирки. Всегда запрашивайте фото на складе перед отправкой сборного груза домой.' },
-      { type: 'h2', content: 'Сравнение платформ: что где искать' },
-      { type: 'list', content: [
-        'Weidian: Нишевые товары, реплики, handmade. Экономия: 30-50% от люкса.',
-        'Poizon: 100% оригинальные кроссовки, streetwear. Экономия: 20-40% от цен в РФ.',
-        'Pinduoduo: Масс-маркет, дешевле Taobao. Экономия: до 70% на товарах для дома и быта.'
-      ]},
-      { type: 'h2', content: 'Итог' },
-      { type: 'paragraph', content: 'Все три площадки работают по одной логике: покупка внутри Китая + доставка на склад + консолидированная отправка за рубеж. Оплата в 2026 году через крипту (USDT) посредникам снимает любую головную боль с картами.' },
-      { type: 'paragraph', content: 'Если вы еще не освоили базу, почитайте наш гайд "Как покупать на Taobao в 2026 году". Выстроив эту схему один раз, вы получаете доступ ко всем китайским маркетплейсам одновременно!' }
-    ]
-  },
-  {
-    id: '3',
-    slug: 'taobao-shopping-2026',
-    language: 'en',
-    title: 'How to Buy on Taobao in 2026: The Ultimate Guide',
-    excerpt: 'Taobao is China\'s largest marketplace. Learn how to order goods, search with AI, solve crypto (USDT) payment issues, and manage shipping in 2026.',
-    category: 'guide',
-    date: '2026-04-20',
-    imageUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    id: "pinduoduo-dubai-2026",
+    slug: "how-to-ship-from-pinduoduo-to-dubai-uae",
+    language: "ru",
+    title: "Как заказать с Pinduoduo в Дубай (ОАЭ): Пошаговая инструкция — 2026",
+    excerpt:
+      "Хотите заказать с Pinduoduo в Дубай? Узнайте, как обойти ограничения, объединить посылки и использовать доставку HappyBox DDP в ОАЭ без проблем с таможней.",
+    category: "guide",
+    date: "2026-07-12",
+    imageUrl:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     readTime: 6,
     content: [
-      { type: 'paragraph', content: 'Taobao is China\'s largest e-commerce marketplace with over a billion product listings. Clothing, electronics, furniture, cosmetics, auto parts — it literally has everything, and often 3–5 times cheaper than locally. However, the platform was originally created for the domestic Chinese market, and buying on it requires understanding several important nuances. In this guide, we will break down everything step-by-step from searching for a product to receiving your parcel.' },
-      { type: 'h2', content: 'Taobao without registration: Can you browse products?' },
-      { type: 'paragraph', content: 'Yes — just visit taobao.com or open the app. You can browse the catalog, look at photos, read descriptions, and even use the search without an account. However, to add items to your cart, communicate with sellers, and place an order, you will need an account. Registration requires a Chinese phone number, so most international buyers use proxy services or register via the web version with a foreign number — this works, but it may require verification.' },
-      { type: 'h2', content: 'Is there an official English website for Taobao?' },
-      { type: 'paragraph', content: 'Right away, an important point: there is no official English website for Taobao. The platform operates only in Chinese (and partially in English for some minor sections). All "English versions" in search engines are either proxy websites or browser extensions with auto-translation.' },
-      { type: 'h3', content: 'To navigate the platform yourself, you will need:' },
-      { type: 'list', content: [
-        'Chrome Browser + Google Translate — translates the entire page, including product cards.',
-        'Taobao Mobile App — has a built-in translator for descriptions.',
-        'Visual Search — upload a photo of the desired item, and the system will find similar goods without typing text.'
-      ]},
-      { type: 'h2', content: 'How to order from Taobao yourself: A step-by-step guide' },
-      { type: 'paragraph', content: 'If you want to figure out how to order from Taobao yourself, follow this algorithm:' },
-      { type: 'list', content: [
-        'Step 1. Find the product. Use visual search (the camera icon in the search bar) or enter your query in Chinese via a translator. For example: "women\'s jacket" → "女士夹克".',
-        'Step 2. Evaluate the seller. Pay attention to the number of transactions (the number next to the store name), rating (three diamonds is a good indicator for small stores), and reviews with photos from real buyers.',
-        'Step 3. Clarify details. Taobao\'s sizing chart is Chinese — always check the size chart in the product card. For complex items (furniture, electronics), contact the seller via Wangwang chat directly in the app.',
-        'Step 4. Place your order. Add the item to your cart, select color/size/quantity.',
-        'Step 5. Provide a Chinese delivery address. This is where the main difficulty begins for international buyers, which is solved by using a warehouse in China.'
-      ]},
-      { type: 'h2', content: 'How to buy on Taobao without a middleman — Is it possible in 2026?' },
-      { type: 'paragraph', content: 'Technically, yes. But in practice, independent purchasing is fraught with serious obstacles: sellers only accept Alipay linked to a Chinese bank card, and they do not ship internationally. Furthermore, all communication is conducted in Chinese.' },
-      { type: 'h3', content: 'Payment via Cryptocurrency (USDT)' },
-      { type: 'paragraph', content: 'In 2026, one of the fastest and most profitable ways to work with an agent is by paying with cryptocurrency (USDT). You transfer stablecoins without exorbitant bank fees or blocks, and a warehouse (like HappyBox) buys your goods for yuan on the exact same day.' },
-      { type: 'h2', content: 'Why do you need a warehouse in China and how does it solve all problems?' },
-      { type: 'paragraph', content: 'The working scheme for independent purchases on Taobao is to use a Chinese warehouse forwarder. Here is how it works:' },
-      { type: 'list', content: [
-        'You register with a warehouse service and get a Chinese shipping address.',
-        'You order goods on Taobao, indicating this specific address.',
-        'The warehouse receives the parcel, checks the contents (photos upon request), and stores it to wait for the rest of your items.',
-        'The warehouse consolidates items from different sellers into one box and ships it to you.'
-      ]},
-      { type: 'paragraph', content: 'The final savings often reach 40–60% compared to buying the same goods on local marketplaces.' },
-      { type: 'h2', content: 'Summary' },
-      { type: 'paragraph', content: 'In 2026, Taobao remains the best source for Chinese goods at rock-bottom prices. The platform is accessible without registration for browsing, but for full-fledged purchases, you will need an account, a payment solution, and most importantly — a Chinese delivery address. A warehouse in China solves all three problems and turns Taobao from a "complicated foreign marketplace" into a convenient tool for regular shopping.' }
+      {
+        type: "paragraph",
+        content: "Если вы живете в Дубае, то наверняка заметили огромную разницу в ценах между местными маркетплейсами (такими как Noon или Amazon.ae) и главным китайским приложением-дискаунтером — Pinduoduo. Будь то трендовые гаджеты, декор для дома или премиальная одежда, Pinduoduo часто предлагает товары на 30–50% дешевле, чем где-либо еще. В чем секрет? Сама платформа жестко субсидирует цены напрямую от китайских фабрик."
+      },
+      {
+        type: "paragraph",
+        content: "Однако есть один подвох. Приложение работает почти полностью на китайском языке и доставляет заказы только по материковому Китаю. Так как же обычные покупатели и продвинутые предприниматели в Дубае забирают самые сочные предложения на Pinduoduo?"
+      },
+      {
+        type: "paragraph",
+        content: "В этом руководстве мы подробно разберем, как обойти все ограничения, использовать HappyBox как надежного партнера по доставке из Китая и получить свои посылки прямо к двери в Дубае вообще без головной боли с таможней."
+      },
+      {
+        type: "h2",
+        content: "Главные проблемы при самостоятельной доставке с Pinduoduo в ОАЭ"
+      },
+      {
+        type: "paragraph",
+        content: "Прежде чем перейти к решению, давайте поговорим о барьерах, с которыми сталкивается большинство покупателей при попытке заказать из Pinduoduo в Дубай:"
+      },
+      {
+        type: "list",
+        content: [
+          "Блок по адресу: Вы не можете ввести в приложении адрес в Дубае, на Марине или в Даунтауне. Система его просто не примет.",
+          "Дробление на кучу посылок (ловушка доставки): Если вы покупаете у 5 разных продавцов на Pinduoduo, вы получите 5 отдельных посылок. Если отправлять их в Дубай поодиночке, стоимость международной доставки просто сожрет всю вашу выгоду.",
+          "Строгая таможня Дубая (правила 2026 года): Таможня ОАЭ значительно ужесточила контроль за импортом коммерческих партий под видом личных посылок. Если документы оформлены неверно, ваш груз попадет под пошлину 5% + 5% VAT (НДС) или, что еще хуже, застрянет на грузовом терминале аэропорта Дубая."
+        ]
+      },
+      {
+        type: "h2",
+        content: "Как HappyBox решает проблемы с доставкой из Pinduoduo в Дубай"
+      },
+      {
+        type: "paragraph",
+        content: "С HappyBox вам вообще не нужно думать о логистике. Мы берем на себя роль вашего физического склада и официального представителя в Китае. Вот ваши главные преимущества:"
+      },
+      {
+        type: "list",
+        content: [
+          "Бесплатная консолидация посылок: Мы собираем все ваши отдельные заказы с Pinduoduo на нашем складе в Шэньчжэне. Мы вскрываем их, убираем тяжелые заводские коробки и плотно упаковываем все в один надежный бокс. Это кардинально уменьшает объемный вес и снижает итоговый счет за доставку.",
+          "Визуальный контроль качества: Мы присылаем вам реальные фото и видео товаров, как только они поступают в Шэньчжэнь. Если продавец прислал не тот размер или брак, мы поможем оформить возврат до того, как груз покинет Китай.",
+          "Доставка 100% «под ключ» (DDP): Мы берем на себя все процессы таможенной очистки в Дубае под своими коммерческими лицензиями. В цену, которую вы платите HappyBox, уже включено абсолютно всё: фрахт, обработка груза, растаможка и все налоги ОАЭ. Никаких неожиданных счетов и скрытых комиссий при получении."
+        ]
+      },
+      {
+        type: "cta",
+        content: "Начните заказывать с Pinduoduo в ОАЭ уже сегодня",
+        alt: "Получите бесплатный адрес склада в Китае и начните экономить прямо сейчас.",
+        linkText: "Написать нам в WhatsApp",
+        url: "https://wa.me/message/3O2D734VEMWLI1"
+      },
+      {
+        type: "h2",
+        content: "Пошаговое руководство: как сделать заказ из Pinduoduo в Дубай"
+      },
+      {
+        type: "h3",
+        content: "Шаг 1: Получите бесплатный адрес HappyBox в Шэньчжэне"
+      },
+      {
+        type: "paragraph",
+        content: "Свяжитесь с командой HappyBox через WhatsApp или наш сайт. Мы предоставим вам персональный адрес доставки, написанный китайскими иероглифами, вместе с вашим уникальным User ID (кодом клиента)."
+      },
+      {
+        type: "h3",
+        content: "Шаг 2: Настройте адрес доставки в Pinduoduo"
+      },
+      {
+        type: "paragraph",
+        content: "Откройте приложение Pinduoduo, перейдите в настройки профиля и выберите вкладку управления адресами. Скопируйте и вставьте китайский адрес от HappyBox в точности так, как он указан. Обязательно убедитесь, что ваш уникальный User ID прописан в строке имени получателя — именно так наша команда на складе поймет, что эта посылка принадлежит вам!"
+      },
+      {
+        type: "h3",
+        content: "Шаг 3: Время шопинга!"
+      },
+      {
+        type: "paragraph",
+        content: "Оформляйте заказы на Pinduoduo. Оплатить можно любой привязанной международной картой, либо через WeChat Pay / Alipay. Продавцы отправят ваши товары на наш хаб в Шэньчжэне (обычно доставка по Китаю занимает всего 1–3 дня)."
+      },
+      {
+        type: "h3",
+        content: "Шаг 4: Консолидация и проверка"
+      },
+      {
+        type: "paragraph",
+        content: "Как только все ваши вещи прибудут на наш склад в Шэньчжэне, мы проверим содержимое, сделаем фото для вашего спокойствия и объединим всё в одну оптимизированную посылку."
+      },
+      {
+        type: "h3",
+        content: "Шаг 5: Выберите способ доставки в Дубай"
+      },
+      {
+        type: "paragraph",
+        content: "Мы предлагаем два варианта транспортировки в зависимости от вашего бюджета и срочности:"
+      },
+      {
+        type: "table",
+        tableHeaders: ["Способ доставки", "Для чего лучше всего подходит", "Сроки в пути"],
+        tableRows: [
+          [
+            "Экспресс-<b class='font-semibold'>Авиа</b>",
+            "Косметика, электроника, одежда и срочные заказы",
+            "<b class='font-semibold'>6–12 дней</b>"
+          ],
+          [
+            "Эконом-<b class='font-semibold'>Море</b>",
+            "Мебель, декор для дома, тяжелый сборный груз и коммерческие партии",
+            "<b class='font-semibold'>25–35 дней</b>"
+          ]
+        ]
+      },
+      {
+        type: "h3",
+        content: "Шаг 6: Встречайте посылку в ОАЭ"
+      },
+      {
+        type: "paragraph",
+        content: "Расслабьтесь и отдыхайте. Мы доставим ваши товары в Дубай самолетом или морем, без проблем проведем их через таможню Дубая по нашему DDP-каналу («под ключ») и передадим местным курьерским службам, которые привезут коробку прямо к вам домой или в офис."
+      },
+      {
+        type: "h2",
+        content: "FAQ: Часто задаваемые вопросы"
+      },
+      {
+        type: "h3",
+        content: "Есть ли у Pinduoduo прямая доставка в Дубай?"
+      },
+      {
+        type: "paragraph",
+        content: "Нет. Pinduoduo доставляет заказы только внутри материкового Китая. Чтобы привезти вещи в Дубай, вам нужно воспользоваться услугами надежного форвардера (перевозчика) вроде HappyBox, у которого есть свой склад в Китае."
+      },
+      {
+        type: "h3",
+        content: "Придется ли мне платить таможенные пошлины или НДС при прибытии посылки в Дубай?"
+      },
+      {
+        type: "paragraph",
+        content: "Нет, если вы отправляете через HappyBox. Наши специализированные авиа- и морские DDP-каналы включают в себя абсолютно все расходы на таможенную очистку в Дубае, импортные пошлины и VAT. Цена, которую мы вам озвучиваем, является окончательной на 100%."
+      },
+      {
+        type: "h3",
+        content: "Может ли HappyBox отправлять электронику с аккумуляторами из Pinduoduo?"
+      },
+      {
+        type: "paragraph",
+        content: "Да! Pinduoduo славится своими дешевыми гаджетами и девайсами для умного дома. У нас есть выделенные логистические маршруты для перевозки товаров с батареями, которые позволяют безопасно доставлять электронику из Китая в ОАЭ без задержек на границе."
+      },
+      {
+        type: "h2",
+        content: "Начните экономить на покупках в Pinduoduo уже сегодня!"
+      },
+      {
+        type: "paragraph",
+        content: "Не позволяйте языковому барьеру или страху перед таможней лишать вас лучших цен в Китае. Готовы отправить свою первую посылку из Pinduoduo в Дубай? Свяжитесь с HappyBox прямо сейчас, чтобы получить бесплатный адрес склада в Шэньчжэне!"
+      }
     ]
   },
   {
-    id: '4',
-    slug: 'weidian-poizon-pinduoduo-guide',
-    language: 'en',
-    title: 'Weidian, Poizon, and Pinduoduo: Differences and What to Buy Where',
-    excerpt: 'A comparison of Chinese marketplaces: why you need Weidian, how to verify sneakers on Poizon, and the hidden pitfalls of Pinduoduo.',
-    category: 'guide',
-    date: '2026-04-21',
-    imageUrl: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    id: "1",
+    slug: "taobao-shopping-2026",
+    language: "ru",
+    title: "Как покупать на Taobao в 2026 году: полный гайд",
+    excerpt:
+      "Taobao — крупнейший торговый маркетплейс Китая. Узнайте, как заказывать товары, искать через AI, решать вопросы с оплатой криптой (USDT) и доставкой в 2026 году.",
+    category: "guide",
+    date: "2026-04-20",
+    imageUrl:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    readTime: 6,
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "Taobao — крупнейший торговый маркетплейс Китая с более чем миллиардом товарных позиций. Одежда, электроника, мебель, косметика, запчасти — здесь есть буквально всё, причём зачастую в 3–5 раз дешевле, чем в России или СНГ. Однако платформа изначально создавалась для внутреннего китайского рынка, и покупка на ней требует понимания нескольких важных нюансов. В этом гайде разберём всё по шагам — от поиска товара до получения посылки.",
+      },
+      {
+        type: "h2",
+        content: "Таобао без регистрации: можно ли смотреть товары",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Да — просто зайдите на taobao.com или откройте приложение. Просматривать каталог, смотреть фото, читать описания и даже пользоваться поиском можно таобао без регистрации. Однако для добавления в корзину, общения с продавцом и оформления заказа аккаунт понадобится. Регистрация требует китайского номера телефона, поэтому большинство покупателей из России используют посреднические сервисы или оформляют аккаунт через веб-версию с иностранным номером — это работает, но может потребовать верификации.",
+      },
+      {
+        type: "h2",
+        content: "Таобао на русском языке: есть ли официальный сайт",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Сразу важный момент: таобао на русском языке официальный сайт не существует. Платформа работает только на китайском (и частично на английском для некоторых разделов). Все «русскоязычные версии» в поиске — это либо посреднические сайты, либо расширения для браузера с автопереводом.",
+      },
+      {
+        type: "h3",
+        content: "Для работы с платформой самостоятельно вам помогут:",
+      },
+      {
+        type: "list",
+        content: [
+          "Браузер Chrome + Google Translate — переводит страницу целиком, включая карточки товаров",
+          "Мобильное приложение Taobao — имеет встроенный переводчик в описаниях",
+          "Визуальный поиск — загрузите фото нужного товара, и система найдёт похожие позиции без ввода текста",
+        ],
+      },
+      {
+        type: "h2",
+        content: "Как самому заказать с Таобао: пошаговая инструкция",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Если вы хотите разобраться, как самому заказать с Таобао, следуйте этому алгоритму:",
+      },
+      {
+        type: "list",
+        content: [
+          "Шаг 1. Найдите товар. Используйте визуальный поиск (иконка фотоаппарата в строке поиска) или вводите запрос на китайском через переводчик. Например: «женская куртка» → «女士夹克».",
+          "Шаг 2. Оцените продавца. Обращайте внимание на количество сделок (число рядом с именем магазина), рейтинг (три бриллианта — хороший показатель для небольших магазинов) и отзывы с фото от реальных покупателей.",
+          "Шаг 3. Уточните детали. Размерная сетка на Taobao китайская — всегда сверяйтесь с таблицей размеров в карточке товара. Для сложных позиций (мебель, техника) свяжитесь с продавцом через чат Wangwang прямо в приложении.",
+          "Шаг 4. Оформите заказ. Добавьте товар в корзину, выберите цвет/размер/количество.",
+          "Шаг 5. Укажите китайский адрес доставки. Здесь начинается главная сложность для покупателей из СНГ, которую решает склад в Китае.",
+        ],
+      },
+      {
+        type: "h2",
+        content:
+          "Как покупать на Таобао без посредника — реально ли в 2026 году",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Технически — да. Но на практике самостоятельная покупка сопряжена с серьёзными препятствиями: продавцы принимают только Alipay с привязанной китайской картой, и они не доставляют товары в Россию или СНГ. Вся коммуникация ведется на китайском языке.",
+      },
+      { type: "h3", content: "Оплата криптовалютой (USDT)" },
+      {
+        type: "paragraph",
+        content:
+          "В 2026 году один из самых быстрых и выгодных способов работы с посредником — оплата криптовалютой (USDT). Вы переводите стейблкоины без конских банковских комиссий и блокировок, а склад (например, HappyBox) день в день выкупает ваш товар за юани.",
+      },
+      {
+        type: "h2",
+        content: "Зачем нужен склад в Китае и как он решает все проблемы",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Рабочая схема для самостоятельных покупок на Taobao — использование китайского склада-посредника. Вот как это работает:",
+      },
+      {
+        type: "list",
+        content: [
+          "Вы регистрируетесь на складском сервисе и получаете китайский адрес доставки.",
+          "Заказываете товар на Taobao, указывая этот адрес.",
+          "Склад принимает посылку, проверяет содержимое (фото по запросу), хранит нужное время.",
+          "Склад консолидирует товары от разных продавцов в одну посылку и отправляет вам.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "Итоговая экономия нередко достигает 40–60% по сравнению с покупкой тех же товаров через российские маркетплейсы.",
+      },
+      { type: "h2", content: "Итог" },
+      {
+        type: "paragraph",
+        content:
+          "Taobao в 2026 году остаётся лучшим источником китайских товаров по минимальным ценам. Платформа доступна без регистрации для просмотра, но для полноценных покупок потребуется аккаунт, решение вопроса с оплатой и — самое главное — китайский адрес доставки. Склад в Китае закрывает все три проблемы и превращает Taobao из «сложной иностранной площадки» в удобный инструмент для регулярных покупок.",
+      },
+    ],
+  },
+  {
+    id: "2",
+    slug: "weidian-poizon-pinduoduo-guide",
+    language: "ru",
+    title: "Weidian, Poizon и Pinduoduo: в чём разница и что где покупать",
+    excerpt:
+      "Сравнение китайских маркетплейсов: для чего нужен Weidian, как проверить кроссовки на Poizon и какие подводные камни таит Pinduoduo.",
+    category: "guide",
+    date: "2026-04-21",
+    imageUrl:
+      "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     readTime: 7,
     content: [
-      { type: 'paragraph', content: 'Taobao is far from the only Chinese marketplace. Over the past few years, Weidian, Poizon (Dewu), and Pinduoduo have firmly entered the lives of international buyers. Each has its own niche, audience, and rules of the game.' },
-      { type: 'h2', content: 'Weidian: Small Shops and Unique Goods' },
-      { type: 'paragraph', content: 'Weidian (微店) is a Chinese platform for micro-businesses. You will find thousands of small sellers here: handmade artisans, ateliers, and resellers. Weidian is popular among those looking for luxury brand replicas, designer items, or things you cannot find on Taobao.' },
-      { type: 'paragraph', content: 'How to buy on Weidian — basic steps: the platform runs through the WeChat mobile app or the main Weidian app. How do you pay? The platform accepts WeChat Pay and Alipay. Since this is generally inaccessible to foreigners, the standard solution is to use a warehouse proxy (like HappyBox) that accepts payments in fiat or USDT and buys the item on your behalf.' },
-      { type: 'h3', content: 'Dangers and Pitfalls of Weidian' },
-      { type: 'paragraph', content: 'There is no strict factory moderation here. There is a high risk of buying outright fakes instead of 1:1 luxury replicas or running into an unscrupulous store. That is why purchasing through a warehouse with inspection services (photo reports from Shenzhen) is an absolute must.' },
-      { type: 'h2', content: 'Poizon (Dewu): Sneakers and Streetwear with Verification' },
-      { type: 'paragraph', content: 'Poizon is the Chinese equivalent of StockX. The platform specializes in sneakers and streetwear. The main feature: every item undergoes verification. Specialists check authenticity before shipping to the buyer. How to order from Poizon: the app is available on mobile devices, and the interface is intuitive. However, there is no direct international shipping, so you must order to a Chinese warehouse address.' },
-      { type: 'h3', content: 'Checklist before buying on Poizon:' },
-      { type: 'list', content: [
-        'Check the price (it fluctuates depending on the size!).',
-        'Make sure the blue button is selected (fast shipping from the Poizon warehouse with verification), not the black one (slow delivery directly from the seller).',
-        'Copy the link and send it to your HappyBox manager.'
-      ]},
-      { type: 'h2', content: 'Pinduoduo: Mass Market and Group Buying' },
-      { type: 'paragraph', content: 'Pinduoduo (拼多多) focuses on ultra-cheap goods and group purchases sent straight from factories. There is no official English version for Pinduoduo, and the original app is entirely in Chinese (Temu is the international version, but it has a smaller selection and higher prices).' },
-      { type: 'paragraph', content: 'But in 2026, this isn\'t a problem: searching by photo on Pinduoduo has become even more accurate thanks to AI algorithms — just upload a screenshot from Instagram, and the smart feed will locate the exact factory.' },
-      { type: 'h3', content: 'Dangers of Pinduoduo' },
-      { type: 'paragraph', content: 'The main trap is exceptionally poor-quality goods. In the race for low prices, factories use cheap materials. An item may literally fall apart in your hands after the first wash. Always request quality check photos at the warehouse before shipping a consolidated cargo home.' },
-      { type: 'h2', content: 'Platform Comparison: What to Look for Where' },
-      { type: 'list', content: [
-        'Weidian: Niche goods, replicas, handmade. Savings: 30-50% off luxury prices.',
-        'Poizon: 100% original sneakers, streetwear. Savings: 20-40% off local retail prices.',
-        'Pinduoduo: Mass market, cheaper than Taobao. Savings: up to 70% on home and everyday goods.'
-      ]},
-      { type: 'h2', content: 'Summary' },
-      { type: 'paragraph', content: 'All three platforms work on the same logic: purchasing within China + delivery to a warehouse + consolidated shipping abroad. Paying via crypto (USDT) to forwarders in 2026 removes any headaches associated with bank cards.' },
-      { type: 'paragraph', content: 'If you haven\'t mastered the basics yet, read our guide "How to Buy on Taobao in 2026". By setting up this process once, you gain access to all Chinese marketplaces simultaneously!' }
-    ]
+      {
+        type: "paragraph",
+        content:
+          "Taobao — далеко не единственная китайская площадка. За последние несколько лет Weidian, Poizon (Dewu) и Pinduoduo прочно вошли в жизнь покупателей из СНГ. У каждой из них — своя ниша, аудитория и свои правила игры.",
+      },
+      {
+        type: "h2",
+        content: "Weidian: маленькие магазины и уникальные товары",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Weidian (微店) — это китайская платформа для микробизнеса. Здесь тысячи небольших продавцов: мастера handmade, ателье и перекупщики. Weidian популярен среди тех, кто ищет реплики люксовых брендов, дизайнерские изделия или позиции, которых нет на Taobao.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Weidian как покупать — основные шаги: платформа работает через мобильное приложение WeChat или приложение Weidian. Как оплатить на Weidian? Платформа принимает оплату через WeChat Pay и Alipay. Поскольку иностранцу это недоступно, решение стандартное: использовать склад-посредник (например, HappyBox), который примет оплату в рублях или USDT и выкупит товар.",
+      },
+      { type: "h3", content: "Опасности и ловушки Weidian" },
+      {
+        type: "paragraph",
+        content:
+          "Здесь нет жесткой модерации фабрик. Высок риск купить «паль» под видом люксовой реплики 1:1 или столкнуться с недобросовестным магазином. Поэтому выкуп через склад с услугой проверки (фотоотчет из Шэньчжэня) — обязательное условие.",
+      },
+      { type: "h2", content: "Poizon (Dewu): кроссовки и мода с верификацией" },
+      {
+        type: "paragraph",
+        content:
+          "Poizon — это китайский аналог StockX. Площадка специализируется на кроссовках и уличной одежде. Главная особенность: каждый товар проходит верификацию — перед отправкой покупателю специалисты проверяют подлинность. Как заказать с Пойзон: приложение доступно на мобильных телефонах, интерфейс интуитивный. Международной доставки нет, так что товар нужно заказывать на китайский склад.",
+      },
+      { type: "h3", content: "Чек-лист перед покупкой на Poizon:" },
+      {
+        type: "list",
+        content: [
+          "Проверить цену (она меняется в зависимости от размера!).",
+          "Убедиться, что выбрана синяя кнопка (быстрая отправка со склада Poizon с верификацией), а не черная (долгая поставка от продавца).",
+          "Скопировать ссылку и скинуть менеджеру HappyBox.",
+        ],
+      },
+      { type: "h2", content: "Pinduoduo: масс-маркет и групповые закупки" },
+      {
+        type: "paragraph",
+        content:
+          "Pinduoduo (拼多多) фокусируется на сверхдешевых товарах и групповых покупках напрямую с фабрик. Пиндуодуо на русском языке официально не представлен, а оригинальное приложение полностью на китайском (Temu — это международная версия, но там меньше выбор и выше цены).",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Но в 2026 году это не проблема: на Pinduoduo поиск по фото стал еще точнее благодаря AI-алгоритмам — просто загрузите скриншот из Instagram, и умная лента найдет нужную фабрику.",
+      },
+      { type: "h3", content: "Опасности Pinduoduo" },
+      {
+        type: "paragraph",
+        content:
+          "Главная ловушка — откровенно некачественные товары. В гонке за низкой ценой фабрики используют дешевые материалы. Товар может развалиться в руках после первой стирки. Всегда запрашивайте фото на складе перед отправкой сборного груза домой.",
+      },
+      { type: "h2", content: "Сравнение платформ: что где искать" },
+      {
+        type: "list",
+        content: [
+          "Weidian: Нишевые товары, реплики, handmade. Экономия: 30-50% от люкса.",
+          "Poizon: 100% оригинальные кроссовки, streetwear. Экономия: 20-40% от цен в РФ.",
+          "Pinduoduo: Масс-маркет, дешевле Taobao. Экономия: до 70% на товарах для дома и быта.",
+        ],
+      },
+      { type: "h2", content: "Итог" },
+      {
+        type: "paragraph",
+        content:
+          "Все три площадки работают по одной логике: покупка внутри Китая + доставка на склад + консолидированная отправка за рубеж. Оплата в 2026 году через крипту (USDT) посредникам снимает любую головную боль с картами.",
+      },
+      {
+        type: "paragraph",
+        content:
+          'Если вы еще не освоили базу, почитайте наш гайд "Как покупать на Taobao в 2026 году". Выстроив эту схему один раз, вы получаете доступ ко всем китайским маркетплейсам одновременно!',
+      },
+    ],
   },
   {
-    id: '5',
-    slug: 'chinese-holidays-calendar-2026',
-    language: 'ru',
-    title: 'Календарь китайских праздников 2026: как планировать доставку',
-    excerpt: 'Узнайте точные даты Китайского Нового года, Майских праздников и Золотой недели в 2026 году. Планируйте закупки заранее, чтобы избежать задержек.',
-    category: 'news',
-    date: '2026-05-02',
-    imageUrl: 'https://images.unsplash.com/photo-1543169722-e64e52bf33fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    readTime: 5,
+    id: "3",
+    slug: "taobao-shopping-2026",
+    language: "en",
+    title: "How to Buy on Taobao in 2026: The Ultimate Guide",
+    excerpt:
+      "Taobao is China's largest marketplace. Learn how to order goods, search with AI, solve crypto (USDT) payment issues, and manage shipping in 2026.",
+    category: "guide",
+    date: "2026-04-20",
+    imageUrl:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    readTime: 6,
     content: [
-      { type: 'paragraph', content: 'Доставка из Китая требует строгого учета национальных праздников. Во время Китайского Нового года (CNY) и Золотой недели жизнь в стране буквально замирает: заводы закрываются, порты работают на минимуме мощности, а логистические цепочки растягиваются. Ошибка в планировании может стоить вам недель ожидания и пустых полок на Amazon или маркетплейсах.' },
-      { type: 'h2', content: 'Китайский Новый Год 2026 (CNY)' },
-      { type: 'paragraph', content: 'В 2026 году Китайский Новый год выпадает на 17 февраля (Год Огненной Лошади). Однако фактическая остановка производства и логистики начинается гораздо раньше.' },
-      { type: 'list', content: [
-        'Официальные выходные: 16–22 февраля 2026.',
-        'Закрытие фабрик: большинство заводов перестанут принимать новые заказы уже в середине января.',
-        'Коллапс в портах: конец января — начало февраля. Все пытаются отправить грузы до праздников, что вызывает овербукинг судов и резкий рост тарифов.',
-        'Возвращение к работе: заводы полностью восстанавливают мощности только к середине марта, так как многие рабочие не сразу возвращаются из провинций.'
-      ]},
-      { type: 'h3', content: 'Что делать?' },
-      { type: 'paragraph', content: 'Размещайте заказы на весенний сезон не позднее первой недели декабря 2025 года. Ваш груз должен заехать на склад в Шэньчжэне до 25 января 2026 года.' },
-      { type: 'h2', content: 'Праздник Труда (Майские праздники)' },
-      { type: 'paragraph', content: 'Традиционные майские каникулы, во время которых фабрики обычно отдыхают 3–5 дней.' },
-      { type: 'list', content: [
-        'Официальные выходные: 1–5 мая 2026.',
-        'Влияние на логистику: локальное. Склады работают, но отправка может задержаться на несколько дней.'
-      ]},
-      { type: 'h2', content: 'Золотая Неделя и День образования КНР' },
-      { type: 'paragraph', content: 'Второй по значимости праздник в году. Миллионы китайцев путешествуют по стране, фабрики и многие компании не работают.' },
-      { type: 'list', content: [
-        'Официальные выходные: 1–7 октября 2026.',
-        'Задержки доставок: значительные. К этому моменту накладывается предновогодний пик отправки (заказы на Чёрную пятницу и Рождество в США и Европе).'
-      ]},
-      { type: 'h3', content: 'Что делать?' },
-      { type: 'paragraph', content: 'Грузы для сезона скидок (Q4) должны быть готовы и отправлены в конце августа — начале сентября. Попытка отправить груз в конце сентября обернется огромными переплатами за фрахт.' },
-      { type: 'h2', content: 'Ключевой вывод' },
-      { type: 'paragraph', content: 'При работе с Китаем логистику для Q1 нужно планировать в Q4 предыдущего года, а логистику для Q4 — в конце лета. Использование нашего склада в Шэньчжэне позволит вам консолидировать грузы до пиковых нагрузок и спокойно отправить их по оптимальным тарифам.' }
-    ]
+      {
+        type: "paragraph",
+        content:
+          "Taobao is China's largest e-commerce marketplace with over a billion product listings. Clothing, electronics, furniture, cosmetics, auto parts — it literally has everything, and often 3–5 times cheaper than locally. However, the platform was originally created for the domestic Chinese market, and buying on it requires understanding several important nuances. In this guide, we will break down everything step-by-step from searching for a product to receiving your parcel.",
+      },
+      {
+        type: "h2",
+        content: "Taobao without registration: Can you browse products?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Yes — just visit taobao.com or open the app. You can browse the catalog, look at photos, read descriptions, and even use the search without an account. However, to add items to your cart, communicate with sellers, and place an order, you will need an account. Registration requires a Chinese phone number, so most international buyers use proxy services or register via the web version with a foreign number — this works, but it may require verification.",
+      },
+      {
+        type: "h2",
+        content: "Is there an official English website for Taobao?",
+      },
+      {
+        type: "paragraph",
+        content:
+          'Right away, an important point: there is no official English website for Taobao. The platform operates only in Chinese (and partially in English for some minor sections). All "English versions" in search engines are either proxy websites or browser extensions with auto-translation.',
+      },
+      {
+        type: "h3",
+        content: "To navigate the platform yourself, you will need:",
+      },
+      {
+        type: "list",
+        content: [
+          "Chrome Browser + Google Translate — translates the entire page, including product cards.",
+          "Taobao Mobile App — has a built-in translator for descriptions.",
+          "Visual Search — upload a photo of the desired item, and the system will find similar goods without typing text.",
+        ],
+      },
+      {
+        type: "h2",
+        content: "How to order from Taobao yourself: A step-by-step guide",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If you want to figure out how to order from Taobao yourself, follow this algorithm:",
+      },
+      {
+        type: "list",
+        content: [
+          'Step 1. Find the product. Use visual search (the camera icon in the search bar) or enter your query in Chinese via a translator. For example: "women\'s jacket" → "女士夹克".',
+          "Step 2. Evaluate the seller. Pay attention to the number of transactions (the number next to the store name), rating (three diamonds is a good indicator for small stores), and reviews with photos from real buyers.",
+          "Step 3. Clarify details. Taobao's sizing chart is Chinese — always check the size chart in the product card. For complex items (furniture, electronics), contact the seller via Wangwang chat directly in the app.",
+          "Step 4. Place your order. Add the item to your cart, select color/size/quantity.",
+          "Step 5. Provide a Chinese delivery address. This is where the main difficulty begins for international buyers, which is solved by using a warehouse in China.",
+        ],
+      },
+      {
+        type: "h2",
+        content:
+          "How to buy on Taobao without a middleman — Is it possible in 2026?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Technically, yes. But in practice, independent purchasing is fraught with serious obstacles: sellers only accept Alipay linked to a Chinese bank card, and they do not ship internationally. Furthermore, all communication is conducted in Chinese.",
+      },
+      { type: "h3", content: "Payment via Cryptocurrency (USDT)" },
+      {
+        type: "paragraph",
+        content:
+          "In 2026, one of the fastest and most profitable ways to work with an agent is by paying with cryptocurrency (USDT). You transfer stablecoins without exorbitant bank fees or blocks, and a warehouse (like HappyBox) buys your goods for yuan on the exact same day.",
+      },
+      {
+        type: "h2",
+        content:
+          "Why do you need a warehouse in China and how does it solve all problems?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The working scheme for independent purchases on Taobao is to use a Chinese warehouse forwarder. Here is how it works:",
+      },
+      {
+        type: "list",
+        content: [
+          "You register with a warehouse service and get a Chinese shipping address.",
+          "You order goods on Taobao, indicating this specific address.",
+          "The warehouse receives the parcel, checks the contents (photos upon request), and stores it to wait for the rest of your items.",
+          "The warehouse consolidates items from different sellers into one box and ships it to you.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "The final savings often reach 40–60% compared to buying the same goods on local marketplaces.",
+      },
+      { type: "h2", content: "Summary" },
+      {
+        type: "paragraph",
+        content:
+          'In 2026, Taobao remains the best source for Chinese goods at rock-bottom prices. The platform is accessible without registration for browsing, but for full-fledged purchases, you will need an account, a payment solution, and most importantly — a Chinese delivery address. A warehouse in China solves all three problems and turns Taobao from a "complicated foreign marketplace" into a convenient tool for regular shopping.',
+      },
+    ],
   },
   {
-    id: '6',
-    slug: 'chinese-holidays-calendar-2026',
-    language: 'en',
-    title: 'Chinese Holidays Calendar 2026: Shipping Deadlines',
-    excerpt: 'Find out the exact dates for Chinese New Year, Labor Day, and Golden Week in 2026. Plan your inventory to completely avoid supply chain disruptions.',
-    category: 'news',
-    date: '2026-05-02',
-    imageUrl: 'https://images.unsplash.com/photo-1543169722-e64e52bf33fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    id: "4",
+    slug: "weidian-poizon-pinduoduo-guide",
+    language: "en",
+    title: "Weidian, Poizon, and Pinduoduo: Differences and What to Buy Where",
+    excerpt:
+      "A comparison of Chinese marketplaces: why you need Weidian, how to verify sneakers on Poizon, and the hidden pitfalls of Pinduoduo.",
+    category: "guide",
+    date: "2026-04-21",
+    imageUrl:
+      "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    readTime: 7,
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "Taobao is far from the only Chinese marketplace. Over the past few years, Weidian, Poizon (Dewu), and Pinduoduo have firmly entered the lives of international buyers. Each has its own niche, audience, and rules of the game.",
+      },
+      { type: "h2", content: "Weidian: Small Shops and Unique Goods" },
+      {
+        type: "paragraph",
+        content:
+          "Weidian (微店) is a Chinese platform for micro-businesses. You will find thousands of small sellers here: handmade artisans, ateliers, and resellers. Weidian is popular among those looking for luxury brand replicas, designer items, or things you cannot find on Taobao.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "How to buy on Weidian — basic steps: the platform runs through the WeChat mobile app or the main Weidian app. How do you pay? The platform accepts WeChat Pay and Alipay. Since this is generally inaccessible to foreigners, the standard solution is to use a warehouse proxy (like HappyBox) that accepts payments in fiat or USDT and buys the item on your behalf.",
+      },
+      { type: "h3", content: "Dangers and Pitfalls of Weidian" },
+      {
+        type: "paragraph",
+        content:
+          "There is no strict factory moderation here. There is a high risk of buying outright fakes instead of 1:1 luxury replicas or running into an unscrupulous store. That is why purchasing through a warehouse with inspection services (photo reports from Shenzhen) is an absolute must.",
+      },
+      {
+        type: "h2",
+        content: "Poizon (Dewu): Sneakers and Streetwear with Verification",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Poizon is the Chinese equivalent of StockX. The platform specializes in sneakers and streetwear. The main feature: every item undergoes verification. Specialists check authenticity before shipping to the buyer. How to order from Poizon: the app is available on mobile devices, and the interface is intuitive. However, there is no direct international shipping, so you must order to a Chinese warehouse address.",
+      },
+      { type: "h3", content: "Checklist before buying on Poizon:" },
+      {
+        type: "list",
+        content: [
+          "Check the price (it fluctuates depending on the size!).",
+          "Make sure the blue button is selected (fast shipping from the Poizon warehouse with verification), not the black one (slow delivery directly from the seller).",
+          "Copy the link and send it to your HappyBox manager.",
+        ],
+      },
+      { type: "h2", content: "Pinduoduo: Mass Market and Group Buying" },
+      {
+        type: "paragraph",
+        content:
+          "Pinduoduo (拼多多) focuses on ultra-cheap goods and group purchases sent straight from factories. There is no official English version for Pinduoduo, and the original app is entirely in Chinese (Temu is the international version, but it has a smaller selection and higher prices).",
+      },
+      {
+        type: "paragraph",
+        content:
+          "But in 2026, this isn't a problem: searching by photo on Pinduoduo has become even more accurate thanks to AI algorithms — just upload a screenshot from Instagram, and the smart feed will locate the exact factory.",
+      },
+      { type: "h3", content: "Dangers of Pinduoduo" },
+      {
+        type: "paragraph",
+        content:
+          "The main trap is exceptionally poor-quality goods. In the race for low prices, factories use cheap materials. An item may literally fall apart in your hands after the first wash. Always request quality check photos at the warehouse before shipping a consolidated cargo home.",
+      },
+      { type: "h2", content: "Platform Comparison: What to Look for Where" },
+      {
+        type: "list",
+        content: [
+          "Weidian: Niche goods, replicas, handmade. Savings: 30-50% off luxury prices.",
+          "Poizon: 100% original sneakers, streetwear. Savings: 20-40% off local retail prices.",
+          "Pinduoduo: Mass market, cheaper than Taobao. Savings: up to 70% on home and everyday goods.",
+        ],
+      },
+      { type: "h2", content: "Summary" },
+      {
+        type: "paragraph",
+        content:
+          "All three platforms work on the same logic: purchasing within China + delivery to a warehouse + consolidated shipping abroad. Paying via crypto (USDT) to forwarders in 2026 removes any headaches associated with bank cards.",
+      },
+      {
+        type: "paragraph",
+        content:
+          'If you haven\'t mastered the basics yet, read our guide "How to Buy on Taobao in 2026". By setting up this process once, you gain access to all Chinese marketplaces simultaneously!',
+      },
+    ],
+  },
+  {
+    id: "5",
+    slug: "chinese-holidays-calendar-2026",
+    language: "ru",
+    title: "Календарь китайских праздников 2026: как планировать доставку",
+    excerpt:
+      "Узнайте точные даты Китайского Нового года, Майских праздников и Золотой недели в 2026 году. Планируйте закупки заранее, чтобы избежать задержек.",
+    category: "news",
+    date: "2026-05-02",
+    imageUrl:
+      "https://images.unsplash.com/photo-1543169722-e64e52bf33fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     readTime: 5,
     content: [
-      { type: 'paragraph', content: 'Shipping from China requires strict attention to national holidays. During Chinese New Year (CNY) and Golden Week, life in the country literally stops: factories close, ports operate at minimum capacity, and supply chains stretch to the breaking point. A mistake in planning can cost you weeks of waiting and out-of-stock listings on Amazon or other marketplaces.' },
-      { type: 'h2', content: 'Chinese New Year 2026 (CNY)' },
-      { type: 'paragraph', content: 'In 2026, Chinese New Year falls on February 17th (Year of the Red Fire Horse). However, the actual shutdown of production and logistics begins much earlier.' },
-      { type: 'list', content: [
-        'Official public holiday: February 16–22, 2026.',
-        'Factory closures: Most factories will stop taking new orders by mid-January.',
-        'Port congestion: Late January to early February. Everyone tries to push cargo out before the holiday, causing vessel overbooking and a massive spike in freight rates.',
-        'Return to normal: Factories fully restore capacity only by mid-March, as many workers do not return immediately from rural provinces.'
-      ]},
-      { type: 'h3', content: 'What should you do?' },
-      { type: 'paragraph', content: 'Place your spring inventory orders no later than the first week of December 2025. Your cargo must arrive at our Shenzhen warehouse before January 25, 2026, to be safely exported.' },
-      { type: 'h2', content: 'Labor Day Holidays' },
-      { type: 'paragraph', content: 'The traditional May holidays, during which factories usually rest for 3 to 5 days.' },
-      { type: 'list', content: [
-        'Official public holiday: May 1–5, 2026.',
-        'Impact on logistics: Localized. Warehouses generally operate, but departures may be delayed by a few days.'
-      ]},
-      { type: 'h2', content: 'Golden Week & National Day' },
-      { type: 'paragraph', content: 'The second most important holiday of the year. Millions of people travel domestically, and factories shut down.' },
-      { type: 'list', content: [
-        'Official public holiday: October 1–7, 2026.',
-        'Shipping delays: Significant. This perfectly coincides with the pre-holiday shipping peak for Black Friday and Christmas inventory in the US and Europe.'
-      ]},
-      { type: 'h3', content: 'What should you do?' },
-      { type: 'paragraph', content: 'Q4 holiday cargo should be manufactured and shipped by late August or early September. Attempting to ship in late September will result in massive freight premiums and standard roll-overs at the port.' },
-      { type: 'h2', content: 'Key Takeaway' },
-      { type: 'paragraph', content: 'When importing from China, Q1 logistics must be planned in Q4 of the previous year, and Q4 sales must be fulfilled by late summer. Utilizing our Shenzhen facility allows you to consolidate early, beat the rush, and ship at normal rates.' }
-    ]
-  }
+      {
+        type: "paragraph",
+        content:
+          "Доставка из Китая требует строгого учета национальных праздников. Во время Китайского Нового года (CNY) и Золотой недели жизнь в стране буквально замирает: заводы закрываются, порты работают на минимуме мощности, а логистические цепочки растягиваются. Ошибка в планировании может стоить вам недель ожидания и пустых полок на Amazon или маркетплейсах.",
+      },
+      { type: "h2", content: "Китайский Новый Год 2026 (CNY)" },
+      {
+        type: "paragraph",
+        content:
+          "В 2026 году Китайский Новый год выпадает на 17 февраля (Год Огненной Лошади). Однако фактическая остановка производства и логистики начинается гораздо раньше.",
+      },
+      {
+        type: "list",
+        content: [
+          "Официальные выходные: 16–22 февраля 2026.",
+          "Закрытие фабрик: большинство заводов перестанут принимать новые заказы уже в середине января.",
+          "Коллапс в портах: конец января — начало февраля. Все пытаются отправить грузы до праздников, что вызывает овербукинг судов и резкий рост тарифов.",
+          "Возвращение к работе: заводы полностью восстанавливают мощности только к середине марта, так как многие рабочие не сразу возвращаются из провинций.",
+        ],
+      },
+      { type: "h3", content: "Что делать?" },
+      {
+        type: "paragraph",
+        content:
+          "Размещайте заказы на весенний сезон не позднее первой недели декабря 2025 года. Ваш груз должен заехать на склад в Шэньчжэне до 25 января 2026 года.",
+      },
+      { type: "h2", content: "Праздник Труда (Майские праздники)" },
+      {
+        type: "paragraph",
+        content:
+          "Традиционные майские каникулы, во время которых фабрики обычно отдыхают 3–5 дней.",
+      },
+      {
+        type: "list",
+        content: [
+          "Официальные выходные: 1–5 мая 2026.",
+          "Влияние на логистику: локальное. Склады работают, но отправка может задержаться на несколько дней.",
+        ],
+      },
+      { type: "h2", content: "Золотая Неделя и День образования КНР" },
+      {
+        type: "paragraph",
+        content:
+          "Второй по значимости праздник в году. Миллионы китайцев путешествуют по стране, фабрики и многие компании не работают.",
+      },
+      {
+        type: "list",
+        content: [
+          "Официальные выходные: 1–7 октября 2026.",
+          "Задержки доставок: значительные. К этому моменту накладывается предновогодний пик отправки (заказы на Чёрную пятницу и Рождество в США и Европе).",
+        ],
+      },
+      { type: "h3", content: "Что делать?" },
+      {
+        type: "paragraph",
+        content:
+          "Грузы для сезона скидок (Q4) должны быть готовы и отправлены в конце августа — начале сентября. Попытка отправить груз в конце сентября обернется огромными переплатами за фрахт.",
+      },
+      { type: "h2", content: "Ключевой вывод" },
+      {
+        type: "paragraph",
+        content:
+          "При работе с Китаем логистику для Q1 нужно планировать в Q4 предыдущего года, а логистику для Q4 — в конце лета. Использование нашего склада в Шэньчжэне позволит вам консолидировать грузы до пиковых нагрузок и спокойно отправить их по оптимальным тарифам.",
+      },
+    ],
+  },
+  {
+    id: "6",
+    slug: "chinese-holidays-calendar-2026",
+    language: "en",
+    title: "Chinese Holidays Calendar 2026: Shipping Deadlines",
+    excerpt:
+      "Find out the exact dates for Chinese New Year, Labor Day, and Golden Week in 2026. Plan your inventory to completely avoid supply chain disruptions.",
+    category: "news",
+    date: "2026-05-02",
+    imageUrl:
+      "https://images.unsplash.com/photo-1543169722-e64e52bf33fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    readTime: 5,
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "Shipping from China requires strict attention to national holidays. During Chinese New Year (CNY) and Golden Week, life in the country literally stops: factories close, ports operate at minimum capacity, and supply chains stretch to the breaking point. A mistake in planning can cost you weeks of waiting and out-of-stock listings on Amazon or other marketplaces.",
+      },
+      { type: "h2", content: "Chinese New Year 2026 (CNY)" },
+      {
+        type: "paragraph",
+        content:
+          "In 2026, Chinese New Year falls on February 17th (Year of the Red Fire Horse). However, the actual shutdown of production and logistics begins much earlier.",
+      },
+      {
+        type: "list",
+        content: [
+          "Official public holiday: February 16–22, 2026.",
+          "Factory closures: Most factories will stop taking new orders by mid-January.",
+          "Port congestion: Late January to early February. Everyone tries to push cargo out before the holiday, causing vessel overbooking and a massive spike in freight rates.",
+          "Return to normal: Factories fully restore capacity only by mid-March, as many workers do not return immediately from rural provinces.",
+        ],
+      },
+      { type: "h3", content: "What should you do?" },
+      {
+        type: "paragraph",
+        content:
+          "Place your spring inventory orders no later than the first week of December 2025. Your cargo must arrive at our Shenzhen warehouse before January 25, 2026, to be safely exported.",
+      },
+      { type: "h2", content: "Labor Day Holidays" },
+      {
+        type: "paragraph",
+        content:
+          "The traditional May holidays, during which factories usually rest for 3 to 5 days.",
+      },
+      {
+        type: "list",
+        content: [
+          "Official public holiday: May 1–5, 2026.",
+          "Impact on logistics: Localized. Warehouses generally operate, but departures may be delayed by a few days.",
+        ],
+      },
+      { type: "h2", content: "Golden Week & National Day" },
+      {
+        type: "paragraph",
+        content:
+          "The second most important holiday of the year. Millions of people travel domestically, and factories shut down.",
+      },
+      {
+        type: "list",
+        content: [
+          "Official public holiday: October 1–7, 2026.",
+          "Shipping delays: Significant. This perfectly coincides with the pre-holiday shipping peak for Black Friday and Christmas inventory in the US and Europe.",
+        ],
+      },
+      { type: "h3", content: "What should you do?" },
+      {
+        type: "paragraph",
+        content:
+          "Q4 holiday cargo should be manufactured and shipped by late August or early September. Attempting to ship in late September will result in massive freight premiums and standard roll-overs at the port.",
+      },
+      { type: "h2", content: "Key Takeaway" },
+      {
+        type: "paragraph",
+        content:
+          "When importing from China, Q1 logistics must be planned in Q4 of the previous year, and Q4 sales must be fulfilled by late summer. Utilizing our Shenzhen facility allows you to consolidate early, beat the rush, and ship at normal rates.",
+      },
+    ],
+  },
 ];
 
-export const getBlogPostsByLanguage = (lang: 'en' | 'ru') => {
-  return blogPosts.filter(post => post.language === lang);
+export const getBlogPostsByLanguage = (lang: "en" | "ru") => {
+  return blogPosts.filter((post) => post.language === lang);
 };
 
-export const getBlogPostBySlug = (slug: string, lang: 'en' | 'ru') => {
-  return blogPosts.find(post => post.slug === slug && post.language === lang);
+export const getBlogPostBySlug = (slug: string, lang: "en" | "ru") => {
+  return blogPosts.find((post) => post.slug === slug && post.language === lang);
 };

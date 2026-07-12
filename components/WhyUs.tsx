@@ -75,7 +75,7 @@ export const WhyUs: React.FC<WhyUsProps> = ({ language }) => {
       <div className="container mx-auto px-4 xl:px-0">
         
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6 tracking-tight">
             {isEn ? 'Why Choose HappyBox?' : 'Почему выбирают HappyBox?'}
           </h2>
           <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-bold">
@@ -110,10 +110,10 @@ export const WhyUs: React.FC<WhyUsProps> = ({ language }) => {
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 ${features[activeTab].color}`}>
                   {React.createElement(features[activeTab].icon, { size: 32 })}
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black text-brand-dark mb-6 leading-tight">
+                <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-4 leading-tight">
                   {features[activeTab].title}
                 </h3>
-                <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-8">
                   {features[activeTab].description}
                 </p>
               </div>

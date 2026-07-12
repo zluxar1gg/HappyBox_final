@@ -165,7 +165,7 @@ export const Quiz: React.FC<QuizProps> = ({ language, isOpen, onClose }) => {
           {/* STEP 1: COUNTRY */}
           {step === 'country' && (
             <div className="animate-fade-in space-y-6">
-              <h2 className="text-3xl font-black text-brand-dark text-center leading-tight mb-8">
+              <h2 className="text-3xl font-extrabold text-brand-dark text-center leading-tight mb-8">
                 {t.questions.country}
               </h2>
               <div className="grid grid-cols-1 gap-4">
@@ -193,7 +193,7 @@ export const Quiz: React.FC<QuizProps> = ({ language, isOpen, onClose }) => {
           {/* STEP 2: CATEGORY */}
           {step === 'category' && (
             <div className="animate-fade-in space-y-6">
-              <h2 className="text-3xl font-black text-brand-dark text-center leading-tight mb-8">
+              <h2 className="text-3xl font-extrabold text-brand-dark text-center leading-tight mb-8">
                 {t.questions.category}
               </h2>
               <div className="grid grid-cols-2 gap-4">
@@ -219,20 +219,20 @@ export const Quiz: React.FC<QuizProps> = ({ language, isOpen, onClose }) => {
           {/* STEP 3: WEIGHT */}
           {step === 'weight' && (
             <div className="animate-fade-in space-y-6">
-              <h2 className="text-3xl font-black text-brand-dark text-center leading-tight mb-8">
+              <h2 className="text-3xl font-extrabold text-brand-dark text-center leading-tight mb-8">
                 {t.questions.weight}
               </h2>
               <div className="grid grid-cols-1 gap-4">
                 <button
                   onClick={() => handleWeightSelect('under30')}
-                  className="w-full py-8 px-6 rounded-3xl bg-gray-50 border-2 border-gray-100 text-xl font-black text-brand-dark hover:border-brand-blue hover:bg-brand-blue/5 transition-all flex flex-col items-center gap-2"
+                  className="w-full py-8 px-6 rounded-3xl bg-gray-50 border-2 border-gray-100 text-xl md:text-2xl font-bold text-brand-dark hover:border-brand-blue hover:bg-brand-blue/5 transition-all flex flex-col items-center gap-2"
                 >
                    <span>{t.options.under30}</span>
                    <span className="text-sm font-medium text-gray-500 bg-white px-3 py-1 rounded-full">Small packages, samples</span>
                 </button>
                 <button
                   onClick={() => handleWeightSelect('over30')}
-                  className="w-full py-8 px-6 rounded-3xl bg-gray-50 border-2 border-gray-100 text-xl font-black text-brand-dark hover:border-brand-blue hover:bg-brand-blue/5 transition-all flex flex-col items-center gap-2"
+                  className="w-full py-8 px-6 rounded-3xl bg-gray-50 border-2 border-gray-100 text-xl md:text-2xl font-bold text-brand-dark hover:border-brand-blue hover:bg-brand-blue/5 transition-all flex flex-col items-center gap-2"
                 >
                    <span>{t.options.over30}</span>
                    <span className="text-sm font-medium text-gray-500 bg-white px-3 py-1 rounded-full">Commercial cargo, furniture</span>
@@ -244,20 +244,20 @@ export const Quiz: React.FC<QuizProps> = ({ language, isOpen, onClose }) => {
           {/* STEP 4: PRIORITY (Conditional) */}
           {step === 'priority' && (
             <div className="animate-fade-in space-y-6">
-              <h2 className="text-3xl font-black text-brand-dark text-center leading-tight mb-8">
+              <h2 className="text-3xl font-extrabold text-brand-dark text-center leading-tight mb-8">
                 {t.questions.priority}
               </h2>
               <div className="grid grid-cols-1 gap-6">
                 <button
                   onClick={() => handlePrioritySelect('fast')}
-                  className="w-full py-6 px-8 rounded-3xl bg-white border-2 border-gray-100 shadow-sm text-xl font-black text-brand-dark hover:border-brand-blue hover:ring-4 hover:ring-brand-blue/10 transition-all flex items-center justify-between"
+                  className="w-full py-6 px-8 rounded-3xl bg-white border-2 border-gray-100 shadow-sm text-xl md:text-2xl font-bold text-brand-dark hover:border-brand-blue hover:ring-4 hover:ring-brand-blue/10 transition-all flex items-center justify-between"
                 >
                    <span>🚀 {t.options.fast}</span>
                    <Check className="text-gray-200" />
                 </button>
                 <button
                   onClick={() => handlePrioritySelect('cheap')}
-                  className="w-full py-6 px-8 rounded-3xl bg-white border-2 border-gray-100 shadow-sm text-xl font-black text-brand-dark hover:border-green-500 hover:ring-4 hover:ring-green-500/10 transition-all flex items-center justify-between"
+                  className="w-full py-6 px-8 rounded-3xl bg-white border-2 border-gray-100 shadow-sm text-xl md:text-2xl font-bold text-brand-dark hover:border-green-500 hover:ring-4 hover:ring-green-500/10 transition-all flex items-center justify-between"
                 >
                    <span>💰 {t.options.cheap}</span>
                    <Check className="text-gray-200" />
@@ -281,7 +281,7 @@ export const Quiz: React.FC<QuizProps> = ({ language, isOpen, onClose }) => {
                    {t.results.title}
                  </h4>
                  
-                 <h2 className={`text-4xl font-black mb-6 ${result.color}`}>
+                 <h2 className={`text-3xl md:text-4xl font-extrabold mb-6 ${result.color}`}>
                    {result.title}
                  </h2>
                  

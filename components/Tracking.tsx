@@ -28,8 +28,8 @@ export const Tracking: React.FC<TrackingProps> = ({ language }) => {
     <section className="pt-20 pb-0 bg-cream">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark mb-6 tracking-tight">{t.title}</h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-dark mb-6 tracking-tight">{t.title}</h2>
+          <p className="text-lg text-base md:text-lg text-gray-700 font-medium leading-relaxed">
             {t.subtitle} <span className="font-bold text-brand-blue">{t.carriers}</span> {t.subtitle2}
           </p>
         </div>

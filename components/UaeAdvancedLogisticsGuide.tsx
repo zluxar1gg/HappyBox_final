@@ -392,7 +392,7 @@ export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                   <h2 className="text-3xl lg:text-4xl font-extrabold text-brand-dark mb-4 tracking-tight">
                       {t.title}
                   </h2>
-                  <p className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed">
+                  <p className="text-xl md:text-2xl text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                       {t.subtitle}
                   </p>
               </div>
@@ -469,7 +469,7 @@ export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                           </ul>
                           <div className="mt-8 bg-gray-50 p-6 md:p-8 rounded-[20px] border border-gray-200">
                               <h4 className="font-bold text-brand-dark text-lg mb-2">{t.sections.customs.vatVsDutyTitle}</h4>
-                              <p className="text-gray-600 leading-relaxed">{t.sections.customs.vatBothIncluded}</p>
+                              <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{t.sections.customs.vatBothIncluded}</p>
                           </div>
                       </div>
                   </div>
@@ -610,10 +610,10 @@ export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
       <div className="max-w-5xl mx-auto text-gray-600">
         
         <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6 tracking-tight leading-tight">
             {t.title}
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed font-medium">
+          <p className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed">
             {t.subtitle}
           </p>
         </div>
@@ -698,7 +698,7 @@ export const UaeAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
                   <div className="min-w-2 min-h-2 rounded-full bg-brand-blue mt-2.5"></div>
                   <div>
                     <h4 className="font-bold text-brand-dark text-lg mb-2">{point.title}</h4>
-                    <p className="text-gray-600 leading-relaxed">{point.desc}</p>
+                    <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{point.desc}</p>
                   </div>
                 </li>
               ))}

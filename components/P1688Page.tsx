@@ -156,7 +156,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                                 <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                     {t.badge}
                                 </span>
-                                <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
                                     {t.titlePrefix} <span className="text-brand-blue block mt-2">{t.titleHighlight}</span>
                                 </h1>
 
@@ -171,7 +171,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                 <section id="details" className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
                     
                     <div className="max-w-5xl mx-auto text-gray-800 leading-relaxed mb-20">
-                        <h2 className="text-3xl md:text-4xl font-black text-brand-dark mb-6 tracking-tight">{t.whyTitle}</h2>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6 tracking-tight">{t.whyTitle}</h2>
                         <div className="space-y-6 text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                             <p>{t.whyText1}</p>
                             <p>{t.whyText2}</p>
@@ -179,7 +179,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                         </div>
                     </div>
 
-                    <h3 className="text-3xl font-black text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
+                    <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
                         {t.processTitle}
                     </h3>
 
@@ -187,14 +187,14 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                         {t.process.map((step, idx) => (
                             <div key={idx} className="bg-white rounded-[30px] p-8 border-2 border-gray-50 hover:border-brand-blue/30 transition-all shadow-sm flex flex-col group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/5 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform"></div>
-                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-brand-dark text-white shadow-xl shadow-brand-dark/20 text-2xl font-black relative">
+                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-brand-dark text-white shadow-xl shadow-brand-dark/20 text-2xl font-extrabold relative">
                                     {idx + 1}
                                     <div className="absolute -bottom-2 -right-2 bg-brand-yellow text-brand-dark w-8 h-8 rounded-full flex items-center justify-center shadow-md">
                                         <step.icon size={16} />
                                     </div>
                                 </div>
                                 <h4 className="font-bold text-xl text-brand-dark mb-3">{step.title}</h4>
-                                <p className="text-sm text-gray-600 font-medium leading-relaxed">
+                                <p className="text-sm text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                     {step.desc}
                                 </p>
                             </div>
@@ -205,7 +205,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                         <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
                             <ShieldCheck size={400} className="translate-x-1/3 -translate-y-1/4" />
                         </div>
-                         <h3 className="text-3xl font-black mb-10 text-center relative z-10">{t.fearsTitle}</h3>
+                         <h3 className="text-2xl md:text-3xl font-extrabold mb-10 text-center relative z-10">{t.fearsTitle}</h3>
                          <div className="grid md:grid-cols-2 gap-8 relative z-10">
                             {t.fearsList.map((fear, idx) => (
                                 <div key={idx} className="bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-[30px] border border-white/20">
@@ -221,7 +221,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                             <Percent size={40} className="text-brand-dark" />
                         </div>
                         <div>
-                            <h3 className="text-2xl font-black text-brand-dark mb-2">{t.feeTitle}</h3>
+                            <h3 className="text-xl md:text-2xl font-bold text-brand-dark mb-2">{t.feeTitle}</h3>
                             <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{t.feeText}</p>
                         </div>
                     </div>

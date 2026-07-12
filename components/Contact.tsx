@@ -132,7 +132,7 @@ export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home'
     <section className="pt-12 pb-20">
       <div className="container mx-auto">
         <div className="bg-white rounded-[30px] p-8 lg:p-16 text-center shadow-sm max-w-[1200px] mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark mb-8 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-dark mb-8 tracking-tight">
             {getDynamicHeading()}
           </h2>
           

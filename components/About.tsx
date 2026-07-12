@@ -20,7 +20,7 @@ export const About: React.FC<AboutProps> = ({ language }) => {
     <section className="py-20 bg-cream">
       <div className="container mx-auto px-6 xl:px-0">
         {/* Full Width Title */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-12 md:mb-20 text-center max-w-5xl mx-auto leading-tight tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-12 md:mb-20 text-center max-w-5xl mx-auto leading-tight tracking-tight">
             {t.title}
         </h2>
 
@@ -42,10 +42,10 @@ export const About: React.FC<AboutProps> = ({ language }) => {
 
             {/* Text Column */}
             <div className="text-center lg:text-left space-y-6">
-                <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
                     {renderText(t.trustedText)}
                 </p>
-                <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
                     {renderText(t.text)}
                 </p>
             </div>

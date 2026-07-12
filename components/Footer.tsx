@@ -103,7 +103,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             
             {/* Left Column: Brand & Socials */}
             <div className="space-y-6">
-              <div className="text-4xl font-black text-brand-blue tracking-tighter">
+              <div className="text-3xl md:text-4xl font-extrabold text-brand-blue tracking-tighter">
                 HappyBox
               </div>
               <div className="flex gap-4 ml-2">

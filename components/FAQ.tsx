@@ -56,7 +56,7 @@ export const FAQ: React.FC<FAQProps> = ({ language }) => {
                   openIndex === idx ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="p-6 pt-0 text-gray-600 leading-relaxed font-medium text-base">
+                <div className="p-6 pt-0 text-base md:text-lg text-gray-700 font-medium leading-relaxed font-medium text-base">
                   {item.answer}
                 </div>
               </div>

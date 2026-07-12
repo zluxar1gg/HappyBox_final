@@ -129,7 +129,7 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
             </div>
 
             <div className="bg-brand-yellow rounded-[25px] px-8 py-6 inline-block self-start shadow-sm">
-              <div className="text-3xl md:text-4xl font-black text-brand-dark mb-1 tracking-tight">86200+</div>
+              <div className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-1 tracking-tight">86200+</div>
               <p className="font-bold text-brand-dark text-sm md:text-base">{t.stats}</p>
             </div>
           </div>

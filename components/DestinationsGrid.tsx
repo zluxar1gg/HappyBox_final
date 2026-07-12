@@ -225,7 +225,7 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
 
           return (
             <div key={region.id}>
-              <h2 className="text-2xl font-black mb-6 text-brand-dark flex items-center gap-3 border-b border-gray-100 pb-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-brand-dark flex items-center gap-3 border-b border-gray-100 pb-4">
                 {region.title}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">

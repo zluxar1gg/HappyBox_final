@@ -74,15 +74,7 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                         { name: "Poizon (Dewu)", desc: "authentic sneakers and streetwear", id: "poizon" },
                         { name: "Pinduoduo", desc: "group buying and discount deals", id: "pinduoduo" }
                     ],
-                    platformSituationTitle: "Which platform for which situation:",
-                    platformSituations: [
-                        "Reselling wholesale inventory → 1688",
-                        "Official branded goods → Tmall",
-                        "Personal shopping, single items → Taobao",
-                        "Authenticated sneakers → Poizon",
-                        "Maximum discount on consumer goods → Pinduoduo"
-                    ],
-                    beyondFooter: "We support purchasing and consolidation across all six platforms into one international shipment."
+                    afterTable: "Which platform for which situation:\n• Reselling wholesale inventory → 1688\n• Official branded goods → Tmall\n• Personal shopping, single items → Taobao\n• Authenticated sneakers → Poizon\n• Maximum discount on consumer goods → Pinduoduo\n\nWe support purchasing and consolidation across all six platforms into one international shipment."
                 }
             ],
             readMore: "Read the 1688 Buyer's Guide",
@@ -152,15 +144,7 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                         { name: "Poizon (Dewu)", desc: "оригинальные кроссовки и брендовая одежда", id: "poizon" },
                         { name: "Pinduoduo", desc: "низкие цены и групповые закупки", id: "pinduoduo" }
                     ],
-                    platformSituationTitle: "Какую платформу выбрать:",
-                    platformSituations: [
-                        "Перепродажа оптовых партий → 1688",
-                        "Официальные товары брендов → Tmall",
-                        "Поштучно и личный шопинг → Taobao",
-                        "100% оригинальные кроссовки → Poizon",
-                        "Максимальная скидка в Рознице → Pinduoduo"
-                    ],
-                    beyondFooter: "Мы осуществляем выкуп и объединяем заказы со всех шести платформ в одну международную отправку."
+                    afterTable: "Какую платформу выбрать:\n• Перепродажа оптовых партий → 1688\n• Официальные товары брендов → Tmall\n• Поштучно и личный шопинг → Taobao\n• 100% оригинальные кроссовки → Poizon\n• Максимальная скидка в Рознице → Pinduoduo\n\nМы осуществляем выкуп и объединяем заказы со всех шести платформ в одну международную отправку."
                 }
             ],
             readMore: "Читать гайд по закупкам 1688",
@@ -174,10 +158,10 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
         <section className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
             <div className="max-w-5xl mx-auto text-gray-600">
                 <div className="max-w-4xl mx-auto text-center mb-16">
-                    <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight leading-tight">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6 tracking-tight leading-tight">
                         {t.title}
                     </h2>
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                    <p className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed">
                         {t.subtitle}
                     </p>
                 </div>
@@ -185,12 +169,12 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                 <div className="space-y-16">
                     {t.sections.map((section, idx) => (
                         <div key={idx} className="scroll-mt-28">
-                            <h3 className="text-2xl font-black text-brand-dark mb-6 leading-tight">
+                            <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-6 leading-tight">
                                 {section.title}
                             </h3>
                             
                             {section.contentPre && (
-                                <p className="mb-6 leading-relaxed font-medium text-gray-600 whitespace-pre-line">
+                                <p className="mb-6 text-base md:text-lg text-gray-700 font-medium leading-relaxed whitespace-pre-line">
                                     {section.contentPre}
                                 </p>
                             )}
@@ -205,11 +189,11 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                                                 ))}
                                             </tr>
                                         </thead>
-                                        <tbody className="divide-y divide-gray-100 text-sm">
+                                        <tbody className="divide-y divide-gray-100 text-sm md:text-base">
                                             {section.table.rows.map((row, rIdx) => (
                                                 <tr key={rIdx}>
                                                     {row.map((cell, cIdx) => (
-                                                        <td key={cIdx} className="py-4 px-6 text-gray-600 leading-relaxed">
+                                                        <td key={cIdx} className="py-4 px-6 text-gray-700 font-medium leading-relaxed">
                                                             {cell}
                                                         </td>
                                                     ))}
@@ -224,36 +208,27 @@ export const P1688AdvancedGuide: React.FC<P1688AdvancedGuideProps> = ({ language
                                 <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 mb-6 mt-6">
                                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
                                         {(section as any).beyondPlatforms.map((plat: any, i: number) => (
-                                            <div key={i} onClick={() => onNavigate && onNavigate(plat.id)} className="bg-white p-6 rounded-[24px] shadow-sm hover:shadow-md transition-shadow border border-gray-100 cursor-pointer group flex flex-col h-full text-left">
-                                                <h4 className="font-bold text-brand-blue mb-2 text-lg group-hover:text-blue-600 transition-colors flex items-center gap-2">
+                                            <div key={i} onClick={() => onNavigate && onNavigate(plat.id)} className="bg-brand-blue p-6 rounded-[24px] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-transparent cursor-pointer group flex flex-col h-full text-left">
+                                                <h4 className="font-bold text-white mb-2 text-lg transition-colors flex items-center gap-2">
                                                     {plat.name}
-                                                    <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all"/>
+                                                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1"/>
                                                 </h4>
-                                                <p className="text-gray-500 font-medium text-sm leading-relaxed">{plat.desc}</p>
+                                                <p className="text-white/80 font-medium text-sm leading-relaxed">{plat.desc}</p>
                                             </div>
                                         ))}
                                     </div>
 
-                                    <div className="text-left w-full text-gray-600 leading-relaxed">
-                                        <p className="mb-2">{(section as any).platformSituationTitle}</p>
-                                        <ul className="space-y-1 mb-6">
-                                            {(section as any).platformSituations?.map((sit: string, sIdx: number) => (
-                                                <li key={sIdx} className="flex gap-2 items-start text-gray-600">
-                                                    <span className="text-gray-600 font-bold">•</span>
-                                                    {sit}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                        <p className="text-gray-600">
-                                            {(section as any).beyondFooter}
-                                        </p>
-                                    </div>
+                                    {section.afterTable && (
+                                        <div className="text-left w-full text-base md:text-lg text-gray-700 font-medium leading-relaxed whitespace-pre-line pt-2">
+                                            {section.afterTable}
+                                        </div>
+                                    )}
                                 </div>
                             )}
 
-                            {section.afterTable && (
+                            {section.afterTable && !(section as any).beyondPlatforms && (
                                 <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 mb-6">
-                                    <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+                                    <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed whitespace-pre-line">
                                         {section.afterTable}
                                     </p>
                                 </div>

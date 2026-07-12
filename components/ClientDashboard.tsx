@@ -305,7 +305,7 @@ export const ClientDashboard: React.FC<ClientDashboardProps> = ({ language, onLo
                         {parcel.price && (
                              <div className="sm:text-right border-t sm:border-t-0 sm:border-l border-gray-100 pt-3 sm:pt-0 sm:pl-5 flex flex-row sm:flex-col justify-between items-center sm:justify-center min-w-[100px]">
                                 <span className="text-xs text-gray-400 sm:hidden">{language === 'en' ? 'Delivery Cost' : 'Стоимость'}</span>
-                                <div className="text-xl font-black text-brand-dark">${parcel.price}</div>
+                                <div className="text-xl md:text-2xl font-bold text-brand-dark">${parcel.price}</div>
                              </div>
                         )}
                     </div>

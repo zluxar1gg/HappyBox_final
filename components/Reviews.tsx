@@ -61,7 +61,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review, compact }) => {
           <MapPin size={compact ? 12 : 14} className="fill-current" />
           {review.location}
       </div>
-      <p className={`text-gray-600 leading-relaxed font-medium ${
+      <p className={`text-base md:text-lg text-gray-700 font-medium leading-relaxed font-medium ${
         compact ? 'text-sm mb-2' : 'text-sm md:text-base mb-6 flex-grow'
       }`}>"{review.text}"</p>
       <div className={`${compact ? 'text-base' : 'text-xl'} text-yellow-400 tracking-widest ${compact ? 'mt-0' : 'mt-auto'}`}>★★★★★</div>
@@ -122,7 +122,7 @@ export const Reviews: React.FC<ReviewsProps> = ({ language, customData }) => {
   return (
     <section className="pb-16 md:pb-24 pt-20 md:pt-24 bg-cream">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-16 md:mb-24 text-brand-dark text-center mx-auto tracking-tight max-w-4xl">
+        <h2 className="text-3xl md:text-4xl font-extrabold leading-tight mb-16 md:mb-24 text-brand-dark text-center mx-auto tracking-tight max-w-4xl">
           {t.title}
         </h2>
         

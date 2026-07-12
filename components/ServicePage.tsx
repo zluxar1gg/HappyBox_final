@@ -107,7 +107,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                 <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
                     <div className="container mx-auto px-6 xl:px-0 relative z-10">
                          <div className="max-w-4xl mx-auto text-center">
-                                <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
                                     {t.title}
                                 </h1>
 
@@ -122,7 +122,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                     </div>
                                 )}
 
-                                <p className="text-lg md:text-xl text-gray-600 mb-10 font-medium leading-relaxed max-w-2xl mx-auto">
+                                <p className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
                                     {t.desc}
                                 </p>
                          </div>
@@ -136,7 +136,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                     {/* Why You Need (Supports both simple text and new 'Problems vs Solution' layout) */}
                     {extraContent.whyNeed && (
                         <div className="mb-16 max-w-4xl mx-auto">
-                            <h2 className="text-2xl md:text-3xl font-bold text-brand-dark mb-10 text-center tracking-tight">{extraContent.whyNeed.title}</h2>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-10 text-center tracking-tight">{extraContent.whyNeed.title}</h2>
                             
                             {/* Check if we have the new 'problems' array */}
                             {extraContent.whyNeed.problems ? (
@@ -168,7 +168,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                 </div>
                             ) : (
                                 // Fallback for old simple text structure
-                                <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium text-center max-w-3xl mx-auto">
+                                <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed text-center max-w-3xl mx-auto">
                                     {extraContent.whyNeed.text}
                                 </p>
                             )}
@@ -178,7 +178,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                     {/* OPTIONAL: How It Works (Steps) - Compact Cards */}
                     {extraContent.howItWorks && (
                         <div className="mb-16">
-                            <h2 className="text-2xl md:text-3xl font-bold text-brand-dark mb-10 text-center tracking-tight">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-10 text-center tracking-tight">
                                 {extraContent.howItWorks.title}
                             </h2>
                             
@@ -204,7 +204,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                             </div>
                                             
                                             {/* Description Row - FULL WIDTH */}
-                                            <p className="text-sm text-gray-600 font-medium leading-relaxed">
+                                            <p className="text-sm text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                                 {step.desc}
                                             </p>
                                         </div>
@@ -222,7 +222,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                     <Lightbulb size={32} />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-brand-dark mb-3 uppercase tracking-wide">
+                                    <h3 className="text-xl md:text-2xl font-bold text-brand-dark mb-3 tracking-wide">
                                         {extraContent.proTip.title}
                                     </h3>
                                     <p className="text-base text-brand-dark/90 font-medium leading-relaxed whitespace-pre-line">
@@ -234,7 +234,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                     )}
 
                     {/* Features Grid (Updated to support rich descriptions) */}
-                    <h2 className="text-2xl md:text-3xl font-bold text-brand-dark mb-10 text-center tracking-tight mt-12">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-10 text-center tracking-tight mt-12">
                         {language === 'en' ? 'Key Benefits' : 'Ключевые преимущества'}
                     </h2>
                     
@@ -273,7 +273,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                     {/* NEW Beyond Section Layout (Grid Buttons + Highlighted Box) */}
                     {extraContent.beyond && (
                         <div className="mb-12 pt-8 border-t border-gray-100">
-                             <h2 className="text-2xl md:text-3xl font-bold text-brand-dark mb-10 text-center tracking-tight">
+                             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-10 text-center tracking-tight">
                                 {extraContent.beyond.title}
                             </h2>
                             
@@ -347,10 +347,10 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                     {serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall' || serviceId === 'pinduoduo' ? <ShieldCheck size={32} /> : <Globe size={32} />}
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-black text-brand-dark mb-2 leading-tight">
+                                    <h3 className="text-xl md:text-2xl font-bold text-brand-dark mb-2 leading-tight">
                                         {extraContent.shippingInfo.title}
                                     </h3>
-                                    <p className="text-gray-600 font-medium leading-relaxed">
+                                    <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                         {renderText(extraContent.shippingInfo.text)}
                                     </p>
                                 </div>

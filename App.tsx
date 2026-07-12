@@ -205,6 +205,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
           <Header language={language} setLanguage={setLanguage} onLoginClick={() => setIsDevModalOpen(true)} isDashboard={false} onNavigate={handleNavigate} onBack={() => handleBack('home')} />
           <BlogCatalog language={language} />
           <Footer language={language} />
+          <FloatingContact />
         </div>
       );
       if (currentPage === 'blogPost') return (
@@ -212,6 +213,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
           <Header language={language} setLanguage={setLanguage} onLoginClick={() => setIsDevModalOpen(true)} isDashboard={false} onNavigate={handleNavigate} onBack={() => handleBack('blog')} />
           <BlogPost language={language} />
           <Footer language={language} />
+          <FloatingContact />
         </div>
       );
 

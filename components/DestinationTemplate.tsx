@@ -155,7 +155,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                         
                         {/* Intro */}
                         <div className="mb-20">
-                            <h2 className="text-3xl md:text-4xl font-black text-brand-dark mb-6 tracking-tight">{t.introTitle}</h2>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6 tracking-tight">{t.introTitle}</h2>
                             <p className="text-base md:text-lg text-gray-700 leading-relaxed font-medium">
                                 {t.introText}
                             </p>
@@ -163,7 +163,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
 
                         {/* Rates and Methods */}
                         <div id="rates" className="mb-20 scroll-mt-32">
-                            <h2 className="text-3xl md:text-4xl font-black text-brand-dark mb-8 tracking-tight">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-8 tracking-tight">
                                 {t.methodsTitle}
                             </h2>
                             <div className={`grid gap-6 sm:gap-8 sm:grid-cols-2 ${t.methods.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2 max-w-4xl mx-auto'}`}>
@@ -182,7 +182,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                         <div className="mt-auto pt-6 border-t border-gray-50">
                                             <div className="flex justify-between items-center mb-2">
                                                 <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Price' : 'Цена'}</span>
-                                                <span className="text-xl font-black text-brand-dark">{method.price}</span>
+                                                <span className="text-xl md:text-2xl font-bold text-brand-dark">{method.price}</span>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Time' : 'Срок'}</span>
@@ -198,7 +198,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                         <div id="features" className="mb-20 scroll-mt-32">
                             {t.fbaTitle && (
                                 <>
-                                    <h2 className="text-3xl md:text-4xl font-black text-brand-dark mb-8 tracking-tight">{t.fbaTitle}</h2>
+                                    <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.fbaTitle}</h2>
                                     {t.fbaText && <p className="text-base md:text-lg text-gray-700 leading-relaxed font-medium mb-12">{t.fbaText}</p>}
                                     {t.fbaItems && (
                                         <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -208,7 +208,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                                         {idx + 1}
                                                     </div>
                                                     <h4 className="text-xl font-bold text-brand-dark mb-3">{item.title}</h4>
-                                                    <p className="text-base md:text-lg text-gray-600 font-medium leading-relaxed">{item.desc}</p>
+                                                    <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{item.desc}</p>
                                                 </div>
                                             ))}
                                         </div>
@@ -217,7 +217,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                             )}
                             {t.whyTitle && (
                                 <>
-                                    <h2 className="text-3xl md:text-4xl font-black text-brand-dark mb-8 tracking-tight">{t.whyTitle}</h2>
+                                    <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.whyTitle}</h2>
                                     {t.whyIntro && <p className="text-base md:text-lg text-gray-700 leading-relaxed font-medium mb-12">{t.whyIntro}</p>}
                                     {t.benefits && (
                                         <div className="space-y-8">
@@ -228,7 +228,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                                     </div>
                                                     <div>
                                                         <h4 className="font-bold text-xl text-brand-dark mb-2">{benefit.title}</h4>
-                                                        <p className="text-base md:text-lg text-gray-600 font-medium leading-relaxed">{benefit.desc}</p>
+                                                        <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{benefit.desc}</p>
                                                     </div>
                                                 </div>
                                             ))}
@@ -240,7 +240,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
 
                         {/* Fears */}
                         <div className="mb-20 bg-brand-light/30 p-8 sm:p-12 rounded-[40px] border border-brand-blue/10">
-                            <h2 className="text-3xl md:text-4xl font-black text-brand-dark mb-10 tracking-tight">{t.fearsTitle}</h2>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-10 tracking-tight">{t.fearsTitle}</h2>
                             <div className="space-y-8">
                                 {t.fearsList.map((f, idx) => (
                                     <div key={idx}>
@@ -253,7 +253,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
 
                         {/* Process Steps */}
                         <div className="mb-20">
-                            <h3 className="text-2xl font-black text-gray-700 mb-16 text-center uppercase tracking-widest">
+                            <h3 className="text-2xl font-extrabold text-gray-700 mb-16 text-center uppercase tracking-widest">
                                 {t.stepsTitle}
                             </h3>
                             <div className="relative">
@@ -293,11 +293,11 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                     const innerContent = (
                                         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                                             <div className="text-center sm:text-left">
-                                                <h4 className="text-2xl sm:text-3xl font-black font-sans text-brand-dark mb-2 leading-tight">
+                                                <h4 className="text-2xl sm:text-3xl font-extrabold font-sans text-brand-dark mb-2 leading-tight">
                                                     {t.amazonBlock!.titlePrefix}{" "}
                                                     <span className="text-[#FF9900] block sm:inline mt-1 sm:mt-0">{t.amazonBlock!.titleHighlight}</span>?
                                                 </h4>
-                                                <p className="text-base md:text-lg text-gray-600 font-medium leading-relaxed">
+                                                <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                                     {t.amazonBlock!.desc}
                                                 </p>
                                             </div>
@@ -337,8 +337,8 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                         : "block w-full text-left bg-brand-dark border border-gray-800 rounded-3xl p-6 sm:p-8 hover:border-brand-blue transition-colors group cursor-pointer";
                                         
                                     const titleClass = isPrimary 
-                                        ? "text-2xl sm:text-3xl font-black font-sans text-brand-dark mb-2 leading-tight"
-                                        : "text-2xl sm:text-3xl font-black font-sans text-white mb-2 leading-tight";
+                                        ? "text-2xl sm:text-3xl font-extrabold font-sans text-brand-dark mb-2 leading-tight"
+                                        : "text-2xl sm:text-3xl font-extrabold font-sans text-white mb-2 leading-tight";
                                         
                                     const descClass = isPrimary 
                                         ? "text-gray-600 font-medium"
@@ -399,10 +399,10 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                             <section className="py-16 bg-white rounded-[50px] container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
                                 <div className="max-w-5xl mx-auto text-left">
                                     <div className="mb-16">
-                                        <h2 className="text-3xl md:text-4xl font-black text-brand-dark mb-6 tracking-tight leading-tight">
+                                        <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6 tracking-tight leading-tight">
                                             {t.guide.title}
                                         </h2>
-                                        <p className="text-base md:text-lg text-gray-600 font-medium leading-relaxed">
+                                        <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                             {t.guide.subtitle}
                                         </p>
                                         <div className="bg-gray-50 rounded-2xl p-4 md:p-6 mt-12 flex flex-col md:flex-row items-center justify-start gap-y-4 gap-x-2 text-sm font-medium flex-wrap">
@@ -482,7 +482,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
 
                                     {t.guide.verdict && (
                                         <div className="mt-16 bg-brand-light/30 border border-brand-blue/20 rounded-3xl p-8 sm:p-10 text-left">
-                                            <h3 className="text-2xl font-black text-brand-dark tracking-tight mb-4">{t.guide.verdict.title}</h3>
+                                            <h3 className="text-2xl font-extrabold text-brand-dark tracking-tight mb-4">{t.guide.verdict.title}</h3>
                                             <p className="text-base md:text-lg text-gray-700 leading-relaxed">{t.guide.verdict.desc}</p>
                                         </div>
                                     )}

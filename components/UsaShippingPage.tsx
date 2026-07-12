@@ -195,7 +195,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                             <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                 {language === 'en' ? 'USA-Direct Line' : 'Прямая линия в США'}
                             </span>
-                            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
                                 {t.titlePrefix} <span className="text-brand-blue relative inline-block">
                                     {t.titleHighlight}
                                     <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-yellow z-[-1]" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -203,7 +203,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                                     </svg>
                                 </span>
                             </h1>
-                            <p className="text-xl text-gray-600 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
+                            <p className="text-lg md:text-xl text-gray-700 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
                                 {t.subtitle}
                             </p>
                          </div>
@@ -217,15 +217,15 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                             
                             {/* Intro Section */}
                             <div className="mb-24">
-                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-6 tracking-tight">{t.introTitle}</h2>
-                                <p className="text-lg text-gray-700 leading-relaxed font-medium">
+                                <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6 tracking-tight">{t.introTitle}</h2>
+                                <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                     {t.introText}
                                 </p>
                             </div>
 
                             {/* Rates and Methods */}
                             <div id="rates" className="mb-24 scroll-mt-32">
-                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">
+                                <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-8 tracking-tight">
                                     {t.methodsTitle}
                                 </h2>
                                 <div className="grid md:grid-cols-2 gap-8">
@@ -236,7 +236,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                                         </div>
                                         <div className="flex justify-between items-start mb-2">
                                             <h4 className="font-bold text-xl text-brand-dark">{method.title}</h4>
-                                            <span className="text-[10px] font-black uppercase bg-gray-100 px-2 py-1 rounded-md text-gray-500 tracking-wider">{method.tag}</span>
+                                            <span className="text-[10px] font-extrabold uppercase bg-gray-100 px-2 py-1 rounded-md text-gray-500 tracking-wider">{method.tag}</span>
                                         </div>
                                         <p className="text-sm text-gray-500 font-medium mb-6 flex-grow leading-relaxed">
                                             {method.desc}
@@ -244,7 +244,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                                         <div className="mt-auto pt-6 border-t border-gray-50">
                                             <div className="flex justify-between items-center mb-2">
                                                 <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Price' : 'Цена'}</span>
-                                                <span className="text-xl font-black text-brand-dark">{method.price}</span>
+                                                <span className="text-xl md:text-2xl font-bold text-brand-dark">{method.price}</span>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Time' : 'Срок'}</span>
@@ -258,13 +258,13 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
 
                             {/* FBA Section */}
                             <div id="features" className="mb-24 scroll-mt-32">
-                                <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">{t.fbaTitle}</h2>
-                                <p className="text-lg text-gray-700 leading-relaxed font-medium mb-12">{t.fbaText}</p>
+                                <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.fbaTitle}</h2>
+                                <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-12">{t.fbaText}</p>
                                 <div className="space-y-8">
                                     {t.fbaItems.map((item, idx) => (
                                         <div key={idx}>
                                             <h4 className="font-bold text-xl text-brand-dark mb-2">{item.title}</h4>
-                                            <p className="text-gray-700 leading-relaxed font-medium">{item.desc}</p>
+                                            <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{item.desc}</p>
                                         </div>
                                     ))}
                                 </div>
@@ -272,12 +272,12 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
 
                             {/* Fears Container */}
                             <div className="mb-24 bg-brand-light/30 p-8 sm:p-12 rounded-[40px] border border-brand-blue/10">
-                                 <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-12 tracking-tight">{t.fearsTitle}</h2>
+                                 <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-12 tracking-tight">{t.fearsTitle}</h2>
                                  <div className="space-y-8">
                                     {t.fearsList.map((f, idx) => (
                                         <div key={idx}>
                                             <h4 className="font-bold text-xl text-brand-dark mb-2">Q: {f.q}</h4>
-                                            <p className="text-gray-700 leading-relaxed font-medium"><strong>A:</strong> {f.a}</p>
+                                            <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed"><strong>A:</strong> {f.a}</p>
                                         </div>
                                     ))}
                                  </div>
@@ -285,7 +285,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
 
                             {/* Why Choose Us */}
                             <div className="mb-24">
-                                 <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 tracking-tight">{t.whyTitle}</h2>
+                                 <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.whyTitle}</h2>
                                  <div className="space-y-8">
                                     {t.benefits.map((benefit, idx) => (
                                         <div key={idx} className="flex gap-5 items-start">
@@ -294,7 +294,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                                             </div>
                                             <div>
                                                 <h4 className="font-bold text-lg text-brand-dark mb-2">{benefit.title}</h4>
-                                                <p className="text-gray-600 font-medium leading-relaxed">{benefit.desc}</p>
+                                                <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{benefit.desc}</p>
                                             </div>
                                         </div>
                                     ))}
@@ -303,7 +303,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
 
                             {/* Steps Container */}
                             <div className="mb-24">
-                                <h3 className="text-2xl lg:text-3xl font-black text-gray-700 mb-16 text-center uppercase tracking-widest">
+                                <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark opacity-80 mb-16 text-center uppercase tracking-widest">
                                     {t.stepsTitle}
                                 </h3>
                                 <div className="relative">
@@ -338,11 +338,11 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                                 <a href={language === 'ru' ? '/ru/amazon' : '/amazon'} className="block w-full bg-gray-50 border border-gray-200 rounded-3xl p-6 sm:p-8 hover:bg-orange-50 hover:border-orange-200 transition-colors group cursor-pointer">
                                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                                         <div className="text-center sm:text-left">
-                                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-brand-dark mb-2 leading-tight">
+                                            <h4 className="text-2xl sm:text-3xl font-extrabold font-sans text-brand-dark mb-2 leading-tight">
                                                 {language === 'ru' ? 'Вам нужна доставка на ' : 'Shipping to '} 
                                                 <span className="text-[#FF9900] block sm:inline">Amazon FBA</span>?
                                             </h4>
-                                            <p className="text-gray-600 font-medium">
+                                            <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                                 {language === 'ru' ? 'Специальные условия, маркировка и доставка напрямую на склады FBA.' : 'Specialized rates, prep services, and direct delivery to FBA warehouses.'}
                                             </p>
                                         </div>
@@ -358,7 +358,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                                 <a href={language === 'ru' ? '/ru/blog/chinese-holidays-calendar-2026' : '/blog/chinese-holidays-calendar-2026'} className="block w-full bg-brand-dark border border-gray-800 rounded-3xl p-6 sm:p-8 hover:border-brand-blue transition-colors group cursor-pointer">
                                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                                         <div className="text-center sm:text-left">
-                                            <h4 className="text-2xl sm:text-3xl font-black font-sans text-white mb-2 leading-tight">
+                                            <h4 className="text-2xl sm:text-3xl font-extrabold font-sans text-white mb-2 leading-tight">
                                                 {language === 'ru' ? 'Календарь Китайских Праздников 2026' : 'Chinese Holidays Calendar 2026'} 
                                             </h4>
                                             <p className="text-gray-400 font-medium">

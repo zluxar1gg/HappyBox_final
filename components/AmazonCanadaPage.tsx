@@ -279,7 +279,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                         <span className="inline-flex items-center justify-center bg-[#FF9900]/10 text-[#FF9900] px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                             {t.badge}
                         </span>
-                        <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
                             {t.titlePrefix} <span className="text-orange-500 relative inline-block mx-2">
                                 {t.titleHighlight}
                             </span><br className="hidden md:block" />
@@ -297,24 +297,24 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                         {/* Seamless Delivery */}
                         <div className="mb-20">
                             <div>
-                                <h3 className="text-3xl font-black text-brand-dark mb-4">{t.seamlessTitle}</h3>
-                                <p className="text-lg text-gray-600 font-medium leading-relaxed mb-6">{t.seamlessText}</p>
+                                <h3 className="text-3xl font-extrabold text-brand-dark mb-4">{t.seamlessTitle}</h3>
+                                <p className="text-lg text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-6">{t.seamlessText}</p>
                             </div>
                             <div className="space-y-4">
                                 <div>
                                     <h4 className="font-bold text-brand-dark mb-1 text-lg leading-snug">{t.ddpTitle}</h4>
-                                    <p className="text-gray-600 leading-relaxed font-medium">{t.ddpText}</p>
+                                    <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed font-medium">{t.ddpText}</p>
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-brand-dark mb-1 text-lg leading-snug">{t.minWeightTitle}</h4>
-                                    <p className="text-gray-600 leading-relaxed font-medium">{t.minWeightText}</p>
+                                    <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed font-medium">{t.minWeightText}</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Rates */}
                         <div className="mb-20">
-                            <h3 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
+                            <h3 className="text-2xl font-extrabold text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
                                 {t.ratesTitle}
                             </h3>
                             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -375,14 +375,14 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                         {/* Bilingual Labeling */}
                         <div className="mb-20">
                             <div>
-                                <h3 className="text-3xl font-black text-brand-dark mb-4">{t.prepTitle}</h3>
-                                <p className="text-lg text-gray-600 font-medium leading-relaxed mb-8">{t.prepSubtitle}</p>
+                                <h3 className="text-3xl font-extrabold text-brand-dark mb-4">{t.prepTitle}</h3>
+                                <p className="text-lg text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-8">{t.prepSubtitle}</p>
                             </div>
                             <div className="space-y-6">
                                 {t.prepItems.map((item, idx) => (
                                     <div key={idx}>
                                         <h4 className="font-bold text-brand-dark mb-1 text-lg leading-snug">{item.title}</h4>
-                                        <p className="text-gray-600 leading-relaxed font-medium">{item.desc}</p>
+                                        <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed font-medium">{item.desc}</p>
                                     </div>
                                 ))}
                             </div>
@@ -390,12 +390,12 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
 
                         {/* Fears */}
                         <div className="mb-20">
-                             <h3 className="text-3xl font-black text-brand-dark mb-12 text-center">{t.fearsTitle}</h3>
+                             <h3 className="text-3xl font-extrabold text-brand-dark mb-12 text-center">{t.fearsTitle}</h3>
                              <div className="grid lg:grid-cols-3 gap-8">
                                 {t.fears.map((f, idx) => (
                                     <div key={idx} className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-gray-100">
                                         <h4 className="font-bold text-lg text-brand-dark mb-3 leading-snug">{f.q}</h4>
-                                        <p className="text-gray-600 font-medium leading-relaxed">{f.a}</p>
+                                        <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{f.a}</p>
                                     </div>
                                 ))}
                              </div>
@@ -403,7 +403,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
 
                         {/* Technical Guide 1-8 */}
                         <div className="mb-20">
-                            <h3 className="text-3xl font-black text-brand-dark mb-12">{t.howTitle}</h3>
+                            <h3 className="text-3xl font-extrabold text-brand-dark mb-12">{t.howTitle}</h3>
                             <div className="space-y-10">
                                 {t.steps.map((step, idx) => (
                                     <div key={idx} className="flex gap-4 sm:gap-6 items-start">
@@ -446,7 +446,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                                             <sect.icon size={28} className="text-[#FF9900]" />
                                             {sect.title}
                                         </h4>
-                                        <p className="text-gray-600 font-medium leading-relaxed mb-4">{sect.text}</p>
+                                        <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-4">{sect.text}</p>
                                         {sect.list && sect.list.length > 0 && (
                                             <div className="space-y-3 text-gray-700 font-medium">
                                                 {sect.list.map((li, i) => {

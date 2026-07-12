@@ -166,7 +166,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                             <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                 {language === 'en' ? 'Russia-Direct Line' : 'Прямая линия в Россию'}
                             </span>
-                            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
                                 {t.titlePrefix} <span className="text-brand-blue relative inline-block">
                                     {t.titleHighlight}
                                     <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-yellow z-[-1]" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -183,13 +183,13 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
 
                 <section id="details" className="py-16 bg-white rounded-[50px] mb-8 container mx-auto shadow-sm px-6 lg:px-20 border border-gray-100">
                     <div className="max-w-4xl mx-auto text-center mb-16">
-                        <h2 className="text-3xl font-black text-brand-dark mb-6">{t.introTitle}</h2>
-                        <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        <h2 className="text-3xl font-extrabold text-brand-dark mb-6">{t.introTitle}</h2>
+                        <p className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed">
                             {t.introText}
                         </p>
                     </div>
 
-                    <h3 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
+                    <h3 className="text-2xl font-extrabold text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
                         {t.methodsTitle}
                     </h3>
 
@@ -210,7 +210,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                                 <div className="mt-auto pt-6 border-t border-gray-50">
                                     <div className="flex justify-between items-center mb-2">
                                         <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Price' : 'Цена'}</span>
-                                        <span className="text-xl font-black text-brand-dark">{method.price}</span>
+                                        <span className="text-xl md:text-2xl font-bold text-brand-dark">{method.price}</span>
                                     </div>
                                     <div className="flex justify-between items-center">
                                         <span className="text-gray-400 text-xs font-bold uppercase">{language === 'en' ? 'Time' : 'Срок'}</span>
@@ -224,7 +224,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                     {/* White Delivery Benefits Grid */}
                     <div className="mb-20">
                         <div className="text-center mb-12">
-                            <h3 className="text-3xl font-black text-brand-dark mb-4">{t.whiteTitle}</h3>
+                            <h3 className="text-3xl font-extrabold text-brand-dark mb-4">{t.whiteTitle}</h3>
                             <p className="text-lg text-gray-600">{t.whiteText}</p>
                         </div>
                          
@@ -236,7 +236,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                                     </div>
                                     <div>
                                         <h4 className="font-bold text-lg text-brand-dark mb-2">{benefit.title}</h4>
-                                        <p className="text-gray-600 font-medium leading-relaxed">{benefit.desc}</p>
+                                        <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{benefit.desc}</p>
                                     </div>
                                 </div>
                             ))}
@@ -245,7 +245,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
 
                     {/* How to Start (Steps) */}
                     <div className="bg-gray-50 rounded-[40px] p-8 lg:p-12 border border-gray-100">
-                        <h3 className="text-2xl font-black text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
+                        <h3 className="text-2xl font-extrabold text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
                             {t.stepsTitle}
                         </h3>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

@@ -153,7 +153,7 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({ language, onNavigate }
       <div className="container mx-auto px-4 xl:px-0">
         
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4 tracking-tight">
             {isEn ? 'HappyBox Logistics & Sourcing Services from China' : 'HappyBox доставка и поиск товара'}
           </h2>
           <p className="text-lg md:text-xl text-gray-500 font-bold max-w-2xl mx-auto">
