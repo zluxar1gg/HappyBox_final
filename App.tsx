@@ -36,6 +36,7 @@ import { IndonesiaShippingPage } from './components/IndonesiaShippingPage';
 import { IsraelShippingPage } from './components/IsraelShippingPage';
 import { AmazonCanadaPage } from './components/AmazonCanadaPage';
 import { P1688Page } from './components/P1688Page';
+import { WeidianPage } from './components/WeidianPage';
 import { DynamicSeo } from './components/DynamicSeo';
 import { getBlogPostBySlug } from './utils/blogData';
 import { Language, translations } from './utils/translations';
@@ -251,8 +252,12 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
           const fallback = getGoBackFallback();
           return <P1688Page language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
       }
+      if (currentPage === 'weidian') {
+          const fallback = getGoBackFallback();
+          return <WeidianPage language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
+      }
       
-      if (currentPage === 'taobao' || currentPage === 'alibaba' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'pinduoduo' || currentPage === 'xianyu' || currentPage === 'weidian') {
+      if (currentPage === 'taobao' || currentPage === 'alibaba' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'pinduoduo' || currentPage === 'xianyu') {
           const fallback = getGoBackFallback();
           return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
       }

@@ -86,8 +86,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Buy from Xianyu (Idle Fish) safely. We negotiate, inspect, and ship second-hand goods worldwide. Authentic vintage finds and collectibles."
     },
     weidian: {
-      title: "Weidian Agent | Exclusive Streetwear & Indie Brands from China | HappyBox",
-      description: "Shop on Weidian with HappyBox. Access exclusive streetwear, indie brands, and rare finds. We handle payment, inspection, and shipping worldwide."
+      title: "How to Buy from Weidian: Best Agent for your shopping assistance",
+      description: "Discover exclusive reps and streetwear on Weidian. We buy, inspect, and ship internationally. No WeChat Pay or Chinese account needed!"
     },
     inspection: {
       title: "Quality Control China | Professional Factory Inspection Services | HappyBox",
@@ -192,8 +192,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Безопасные покупки на Xianyu (Idle Fish). Мы торгуемся, проверяем и доставляем б/у товары по всему миру. Оригинальный винтаж и коллекционные вещи."
     },
     weidian: {
-      title: "Посредник Weidian | Эксклюзивный стритвир и бренды из Китая | HappyBox",
-      description: "Покупайте на Weidian с HappyBox. Эксклюзивный стритвир, инди-бренды и редкие вещи. Мы берем на себя выкуп, проверку и доставку по всему миру."
+      title: "Посредник Weidian: Как покупать копии и стритвир без WeChat",
+      description: "Выкуп люксовых копий и стритвир-вещей с Weidian. QC-фотоотчет, оплата в рублях/валюте, консолидация и доставка."
     },
     inspection: {
       title: "Контроль качества в Китае | Профессиональная инспекция фабрик | HappyBox",

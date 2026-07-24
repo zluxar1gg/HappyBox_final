@@ -216,14 +216,26 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                          </div>
                     </div>
                     
-                    <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 mb-10">
+                    <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
                         <div className="w-24 h-24 bg-brand-yellow rounded-full flex items-center justify-center shrink-0">
                             <Percent size={40} className="text-brand-dark" />
                         </div>
-                        <div>
+                        <div className="text-center md:text-left">
                             <h3 className="text-xl md:text-2xl font-bold text-brand-dark mb-2">{t.feeTitle}</h3>
                             <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{t.feeText}</p>
                         </div>
+                    </div>
+
+                    <div className="text-center pb-8">
+                        <button
+                            onClick={() => {
+                                document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className="bg-brand-dark text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-brand-blue transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 active:scale-[0.98] inline-flex items-center gap-3"
+                        >
+                            <Send size={24} />
+                            {t.cta}
+                        </button>
                     </div>
                 </section>
 
