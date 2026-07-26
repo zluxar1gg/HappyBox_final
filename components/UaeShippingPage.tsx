@@ -16,8 +16,8 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
     const content: Record<'en' | 'ru', DestinationContent> = {
         en: {
             badge: "UAE Direct Line",
-            titlePrefix: "Shipping from China to",
-            titleHighlight: "UAE",
+            titlePrefix: "Shipping from China to UAE",
+            titleHighlight: "",
             subtitle: <>Stop worrying about Dubai Customs, VAT registration, or supplier errors. We provide a seamless bridge between Chinese factories (or platforms like Poizon/1688) and your doorstep in the Emirates.</>,
             introTitle: "Your All-in-One Logistics Hub for the UAE",
             introText: "Whether you are an e-commerce entrepreneur in Dubai, a business owner in Abu Dhabi, or a private shopper in Sharjah, HappyBox provides a specialized DDP (Delivered Duty Paid) service. The HappyBox Promise: The price you pay includes all freight, customs clearance, and UAE import duties/VAT. No hidden fees, no surprise invoices from Aramex or DHL upon delivery.",
@@ -192,8 +192,8 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
         },
         ru: {
             badge: "Прямая линия в ОАЭ",
-            titlePrefix: "Доставка из Китая в",
-            titleHighlight: "ОАЭ",
+            titlePrefix: "Доставка из Китая в ОАЭ",
+            titleHighlight: "",
             subtitle: <>Забудьте о сложностях с таможней Дубая, регистрацией НДС и ошибках поставщиков. Мы обеспечиваем надежный мост между китайскими фабриками (или платформами вроде Poizon/1688) и вашей дверью в Эмиратах.</>,
             introTitle: "Ваш единый логистический хаб в ОАЭ",
             introText: "Работаете ли вы в сфере e-commerce в Дубае, владеете бизнесом в Абу-Даби или заказываете для себя в Шардже — HappyBox предоставляет специализированный DDP сервис. Цена, которую вы платите, уже включает фрахт, растаможку, импортные пошлины ОАЭ и НДС. Никаких скрытых платежей и внезапных счетов от Aramex или DHL при доставке.",

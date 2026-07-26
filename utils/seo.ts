@@ -26,8 +26,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Affordable shipping from China to the USA. Sea freight from $1.2/kg, Air freight from $10/kg. We handle customs clearance and DDP delivery to your door or Amazon FBA."
     },
     canada: {
-      title: "China to Canada Shipping: Air Freight | HappyBox",
-      description: "Fast and reliable shipping from China to Canada. Affordable air freight, sea cargo, and Amazon FBA fulfillment with DDP options."
+      title: "Shipping from China to Canada | DDP Sea & Air Freight | HappyBox",
+      description: "Air and Sea freight from China to Canada. We handle CBSA customs, GST/HST, and delivery to your door. DDP shipping from $0.8/kg."
     },
     thailand: {
       title: "Shipping from China to Thailand | DDP Sea, Air & Land Freight | HappyBox",
@@ -38,64 +38,64 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Secure Air & Economy Sea Freight from China to Indonesia. DDP Door-to-Door delivery. Air from $10/kg, Sea from $1.1/kg. No Import Licenses needed."
     },
     eu: {
-      title: "China to Europe Shipping: Door-to-Door DDP | HappyBox",
-      description: "Fast sea & air freight from China to all EU countries. Duties paid (DDP), customs cleared, delivered to your door. Get a quote in minutes."
+      title: "Shipping from China to Europe | DDP Tax-Free Delivery | HappyBox",
+      description: "Fast and affordable shipping from China to Germany, France, Poland, Italy, and Spain. Air, Land, and Sea freight with all taxes and customs (DDP) included. Prices from $1.5/kg."
     },
     uae: {
-      title: "China to UAE Shipping: Sea & Air Freight | HappyBox",
-      description: "Affordable sea and air freight from China to Dubai and UAE. DDP delivery options, customs cleared, and fast transit times."
+      title: "Shipping from China to Dubai, UAE | Sea $4/kg, Air $14/kg | HappyBox",
+      description: "Affordable door-to-door shipping from China to the UAE. Sea freight from $4/kg, Air freight from $14/kg. Tax-free (DDP) delivery to Dubai and Abu Dhabi. Free consolidation included."
     },
     russia: {
       title: "TIR Shipping from China to Russia | White Import with VAT | HappyBox",
       description: "Official 'White' delivery from China to Russia via TIR system. Rates from $1.5/kg. Full document package (VAT), assistance with payments, Chestny Znak labeling."
     },
     amazon: {
-      title: "Amazon FBA Prep China: Shipping Services | HappyBox",
-      description: "Ship directly from China to Amazon FBA. We offer full prep center services, labeling, inspection, and affordable DDP shipping."
+      title: "Amazon FBA USA Shipping | FBA Prep & Labeling Service | HappyBox",
+      description: "Professional Amazon FBA shipping from China to USA. Includes FNSKU labeling, prep service, and DDP shipping (taxes included). Rates from $1.2/kg."
     },
     'amazon-canada': {
       title: "Amazon FBA Canada Shipping | FBA Prep & DDP Delivery | HappyBox",
       description: "Expert shipping from China to Amazon FBA Canada. We handle CBSA customs, GST/HST, and prep your products according to Canadian requirements."
     },
     taobao: {
-      title: "Taobao Agent: Shop & Ship from China | HappyBox",
-      description: "Buy directly from Taobao. We handle purchasing, quality inspection, consolidation, and worldwide shipping."
+      title: "Taobao Agent Service | 0% Commission | Buy & Ship from China",
+      description: "Shop on Taobao, 1688, and Tmall with 0% service fee. HappyBox provides free quality checks, consolidation, and worldwide shipping. Save up to 70% on shipping costs now!"
     },
     1688: {
-      title: "1688 Agent China: Buy Wholesale Direct | HappyBox",
-      description: "Source products directly from factories with our 1688 agent service. We handle negotiation, payment, inspection, and shipping."
+      title: "1688 Sourcing Agent: Wholesale from China & Dropshipping | HappyBox",
+      description: "Access true factory prices on 1688.com without a Chinese account. We provide full-service sourcing, factory negotiation, quality inspection, and DDP shipping. 2% flat fee."
     },
     alibaba: {
       title: "Alibaba Shipping & Sourcing Agent | HappyBox",
       description: "Buy safely from Alibaba with HappyBox. We provide quality control in China, consolidate orders from multiple suppliers, and offer affordable DDP shipping."
     },
     poizon: {
-      title: "Poizon Agent China: Buy Sneakers & Apparel | HappyBox",
-      description: "Buy authentic sneakers and streetwear from Poizon (Dewu) with our agent service. Quality inspection and international shipping."
+      title: "Poizon (Dewu) Agent | Authentic Sneakers & Luxury from China",
+      description: "Shop on Poizon (Dewu) like a local. HappyBox handles purchasing, legit check, and DDP shipping. 0% Service Fee. Buy authentic sneakers and streetwear for less."
     },
     tmall: {
       title: "Tmall Global Agent | Official Brands & Flagship Stores from China",
       description: "Buy authentic brands from Tmall with HappyBox. Access official flagship stores, 0% commission, and DDP delivery worldwide. Secure shopping from China."
     },
     pinduoduo: {
-      title: "Pinduoduo Agent: Buy & Ship from China | HappyBox",
-      description: "Reliable Pinduoduo agent services. We purchase, inspect, and ship your PDD orders worldwide. Affordable shipping rates and direct factory access."
+      title: "Pinduoduo Agent | Group Buying & Best Deals from China | HappyBox",
+      description: "Shop on Pinduoduo with HappyBox. Access group buying deals, 0% commission, and DDP shipping. Save big on gadgets and home goods."
     },
     xianyu: {
       title: "Xianyu Agent | Buy Second-hand & Vintage from China | HappyBox",
       description: "Buy from Xianyu (Idle Fish) safely. We negotiate, inspect, and ship second-hand goods worldwide. Authentic vintage finds and collectibles."
     },
     weidian: {
-      title: "Trusted Weidian Agent: Buy Streetwear | HappyBox",
-      description: "Your Trusted Weidian purchasing agent. We buy, photo-verify, and ship exclusive streetwear orders globally. No Chinese account needed."
+      title: "How to Buy from Weidian: Best Agent for your shopping assistance",
+      description: "Discover exclusive reps and streetwear on Weidian. We buy, inspect, and ship internationally. No WeChat Pay or Chinese account needed!"
     },
     inspection: {
       title: "Quality Control China | Professional Factory Inspection Services | HappyBox",
       description: "Secure your supply chain with HappyBox. We provide professional on-site factory audits and pre-shipment inspections across all China provinces. Detailed reports within 24h."
     },
     warehousing: {
-      title: "Free China Warehousing & Consolidation | HappyBox",
-      description: "Store and consolidate unlimited parcels free in our Guangzhou & Shenzhen hubs. Combine Taobao, 1688 & Pinduoduo orders into one shipment and cut freight costs."
+      title: "Free Warehouse in China | Parcel Consolidation & Storage | HappyBox",
+      description: "Get a free warehouse address in China. HappyBox offers unlimited free storage, parcel consolidation, and quality inspection. Save on shipping from China to the USA, Europe, and UAE."
     },
     blog: {
       title: "Logistics Blog & Insights | Shipping from China Guides | HappyBox",
@@ -132,8 +132,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Доступная доставка из Китая в США. Море от $1.2/кг, Авиа от $10/кг. Таможенная очистка и DDP доставка до двери или на склады Amazon FBA."
     },
     canada: {
-      title: "Доставка в Канаду из Китая: Авиа и FBA | HappyBox",
-      description: "Надежная доставка грузов из Китая в Канаду. Предлагаем авиаперевозки, морской фрахт и услуги фулфилмента для Amazon FBA."
+      title: "Доставка из Китая в Канаду | DDP Авиа и Море | HappyBox",
+      description: "Профессиональная DDP доставка грузов из Китая в Канаду. Море от $0.8/кг, Авиа от $9/кг. Налоги и пошлины (GST/HST) включены."
     },
     thailand: {
       title: "Доставка из Китая в Таиланд | DDP Авиа и Авто | HappyBox",
@@ -144,64 +144,64 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Экономичная DDP доставка в Индонезию. Авиа от $10/кг, Море от $1.1/кг. Полная очистка без необходимости лицензий API и уплаты НДС."
     },
     eu: {
-      title: "Доставка в Европу из Китая: DDP до двери | HappyBox",
-      description: "Быстрая авиа и морская доставка из Китая во все страны ЕС. Включая таможенную очистку и оплату пошлин (DDP). Расчет стоимости за минуты."
+      title: "Доставка из Китая в Европу | DDP без налогов | HappyBox",
+      description: "Быстрая и доступная доставка из Китая в Германию, Францию, Польшу. Авиа, ЖД и Море «под ключ» (DDP). Мы платим НДС и пошлины. Цены от $1.5/кг."
     },
     uae: {
-      title: "Доставка грузов из Китая в ОАЭ (Дубай) | HappyBox",
-      description: "Надежная доставка из Китая в Эмираты. Морской фрахт и авиаперевозки в Дубай, таможенное оформление и доставка до двери."
+      title: "Доставка из Китая в Дубай (ОАЭ) | Море $4/кг, Авиа $14/кг | HappyBox",
+      description: "Выгодная доставка «до двери» из Китая в ОАЭ. Море от $4/кг, Авиа от $14/кг. Без пошлин (DDP). Бесплатная консолидация и склад."
     },
     russia: {
       title: "TIR доставка из Китая в Россию | Белый импорт с НДС | HappyBox",
       description: "Официальная белая доставка из Китая в РФ по системе TIR (МДП). Тарифы от $1.5/кг. Полный пакет документов, помощь с оплатой поставщику, маркировка Честный Знак."
     },
     amazon: {
-      title: "Доставка на Amazon FBA: преп-центр | HappyBox",
-      description: "Доставка товаров из Китая на склады Amazon FBA. Услуги преп-центра, маркировка, инспекция и отправка под ключ (DDP)."
+      title: "Доставка на Amazon FBA США | Преп-центр | HappyBox",
+      description: "Профессиональная доставка на Amazon FBA в США. Наклейка FNSKU, услуги преп-центра и DDP доставка (налоги включены). Ставки от $1.2/кг."
     },
     'amazon-canada': {
       title: "Доставка на Amazon FBA Канада | Преп-центр | HappyBox",
       description: "Доставка из Китая на склады Amazon FBA Канады. Оформление CBSA, GST/HST и DDP доставка. Услуги преп-центра."
     },
     taobao: {
-      title: "Посредник Таобао: выкуп и доставка | HappyBox",
-      description: "Покупки на Таобао без проблем. Выкупаем товары, проверяем на складе в Китае, объединяем посылки и доставляем до вашей двери."
+      title: "Посредник Taobao (0% Комиссия) | Выкуп и Доставка из Китая | HappyBox",
+      description: "Покупайте на Taobao, 1688 и Tmall с комиссией 0%. HappyBox предлагает бесплатную проверку качества, консолидацию и доставку по всему миру. Сэкономьте до 70% на доставке! Рассчитайте стоимость выкупа прямо сейчас!"
     },
     1688: {
-      title: "Посредник 1688: оптовый выкуп из Китая | HappyBox",
-      description: "Ваш посредник для работы с 1688. Связываемся с фабриками, выкупаем товар, проверяем качество и доставляем оптовые заказы."
+      title: "Посредник 1688: Оптовые закупки из Китая напрямую | HappyBox",
+      description: "Выкуп и сорсинг на 1688.com по реальным заводским ценам. Оплата в рублях, помощь с выбором фабрик на китайском языке. Инспекция качества и DDP доставка от 2% комиссии."
     },
     alibaba: {
       title: "Посредник и Доставка с Alibaba | Инспекция и DDP | HappyBox",
       description: "Безопасные закупки на Alibaba. Проверка качества в Китае, переупаковка, консолидация заказов от разных поставщиков. Дешевая карго доставка DDP."
     },
     poizon: {
-      title: "Посредник Poizon: доставка кроссовок | HappyBox",
-      description: "Надежный посредник Poizon (Dewu). Выкуп оригинальных кроссовок и одежды из Китая, проверка качества и быстрая доставка."
+      title: "Посредник Пойзон (Деву) | Оригинальные кроссовки и бренды без наценок",
+      description: "Покупайте на Poizon (Dewu) с HappyBox. Комиссия 0%. Честный курс, проверка на оригинал (Legit Check), доставка DDP и Карго в РФ. Бирюзовая коробка и сертификат."
     },
     tmall: {
       title: "Посредник Tmall Global | Официальные бренды Китая | HappyBox",
       description: "Выкуп товаров с Tmall Global без комиссии. Официальные магазины брендов, гарантия оригинала. Доставка в Россию и по миру."
     },
     pinduoduo: {
-      title: "Посредник Pinduoduo: Выкуп и Доставка | HappyBox",
-      description: "Ваш проверенный посредник Pinduoduo. Выкупаем товары с PDD, предоставляем склад в Китае, проверяем качество и доставляем заказы."
+      title: "Посредник Pinduoduo | Групповые покупки и скидки | HappyBox",
+      description: "Покупайте на Pinduoduo с HappyBox. Доступ к групповым ценам, 0% комиссии и доставка DDP. Экономьте на гаджетах и товарах для дома."
     },
     xianyu: {
       title: "Посредник Xianyu | Б/У товары и винтаж из Китая | HappyBox",
       description: "Безопасные покупки на Xianyu (Idle Fish). Мы торгуемся, проверяем и доставляем б/у товары по всему миру. Оригинальный винтаж и коллекционные вещи."
     },
     weidian: {
-      title: "Посредник Weidian: стритвир без WeChat | HappyBox",
-      description: "Ваш надежный посредник Weidian. Выкупаем эксклюзивный стритвир, делаем фотоотчет и доставляем заказы из Китая. Оплата в рублях."
+      title: "Посредник Weidian: Как покупать копии и стритвир без WeChat",
+      description: "Выкуп люксовых копий и стритвир-вещей с Weidian. QC-фотоотчет, оплата в рублях/валюте, консолидация и доставка."
     },
     inspection: {
       title: "Контроль качества в Китае | Профессиональная инспекция фабрик | HappyBox",
       description: "Защитите свой бизнес с HappyBox. Мы проводим профессиональные выездные аудиты фабрик и пред-отгрузочные инспекции во всех провинциях Китая. Отчеты за 24 часа."
     },
     warehousing: {
-      title: "Бесплатный склад в Китае и консолидация | HappyBox",
-      description: "Бесплатное хранение и объединение посылок на складах в Гуанчжоу и Шэньчжэне. Консолидация заказов с Taobao, 1688 и Pinduoduo для экономии на доставке."
+      title: "Бесплатный склад в Китае и Консолидация | HappyBox",
+      description: "Храните товары бесплатно на нашем охраняемом складе. Мы объединяем заказы от разных поставщиков в одну посылку, чтобы вы экономили на доставке."
     },
     blog: {
       title: "Блог и База Знаний по Логистике | Доставка из Китая | HappyBox",

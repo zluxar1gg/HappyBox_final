@@ -27,64 +27,64 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
         desc: { en: 'Expert DDP shipping to the USA via Air and Sea. Low tariffs, fast transit, Amazon FBA support.', ru: 'Авиа и морская доставка из Китая в США. Экспресс-логистика и DDP решения для вашего бизнеса.' }
       },
       eu: {
-        title: { en: `Shipping from China to Europe | ${baseTitle}`, ru: `Доставка из Китая в Европу | ${baseTitle}` },
-        desc: { en: 'Reliable logistics from China to EU countries. Door-to-door, secure customs clearance included.', ru: 'Надежная экспресс и авто доставка грузов из Китая в страны ЕС. Услуги таможенной очистки.' }
+        title: { en: 'China to Europe Shipping: Door-to-Door DDP | HappyBox', ru: 'Доставка в Европу из Китая: DDP до двери | HappyBox' },
+        desc: { en: 'Fast sea & air freight from China to all EU countries. Duties paid (DDP), customs cleared, delivered to your door. Get a quote in minutes.', ru: 'Быстрая авиа и морская доставка из Китая во все страны ЕС. Включая таможенную очистку и оплату пошлин (DDP). Расчет стоимости за минуты.' }
       },
       uae: {
-        title: { en: `Shipping from China to UAE (Dubai) | ${baseTitle}`, ru: `Доставка из Китая в ОАЭ и Дубай | ${baseTitle}` },
-        desc: { en: 'Door-to-door delivery from China to Dubai and UAE. Reliable air and sea freight forwarder.', ru: 'Прямая доставка из Китая в Дубай, Абу-Даби и другие эмираты ОАЭ от двери до двери.' }
+        title: { en: 'China to UAE Shipping: Sea & Air Freight | HappyBox', ru: 'Доставка грузов из Китая в ОАЭ (Дубай) | HappyBox' },
+        desc: { en: 'Affordable sea and air freight from China to Dubai and UAE. DDP delivery options, customs cleared, and fast transit times.', ru: 'Надежная доставка из Китая в Эмираты. Морской фрахт и авиаперевозки в Дубай, таможенное оформление и доставка до двери.' }
       },
       russia: {
         title: { en: `Shipping from China to Russia | ${baseTitle}`, ru: `Карго и Белая Доставка из Китая в Россию | ${baseTitle}` },
         desc: { en: 'Logistics to Russia via express rail and truck. Fast customs clearance.', ru: 'Авто, ЖД и авиадоставка из Китая в Москву и регионы РФ. Оплата поставщикам в USDT.' }
       },
       canada: {
-        title: { en: `Shipping from China to Canada | ${baseTitle}`, ru: `Доставка из Китая в Канаду | ${baseTitle}` },
-        desc: { en: 'Air and sea freight from China to Canada for businesses and FBA sellers.', ru: 'Удобная логистика из Китая в страны Северной Америки и Канаду для личных целей и селлеров.' }
+        title: { en: 'China to Canada Shipping: Air Freight | HappyBox', ru: 'Доставка в Канаду из Китая: Авиа и FBA | HappyBox' },
+        desc: { en: 'Fast and reliable shipping from China to Canada. Affordable air freight, sea cargo, and Amazon FBA fulfillment with DDP options.', ru: 'Надежная доставка грузов из Китая в Канаду. Предлагаем авиаперевозки, морской фрахт и услуги фулфилмента для Amazon FBA.' }
       },
       amazon: {
-        title: { en: `Amazon FBA USA Prep & Shipping | ${baseTitle}`, ru: `Доставка на склады Amazon FBA США | ${baseTitle}` },
-        desc: { en: 'End-to-end Amazon FBA prep services. Direct shipping from China to Amazon warehouses globally.', ru: 'Подготовка, стикеровка и отправка товаров из Китая на склады мирового Amazon FBA.' }
+        title: { en: 'Amazon FBA Prep China: Shipping Services | HappyBox', ru: 'Доставка на Amazon FBA: преп-центр | HappyBox' },
+        desc: { en: 'Ship directly from China to Amazon FBA. We offer full prep center services, labeling, inspection, and affordable DDP shipping.', ru: 'Доставка товаров из Китая на склады Amazon FBA. Услуги преп-центра, маркировка, инспекция и отправка под ключ (DDP).' }
       },
       'amazon-canada': {
         title: { en: `Amazon FBA Canada Prep & Shipping | ${baseTitle}`, ru: `Доставка на склады Amazon FBA Канада | ${baseTitle}` },
         desc: { en: 'Expert FBA Canada delivery. We handle CBSA, GST/HST, and prep your products according to Canadian requirements.', ru: 'Специалисты по доставке в Amazon FBA Канады. DDP доставка, подготовка товара и полная пошлина.' }
       },
       '1688': {
-        title: { en: `1688 Sourcing & Purchasing | ${baseTitle}`, ru: `Выкуп товаров с 1688 | ${baseTitle}` },
-        desc: { en: 'Buy directly from Chinese factories on 1688.com with our sourcing experts.', ru: 'Помощь в поиске и выкупе товаров от производителей на 1688.com. Поиск фабрик и оплата.' }
+        title: { en: '1688 Agent China: Buy Wholesale Direct | HappyBox', ru: 'Посредник 1688: оптовый выкуп из Китая | HappyBox' },
+        desc: { en: 'Source products directly from factories with our 1688 agent service. We handle negotiation, payment, inspection, and shipping.', ru: 'Ваш посредник для работы с 1688. Связываемся с фабриками, выкупаем товар, проверяем качество и доставляем оптовые заказы.' }
       },
       taobao: {
-        title: { en: `Taobao Purchasing Agent | ${baseTitle}`, ru: `Посредник и Выкуп с Taobao | ${baseTitle}` },
-        desc: { en: 'We buy your goods on Taobao, consolidate them, and ship them internationally.', ru: 'Официальный посредник Taobao. Выкупаем товары, проверяем на брак и отправляем в вашу страну.' }
+        title: { en: 'Taobao Agent: Shop & Ship from China | HappyBox', ru: 'Посредник Таобао: выкуп и доставка | HappyBox' },
+        desc: { en: 'Buy directly from Taobao. We handle purchasing, quality inspection, consolidation, and worldwide shipping.', ru: 'Покупки на Таобао без проблем. Выкупаем товары, проверяем на складе в Китае, объединяем посылки и доставляем до вашей двери.' }
       },
       poizon: {
-        title: { en: `Poizon (Dewu) Shipping & Proxy | ${baseTitle}`, ru: `Доставка и выкуп с Poizon (Dewu) | ${baseTitle}` },
-        desc: { en: 'Buy limited sneakers and fashion from Poizon with guaranteed international delivery.', ru: 'Выкупаем оригинальные кроссовки и одежду с Poizon (Dewu). Быстрая доставка по всему миру.' }
+        title: { en: 'Poizon Agent China: Buy Sneakers & Apparel | HappyBox', ru: 'Посредник Poizon: доставка кроссовок | HappyBox' },
+        desc: { en: 'Buy authentic sneakers and streetwear from Poizon (Dewu) with our agent service. Quality inspection and international shipping.', ru: 'Надежный посредник Poizon (Dewu). Выкуп оригинальных кроссовок и одежды из Китая, проверка качества и быстрая доставка.' }
       },
       tmall: {
         title: { en: `Tmall Purchasing Agent | ${baseTitle}`, ru: `Выкуп и доставка с Tmall | ${baseTitle}` },
         desc: { en: 'Source official brand products on Tmall and ship them with HappyBox.', ru: 'Покупка оригинальных брендов на Tmall с проверкой и доставкой от двери до двери.' }
       },
       pinduoduo: {
-        title: { en: `Pinduoduo Logistics | ${baseTitle}`, ru: `Выкуп с Pinduoduo (PDD) | ${baseTitle}` },
-        desc: { en: 'Consolidate and ship your Pinduoduo purchases globally.', ru: 'Заказ товаров с Pinduoduo. Работа с дешевыми китайскими маркетплейсами под ключ.' }
+        title: { en: 'Pinduoduo Agent: Buy & Ship from China | HappyBox', ru: 'Посредник Pinduoduo: Выкуп и Доставка | HappyBox' },
+        desc: { en: 'Reliable Pinduoduo agent services. We purchase, inspect, and ship your PDD orders worldwide. Affordable shipping rates and direct factory access.', ru: 'Ваш проверенный посредник Pinduoduo. Выкупаем товары с PDD, предоставляем склад в Китае, проверяем качество и доставляем заказы.' }
       },
       xianyu: {
         title: { en: `Xianyu Second-hand Sourcing | ${baseTitle}`, ru: `Покупки на Xianyu (Б/У товары) | ${baseTitle}` },
         desc: { en: 'We help you safely buy items on Alibaba\'s used market (Xianyu).', ru: 'Поможем связаться с продавцом и безопасно купить Б/У товары на китайской площадке Xianyu.' }
       },
       weidian: {
-        title: { en: `Weidian Agent Services | ${baseTitle}`, ru: `Покупки в магазинах Weidian | ${baseTitle}` },
-        desc: { en: 'Access Chinese private sellers on Weidian with our purchasing agent service.', ru: 'Выкуп люксовых копий и стритвир-вещей с Weidian. Проверка по фотоотчету перед отправкой.' }
+        title: { en: 'Trusted Weidian Agent: Buy Streetwear | HappyBox', ru: 'Посредник Weidian: стритвир без WeChat | HappyBox' },
+        desc: { en: 'Your Trusted Weidian purchasing agent. We buy, photo-verify, and ship exclusive streetwear orders globally. No Chinese account needed.', ru: 'Ваш надежный посредник Weidian. Выкупаем эксклюзивный стритвир, делаем фотоотчет и доставляем заказы из Китая. Оплата в рублях.' }
       },
       inspection: {
         title: { en: `Quality Control & Inspection in China | ${baseTitle}`, ru: `Проверка качества и Инспекция в Китае | ${baseTitle}` },
         desc: { en: 'Protect your margins. We inspect goods in China before international shipment.', ru: 'Проверка товара на брак, фотоотчеты и коммуникация с фабрикой при возвратах до отправки через границу.' }
       },
       warehousing: {
-        title: { en: `China Warehousing & Consolidation | ${baseTitle}`, ru: `Склад и Консолидация в Китае (Гуанчжоу) | ${baseTitle}` },
-        desc: { en: 'Free consolidation of your parcels in our Guangzhou and Shenzhen warehouses.', ru: 'Бесплатное хранение и объединение ваших посылок со всех маркетплейсов на нашем складе в Гуанчжоу.' }
+        title: { en: 'Free China Warehousing & Consolidation | HappyBox', ru: 'Бесплатный склад в Китае и консолидация | HappyBox' },
+        desc: { en: 'Store and consolidate unlimited parcels free in our Guangzhou & Shenzhen hubs. Combine Taobao, 1688 & Pinduoduo orders into one shipment and cut freight costs.', ru: 'Бесплатное хранение и объединение посылок на складах в Гуанчжоу и Шэньчжэне. Консолидация заказов с Taobao, 1688 и Pinduoduo для экономии на доставке.' }
       },
       destinations: {
         title: { en: `Global Shipping Destinations | ${baseTitle}`, ru: `Все направления доставки | ${baseTitle}` },
@@ -135,10 +135,6 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
 
   const { title, description } = getSeoData();
 
-  // Temporarily disable DynamicSeo as requested
-  return null;
-
-  /*
   return (
     <Helmet>
       <title>{title}</title>
@@ -149,5 +145,4 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
       <html lang={language === 'ru' ? 'ru' : 'en'} />
     </Helmet>
   );
-  */
 };

@@ -27,7 +27,7 @@ export interface GuideContent {
     jumpTo: string;
     nav: { [key: string]: string };
     sections: GuideSection[];
-    verdict: {
+    verdict?: {
         title: string;
         desc: string;
     };
@@ -139,7 +139,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                 {t.badge}
                             </span>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
-                                {t.titlePrefix} <span className="text-brand-blue block mt-2 lg:mt-4">{t.titleHighlight}</span>
+                                {t.titlePrefix} {t.titleHighlight && <span className="text-brand-blue block mt-2 lg:mt-4">{t.titleHighlight}</span>}
                             </h1>
                             <p className="text-lg lg:text-xl text-gray-700 font-medium leading-relaxed max-w-4xl mx-auto">
                                 {t.subtitle}
