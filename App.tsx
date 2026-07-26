@@ -1,6 +1,7 @@
 
-import React, { useState, Suspense, useEffect, useLayoutEffect } from 'react';
+import React, { useState, Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation, useParams, useNavigationType } from 'react-router-dom';
+import { ServicePage } from "./components/ServicePage";
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -20,8 +21,6 @@ import { UsaShippingPage } from './components/UsaShippingPage';
 import { EuShippingPage } from './components/EuShippingPage';
 import { UaeShippingPage } from './components/UaeShippingPage';
 import { RuShippingPage } from './components/RuShippingPage';
-import { AmazonPage } from './components/AmazonPage';
-import { ServicePage } from './components/ServicePage';
 import { BlogCatalog } from './components/BlogCatalog';
 import { BlogPost } from './components/BlogPost';
 import { AllDestinationsPage } from './components/AllDestinationsPage';
@@ -34,9 +33,7 @@ import { GeorgiaShippingPage } from './components/GeorgiaShippingPage';
 import { SouthAfricaShippingPage } from './components/SouthAfricaShippingPage';
 import { IndonesiaShippingPage } from './components/IndonesiaShippingPage';
 import { IsraelShippingPage } from './components/IsraelShippingPage';
-import { AmazonCanadaPage } from './components/AmazonCanadaPage';
-import { P1688Page } from './components/P1688Page';
-import { WeidianPage } from './components/WeidianPage';
+import { GenericPlatformPage } from './components/GenericPlatformPage';
 import { DynamicSeo } from './components/DynamicSeo';
 import { getBlogPostBySlug } from './utils/blogData';
 import { Language, translations } from './utils/translations';
@@ -153,7 +150,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
   }, [currentPage, language, slug]);
 
   // Scroll Handling Effect
-  useLayoutEffect(() => {
+  useEffect(() => {
     // Check if we requested to retain scroll position (e.g., during language switch)
     if (location.state && (location.state as any).retainScroll) {
        // Timeout ensures DOM is fully rendered before scrolling
@@ -223,7 +220,6 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       if (currentPage === 'uae') return <UaeShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       if (currentPage === 'russia') return <RuShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
-      if (currentPage === 'amazon') return <AmazonPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       if (currentPage === 'canada') return <CaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
       if (currentPage === 'thailand') return <ThailandShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
       if (currentPage === 'australia') return <AustraliaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
@@ -232,7 +228,6 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       if (currentPage === 'indonesia') return <IndonesiaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
       if (currentPage === 'south-africa') return <SouthAfricaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
       if (currentPage === 'israel') return <IsraelShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'destinations')} />;
-      if (currentPage === 'amazon-canada') return <AmazonCanadaPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       
       if (currentPage === 'destinations') return <AllDestinationsPage language={language} setLanguage={setLanguage} onBack={() => handleBack('home', 'services')} onNavigate={handleNavigate} />;
 
@@ -250,14 +245,38 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       // Service pages return to "services" section
       if (currentPage === '1688') {
           const fallback = getGoBackFallback();
-          return <P1688Page language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
+          return <GenericPlatformPage platformId="1688" language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
       }
       if (currentPage === 'weidian') {
           const fallback = getGoBackFallback();
-          return <WeidianPage language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
+          return <GenericPlatformPage platformId="weidian" language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
+      }
+      if (currentPage === 'taobao') {
+          const fallback = getGoBackFallback();
+          return <GenericPlatformPage platformId="taobao" language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
+      }
+      if (currentPage === 'poizon') {
+          const fallback = getGoBackFallback();
+          return <GenericPlatformPage platformId="poizon" language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
+      }
+      if (currentPage === 'tmall') {
+          const fallback = getGoBackFallback();
+          return <GenericPlatformPage platformId="tmall" language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
+      }
+      if (currentPage === 'pinduoduo') {
+          const fallback = getGoBackFallback();
+          return <GenericPlatformPage platformId="pinduoduo" language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
+      }
+      if (currentPage === 'xianyu') {
+          const fallback = getGoBackFallback();
+          return <GenericPlatformPage platformId="xianyu" language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
+      }
+      if (currentPage === 'alibaba') {
+          const fallback = getGoBackFallback();
+          return <GenericPlatformPage platformId="alibaba" language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
       }
       
-      if (currentPage === 'taobao' || currentPage === 'alibaba' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'pinduoduo' || currentPage === 'xianyu') {
+      if (currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'amazon' || currentPage === 'amazon-canada') {
           const fallback = getGoBackFallback();
           return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
       }

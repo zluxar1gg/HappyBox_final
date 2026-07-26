@@ -1115,8 +1115,48 @@ export const translations = {
         startBtn: 'Order Inspection',
         backBtn: 'Back to Home'
       },
+      amazon: {
+        title: 'Amazon FBA Prep Center in China',
+        desc: 'End-to-end logistics for Amazon sellers. We receive goods from your suppliers in China, perform strict FBA prep, label everything correctly, and ship directly to Amazon fulfillment centers via DDP.',
+        whyNeed: {
+            title: "Why use an FBA prep center in China?",
+            text: "Shipping directly from the factory to Amazon is risky. If the factory messes up the FNSKU labels or packaging, Amazon will reject or suspend your listing. We inspect, label, and prep the goods in our China warehouse first, saving you money and protecting your seller account."
+        },
+        features: [
+            { title: 'FNSKU & Carton Labeling', desc: 'We print and apply Amazon FNSKU barcodes and box labels according to strict FBA guidelines.' },
+            { title: 'Bundling & Kitting', desc: 'Need to combine products from two different factories into one set? We do it seamlessly.' },
+            { title: 'Polybagging & Warning Labels', desc: 'We provide polybags with required suffocation warnings for plush, apparel, or liquid items.' },
+            { title: 'DDP Shipping to FBA', desc: 'We handle customs clearance on both sides. Your goods arrive at the Amazon warehouse with all duties paid.' }
+        ],
+        proTip: {
+            title: "Save on Shipping with Consolidation",
+            text: "Instead of shipping multiple small boxes from different suppliers straight to Amazon, send them to our warehouse. We will consolidate them into larger, optimized cartons, drastically lowering your per-unit shipping cost."
+        },
+        startBtn: 'Get an FBA Prep Quote',
+        backBtn: 'Back to Home'
+      },
+      'amazon-canada': {
+        title: 'Amazon FBA Prep & Shipping (Canada)',
+        desc: 'Specialized logistics for selling on Amazon.ca. We receive goods from your suppliers, perform full FBA prep, apply bilingual labeling if needed, and ship directly to Canadian Amazon fulfillment centers via DDP.',
+        whyNeed: {
+            title: "Why use an FBA prep center in China?",
+            text: "Shipping directly to Amazon.ca requires precise compliance, sometimes including French language requirements. We inspect, label, and prep the goods in our China warehouse first, protecting your seller account from costly rejections."
+        },
+        features: [
+            { title: 'FNSKU Labeling', desc: 'We print and apply Amazon FNSKU barcodes and box labels according to strict FBA guidelines.' },
+            { title: 'Bilingual Support', desc: 'We can assist with applying custom stickers or inserts to meet Canadian market requirements.' },
+            { title: 'Polybagging', desc: 'We provide polybags with required warnings for plush, apparel, or liquid items.' },
+            { title: 'DDP Shipping to Canada FBA', desc: 'We handle the complex Canadian customs clearance. Your goods arrive at the Amazon warehouse with all duties paid.' }
+        ],
+        proTip: {
+            title: "Save on Shipping with Consolidation",
+            text: "Instead of shipping multiple small boxes from different suppliers straight to Amazon Canada, send them to our warehouse. We will consolidate them into larger, optimized cartons, drastically lowering your per-unit shipping cost."
+        },
+        startBtn: 'Get an FBA Prep Quote',
+        backBtn: 'Back to Home'
+      },
       warehousing: {
-        title: 'Free Warehouse in China & Consolidation',
+        title: 'China Warehousing & Parcel Consolidation',
         desc: "Stop paying for shipping each individual package. Save up to 80% on international shipping by combining your orders into one secure parcel.",
         whyNeed: {
             title: "Why choose our warehouse?",
@@ -2251,8 +2291,48 @@ export const translations = {
         startBtn: 'Заказать проверку',
         backBtn: 'На главную'
       },
+      amazon: {
+        title: 'Фулфилмент и преп-центр Amazon FBA в Китае',
+        desc: 'Логистика "под ключ" для продавцов Amazon. Мы получаем товары от ваших поставщиков в Китае, проводим строгий преп (FBA Prep), наклеиваем этикетки и отправляем напрямую на склады Amazon по системе DDP.',
+        whyNeed: {
+            title: "Зачем нужен преп-центр в Китае?",
+            text: "Прямая отправка с фабрики на Amazon — это риск. Если фабрика наклеит штрихкоды криво или перепутает коробки, Amazon отклонит партию или заблокирует листинг. Мы проверяем и маркируем товары на нашем складе в Китае, защищая ваш аккаунт и экономя ваши деньги."
+        },
+        features: [
+            { title: 'Маркировка FNSKU', desc: 'Печатаем и наклеиваем штрихкоды FNSKU и этикетки на коробки по строгим стандартам FBA.' },
+            { title: 'Сборка наборов (Bundling)', desc: 'Нужно объединить товары с двух разных фабрик в один набор? Мы сделаем это без проблем.' },
+            { title: 'Упаковка и наклейки', desc: 'Упаковываем в полибэги (polybags) и клеим обязательные предупреждения (warning labels) для плюшевых игрушек, одежды или жидкостей.' },
+            { title: 'Доставка DDP на FBA', desc: 'Берем на себя таможенное оформление с обеих сторон. Ваши товары поступают на склад Amazon с уже оплаченными пошлинами.' }
+        ],
+        proTip: {
+            title: "Экономьте на доставке с консолидацией",
+            text: "Вместо того чтобы отправлять несколько маленьких коробок от разных поставщиков напрямую на Amazon, отправьте их на наш склад. Мы объединим их в большие, оптимизированные коробки, что резко снизит стоимость доставки за единицу товара."
+        },
+        startBtn: 'Рассчитать преп и доставку',
+        backBtn: 'На главную'
+      },
+      'amazon-canada': {
+        title: 'Подготовка и доставка на Amazon FBA (Канада)',
+        desc: 'Специализированная логистика для продаж на Amazon.ca. Мы принимаем товары, проводим полный FBA преп, добавляем двуязычные этикетки (если нужно) и доставляем на склады в Канаде по системе DDP.',
+        whyNeed: {
+            title: "Зачем нужен преп-центр в Китае?",
+            text: "Отправка на Amazon.ca требует точного соблюдения правил, иногда включая требования к французскому языку на упаковке. Мы проверяем и маркируем груз еще в Китае, защищая вас от дорогостоящих ошибок."
+        },
+        features: [
+            { title: 'Маркировка FNSKU', desc: 'Печатаем и наклеиваем штрихкоды FNSKU и этикетки на коробки по стандартам FBA.' },
+            { title: 'Двуязычная поддержка', desc: 'Поможем наклеить кастомные стикеры или вкладыши для соответствия требованиям канадского рынка.' },
+            { title: 'Упаковка в полибэги', desc: 'Предоставляем упаковку с предупреждениями об удушье для одежды и мягких игрушек.' },
+            { title: 'Доставка DDP в Канаду', desc: 'Берем на себя сложную канадскую таможню. Ваши товары прибудут на склад Amazon полностью растаможенными.' }
+        ],
+        proTip: {
+            title: "Экономьте на доставке",
+            text: "Вместо мелких отправок от разных фабрик, консолидируйте все закупки на нашем складе в Китае. Мы упакуем всё в плотные коробки, чтобы вы не переплачивали за 'воздух'."
+        },
+        startBtn: 'Рассчитать преп и доставку',
+        backBtn: 'На главную'
+      },
       warehousing: {
-        title: 'Бесплатный склад в Китае и Консолидация',
+        title: 'Склады в Китае и консолидация посылок',
         desc: "Хватит платить за доставку каждой посылки отдельно. Объедините заказы в одну коробку и сэкономьте до 80% на международной логистике.",
         whyNeed: {
             title: "Зачем наш склад?",

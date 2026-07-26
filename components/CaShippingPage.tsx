@@ -16,7 +16,7 @@ export const CaShippingPage: React.FC<CaShippingPageProps> = ({ language, setLan
         en: {
             badge: "Canada Direct Line",
             titlePrefix: "Shipping from China to",
-            titleHighlight: "Canada: Professional DDP Solutions",
+            titleHighlight: "Canada",
             subtitle: "Stop worrying about CBSA customs, GST/HST, and supplier mistakes. We provide a secure bridge between your Chinese manufacturers and your Canadian destination with 100% transparent pricing.",
             introTitle: "Seamless Logistics Across Canada",
             introText: "Whether you are shipping to Ontario, British Columbia, Quebec, Alberta, or any other province, HappyBox provides a streamlined logistics experience. We cover the entire country, from the Port of Vancouver to the Atlantic coast.",
@@ -253,7 +253,7 @@ export const CaShippingPage: React.FC<CaShippingPageProps> = ({ language, setLan
         ru: {
             badge: "Прямая линия в Канаду",
             titlePrefix: "Доставка из Китая в",
-            titleHighlight: "Канаду: профессиональный DDP",
+            titleHighlight: "Канаду",
             subtitle: "Забудьте о сложностях с таможней CBSA, расчетом GST/HST и ошибках поставщиков. Мы обеспечиваем надежный мост между вашими китайскими производителями и пунктом назначения в Канаде со 100% прозрачным ценообразованием.",
             introTitle: "Бесшовная логистика по всей Канаде",
             introText: "Онтарио, Британская Колумбия, Квебек, Альберта или любая другая провинция — HappyBox обеспечивает четкую доставку. Мы покрываем всю страну, от порта Ванкувера до Атлантического побережья.",

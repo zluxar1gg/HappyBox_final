@@ -25,7 +25,7 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
         en: {
             badge: "Europe Direct Line",
             titlePrefix: "Shipping from China to",
-            titleHighlight: "Europe: Professional DDP",
+            titleHighlight: "Europe",
             subtitle: <>Stop worrying about customs, import VAT, and supplier mistakes. We provide a secure bridge between your Chinese manufacturers and your EU destination - all duties and taxes paid upfront, no charges on delivery. No minimum weight requirement — we ship from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span>.</>,
             introTitle: "Seamless Logistics Across the European Union",
             introText: "Whether you are shipping to Germany, France, Italy, Spain, Poland, or any other EU member state, HappyBox provides a streamlined logistics experience. We specialize in DDP (Delivered Duty Paid) shipping. What this means for you: the price you pay includes ocean/rail/air freight, customs clearance, and all import duties and VAT. No hidden fees, no surprise invoices from local tax authorities.",
@@ -103,7 +103,7 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
         ru: {
             badge: "Прямая линия в Европу",
             titlePrefix: "Доставка из Китая в",
-            titleHighlight: "Европу: Профессиональный DDP",
+            titleHighlight: "Европу",
             subtitle: <>Забудьте о таможне, НДС и ошибках поставщиков. Мы обеспечиваем надежный мост между китайскими фабриками и Европой - все налоги и пошлины включены в цену, никаких доплат при получении. Нет минимального веса — доставляем от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span>.</>,
             introTitle: "Бесшовная логистика по всему Евросоюзу",
             introText: "Отправляете ли вы в Германию, Францию, Италию, Испанию, Польшу или любую другую страну ЕС - процесс остается стабильным. Мы специализируемся на доставке DDP (Delivered Duty Paid). Это значит, что цена включает фрахт, таможенную очистку и уплату всех ввозных пошлин и НДС. Никаких скрытых платежей или неожиданных счетов от местных налоговых органов.",
