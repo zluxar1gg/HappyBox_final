@@ -36,6 +36,7 @@ import { IndonesiaShippingPage } from './components/IndonesiaShippingPage';
 import { IsraelShippingPage } from './components/IsraelShippingPage';
 import { AmazonCanadaPage } from './components/AmazonCanadaPage';
 import { P1688Page } from './components/P1688Page';
+import { AlibabaPage } from './components/AlibabaPage';
 import { PinduoduoPage } from './components/PinduoduoPage';
 import { WeidianPage } from './components/WeidianPage';
 import { TaobaoPage } from './components/TaobaoPage';
@@ -269,7 +270,12 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
           return <TaobaoPage language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
       }
       
-      if (currentPage === 'alibaba' || currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'xianyu') {
+      if (currentPage === 'alibaba') {
+          const fallback = getGoBackFallback();
+          return <AlibabaPage language={language} setLanguage={setLanguage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
+      }
+      
+      if (currentPage === 'inspection' || currentPage === 'warehousing' || currentPage === 'poizon' || currentPage === 'tmall' || currentPage === 'xianyu') {
           const fallback = getGoBackFallback();
           return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
       }
