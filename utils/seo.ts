@@ -22,12 +22,12 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Reliable Freight Forwarder from China to USA, EU, UAE. We act as your Shopping Agent for 1688, Taobao, Poizon. Free consolidation, inspection & DDP shipping."
     },
     usa: {
-      title: "Shipping from China to USA | DDP Sea & Air Freight | HappyBox",
-      description: "Affordable shipping from China to the USA. Sea freight from $1.2/kg, Air freight from $10/kg. We handle customs clearance and DDP delivery to your door or Amazon FBA."
+      title: "China to USA Shipping: Air & Sea Freight DDP | HappyBox",
+      description: "Reliable shipping from China to the USA. Warehousing in China, DDP door-to-door delivery, fast air freight, and cost-effective sea freight. Get a quote today"
     },
     canada: {
-      title: "Shipping from China to Canada | DDP Sea & Air Freight | HappyBox",
-      description: "Air and Sea freight from China to Canada. We handle CBSA customs, GST/HST, and delivery to your door. DDP shipping from $0.8/kg."
+      title: "China to Canada Shipping: Air & Sea Freight DDP | HappyBox",
+      description: "Fast, reliable shipping from China to Canada. Air freight, sea cargo, and DDP delivery — customs and duties handled for you. Get a quote today"
     },
     thailand: {
       title: "Shipping from China to Thailand | DDP Sea, Air & Land Freight | HappyBox",
@@ -54,8 +54,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Professional Amazon FBA shipping from China to USA. Includes FNSKU labeling, prep service, and DDP shipping (taxes included). Rates from $1.2/kg."
     },
     'amazon-canada': {
-      title: "Amazon FBA Canada Shipping | FBA Prep & DDP Delivery | HappyBox",
-      description: "Expert shipping from China to Amazon FBA Canada. We handle CBSA customs, GST/HST, and prep your products according to Canadian requirements."
+      title: "Amazon FBA Canada Prep & Shipping | HappyBox",
+      description: "Expert FBA Canada prep & DDP shipping. We handle CBSA, GST/HST, and Canadian labeling requirements — factory to Amazon warehouse"
     },
     taobao: {
       title: "Taobao Agent Service | 0% Commission | Buy & Ship from China",
@@ -128,12 +128,12 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Надежное Карго в Россию, СНГ и мир. Выкуп товаров с 1688, Taobao, Poizon (Dewu). Бесплатная консолидация, проверка на брак, страховка 100%. Оплата в рублях."
     },
     usa: {
-      title: "Доставка из Китая в США | DDP Авиа и Море | HappyBox",
-      description: "Доступная доставка из Китая в США. Море от $1.2/кг, Авиа от $10/кг. Таможенная очистка и DDP доставка до двери или на склады Amazon FBA."
+      title: "Доставка из Китая в США: DDP, Авиа и Склад в Китае | HappyBox",
+      description: "Быстрая доставка из Китая в США: авиа, море и DDP растаможка. Склад и преп-центр в Китае для Amazon FBA — подготовим и отправим заказ под ключ"
     },
     canada: {
-      title: "Доставка из Китая в Канаду | DDP Авиа и Море | HappyBox",
-      description: "Профессиональная DDP доставка грузов из Китая в Канаду. Море от $0.8/кг, Авиа от $9/кг. Налоги и пошлины (GST/HST) включены."
+      title: "Доставка из Китая в Канаду: Авиа и Море под ключ | HappyBox",
+      description: "Надежная доставка грузов из Китая в Канаду: авиа, морской фрахт и DDP растаможка. Учитываем требования CBSA и GST/HST. Расчет за минуту"
     },
     thailand: {
       title: "Доставка из Китая в Таиланд | DDP Авиа и Авто | HappyBox",
@@ -160,8 +160,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Профессиональная доставка на Amazon FBA в США. Наклейка FNSKU, услуги преп-центра и DDP доставка (налоги включены). Ставки от $1.2/кг."
     },
     'amazon-canada': {
-      title: "Доставка на Amazon FBA Канада | Преп-центр | HappyBox",
-      description: "Доставка из Китая на склады Amazon FBA Канады. Оформление CBSA, GST/HST и DDP доставка. Услуги преп-центра."
+      title: "Доставка на склады Amazon FBA Канада | HappyBox",
+      description: "Доставка на Amazon FBA Канада под ключ: DDP, оформление CBSA и GST/HST, подготовка товара по канадским требованиям"
     },
     taobao: {
       title: "Посредник Taobao (0% Комиссия) | Выкуп и Доставка из Китая | HappyBox",
@@ -231,7 +231,7 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
 };
 
 export const updateMetaTags = (page: PageType, language: Language, dynamicData?: { title?: string, description?: string, slug?: string }) => {
-  const data = metaData[language][page] || metaData[language]['home'] || { title: 'HappyBox Logistics', description: 'Logistics from China' };
+  const data = metaData[language][page] || metaData[language]['home'] || { title: 'HappyBox', description: 'Logistics from China' };
   
   const finalTitle = dynamicData?.title || data.title;
   const finalDescription = dynamicData?.description || data.description;

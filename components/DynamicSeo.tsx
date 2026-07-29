@@ -15,7 +15,7 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
     
     // Default Home
     let title = language === 'en' 
-      ? 'HappyBox Logistics | Fast China Freight Forwarder' 
+      ? 'HappyBox | Fast China Freight Forwarder' 
       : 'HappyBox | Доставка из Китая и Выкуп Товаров';
     let description = language === 'en'
       ? 'Fast & Reliable Shipping from China to USA, Europe, UAE, Russia, and Worldwide. We handle purchasing, warehousing, and logistics.'
@@ -23,8 +23,8 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
 
     const seoMap: Record<string, { title: { en: string; ru: string }, desc: { en: string; ru: string } }> = {
       usa: {
-        title: { en: `Shipping from China to USA | ${baseTitle}`, ru: `Доставка из Китая в США | ${baseTitle}` },
-        desc: { en: 'Expert DDP shipping to the USA via Air and Sea. Low tariffs, fast transit, Amazon FBA support.', ru: 'Авиа и морская доставка из Китая в США. Экспресс-логистика и DDP решения для вашего бизнеса.' }
+        title: { en: `China to USA Shipping: Air & Sea Freight DDP | ${baseTitle}`, ru: `Доставка из Китая в США: DDP, Авиа и Склад в Китае | ${baseTitle}` },
+        desc: { en: 'Reliable shipping from China to the USA. Warehousing in China, DDP door-to-door delivery, fast air freight, and cost-effective sea freight. Get a quote today', ru: 'Быстрая доставка из Китая в США: авиа, море и DDP растаможка. Склад и преп-центр в Китае для Amazon FBA — подготовим и отправим заказ под ключ' }
       },
       eu: {
         title: { en: 'China to Europe Shipping: Door-to-Door DDP | HappyBox', ru: 'Доставка в Европу из Китая: DDP до двери | HappyBox' },
@@ -39,8 +39,8 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
         desc: { en: 'Logistics to Russia via express rail and truck. Fast customs clearance.', ru: 'Авто, ЖД и авиадоставка из Китая в Москву и регионы РФ. Оплата поставщикам в USDT.' }
       },
       canada: {
-        title: { en: 'China to Canada Shipping: Air Freight | HappyBox', ru: 'Доставка в Канаду из Китая: Авиа и FBA | HappyBox' },
-        desc: { en: 'Fast and reliable shipping from China to Canada. Affordable air freight, sea cargo, and Amazon FBA fulfillment with DDP options.', ru: 'Надежная доставка грузов из Китая в Канаду. Предлагаем авиаперевозки, морской фрахт и услуги фулфилмента для Amazon FBA.' }
+        title: { en: `China to Canada Shipping: Air & Sea Freight DDP | ${baseTitle}`, ru: `Доставка из Китая в Канаду: Авиа и Море под ключ | ${baseTitle}` },
+        desc: { en: 'Fast, reliable shipping from China to Canada. Air freight, sea cargo, and DDP delivery — customs and duties handled for you. Get a quote today', ru: 'Надежная доставка грузов из Китая в Канаду: авиа, морской фрахт и DDP растаможка. Учитываем требования CBSA и GST/HST. Расчет за минуту' }
       },
       amazon: {
         title: { en: 'Amazon FBA Prep China: Shipping Services | HappyBox', ru: 'Доставка на Amazon FBA: преп-центр | HappyBox' },
@@ -48,7 +48,7 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
       },
       'amazon-canada': {
         title: { en: `Amazon FBA Canada Prep & Shipping | ${baseTitle}`, ru: `Доставка на склады Amazon FBA Канада | ${baseTitle}` },
-        desc: { en: 'Expert FBA Canada delivery. We handle CBSA, GST/HST, and prep your products according to Canadian requirements.', ru: 'Специалисты по доставке в Amazon FBA Канады. DDP доставка, подготовка товара и полная пошлина.' }
+        desc: { en: 'Expert FBA Canada prep & DDP shipping. We handle CBSA, GST/HST, and Canadian labeling requirements — factory to Amazon warehouse', ru: 'Доставка на Amazon FBA Канада под ключ: DDP, оформление CBSA и GST/HST, подготовка товара по канадским требованиям' }
       },
       '1688': {
         title: { en: '1688 Agent China: Buy Wholesale Direct | HappyBox', ru: 'Посредник 1688: оптовый выкуп из Китая | HappyBox' },
