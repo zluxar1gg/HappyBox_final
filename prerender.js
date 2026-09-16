@@ -60,8 +60,8 @@ const seoData = {
     description: 'Прямая доставка из Китая в Эмираты. Море от $4/кг, Авиа от $14/кг. Доставка от двери до двери с полной растаможкой. Рассчитать стоимость доставки!'
   },
   '/eu': {
-    title: 'Shipping from China to Europe | DDP Air, Sea & Truck | HappyBox',
-    description: 'DDP shipping from China to EU (Germany, Poland, France, etc.). Land freight from $3/kg, Air from $10/kg. Tax-free door-to-door delivery. Get your rates now!'
+    title: 'Shipping from China to Europe | DDP & Customs Cleared',
+    description: 'Reliable freight forwarder from China to the EU. We provide DDP shipping (Delivered Duty Paid). No surprise customs fees or VAT issues. Request a quote!'
   },
   '/ru/eu': {
     title: 'Доставка из Китая в Европу: Авто и Авиа Карго DDP | HappyBox',
@@ -76,8 +76,8 @@ const seoData = {
     description: 'Надежное карго из Китая в РФ. Быстрая автодоставка (TIR) от $1.6/кг. Помощь с выкупом, таможенное оформление и страхование грузов. Узнайте тарифы!'
   },
   '/taobao': {
-    title: 'Best Taobao Agent: Buy from China with 0% Fee | HappyBox',
-    description: 'Trusted Taobao shopping agent. We buy, check, and ship items worldwide. 0% commission, free consolidation & photo reports. Start shopping from China now!'
+    title: 'Taobao Agent & Forwarder: 0% Fee, DDP Shipping to USA/EU',
+    description: 'Buy direct from Taobao. We offer purchasing assistance, free QC photos, package consolidation, and Customs-cleared DDP Shipping. No hidden fees.'
   },
   '/ru/taobao': {
     title: 'Посредник Taobao (0% Комиссия) | Выкуп и Доставка из Китая | HappyBox',
@@ -88,16 +88,16 @@ const seoData = {
     description: 'Professional 1688 sourcing agent. Buy wholesale from Chinese factories safely. Price negotiation, quality check & global shipping. Get a free sourcing consultation!'
   },
   '/ru/1688': {
-    title: 'Посредник 1688: Оптовый выкуп из Китая без комиссии | HappyBox',
-    description: 'Профессиональный агент 1688. Поможем купить оптом напрямую с фабрик Китая. Проверка качества, переговоры и доставка под ключ. Начните работать с Китаем!'
+    title: 'Посредник 1688 (Китай): Выкуп оптом под 0% | Доставка в РФ',
+    description: 'Надежный посредник для оптовых закупок на 1688.com. Связь с фабриками, консолидация на складе в Китае, оплата картой РФ, доставка Карго "под ключ".'
   },
   '/poizon': {
     title: 'Poizon Dewu Agent: Buy Authentic Sneakers from China | HappyBox',
     description: 'Buy original sneakers and streetwear from Poizon Dewu. We provide purchasing assistance, legit checks, and fast shipping. Order your authentic gear now!'
   },
   '/ru/poizon': {
-    title: 'Выкуп с Poizon Dewu: Доставка оригиналов из Китая | HappyBox',
-    description: 'Доставка оригинальных кроссовок и одежды с Poizon Dewu. Быстрый выкуп, Legit Check, проверка на складе и надежная отправка в вашу страну. Закажите оригинал!'
+    title: 'Выкуп с Poizon (Dewu) под 0% | Оплата картой РФ | HappyBox',
+    description: 'Доставка оригинальных кроссовок с Пойзон. Честный курс, комиссия 0%, бесплатный Legit Check по фото и удобная оплата рублями. Карго и авиа доставка из Китая.'
   },
   '/pinduoduo': {
     title: 'Pinduoduo Agent | Cheap Shopping from China | HappyBox',
@@ -108,8 +108,8 @@ const seoData = {
     description: 'Покупайте товары по самым низким ценам на Pinduoduo. Поможем с выкупом, объединим посылки на складе и отправим удобным способом. Узнайте тарифы!'
   },
   '/weidian': {
-    title: 'Weidian Agent | Buy Streetwear & Replicas from China | HappyBox',
-    description: 'Your guide to shopping on Weidian. We help you buy from independent sellers, check item quality, and provide secure international shipping. Request a quote!'
+    title: 'Best Weidian Agent 2026: 0% Fee, Free QC & DDP Shipping',
+    description: 'Discover exclusive streetwear on Weidian. No WeChat Pay needed. We buy, inspect (Free QC), and ship internationally with DDP (No Customs issues).'
   },
   '/ru/weidian': {
     title: 'Выкуп с Weidian: Посредник для покупок в Китае | HappyBox',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 
 export const XianyuAdvancedGuide = ({ language, onNavigate }: { language: 'en' | 'ru', onNavigate: (page: string) => void }) => {
     const content = {
@@ -48,6 +49,12 @@ export const XianyuAdvancedGuide = ({ language, onNavigate }: { language: 'en' |
                             ["Tmall", "Brand flagship — guaranteed authentic", "Full retail price", "Current season official releases", "Standard retail policy"]
                         ]
                     },
+                    beyondPlatforms: [
+                        { name: "Poizon (Dewu)", desc: "Authenticated sneakers and streetwear", id: "poizon" },
+                        { name: "Taobao", desc: "Widest product selection, best for general shopping", id: "taobao" },
+                        { name: "Tmall", desc: "Official brand purchases with authenticity guarantee", id: "tmall" },
+                        { name: "1688", desc: "Wholesale and bulk factory orders", id: "1688" }
+                    ],
                     afterTable: "The key distinction between Xianyu and Poizon:\n\nBoth platforms carry secondhand and pre-owned branded goods — but the authentication approach is completely different. Poizon authenticates every item through its own verification center before delivery. Xianyu has no platform authentication — verification depends entirely on agent inspection and pre-purchase video.\n\nFor authenticated sneakers and streetwear where authenticity is the primary concern → Poizon.\n\nFor vintage luxury, rare collectibles, discontinued models, and items not available on Poizon → Xianyu with thorough pre-purchase inspection.\n\nWe support purchasing on both platforms and can advise which is more appropriate for your specific item before you commit."
                 }
             ]
@@ -98,6 +105,12 @@ export const XianyuAdvancedGuide = ({ language, onNavigate }: { language: 'en' |
                             ["Tmall", "Официальный магазин", "Полная розничная цена", "Новые официальные релизы", "Стандартная политика возврата"]
                         ]
                     },
+                    beyondPlatforms: [
+                        { name: "Poizon (Dewu)", desc: "Оригинальные кроссовки и брендовая одежда", id: "poizon" },
+                        { name: "Taobao", desc: "Самый широкий выбор для общего шопинга", id: "taobao" },
+                        { name: "Tmall", desc: "Официальные покупки у брендов с гарантией", id: "tmall" },
+                        { name: "1688", desc: "Оптовые партии напрямую с фабрик", id: "1688" }
+                    ],
                     afterTable: "Ключевое отличие Xianyu от Poizon:\n\nОбе платформы предлагают б/у и подержанные брендовые вещи — но подход к аутентификации совершенно разный. Poizon проверяет каждый товар через собственный центр проверки перед доставкой. Xianyu не имеет проверки платформы — аутентификация полностью зависит от проверки агентом и видео перед покупкой.\n\nДля оригинальных кроссовок и стритвира, где важна подлинность → Poizon.\n\nДля винтажного люкса, редких коллекционных предметов, снятых с производства моделей и товаров, которых нет на Poizon → Xianyu с тщательной проверкой перед покупкой.\n\nМы поддерживаем покупки на обеих платформах и можем посоветовать, какая из них больше подходит для вашего конкретного товара, прежде чем вы примете решение."
                 }
             ]
@@ -175,10 +188,31 @@ export const XianyuAdvancedGuide = ({ language, onNavigate }: { language: 'en' |
                                 </div>
                             )}
 
-                            {section.afterTable && (
+                            {section.afterTable && !(section as any).beyondPlatforms && (
                                 <p className="mt-6 text-base md:text-lg text-gray-700 font-medium leading-relaxed whitespace-pre-line">
                                     {section.afterTable}
                                 </p>
+                            )}
+                            {(section as any).beyondPlatforms && (
+                                <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 mb-6 mt-6">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
+                                        {(section as any).beyondPlatforms.map((plat: any, i: number) => (
+                                            <div key={i} onClick={() => onNavigate && onNavigate(plat.id)} className="bg-[#FFC300] p-6 rounded-[24px] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-transparent cursor-pointer group flex flex-col h-full text-left">
+                                                <h4 className="font-bold text-brand-dark mb-2 text-lg transition-colors flex items-center gap-2">
+                                                    {plat.name}
+                                                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1"/>
+                                                </h4>
+                                                <p className="text-brand-dark/80 font-medium text-sm leading-relaxed">{plat.desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    
+                                    {section.afterTable && (
+                                        <div className="text-left w-full text-base md:text-lg text-gray-700 font-medium leading-relaxed whitespace-pre-line pt-2">
+                                            {section.afterTable}
+                                        </div>
+                                    )}
+                                </div>
                             )}
                         </div>
                     ))}

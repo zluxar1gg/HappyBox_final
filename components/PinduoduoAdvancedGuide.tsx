@@ -192,7 +192,7 @@ export const PinduoduoAdvancedGuide: React.FC<PinduoduoAdvancedGuideProps> = ({ 
                                 <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 mb-6 mt-6">
                                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
                                         {(section as any).beyondPlatforms.map((plat: any, i: number) => (
-                                            <div key={i} onClick={() => onNavigate && onNavigate(plat.id)} className="bg-brand-blue p-6 rounded-[24px] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-transparent cursor-pointer group flex flex-col h-full text-left">
+                                            <div key={i} onClick={() => onNavigate && onNavigate(plat.id)} className="bg-[#E02E24] p-6 rounded-[24px] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-transparent cursor-pointer group flex flex-col h-full text-left">
                                                 <h4 className="font-bold text-white mb-2 text-lg transition-colors flex items-center gap-2">
                                                     {plat.name}
                                                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-1"/>

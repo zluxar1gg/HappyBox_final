@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ArrowRight } from 'lucide-react';
 
 export const AlibabaAdvancedGuide = ({ language, onNavigate }: { language: 'en' | 'ru', onNavigate: (page: string) => void }) => {
     const content = {
@@ -46,6 +46,12 @@ export const AlibabaAdvancedGuide = ({ language, onNavigate }: { language: 'en' 
                             ["Pinduoduo", "Maximum discount, everyday basics", "Lowest B2C", "Chinese only", "Not supported", "1 unit"]
                         ]
                     },
+                    beyondPlatforms: [
+                        { name: "1688", desc: "Factory direct wholesale pricing", id: "1688" },
+                        { name: "Taobao", desc: "Widest product selection, best for general shopping", id: "taobao" },
+                        { name: "Tmall", desc: "Official brand purchases with authenticity guarantee", id: "tmall" },
+                        { name: "Poizon (Dewu)", desc: "Authenticated sneakers and streetwear", id: "poizon" }
+                    ],
                     afterTable: "Which to use:\nFirst-time international buyer, English communication needed → Alibaba\nLowest wholesale factory prices, agent required → 1688\nSingle items, personal shopping → Taobao\nOfficial brand purchases → Tmall\nExclusive niche items → Weidian\nMaximum discount on everyday goods → Pinduoduo\n\nAlibaba vs 1688 — the key decision:\nAlibaba is more accessible for international buyers — English communication, international payment, Trade Assurance protection. 1688 is significantly cheaper for the same products but requires a buying agent. For established importers comfortable with agent-assisted purchasing, 1688 typically delivers 30–60% lower product costs than equivalent Alibaba listings."
                 }
             ]
@@ -93,6 +99,12 @@ export const AlibabaAdvancedGuide = ({ language, onNavigate }: { language: 'en' 
                             ["Pinduoduo", "Максимальные скидки, базовые товары", "Самые низкие для B2C", "Только китайский", "Нет", "1 шт"]
                         ]
                     },
+                    beyondPlatforms: [
+                        { name: "1688", desc: "Самые низкие оптовые цены напрямую от фабрик", id: "1688" },
+                        { name: "Taobao", desc: "Самый широкий выбор для общего шопинга", id: "taobao" },
+                        { name: "Tmall", desc: "Официальные покупки у брендов с гарантией", id: "tmall" },
+                        { name: "Poizon (Dewu)", desc: "Оригинальные кроссовки и брендовая одежда", id: "poizon" }
+                    ],
                     afterTable: "Что использовать:\nПервая международная закупка, нужен английский → Alibaba\nСамые низкие оптовые цены фабрик, нужен агент → 1688\nЕдиничные товары, личные покупки → Taobao\nПокупки официальных брендов → Tmall\nЭксклюзивные нишевые вещи → Weidian\nМаксимальная скидка на повседневные товары → Pinduoduo\n\nAlibaba vs 1688 — главное решение:\nAlibaba доступнее для международных покупателей: общение на английском, международная оплата, защита Trade Assurance. 1688 значительно дешевле для тех же товаров, но требует байера (агента). Для опытных импортеров, привыкших работать с агентами, 1688 обычно снижает стоимость товара на 30–60% по сравнению с аналогичными предложениями на Alibaba."
                 }
             ]
@@ -170,7 +182,29 @@ export const AlibabaAdvancedGuide = ({ language, onNavigate }: { language: 'en' 
                                 </div>
                             )}
 
-                            {section.afterTable && (
+                            {(section as any).beyondPlatforms && (
+                                <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 mb-6 mt-6">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
+                                        {(section as any).beyondPlatforms.map((plat: any, i: number) => (
+                                            <div key={i} onClick={() => onNavigate && onNavigate(plat.id)} className="bg-[#FF6A00] p-6 rounded-[24px] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-transparent cursor-pointer group flex flex-col h-full text-left">
+                                                <h4 className="font-bold text-white mb-2 text-lg transition-colors flex items-center gap-2">
+                                                    {plat.name}
+                                                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1"/>
+                                                </h4>
+                                                <p className="text-white/80 font-medium text-sm leading-relaxed">{plat.desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    
+                                    {section.afterTable && (
+                                        <div className="text-left w-full text-base md:text-lg text-gray-700 font-medium leading-relaxed whitespace-pre-line pt-2">
+                                            {section.afterTable}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            {section.afterTable && !(section as any).beyondPlatforms && (
                                 <p className="mt-6 text-base md:text-lg text-gray-700 font-medium leading-relaxed whitespace-pre-line">
                                     {section.afterTable}
                                 </p>

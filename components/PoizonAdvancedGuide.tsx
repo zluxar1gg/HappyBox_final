@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 
 export const PoizonAdvancedGuide = ({ language, onNavigate }: { language: 'en' | 'ru', onNavigate: (page: string) => void }) => {
     const content = {
@@ -49,6 +50,12 @@ export const PoizonAdvancedGuide = ({ language, onNavigate }: { language: 'en' |
                             ["1688", "No platform verification", "Factory price", "Wholesale quantities", "Bulk orders"]
                         ]
                     },
+                    beyondPlatforms: [
+                        { name: "Tmall", desc: "Official brand purchases with authenticity guarantee", id: "tmall" },
+                        { name: "Weidian", desc: "Hard-to-find exclusive streetwear items", id: "weidian" },
+                        { name: "1688", desc: "Wholesale and bulk factory orders", id: "1688" },
+                        { name: "Taobao", desc: "Widest product selection, best for general shopping", id: "taobao" }
+                    ],
                     afterTable: "The clear decision for authenticated branded goods:\nPoizon is the only Chinese platform with mandatory physical authentication on every transaction. For sneakers, streetwear, and branded accessories where authenticity matters, there is no comparable alternative at these price points.\n\nWhen Tmall makes more sense:\nCurrent season releases from official brand stores. Items where you want direct brand warranty. Situations where Poizon doesn't carry the specific item or size.\n\nWhen Weidian might be considered:\nItems not available on Poizon. Buyers who have verified a specific Weidian seller independently and are comfortable with no platform authentication guarantee.\n\nWe support purchasing and consolidation across all platforms. For platform-specific purchasing guides, see our dedicated pages."
                 }
             ]
@@ -100,6 +107,12 @@ export const PoizonAdvancedGuide = ({ language, onNavigate }: { language: 'en' |
                             ["1688", "Платформа не проверяет", "Цена фабрики", "Оптовые партии", "Оптовые заказы"]
                         ]
                     },
+                    beyondPlatforms: [
+                        { name: "Tmall", desc: "Официальные покупки у брендов с гарантией", id: "tmall" },
+                        { name: "Weidian", desc: "Труднодоступные эксклюзивные вещи и стритвир", id: "weidian" },
+                        { name: "1688", desc: "Оптовые партии напрямую с фабрик", id: "1688" },
+                        { name: "Taobao", desc: "Самый широкий выбор для общего шопинга", id: "taobao" }
+                    ],
                     afterTable: "Выбор для брендовых вещей очевиден:\nPoizon — единственная китайская платформа с обязательной физической проверкой каждого товара. Для кроссовок, стритвира и аксессуаров, где важна оригинальность, у Poizon нет конкурентов при таких ценах.\n\nКогда Tmall имеет больше смысла:\nТекущие релизы из официальных магазинов бренда. Товары, на которые вам нужна прямая гарантия бренда. Ситуации, когда на Poizon нет нужной вещи или размера.\n\nКогда стоит рассмотреть Weidian:\nВещи, которых нет на Poizon. Покупатели, которые сами проверили продавца на Weidian и готовы покупать без гарантии платформы.\n\nМы помогаем выкупать и консолидировать товары со всех платформ. Инструкции по другим площадкам смотрите на соответствующих страницах."
                 }
             ]
@@ -177,7 +190,29 @@ export const PoizonAdvancedGuide = ({ language, onNavigate }: { language: 'en' |
                                 </div>
                             )}
 
-                            {section.afterTable && (
+                            {(section as any).beyondPlatforms && (
+                                <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 mb-6 mt-6">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
+                                        {(section as any).beyondPlatforms.map((plat: any, i: number) => (
+                                            <div key={i} onClick={() => onNavigate && onNavigate(plat.id)} className="bg-[#00B2B2] p-6 rounded-[24px] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-transparent cursor-pointer group flex flex-col h-full text-left">
+                                                <h4 className="font-bold text-white mb-2 text-lg transition-colors flex items-center gap-2">
+                                                    {plat.name}
+                                                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1"/>
+                                                </h4>
+                                                <p className="text-white/80 font-medium text-sm leading-relaxed">{plat.desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    
+                                    {section.afterTable && (
+                                        <div className="text-left w-full text-base md:text-lg text-gray-700 font-medium leading-relaxed whitespace-pre-line pt-2">
+                                            {section.afterTable}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                            
+                            {section.afterTable && !(section as any).beyondPlatforms && (
                                 <p className="mt-6 text-base md:text-lg text-gray-700 font-medium leading-relaxed whitespace-pre-line">
                                     {section.afterTable}
                                 </p>

@@ -38,8 +38,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Secure Air & Economy Sea Freight from China to Indonesia. DDP Door-to-Door delivery. Air from $10/kg, Sea from $1.1/kg. No Import Licenses needed."
     },
     eu: {
-      title: "Shipping from China to Europe | DDP Tax-Free Delivery | HappyBox",
-      description: "Fast and affordable shipping from China to Germany, France, Poland, Italy, and Spain. Air, Land, and Sea freight with all taxes and customs (DDP) included. Prices from $1.5/kg."
+      title: "Shipping from China to Europe | DDP & Customs Cleared",
+      description: "Reliable freight forwarder from China to the EU. We provide DDP shipping (Delivered Duty Paid). No surprise customs fees or VAT issues. Request a quote!"
     },
     uae: {
       title: "Shipping from China to Dubai, UAE | Sea $4/kg, Air $14/kg | HappyBox",
@@ -58,8 +58,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Expert FBA Canada prep & DDP shipping. We handle CBSA, GST/HST, and Canadian labeling requirements — factory to Amazon warehouse"
     },
     taobao: {
-      title: "Taobao Agent Service | 0% Commission | Buy & Ship from China",
-      description: "Shop on Taobao, 1688, and Tmall with 0% service fee. HappyBox provides free quality checks, consolidation, and worldwide shipping. Save up to 70% on shipping costs now!"
+      title: "Taobao Agent & Forwarder: 0% Fee, DDP Shipping to USA/EU",
+      description: "Buy direct from Taobao. We offer purchasing assistance, free QC photos, package consolidation, and Customs-cleared DDP Shipping. No hidden fees."
     },
     1688: {
       title: "1688 Sourcing Agent: Wholesale from China & Dropshipping | HappyBox",
@@ -86,8 +86,8 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Buy from Xianyu (Idle Fish) safely. We negotiate, inspect, and ship second-hand goods worldwide. Authentic vintage finds and collectibles."
     },
     weidian: {
-      title: "How to Buy from Weidian: Best Agent for your shopping assistance",
-      description: "Discover exclusive reps and streetwear on Weidian. We buy, inspect, and ship internationally. No WeChat Pay or Chinese account needed!"
+      title: "Best Weidian Agent 2026: 0% Fee, Free QC & DDP Shipping",
+      description: "Discover exclusive streetwear on Weidian. No WeChat Pay needed. We buy, inspect (Free QC), and ship internationally with DDP (No Customs issues)."
     },
     inspection: {
       title: "Quality Control China | Professional Factory Inspection Services | HappyBox",
@@ -168,16 +168,16 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
       description: "Покупайте на Taobao, 1688 и Tmall с комиссией 0%. HappyBox предлагает бесплатную проверку качества, консолидацию и доставку по всему миру. Сэкономьте до 70% на доставке! Рассчитайте стоимость выкупа прямо сейчас!"
     },
     1688: {
-      title: "Посредник 1688: Оптовые закупки из Китая напрямую | HappyBox",
-      description: "Выкуп и сорсинг на 1688.com по реальным заводским ценам. Оплата в рублях, помощь с выбором фабрик на китайском языке. Инспекция качества и DDP доставка от 2% комиссии."
+      title: "Посредник 1688 (Китай): Выкуп оптом под 0% | Доставка в РФ",
+      description: "Надежный посредник для оптовых закупок на 1688.com. Связь с фабриками, консолидация на складе в Китае, оплата картой РФ, доставка Карго \"под ключ\"."
     },
     alibaba: {
       title: "Посредник и Доставка с Alibaba | Инспекция и DDP | HappyBox",
       description: "Безопасные закупки на Alibaba. Проверка качества в Китае, переупаковка, консолидация заказов от разных поставщиков. Дешевая карго доставка DDP."
     },
     poizon: {
-      title: "Посредник Пойзон (Деву) | Оригинальные кроссовки и бренды без наценок",
-      description: "Покупайте на Poizon (Dewu) с HappyBox. Комиссия 0%. Честный курс, проверка на оригинал (Legit Check), доставка DDP и Карго в РФ. Бирюзовая коробка и сертификат."
+      title: "Выкуп с Poizon (Dewu) под 0% | Оплата картой РФ | HappyBox",
+      description: "Доставка оригинальных кроссовок с Пойзон. Честный курс, комиссия 0%, бесплатный Legit Check по фото и удобная оплата рублями. Карго и авиа доставка из Китая."
     },
     tmall: {
       title: "Посредник Tmall Global | Официальные бренды Китая | HappyBox",
