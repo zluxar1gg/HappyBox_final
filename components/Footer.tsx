@@ -78,11 +78,20 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
     };
   }, [activeModal]);
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    
+  const getUrl = (path: string) => {
+    const prefix = language === 'ru' ? '/ru' : '';
+    return `${prefix}${path}`;
+  };
+
+  const getHashUrl = (hash: string) => {
+    const prefix = language === 'ru' ? '/ru' : '';
+    return `${prefix}#${hash}`;
+  };
+
+  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    const element = document.getElementById(hash);
     if (element) {
+      e.preventDefault();
       const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
@@ -94,111 +103,248 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
     }
   };
 
+  const isRu = language === 'ru';
+
+  const footerSections = {
+    brand: {
+      tagline: isRu 
+        ? 'Надежный сервис выкупа товаров с фабрик Китая и экспресс-доставка по всему миру под ключ.' 
+        : 'Your trusted China purchasing agent and all-in-one global freight forwarding partner.',
+      office: isRu
+        ? 'Главный офис: 27B, Nanjinyuan Building, Шэньчжэнь, Гуандун, Китай'
+        : 'Head Office: 27B, Nanjinyuan Building, Shenzhen, Guangdong, China'
+    },
+    marketplaces: {
+      title: isRu ? 'Маркетплейсы Китая' : 'China Marketplaces',
+      links: [
+        { label: 'Alibaba', path: '/alibaba' },
+        { label: 'Taobao', path: '/taobao' },
+        { label: '1688', path: '/1688' },
+        { label: 'Poizon', path: '/poizon' },
+        { label: 'Tmall', path: '/tmall' },
+        { label: 'Pinduoduo', path: '/pinduoduo' },
+        { label: 'Weidian', path: '/weidian' },
+        { label: 'Xianyu', path: '/xianyu' },
+      ]
+    },
+    destinations: {
+      title: isRu ? 'Направления' : 'Destinations',
+      links: [
+        { label: isRu ? 'США' : 'USA', path: '/usa' },
+        { label: isRu ? 'ОАЭ (Дубай)' : 'UAE (Dubai)', path: '/uae' },
+        { label: isRu ? 'Европа' : 'Europe', path: '/eu' },
+        { label: isRu ? 'Россия' : 'Russia', path: '/russia' },
+        { label: isRu ? 'Канада' : 'Canada', path: '/canada' },
+        { label: isRu ? 'Австралия' : 'Australia', path: '/australia' },
+        { label: isRu ? 'Таиланд' : 'Thailand', path: '/thailand' },
+        { label: isRu ? 'Все направления' : 'All Destinations', path: '/destinations' },
+      ]
+    },
+    services: {
+      title: isRu ? 'Услуги и Сервисы' : 'Services & Tools',
+      links: [
+        { label: isRu ? 'Инспекция и проверка качества' : 'Quality Control & Inspection', path: '/inspection' },
+        { label: isRu ? 'Бесплатный склад и консолидация' : 'Free China Warehousing', path: '/warehousing' },
+        { label: isRu ? 'Amazon FBA США' : 'Amazon FBA USA Freight', path: '/amazon' },
+        { label: isRu ? 'Amazon FBA Канада' : 'Amazon FBA Canada Freight', path: '/amazon-canada' },
+        { label: isRu ? 'Калькулятор доставки' : 'Shipping Cost Calculator', hash: 'calculator' },
+        { label: isRu ? 'Отслеживание груза' : 'Track Your Shipment', hash: 'tracking' },
+      ]
+    },
+    company: {
+      title: isRu ? 'Компания и Инфо' : 'Company & Legal',
+      links: [
+        { label: isRu ? 'Блог и База Знаний' : 'Logistics Blog & Guides', path: '/blog' },
+        { label: isRu ? 'Связь с менеджерами' : 'Contact Support & Managers', hash: 'contacts' },
+      ]
+    }
+  };
+
   return (
     <>
-      <footer className="bg-brand-light pt-16 pb-8 overflow-hidden relative">
-        <div className="container mx-auto relative z-10">
-          {/* Main Footer Content */}
-          <div className="flex flex-col md:flex-row gap-12 md:gap-20 mb-12 px-6 md:px-0 items-start">
+      <footer className="bg-brand-light pt-16 pb-8 overflow-hidden relative border-t border-brand-blue/15">
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          
+          {/* Mega-Footer Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
             
-            {/* Left Column: Brand & Socials */}
-            <div className="space-y-6">
-              <div className="text-3xl md:text-4xl font-extrabold text-brand-blue tracking-tighter">
+            {/* Col 1: Brand Info & Socials (Spans 4 cols on desktop) */}
+            <div className="sm:col-span-2 lg:col-span-4 space-y-5">
+              <a 
+                href={isRu ? '/ru' : '/'} 
+                className="inline-block text-3xl md:text-4xl font-extrabold text-brand-blue tracking-tighter hover:opacity-90 transition-opacity"
+              >
                 HappyBox
-              </div>
-              <div className="flex gap-4 ml-2">
+              </a>
+              <p className="text-sm text-gray-600 max-w-sm leading-relaxed font-normal">
+                {footerSections.brand.tagline}
+              </p>
+
+              {/* Social Icons */}
+              <div className="flex flex-wrap gap-3 pt-1">
                 <SocialLink href="https://instagram.com/happybox_dan" icon={InstagramIcon} label="Instagram Profile" platform="instagram" />
                 <SocialLink href="https://t.me/happyboxlogistics" icon={TelegramIcon} label="Telegram Channel" platform="telegram" />
                 <SocialLink href="https://wa.me/8613048875834" icon={WhatsAppIcon} label="WhatsApp Contact" platform="whatsapp" />
                 <SocialLink href="https://www.facebook.com/HappyBoxLogistics" icon={FacebookIcon} label="Facebook Page" platform="facebook" />
                 
                 <a 
-                    href={`mailto:${fullEmail}`}
-                    onClick={() => trackLead('email', 'footer', 'click')}
-                    className="flex w-11 h-11 bg-white rounded-full items-center justify-center text-brand-dark hover:bg-brand-blue hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-1"
-                    aria-label={language === 'en' ? 'Email Support' : 'Написать в поддержку'}
+                  href={`mailto:${fullEmail}`}
+                  onClick={() => trackLead('email', 'footer', 'click')}
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-brand-dark hover:bg-brand-blue hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                  aria-label={isRu ? 'Написать в поддержку' : 'Email Support'}
                 >
-                    <Mail className="w-5 h-5" />
+                  <Mail className="w-4 h-4" />
                 </a>
               </div>
               
-              <div className="ml-2 text-sm text-gray-500 font-semibold max-w-xs opacity-80 leading-relaxed">
-                Head Office: 27B, Nanjinyuan Building, Shenzhen, Guangdong, China
+              <div className="text-xs text-gray-500 font-medium max-w-sm pt-2 border-t border-brand-blue/10 leading-relaxed">
+                📍 {footerSections.brand.office}
               </div>
             </div>
-            
-            {/* Center Column: Links and Mobile Image */}
-            <div className="flex flex-row justify-between items-end w-full md:w-auto md:block">
-                <div className="text-left relative z-10">
-                    <h3 className="font-bold text-lg mb-5 text-black">{t.support}</h3>
-                    <ul className="space-y-3">
-                        <li>
-                        <a href="#contacts" onClick={(e) => handleScroll(e, 'contacts')} className="text-gray-800 hover:text-brand-blue transition-colors cursor-pointer font-medium text-base">
-                            {t.contact}
-                        </a>
-                        </li>
-                        <li>
-                        <button 
-                            onClick={() => setActiveModal('privacy')}
-                            className="text-gray-800 hover:text-brand-blue transition-colors cursor-pointer font-medium text-base"
-                        >
-                            {t.privacy}
-                        </button>
-                        </li>
-                        <li>
-                        <button 
-                            onClick={() => setActiveModal('terms')}
-                            className="text-gray-800 hover:text-brand-blue transition-colors cursor-pointer font-medium text-base"
-                        >
-                            {t.terms}
-                        </button>
-                        </li>
-                        <li>
+
+            {/* Col 2: China Marketplaces (Spans 2 cols on desktop) */}
+            <div className="lg:col-span-2">
+              <h3 className="font-bold text-xs uppercase tracking-wider text-brand-dark mb-4 pb-2 border-b border-brand-blue/15">
+                {footerSections.marketplaces.title}
+              </h3>
+              <ul className="space-y-2.5">
+                {footerSections.marketplaces.links.map((link) => (
+                  <li key={link.path}>
+                    <a 
+                      href={getUrl(link.path)}
+                      className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight hover:translate-x-0.5 transform duration-150"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Col 3: Destinations (Spans 2 cols on desktop) */}
+            <div className="lg:col-span-2">
+              <h3 className="font-bold text-xs uppercase tracking-wider text-brand-dark mb-4 pb-2 border-b border-brand-blue/15">
+                {footerSections.destinations.title}
+              </h3>
+              <ul className="space-y-2.5">
+                {footerSections.destinations.links.map((link) => (
+                  <li key={link.path}>
+                    <a 
+                      href={getUrl(link.path)}
+                      className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight hover:translate-x-0.5 transform duration-150"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Col 4: Services & Tools (Spans 2 cols on desktop) */}
+            <div className="lg:col-span-2">
+              <h3 className="font-bold text-xs uppercase tracking-wider text-brand-dark mb-4 pb-2 border-b border-brand-blue/15">
+                {footerSections.services.title}
+              </h3>
+              <ul className="space-y-2.5">
+                {footerSections.services.links.map((link, idx) => (
+                  <li key={link.path || link.hash || idx}>
+                    {link.hash ? (
+                      <a 
+                        href={getHashUrl(link.hash)}
+                        onClick={(e) => handleHashClick(e, link.hash!)}
+                        className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight hover:translate-x-0.5 transform duration-150 cursor-pointer"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <a 
+                        href={getUrl(link.path!)}
+                        className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight hover:translate-x-0.5 transform duration-150"
+                      >
+                        {link.label}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Col 5: Company, Legal & Mascot (Spans 2 cols on desktop) */}
+            <div className="lg:col-span-2 flex flex-col justify-between">
+              <div>
+                <h3 className="font-bold text-xs uppercase tracking-wider text-brand-dark mb-4 pb-2 border-b border-brand-blue/15">
+                  {footerSections.company.title}
+                </h3>
+                <ul className="space-y-2.5 mb-6">
+                  {footerSections.company.links.map((link, idx) => (
+                    <li key={link.path || link.hash || idx}>
+                      {link.hash ? (
                         <a 
-                            href={language === 'ru' ? '/ru/blog' : '/blog'}
-                            className="text-gray-800 hover:text-brand-blue transition-colors cursor-pointer font-medium text-base"
+                          href={getHashUrl(link.hash)}
+                          onClick={(e) => handleHashClick(e, link.hash!)}
+                          className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight hover:translate-x-0.5 transform duration-150 cursor-pointer"
                         >
-                            {language === 'en' ? 'Blog' : 'Блог'}
+                          {link.label}
                         </a>
-                        </li>
-                    </ul>
-                </div>
+                      ) : (
+                        <a 
+                          href={getUrl(link.path!)}
+                          className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight hover:translate-x-0.5 transform duration-150"
+                        >
+                          {link.label}
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                  <li>
+                    <button 
+                      onClick={() => setActiveModal('privacy')}
+                      className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight text-left cursor-pointer hover:translate-x-0.5 transform duration-150"
+                    >
+                      {t.privacy}
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      onClick={() => setActiveModal('terms')}
+                      className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight text-left cursor-pointer hover:translate-x-0.5 transform duration-150"
+                    >
+                      {t.terms}
+                    </button>
+                  </li>
+                </ul>
+              </div>
 
-                {/* Mobile/Tablet Mascot */}
-                <div className="block lg:hidden -mb-4 -mr-4">
-                    <img 
-                        src="https://i.ibb.co/TBF1tWsQ/happyboxbottom-r.webp" 
-                        alt="HappyBox Logistics Mascot" 
-                        width="300"
-                        height="300"
-                        loading="lazy"
-                        decoding="async"
-                        className="w-[150px] h-auto object-contain drop-shadow-lg"
-                        referrerPolicy="no-referrer"
-                    />
-                </div>
+              {/* Mascot */}
+              <div className="mt-auto pt-2 flex justify-start sm:justify-end lg:justify-start">
+                <img 
+                  src="https://i.ibb.co/TBF1tWsQ/happyboxbottom-r.webp" 
+                  alt="HappyBox Mascot" 
+                  width="180"
+                  height="180"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-28 md:w-36 h-auto object-contain drop-shadow-md select-none pointer-events-none"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              </div>
             </div>
 
-            {/* Right Column: Desktop Mascot */}
-            <div className="hidden lg:block ml-auto self-end mr-10 -mb-8">
-                 <img 
-                    src="https://i.ibb.co/TBF1tWsQ/happyboxbottom-r.webp" 
-                    alt="HappyBox Logistics Support Mascot" 
-                    width="300"
-                    height="300"
-                    loading="lazy"
-                    decoding="async"
-                    className="w-[250px] h-auto object-contain drop-shadow-xl"
-                    referrerPolicy="no-referrer"
-                    onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                    }}
-                 />
-            </div>
           </div>
           
-          <div className="pt-8 text-center text-gray-600 text-sm font-medium relative z-10">
-            © {new Date().getFullYear()} {t.rights}
+          {/* Bottom Copyright Bar */}
+          <div className="pt-6 border-t border-brand-blue/10 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 font-medium gap-3">
+            <div>
+              © {new Date().getFullYear()} {t.rights}
+            </div>
+            <div className="flex items-center gap-4">
+              <span>China Sourcing & Logistics DDP</span>
+              <span>•</span>
+              <span>Shenzhen — Guangzhou — Global</span>
+            </div>
           </div>
         </div>
       </footer>

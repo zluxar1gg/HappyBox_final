@@ -135,6 +135,25 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
 
   const { title, description } = getSeoData();
 
+  const baseUrl = 'https://happyboxlogistics.com';
+  let enPath = '/';
+  let ruPath = '/ru';
+
+  if (currentPage === 'blogPost' && slug) {
+    enPath = `/blog/${slug}`;
+    ruPath = `/ru/blog/${slug}`;
+  } else if (currentPage === 'blog') {
+    enPath = '/blog';
+    ruPath = '/ru/blog';
+  } else if (currentPage !== 'home') {
+    enPath = `/${currentPage}`;
+    ruPath = `/ru/${currentPage}`;
+  }
+
+  const enUrl = enPath === '/' ? `${baseUrl}/` : `${baseUrl}${enPath}`;
+  const ruUrl = `${baseUrl}${ruPath}`;
+  const canonicalUrl = language === 'ru' ? ruUrl : enUrl;
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -142,6 +161,12 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={currentPage === 'blogPost' ? 'article' : 'website'} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="twitter:url" content={canonicalUrl} />
+      <link rel="canonical" href={canonicalUrl} />
+      <link rel="alternate" hrefLang="en" href={enUrl} />
+      <link rel="alternate" hrefLang="ru" href={ruUrl} />
+      <link rel="alternate" hrefLang="x-default" href={enUrl} />
       <html lang={language === 'ru' ? 'ru' : 'en'} />
     </Helmet>
   );

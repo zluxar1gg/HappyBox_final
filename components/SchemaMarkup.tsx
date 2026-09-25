@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Language, translations } from "../utils/translations";
 import { getBlogPostBySlug } from "../utils/blogData";
+import { pageFaqs, FaqItem } from "../utils/pageFaqs";
 
 interface SchemaMarkupProps {
   currentPage: string;
@@ -64,13 +65,30 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
     }
   }
 
-  // 3. FAQPage Schema (Only for home page, where FAQ is rendered)
+  // 3. FAQPage Schema (Only for pages where FAQ / Q&A items are rendered on screen)
   let faqSchema: any = null;
+  let faqItems: FaqItem[] = [];
+
   if (currentPage === "home" && t.faq && t.faq.items) {
+    faqItems = t.faq.items.map((item: any) => ({
+      question: item.question,
+      answer: item.answer,
+    }));
+  } else if (
+    currentPage === "blogPost" &&
+    slug &&
+    pageFaqs.blogPosts?.[slug]?.[language]
+  ) {
+    faqItems = pageFaqs.blogPosts[slug][language];
+  } else if (pageFaqs.pages?.[currentPage]?.[language]) {
+    faqItems = pageFaqs.pages[currentPage][language];
+  }
+
+  if (faqItems && faqItems.length > 0) {
     faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: t.faq.items.map((item: any) => ({
+      mainEntity: faqItems.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
@@ -78,32 +96,6 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
           text: item.answer,
         },
       })),
-    };
-  } else if (
-    currentPage === "blogPost" &&
-    slug === "how-to-ship-from-pinduoduo-to-dubai-uae"
-  ) {
-    faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Does Pinduoduo ship directly to Dubai?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. Pinduoduo only ships within mainland China. To get your goods to Dubai, you must use a trusted freight forwarder like HappyBox with a physical warehouse in China.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How long does shipping from China to UAE take?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Express Air Freight takes 5-7 days, while Economy Sea Freight takes 20-25 days through HappyBox's DDP channel.",
-          },
-        },
-      ],
     };
   }
 
