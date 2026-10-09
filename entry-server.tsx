@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router';
-import { HelmetProvider, HelmetServerState } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
+import { AuthProvider } from './context/AuthContext';
 import { AppRoutes } from './App';
 
 export function render(url: string) {
@@ -10,9 +11,11 @@ export function render(url: string) {
   const appHtml = ReactDOMServer.renderToString(
     <React.StrictMode>
       <HelmetProvider context={helmetContext}>
-        <StaticRouter location={url}>
-          <AppRoutes />
-        </StaticRouter>
+        <AuthProvider>
+          <StaticRouter location={url}>
+            <AppRoutes />
+          </StaticRouter>
+        </AuthProvider>
       </HelmetProvider>
     </React.StrictMode>
   );

@@ -6,39 +6,46 @@ import { Parcel, User } from "../types";
 const MOCK_DELAY = 800; // Simulate network delay
 
 const MOCK_DATABASE: Record<string, { user: User; parcels: Parcel[] }> = {
-  'ivan@test.com': {
+  'example@example.com': {
     user: {
-      email: 'ivan@test.com',
-      name: 'Ivan Petrov',
+      email: 'example@example.com',
+      name: 'Client Example',
       clientCode: 'HB-007'
     },
     parcels: [
       {
         id: '1',
-        trackingNumber: 'SF123456789',
-        description: 'Nike Sneakers (2 pairs)',
-        status: 'warehouse',
+        userId: 'mock-1',
+        clientCode: 'HB-007',
+        inboundTracking: 'SF123456789',
+        productTitle: 'Nike Sneakers (2 pairs)',
+        warehouseDestination: 'cis_cargo',
+        status: 'arrived',
         weight: 1.2,
-        dateAdded: '2023-10-01',
-        imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=200&q=80'
+        createdAt: '2023-10-01'
       },
       {
         id: '2',
-        trackingNumber: 'YT987654321',
-        description: 'Xiaomi Smart Home Sensor',
+        userId: 'mock-1',
+        clientCode: 'HB-007',
+        inboundTracking: 'YT987654321',
+        productTitle: 'Xiaomi Smart Home Sensor',
+        warehouseDestination: 'eu_sea_uae_israel',
         status: 'shipped',
         weight: 0.3,
-        price: 15,
-        internationalTracking: 'LV999888777CN',
-        dateAdded: '2023-09-28',
-        imageUrl: 'https://images.unsplash.com/photo-1558089687-f282ffcbc126?auto=format&fit=crop&w=200&q=80'
+        outboundTracking: 'LV999888777CN',
+        shippingCost: '$15.00',
+        createdAt: '2023-09-28'
       },
       {
         id: '3',
-        trackingNumber: 'JD11223344',
-        description: 'Winter Jacket',
-        status: 'registered',
-        dateAdded: '2023-10-05',
+        userId: 'mock-1',
+        clientCode: 'HB-007',
+        inboundTracking: 'JD11223344',
+        productTitle: 'Winter Jacket',
+        warehouseDestination: 'usa_small',
+        status: 'expected',
+        createdAt: '2023-10-05'
       }
     ]
   },
@@ -51,12 +58,15 @@ const MOCK_DATABASE: Record<string, { user: User; parcels: Parcel[] }> = {
     parcels: [
         {
             id: '101',
-            trackingNumber: 'CN123000999',
-            description: 'Sample Package',
+            userId: 'mock-2',
+            clientCode: 'HB-DEMO',
+            inboundTracking: 'CN123000999',
+            productTitle: 'Sample Package',
+            warehouseDestination: 'usa_amazon_large',
             status: 'delivered',
             weight: 5.5,
-            price: 60,
-            dateAdded: '2023-08-15'
+            shippingCost: '$60.00',
+            createdAt: '2023-08-15'
         }
     ]
   }

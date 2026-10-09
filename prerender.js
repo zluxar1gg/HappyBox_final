@@ -25,6 +25,10 @@ const routesToPrerender = [
   '/inspection', '/ru/inspection',
   '/warehousing', '/ru/warehousing',
   '/blog', '/ru/blog',
+  '/blog/how-to-ship-from-pinduoduo-to-dubai-uae', '/ru/blog/how-to-ship-from-pinduoduo-to-dubai-uae',
+  '/blog/taobao-shopping-2026', '/ru/blog/taobao-shopping-2026',
+  '/blog/weidian-poizon-pinduoduo-guide', '/ru/blog/weidian-poizon-pinduoduo-guide',
+  '/blog/chinese-holidays-calendar-2026', '/ru/blog/chinese-holidays-calendar-2026',
   '/thailand', '/ru/thailand',
   '/indonesia', '/ru/indonesia',
   '/argentina', '/ru/argentina',
@@ -195,13 +199,37 @@ const seoData = {
     title: 'Блог и новости логистики Китая | HappyBox',
     description: 'Читайте последние новости, гайды и советы по доставке из Китая, выкупу с Taobao/1688/Poizon и глобальной логистике.'
   },
-  '/thailand': {
-    title: 'Shipping from China to Thailand | Air & Sea Freight | HappyBox',
-    description: 'Reliable freight forwarding from China to Thailand. Competitive rates for import businesses and individuals. Get your shipping quote!'
+  '/blog/how-to-ship-from-pinduoduo-to-dubai-uae': {
+    title: 'How to Ship from Pinduoduo to Dubai (UAE): 2026 Step-by-Step Guide | HappyBox',
+    description: 'Want to buy from Pinduoduo and ship to Dubai? Learn how to bypass China-only addresses, consolidate parcels, and use HappyBox DDP shipping to the UAE with zero customs hassle.'
   },
-  '/ru/thailand': {
-    title: 'Доставка из Китая в Таиланд: Авиа и Море | Карго HappyBox',
-    description: 'Надежная доставка грузов из Китая в Таиланд (Бангкок, Пхукет, Паттайя). Удобная логистика для бизнеса и частных лиц.'
+  '/ru/blog/how-to-ship-from-pinduoduo-to-dubai-uae': {
+    title: 'Как заказать с Pinduoduo в Дубай (ОАЭ): Пошаговая инструкция — 2026 | HappyBox',
+    description: 'Хотите заказать с Pinduoduo в Дубай? Узнайте, как обойти ограничения, объединить посылки и использовать доставку HappyBox DDP в ОАЭ без проблем с таможней.'
+  },
+  '/blog/taobao-shopping-2026': {
+    title: 'How to Buy on Taobao in 2026: The Ultimate Guide | HappyBox',
+    description: "Taobao is China's largest marketplace. Learn how to order goods, search with AI, solve crypto (USDT) payment issues, and manage shipping in 2026."
+  },
+  '/ru/blog/taobao-shopping-2026': {
+    title: 'Как покупать на Taobao в 2026 году: полный гайд | HappyBox',
+    description: 'Taobao — крупнейший торговый маркетплейс Китая. Узнайте, как заказывать товары, искать через AI, решать вопросы с оплатой криптой (USDT) и доставкой в 2026 году.'
+  },
+  '/blog/weidian-poizon-pinduoduo-guide': {
+    title: 'Weidian, Poizon, and Pinduoduo: Differences and What to Buy Where | HappyBox',
+    description: 'A comparison of Chinese marketplaces: why you need Weidian, how to verify sneakers on Poizon, and the hidden pitfalls of Pinduoduo.'
+  },
+  '/ru/blog/weidian-poizon-pinduoduo-guide': {
+    title: 'Weidian, Poizon и Pinduoduo: в чём разница и что где покупать | HappyBox',
+    description: 'Сравнение китайских маркетплейсов: для чего нужен Weidian, как проверить кроссовки на Poizon и какие подводные камни таит Pinduoduo.'
+  },
+  '/blog/chinese-holidays-calendar-2026': {
+    title: 'Chinese Holidays Calendar 2026: Shipping Deadlines | HappyBox',
+    description: 'Find out the exact dates for Chinese New Year, Labor Day, and Golden Week in 2026. Plan your inventory to completely avoid supply chain disruptions.'
+  },
+  '/ru/blog/chinese-holidays-calendar-2026': {
+    title: 'Календарь китайских праздников 2026: как планировать доставку | HappyBox',
+    description: 'Узнайте точные даты Китайского Нового года, Майских праздников и Золотой недели в 2026 году. Планируйте закупки заранее, чтобы избежать задержек.'
   },
   '/indonesia': {
     title: 'Shipping from China to Indonesia | DDP Sea & Air | HappyBox',
@@ -269,17 +297,16 @@ async function prerender() {
     const seo = seoData[url];
     if (seo) {
       html = html.replace(/<title>.*<\/title>/, `<title>${seo.title}</title>`);
-      html = html.replace(/<meta name="title" content="[^"]*" \/>/, `<meta name="title" content="${seo.title}" />`);
       html = html.replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${seo.title}" />`);
-      html = html.replace(/<meta property="twitter:title" content="[^"]*" \/>/, `<meta property="twitter:title" content="${seo.title}" />`);
+      html = html.replace(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${seo.title}" />`);
       
       html = html.replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${seo.description}" />`);
       html = html.replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${seo.description}" />`);
-      html = html.replace(/<meta property="twitter:description" content="[^"]*" \/>/, `<meta property="twitter:description" content="${seo.description}" />`);
+      html = html.replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${seo.description}" />`);
       
       const fullUrl = `https://happyboxlogistics.com${url === '/' ? '' : url}`;
       html = html.replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${fullUrl}" />`);
-      html = html.replace(/<meta property="twitter:url" content="[^"]*" \/>/, `<meta property="twitter:url" content="${fullUrl}" />`);
+      html = html.replace(/<meta name="twitter:url" content="[^"]*" \/>/, `<meta name="twitter:url" content="${fullUrl}" />`);
     }
 
     // Canonical & Hreflang Tags Injection for Search Engines

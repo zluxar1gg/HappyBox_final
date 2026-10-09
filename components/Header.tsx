@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
-import { Menu, X, User, ArrowLeft } from 'lucide-react';
+import { Menu, X, User, ArrowLeft, LogOut, Shield } from 'lucide-react';
 import { Language, translations } from '../utils/translations';
+import { useAuth } from '../context/AuthContext';
 
 interface HeaderProps {
   language: Language;
@@ -14,6 +15,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginClick, isDashboard, onNavigate, onBack }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, isAdmin, logout } = useAuth();
   const t = translations[language].nav;
 
   // Simplified navigation
@@ -136,19 +138,43 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
             </div>
 
             {!isDashboard && (
-                <button 
+              user ? (
+                <div className="flex items-center gap-2">
+                  <button 
                     onClick={onLoginClick}
-                    aria-label={language === 'en' ? 'Sign In' : 'Войти в личный кабинет'}
-                    className="flex items-center gap-2 bg-brand-dark text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-brand-blue transition-colors shadow-lg shadow-gray-200 active:scale-95 whitespace-nowrap"
+                    aria-label={isAdmin ? 'Панель администратора' : 'Личный кабинет'}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-xs md:text-sm transition-all shadow-sm active:scale-95 whitespace-nowrap ${
+                      isAdmin 
+                        ? 'bg-amber-400 hover:bg-amber-500 text-brand-dark font-black' 
+                        : 'bg-brand-dark hover:bg-brand-blue text-white'
+                    }`}
+                  >
+                    {isAdmin ? <Shield size={16} /> : <User size={16} />}
+                    <span>{isAdmin ? (language === 'en' ? 'Admin Portal' : 'Админка') : `${user.clientCode} | ${language === 'en' ? 'Cabinet' : 'Кабинет'}`}</span>
+                  </button>
+                  <button 
+                    onClick={() => logout()}
+                    title={language === 'en' ? 'Sign Out' : 'Выйти'}
+                    className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all"
+                  >
+                    <LogOut size={16} />
+                  </button>
+                </div>
+              ) : (
+                <button 
+                  onClick={onLoginClick}
+                  aria-label={language === 'en' ? 'Sign In' : 'Войти в личный кабинет'}
+                  className="flex items-center gap-2 bg-brand-dark text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-brand-blue transition-colors shadow-lg shadow-gray-200 active:scale-95 whitespace-nowrap"
                 >
-                    <User size={16} />
-                    {language === 'en' ? 'Sign In' : 'Войти'}
+                  <User size={16} />
+                  {language === 'en' ? 'Sign In' : 'Войти'}
                 </button>
+              )
             )}
           </div>
         </nav>
 
-        <div className="flex items-center gap-4 lg:hidden">
+        <div className="flex items-center gap-3 lg:hidden">
             <button 
                 onClick={toggleLanguage}
                 aria-label={language === 'en' ? 'Switch to Russian' : 'Переключить на русский язык'}
@@ -158,13 +184,25 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
             </button>
             
             {!isDashboard && (
+              user ? (
                 <button 
-                    onClick={onLoginClick}
-                    aria-label={language === 'en' ? 'Sign In' : 'Войти в личный кабинет'}
-                    className="w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center active:scale-95"
+                  onClick={onLoginClick}
+                  aria-label={isAdmin ? 'Admin' : user.clientCode}
+                  className={`h-9 px-3 rounded-xl flex items-center justify-center font-bold text-xs active:scale-95 ${
+                    isAdmin ? 'bg-amber-400 text-brand-dark' : 'bg-brand-dark text-white'
+                  }`}
                 >
-                    <User size={20} />
+                  {isAdmin ? 'ADMIN' : user.clientCode}
                 </button>
+              ) : (
+                <button 
+                  onClick={onLoginClick}
+                  aria-label={language === 'en' ? 'Sign In' : 'Войти в личный кабинет'}
+                  className="w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center active:scale-95"
+                >
+                  <User size={20} />
+                </button>
+              )
             )}
 
             {!isDashboard && (
@@ -196,7 +234,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
             {navItems.map((item) => (
               <a 
                 key={item.href} 
-                href={item.href}
+                href={item.href} 
                 onClick={(e) => handleScroll(e, item)} 
                 className="text-lg font-bold py-3 border-b border-gray-100 last:border-0 text-center text-brand-dark"
               >
@@ -205,11 +243,25 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
             ))}
              <button 
                 onClick={() => { onLoginClick(); setIsMenuOpen(false); }}
-                className="flex items-center justify-center gap-2 bg-brand-dark text-white px-5 py-4 rounded-xl font-bold text-lg mt-2 active:scale-95"
+                className={`flex items-center justify-center gap-2 px-5 py-4 rounded-xl font-bold text-lg mt-2 active:scale-95 ${
+                  user ? (isAdmin ? 'bg-amber-400 text-brand-dark' : 'bg-brand-dark text-white') : 'bg-brand-dark text-white'
+                }`}
             >
-                <User size={20} />
-                {language === 'en' ? 'Sign In' : 'Личный кабинет'}
+                {isAdmin ? <Shield size={20} /> : <User size={20} />}
+                {user 
+                  ? (isAdmin ? (language === 'en' ? 'Admin Portal' : 'Админ-панель') : `${user.clientCode} | ${language === 'en' ? 'My Cabinet' : 'Личный кабинет'}`) 
+                  : (language === 'en' ? 'Sign In' : 'Личный кабинет')
+                }
             </button>
+            {user && (
+              <button
+                onClick={() => { logout(); setIsMenuOpen(false); }}
+                className="flex items-center justify-center gap-2 text-red-500 font-bold py-2 text-sm"
+              >
+                <LogOut size={16} />
+                <span>{language === 'en' ? 'Sign Out' : 'Выйти из аккаунта'}</span>
+              </button>
+            )}
           </div>
         )}
       </div>

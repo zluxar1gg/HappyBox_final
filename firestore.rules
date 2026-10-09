@@ -1,0 +1,55 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.email.lower() == 'its.d.kniazev@gmail.com' ||
+        request.auth.token.email.lower() == 'support@happyboxlogistics.com'
+      );
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Leads collection: inquiries from website
+    match /leads/{leadId} {
+      allow create: if request.resource.data.contact is string && request.resource.data.contact.size() > 0;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Users profile collection
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isOwner(userId) || isAdmin();
+      allow update: if isOwner(userId) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Parcels collection: clients can manage their own parcels, admin can manage all
+    match /parcels/{parcelId} {
+      allow read: if (isAuthenticated() && resource.data.userId == request.auth.uid) || isAdmin();
+      allow create: if (isAuthenticated() && request.resource.data.userId == request.auth.uid) || isAdmin();
+      allow update: if (isAuthenticated() && resource.data.userId == request.auth.uid) || isAdmin();
+      allow delete: if isAdmin() || (isAuthenticated() && resource.data.userId == request.auth.uid);
+    }
+
+    // Shipments collection: consolidated outbound boxes
+    match /shipments/{shipmentId} {
+      allow read: if (isAuthenticated() && resource.data.userId == request.auth.uid) || isAdmin();
+      allow create: if isAdmin() || (isAuthenticated() && request.resource.data.userId == request.auth.uid);
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Counters collection for atomic client code generation
+    match /counters/{counterId} {
+      allow read, write: if isAuthenticated();
+    }
+  }
+}
+

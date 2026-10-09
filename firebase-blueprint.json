@@ -1,0 +1,76 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Registered HappyBox customer or admin profile",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 254 },
+        "clientCode": { "type": "string", "maxLength": 32 },
+        "fullName": { "type": "string", "maxLength": 150 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "country": { "type": "string", "maxLength": 100 },
+        "city": { "type": "string", "maxLength": 100 },
+        "postalCode": { "type": "string", "maxLength": 30 },
+        "addressLine": { "type": "string", "maxLength": 250 },
+        "role": { "type": "string", "enum": ["customer", "admin"], "maxLength": 20 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["uid", "email", "clientCode", "role"]
+    },
+    "Parcel": {
+      "title": "Parcel",
+      "description": "Incoming Chinese tracking or outgoing international delivery order",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "clientCode": { "type": "string", "maxLength": 32 },
+        "userEmail": { "type": "string", "maxLength": 254 },
+        "inboundTracking": { "type": "string", "maxLength": 100 },
+        "warehouseTarget": { 
+          "type": "string", 
+          "enum": ["eu_small_sea", "usa_small", "usa_amazon_bulk", "cis_cargo", "need_manager_consult"],
+          "maxLength": 50 
+        },
+        "description": { "type": "string", "maxLength": 500 },
+        "status": {
+          "type": "string",
+          "enum": ["expected", "arrived_china", "processing_packing", "shipped_intl", "delivered", "cancelled"],
+          "maxLength": 40
+        },
+        "outboundTracking": { "type": "string", "maxLength": 100 },
+        "shippingCarrier": { "type": "string", "maxLength": 50 },
+        "weightKg": { "type": "string", "maxLength": 30 },
+        "priceUsd": { "type": "string", "maxLength": 30 },
+        "adminNotes": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["userId", "clientCode", "inboundTracking", "warehouseTarget", "status"]
+    },
+    "SystemCounter": {
+      "title": "System Counter",
+      "description": "Counter for incrementing client IDs starting from 8140",
+      "type": "object",
+      "properties": {
+        "lastClientNumber": { "type": "number" }
+      },
+      "required": ["lastClientNumber"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Customer and admin profile records"
+    },
+    "/parcels/{parcelId}": {
+      "schema": { "$ref": "#/entities/Parcel" },
+      "description": "Customer inbound and outbound parcels"
+    },
+    "/system_counters/{counterId}": {
+      "schema": { "$ref": "#/entities/SystemCounter" },
+      "description": "Global sequences and counter increments"
+    }
+  }
+}

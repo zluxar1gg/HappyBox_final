@@ -116,7 +116,10 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
       }
     };
 
-    if (currentPage === 'blog') {
+    if (currentPage === '404') {
+      title = language === 'en' ? `404 - Page Not Found | ${baseTitle}` : `404 - Страница не найдена | ${baseTitle}`;
+      description = language === 'en' ? 'The page you are looking for does not exist or has been moved.' : 'Запрашиваемая страница не найдена или была перемещена.';
+    } else if (currentPage === 'blog') {
       title = language === 'en' ? `Logistics Blog & Insights | ${baseTitle}` : `Блог и база знаний по логистике | ${baseTitle}`;
       description = language === 'en' ? 'Expert guides, news, and tips for shipping from China and e-commerce.' : 'Экспертные статьи, бизнес-гайды и советы по доставке из Китая.';
     } else if (currentPage === 'blogPost' && slug) {
@@ -134,6 +137,19 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
   };
 
   const { title, description } = getSeoData();
+
+  if (currentPage === '404') {
+    return (
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="robots" content="noindex, follow" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <html lang={language === 'ru' ? 'ru' : 'en'} />
+      </Helmet>
+    );
+  }
 
   const baseUrl = 'https://happyboxlogistics.com';
   let enPath = '/';

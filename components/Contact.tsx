@@ -18,7 +18,7 @@ const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number, className?
 export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home' }) => {
   const t = translations[language].contact;
   const [copied, setCopied] = useState(false);
-  
+
   // Hover tracking logic
   const hoverTimers = useRef<Record<string, number>>({});
   const HOVER_DURATION = 2000; // 2 seconds delay as requested
@@ -129,7 +129,7 @@ export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home'
   };
 
   return (
-    <section className="pt-12 pb-20">
+    <section id="contacts" className="pt-12 pb-20">
       <div className="container mx-auto">
         <div className="bg-white rounded-[30px] p-8 lg:p-16 text-center shadow-sm max-w-[1200px] mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-brand-dark mb-8 tracking-tight">
@@ -139,8 +139,8 @@ export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home'
           <p className="text-lg leading-relaxed text-gray-600 max-w-4xl mx-auto mb-12 font-medium">
             {getDynamicText()}
           </p>
-          
-          <div className="text-center mt-12">
+
+          <div className="text-center mt-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-brand-dark tracking-tight">{t.contactUs}</h2>
           </div>
           

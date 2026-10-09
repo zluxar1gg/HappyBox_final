@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /dashboard
+Disallow: /ru/dashboard
+Disallow: /admin
+Disallow: /ru/admin
+Disallow: /api/
 
 Sitemap: https://happyboxlogistics.com/sitemap.xml

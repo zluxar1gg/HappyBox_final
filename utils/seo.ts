@@ -8,7 +8,7 @@
 
 import { Language } from './translations';
 
-export type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'alibaba' | 'inspection' | 'warehousing' | 'amazon' | 'amazon-canada' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian' | 'blog' | 'blogPost' | 'destinations' | 'canada' | 'thailand' | 'indonesia' | 'argentina' | 'south-africa' | 'georgia' | 'israel' | 'australia';
+export type PageType = 'home' | 'usa' | 'eu' | 'uae' | 'russia' | 'taobao' | '1688' | 'alibaba' | 'inspection' | 'warehousing' | 'amazon' | 'amazon-canada' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian' | 'blog' | 'blogPost' | 'destinations' | 'canada' | 'thailand' | 'indonesia' | 'argentina' | 'south-africa' | 'georgia' | 'israel' | 'australia' | 'dashboard' | 'admin' | '404';
 
 interface MetaData {
   title: string;
@@ -120,6 +120,10 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
     blogPost: {
       title: "Logistics Insights | HappyBox",
       description: "Read our latest insights on shipping, sourcing, and logistics from China."
+    },
+    '404': {
+      title: "404 - Page Not Found | HappyBox",
+      description: "The page you are looking for does not exist or has been moved."
     }
   },
   ru: {
@@ -226,6 +230,10 @@ const metaData: Record<Language, Partial<Record<PageType, MetaData>>> = {
     blogPost: {
       title: "Статьи по Логистике | HappyBox",
       description: "Читайте наши последние статьи о доставке, выкупе и логистике из Китая."
+    },
+    '404': {
+      title: "404 - Страница не найдена | HappyBox",
+      description: "Запрашиваемая страница не существует или была перемещена."
     }
   }
 };

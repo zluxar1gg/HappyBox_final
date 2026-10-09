@@ -13,6 +13,8 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
   currentPage,
   language,
 }) => {
+  if (currentPage === '404') return null;
+
   const t = translations[language];
   const { slug } = useParams<{ slug?: string }>();
 

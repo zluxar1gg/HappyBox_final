@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
+import { AuthProvider } from './context/AuthContext';
 import App from './App';
 import './index.css';
 
@@ -14,7 +15,9 @@ if (rootElement.hasChildNodes()) {
     rootElement,
     <React.StrictMode>
       <HelmetProvider>
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </HelmetProvider>
     </React.StrictMode>
   );
@@ -23,7 +26,9 @@ if (rootElement.hasChildNodes()) {
   root.render(
     <React.StrictMode>
       <HelmetProvider>
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </HelmetProvider>
     </React.StrictMode>
   );

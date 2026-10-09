@@ -228,7 +228,14 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
                     <div className="space-y-6 relative z-10">
                       <h3 className="text-3xl font-extrabold tracking-tight">{t.contactQuote}</h3>
                       <p className="text-blue-50 font-medium opacity-80">{t.contactDesc}</p>
-                      <button onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })} className="bg-white text-brand-blue px-10 py-4 rounded-2xl font-black text-lg shadow-lg hover:scale-105 transition-transform active:scale-95">{t.contactBtn}</button>
+                      <button 
+                        onClick={() => {
+                          document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' });
+                        }} 
+                        className="bg-white text-brand-blue px-10 py-4 rounded-2xl font-black text-lg shadow-lg hover:scale-105 transition-transform active:scale-95"
+                      >
+                        {t.contactBtn}
+                      </button>
                     </div>
                   ) : (
                     <div className="relative z-10">
@@ -245,9 +252,22 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
                            <p className="font-bold leading-relaxed">{result.warningNote}</p>
                         </div>
                       )}
-                      <button onClick={() => setResult(null)} className="mt-4 text-xs font-black uppercase tracking-widest border-2 border-white/30 px-8 py-3 rounded-2xl hover:bg-white/10 transition-all">
-                        {t.recalculate}
-                      </button>
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4">
+                        <button
+                          onClick={() => {
+                            document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' });
+                          }}
+                          className="w-full sm:w-auto bg-brand-yellow text-brand-dark px-6 py-3.5 rounded-2xl font-black text-sm uppercase shadow-md hover:scale-105 active:scale-95 transition-all"
+                        >
+                          {language === 'ru' ? 'Связаться с менеджером' : 'Contact Manager'}
+                        </button>
+                        <button 
+                          onClick={() => setResult(null)} 
+                          className="w-full sm:w-auto text-xs font-black uppercase tracking-widest border-2 border-white/30 px-6 py-3.5 rounded-2xl hover:bg-white/10 transition-all"
+                        >
+                          {t.recalculate}
+                        </button>
+                      </div>
                     </div>
                   )}
                   {/* Decorative background elements */}

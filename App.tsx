@@ -48,11 +48,17 @@ import { Language, translations } from './utils/translations';
 import { updateMetaTags, PageType } from './utils/seo'; 
 import { SchemaMarkup } from './components/SchemaMarkup';
 import { Loader2, X, Hammer } from 'lucide-react';
+import { useAuth } from './context/AuthContext';
+import { AuthModal } from './components/AuthModal';
+import { CustomerDashboardModal } from './components/CustomerDashboardModal';
+import { CustomerDashboardPage } from './components/CustomerDashboardPage';
+import { AdminDashboardModal } from './components/AdminDashboardModal';
+import { NotFoundPage } from './components/NotFoundPage';
 
 // Lazy load components
 const Quiz = React.lazy(() => import('./components/Quiz').then(module => ({ default: module.Quiz })));
 
-const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ language, isBlogPost }) => {
+const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoundRoute?: boolean }> = ({ language, isBlogPost, isNotFoundRoute }) => {
   const { page, slug } = useParams<{ page?: string, slug?: string }>();
   const navigate = useNavigate();
   const location = useLocation();
@@ -64,16 +70,33 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
     return cleanPath;
   };
 
+  const { user, isAdmin } = useAuth();
   const [isQuizOpen, setIsQuizOpen] = useState(false);
-  const [isDevModalOpen, setIsDevModalOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isCustomerDashboardOpen, setIsCustomerDashboardOpen] = useState(false);
+  const [isAdminDashboardOpen, setIsAdminDashboardOpen] = useState(false);
 
-  const validPages: PageType[] = ['usa', 'eu', 'uae', 'russia', 'taobao', '1688', 'alibaba', 'inspection', 'warehousing', 'amazon', 'amazon-canada', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian', 'blog', 'destinations', 'canada', 'thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel', 'australia'];
+  const handleOpenPortal = () => {
+    if (!user) {
+      setIsAuthModalOpen(true);
+    } else if (isAdmin) {
+      setIsAdminDashboardOpen(true);
+    } else {
+      navigate(language === 'ru' ? '/ru/dashboard' : '/dashboard');
+    }
+  };
 
-  
+  const validPages: PageType[] = ['usa', 'eu', 'uae', 'russia', 'taobao', '1688', 'alibaba', 'inspection', 'warehousing', 'amazon', 'amazon-canada', 'poizon', 'tmall', 'pinduoduo', 'xianyu', 'weidian', 'blog', 'destinations', 'canada', 'thailand', 'indonesia', 'argentina', 'south-africa', 'georgia', 'israel', 'australia', 'dashboard', 'admin'];
+
   // Determine current page from URL params
-  let currentPage: PageType = (page && validPages.includes(page as PageType)) ? (page as PageType) : 'home';
-  if (isBlogPost) {
-    currentPage = 'blogPost';
+  let currentPage: PageType = 'home';
+  if (isNotFoundRoute) {
+    currentPage = '404';
+  } else if (isBlogPost) {
+    const post = slug ? getBlogPostBySlug(slug, language) : null;
+    currentPage = post ? 'blogPost' : '404';
+  } else if (page) {
+    currentPage = validPages.includes(page as PageType) ? (page as PageType) : '404';
   }
 
   // Custom setter to update URL
@@ -195,20 +218,18 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
 
   // Handle body scroll locking
   useEffect(() => {
-    if (isQuizOpen || isDevModalOpen) {
+    if (isQuizOpen || isAuthModalOpen || isCustomerDashboardOpen || isAdminDashboardOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
     return () => { document.body.style.overflow = 'unset'; };
-  }, [isQuizOpen, isDevModalOpen]);
-
-  const t = translations[language].devModal;
+  }, [isQuizOpen, isAuthModalOpen, isCustomerDashboardOpen, isAdminDashboardOpen]);
 
   const renderContent = () => {
       if (currentPage === 'blog') return (
         <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
-          <Header language={language} setLanguage={setLanguage} onLoginClick={() => setIsDevModalOpen(true)} isDashboard={false} onNavigate={handleNavigate} onBack={() => handleBack('home')} />
+          <Header language={language} setLanguage={setLanguage} onLoginClick={handleOpenPortal} isDashboard={false} onNavigate={handleNavigate} onBack={() => handleBack('home')} />
           <BlogCatalog language={language} />
           <Footer language={language} />
           <FloatingContact />
@@ -216,12 +237,24 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
       );
       if (currentPage === 'blogPost') return (
         <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
-          <Header language={language} setLanguage={setLanguage} onLoginClick={() => setIsDevModalOpen(true)} isDashboard={false} onNavigate={handleNavigate} onBack={() => handleBack('blog')} />
+          <Header language={language} setLanguage={setLanguage} onLoginClick={handleOpenPortal} isDashboard={false} onNavigate={handleNavigate} onBack={() => handleBack('blog')} />
           <BlogPost language={language} />
           <Footer language={language} />
           <FloatingContact />
         </div>
       );
+
+      // Dashboard page
+      if (currentPage === 'dashboard') {
+        return (
+          <CustomerDashboardPage 
+            language={language} 
+            setLanguage={setLanguage} 
+            onNavigate={handleNavigate} 
+            onBack={() => handleBack('home')} 
+          />
+        );
+      }
 
       // Country pages return dynamically to where they came from
       if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
@@ -292,13 +325,23 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
           return <ServicePage language={language} setLanguage={setLanguage} serviceId={currentPage} onBack={() => handleBack(fallback.page, fallback.section)} onNavigate={handleNavigate} />;
       }
 
+      if (currentPage === '404') {
+          return (
+            <NotFoundPage
+              language={language}
+              setLanguage={setLanguage}
+              onNavigateHome={() => navigate(language === 'ru' ? '/ru' : '/')}
+            />
+          );
+      }
+
       // Default Home
       return (
         <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
           <Header 
             language={language} 
             setLanguage={setLanguage} 
-            onLoginClick={() => setIsDevModalOpen(true)}
+            onLoginClick={handleOpenPortal}
             isDashboard={false}
             onNavigate={handleNavigate}
           />
@@ -364,46 +407,34 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean }> = ({ la
         <SchemaMarkup currentPage={currentPage} language={language} />
         <Analytics />
         {renderContent()}
-        {/* Under Development Modal */}
-        {isDevModalOpen && (
-            <div 
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand-dark/60 backdrop-blur-md animate-fade-in"
-            onClick={() => setIsDevModalOpen(false)}
-            >
-            <div 
-                className="bg-white w-full max-w-md rounded-[40px] shadow-2xl p-8 md:p-12 text-center relative overflow-hidden"
-                onClick={(e) => e.stopPropagation()}
-            >
-                <div className="absolute -top-12 -right-12 w-32 h-32 bg-brand-light rounded-full blur-2xl opacity-50"></div>
-                
-                <button 
-                onClick={() => setIsDevModalOpen(false)}
-                className="absolute top-6 right-6 w-10 h-10 bg-gray-50 hover:bg-gray-100 rounded-full flex items-center justify-center text-gray-400 hover:text-brand-dark transition-all"
-                >
-                <X size={20} />
-                </button>
 
-                <div className="w-20 h-20 bg-brand-blue/10 text-brand-blue rounded-[25px] flex items-center justify-center mx-auto mb-8 animate-bounce-slow">
-                <Hammer size={40} />
-                </div>
+        {/* Authentication Modal */}
+        <AuthModal 
+          isOpen={isAuthModalOpen} 
+          onClose={() => setIsAuthModalOpen(false)} 
+          language={language}
+          onSuccess={() => {
+            if (isAdmin) {
+              setIsAdminDashboardOpen(true);
+            } else {
+              navigate(language === 'ru' ? '/ru/dashboard' : '/dashboard');
+            }
+          }}
+        />
 
-                <h2 className="text-3xl font-black text-brand-dark mb-4 tracking-tight">
-                {t.title}
-                </h2>
-                
-                <p className="text-gray-500 font-bold leading-relaxed mb-10">
-                {t.message}
-                </p>
+        {/* Client Portal Modal */}
+        <CustomerDashboardModal 
+          isOpen={isCustomerDashboardOpen} 
+          onClose={() => setIsCustomerDashboardOpen(false)} 
+          language={language}
+        />
 
-                <button 
-                onClick={() => setIsDevModalOpen(false)}
-                className="w-full bg-brand-dark text-white py-4 rounded-2xl font-black text-lg hover:bg-brand-blue transition-all active:scale-95 shadow-xl shadow-gray-100"
-                >
-                {t.close}
-                </button>
-            </div>
-            </div>
-        )}
+        {/* Admin Dashboard Modal */}
+        <AdminDashboardModal 
+          isOpen={isAdminDashboardOpen} 
+          onClose={() => setIsAdminDashboardOpen(false)} 
+          language={language}
+        />
       </>
   );
 };
@@ -415,8 +446,10 @@ export const AppRoutes: React.FC = () => {
       <Route path="/ru" element={<AppContent language="ru" />} />
       <Route path="/blog/:slug" element={<AppContent language="en" isBlogPost />} />
       <Route path="/ru/blog/:slug" element={<AppContent language="ru" isBlogPost />} />
-      <Route path="/:page" element={<AppContent language="en" />} />
       <Route path="/ru/:page" element={<AppContent language="ru" />} />
+      <Route path="/:page" element={<AppContent language="en" />} />
+      <Route path="/ru/*" element={<AppContent language="ru" isNotFoundRoute />} />
+      <Route path="*" element={<AppContent language="en" isNotFoundRoute />} />
     </Routes>
   );
 };
