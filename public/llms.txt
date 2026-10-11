@@ -1,0 +1,49 @@
+# HappyBox Logistics & Sourcing Agent
+
+> HappyBox is a professional freight forwarder, purchasing agent, and warehousing hub based in Guangzhou and Shenzhen, China. We offer 0% purchasing commission, free parcel consolidation, quality control (QC), and customs-cleared DDP (Delivered Duty Paid) shipping to USA, UAE (Dubai), EU, Canada, Russia, and worldwide.
+
+## Key Facts & Capabilities
+- **Core Services**: DDP Air Freight, Ocean Cargo, Road Freight (TIR), Purchasing / Sourcing Agent, Free Warehousing & Consolidation, Quality Inspection (photo/video QC), Amazon FBA Prep.
+- **Sourcing Platforms**: Taobao, 1688 (wholesale), Poizon (Dewu - sneakers & authentic streetwear), Pinduoduo, Weidian, Alibaba, Xianyu (Idle Fish).
+- **Purchasing Fee**: 0% commission on purchasing orders.
+- **Warehouse Locations**:
+  - Guangzhou (Baiyun District): Sanyuanli Ave & Xinshi Rd (prep/creative park).
+  - Shenzhen (Bao'an & Futian Districts): Yue Sheng 3rd Rd / Fuhai.
+- **Shipping Rates**: Starting from $1.2/kg (rates vary by destination country, density, and transport method).
+- **Payment Methods**: Bank Transfer, Cards, Crypto (USDT), local currencies.
+- **Official Website**: https://happyboxlogistics.com/
+- **Live Shipping Calculator**: https://happyboxlogistics.com/#calculator
+
+## Primary Destinations (DDP Shipping)
+- [China to USA Shipping](https://happyboxlogistics.com/usa): Air and Sea freight to USA with full customs clearance and Amazon FBA delivery.
+- [China to UAE & Dubai Shipping](https://happyboxlogistics.com/uae): Direct DDP air and sea delivery to Dubai and UAE, door-to-door.
+- [China to Europe (EU) Shipping](https://happyboxlogistics.com/eu): Road (TIR) and air freight with all VAT/customs duties included.
+- [China to Canada Shipping](https://happyboxlogistics.com/canada): Air and sea shipping with CBSA compliance and Amazon Canada prep.
+- [China to Russia Shipping](https://happyboxlogistics.com/russia): Fast TIR cargo and white import delivery.
+- [Global Destinations](https://happyboxlogistics.com/destinations): Shipping routes covering Thailand, Indonesia, Argentina, South Africa, Georgia, Israel, Australia.
+
+## Marketplace Purchasing Guides
+- [Taobao Agent](https://happyboxlogistics.com/taobao): How to buy from Taobao with 0% fee and free QC.
+- [1688 Sourcing Agent](https://happyboxlogistics.com/1688): Direct factory wholesale sourcing, price negotiation.
+- [Poizon (Dewu) Agent](https://happyboxlogistics.com/poizon): Authentic sneakers and streetwear verification and shipping.
+- [Pinduoduo Agent](https://happyboxlogistics.com/pinduoduo): Ultra-cheap consumer goods ordering and consolidation.
+- [Weidian Agent](https://happyboxlogistics.com/weidian): Independent Chinese streetwear and fashion brands.
+- [Amazon FBA Prep](https://happyboxlogistics.com/amazon): Labeling, packaging, and direct delivery to Amazon fulfillment centers.
+
+## Logistics Knowledge Base & Articles
+- [How to Ship from Pinduoduo to Dubai (UAE)](https://happyboxlogistics.com/blog/how-to-ship-from-pinduoduo-to-dubai-uae): Step-by-step guide for ordering to Dubai.
+- [How to Buy on Taobao in 2026](https://happyboxlogistics.com/blog/taobao-shopping-2026): Complete guide to purchasing, search, and payments.
+- [Differences Between Weidian, Poizon, and Pinduoduo](https://happyboxlogistics.com/blog/weidian-poizon-pinduoduo-guide): Comparison of platforms.
+- [Chinese Holidays Calendar 2026](https://happyboxlogistics.com/blog/chinese-holidays-calendar-2026): Shipping deadlines and holiday schedule.
+
+## Russian Language Version
+- [Главная страница (RU)](https://happyboxlogistics.com/ru): Международная доставка и выкуп из Китая.
+- [Доставка в ОАЭ / Дубай (RU)](https://happyboxlogistics.com/ru/uae): Прямая DDP доставка в Дубай и ОАЭ.
+- [Доставка в США (RU)](https://happyboxlogistics.com/ru/usa): Авиа и море в США, склады Amazon FBA.
+- [Доставка в Европу (RU)](https://happyboxlogistics.com/ru/eu): Авто (TIR) и авиа карго в страны ЕС.
+- [Доставка в Канаду (RU)](https://happyboxlogistics.com/ru/canada): Доставка под ключ в Канаду с растаможкой.
+- [Доставка в Россию (RU)](https://happyboxlogistics.com/ru/russia): Карго и белая доставка из Китая.
+- [Выкуп с Taobao (RU)](https://happyboxlogistics.com/ru/taobao): Посредник Taobao 0% комиссия, бесплатная проверка.
+- [Выкуп с 1688 (RU)](https://happyboxlogistics.com/ru/1688): Оптовые закупки с фабрик Китая.
+- [Выкуп с Poizon (RU)](https://happyboxlogistics.com/ru/poizon): Оригинальные кроссовки и вещи с Пойзон.
+- [Блог о логистике из Китая (RU)](https://happyboxlogistics.com/ru/blog): Инструкции, гайды и новости логистики.

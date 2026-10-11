@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 const GA_ID = 'G-JXMNGZQXGY';
 const YM_ID = 105783207;
+const CLARITY_ID = 'yvwf90kibb';
 
 export const Analytics: React.FC = () => {
   useEffect(() => {
@@ -32,7 +33,7 @@ export const Analytics: React.FC = () => {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_ID}', { 'debug_mode': true });
+          gtag('config', '${GA_ID}');
         `;
         document.head.appendChild(configScript);
       }
@@ -51,6 +52,21 @@ export const Analytics: React.FC = () => {
             ym(${YM_ID}, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, ecommerce:"dataLayer" });
          `;
          document.head.appendChild(ymScript);
+      }
+
+      // --- Microsoft Clarity ---
+      if (!document.getElementById('clarity-script')) {
+        const clarityScript = document.createElement('script');
+        clarityScript.id = 'clarity-script';
+        clarityScript.type = 'text/javascript';
+        clarityScript.innerHTML = `
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "${CLARITY_ID}");
+        `;
+        document.head.appendChild(clarityScript);
       }
     };
 

@@ -7,3 +7,18 @@ Disallow: /ru/admin
 Disallow: /api/
 
 Sitemap: https://happyboxlogistics.com/sitemap.xml
+
+# LLM Knowledge Base for AI search engines & crawlers
+# Compatible with ChatGPT (GPTBot), Perplexity (PerplexityBot), Claude (ClaudeBot), Gemini
+# See: https://llmstxt.org/
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
