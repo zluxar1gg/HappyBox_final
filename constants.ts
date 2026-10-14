@@ -29,8 +29,8 @@ export function getClientCodeNumber(clientCode?: string): string {
   return match ? match[0] : '8140';
 }
 
-export function formatRecipientCode(fullName?: string, clientCode?: string): string | null {
-  if (!fullName || !fullName.trim()) return null;
+export function extractInitials(fullName?: string): string {
+  if (!fullName || !fullName.trim()) return 'HB';
   const trimmed = fullName.trim();
   
   const cyrToLat: Record<string, string> = {
@@ -38,26 +38,58 @@ export function formatRecipientCode(fullName?: string, clientCode?: string): str
     'Ж': 'Z', 'З': 'Z', 'И': 'I', 'Й': 'I', 'К': 'K', 'Л': 'L', 'М': 'M',
     'Н': 'N', 'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U',
     'Ф': 'F', 'Х': 'H', 'Ц': 'C', 'Ч': 'C', 'Ш': 'S', 'Щ': 'S', 'Ъ': '',
-    'Ы': 'Y', 'Ь': '', 'Э': 'E', 'Ю': 'Y', 'Я': 'Y'
+    'Ы': 'Y', 'Ь': '', 'Э': 'E', 'Ю': 'Y', 'Я': 'Y',
+    'Є': 'E', 'І': 'I', 'Ї': 'I', 'Ґ': 'G', 'Ә': 'A', 'Ғ': 'G', 'Қ': 'K',
+    'Ң': 'N', 'Ө': 'O', 'Ұ': 'U', 'Ү': 'U', 'Һ': 'H'
   };
 
-  let initials = '';
-  for (const char of trimmed) {
-    const upper = char.toUpperCase();
-    if (cyrToLat[upper]) {
-      initials += cyrToLat[upper];
-    } else if (/[A-Z]/.test(upper)) {
-      initials += upper;
+  const transliterateChar = (ch: string): string => {
+    if (!ch) return '';
+    const upper = ch.toUpperCase();
+    if (cyrToLat[upper] !== undefined) return cyrToLat[upper];
+    if (/[A-Z]/.test(upper)) return upper;
+    return '';
+  };
+
+  // Split into words, treating hyphens, dots, underscores as word separators
+  const words = trimmed.replace(/[-_.]+/g, ' ').split(/\s+/).filter(Boolean);
+
+  if (words.length >= 2) {
+    // First letter of First Name + First letter of Last Name (e.g. Dmitry Kniazev -> DK, Иван Иванов -> II)
+    let firstInitial = '';
+    for (const ch of words[0]) {
+      const t = transliterateChar(ch);
+      if (t) { firstInitial = t; break; }
     }
-    if (initials.length >= 2) break;
+    let secondInitial = '';
+    for (const ch of words[1]) {
+      const t = transliterateChar(ch);
+      if (t) { secondInitial = t; break; }
+    }
+
+    const initials = (firstInitial + secondInitial).slice(0, 2);
+    if (initials.length === 2) return initials.toUpperCase();
+    if (initials.length === 1) return (initials + 'B').toUpperCase();
+  } else if (words.length === 1) {
+    // Single word (e.g. "Dmitry" -> DM, "Алексей" -> AL)
+    let initials = '';
+    for (const ch of words[0]) {
+      const t = transliterateChar(ch);
+      if (t) initials += t;
+      if (initials.length === 2) break;
+    }
+    if (initials.length === 2) return initials.toUpperCase();
+    if (initials.length === 1) return (initials + 'B').toUpperCase();
   }
 
-  if (initials.length < 2) {
-    initials = (initials + 'HB').slice(0, 2);
-  }
+  return 'HB';
+}
 
+export function formatRecipientCode(fullName?: string, clientCode?: string): string {
+  if (clientCode === 'HB-ADMIN' || clientCode?.includes('ADMIN')) return 'HB-ADMIN';
+  const initials = extractInitials(fullName);
   const num = getClientCodeNumber(clientCode);
-  return `${initials.slice(0, 2).toUpperCase()}${num}`;
+  return `${initials}-${num}`;
 }
 
 export const WAREHOUSES: WarehouseInfo[] = [

@@ -52,7 +52,7 @@ import { useAuth } from './context/AuthContext';
 import { AuthModal } from './components/AuthModal';
 import { CustomerDashboardModal } from './components/CustomerDashboardModal';
 import { CustomerDashboardPage } from './components/CustomerDashboardPage';
-import { AdminDashboardModal } from './components/AdminDashboardModal';
+import { AdminDashboardPage } from './components/AdminDashboardPage';
 import { NotFoundPage } from './components/NotFoundPage';
 
 // Lazy load components
@@ -80,7 +80,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
     if (!user) {
       setIsAuthModalOpen(true);
     } else if (isAdmin) {
-      setIsAdminDashboardOpen(true);
+      navigate(language === 'ru' ? '/ru/admin' : '/admin');
     } else {
       navigate(language === 'ru' ? '/ru/dashboard' : '/dashboard');
     }
@@ -256,6 +256,18 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
         );
       }
 
+      // Admin Dashboard page
+      if (currentPage === 'admin') {
+        return (
+          <AdminDashboardPage 
+            language={language} 
+            setLanguage={setLanguage} 
+            onNavigate={handleNavigate} 
+            onBack={() => handleBack('home')} 
+          />
+        );
+      }
+
       // Country pages return dynamically to where they came from
       if (currentPage === 'usa') return <UsaShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
       if (currentPage === 'eu') return <EuShippingPage language={language} setLanguage={setLanguage} onNavigate={handleNavigate} onBack={() => handleBack((location.state as any)?.from || 'home', (location.state as any)?.from !== 'destinations' ? 'services' : undefined)} />;
@@ -415,7 +427,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
           language={language}
           onSuccess={() => {
             if (isAdmin) {
-              setIsAdminDashboardOpen(true);
+              navigate(language === 'ru' ? '/ru/admin' : '/admin');
             } else {
               navigate(language === 'ru' ? '/ru/dashboard' : '/dashboard');
             }
@@ -426,13 +438,6 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
         <CustomerDashboardModal 
           isOpen={isCustomerDashboardOpen} 
           onClose={() => setIsCustomerDashboardOpen(false)} 
-          language={language}
-        />
-
-        {/* Admin Dashboard Modal */}
-        <AdminDashboardModal 
-          isOpen={isAdminDashboardOpen} 
-          onClose={() => setIsAdminDashboardOpen(false)} 
           language={language}
         />
       </>

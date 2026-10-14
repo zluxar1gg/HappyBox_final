@@ -105,8 +105,15 @@ export const CustomerDashboardModal: React.FC<CustomerDashboardModalProps> = ({
 
   const currentWarehouse = WAREHOUSES.find(w => w.id === selectedWarehouseId) || WAREHOUSES[0];
 
-  const isNameFilled = Boolean(user.fullName && user.fullName.trim());
-  const recipientCode = formatRecipientCode(user.fullName, user.clientCode) || `HB${getClientCodeNumber(user.clientCode)}`;
+  const isNameFilled = Boolean(
+    user.fullName && 
+    user.fullName.trim() && 
+    user.fullName.trim().toLowerCase() !== 'клиент' && 
+    user.fullName.trim().toLowerCase() !== 'client'
+  );
+  const recipientCode = isNameFilled 
+    ? formatRecipientCode(user.fullName, user.clientCode) 
+    : (user.clientCode && !user.clientCode.startsWith('HB-') ? user.clientCode : `HB-${getClientCodeNumber(user.clientCode)}`);
 
   const handleCopy = (text: string, key: string) => {
     navigator.clipboard.writeText(text);
@@ -310,7 +317,7 @@ export const CustomerDashboardModal: React.FC<CustomerDashboardModalProps> = ({
             </div>
 
             {/* Warehouse Category Selector */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 bg-gray-100 p-1.5 rounded-2xl mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 bg-gray-100 p-1.5 rounded-2xl mb-6">
               {WAREHOUSES.map((wh) => (
                 <button
                   key={wh.id}

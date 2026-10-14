@@ -46,3 +46,80 @@ export const trackLead = (
     });
   }
 };
+
+/**
+ * Tracks calculator price estimate calculation event.
+ * Optimized for GA4 'calculator_estimate' key event.
+ */
+export const trackCalculator = (
+  country: string,
+  weightKg: number,
+  method: string,
+  estimatedPrice: number
+) => {
+  // 1. Google Analytics 4
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'calculator_estimate', {
+      'calc_country': country,
+      'calc_weight_kg': Math.round(weightKg * 10) / 10,
+      'calc_shipping_method': method,
+      'calc_estimated_price': estimatedPrice,
+      'event_category': 'engagement',
+      'value': estimatedPrice
+    });
+
+    console.log(`%c[GA4 Event] CALCULATOR_ESTIMATE: ${country} | ${weightKg}kg | ${method} | $${estimatedPrice}`, 'background: #f59e0b; color: black; font-weight: bold');
+  }
+
+  // 2. Yandex Metrica (ID: 105783207)
+  if (typeof window !== 'undefined' && (window as any).ym) {
+    (window as any).ym(105783207, 'reachGoal', 'calculator_estimate', {
+      country,
+      weightKg,
+      method,
+      estimatedPrice
+    });
+  }
+
+  // 3. Microsoft Clarity
+  if (typeof window !== 'undefined' && (window as any).clarity) {
+    (window as any).clarity('set', 'calc_country', country);
+    (window as any).clarity('set', 'calc_method', method);
+  }
+};
+
+/**
+ * Tracks shipping quiz completion event.
+ * Optimized for GA4 'quiz_complete' key event.
+ */
+export const trackQuiz = (
+  country?: string,
+  category?: string,
+  weight?: string,
+  recommendedMethod?: string
+) => {
+  // 1. Google Analytics 4
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'quiz_complete', {
+      'quiz_country': country || 'unknown',
+      'quiz_category': category || 'general',
+      'quiz_weight': weight || 'standard',
+      'quiz_recommended_method': recommendedMethod || 'air',
+      'event_category': 'engagement',
+      'value': 1.0
+    });
+
+    console.log(`%c[GA4 Event] QUIZ_COMPLETE: ${country} | ${recommendedMethod}`, 'background: #10b981; color: white; font-weight: bold');
+  }
+
+  // 2. Yandex Metrica (ID: 105783207)
+  if (typeof window !== 'undefined' && (window as any).ym) {
+    (window as any).ym(105783207, 'reachGoal', 'quiz_complete', {
+      country,
+      category,
+      weight,
+      recommendedMethod
+    });
+  }
+};
+

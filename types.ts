@@ -27,7 +27,7 @@ export type PaymentStatus = 'pending' | 'paid';
 export interface UserProfile {
   uid: string;
   email: string;
-  clientCode: string; // e.g. HB-8140
+  clientCode: string; // e.g. DK-8140 or II-8141 (Initials-Number)
   fullName: string;
   phone: string;
   shippingAddress: string;

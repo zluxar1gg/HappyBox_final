@@ -55,8 +55,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, language,
         if (onSuccess) onSuccess();
         onClose();
       } else if (tab === 'register') {
-        if (!fullName.trim()) {
-          throw new Error(isRu ? 'Пожалуйста, укажите ваше реальное имя (для кода получателя)' : 'Please enter your real name (for recipient code)');
+        const trimmedName = fullName.trim();
+        if (!trimmedName) {
+          throw new Error(isRu ? 'Пожалуйста, укажите ваше имя (обязательное поле)' : 'Please enter your name (required)');
+        }
+        if (trimmedName.length < 2) {
+          throw new Error(isRu ? 'Имя должно содержать не менее 2 букв' : 'Name must be at least 2 characters');
         }
         if (!email.trim() || !password) {
           throw new Error(isRu ? 'Заполните обязательные поля: Email и пароль' : 'Email and password are required');
@@ -208,10 +212,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, language,
                   className="w-full bg-gray-50 border border-gray-200 rounded-2xl pl-11 pr-4 py-3 text-sm font-semibold text-brand-dark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition-all"
                 />
               </div>
-              <p className="mt-1 text-[11px] text-gray-400">
+              <p className="mt-1.5 text-[11px] text-brand-blue font-bold">
                 {isRu 
-                  ? 'Пожалуйста, вводите настоящее имя и фамилию — они будут использоваться для создания вашего ID'
-                  : 'Please enter your real first and last name, as they will be used to generate your client ID'}
+                  ? '💡 Обязательное поле: на основе ваших инициалов формируется персональный код с дефисом (например: II-8140 или DK-8140)'
+                  : '💡 Required field: your personal ID with a hyphen (e.g. II-8140 or DK-8140) is generated from your initials'}
               </p>
             </div>
           )}

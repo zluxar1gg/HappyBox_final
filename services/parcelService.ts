@@ -165,7 +165,7 @@ export function subscribeToAllParcels(
 // Update parcel details by Admin
 export async function updateParcel(
   parcelId: string,
-  updates: Partial<Pick<Parcel, 'status' | 'outboundTracking' | 'shippingCost' | 'notes' | 'weight' | 'shipmentId' | 'shipmentNumber'>>
+  updates: Partial<Pick<Parcel, 'status' | 'outboundTracking' | 'shippingCost' | 'notes' | 'weight' | 'shipmentId' | 'shipmentNumber' | 'inboundTracking' | 'clientCode' | 'productTitle' | 'warehouseDestination'>>
 ): Promise<void> {
   const docRef = doc(db, 'parcels', parcelId);
   await updateDoc(docRef, {

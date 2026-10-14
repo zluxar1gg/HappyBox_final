@@ -74,7 +74,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
   onNavigate,
   onBack
 }) => {
-  const { user, logout, refreshProfile } = useAuth();
+  const { user, isAdmin, logout, refreshProfile } = useAuth();
   const isRu = language === 'ru';
 
   const [activeTab, setActiveTab] = useState<DashboardTab>('inbound');
@@ -168,10 +168,16 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
 
   const currentWarehouse = WAREHOUSES.find(w => w.id === selectedWarehouseId) || WAREHOUSES[0];
 
-  const hasName = Boolean(user?.fullName && user.fullName.trim());
-  const formattedCode = user ? formatRecipientCode(user.fullName, user.clientCode) : null;
+  const hasName = Boolean(
+    user?.fullName && 
+    user.fullName.trim() && 
+    user.fullName.trim().toLowerCase() !== 'клиент' && 
+    user.fullName.trim().toLowerCase() !== 'client'
+  );
   const clientNumber = user ? getClientCodeNumber(user.clientCode) : '8140';
-  const recipientCode = formattedCode || `HB${clientNumber}`;
+  const recipientCode = (user && hasName) 
+    ? formatRecipientCode(user.fullName, user.clientCode) 
+    : (user?.clientCode && !user.clientCode.startsWith('HB-') ? user.clientCode : `HB-${clientNumber}`);
 
   // Inbound parcels
   const inboundParcels = parcels.filter(p => p.status === 'expected' || p.status === 'arrived' || p.status === 'consolidated');
@@ -471,7 +477,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
 
             <div className="flex items-center gap-2.5">
               <span className="font-mono font-black text-xs sm:text-sm bg-brand-blue text-white px-2.5 py-1 rounded-xl shadow-xs">
-                {user.clientCode}
+                {recipientCode}
               </span>
               <span className="font-extrabold text-sm sm:text-base text-brand-dark truncate max-w-[140px] sm:max-w-[220px]">
                 {user.fullName || (isRu ? 'Мой кабинет' : 'My Portal')}
@@ -488,6 +494,19 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
               {isRu ? 'EN' : 'RU'}
             </button>
 
+            {/* Admin shortcut if admin */}
+            {isAdmin && (
+              <button
+                onClick={() => {
+                  if (onNavigate) onNavigate('admin');
+                  else window.location.href = isRu ? '/ru/admin' : '/admin';
+                }}
+                className="bg-amber-400 hover:bg-amber-300 text-brand-dark px-3 py-1 rounded-xl text-xs font-black transition-all shadow-2xs flex items-center gap-1.5 cursor-pointer"
+              >
+                <span>{isRu ? 'Админка' : 'Admin'}</span>
+              </button>
+            )}
+
             {/* Logout */}
             <button
               onClick={logout}
@@ -502,10 +521,136 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
       </header>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 py-6 sm:py-8 flex-1 flex flex-col md:flex-row items-start gap-6 lg:gap-8">
+      <div className="max-w-7xl mx-auto w-full px-3.5 sm:px-6 py-4 sm:py-8 flex-1 flex flex-col lg:flex-row items-start gap-5 lg:gap-8">
         
-        {/* SIDEBAR NAVIGATION */}
-        <aside className="w-full md:w-64 lg:w-72 shrink-0 space-y-4">
+        {/* MOBILE & TABLET TOP HEADER BAR & NAVIGATION (shown on screens < lg) */}
+        <div className="w-full block lg:hidden space-y-3.5">
+          {/* User profile card & Recipient Code */}
+          <div className="bg-white rounded-2xl p-4 border border-gray-200/80 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-blue to-blue-400 text-white font-black text-base flex items-center justify-center shadow-2xs shrink-0">
+                {user.fullName ? user.fullName.charAt(0).toUpperCase() : recipientCode.slice(0, 2)}
+              </div>
+              <div className="min-w-0">
+                <h3 className="font-black text-sm text-brand-dark truncate max-w-[200px] sm:max-w-[280px]">
+                  {user.fullName || (isRu ? 'Клиент HappyBox' : 'HappyBox Client')}
+                </h3>
+                <span className="font-mono text-xs font-bold text-brand-blue block">
+                  {recipientCode}
+                </span>
+              </div>
+            </div>
+
+            {/* Recipient Code Chip */}
+            <div className="w-full sm:w-auto bg-amber-50 border border-amber-200/90 rounded-xl px-3 py-1.5 flex items-center justify-between sm:justify-start gap-2.5">
+              <span className="text-[10px] uppercase font-extrabold text-amber-800 tracking-wider">
+                {isRu ? 'Код получателя:' : 'Code:'}
+              </span>
+              <span className="font-mono font-black text-sm text-brand-dark">
+                {recipientCode}
+              </span>
+              <button
+                onClick={() => handleCopy(recipientCode, 'mobile_header_code')}
+                className="p-1 text-amber-700 hover:bg-amber-100 rounded cursor-pointer transition-colors"
+                title={isRu ? 'Копировать' : 'Copy'}
+              >
+                {copiedKey === 'mobile_header_code' ? (
+                  <Check size={14} className="text-emerald-600" />
+                ) : (
+                  <Copy size={14} />
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Touch-Friendly Responsive Tabs Grid */}
+          <nav className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            {/* 1. Отправляют нам */}
+            <button
+              onClick={() => setActiveTab('inbound')}
+              className={`p-3 rounded-2xl text-xs font-bold transition-all flex flex-col items-center justify-center gap-1.5 text-center cursor-pointer border ${
+                activeTab === 'inbound'
+                  ? 'bg-brand-blue text-white border-brand-blue shadow-sm font-black'
+                  : 'bg-white text-gray-700 border-gray-200/80 hover:bg-gray-50'
+              }`}
+            >
+              <div className="flex items-center gap-1.5">
+                <Inbox size={16} className={activeTab === 'inbound' ? 'text-white' : 'text-brand-blue'} />
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                  activeTab === 'inbound' ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-700'
+                }`}>
+                  {inboundParcels.length}
+                </span>
+              </div>
+              <span className="text-[11px] leading-tight">
+                {isRu ? 'Отправляют нам' : 'Inbound China'}
+              </span>
+            </button>
+
+            {/* 2. Отправляем мы */}
+            <button
+              onClick={() => setActiveTab('outbound')}
+              className={`p-3 rounded-2xl text-xs font-bold transition-all flex flex-col items-center justify-center gap-1.5 text-center cursor-pointer border ${
+                activeTab === 'outbound'
+                  ? 'bg-brand-blue text-white border-brand-blue shadow-sm font-black'
+                  : 'bg-white text-gray-700 border-gray-200/80 hover:bg-gray-50'
+              }`}
+            >
+              <div className="flex items-center gap-1.5">
+                <Truck size={16} className={activeTab === 'outbound' ? 'text-white' : 'text-brand-blue'} />
+                {awaitingPaymentShipmentsCount > 0 && (
+                  <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
+                )}
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                  activeTab === 'outbound' ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-700'
+                }`}>
+                  {shipments.length}
+                </span>
+              </div>
+              <span className="text-[11px] leading-tight">
+                {isRu ? 'Отправляем мы' : 'Outbound'}
+              </span>
+            </button>
+
+            {/* 3. Склады в Китае */}
+            <button
+              onClick={() => setActiveTab('warehouses')}
+              className={`p-3 rounded-2xl text-xs font-bold transition-all flex flex-col items-center justify-center gap-1.5 text-center cursor-pointer border ${
+                activeTab === 'warehouses'
+                  ? 'bg-brand-blue text-white border-brand-blue shadow-sm font-black'
+                  : 'bg-white text-gray-700 border-gray-200/80 hover:bg-gray-50'
+              }`}
+            >
+              <Warehouse size={16} className={activeTab === 'warehouses' ? 'text-white' : 'text-brand-blue'} />
+              <span className="text-[11px] leading-tight">
+                {isRu ? 'Склады в Китае' : 'Warehouses'}
+              </span>
+            </button>
+
+            {/* 4. Адрес доставки */}
+            <button
+              onClick={() => setActiveTab('profile')}
+              className={`p-3 rounded-2xl text-xs font-bold transition-all flex flex-col items-center justify-center gap-1.5 text-center cursor-pointer border relative ${
+                activeTab === 'profile'
+                  ? 'bg-brand-blue text-white border-brand-blue shadow-sm font-black'
+                  : 'bg-white text-gray-700 border-gray-200/80 hover:bg-gray-50'
+              }`}
+            >
+              <div className="flex items-center gap-1">
+                <User size={16} className={activeTab === 'profile' ? 'text-white' : 'text-brand-blue'} />
+                {!hasName && (
+                  <span className="bg-amber-400 text-amber-950 text-[9px] font-black px-1 rounded-sm">!</span>
+                )}
+              </div>
+              <span className="text-[11px] leading-tight">
+                {isRu ? 'Адрес доставки' : 'Delivery Profile'}
+              </span>
+            </button>
+          </nav>
+        </div>
+
+        {/* DESKTOP SIDEBAR NAVIGATION (shown on screens lg+) */}
+        <aside className="hidden lg:block w-64 xl:w-72 shrink-0 space-y-4">
           
           {/* User profile card */}
           <div className="bg-white rounded-3xl p-5 border border-gray-200/80 shadow-xs space-y-3">
@@ -641,7 +786,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
             </button>
           </nav>
 
-          {/* Quick Help Banner in Sidebar */}
+          {/* Quick Help Banner in Desktop Sidebar */}
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50/60 rounded-3xl p-4 border border-blue-100 text-xs">
             <div className="flex items-center gap-2 text-brand-blue font-extrabold mb-1">
               <MessageCircle size={16} />
@@ -677,7 +822,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
         </aside>
 
         {/* CONTENT AREA */}
-        <main className="flex-1 space-y-6 min-w-0">
+        <main className="flex-1 space-y-6 min-w-0 w-full">
 
           {/* Warning banner if real name is missing */}
           {!hasName && (
@@ -694,8 +839,8 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                   </h3>
                   <p className="text-xs text-amber-800 mt-1 leading-relaxed">
                     {isRu 
-                      ? `Пожалуйста, укажите ваши настоящие имя и фамилию — они необходимы для создания вашего ID получателя (Код: ${recipientCode || clientNumber}). Без этого китайские продавцы не смогут отправить товар.` 
-                      : `Please enter your real first and last name — they are required to generate your recipient ID. Without it sellers cannot address your parcels.`}
+                      ? `Пожалуйста, укажите ваши настоящие имя и фамилию — на их основе формируется ваш персональный код с дефисом (например: II-${clientNumber} или DK-${clientNumber}). Без этого китайские продавцы не смогут отправить товар.` 
+                      : `Please enter your real first and last name — they are required to generate your personal recipient ID with a hyphen (e.g. II-${clientNumber} or DK-${clientNumber}). Without it sellers cannot address your parcels.`}
                   </p>
                 </div>
               </div>
@@ -736,10 +881,10 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                   </div>
                 )}
 
-                <form onSubmit={handleAddParcel} className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-end">
+                <form onSubmit={handleAddParcel} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3.5 items-end">
                   
                   {/* Tracking input */}
-                  <div className="md:col-span-5">
+                  <div className="sm:col-span-2 lg:col-span-5">
                     <label className="block text-xs font-extrabold uppercase tracking-wider text-gray-500 mb-1.5">
                       {isRu ? 'Трек-номер по Китаю (можно через запятую) *' : 'China Tracking Number(s) *'}
                     </label>
@@ -754,7 +899,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                   </div>
 
                   {/* Product description */}
-                  <div className="md:col-span-3">
+                  <div className="sm:col-span-1 lg:col-span-3">
                     <label className="block text-xs font-extrabold uppercase tracking-wider text-gray-500 mb-1.5">
                       {isRu ? 'Описание товара (необязательно)' : 'Goods Description'}
                     </label>
@@ -768,7 +913,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                   </div>
 
                   {/* Warehouse destination */}
-                  <div className="md:col-span-2">
+                  <div className="sm:col-span-1 lg:col-span-2">
                     <label className="block text-xs font-extrabold uppercase tracking-wider text-gray-500 mb-1.5">
                       {isRu ? 'Склад в Китае' : 'Warehouse Hub'}
                     </label>
@@ -786,7 +931,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                   </div>
 
                   {/* Submit Button */}
-                  <div className="md:col-span-2">
+                  <div className="sm:col-span-2 lg:col-span-2">
                     <button
                       type="submit"
                       disabled={isSubmittingParcel}
@@ -813,13 +958,13 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
               </div>
 
               {/* Inbound Parcels Table Section */}
-              <div className="bg-white rounded-[32px] p-6 sm:p-7 border border-gray-200/80 shadow-xs space-y-5">
+              <div className="bg-white rounded-[32px] p-4 sm:p-7 border border-gray-200/80 shadow-xs space-y-5">
                 
                 {/* Filter Tabs and Search Bar */}
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                   
                   {/* Status sub-tabs: All, Awaiting, Arrived, Consolidated */}
-                  <div className="flex items-center gap-1 bg-gray-100 p-1.5 rounded-2xl overflow-x-auto">
+                  <div className="flex items-center gap-1 bg-gray-100 p-1.5 rounded-2xl overflow-x-auto no-scrollbar">
                     <button
                       onClick={() => setInboundSubFilter('all')}
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
@@ -828,7 +973,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                           : 'text-gray-500 hover:text-brand-dark'
                       }`}
                     >
-                      <span>{isRu ? 'Все входящие' : 'All Inbound'}</span>
+                      <span>{isRu ? 'Все' : 'All'}</span>
                       <span className="bg-gray-200 text-gray-700 px-1.5 py-0.2 rounded-md text-[10px]">
                         {inboundParcels.length}
                       </span>
@@ -858,7 +1003,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                       }`}
                     >
                       <Box size={12} className="text-blue-600" />
-                      <span>{isRu ? 'На складе' : 'In Warehouse'}</span>
+                      <span>{isRu ? 'На складе' : 'In Hub'}</span>
                       <span className="bg-blue-100 text-blue-800 px-1.5 py-0.2 rounded-md text-[10px]">
                         {inboundParcels.filter(p => p.status === 'arrived').length}
                       </span>
@@ -873,7 +1018,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                       }`}
                     >
                       <PackageCheck size={12} className="text-purple-600" />
-                      <span>{isRu ? 'В сборке' : 'Consolidated'}</span>
+                      <span>{isRu ? 'В сборке' : 'Packed'}</span>
                       <span className="bg-purple-100 text-purple-800 px-1.5 py-0.2 rounded-md text-[10px]">
                         {inboundParcels.filter(p => p.status === 'consolidated').length}
                       </span>
@@ -912,84 +1057,65 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                     </p>
                   </div>
                 ) : (
-                  <div className="overflow-x-auto rounded-2xl border border-gray-200/80">
-                    <table className="w-full text-left border-collapse text-xs">
-                      <thead>
-                        <tr className="bg-gray-50/90 border-b border-gray-200 text-gray-500 font-extrabold uppercase tracking-wider text-[11px]">
-                          <th className="py-3.5 px-4">{isRu ? 'Трек-номер по Китаю' : 'China Inbound Tracking'}</th>
-                          <th className="py-3.5 px-4">{isRu ? 'Товар / Описание' : 'Product / Description'}</th>
-                          <th className="py-3.5 px-4">{isRu ? 'Склад в Китае' : 'Warehouse Hub'}</th>
-                          <th className="py-3.5 px-4">{isRu ? 'Статус' : 'Status'}</th>
-                          <th className="py-3.5 px-4 text-right">{isRu ? 'Дата' : 'Date'}</th>
-                          <th className="py-3.5 px-4 text-right">{isRu ? 'Действие' : 'Action'}</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-100 bg-white">
-                        {filteredInbound.map((parcel) => {
-                          const statusInfo = getInboundStatusBadge(parcel.status, parcel.shipmentNumber);
-                          return (
-                            <tr key={parcel.id} className="hover:bg-gray-50/60 transition-colors">
-                              {/* Tracking */}
-                              <td className="py-4 px-4 font-mono font-bold text-sm text-brand-dark">
-                                <div className="flex items-center gap-1.5">
-                                  <span>{parcel.inboundTracking}</span>
-                                  <button
-                                    onClick={() => handleCopy(parcel.inboundTracking, parcel.id)}
-                                    title={isRu ? 'Копировать' : 'Copy'}
-                                    className="p-1 text-gray-400 hover:text-brand-blue cursor-pointer transition-colors"
-                                  >
-                                    {copiedKey === parcel.id ? (
-                                      <Check size={13} className="text-emerald-500" />
-                                    ) : (
-                                      <Copy size={13} />
-                                    )}
-                                  </button>
-                                </div>
-                              </td>
+                  <>
+                    {/* Mobile / Tablet Cards View (hidden on lg+) */}
+                    <div className="block lg:hidden space-y-3">
+                      {filteredInbound.map((parcel) => {
+                        const statusInfo = getInboundStatusBadge(parcel.status, parcel.shipmentNumber);
+                        return (
+                          <div key={parcel.id} className="bg-gray-50/80 border border-gray-200/90 rounded-2xl p-4 space-y-3 shadow-2xs">
+                            <div className="flex items-start justify-between gap-2">
+                              <div className="flex items-center gap-1.5 font-mono font-bold text-sm text-brand-dark">
+                                <span>{parcel.inboundTracking}</span>
+                                <button
+                                  onClick={() => handleCopy(parcel.inboundTracking, parcel.id)}
+                                  title={isRu ? 'Копировать' : 'Copy'}
+                                  className="p-1 text-gray-400 hover:text-brand-blue cursor-pointer transition-colors"
+                                >
+                                  {copiedKey === parcel.id ? (
+                                    <Check size={14} className="text-emerald-500" />
+                                  ) : (
+                                    <Copy size={14} />
+                                  )}
+                                </button>
+                              </div>
+                              <span className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${statusInfo.bg}`}>
+                                {statusInfo.icon}
+                                <span>{statusInfo.label}</span>
+                              </span>
+                            </div>
 
-                              {/* Product Description */}
-                              <td className="py-4 px-4">
-                                <div className="font-bold text-brand-dark">{parcel.productTitle}</div>
-                                {parcel.notes && (
-                                  <div className="text-[11px] text-gray-400 italic mt-0.5 max-w-xs truncate">
-                                    💬 {parcel.notes}
-                                  </div>
-                                )}
-                              </td>
+                            <div className="text-xs">
+                              <div className="font-bold text-brand-dark text-sm">{parcel.productTitle}</div>
+                              {parcel.notes && (
+                                <div className="text-[11px] text-gray-500 italic mt-0.5">💬 {parcel.notes}</div>
+                              )}
+                            </div>
 
-                              {/* Warehouse */}
-                              <td className="py-4 px-4 text-gray-600 font-medium">
-                                {getWarehouseNameById(parcel.warehouseDestination)}
-                              </td>
-
-                              {/* Status Badge */}
-                              <td className="py-4 px-4">
-                                <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full border ${statusInfo.bg}`}>
-                                  {statusInfo.icon}
-                                  <span>{statusInfo.label}</span>
+                            <div className="flex flex-wrap items-center justify-between gap-2 pt-2.5 border-t border-gray-200/60 text-xs">
+                              <div className="flex items-center gap-2 text-gray-500">
+                                <span className="font-semibold text-gray-700 bg-white px-2 py-0.5 rounded-md border border-gray-200 text-[11px]">
+                                  {getWarehouseNameById(parcel.warehouseDestination)}
                                 </span>
-                              </td>
+                                <span className="text-[11px] text-gray-400">
+                                  {new Date(parcel.createdAt).toLocaleDateString(isRu ? 'ru-RU' : 'en-US')}
+                                </span>
+                              </div>
 
-                              {/* Date */}
-                              <td className="py-4 px-4 text-right text-gray-400 text-xs font-medium whitespace-nowrap">
-                                {new Date(parcel.createdAt).toLocaleDateString(isRu ? 'ru-RU' : 'en-US')}
-                              </td>
-
-                              {/* Action Buttons */}
-                              <td className="py-4 px-4 text-right whitespace-nowrap">
+                              <div>
                                 {parcel.status === 'expected' ? (
-                                  <div className="flex items-center justify-end gap-1">
+                                  <div className="flex items-center gap-1">
                                     <button
                                       onClick={() => handleStartEditParcel(parcel)}
-                                      title={isRu ? 'Редактировать трек' : 'Edit tracking'}
-                                      className="p-1.5 text-gray-400 hover:text-brand-blue hover:bg-blue-50 rounded-lg transition-colors cursor-pointer"
+                                      title={isRu ? 'Редактировать' : 'Edit'}
+                                      className="p-1.5 text-gray-500 hover:text-brand-blue bg-white border border-gray-200 rounded-xl hover:bg-blue-50 transition-colors cursor-pointer"
                                     >
                                       <Edit2 size={14} />
                                     </button>
                                     <button
                                       onClick={() => handleDeleteCustomerParcel(parcel.id)}
-                                      title={isRu ? 'Удалить посылку' : 'Delete parcel'}
-                                      className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+                                      title={isRu ? 'Удалить' : 'Delete'}
+                                      className="p-1.5 text-gray-500 hover:text-red-500 bg-white border border-gray-200 rounded-xl hover:bg-red-50 transition-colors cursor-pointer"
                                     >
                                       <Trash2 size={14} />
                                     </button>
@@ -1001,19 +1127,123 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                                 ) : (
                                   <button
                                     onClick={() => setActiveTab('outbound')}
-                                    className="text-brand-blue hover:underline text-xs font-bold cursor-pointer inline-flex items-center gap-1"
+                                    className="text-brand-blue hover:underline font-bold text-xs inline-flex items-center gap-1 bg-blue-50 px-2.5 py-1 rounded-lg cursor-pointer"
                                   >
                                     <span>{isRu ? 'В коробке' : 'In Box'}</span>
                                     <ChevronRight size={12} />
                                   </button>
                                 )}
-                              </td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Desktop Table View (hidden on screens < lg) */}
+                    <div className="hidden lg:block overflow-x-auto rounded-2xl border border-gray-200/80">
+                      <table className="w-full text-left border-collapse text-xs">
+                        <thead>
+                          <tr className="bg-gray-50/90 border-b border-gray-200 text-gray-500 font-extrabold uppercase tracking-wider text-[11px]">
+                            <th className="py-3.5 px-4">{isRu ? 'Трек-номер по Китаю' : 'China Inbound Tracking'}</th>
+                            <th className="py-3.5 px-4">{isRu ? 'Товар / Описание' : 'Product / Description'}</th>
+                            <th className="py-3.5 px-4">{isRu ? 'Склад в Китае' : 'Warehouse Hub'}</th>
+                            <th className="py-3.5 px-4">{isRu ? 'Статус' : 'Status'}</th>
+                            <th className="py-3.5 px-4 text-right">{isRu ? 'Дата' : 'Date'}</th>
+                            <th className="py-3.5 px-4 text-right">{isRu ? 'Действие' : 'Action'}</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-100 bg-white">
+                          {filteredInbound.map((parcel) => {
+                            const statusInfo = getInboundStatusBadge(parcel.status, parcel.shipmentNumber);
+                            return (
+                              <tr key={parcel.id} className="hover:bg-gray-50/60 transition-colors">
+                                {/* Tracking */}
+                                <td className="py-4 px-4 font-mono font-bold text-sm text-brand-dark">
+                                  <div className="flex items-center gap-1.5">
+                                    <span>{parcel.inboundTracking}</span>
+                                    <button
+                                      onClick={() => handleCopy(parcel.inboundTracking, parcel.id)}
+                                      title={isRu ? 'Копировать' : 'Copy'}
+                                      className="p-1 text-gray-400 hover:text-brand-blue cursor-pointer transition-colors"
+                                    >
+                                      {copiedKey === parcel.id ? (
+                                        <Check size={13} className="text-emerald-500" />
+                                      ) : (
+                                        <Copy size={13} />
+                                      )}
+                                    </button>
+                                  </div>
+                                </td>
+
+                                {/* Product Description */}
+                                <td className="py-4 px-4">
+                                  <div className="font-bold text-brand-dark">{parcel.productTitle}</div>
+                                  {parcel.notes && (
+                                    <div className="text-[11px] text-gray-400 italic mt-0.5 max-w-xs truncate">
+                                      💬 {parcel.notes}
+                                    </div>
+                                  )}
+                                </td>
+
+                                {/* Warehouse */}
+                                <td className="py-4 px-4 text-gray-600 font-medium">
+                                  {getWarehouseNameById(parcel.warehouseDestination)}
+                                </td>
+
+                                {/* Status Badge */}
+                                <td className="py-4 px-4">
+                                  <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full border ${statusInfo.bg}`}>
+                                    {statusInfo.icon}
+                                    <span>{statusInfo.label}</span>
+                                  </span>
+                                </td>
+
+                                {/* Date */}
+                                <td className="py-4 px-4 text-right text-gray-400 text-xs font-medium whitespace-nowrap">
+                                  {new Date(parcel.createdAt).toLocaleDateString(isRu ? 'ru-RU' : 'en-US')}
+                                </td>
+
+                                {/* Action Buttons */}
+                                <td className="py-4 px-4 text-right whitespace-nowrap">
+                                  {parcel.status === 'expected' ? (
+                                    <div className="flex items-center justify-end gap-1">
+                                      <button
+                                        onClick={() => handleStartEditParcel(parcel)}
+                                        title={isRu ? 'Редактировать трек' : 'Edit tracking'}
+                                        className="p-1.5 text-gray-400 hover:text-brand-blue hover:bg-blue-50 rounded-lg transition-colors cursor-pointer"
+                                      >
+                                        <Edit2 size={14} />
+                                      </button>
+                                      <button
+                                        onClick={() => handleDeleteCustomerParcel(parcel.id)}
+                                        title={isRu ? 'Удалить посылку' : 'Delete parcel'}
+                                        className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+                                      >
+                                        <Trash2 size={14} />
+                                      </button>
+                                    </div>
+                                  ) : parcel.status === 'arrived' ? (
+                                    <span className="bg-blue-50 text-blue-700 px-2.5 py-1 rounded-lg text-[11px] font-bold border border-blue-200">
+                                      {isRu ? 'Готов к сборке' : 'Ready for pack'}
+                                    </span>
+                                  ) : (
+                                    <button
+                                      onClick={() => setActiveTab('outbound')}
+                                      className="text-brand-blue hover:underline text-xs font-bold cursor-pointer inline-flex items-center gap-1"
+                                    >
+                                      <span>{isRu ? 'В коробке' : 'In Box'}</span>
+                                      <ChevronRight size={12} />
+                                    </button>
+                                  )}
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  </>
                 )}
 
               </div>
@@ -1146,166 +1376,307 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                     </button>
                   </div>
                 ) : (
-                  <div className="overflow-x-auto rounded-2xl border border-gray-200/80">
-                    <table className="w-full text-left border-collapse text-xs">
-                      <thead>
-                        <tr className="bg-gray-50/90 border-b border-gray-200 text-gray-500 font-extrabold uppercase tracking-wider text-[11px]">
-                          <th className="py-3.5 px-4">{isRu ? '№ Отправления' : 'Shipment #'}</th>
-                          <th className="py-3.5 px-4">{isRu ? 'Китайские треки в посылке' : 'Included Goods'}</th>
-                          <th className="py-3.5 px-4">{isRu ? 'Фото партии' : 'Photo'}</th>
-                          <th className="py-3.5 px-4">{isRu ? 'Вес (кг)' : 'Weight'}</th>
-                          <th className="py-3.5 px-4">{isRu ? 'К оплате & Статус' : 'Cost & Status'}</th>
-                          <th className="py-3.5 px-4">{isRu ? 'Междунар. трек (СДЭК)' : 'Outbound Track'}</th>
-                          <th className="py-3.5 px-4">{isRu ? 'Статус' : 'Status'}</th>
-                          <th className="py-3.5 px-4 text-right">{isRu ? 'Вопрос / Связь' : 'Action'}</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-100 bg-white">
-                        {filteredShipments.map((shipment) => {
-                          const statusInfo = getOutboundStatusBadge(shipment.status);
-                          return (
-                            <tr key={shipment.id} className="hover:bg-gray-50/60 transition-colors">
-                              
-                              {/* Shipment Number */}
-                              <td className="py-4 px-4 font-mono font-black text-brand-dark">
-                                <span className="bg-brand-blue/10 text-brand-blue px-2.5 py-1 rounded-xl text-xs inline-block">
-                                  #{shipment.shipmentNumber}
-                                </span>
-                              </td>
+                  <>
+                    {/* Mobile / Tablet Outbound Cards View (hidden on lg+) */}
+                    <div className="block lg:hidden space-y-3.5">
+                      {filteredShipments.map((shipment) => {
+                        const statusInfo = getOutboundStatusBadge(shipment.status);
+                        return (
+                          <div key={shipment.id} className="bg-gray-50/80 border border-gray-200/90 rounded-2xl p-4 space-y-3.5 shadow-2xs">
+                            {/* Top row: Shipment number + Status badge */}
+                            <div className="flex items-center justify-between gap-2">
+                              <span className="bg-brand-blue/10 text-brand-blue font-mono font-black text-xs px-2.5 py-1 rounded-xl">
+                                #{shipment.shipmentNumber}
+                              </span>
+                              <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-0.5 rounded-full border ${statusInfo.bg}`}>
+                                {statusInfo.icon}
+                                <span>{statusInfo.label}</span>
+                              </span>
+                            </div>
 
-                              {/* Included Inbound Trackings */}
-                              <td className="py-4 px-4 max-w-[220px]">
-                                <div className="font-bold text-brand-dark mb-1 truncate">
-                                  {shipment.productSummary || (isRu ? 'Сборная посылка' : 'Consolidated Box')}
+                            {/* Product summary & Photo */}
+                            <div className="flex items-start gap-3">
+                              {shipment.photoUrl ? (
+                                <button
+                                  onClick={() => setLightboxPhotoUrl(shipment.photoUrl || null)}
+                                  className="w-16 h-16 rounded-xl overflow-hidden border border-gray-200 shrink-0 relative group cursor-pointer"
+                                  title={isRu ? 'Открыть фото' : 'View photo'}
+                                >
+                                  <img src={shipment.photoUrl} alt="Shipment" className="w-full h-full object-cover" />
+                                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center text-white opacity-80">
+                                    <Eye size={16} />
+                                  </div>
+                                </button>
+                              ) : (
+                                <div className="w-16 h-16 rounded-xl bg-gray-100 border border-dashed border-gray-300 flex items-center justify-center text-gray-400 shrink-0">
+                                  <Box size={20} />
                                 </div>
-                                <div className="flex flex-wrap gap-1">
-                                  {shipment.inboundTrackings?.map((track, idx) => (
-                                    <span 
-                                      key={idx} 
-                                      className="font-mono text-[10px] bg-gray-100 hover:bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded cursor-pointer transition-colors"
-                                      onClick={() => handleCopy(track, `track_${shipment.id}_${idx}`)}
-                                      title={isRu ? 'Нажмите, чтобы скопировать' : 'Click to copy'}
+                              )}
+
+                              <div className="flex-1 min-w-0">
+                                <h4 className="font-bold text-brand-dark text-sm leading-snug">
+                                  {shipment.productSummary || (isRu ? 'Сборная посылка' : 'Consolidated Box')}
+                                </h4>
+                                <div className="mt-1.5 text-xs">
+                                  <span className="text-gray-400">{isRu ? 'Вес: ' : 'Weight: '}</span>
+                                  <span className="font-bold text-brand-dark">
+                                    {shipment.weight ? `${shipment.weight} кг` : (isRu ? 'Взвешивается' : 'Weighing')}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Included domestic trackings */}
+                            {shipment.inboundTrackings && shipment.inboundTrackings.length > 0 && (
+                              <div className="bg-white p-2.5 rounded-xl border border-gray-200/70 text-xs">
+                                <span className="text-gray-400 text-[10px] uppercase font-bold block mb-1">
+                                  {isRu ? 'Китайские треки в посылке:' : 'Included trackings:'}
+                                </span>
+                                <div className="flex flex-wrap gap-1.5">
+                                  {shipment.inboundTrackings.map((track, idx) => (
+                                    <span
+                                      key={idx}
+                                      onClick={() => handleCopy(track, `track_m_${shipment.id}_${idx}`)}
+                                      className="font-mono text-[11px] bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-0.5 rounded cursor-pointer transition-colors"
                                     >
                                       {track}
-                                      {copiedKey === `track_${shipment.id}_${idx}` && ' ✓'}
+                                      {copiedKey === `track_m_${shipment.id}_${idx}` && ' ✓'}
                                     </span>
                                   ))}
                                 </div>
-                              </td>
+                              </div>
+                            )}
 
-                              {/* Photo Preview Thumbnail */}
-                              <td className="py-4 px-4">
-                                {shipment.photoUrl ? (
-                                  <button
-                                    onClick={() => setLightboxPhotoUrl(shipment.photoUrl || null)}
-                                    className="w-12 h-12 rounded-xl overflow-hidden border border-gray-200 relative group cursor-pointer block shadow-xs"
-                                    title={isRu ? 'Открыть фото в полном размере' : 'View full photo'}
-                                  >
-                                    <img 
-                                      src={shipment.photoUrl} 
-                                      alt="Shipment" 
-                                      className="w-full h-full object-cover group-hover:scale-110 transition-transform" 
-                                    />
-                                    <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
-                                      <Eye size={16} />
-                                    </div>
-                                  </button>
-                                ) : (
-                                  <span className="text-[11px] text-gray-400 italic">
-                                    {isRu ? 'Фото загружается' : 'Processing photo'}
-                                  </span>
-                                )}
-                              </td>
+                            {/* Outbound track (CDEK) if available */}
+                            {shipment.outboundTracking ? (
+                              <div className="flex items-center justify-between bg-blue-50/80 border border-blue-200/80 px-3 py-2 rounded-xl text-xs">
+                                <div className="flex items-center gap-1.5 text-brand-blue font-bold">
+                                  <Truck size={14} />
+                                  <span className="text-[11px] text-gray-500">{isRu ? 'Трек СДЭК:' : 'Tracking:'}</span>
+                                  <span className="font-mono">{shipment.outboundTracking}</span>
+                                </div>
+                                <button
+                                  onClick={() => handleCopy(shipment.outboundTracking!, `out_m_${shipment.id}`)}
+                                  className="text-brand-blue p-1 hover:bg-blue-100 rounded cursor-pointer"
+                                >
+                                  {copiedKey === `out_m_${shipment.id}` ? <Check size={14} className="text-emerald-500" /> : <Copy size={14} />}
+                                </button>
+                              </div>
+                            ) : (
+                              <div className="text-[11px] text-gray-400 italic">
+                                {isRu ? 'Формируется международный трек (СДЭК)' : 'Generating international tracking'}
+                              </div>
+                            )}
 
-                              {/* Weight */}
-                              <td className="py-4 px-4 font-bold text-brand-dark whitespace-nowrap">
-                                {shipment.weight ? `${shipment.weight} кг` : (isRu ? 'Взвешивается' : 'Weighing')}
-                              </td>
-
-                              {/* Cost & Payment */}
-                              <td className="py-4 px-4 whitespace-nowrap">
+                            {/* Cost, Payment status, and actions */}
+                            <div className="flex items-center justify-between gap-2 pt-2.5 border-t border-gray-200/60">
+                              <div>
                                 {shipment.shippingCost ? (
-                                  <div className="space-y-1">
-                                    <div className="font-black text-brand-dark text-xs">{shipment.shippingCost}</div>
-                                    <div className="flex items-center gap-1.5">
-                                      <span className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded-md ${
-                                        shipment.paymentStatus === 'paid' 
-                                          ? 'bg-emerald-100 text-emerald-800' 
-                                          : 'bg-orange-100 text-orange-800'
-                                      }`}>
-                                        {shipment.paymentStatus === 'paid' ? (isRu ? 'Оплачено' : 'Paid') : (isRu ? 'Ждёт оплаты' : 'Unpaid')}
-                                      </span>
-                                      {shipment.paymentStatus !== 'paid' && (
-                                        <button
-                                          onClick={() => setPaymentShipment(shipment)}
-                                          className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-[10px] px-2 py-0.5 rounded-md cursor-pointer transition-colors"
-                                        >
-                                          {isRu ? 'Оплатить' : 'Pay'}
-                                        </button>
-                                      )}
-                                    </div>
+                                  <div>
+                                    <div className="text-[10px] text-gray-400 font-bold uppercase">{isRu ? 'К оплате:' : 'Cost:'}</div>
+                                    <div className="font-black text-brand-dark text-sm">{shipment.shippingCost}</div>
                                   </div>
                                 ) : (
-                                  <span className="text-gray-400 text-xs italic">
-                                    {isRu ? 'Расчет при взвешивании' : 'Pending'}
-                                  </span>
+                                  <span className="text-gray-400 text-[11px] italic">{isRu ? 'Расчет при взвешивании' : 'Pending'}</span>
                                 )}
-                              </td>
+                              </div>
 
-                              {/* Outbound Tracking (CDEK) */}
-                              <td className="py-4 px-4 font-mono font-bold text-brand-blue whitespace-nowrap">
-                                {shipment.outboundTracking ? (
-                                  <div className="flex items-center gap-1.5">
-                                    <Truck size={14} />
-                                    <span>{shipment.outboundTracking}</span>
+                              <div className="flex items-center gap-2">
+                                {shipment.shippingCost && (
+                                  shipment.paymentStatus === 'paid' ? (
+                                    <span className="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-1 rounded-xl">
+                                      {isRu ? 'Оплачено' : 'Paid'}
+                                    </span>
+                                  ) : (
                                     <button
-                                      onClick={() => handleCopy(shipment.outboundTracking!, `out_${shipment.id}`)}
-                                      title={isRu ? 'Копировать' : 'Copy'}
-                                      className="p-1 text-gray-400 hover:text-brand-blue cursor-pointer transition-colors"
+                                      onClick={() => setPaymentShipment(shipment)}
+                                      className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs px-3 py-1.5 rounded-xl transition-colors shadow-xs cursor-pointer"
                                     >
-                                      {copiedKey === `out_${shipment.id}` ? (
-                                        <Check size={13} className="text-emerald-500" />
-                                      ) : (
-                                        <Copy size={13} />
-                                      )}
+                                      {isRu ? 'Оплатить' : 'Pay'}
                                     </button>
-                                  </div>
-                                ) : (
-                                  <span className="text-gray-400 italic text-xs">
-                                    {isRu ? 'Формируется трек' : 'Generating track'}
-                                  </span>
+                                  )
                                 )}
-                              </td>
 
-                              {/* Status Badge */}
-                              <td className="py-4 px-4 whitespace-nowrap">
-                                <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full border ${statusInfo.bg}`}>
-                                  {statusInfo.icon}
-                                  <span>{statusInfo.label}</span>
-                                </span>
-                              </td>
-
-                              {/* Quick Question / Photo Request Button */}
-                              <td className="py-4 px-4 text-right whitespace-nowrap">
                                 <a
                                   href={`https://t.me/${SUPPORT_CONTACTS.telegramUsername}?text=${encodeURIComponent(
                                     `Здравствуйте! Мой ID: ${user.clientCode}. Вопрос по отправлению #${shipment.shipmentNumber}${shipment.outboundTracking ? ` (трек: ${shipment.outboundTracking})` : ''}. Прошу предоставить детальное фото/информацию.`
                                   )}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="bg-brand-blue/10 hover:bg-brand-blue text-brand-blue hover:text-white px-3 py-1.5 rounded-xl font-bold text-xs transition-all inline-flex items-center gap-1.5 cursor-pointer shadow-xs"
+                                  className="bg-brand-blue/10 hover:bg-brand-blue text-brand-blue hover:text-white p-2 rounded-xl transition-all cursor-pointer"
+                                  title={isRu ? 'Задать вопрос / фото' : 'Help / Photo'}
                                 >
-                                  <MessageCircle size={13} />
-                                  <span>{isRu ? 'Задать вопрос / фото' : 'Photo / Help'}</span>
+                                  <MessageCircle size={16} />
                                 </a>
-                              </td>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
 
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
+                    {/* Desktop Table View (hidden on screens < lg) */}
+                    <div className="hidden lg:block overflow-x-auto rounded-2xl border border-gray-200/80">
+                      <table className="w-full text-left border-collapse text-xs">
+                        <thead>
+                          <tr className="bg-gray-50/90 border-b border-gray-200 text-gray-500 font-extrabold uppercase tracking-wider text-[11px]">
+                            <th className="py-3.5 px-4">{isRu ? '№ Отправления' : 'Shipment #'}</th>
+                            <th className="py-3.5 px-4">{isRu ? 'Китайские треки в посылке' : 'Included Goods'}</th>
+                            <th className="py-3.5 px-4">{isRu ? 'Фото партии' : 'Photo'}</th>
+                            <th className="py-3.5 px-4">{isRu ? 'Вес (кг)' : 'Weight'}</th>
+                            <th className="py-3.5 px-4">{isRu ? 'К оплате & Статус' : 'Cost & Status'}</th>
+                            <th className="py-3.5 px-4">{isRu ? 'Междунар. трек (СДЭК)' : 'Outbound Track'}</th>
+                            <th className="py-3.5 px-4">{isRu ? 'Статус' : 'Status'}</th>
+                            <th className="py-3.5 px-4 text-right">{isRu ? 'Вопрос / Связь' : 'Action'}</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-100 bg-white">
+                          {filteredShipments.map((shipment) => {
+                            const statusInfo = getOutboundStatusBadge(shipment.status);
+                            return (
+                              <tr key={shipment.id} className="hover:bg-gray-50/60 transition-colors">
+                                
+                                {/* Shipment Number */}
+                                <td className="py-4 px-4 font-mono font-black text-brand-dark">
+                                  <span className="bg-brand-blue/10 text-brand-blue px-2.5 py-1 rounded-xl text-xs inline-block">
+                                    #{shipment.shipmentNumber}
+                                  </span>
+                                </td>
+
+                                {/* Included Inbound Trackings */}
+                                <td className="py-4 px-4 max-w-[220px]">
+                                  <div className="font-bold text-brand-dark mb-1 truncate">
+                                    {shipment.productSummary || (isRu ? 'Сборная посылка' : 'Consolidated Box')}
+                                  </div>
+                                  <div className="flex flex-wrap gap-1">
+                                    {shipment.inboundTrackings?.map((track, idx) => (
+                                      <span 
+                                        key={idx} 
+                                        className="font-mono text-[10px] bg-gray-100 hover:bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded cursor-pointer transition-colors"
+                                        onClick={() => handleCopy(track, `track_${shipment.id}_${idx}`)}
+                                        title={isRu ? 'Нажмите, чтобы скопировать' : 'Click to copy'}
+                                      >
+                                        {track}
+                                        {copiedKey === `track_${shipment.id}_${idx}` && ' ✓'}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </td>
+
+                                {/* Photo Preview Thumbnail */}
+                                <td className="py-4 px-4">
+                                  {shipment.photoUrl ? (
+                                    <button
+                                      onClick={() => setLightboxPhotoUrl(shipment.photoUrl || null)}
+                                      className="w-12 h-12 rounded-xl overflow-hidden border border-gray-200 relative group cursor-pointer block shadow-xs"
+                                      title={isRu ? 'Открыть фото в полном размере' : 'View full photo'}
+                                    >
+                                      <img 
+                                        src={shipment.photoUrl} 
+                                        alt="Shipment" 
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform" 
+                                      />
+                                      <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                                        <Eye size={16} />
+                                      </div>
+                                    </button>
+                                  ) : (
+                                    <span className="text-[11px] text-gray-400 italic">
+                                      {isRu ? 'Фото загружается' : 'Processing photo'}
+                                    </span>
+                                  )}
+                                </td>
+
+                                {/* Weight */}
+                                <td className="py-4 px-4 font-bold text-brand-dark whitespace-nowrap">
+                                  {shipment.weight ? `${shipment.weight} кг` : (isRu ? 'Взвешивается' : 'Weighing')}
+                                </td>
+
+                                {/* Cost & Payment */}
+                                <td className="py-4 px-4 whitespace-nowrap">
+                                  {shipment.shippingCost ? (
+                                    <div className="space-y-1">
+                                      <div className="font-black text-brand-dark text-xs">{shipment.shippingCost}</div>
+                                      <div className="flex items-center gap-1.5">
+                                        <span className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded-md ${
+                                          shipment.paymentStatus === 'paid' 
+                                            ? 'bg-emerald-100 text-emerald-800' 
+                                            : 'bg-orange-100 text-orange-800'
+                                        }`}>
+                                          {shipment.paymentStatus === 'paid' ? (isRu ? 'Оплачено' : 'Paid') : (isRu ? 'Ждёт оплаты' : 'Unpaid')}
+                                        </span>
+                                        {shipment.paymentStatus !== 'paid' && (
+                                          <button
+                                            onClick={() => setPaymentShipment(shipment)}
+                                            className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-[10px] px-2 py-0.5 rounded-md cursor-pointer transition-colors"
+                                          >
+                                            {isRu ? 'Оплатить' : 'Pay'}
+                                          </button>
+                                        )}
+                                      </div>
+                                    </div>
+                                  ) : (
+                                    <span className="text-gray-400 text-xs italic">
+                                      {isRu ? 'Расчет при взвешивании' : 'Pending'}
+                                    </span>
+                                  )}
+                                </td>
+
+                                {/* Outbound Tracking (CDEK) */}
+                                <td className="py-4 px-4 font-mono font-bold text-brand-blue whitespace-nowrap">
+                                  {shipment.outboundTracking ? (
+                                    <div className="flex items-center gap-1.5">
+                                      <Truck size={14} />
+                                      <span>{shipment.outboundTracking}</span>
+                                      <button
+                                        onClick={() => handleCopy(shipment.outboundTracking!, `out_${shipment.id}`)}
+                                        title={isRu ? 'Копировать' : 'Copy'}
+                                        className="p-1 text-gray-400 hover:text-brand-blue cursor-pointer transition-colors"
+                                      >
+                                        {copiedKey === `out_${shipment.id}` ? (
+                                          <Check size={13} className="text-emerald-500" />
+                                        ) : (
+                                          <Copy size={13} />
+                                        )}
+                                      </button>
+                                    </div>
+                                  ) : (
+                                    <span className="text-gray-400 italic text-xs">
+                                      {isRu ? 'Формируется трек' : 'Generating track'}
+                                    </span>
+                                  )}
+                                </td>
+
+                                {/* Status Badge */}
+                                <td className="py-4 px-4 whitespace-nowrap">
+                                  <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full border ${statusInfo.bg}`}>
+                                    {statusInfo.icon}
+                                    <span>{statusInfo.label}</span>
+                                  </span>
+                                </td>
+
+                                {/* Quick Question / Photo Request Button */}
+                                <td className="py-4 px-4 text-right whitespace-nowrap">
+                                  <a
+                                    href={`https://t.me/${SUPPORT_CONTACTS.telegramUsername}?text=${encodeURIComponent(
+                                      `Здравствуйте! Мой ID: ${user.clientCode}. Вопрос по отправлению #${shipment.shipmentNumber}${shipment.outboundTracking ? ` (трек: ${shipment.outboundTracking})` : ''}. Прошу предоставить детальное фото/информацию.`
+                                    )}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-brand-blue/10 hover:bg-brand-blue text-brand-blue hover:text-white px-3 py-1.5 rounded-xl font-bold text-xs transition-all inline-flex items-center gap-1.5 cursor-pointer shadow-xs"
+                                  >
+                                    <MessageCircle size={13} />
+                                    <span>{isRu ? 'Задать вопрос / фото' : 'Photo / Help'}</span>
+                                  </a>
+                                </td>
+
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  </>
                 )}
 
               </div>
@@ -1350,7 +1721,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                 </div>
 
                 {/* Warehouse Category Selector Tabs */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 bg-gray-100 p-2 rounded-2xl mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 bg-gray-100 p-2 rounded-2xl mb-6">
                   {WAREHOUSES.map((wh) => (
                     <button
                       key={wh.id}
@@ -1373,7 +1744,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                 </div>
 
                 {/* Selected Warehouse Details Card */}
-                <div className="bg-cream/60 rounded-3xl p-5 md:p-7 border border-brand-blue/15 space-y-5">
+                <div className="bg-cream/60 rounded-3xl p-4 sm:p-7 border border-brand-blue/15 space-y-5">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-200/60">
                     <div>
                       <h3 className="font-extrabold text-base md:text-lg text-brand-dark">
@@ -1390,7 +1761,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                         const fullAddr = `${currentWarehouse.addressTemplateCn.replace('{RECIPIENT_CODE}', recipientCode)}, 收件人: ${recipientCode}, 电话: ${WAREHOUSE_PHONE}, 邮编: ${currentWarehouse.zipCode}`;
                         handleCopy(fullAddr, 'full_address');
                       }}
-                      className="flex items-center gap-2 bg-brand-dark hover:bg-brand-blue text-white px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md active:scale-95 shrink-0 self-start sm:self-center cursor-pointer"
+                      className="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-dark hover:bg-brand-blue text-white px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md active:scale-95 shrink-0 cursor-pointer"
                     >
                       {copiedKey === 'full_address' ? (
                         <>
@@ -1422,7 +1793,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                           {copiedKey === 'addr' ? (isRu ? 'Скопировано' : 'Copied') : (isRu ? 'Копировать' : 'Copy')}
                         </button>
                       </div>
-                      <p className="font-mono text-brand-dark font-bold text-sm md:text-base select-all">
+                      <p className="font-mono text-brand-dark font-bold text-sm md:text-base select-all break-all">
                         {currentWarehouse.addressTemplateCn.replace('{RECIPIENT_CODE}', recipientCode)}
                       </p>
                     </div>
@@ -1580,8 +1951,8 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                     />
                     <p className="mt-1.5 text-[11px] text-brand-blue font-bold">
                       {isRu 
-                        ? `Настоящее имя и фамилия используются для формирования вашего ID (Код: ${recipientCode})` 
-                        : `Your real name is used to generate your client ID (Code: ${recipientCode})`}
+                        ? `Настоящее имя и фамилия формируют ваш персональный код получателя с дефисом (Код: ${recipientCode})` 
+                        : `Your real name generates your personal recipient code with a hyphen (Code: ${recipientCode})`}
                     </p>
                   </div>
 
@@ -1611,11 +1982,11 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                     />
                   </div>
 
-                  <div className="md:col-span-2 flex justify-end pt-2">
+                  <div className="md:col-span-2 flex justify-stretch sm:justify-end pt-2">
                     <button
                       type="submit"
                       disabled={isUpdatingProfile}
-                      className="bg-brand-dark hover:bg-brand-blue text-white px-6 py-3.5 rounded-2xl font-bold text-sm transition-all shadow-md active:scale-95 flex items-center gap-2 disabled:opacity-50 cursor-pointer"
+                      className="w-full sm:w-auto bg-brand-dark hover:bg-brand-blue text-white px-6 py-3.5 rounded-2xl font-bold text-sm transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
                     >
                       {isUpdatingProfile ? (
                         <Loader2 size={16} className="animate-spin" />
@@ -1632,6 +2003,39 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
 
             </div>
           )}
+
+          {/* Quick Help Banner on Mobile & Tablet (shown on screens < lg) */}
+          <div className="block lg:hidden bg-gradient-to-br from-blue-50 to-indigo-50/60 rounded-3xl p-5 border border-blue-100 text-xs mt-6 shadow-2xs">
+            <div className="flex items-center gap-2 text-brand-blue font-extrabold mb-1.5 text-sm">
+              <MessageCircle size={18} />
+              <span>{isRu ? 'Служба поддержки HappyBox' : 'Customer Support'}</span>
+            </div>
+            <p className="text-gray-500 text-xs mb-3.5 leading-relaxed">
+              {isRu 
+                ? 'Вопросы по выкупу, посылкам, консолидации или доставке? Напишите нам в мессенджер:' 
+                : 'Questions about orders, parcels, consolidation, or shipping? Chat with us:'}
+            </p>
+            <div className="grid grid-cols-2 gap-2.5">
+              <a
+                href={`https://t.me/${SUPPORT_CONTACTS.telegramUsername}?text=${supportMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-[#2AABEE] hover:bg-[#229ED9] text-white py-3 rounded-xl font-bold text-xs shadow-xs transition-all active:scale-95"
+              >
+                <Send size={14} />
+                <span>Telegram</span>
+              </a>
+              <a
+                href={`https://wa.me/8613048875834?text=${supportMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white py-3 rounded-xl font-bold text-xs shadow-xs transition-all active:scale-95"
+              >
+                <Phone size={14} />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
 
         </main>
       </div>

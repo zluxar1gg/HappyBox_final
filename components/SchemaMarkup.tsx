@@ -101,25 +101,33 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
     };
   }
 
-  // 4. Article Schema (For blog posts)
+  // 4. BlogPosting Schema (For blog posts)
   let articleSchema: any = null;
   if (currentPage === "blogPost" && slug) {
     const post = getBlogPostBySlug(slug, language);
     if (post) {
+      const articleUrl = `https://happyboxlogistics.com${language === "ru" ? "/ru/blog/" : "/blog/"}${slug}`;
+      const imageUrl = post.imageUrl.startsWith("http") 
+        ? post.imageUrl 
+        : `https://happyboxlogistics.com${post.imageUrl}`;
+
       articleSchema = {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "BlogPosting",
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": articleUrl,
+        },
         headline: post.title,
-        image: [post.imageUrl],
+        image: [imageUrl],
         datePublished: post.date,
         dateModified: post.date,
-        author: [
-          {
-            "@type": "Organization",
-            name: "HappyBox Logistics",
-            url: "https://happyboxlogistics.com",
-          },
-        ],
+        inLanguage: language,
+        author: {
+          "@type": "Organization",
+          name: "HappyBox Logistics",
+          url: "https://happyboxlogistics.com",
+        },
         publisher: {
           "@type": "Organization",
           name: "HappyBox Logistics",

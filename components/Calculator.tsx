@@ -2,6 +2,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Language, translations } from '../utils/translations';
 import { Info, Truck, Plane, Anchor, AlertCircle, HelpCircle } from 'lucide-react';
+import { trackCalculator } from '../utils/analytics';
 
 const RATES: Record<string, number> = {
   'us': 19, 'ca': 15.5, 'au': 15, 'ae': 20, 'pl': 16, 'de': 16, 'fr': 16, 'es': 16, 'pt': 16,
@@ -104,6 +105,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
     
     if (country === 'other') {
         setResult({ isOther: true, method: 'air' });
+        trackCalculator('other', currentWeightKg, 'air', 0);
         return;
     }
 
@@ -131,14 +133,18 @@ export const Calculator: React.FC<CalculatorProps> = ({ language, onOpenQuiz, de
       if (['pl', 'de', 'fr'].includes(country)) warning = t.euDisclaimer;
     }
 
+    const calculatedPrice = Math.max(20, finalPrice);
+
     setResult({
       isOther: false,
-      price: Math.max(20, finalPrice),
+      price: calculatedPrice,
       time: timeEstimate,
       weightKg: currentWeightKg,
       method: method,
       warningNote: warning
     });
+
+    trackCalculator(country, currentWeightKg, method, calculatedPrice);
   };
 
   return (

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Language, translations } from '../utils/translations';
 import { Send, ArrowLeft, RefreshCw, X, Check, Star, Plane, Anchor, Truck, Train } from 'lucide-react';
-import { trackLead } from '../utils/analytics';
+import { trackLead, trackQuiz } from '../utils/analytics';
 
 interface QuizProps {
   language: Language;
@@ -35,6 +35,13 @@ export const Quiz: React.FC<QuizProps> = ({ language, isOpen, onClose }) => {
     }
     return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen]);
+
+  useEffect(() => {
+    if (step === 'result' && state.country) {
+      const res = getResult();
+      trackQuiz(state.country, state.category, state.weight, res.title);
+    }
+  }, [step]);
 
   const handleCountrySelect = (c: CountryKey) => {
     setState(prev => ({ ...prev, country: c }));

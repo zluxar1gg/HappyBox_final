@@ -15,7 +15,7 @@ import {
 } from 'firebase/firestore';
 import { auth, db } from './firebase';
 import { UserProfile, UserRole } from '../types';
-import { ADMIN_EMAILS, CLIENT_ID_BASE } from '../constants';
+import { ADMIN_EMAILS, CLIENT_ID_BASE, extractInitials, formatRecipientCode, getClientCodeNumber } from '../constants';
 
 // Helper: Check if email has admin privileges
 export const checkIsAdmin = (email: string | null | undefined): boolean => {
@@ -23,9 +23,10 @@ export const checkIsAdmin = (email: string | null | undefined): boolean => {
   return ADMIN_EMAILS.map(e => e.toLowerCase()).includes(email.trim().toLowerCase());
 };
 
-// Helper: Generate next client code using atomic Firestore transaction (HB-8140, HB-8141, etc.)
-async function generateNextClientCode(): Promise<string> {
+// Helper: Generate next client code using atomic Firestore transaction (e.g. DK-8140, II-8141, etc.)
+async function generateNextClientCode(fullName?: string): Promise<string> {
   const counterRef = doc(db, 'counters', 'clients');
+  const initials = extractInitials(fullName); // e.g. "DK", "II", or "HB"
   try {
     const nextCode = await runTransaction(db, async (transaction) => {
       const counterSnap = await transaction.get(counterRef);
@@ -40,13 +41,13 @@ async function generateNextClientCode(): Promise<string> {
       
       // Save next number for subsequent registrations
       transaction.set(counterRef, { currentNumber: nextNumber + 1 }, { merge: true });
-      return `HB-${nextNumber}`;
+      return `${initials}-${nextNumber}`;
     });
 
     return nextCode;
   } catch (err) {
     console.warn('Failed to run atomic transaction on counter, fallback:', err);
-    return `HB-${CLIENT_ID_BASE + Math.floor(Math.random() * 500) + 1}`;
+    return `${initials}-${CLIENT_ID_BASE + Math.floor(Math.random() * 500) + 1}`;
   }
 }
 
@@ -71,7 +72,28 @@ export async function getUserProfile(uid: string): Promise<UserProfile | null> {
         if (hasChanges) {
           await updateDoc(userDocRef, { role: 'admin', clientCode: 'HB-ADMIN' });
         }
+        return data;
       }
+
+      // Auto-migrate clientCode from HB-814X to initials if user has a real fullName
+      const isRealName = Boolean(
+        data.fullName && 
+        data.fullName.trim() && 
+        data.fullName.trim().toLowerCase() !== 'клиент' && 
+        data.fullName.trim().toLowerCase() !== 'client'
+      );
+      if (isRealName && data.clientCode && data.clientCode.startsWith('HB-')) {
+        const correctCode = formatRecipientCode(data.fullName, data.clientCode);
+        if (correctCode && correctCode !== data.clientCode && !correctCode.startsWith('HB-')) {
+          data.clientCode = correctCode;
+          try {
+            await updateDoc(userDocRef, { clientCode: correctCode });
+          } catch (e) {
+            console.warn('Could not auto-migrate clientCode in Firestore:', e);
+          }
+        }
+      }
+
       return data;
     }
     return null;
@@ -89,18 +111,23 @@ export async function registerUser(
   phone: string = '',
   shippingAddress: string = ''
 ): Promise<UserProfile> {
+  const trimmedName = fullName.trim();
+  const isAdmin = checkIsAdmin(email);
+  if (!trimmedName && !isAdmin) {
+    throw new Error('Имя обязательно для регистрации (для формирования персонального кода)');
+  }
+
   const cred = await createUserWithEmailAndPassword(auth, email.trim(), password);
   const fbUser = cred.user;
 
-  const isAdmin = checkIsAdmin(fbUser.email);
   const role: UserRole = isAdmin ? 'admin' : 'customer';
-  const clientCode = isAdmin ? 'HB-ADMIN' : await generateNextClientCode();
+  const clientCode = isAdmin ? 'HB-ADMIN' : await generateNextClientCode(trimmedName);
 
   const profile: UserProfile = {
     uid: fbUser.uid,
     email: fbUser.email || email.trim(),
     clientCode,
-    fullName: fullName.trim() || (isAdmin ? 'HappyBox Admin' : ''),
+    fullName: trimmedName || (isAdmin ? 'HappyBox Admin' : ''),
     phone: phone.trim(),
     shippingAddress: shippingAddress.trim(),
     role,
@@ -124,7 +151,7 @@ export async function loginUser(email: string, password: string): Promise<UserPr
     profile = {
       uid: fbUser.uid,
       email: fbUser.email || email.trim(),
-      clientCode: isAdmin ? 'HB-ADMIN' : await generateNextClientCode(),
+      clientCode: isAdmin ? 'HB-ADMIN' : await generateNextClientCode(fbUser.displayName || ''),
       fullName: fbUser.displayName || (isAdmin ? 'HappyBox Admin' : 'Клиент'),
       phone: '',
       shippingAddress: '',
@@ -153,7 +180,26 @@ export async function updateUserProfile(
   updates: Partial<Pick<UserProfile, 'fullName' | 'phone' | 'shippingAddress'>>
 ): Promise<void> {
   const userDocRef = doc(db, 'users', uid);
-  await updateDoc(userDocRef, updates);
+  const finalUpdates: any = { ...updates };
+
+  if (updates.fullName && updates.fullName.trim()) {
+    try {
+      const snap = await getDoc(userDocRef);
+      if (snap.exists()) {
+        const currentData = snap.data() as UserProfile;
+        if (!checkIsAdmin(currentData.email)) {
+          const newCode = formatRecipientCode(updates.fullName, currentData.clientCode);
+          if (newCode && newCode !== currentData.clientCode) {
+            finalUpdates.clientCode = newCode;
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('Could not recalculate clientCode during profile update:', e);
+    }
+  }
+
+  await updateDoc(userDocRef, finalUpdates);
 }
 
 // Subscribe to auth state changes
