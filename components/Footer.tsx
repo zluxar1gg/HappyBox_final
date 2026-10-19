@@ -108,8 +108,8 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
   const footerSections = {
     brand: {
       tagline: isRu 
-        ? 'Надежный сервис выкупа товаров с фабрик Китая и экспресс-доставка по всему миру под ключ.' 
-        : 'Your trusted China purchasing agent and all-in-one global freight forwarding partner.',
+        ? 'Сервис от людей для людей с живым общением и поддержкой. Надежный выкуп товаров с фабрик Китая и доставка по всему миру.' 
+        : 'A human service for real people with live support. China sourcing agent & worldwide freight forwarding.',
       office: isRu
         ? 'Главный офис: 27B, Nanjinyuan Building, Шэньчжэнь, Гуандун, Китай'
         : 'Head Office: 27B, Nanjinyuan Building, Shenzhen, Guangdong, China'
@@ -124,7 +124,8 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         { label: 'Tmall', path: '/tmall' },
         { label: 'Pinduoduo', path: '/pinduoduo' },
         { label: 'Weidian', path: '/weidian' },
-        { label: 'Xianyu', path: '/xianyu' },
+        { label: isRu ? 'Xianyu (Idle Fish)' : 'Goofish / Xianyu', path: '/xianyu' },
+        { label: 'Xiaohongshu (XHS)', path: '/xhs' },
       ]
     },
     destinations: {

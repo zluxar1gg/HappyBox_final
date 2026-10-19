@@ -19,6 +19,12 @@ export const About: React.FC<AboutProps> = ({ language }) => {
   return (
     <section className="py-20 bg-cream">
       <div className="container mx-auto px-6 xl:px-0">
+        <div className="text-center mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-brand-yellow/80 border border-brand-yellow text-brand-dark rounded-full text-xs md:text-sm font-bold tracking-wide shadow-xs">
+                ❤️ {t.slogan}
+            </span>
+        </div>
+
         {/* Full Width Title */}
         <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-12 md:mb-20 text-center max-w-5xl mx-auto leading-tight tracking-tight">
             {t.title}

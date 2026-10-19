@@ -84,6 +84,11 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
     <section className="py-16 bg-cream">
       <div className="container mx-auto">
         <div className="flex flex-col items-start lg:items-center text-left lg:text-center mb-10 lg:mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-blue/10 border border-brand-blue/20 rounded-full text-brand-blue font-bold text-xs md:text-sm tracking-wide mb-5 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
+                <span>{t.slogan}</span>
+            </div>
+            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
                 {t.title}
             </h1>

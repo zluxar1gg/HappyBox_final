@@ -170,7 +170,12 @@ export async function logoutUser(): Promise<void> {
 }
 
 // Send password reset email
-export async function resetUserPassword(email: string): Promise<void> {
+export async function resetUserPassword(email: string, langCode: string = 'ru'): Promise<void> {
+  try {
+    auth.languageCode = langCode;
+  } catch (e) {
+    console.warn('Could not set auth.languageCode:', e);
+  }
   await sendPasswordResetEmail(auth, email.trim());
 }
 

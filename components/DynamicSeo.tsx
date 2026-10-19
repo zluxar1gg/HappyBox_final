@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Language } from '../utils/translations';
+import { Language, translations } from '../utils/translations';
 import { blogPosts } from '../utils/blogData';
 
 interface DynamicSeoProps {
@@ -71,8 +71,14 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
         desc: { en: 'Reliable Pinduoduo agent services. We purchase, inspect, and ship your PDD orders worldwide. Affordable shipping rates and direct factory access.', ru: 'Ваш проверенный посредник Pinduoduo. Выкупаем товары с PDD, предоставляем склад в Китае, проверяем качество и доставляем заказы.' }
       },
       xianyu: {
-        title: { en: `Xianyu Second-hand Sourcing | ${baseTitle}`, ru: `Покупки на Xianyu (Б/У товары) | ${baseTitle}` },
-        desc: { en: 'We help you safely buy items on Alibaba\'s used market (Xianyu).', ru: 'Поможем связаться с продавцом и безопасно купить Б/У товары на китайской площадке Xianyu.' }
+        title: { 
+          en: `Goofish (Xianyu) Agent: Buy Second-Hand from China | ${baseTitle}`, 
+          ru: `Посредник Xianyu (Goofish): Выкуп Б/У товаров из Китая | ${baseTitle}` 
+        },
+        desc: { 
+          en: 'Trusted Goofish (Xianyu / Idle Fish) purchasing agent. We negotiate prices in Chinese, inspect vintage fashion & used tech with video QC, and ship worldwide with DDP.', 
+          ru: 'Надежный посредник Xianyu (Goofish / Idle Fish). Проверяем рейтинг продавцов Sesame Credit, торгуемся на китайском, делаем видеопроверку на складе и отправляем DDP.' 
+        }
       },
       weidian: {
         title: { en: 'Trusted Weidian Agent: Buy Streetwear | HappyBox', ru: 'Посредник Weidian: стритвир без WeChat | HappyBox' },
@@ -170,6 +176,41 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
   const ruUrl = `${baseUrl}${ruPath}`;
   const canonicalUrl = language === 'ru' ? ruUrl : enUrl;
 
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'HappyBox Logistics',
+    alternateName: 'HappyBox',
+    url: baseUrl,
+    logo: 'https://i.ibb.co/C55Gbh27/happyboxdelivery.webp',
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: '+86 130 4887 5834',
+        contactType: 'customer support',
+        availableLanguage: ['Russian', 'English', 'Chinese']
+      }
+    ],
+    sameAs: [
+      'https://t.me/d_china_hbl',
+      'https://wa.me/8613048875834'
+    ]
+  };
+
+  const faqItems = translations[language].faq.items;
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer
+      }
+    }))
+  };
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -184,6 +225,18 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
       <link rel="alternate" hrefLang="ru" href={ruUrl} />
       <link rel="alternate" hrefLang="x-default" href={enUrl} />
       <html lang={language === 'ru' ? 'ru' : 'en'} />
+
+      {/* Organization Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify(organizationSchema)}
+      </script>
+
+      {/* FAQPage Structured Data (Homepage) */}
+      {currentPage === 'home' && (
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+      )}
     </Helmet>
   );
 };

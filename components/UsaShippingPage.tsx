@@ -7,6 +7,7 @@ import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
 import { UsaAdvancedLogisticsGuide } from './UsaAdvancedLogisticsGuide';
+import { Breadcrumbs } from './Breadcrumbs';
 import { Check, ShieldCheck, Plane, Anchor, ShoppingBag, Box, Send, FileCheck, Layers, ArrowRight } from 'lucide-react';
 
 interface UsaShippingPageProps {
@@ -191,6 +192,16 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
             <main>
                 <section className="py-12 lg:py-24 bg-cream">
                     <div className="container mx-auto px-6 xl:px-0">
+                         <div className="max-w-5xl mx-auto mb-4">
+                            <Breadcrumbs 
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={[
+                                    { label: language === 'ru' ? 'Все направления' : 'All Destinations', path: 'destinations' },
+                                    { label: language === 'ru' ? 'Доставка в США' : 'USA Shipping' }
+                                ]}
+                            />
+                         </div>
                          <div className="max-w-5xl mx-auto text-center">
                             <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                 {language === 'en' ? 'USA-Direct Line' : 'Прямая линия в США'}

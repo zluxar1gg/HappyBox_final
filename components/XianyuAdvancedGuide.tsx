@@ -4,13 +4,13 @@ import { ArrowRight } from 'lucide-react';
 export const XianyuAdvancedGuide = ({ language, onNavigate }: { language: 'en' | 'ru', onNavigate: (page: string) => void }) => {
     const content = {
         en: {
-            title: "Xianyu Buying Guide 2026: How to Buy Second-Hand from China Safely",
-            subtitle: "Everything international buyers need to know about purchasing from Xianyu (Idle Fish).",
+            title: "Goofish / Xianyu Buying Guide 2026: How to Buy Second-Hand from China Safely",
+            subtitle: "Everything international buyers need to know about purchasing from Goofish (Xianyu / 闲鱼 / Idle Fish).",
             sections: [
                 {
-                    title: "1. What Is Xianyu and Why Does It Matter for International Buyers",
-                    shortTitle: "1. What Is Xianyu",
-                    contentPre: "Xianyu — literally «Idle Fish» — launched in 2014 as Alibaba's answer to peer-to-peer secondhand commerce. It has since grown into the largest secondhand marketplace in China with over 500 million registered users and hundreds of millions of active listings.\n\nWhat makes it different from other Chinese platforms:\n\nEvery seller is a private individual, not a business. This means no minimum order quantities, no bulk pricing structures, and no professional seller accountability — but also no retail markup. Items are priced to sell, not to profit.\n\nThe inventory depth is unmatched for specific categories: vintage luxury goods, discontinued sneaker models, rare Japanese streetwear, limited collectibles, vintage electronics, and camera equipment that simply doesn't appear on Taobao or 1688.\n\nWhy it's largely inaccessible to international buyers:\nXianyu requires Alipay for payment and a verified Chinese account for full functionality. More importantly, private sellers have no mechanism or motivation to ship internationally — they're not businesses, they're individuals clearing out personal possessions. Without a local agent, the platform is effectively closed to anyone outside China."
+                    title: "1. What Is Goofish / Xianyu and Why Does It Matter for International Buyers",
+                    shortTitle: "1. What Is Goofish / Xianyu",
+                    contentPre: "Goofish (the international brand for Xianyu, literally «Idle Fish») launched in 2014 as Alibaba's answer to peer-to-peer secondhand commerce. It has since grown into the largest secondhand marketplace in China with over 500 million registered users and hundreds of millions of active listings.\n\nWhat makes it different from other Chinese platforms:\n\nEvery seller is a private individual, not a business. This means no minimum order quantities, no bulk pricing structures, and no professional seller accountability — but also no retail markup. Items are priced to sell, not to profit.\n\nThe inventory depth is unmatched for specific categories: vintage luxury goods, discontinued sneaker models, rare Japanese streetwear, limited collectibles, vintage electronics, and camera equipment that simply doesn't appear on Taobao or 1688.\n\nWhy it's largely inaccessible to international buyers:\nXianyu requires Alipay for payment and a verified Chinese account for full functionality. More importantly, private sellers have no mechanism or motivation to ship internationally — they're not businesses, they're individuals clearing out personal possessions. Without a local agent, the platform is effectively closed to anyone outside China."
                 },
                 {
                     title: "2. Sesame Credit: The Trust System You Need to Understand",

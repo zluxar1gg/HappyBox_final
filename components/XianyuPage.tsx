@@ -7,30 +7,32 @@ import { FloatingContact } from './FloatingContact';
 import { ShieldCheck, Box, Percent, Send, CheckCircle2, Search, Video, BadgeCheck } from 'lucide-react';
 import { XianyuAdvancedGuide } from './XianyuAdvancedGuide';
 
+import { Breadcrumbs } from './Breadcrumbs';
+
 export const XianyuPage = ({ language, setLanguage, onBack, onNavigate }: { language: 'en' | 'ru', setLanguage: (lang: 'en' | 'ru') => void, onBack: () => void, onNavigate: (page: string) => void }) => {
     const content = {
         en: {
-            badge: "XIANYU (IDLE FISH) AGENT",
-            titlePrefix: "Xianyu Agent:",
-            titleHighlight: "Buy Second-Hand & Vintage",
-            subtitle: "Access China's largest second-hand marketplace. We negotiate, inspect, and ship unique finds from Xianyu (Idle Fish) — vintage luxury, rare sneakers, used tech, and collectibles at a fraction of retail price.",
-            whyTitle: "Why Xianyu — and Why You Need an Agent",
-            whyText1: "Xianyu (闲鱼, Idle Fish) is Alibaba's peer-to-peer marketplace — China's equivalent of eBay or Depop, but with 500 million registered users and a vastly deeper inventory of secondhand goods. Vintage designer pieces, rare sneakers, limited collectibles, and lightly used electronics change hands here daily at prices that don't exist anywhere else.\n\nThe problem: every seller is a private individual. No English, no international shipping, no buyer protection comparable to mainstream platforms. Buying used goods without a physical inspection is a significant financial risk.",
-            whyText2: "HappyBox acts as your Xianyu agent. We negotiate the price, verify the seller's trustworthiness, inspect the item physically at our Shenzhen warehouse, and ship internationally on DDP terms.",
+            badge: "GOOFISH / XIANYU (IDLE FISH) AGENT",
+            titlePrefix: "Goofish & Xianyu Agent:",
+            titleHighlight: "Buy Second-Hand & Vintage from China",
+            subtitle: "Access China's largest second-hand marketplace via Alibaba's Goofish (Xianyu / Idle Fish) app. We negotiate in Chinese, verify Sesame Credit ratings, inspect condition with video & photo reports, and ship internationally with full DDP door-to-door delivery.",
+            whyTitle: "Why Goofish (Xianyu) — and Why You Need an Agent",
+            whyText1: "Goofish (formerly known as Xianyu / 闲鱼 / Idle Fish) is Alibaba's official consumer-to-consumer marketplace — China's equivalent of eBay, Depop, or Mercari, but with 500 million registered users and a vastly deeper inventory of secondhand goods. Vintage designer pieces, rare sneakers, limited collectibles, and lightly used electronics change hands here daily at prices that don't exist anywhere else.\n\nThe problem: every seller is a private individual. No English interface, no international shipping, and no buyer protection for overseas customers without Chinese bank accounts. Buying used goods without an on-the-ground agent is a significant financial risk.",
+            whyText2: "HappyBox acts as your professional Goofish (Xianyu) purchasing agent. We negotiate the price in Chinese, verify the seller's Sesame Credit score, inspect the item physically at our Shenzhen warehouse, and ship internationally on DDP terms.",
             processTitle: "How It Works (5 Steps)",
             process: [
-                { icon: Search, title: "1 — Find Your Item", desc: "Browse the Xianyu app for unique finds. Copy the product link." },
+                { icon: Search, title: "1 — Find Your Item", desc: "Browse the Goofish (Xianyu) app for unique finds. Copy and share the product link." },
                 { icon: BadgeCheck, title: "2 — We Verify and Negotiate", desc: "Send us the link. We check the seller's Sesame Credit rating and negotiate the price — typically 10–20% below the listed price." },
-                { icon: Video, title: "3 — Video Inspection", desc: "For higher-value items, we request a live video from the seller showing the item's current condition before purchasing. If it doesn't match the listing, we don't buy." },
+                { icon: Video, title: "3 — Video QC Inspection", desc: "For higher-value items, we request a live video from the seller showing the item's current condition before purchasing. If it doesn't match the listing, we don't buy." },
                 { icon: ShieldCheck, title: "4 — Warehouse QC", desc: "When the item arrives at our Shenzhen warehouse, we conduct a detailed physical inspection and send you a full photo report — including close-ups of any wear, damage, or condition details." },
                 { icon: Send, title: "5 — International Shipping", desc: "We ship to your destination on DDP terms — all duties and taxes included in your quote." }
             ],
-            expertTitle: "Solving Your Biggest Xianyu Shopping Fears",
+            expertTitle: "Solving Your Biggest Goofish Shopping Fears",
             expertList: [
                 { title: "What if the item is not as described?", desc: "We request a video from the seller before purchasing for any significant item. When the item arrives at our warehouse, we inspect against the listing description and send you detailed photos. If there's a major discrepancy, we raise a dispute with the seller immediately — while the item is still in China." },
                 { title: "What if the seller is untrustworthy?", desc: "We check Sesame Credit before every purchase. Sesame Credit is Alibaba's financial trust score — sellers with Excellent rating have a verified track record on the platform. Low-rated sellers are declined." },
-                { title: "What if I overpay?", desc: "Bargaining is standard practice on Xianyu. We negotiate in Chinese on your behalf — typically achieving 10–20% below the listed price. Private sellers expect to negotiate; most international buyers don't know this." },
-                { title: "What if the seller won't accept returns?", desc: "Most Xianyu sellers do not accept returns — this is standard for private secondhand sales. Our pre-purchase video verification and warehouse inspection are your protection. We flag condition issues before you commit, not after." }
+                { title: "What if I overpay?", desc: "Bargaining is standard practice on Goofish. We negotiate in Chinese on your behalf — typically achieving 10–20% below the listed price. Private sellers expect to negotiate; most international buyers don't know this." },
+                { title: "What if the seller won't accept returns?", desc: "Most Goofish sellers do not accept returns — this is standard for private secondhand sales. Our pre-purchase video verification and warehouse inspection are your protection. We flag condition issues before you commit, not after." }
             ],
             benefitsTitle: "Key Benefits",
             benefitsList: [
@@ -42,11 +44,11 @@ export const XianyuPage = ({ language, setLanguage, onBack, onNavigate }: { lang
             ],
             feeTitle: "Our Fee",
             feeText: "Purchasing and negotiation commission: 3% of the order amount.",
-            cta: "Start Shopping on Xianyu"
+            cta: "Start Shopping on Goofish (Xianyu)"
         },
         ru: {
-            badge: "АГЕНТ XIANYU (IDLE FISH)",
-            titlePrefix: "Агент Xianyu:",
+            badge: "АГЕНТ XIANYU / GOOFISH (IDLE FISH)",
+            titlePrefix: "Агент Xianyu (Goofish):",
             titleHighlight: "Покупка б/у и винтажных вещей",
             subtitle: "Доступ к крупнейшему в Китае рынку подержанных вещей. Мы ведем переговоры, проверяем и отправляем уникальные находки с Xianyu (Idle Fish) — винтажный люкс, редкие кроссовки, б/у технику и коллекционные предметы по ценам в разы ниже розничных.",
             whyTitle: "Почему Xianyu — и зачем вам нужен агент",
@@ -97,6 +99,16 @@ export const XianyuPage = ({ language, setLanguage, onBack, onNavigate }: { lang
             <main>
                 <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
                     <div className="container mx-auto px-6 xl:px-0 relative z-10"> 
+                         <div className="max-w-5xl mx-auto mb-4">
+                            <Breadcrumbs 
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={[
+                                    { label: language === 'ru' ? 'Выкуп с площадок' : 'Sourcing Services', path: 'home' },
+                                    { label: language === 'ru' ? 'Xianyu (Goofish)' : 'Goofish (Xianyu)' }
+                                ]}
+                            />
+                         </div>
                          <div className="max-w-5xl mx-auto text-center">
                                 <span className="inline-flex items-center justify-center bg-[#FFE600]/20 text-[#D4B300] px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-[#FFE600]/50">
                                     {t.badge}

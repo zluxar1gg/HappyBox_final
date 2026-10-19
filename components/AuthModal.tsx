@@ -79,7 +79,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, language,
         if (!email.trim()) {
           throw new Error(isRu ? 'Введите ваш Email для восстановления' : 'Please enter your email');
         }
-        await resetPassword(email);
+        await resetPassword(email, isRu ? 'ru' : 'en');
         setSuccessMessage(
           isRu 
             ? 'Письмо со ссылкой для сброса пароля отправлено на ваш Email!' 

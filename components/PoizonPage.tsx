@@ -3,9 +3,10 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { Contact } from './Contact';
 import { SeoBlock } from './SeoBlock';
-import { FloatingContact } from './FloatingContact';
 import { ShieldCheck, Box, Percent, Send, CheckCircle2, Search, Smartphone } from 'lucide-react';
 import { PoizonAdvancedGuide } from './PoizonAdvancedGuide';
+import { Breadcrumbs } from './Breadcrumbs';
+import { FloatingContact } from './FloatingContact';
 
 export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { language: 'en' | 'ru', setLanguage: (lang: 'en' | 'ru') => void, onBack: () => void, onNavigate: (page: string) => void }) => {
     const content = {
@@ -99,6 +100,16 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
             <main>
                 <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
                     <div className="container mx-auto px-6 xl:px-0 relative z-10"> 
+                         <div className="max-w-5xl mx-auto mb-4">
+                            <Breadcrumbs 
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={[
+                                    { label: language === 'ru' ? 'Выкуп с площадок' : 'Sourcing Services', path: 'home' },
+                                    { label: language === 'ru' ? 'Посредник Poizon (Dewu)' : 'Poizon (Dewu) Agent' }
+                                ]}
+                            />
+                         </div>
                          <div className="max-w-5xl mx-auto text-center">
                                 <span className="inline-flex items-center justify-center bg-[#00B2B2]/10 text-[#00B2B2] px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                     {t.badge}

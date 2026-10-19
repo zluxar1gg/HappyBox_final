@@ -15,8 +15,26 @@ export const FAQ: React.FC<FAQProps> = ({ language }) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: t.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer
+      }
+    }))
+  };
+
   return (
     <section className="py-20 bg-cream" id="faq">
+      {/* Schema.org FAQPage Microdata (JSON-LD) for Google & Yandex Rich Snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="container mx-auto px-4 md:px-0">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-black text-brand-dark mb-4 tracking-tight">

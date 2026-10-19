@@ -194,8 +194,6 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
           "canada",
           "south-africa",
           "thailand",
-          "amazon",
-          "amazon-canada",
         ].includes(currentPage)
       ) {
         listItems.push({
@@ -203,6 +201,34 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
           position: position++,
           name: language === "ru" ? "Направления" : "Destinations",
           item: `https://happyboxlogistics.com${language === "ru" ? "/ru/destinations" : "/destinations"}`,
+        });
+      } else if (
+        [
+          "taobao",
+          "1688",
+          "alibaba",
+          "poizon",
+          "tmall",
+          "pinduoduo",
+          "weidian",
+          "xianyu",
+          "xhs",
+        ].includes(currentPage)
+      ) {
+        listItems.push({
+          "@type": "ListItem",
+          position: position++,
+          name: language === "ru" ? "Маркетплейсы Китая" : "China Marketplaces",
+          item: `https://happyboxlogistics.com${language === "ru" ? "/ru" : ""}#guides`,
+        });
+      } else if (
+        ["inspection", "warehousing", "amazon", "amazon-canada"].includes(currentPage)
+      ) {
+        listItems.push({
+          "@type": "ListItem",
+          position: position++,
+          name: language === "ru" ? "Услуги" : "Services",
+          item: `https://happyboxlogistics.com${language === "ru" ? "/ru" : ""}#services`,
         });
       }
 

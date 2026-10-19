@@ -16,6 +16,7 @@ export const translations = {
       faq: 'FAQ'
     },
     hero: {
+      slogan: 'Service by people for people — real communication, live human support',
       title: 'Fast & Reliable Shipping from China to Europe, USA, UAE & Worldwide.',
       minWeightBadge: 'No minimum weight requirements — shipping from 0.1 kg',
       features: {
@@ -151,6 +152,7 @@ export const translations = {
       contactBtn: 'Discuss this route'
     },
     about: {
+      slogan: 'A service by people for people — genuine human communication and live support',
       title: 'For over 9 years, we\'ve been providing reliable shipping and purchasing services from China and Hong Kong.',
       trustedText: 'We are one of the **most trusted purchasing and forwarding services**, with our own warehouses in China and Hong Kong. We ensure your delivery gets straight to your doorstep.',
       text: 'Your peace of mind is our priority. We handle negotiations with suppliers, offer free photo reports, and consolidate your packages to minimize shipping costs. Whether you are ordering a single pair of sneakers or a commercial batch of electronics - we remove language barriers and customs headaches, making cross-border shopping as easy as buying locally. No bots, no automated replies — just real experts helping you navigate the world\'s biggest marketplace.',
@@ -1151,6 +1153,7 @@ export const translations = {
       faq: 'FAQ'
     },
     hero: {
+      slogan: 'Сервис от людей для людей с живым общением и поддержкой',
       title: 'Быстрая и надежная доставка из Китая в Европу, США, ОАЭ и Россию.',
       minWeightBadge: 'Без минимального веса — доставка от 0.1 кг',
       features: {
@@ -1286,6 +1289,7 @@ export const translations = {
       contactBtn: 'Обсудить маршрут'
     },
     about: {
+      slogan: 'Сервис от людей для людей с живым общением и поддержкой',
       title: 'Уже более 9 лет мы обеспечиваем надежную доставку и выкуп товаров из Китая и Гонконга.',
       trustedText: 'Мы — один из **самых надежных сервисов по выкупу и доставке**, с собственными складами в Китае и Гонконге. Гарантируем доставку прямо до вашей двери.',
       text: 'Ваше спокойствие — наш приоритет. Мы берем на себя переговоры с поставщиками, предоставляем бесплатные фотоотчеты и консолидируем ваши посылки для минимизации стоимости доставки. Заказываете ли вы одну пару кроссовок или коммерческую партию электроники — мы устраняем языковые барьеры и таможенные сложности, делая международный шопинг таким же простым, как покупки в местном магазине. Никаких ботов и автоответчиков — только реальные эксперты, помогающие вам ориентироваться на крупнейшем рынке мира.',

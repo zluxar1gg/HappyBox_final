@@ -4,6 +4,7 @@ import { Contact } from './Contact';
 import { Footer } from './Footer';
 import { SeoBlock } from './SeoBlock';
 import { FloatingContact } from './FloatingContact';
+import { Breadcrumbs } from './Breadcrumbs';
 import { Language } from '../utils/translations';
 import { ArrowRight, Send } from 'lucide-react';
 
@@ -134,6 +135,16 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                 {/* Hero Section */}
                 <section className="py-12 lg:py-24 bg-cream">
                     <div className="container mx-auto px-6 xl:px-0">
+                        <div className="max-w-5xl mx-auto mb-4">
+                            <Breadcrumbs 
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={[
+                                    { label: language === 'ru' ? 'Все направления' : 'All Destinations', path: 'destinations' },
+                                    { label: t.badge || (language === 'ru' ? 'Доставка' : 'Shipping') }
+                                ]}
+                            />
+                        </div>
                         <div className="max-w-5xl mx-auto text-center">
                             <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                 {t.badge}

@@ -16,7 +16,7 @@ interface AuthContextType {
   login: (email: string, pass: string) => Promise<UserProfile>;
   register: (email: string, pass: string, name?: string, phone?: string, address?: string) => Promise<UserProfile>;
   logout: () => Promise<void>;
-  resetPassword: (email: string) => Promise<void>;
+  resetPassword: (email: string, langCode?: string) => Promise<void>;
   refreshProfile: () => Promise<void>;
 }
 
@@ -52,8 +52,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser(null);
   };
 
-  const resetPassword = async (email: string) => {
-    await resetUserPassword(email);
+  const resetPassword = async (email: string, langCode: string = 'ru') => {
+    await resetUserPassword(email, langCode);
   };
 
   const refreshProfile = async () => {
