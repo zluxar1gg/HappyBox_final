@@ -55,12 +55,12 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
         desc: { en: 'Source products directly from factories with our 1688 agent service. We handle negotiation, payment, inspection, and shipping.', ru: 'Ваш посредник для работы с 1688. Связываемся с фабриками, выкупаем товар, проверяем качество и доставляем оптовые заказы.' }
       },
       taobao: {
-        title: { en: 'Taobao Agent: Shop & Ship from China | HappyBox', ru: 'Посредник Таобао: выкуп и доставка | HappyBox' },
-        desc: { en: 'Buy directly from Taobao. We handle purchasing, quality inspection, consolidation, and worldwide shipping.', ru: 'Покупки на Таобао без проблем. Выкупаем товары, проверяем на складе в Китае, объединяем посылки и доставляем до вашей двери.' }
+        title: { en: 'Taobao Agent: Buy & Ship Worldwide from China (0% Fee) | HappyBox', ru: 'Посредник Таобао: выкуп и доставка товаров из Китая (0% комиссии) | HappyBox' },
+        desc: { en: 'Trusted Taobao purchasing agent with 0% service fee. We handle product search, supplier verification, quality check, consolidation, and worldwide shipping.', ru: 'Надежный посредник Taobao с комиссией 0%. Выкуп товаров в Китае, проверка на брак, бесплатная консолидация на складе и международная доставка до вашей двери.' }
       },
       poizon: {
-        title: { en: 'Poizon Agent China: Buy Sneakers & Apparel | HappyBox', ru: 'Посредник Poizon: доставка кроссовок | HappyBox' },
-        desc: { en: 'Buy authentic sneakers and streetwear from Poizon (Dewu) with our agent service. Quality inspection and international shipping.', ru: 'Надежный посредник Poizon (Dewu). Выкуп оригинальных кроссовок и одежды из Китая, проверка качества и быстрая доставка.' }
+        title: { en: 'Poizon (Dewu) Agent China: 0% Fee Sourcing & Shipping | HappyBox', ru: 'Посредник Poizon (Dewu): выкуп и доставка оригиналов без комиссии | HappyBox' },
+        desc: { en: 'Buy authentic sneakers and streetwear from Poizon (Dewu) with 0% agent fee. Physical authenticity verification, double-box protection, and worldwide shipping.', ru: 'Выкуп и доставка оригинальных кроссовок и брендовой одежды с Poizon (Dewu). Комиссия 0%, проверка на оригинальность, бесплатный фотоконтроль и бережная доставка.' }
       },
       tmall: {
         title: { en: `Tmall Purchasing Agent | ${baseTitle}`, ru: `Выкуп и доставка с Tmall | ${baseTitle}` },

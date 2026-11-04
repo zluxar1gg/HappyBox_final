@@ -12,13 +12,13 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
     const content = {
         en: {
             badge: "POIZON (DEWU) AGENT",
-            titlePrefix: "Poizon (Dewu) Agent:",
-            titleHighlight: "0% Service Fee / Commission",
+            titlePrefix: "Poizon (Dewu) Sourcing & Delivery:",
+            titleHighlight: "100% Genuine Brands with 0% Agent Fee",
             subtitle: "Shop on Poizon (Dewu) – China's top marketplace for genuine branded items. Access originals at prices 20-50% lower than global retail. 0% Service Fee.",
-            whyTitle: "What Makes Buying Directly Difficult",
+            whyTitle: "Challenges of Buying Directly from Poizon and Safe Sourcing via an Agent",
             whyText1: "The Problem:\nChina-Only Access: The app is in Chinese, requires a local ID, and payment methods like Alipay/WeChat are difficult for foreigners to access.\nNo International Shipping: Sellers do not export. Without an agent, you face language barriers and shipping blocks.\nHidden Fees Elsewhere: Many agents charge 15-50% hidden markups on currency exchange rates.",
             whyText2: "How HappyBox Fixes It:\nHappyBox acts as your professional bridge. We handle the language gap, use secure local payments, and leverage Poizon's rigorous authenticity system. We use transparent currency rates close to market spot rates (no hidden 30% markups) and ensure all items come with the famous 'Turquoise Box' and Certificate.",
-            processTitle: "How It Works (5 Steps)",
+            processTitle: "Step-by-Step Purchasing, Authenticity Check, and Delivery Process from Poizon",
             process: [
                 { icon: Smartphone, title: "1 — Download & Register", desc: "Download Dewu (Poizon). Register with your international phone number." },
                 { icon: Search, title: "2 — Find Your Items", desc: "Search using English keywords. Note: Prices vary by size." },
@@ -26,7 +26,7 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                 { icon: ShieldCheck, title: "4 — We Buy & Inspect", desc: "We purchase. Poizon performs Legit Check. If it passes, it comes to us." },
                 { icon: Box, title: "5 — Consolidate & Ship", desc: "We repack, store for free if needed, and ship to your door." }
             ],
-            expertTitle: "Expert Advice for Poizon",
+            expertTitle: "Poizon Buying Tips: Stock-Market Sizing Prices, Item Conditions, and Savings",
             expertList: [
                 { title: "Size Pricing", desc: "Prices vary by size because it's a stock-market model. Check adjacent sizes to save up to 30%." },
                 { title: "Condition Labels", desc: "95 New means USED/Pre-owned (95% condition). Damaged Box means BRAND NEW with a dented box." },
@@ -35,26 +35,26 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                 { title: "Price Charts", desc: "Use the price chart to buy during dips. Never remove the blue tag until you are 100% sure about the item." },
                 { title: "App Buttons", desc: "The Turquoise Button usually means 'Ship in 48h' (Instant), while the Black Button means standard shipping. Avoid the Gray Button with '95' text unless you want used items." }
             ],
-            benefitsTitle: "Key Benefits",
+            benefitsTitle: "Authenticity Guarantees: Double-Box Packing, Verification Tag, and Photo QC",
             benefitsList: [
                 { title: "100% Authenticity Guarantee", desc: "Every item passes Poizon’s lab verification. If it's fake, they refund us immediately. You get the Certificate and Blue Tag." },
                 { title: "Double Box Protection", desc: "We ship all sneakers in reinforced double boxes to ensure the original brand box arrives in pristine condition." },
                 { title: "Fair Pricing", desc: "We don't hide fees in the exchange rate. You pay the real price." },
                 { title: "Free Quality Check (QC)", desc: "We send you photos of the item, the certificate, and the tag before international shipping." }
             ],
-            feeTitle: "Our Fee",
+            feeTitle: "Transparent Fees: 0% Service Commission and Fair Exchange Rates",
             feeText: "Commission: 0% Service Fee. You pay exactly the price of the item plus shipping.",
             cta: "Start Shopping on Poizon"
         },
         ru: {
             badge: "АГЕНТ POIZON (DEWU)",
-            titlePrefix: "Агент Poizon (Dewu):",
-            titleHighlight: "Комиссия 0%",
+            titlePrefix: "Выкуп и доставка с Poizon (Dewu):",
+            titleHighlight: "Оригиналы брендов без комиссии агента (0%)",
             subtitle: "Покупайте на Poizon (Dewu) – лучшем маркетплейсе Китая для оригинальных брендовых вещей. Доступ к оригиналам по ценам на 20-50% ниже мирового ритейла. Без комиссии агента (0%).",
-            whyTitle: "Почему сложно покупать напрямую",
+            whyTitle: "Сложности самостоятельного заказа на Poizon и выкуп через надежного посредника",
             whyText1: "Проблема:\nТолько для Китая: Приложение на китайском, требует местный ID, а методы оплаты Alipay/WeChat недоступны иностранцам.\nНет международной доставки: Продавцы не отправляют на экспорт. Без агента вы сталкиваетесь с языковым барьером и блоком на доставку.\nСкрытые комиссии: Многие агенты прячут 15-50% комиссии в завышенном курсе валют.",
             whyText2: "Как HappyBox решает это:\nМы выступаем вашим профессиональным мостом. Мы преодолеваем языковой барьер, используем безопасные местные платежи и используем строгую систему аутентификации Poizon. Мы используем прозрачный курс, близкий к рыночному (без скрытых наценок в 30%), и гарантируем, что все товары придут со знаменитой 'Бирюзовой коробкой' и сертификатом.",
-            processTitle: "Как это работает (5 шагов)",
+            processTitle: "Пошаговый процесс выкупа, проверки на оригинальность и доставки с Poizon",
             process: [
                 { icon: Smartphone, title: "1 — Скачать и зарегистрироваться", desc: "Скачайте Dewu (Poizon). Зарегистрируйтесь со своим международным номером телефона." },
                 { icon: Search, title: "2 — Найти товары", desc: "Ищите по английским ключевым словам. Важно: цены зависят от размера." },
@@ -62,7 +62,7 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                 { icon: ShieldCheck, title: "4 — Мы выкупаем и проверяем", desc: "Мы оплачиваем. Poizon проводит Legit Check. Если всё ок, товар едет к нам." },
                 { icon: Box, title: "5 — Консолидация и доставка", desc: "Мы переупакуем, бесплатно сохраним (если нужно) и доставим до вашей двери." }
             ],
-            expertTitle: "Советы экспертов по Poizon",
+            expertTitle: "Советы по покупкам на Poizon: биржевые цены по размерам, статусы товаров и экономия",
             expertList: [
                 { title: "Цены и размеры", desc: "Цены зависят от размера (модель биржи). Проверьте соседние размеры, чтобы сэкономить до 30%." },
                 { title: "Обозначения состояния", desc: "95 New означает Б/У товар. Damaged Box означает АБСОЛЮТНО НОВЫЙ товар с помятой коробкой." },
@@ -71,14 +71,14 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                 { title: "Графики цен", desc: "Используйте график цен, чтобы покупать на спаде. Никогда не снимайте голубую пломбу до 100% уверенности в вещи." },
                 { title: "Кнопки в приложении", desc: "Бирюзовая кнопка — 'Отправка 48ч' (Быстро). Черная кнопка — стандартная доставка. Избегайте серую кнопку с '95', если не ищете Б/У." }
             ],
-            benefitsTitle: "Ключевые преимущества",
+            benefitsTitle: "Гарантии подлинности: двойная упаковка, фирменный сертификат и фотоконтроль",
             benefitsList: [
                 { title: "100% гарантия оригинала", desc: "Каждый товар проходит проверку лаборатории Poizon. В случае подделки они сразу делают возврат. Вы получаете сертификат и пломбу." },
                 { title: "Защита двойной коробкой", desc: "Мы отправляем все кроссовки в усиленной двойной коробке (double-box), чтобы оригинальная пришла в идеальном состоянии." },
                 { title: "Честные цены", desc: "Мы не прячем комиссию в курсе валют. Вы платите реальную цену." },
                 { title: "Бесплатный QC", desc: "Мы пришлем вам фото товара, сертификата и пломбы до международной отправки." }
             ],
-            feeTitle: "Наша комиссия",
+            feeTitle: "Прозрачные тарифы: 0% комиссии сервиса и честный курс валют",
             feeText: "Комиссия: 0%. Вы платите ровно стоимость товара и доставку.",
             cta: "Начать покупки на Poizon"
         }
@@ -135,9 +135,9 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                         </div>
                     </div>
 
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
                         {t.processTitle}
-                    </h3>
+                    </h2>
                     
                     <div className="grid md:grid-cols-3 gap-6 mb-20 max-w-6xl mx-auto">
                         {t.process.map((step, idx) => (
