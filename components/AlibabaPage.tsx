@@ -10,29 +10,29 @@ import { AlibabaAdvancedGuide } from './AlibabaAdvancedGuide';
 export const AlibabaPage = ({ language, setLanguage, onBack, onNavigate }: { language: 'en' | 'ru', setLanguage: (lang: 'en' | 'ru') => void, onBack: () => void, onNavigate: (page: string) => void }) => {
     const content = {
         en: {
-            badge: "ALIBABA SOURCING",
-            titlePrefix: "Alibaba Sourcing Agent & Shipping:",
-            titleHighlight: "Buy Safely from China",
-            subtitle: "Source products from Alibaba securely. We handle negotiations, quality control, and international DDP shipping. Don't risk your money — let us verify suppliers and inspect goods before they leave China.",
-            whyTitle: "Why Use an Agent for Alibaba?",
+            badge: "0% Fee Alibaba Sourcing",
+            titlePrefix: "Alibaba Sourcing Agent & Freight Forwarder:",
+            titleHighlight: "Factory Direct Purchasing & DDP Shipping (0% Fee)",
+            subtitle: "Source products from Alibaba securely. We handle negotiations, factory audits, quality control, and international DDP shipping with 0% purchasing commission. Save 30–50% on freight by switching to EXW pricing.",
+            whyTitle: "Alibaba Landed Cost Optimization: Direct EXW Factory Pricing Without Supplier Freight Markups",
             whyText1: "Alibaba gives you direct access to Chinese manufacturers — but access alone doesn't protect you. Shipping markups from suppliers can be 30–50% above market rates. Quality disputes after international shipping are expensive and slow.",
             whyText2: "And communication gaps on product specifications lead to costly mistakes that only surface when goods arrive at your warehouse.",
             whyText3: "HappyBox acts as your Alibaba fulfillment partner. You negotiate the product price — or we do it for you. We receive the goods at our Shenzhen warehouse, conduct strict quality control, consolidate orders from multiple suppliers, and ship to your destination on DDP terms using our heavily discounted freight rates.",
-            processTitle: "How to Ship Alibaba Orders with HappyBox",
+            processTitle: "End-to-End Alibaba Order Fulfillment: From Factory Verification to Customs-Cleared Delivery",
             process: [
                 { icon: Search, title: "1 — Find Your Supplier", desc: "Select a supplier on Alibaba and negotiate product prices — or ask us to handle negotiations on your behalf." },
                 { icon: Box, title: "2 — Ship to Our Warehouse", desc: "Ask the supplier to ship goods to our Shenzhen warehouse address. We provide the address and all necessary shipping marks." },
                 { icon: CheckCircle2, title: "3 — Quality Check", desc: "We receive the goods, inspect for defects, verify quantities against your packing list, and send you photos before anything ships internationally." },
                 { icon: Send, title: "4 — International Shipping", desc: "We ship to your destination via Sea, Air, or Rail on DDP terms — all duties and taxes included in your quote." }
             ],
-            fearsTitle: "Solving Your Biggest Alibaba Sourcing Fears",
+            fearsTitle: "Alibaba Risk Mitigation: Factory License Audits, Trade Assurance Support, and In-China QC Rejection",
             fearsList: [
                 { q: "What if the supplier overcharges on shipping?", a: "Always request the EXW (Ex Works) price from your supplier and compare their shipping quote with ours. Our rates are typically 30–50% lower than what Alibaba suppliers offer directly — because we ship consolidated volume, not single orders." },
                 { q: "What if the goods arrive defective?", a: "We inspect every shipment at our Shenzhen warehouse before it ships internationally. Photos and videos sent to you for confirmation. Defective or incorrect goods go back to the supplier while still in China — not after a trans-Pacific journey." },
                 { q: "What if I'm ordering from multiple suppliers?", a: "We consolidate orders from multiple Alibaba suppliers — and from 1688, Taobao, and other platforms — into one international shipment. One freight bill, one customs entry, one tracking number." },
                 { q: "What if I'm not sure the supplier is reliable?", a: "We verify suppliers before purchase — checking trade history, response rate, and production capacity. For new supplier relationships, we always recommend a sample order first. We can consolidate samples from multiple factories into one small package." }
             ],
-            expertTitle: "Expert Advice for Alibaba",
+            expertTitle: "Sample Order Consolidation: Test Multiple Factories in One Delivery Before Bulk Production",
             expertList: [
                 { title: "Always Compare Shipping", desc: "Request the EXW price from your supplier and compare their shipping quote with ours before committing. The difference is often significant." },
                 { title: "Use Trade Assurance", desc: "If you pay the supplier directly, always use Alibaba Trade Assurance. It provides dispute protection if goods don't match the order description." },
@@ -48,34 +48,34 @@ export const AlibabaPage = ({ language, setLanguage, onBack, onNavigate }: { lan
                 { title: "Secure Payment", desc: "Pay via Bank Transfer, Crypto, or local payment methods. We pay the supplier safely on your behalf." },
                 { title: "DDP Shipping", desc: "All duties and taxes paid upfront. No surprise bills at your destination." }
             ],
-            feeTitle: "Our Fee",
-            feeText: "Sourcing and purchasing commission: 3% of the order amount.",
+            feeTitle: "Pricing Transparency: 0% Sourcing Commission When Shipping via HappyBox Logistics",
+            feeText: "0% commission on Alibaba sourcing and order placement when you ship with HappyBox. You pay only for actual product cost and international freight.",
             cta: "Start Sourcing →"
         },
         ru: {
-            badge: "ЗАКУПКИ НА ALIBABA",
-            titlePrefix: "Агент и доставка с Alibaba:",
-            titleHighlight: "Покупайте в Китае безопасно",
-            subtitle: "Надежные закупки на Alibaba. Мы берем на себя переговоры, контроль качества и международную доставку DDP. Не рискуйте деньгами — позвольте нам проверить поставщиков и проинспектировать товары до их отправки из Китая.",
-            whyTitle: "Зачем нужен агент для работы с Alibaba?",
+            badge: "ЗАКУПКИ НА ALIBABA БЕЗ КОМИССИИ",
+            titlePrefix: "Посредник и экспедитор Alibaba:",
+            titleHighlight: "Выкуп фабричных партий и доставка DDP без комиссии (0%)",
+            subtitle: "Безопасные закупки на Alibaba с комиссией 0%. Мы берем на себя аудит фабрик, переговоры, контроль качества и международную доставку DDP под ключ. Экономьте 30–50% на фрахте за счет перехода на цены EXW.",
+            whyTitle: "Экономия на логистике Alibaba: закупка по ценам EXW без наценок поставщиков на фрахт",
             whyText1: "Alibaba дает прямой доступ к китайским производителям, но сам по себе этот доступ вас не защищает. Наценка поставщиков на доставку может быть на 30–50% выше рыночной. Споры о качестве после международной доставки — это дорого и долго.",
             whyText2: "А недопонимание в спецификациях продукта приводит к дорогостоящим ошибкам, которые всплывают только тогда, когда товар прибывает на ваш склад.",
             whyText3: "HappyBox выступает вашим партнером по фулфилменту для Alibaba. Вы согласовываете цену товара — или мы делаем это за вас. Мы принимаем товар на нашем складе в Шэньчжэне, проводим строгий контроль качества, объединяем заказы от разных поставщиков и отправляем в вашу страну на условиях DDP с использованием наших оптовых скидок на фрахт.",
-            processTitle: "Как доставлять заказы с Alibaba через HappyBox",
+            processTitle: "B2B-фулфилмент заказов с Alibaba: от инспекции фабрики до доставки растаможенного груза",
             process: [
                 { icon: Search, title: "1 — Найдите поставщика", desc: "Выберите поставщика на Alibaba и согласуйте цену — или поручите переговоры нам." },
                 { icon: Box, title: "2 — Доставка на наш склад", desc: "Попросите поставщика отправить товар на наш склад в Шэньчжэне. Мы предоставим адрес и все необходимые маркировки." },
                 { icon: CheckCircle2, title: "3 — Проверка качества", desc: "Мы принимаем груз, проверяем на брак, сверяем количество с вашим упаковочным листом и отправляем вам фото до международной отправки." },
                 { icon: Send, title: "4 — Международная доставка", desc: "Мы доставляем в вашу страну по морю, воздуху или железной дороге на условиях DDP — все пошлины и налоги уже включены в стоимость." }
             ],
-            fearsTitle: "Решение главных страхов при закупках на Alibaba",
+            fearsTitle: "Защита оптовых сделок: проверка лицензий фабрик, Trade Assurance и отбраковка партий в Китае",
             fearsList: [
                 { q: "Что если поставщик завышает цену на доставку?", a: "Всегда запрашивайте у поставщика цену EXW (франко-завод) и сравнивайте его расчет доставки с нашим. Наши тарифы обычно на 30–50% ниже, чем напрямую от поставщиков Alibaba, так как мы отправляем консолидированные объемы." },
                 { q: "Что если товар придет с браком?", a: "Мы проверяем каждую партию на складе в Шэньчжэне до международной отправки. Фото и видео отправляются вам на подтверждение. Бракованный или неверный товар возвращается поставщику еще в Китае, а не после путешествия через океан." },
                 { q: "Что если я заказываю у нескольких поставщиков?", a: "Мы консолидируем заказы от разных поставщиков Alibaba (а также с 1688, Taobao и других платформ) в одну международную отправку. Один счет за фрахт, одна таможенная декларация, один трек-номер." },
                 { q: "Что если я не уверен в надежности поставщика?", a: "Мы проверяем поставщиков до оплаты: историю торговли, скорость ответов и производственные мощности. При работе с новыми фабриками всегда рекомендуем сначала заказать образец. Мы можем собрать образцы с разных фабрик в одну небольшую посылку." }
             ],
-            expertTitle: "Советы экспертов по работе с Alibaba",
+            expertTitle: "Консолидация фабричных образцов: тестирование 3–5 поставщиков в одной посылке до размещения опта",
             expertList: [
                 { title: "Всегда сравнивайте стоимость доставки", desc: "Запросите цену EXW у поставщика и сравните его предложение по доставке с нашим. Разница часто бывает существенной." },
                 { title: "Используйте Trade Assurance", desc: "Если платите поставщику напрямую, всегда используйте Trade Assurance. Это защитит вас в спорах, если товар не соответствует описанию заказа." },
@@ -91,8 +91,8 @@ export const AlibabaPage = ({ language, setLanguage, onBack, onNavigate }: { lan
                 { title: "Безопасная оплата", desc: "Оплачивайте банковским переводом, криптовалютой или местными способами оплаты. Мы безопасно переведем деньги поставщику." },
                 { title: "Доставка DDP", desc: "Все пошлины и налоги оплачены заранее. Никаких сюрпризов при получении." }
             ],
-            feeTitle: "Наша комиссия",
-            feeText: "Комиссия за поиск и выкуп: 3% от суммы заказа.",
+            feeTitle: "Условия сотрудничества: 0% комиссии за выкуп при отправке через нашу логистику",
+            feeText: "Комиссия 0% за сопровождение закупки и выкуп товаров на Alibaba при доставке через HappyBox. Вы оплачиваете только чистую стоимость товара и международный фрахт.",
             cta: "Начать закупки →"
         }
     };
@@ -139,9 +139,9 @@ export const AlibabaPage = ({ language, setLanguage, onBack, onNavigate }: { lan
                         </div>
                     </div>
 
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
                         {t.processTitle}
-                    </h3>
+                    </h2>
                     
                     <div className="grid md:grid-cols-2 gap-6 mb-20 max-w-5xl mx-auto">
                         {t.process.map((step, idx) => (

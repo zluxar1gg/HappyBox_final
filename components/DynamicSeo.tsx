@@ -51,8 +51,12 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
         desc: { en: 'Expert FBA Canada prep & DDP shipping. We handle CBSA, GST/HST, and Canadian labeling requirements — factory to Amazon warehouse', ru: 'Доставка на Amazon FBA Канада под ключ: DDP, оформление CBSA и GST/HST, подготовка товара по канадским требованиям' }
       },
       '1688': {
-        title: { en: '1688 Agent China: Buy Wholesale Direct | HappyBox', ru: 'Посредник 1688: оптовый выкуп из Китая | HappyBox' },
-        desc: { en: 'Source products directly from factories with our 1688 agent service. We handle negotiation, payment, inspection, and shipping.', ru: 'Ваш посредник для работы с 1688. Связываемся с фабриками, выкупаем товар, проверяем качество и доставляем оптовые заказы.' }
+        title: { en: '1688 Sourcing Agent: Buy at China Domestic Wholesale Prices | HappyBox', ru: 'Посредник на 1688: закупки в Китае по ценам внутреннего рынка | HappyBox' },
+        desc: { en: 'Wholesale sourcing agent for 1688.com. We handle factory communication, price negotiations, secure payments, batch QC inspection, and global freight.', ru: 'Надежный посредник для закупок на 1688.com по реальным ценам фабрик. Переговоры с китайскими поставщиками, выкуп без комиссии, контроль качества и доставка под ключ.' }
+      },
+      alibaba: {
+        title: { en: 'Alibaba Sourcing Agent & Shipping: EXW & DDP (0% Fee) | HappyBox', ru: 'Посредник Alibaba: выкуп фабричных партий и доставка DDP (0%) | HappyBox' },
+        desc: { en: 'Direct Alibaba sourcing agent and DDP freight forwarder with 0% commission. Save 30-50% on shipping with EXW rates, factory audits, and Shenzhen warehouse QC.', ru: 'Посредник и экспедитор для работы с Alibaba с комиссией 0%. Экономия 30-50% на доставке по тарифам EXW, проверка поставщиков, контроль качества и DDP доставка.' }
       },
       taobao: {
         title: { en: 'Taobao Agent: Buy & Ship Worldwide from China (0% Fee) | HappyBox', ru: 'Посредник Таобао: выкуп и доставка товаров из Китая (0% комиссии) | HappyBox' },
@@ -63,26 +67,26 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
         desc: { en: 'Buy authentic sneakers and streetwear from Poizon (Dewu) with 0% agent fee. Physical authenticity verification, double-box protection, and worldwide shipping.', ru: 'Выкуп и доставка оригинальных кроссовок и брендовой одежды с Poizon (Dewu). Комиссия 0%, проверка на оригинальность, бесплатный фотоконтроль и бережная доставка.' }
       },
       tmall: {
-        title: { en: `Tmall Purchasing Agent | ${baseTitle}`, ru: `Выкуп и доставка с Tmall | ${baseTitle}` },
-        desc: { en: 'Source official brand products on Tmall and ship them with HappyBox.', ru: 'Покупка оригинальных брендов на Tmall с проверкой и доставкой от двери до двери.' }
+        title: { en: 'Tmall Agent: Buy Official Brands & Flagship Stores (0% Fee) | HappyBox', ru: 'Посредник Tmall: выкуп оригиналов из официальных магазинов (0%) | HappyBox' },
+        desc: { en: 'Buy authentic products from official Tmall flagship stores with 0% agent fee. Verified brands, original packaging inspection, and global door-to-door delivery.', ru: 'Выкуп товаров во флагманских магазинах Tmall.com без комиссии агента (0%). Гарантия подлинности брендов, проверка заводской упаковки и быстрая доставка из Китая.' }
       },
       pinduoduo: {
-        title: { en: 'Pinduoduo Agent: Buy & Ship from China | HappyBox', ru: 'Посредник Pinduoduo: Выкуп и Доставка | HappyBox' },
-        desc: { en: 'Reliable Pinduoduo agent services. We purchase, inspect, and ship your PDD orders worldwide. Affordable shipping rates and direct factory access.', ru: 'Ваш проверенный посредник Pinduoduo. Выкупаем товары с PDD, предоставляем склад в Китае, проверяем качество и доставляем заказы.' }
+        title: { en: 'Pinduoduo Agent: Group-Buy Factory Prices (0% Fee) | HappyBox', ru: 'Посредник Pinduoduo: выкуп по групповым ценам без комиссии (0%) | HappyBox' },
+        desc: { en: 'Buy from Pinduoduo (PDD) with 0% agent fee. We secure team-buy discounts, navigate flash deals, conduct warehouse QC, and ship worldwide.', ru: 'Выкуп товаров на Pinduoduo (PDD) с комиссией 0%. Фиксируем цены совместных покупок, ловим горящие скидки, проверяем качество на складе и доставляем в ваш город.' }
       },
       xianyu: {
         title: { 
-          en: `Goofish (Xianyu) Agent: Buy Second-Hand from China | ${baseTitle}`, 
-          ru: `Посредник Xianyu (Goofish): Выкуп Б/У товаров из Китая | ${baseTitle}` 
+          en: `Goofish & Xianyu Agent: Second-Hand & Vintage from China (0% Fee) | ${baseTitle}`, 
+          ru: `Посредник Xianyu (Goofish): выкуп б/у техники и винтажа из Китая (0%) | ${baseTitle}` 
         },
         desc: { 
-          en: 'Trusted Goofish (Xianyu / Idle Fish) purchasing agent. We negotiate prices in Chinese, inspect vintage fashion & used tech with video QC, and ship worldwide with DDP.', 
-          ru: 'Надежный посредник Xianyu (Goofish / Idle Fish). Проверяем рейтинг продавцов Sesame Credit, торгуемся на китайском, делаем видеопроверку на складе и отправляем DDP.' 
+          en: 'Goofish (Xianyu / Idle Fish) purchasing agent with 0% fee. We verify Sesame Credit, bargain in Chinese, provide live video checks, and ship worldwide with DDP.', 
+          ru: 'Посредник Xianyu (Goofish / Idle Fish) с комиссией 0%. Проверяем рейтинг Sesame Credit, торгуемся на китайском, делаем видеопроверку перед выкупом и доставляем DDP.' 
         }
       },
       weidian: {
-        title: { en: 'Trusted Weidian Agent: Buy Streetwear | HappyBox', ru: 'Посредник Weidian: стритвир без WeChat | HappyBox' },
-        desc: { en: 'Your Trusted Weidian purchasing agent. We buy, photo-verify, and ship exclusive streetwear orders globally. No Chinese account needed.', ru: 'Ваш надежный посредник Weidian. Выкупаем эксклюзивный стритвир, делаем фотоотчет и доставляем заказы из Китая. Оплата в рублях.' }
+        title: { en: 'Weidian Agent: Buy Streetwear & Indie Brands (0% Fee) | HappyBox', ru: 'Посредник Weidian: выкуп стритвира и инди-брендов (0%) | HappyBox' },
+        desc: { en: 'Buy exclusive streetwear and designer drops from Weidian with 0% agent fee. WeChat Pay purchasing, detailed macro photo QC, and worldwide shipping.', ru: 'Выкуп эксклюзивного стритвира и редких коллекций на Weidian без комиссии (0%). Оплата через WeChat Pay, детальный фотоконтроль замеров и бережная доставка.' }
       },
       inspection: {
         title: { en: `Quality Control & Inspection in China | ${baseTitle}`, ru: `Проверка качества и Инспекция в Китае | ${baseTitle}` },

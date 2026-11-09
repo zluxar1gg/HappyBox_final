@@ -1013,14 +1013,14 @@ export const translations = {
         backBtn: 'Back to Home'
       },
       tmall: {
-        title: 'Tmall Global Agent: Official Brands & Flagship Stores',
-        desc: "Shop from official brand flagship stores on Tmall.com with 100% confidence. Tmall is the premium B2C platform of Alibaba, hosting major international and Chinese brands. HappyBox helps you buy and ship Tmall products worldwide.",
+        title: 'Tmall Purchasing Agent: Official Brand Flagship Stores from China with 0% Agent Fee',
+        desc: "Shop from official brand flagship stores on Tmall.com with 100% confidence. Tmall is the premium B2C platform of Alibaba, hosting major international and Chinese brands. HappyBox helps you buy and ship Tmall products worldwide with 0% commission.",
         whyNeed: {
-            title: "Why Tmall instead of Taobao?",
+            title: "Guaranteed Authenticity: Authorized Brand Flagships and Anti-Counterfeit Verification on Tmall",
             text: "While Taobao is C2C (Consumer to Consumer), Tmall is B2C (Business to Consumer). Tmall sellers are verified businesses or official brand representatives. This means: 100% Authentic products, higher service standards, and often better return policies. It is the best place to buy electronics, cosmetics, and branded fashion."
         },
         howItWorks: {
-            title: "Shopping on Tmall with HappyBox",
+            title: "Direct Flagship Purchasing: From Store Stock Check to Door-to-Door Delivery",
             steps: [
                 { title: "Browse Tmall", desc: "Look for the red Tmall logo on product listings." },
                 { title: "Send Link", desc: "Paste the product URL to us." },
@@ -1033,12 +1033,13 @@ export const translations = {
             { title: 'Quality Assurance', desc: 'Tmall has stricter quality control than regular Taobao.' },
             { title: '0% Purchasing Fee', desc: 'We do not charge a commission for Tmall purchases.' }
         ],
+        benefitsTitle: "HappyBox Advantages: Original Retail Packaging Inspection and 0% Purchasing Fee",
         proTip: {
-            title: "Look for the Red Icon",
+            title: "Seller Verification: Identifying Official Brand Flagship Badges on Tmall vs Third-Party Resellers",
             text: "When searching on Taobao/Tmall, look for the red 'Cat' icon. This indicates the seller is a Tmall merchant with a verified business license and a deposit paid to Alibaba."
         },
         beyond: {
-            title: "Beyond Tmall",
+            title: "Cross-Platform Consolidation: Combine Premium Tmall Orders with Taobao, 1688, and Poizon",
             items: [
                 { id: 'taobao', title: "Taobao", desc: "Find cheaper alternatives and consumer goods." },
                 { id: 'poizon', title: "Poizon", desc: "Best for limited edition sneakers and luxury street fashion." },
@@ -2151,14 +2152,14 @@ export const translations = {
         backBtn: 'На главную'
       },
       tmall: {
-        title: 'Посредник Tmall Global: Официальные бренды Китая',
-        desc: "Покупайте в официальных флагманских магазинах на Tmall.com с полной уверенностью. Tmall — это премиальная B2C платформа Alibaba, где представлены мировые и китайские бренды. HappyBox поможет выкупить и доставить товары с Tmall в Россию.",
+        title: 'Посредник Tmall: выкуп оригиналов из официальных флагманских магазинов Китая без комиссии (0%)',
+        desc: "Покупайте в официальных флагманских магазинах на Tmall.com с полной уверенностью. Tmall — это премиальная B2C платформа Alibaba, где представлены мировые и китайские бренды. HappyBox поможет выкупить и доставить товары с Tmall с комиссией 0%.",
         whyNeed: {
-            title: "Почему Tmall, а не Taobao?",
+            title: "Защита от подделок: авторизованные дистрибьюторы и прямые поставки от брендов на Tmall",
             text: "Если Taobao — это рынок (C2C), то Tmall — это торговый центр (B2C). Продавцы на Tmall — это проверенные юрлица или официальные представители брендов. Это значит: 100% оригинал, выше стандарты обслуживания и качественная упаковка. Идеально для покупки техники, косметики и брендовой одежды."
         },
         howItWorks: {
-            title: "Покупки на Tmall с HappyBox",
+            title: "Прямой выкуп во флагманских магазинах: от проверки наличия до бережной доставки до двери",
             steps: [
                 { title: "Поиск", desc: "Ищите товары с красным значком Tmall." },
                 { title: "Ссылка", desc: "Пришлите нам ссылку на товар." },
@@ -2171,12 +2172,13 @@ export const translations = {
             { title: 'Гарантия качества', desc: 'Tmall имеет более строгий контроль качества, чем обычный Taobao.' },
             { title: 'Комиссия 0%', desc: 'Мы не берем комиссию за выкуп с Tmall.' }
         ],
+        benefitsTitle: "Преимущества выкупа через HappyBox: оригинальная заводская упаковка и 0% сервисного сбора",
         proTip: {
-            title: "Ищите красного кота",
+            title: "Верификация продавца: как отличить официальный флагманский магазин Tmall (Красный знак) от сторонних реселлеров",
             text: "При поиске обращайте внимание на иконку красного кота. Это знак того, что продавец — верифицированный мерчант Tmall с лицензией и депозитом в Alibaba."
         },
         beyond: {
-            title: "Больше чем Tmall",
+            title: "Консолидация заказов: объединение премиальных покупок с Tmall с товарами с Taobao, 1688 и Poizon",
             items: [
                 { id: 'taobao', title: "Taobao", desc: "Найдите дешевые аналоги и товары народного потребления." },
                 { id: 'poizon', title: "Poizon", desc: "Лучшее для лимитированных кроссовок и уличной моды." },

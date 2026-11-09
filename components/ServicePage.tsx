@@ -234,9 +234,9 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                     )}
 
                     {/* Features Grid (Updated to support rich descriptions) */}
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-10 text-center tracking-tight mt-12">
-                        {language === 'en' ? 'Key Benefits' : 'Ключевые преимущества'}
-                    </h2>
+                    <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center tracking-tight mt-12">
+                        {extraContent.benefitsTitle || (language === 'en' ? 'Key Benefits' : 'Ключевые преимущества')}
+                    </h3>
                     
                     <div className="grid md:grid-cols-2 gap-6 mb-12">
                         {t.features.map((feature, idx) => {
@@ -273,9 +273,9 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                     {/* NEW Beyond Section Layout (Grid Buttons + Highlighted Box) */}
                     {extraContent.beyond && (
                         <div className="mb-12 pt-8 border-t border-gray-100">
-                             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-10 text-center tracking-tight">
+                             <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center tracking-tight">
                                 {extraContent.beyond.title}
-                            </h2>
+                            </h3>
                             
                             {/* 1. The Grid of Service Buttons */}
                             <div className="grid md:grid-cols-2 gap-4 mb-6">

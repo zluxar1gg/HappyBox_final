@@ -14,12 +14,12 @@ export const XianyuPage = ({ language, setLanguage, onBack, onNavigate }: { lang
         en: {
             badge: "GOOFISH / XIANYU (IDLE FISH) AGENT",
             titlePrefix: "Goofish & Xianyu Agent:",
-            titleHighlight: "Buy Second-Hand & Vintage from China",
+            titleHighlight: "Sourcing Second-Hand Tech, Designer Fashion & Vintage from China",
             subtitle: "Access China's largest second-hand marketplace via Alibaba's Goofish (Xianyu / Idle Fish) app. We negotiate in Chinese, verify Sesame Credit ratings, inspect condition with video & photo reports, and ship internationally with full DDP door-to-door delivery.",
-            whyTitle: "Why Goofish (Xianyu) — and Why You Need an Agent",
+            whyTitle: "Why Buy on Goofish: Unique Vintage Finds and Safe Purchasing from Private Sellers",
             whyText1: "Goofish (formerly known as Xianyu / 闲鱼 / Idle Fish) is Alibaba's official consumer-to-consumer marketplace — China's equivalent of eBay, Depop, or Mercari, but with 500 million registered users and a vastly deeper inventory of secondhand goods. Vintage designer pieces, rare sneakers, limited collectibles, and lightly used electronics change hands here daily at prices that don't exist anywhere else.\n\nThe problem: every seller is a private individual. No English interface, no international shipping, and no buyer protection for overseas customers without Chinese bank accounts. Buying used goods without an on-the-ground agent is a significant financial risk.",
             whyText2: "HappyBox acts as your professional Goofish (Xianyu) purchasing agent. We negotiate the price in Chinese, verify the seller's Sesame Credit score, inspect the item physically at our Shenzhen warehouse, and ship internationally on DDP terms.",
-            processTitle: "How It Works (5 Steps)",
+            processTitle: "How It Works: 5 Steps from Product Link to Final Delivery",
             process: [
                 { icon: Search, title: "1 — Find Your Item", desc: "Browse the Goofish (Xianyu) app for unique finds. Copy and share the product link." },
                 { icon: BadgeCheck, title: "2 — We Verify and Negotiate", desc: "Send us the link. We check the seller's Sesame Credit rating and negotiate the price — typically 10–20% below the listed price." },
@@ -27,14 +27,14 @@ export const XianyuPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                 { icon: ShieldCheck, title: "4 — Warehouse QC", desc: "When the item arrives at our Shenzhen warehouse, we conduct a detailed physical inspection and send you a full photo report — including close-ups of any wear, damage, or condition details." },
                 { icon: Send, title: "5 — International Shipping", desc: "We ship to your destination on DDP terms — all duties and taxes included in your quote." }
             ],
-            expertTitle: "Solving Your Biggest Goofish Shopping Fears",
+            expertTitle: "Frequently Asked Questions: Seller Reliability, Hidden Defects, and In-China Disputes",
             expertList: [
                 { title: "What if the item is not as described?", desc: "We request a video from the seller before purchasing for any significant item. When the item arrives at our warehouse, we inspect against the listing description and send you detailed photos. If there's a major discrepancy, we raise a dispute with the seller immediately — while the item is still in China." },
                 { title: "What if the seller is untrustworthy?", desc: "We check Sesame Credit before every purchase. Sesame Credit is Alibaba's financial trust score — sellers with Excellent rating have a verified track record on the platform. Low-rated sellers are declined." },
                 { title: "What if I overpay?", desc: "Bargaining is standard practice on Goofish. We negotiate in Chinese on your behalf — typically achieving 10–20% below the listed price. Private sellers expect to negotiate; most international buyers don't know this." },
                 { title: "What if the seller won't accept returns?", desc: "Most Goofish sellers do not accept returns — this is standard for private secondhand sales. Our pre-purchase video verification and warehouse inspection are your protection. We flag condition issues before you commit, not after." }
             ],
-            benefitsTitle: "Key Benefits",
+            benefitsTitle: "Our Purchasing Guarantees: Sesame Credit Check, Live Seller Video, and DDP Shipping",
             benefitsList: [
                 { title: "Negotiation Service", desc: "We communicate with sellers in Chinese to secure the best possible price — typically 10–20% below listing." },
                 { title: "Seller Verification", desc: "We check Sesame Credit rating and transaction history before every purchase. Low-trust sellers are declined." },
@@ -42,19 +42,19 @@ export const XianyuPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                 { title: "Video Pre-Purchase Check", desc: "For valuable items, we request a live seller video before buying. What you see is what you get." },
                 { title: "DDP Shipping", desc: "All duties and taxes paid upfront. One all-inclusive price to your door." }
             ],
-            feeTitle: "Our Fee",
-            feeText: "Purchasing and negotiation commission: 3% of the order amount.",
+            feeTitle: "Transparent Terms: 0% Service Commission on Second-Hand Sourcing",
+            feeText: "Purchasing commission: 0%. You pay exactly the seller's price on Goofish plus international shipping.",
             cta: "Start Shopping on Goofish (Xianyu)"
         },
         ru: {
             badge: "АГЕНТ XIANYU / GOOFISH (IDLE FISH)",
-            titlePrefix: "Агент Xianyu (Goofish):",
-            titleHighlight: "Покупка б/у и винтажных вещей",
+            titlePrefix: "Посредник Xianyu (Goofish):",
+            titleHighlight: "выкуп б/у техники, брендовых и винтажных вещей из Китая",
             subtitle: "Доступ к крупнейшему в Китае рынку подержанных вещей. Мы ведем переговоры, проверяем и отправляем уникальные находки с Xianyu (Idle Fish) — винтажный люкс, редкие кроссовки, б/у технику и коллекционные предметы по ценам в разы ниже розничных.",
-            whyTitle: "Почему Xianyu — и зачем вам нужен агент",
+            whyTitle: "Почему выбирают Xianyu: эксклюзивный винтаж и безопасная покупка у частных лиц",
             whyText1: "Xianyu (闲鱼, Idle Fish) — это peer-to-peer маркетплейс от Alibaba — китайский аналог eBay или Avito, но с 500 миллионами зарегистрированных пользователей и гораздо более глубоким ассортиментом подержанных товаров. Винтажные дизайнерские вещи, редкие кроссовки, лимитированные предметы коллекционирования и слегка подержанная электроника переходят из рук в руки здесь каждый день по ценам, которых нет больше нигде.\n\nПроблема: каждый продавец — частное лицо. Нет английского языка, нет международной доставки, нет защиты покупателя, сравнимой с основными платформами. Покупка б/у товаров без физической проверки — это значительный финансовый риск.",
             whyText2: "HappyBox выступает в роли вашего агента на Xianyu. Мы ведем переговоры о цене, проверяем благонадежность продавца, физически осматриваем товар на нашем складе в Шэньчжэне и отправляем по всему миру на условиях DDP.",
-            processTitle: "Как это работает (5 шагов)",
+            processTitle: "Пошаговый процесс: 5 этапов от ссылки на товар до получения посылки",
             process: [
                 { icon: Search, title: "1 — Найти товар", desc: "Ищите в приложении Xianyu уникальные находки. Скопируйте ссылку на товар." },
                 { icon: BadgeCheck, title: "2 — Мы проверяем и торгуемся", desc: "Пришлите нам ссылку. Мы проверяем рейтинг Sesame Credit продавца и договариваемся о цене — обычно на 10-20% ниже заявленной." },
@@ -62,14 +62,14 @@ export const XianyuPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                 { icon: ShieldCheck, title: "4 — QC на складе", desc: "Когда товар прибывает на наш склад в Шэньчжэне, мы проводим тщательный физический осмотр и отправляем вам полный фотоотчет — включая крупные планы любых следов износа, повреждений или деталей состояния." },
                 { icon: Send, title: "5 — Международная доставка", desc: "Мы отправляем до вашей двери на условиях DDP — все пошлины и налоги включены в стоимость." }
             ],
-            expertTitle: "Решение ваших главных страхов при покупке на Xianyu",
+            expertTitle: "Ответы на частые вопросы: недобросовестные продавцы, скрытые дефекты и споры",
             expertList: [
                 { title: "Что делать, если товар не соответствует описанию?", desc: "Для любой значимой вещи мы запрашиваем видео у продавца перед покупкой. Когда товар поступает на склад, мы проверяем его на соответствие описанию и отправляем детальные фото. При серьезном несоответствии мы сразу открываем спор с продавцом — пока товар еще в Китае." },
                 { title: "Что, если продавец ненадежен?", desc: "Мы проверяем Sesame Credit перед каждой покупкой. Это финансовый рейтинг доверия от Alibaba — продавцы с оценкой 'Отлично' имеют подтвержденную историю на платформе. Продавцам с низким рейтингом мы отказываем." },
                 { title: "Что, если я переплачу?", desc: "Торг — стандартная практика на Xianyu. Мы торгуемся на китайском от вашего имени — обычно снижая цену на 10-20%. Частные продавцы ожидают торга; большинство международных покупателей этого не знают." },
                 { title: "Что, если продавец не принимает возвраты?", desc: "Большинство продавцов на Xianyu не принимают возвраты — это норма для частных б/у продаж. Наша видеопроверка перед покупкой и осмотр на складе — ваша защита. Мы выявляем проблемы с состоянием до того, как вы совершите покупку, а не после." }
             ],
-            benefitsTitle: "Ключевые преимущества",
+            benefitsTitle: "Наши гарантии при выкупе с барахолки: рейтинг Sesame Credit, живое видео и доставка DDP",
             benefitsList: [
                 { title: "Услуги переговорщика", desc: "Мы общаемся с продавцами на китайском языке, чтобы получить лучшую цену — обычно на 10-20% ниже заявленной." },
                 { title: "Проверка продавца", desc: "Мы проверяем рейтинг Sesame Credit и историю транзакций перед каждой покупкой. Неблагонадежные продавцы отсеиваются." },
@@ -77,8 +77,8 @@ export const XianyuPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                 { title: "Видеопроверка перед выкупом", desc: "Для ценных вещей мы запрашиваем живое видео от продавца перед покупкой. Вы получаете то, что видите." },
                 { title: "Доставка DDP", desc: "Все пошлины и налоги оплачены авансом. Единая цена «всё включено» до вашей двери." }
             ],
-            feeTitle: "Наша комиссия",
-            feeText: "Комиссия за выкуп и переговоры: 3% от суммы заказа.",
+            feeTitle: "Честные условия: выкуп с барахолки без комиссии сервиса (0%)",
+            feeText: "Комиссия за выкуп: 0%. Вы платите ровно цену продавца на Xianyu плюс международную доставку.",
             cta: "Начать покупки на Xianyu"
         }
     };
@@ -134,9 +134,9 @@ export const XianyuPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                         </div>
                     </div>
 
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
                         {t.processTitle}
-                    </h3>
+                    </h2>
                     
                     <div className="grid md:grid-cols-3 gap-6 mb-20 max-w-6xl mx-auto">
                         {t.process.map((step, idx) => (

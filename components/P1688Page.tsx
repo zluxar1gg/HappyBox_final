@@ -23,14 +23,14 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
     const content = {
         en: {
             badge: "Sourcing & Purchasing",
-            titlePrefix: "1688 Agent China: Buy Wholesale Direct",
-            titleHighlight: "",
+            titlePrefix: "1688 Sourcing Agent:",
+            titleHighlight: "Buy from China at Domestic Wholesale Prices",
             subtitle: <>Access true factory prices. We source, negotiate, purchase, and consolidate wholesale orders from 1688.com directly at our Shenzhen warehouse — no Chinese bank account, no language barrier, no middleman markup.</>,
-            whyTitle: "Why 1688.com — Not Alibaba",
+            whyTitle: "1688 vs Alibaba: Which Platform is Better for Sourcing?",
             whyText1: "Most international buyers default to Alibaba. That's exactly why Alibaba prices are higher — the platform is built for export, with margins baked in at every level. 1688.com is China's domestic wholesale marketplace where the same factories sell to Chinese businesses at real factory prices.",
             whyText2: "The difference is significant. The same product that costs $8 on Alibaba often costs $3–5 on 1688. The catch: the platform is entirely in Chinese, sellers only accept Chinese payment methods (Alipay, domestic bank transfer), and most only ship within Mainland China.",
             whyText3: "HappyBox bridges that gap. We act as your professional 1688 buying agent — handling the language, the payments, the quality checks, and the consolidation at our Shenzhen warehouse before your goods ship internationally.",
-            processTitle: "How We Handle Your 1688 Order End-to-End",
+            processTitle: "How It Works: 5 Steps from Factory Sourcing to Final Delivery",
             process: [
                 {
                     icon: Search,
@@ -58,16 +58,16 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                     desc: "Once consolidated and inspected, your cargo ships on DDP terms to your destination. See our shipping pages for rates and transit times by country.",
                 }
             ],
-            fearsTitle: "Solving Your Biggest 1688 Sourcing Fears",
+            fearsTitle: "Addressing Common Risks and FAQs for 1688 Sourcing",
             fearsList: [
                 { q: "What if the supplier ships defective goods?", a: "We inspect everything at our Shenzhen warehouse before it goes international. Photos and videos sent to you for confirmation. Defective items go back to the factory — not across an ocean." },
                 { q: "What if I don't know which supplier to choose?", a: "Send us a photo or description. Our team finds verified suppliers, compares prices across multiple factories, and recommends the most reliable option. Full hands-off sourcing available." },
                 { q: "What if the stock listed isn't actually available?", a: "Stock numbers on 1688 are frequently inaccurate. We verify real availability with the supplier before you pay — not after." },
                 { q: "What if I need to combine 1688 orders with other platforms?", a: "We consolidate 1688 wholesale orders with purchases from Taobao, Tmall, Poizon, and Pinduoduo into one shipment." }
             ],
-            feeTitle: "Our Fee",
+            feeTitle: "Our Pricing: Commission-Free Purchasing and Logistics Rates",
             feeText: "Purchasing commission: 0%. You pay exactly the manufacturer's price. We earn revenue exclusively on international shipping.",
-            beyondTitle: "Beyond 1688: Other Chinese Platforms We Support",
+            beyondTitle: "Multi-Platform Consolidation: Combine 1688 with Taobao & Poizon",
             beyondPlatforms: [
                 { name: "Taobao", desc: "single items and personal shopping", id: "taobao" },
                 { name: "Tmall", desc: "official brand flagship stores", id: "tmall" },
@@ -79,14 +79,14 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
         },
         ru: {
             badge: "Сорсинг и Выкуп",
-            titlePrefix: "Посредник 1688: оптовый выкуп из Китая",
-            titleHighlight: "",
+            titlePrefix: "Посредник на 1688:",
+            titleHighlight: "закупки в Китае по ценам для внутреннего рынка",
             subtitle: <>Получите доступ к реальным заводским ценам. Мы находим товары, ведем переговоры, выкупаем и консолидируем ваши оптовые заказы с 1688.com на складе в Шэньчжэне. Вам не нужны китайский банковский счет, знание языка или переплаты посредникам.</>,
-            whyTitle: "Почему 1688.com, а не Alibaba?",
+            whyTitle: "1688 или Alibaba: где выгоднее заказывать товар для бизнеса?",
             whyText1: "Большинство международных покупателей по привычке идут на Alibaba. Именно поэтому цены там выше: платформа создана для экспорта, и в стоимость каждого товара уже заложены наценки на всех уровнях. 1688.com — это внутренний оптовый маркетплейс Китая, где те же заводы продают товары китайским компаниям по «своим» ценам.",
             whyText2: "Разница колоссальна. Товар, который стоит $8 на Alibaba, на 1688 часто обходится в $3–5. Единственная сложность: платформа полностью на китайском, продавцы принимают только внутренние способы оплаты (Alipay, китайские карты) и отправляют товары только внутри страны.",
             whyText3: "HappyBox убирает эти барьеры. Мы выступаем вашим профессиональным агентом: берем на себя общение, оплату, проверку качества и консолидацию груза на нашем складе в Шэньчжэне перед отправкой в вашу страну.",
-            processTitle: "Как мы работаем с вашим заказом «под ключ»",
+            processTitle: "5 этапов поставки: как мы ведем ваш заказ от завода до склада",
             process: [
                 {
                     icon: Search,
@@ -114,16 +114,16 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                     desc: "После проверки и упаковки ваш груз отправляется на условиях DDP. Все тарифы и сроки указаны в соответствующих разделах по странам.",
                 }
             ],
-            fearsTitle: "Решаем главные страхи при работе с 1688",
+            fearsTitle: "Частые вопросы и риски при закупках на 1688",
             fearsList: [
                 { q: "Что если пришлют брак?", a: "Мы проверяем всё в Шэньчжэне. Вы получаете фото и видео для подтверждения. Бракованный товар возвращается на завод в Китае, а не едет к вам через океан." },
                 { q: "Я не знаю, какого поставщика выбрать.", a: "Просто пришлите фото. Наша команда найдет верифицированных производителей, сравнит цены на разных заводах и порекомендует самый надежный вариант." },
                 { q: "А если товара нет в наличии?", a: "Цифры остатков на 1688 часто не соответствуют реальности. Мы уточняем фактическое наличие у продавца до того, как вы переведете деньги." },
                 { q: "Можно ли объединить заказы с разных площадок?", a: "Да. Мы соберем в одну посылку опт с 1688, покупки с Taobao, Tmall, Poizon и Pinduoduo." }
             ],
-            feeTitle: "Наша комиссия:",
+            feeTitle: "Условия и тарифы: сколько стоит выкуп и за что вы платите",
             feeText: "Комиссия за выкуп — 0%. Вы платите ровно ту цену, которую установил завод-изготовитель на 1688.com. Мы зарабатываем исключительно на международной логистике.",
-            beyondTitle: "Кроме 1688 мы работаем с:",
+            beyondTitle: "Консолидация: объединение заказов с 1688, Taobao и Poizon",
             beyondPlatforms: [
                 { name: "Taobao", desc: "розница и личные покупки.", id: "taobao" },
                 { name: "Tmall", desc: "официальные флагманские магазины брендов.", id: "tmall" },
@@ -179,9 +179,9 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                         </div>
                     </div>
 
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
                         {t.processTitle}
-                    </h3>
+                    </h2>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 max-w-6xl mx-auto">
                         {t.process.map((step, idx) => (
