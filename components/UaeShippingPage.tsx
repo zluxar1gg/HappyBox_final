@@ -16,12 +16,12 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
     const content: Record<'en' | 'ru', DestinationContent> = {
         en: {
             badge: "UAE Direct Line",
-            titlePrefix: "Shipping from China to UAE",
-            titleHighlight: "",
+            titlePrefix: "Shipping from China to UAE (Dubai):",
+            titleHighlight: "Door-to-Door DDP Air & Ocean Freight from 0.1 kg",
             subtitle: <>Stop worrying about Dubai Customs, VAT registration, or supplier errors. We provide a seamless bridge between Chinese factories (or platforms like Poizon/1688) and your doorstep in the Emirates.</>,
-            introTitle: "Your All-in-One Logistics Hub for the UAE",
+            introTitle: "UAE Customs Clearance & DDP Fulfillment: 5% Duty & VAT Settled with Nationwide Door Delivery",
             introText: "Whether you are an e-commerce entrepreneur in Dubai, a business owner in Abu Dhabi, or a private shopper in Sharjah, HappyBox provides a specialized DDP (Delivered Duty Paid) service. The HappyBox Promise: The price you pay includes all freight, customs clearance, and UAE import duties/VAT. No hidden fees, no surprise invoices from Aramex or DHL upon delivery.",
-            methodsTitle: "Our Shipping Methods & Rates",
+            methodsTitle: "China to UAE Shipping Rates & Transit Times: Priority Air (5–9 Days) & Ocean to Jebel Ali (25–35 Days)",
             methods: [
                 {
                     icon: Plane,
@@ -42,7 +42,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                     color: "bg-teal-100 text-teal-600"
                 }
             ],
-            whyTitle: "Why UAE Importers Choose HappyBox",
+            whyTitle: "Shenzhen Operations Hub: Poizon (Dewu) Brand Handling & Multi-Supplier 1688 Consolidation",
             whyIntro: "We act as your local office in Shenzhen, ensuring your business runs smoothly without you ever needing to fly to China:",
             benefits: [
                 {
@@ -66,14 +66,14 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                     desc: "From our warehouse in Guangdong to any address in the UAE, including Ajman, Fujairah, and Ras Al Khaimah."
                 }
             ],
-            fearsTitle: "Solving Your Biggest Importing Fears",
+            fearsTitle: "Cargo Safety Guarantees: Warehouse Defect Screening, All-Risk Insurance, and 0.1 kg Minimums",
             fearsList: [
                 { q: "What if my supplier sends defective goods?", a: "Our Shenzhen warehouse is your quality buffer. Every shipment is inspected with photos and videos before it leaves China. Defective items go back to the factory immediately." },
                 { q: "What if the cargo is lost or damaged?", a: "We provide All-Risk cargo insurance. If your goods are lost or damaged in transit, you receive a 100% refund of the declared value. No fine print." },
                 { q: "Am I too small for you?", a: <>Our minimums are accessible: from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span> for Air and from 1 CBM for Sea. Startups and established importers get the same service level.</> },
                 { q: "What about delays?", a: "Chinese New Year, Golden Week, and Jebel Ali congestion are predictable. We plan your shipment calendar around them so you never run out of stock." }
             ],
-            stepsTitle: "From China to UAE in 4 Steps",
+            stepsTitle: "Step-by-Step UAE Delivery Process: 4 Steps from Guangdong Warehouse to Dubai & Abu Dhabi Handover",
             steps: [
                 "Get your Shenzhen warehouse address",
                 "Order from your suppliers",
@@ -192,12 +192,12 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
         },
         ru: {
             badge: "Прямая линия в ОАЭ",
-            titlePrefix: "Доставка из Китая в ОАЭ",
-            titleHighlight: "",
+            titlePrefix: "Доставка из Китая в ОАЭ (Дубай) под ключ:",
+            titleHighlight: "Экспресс-авиа и морской фрахт DDP от 0.1 кг",
             subtitle: <>Забудьте о сложностях с таможней Дубая, регистрацией НДС и ошибках поставщиков. Мы обеспечиваем надежный мост между китайскими фабриками (или платформами вроде Poizon/1688) и вашей дверью в Эмиратах.</>,
-            introTitle: "Ваш единый логистический хаб в ОАЭ",
+            introTitle: "Таможенное оформление DDP в Дубае: уплата ввозных пошлин (5%), VAT и курьерская доставка по всем Эмиратам",
             introText: "Работаете ли вы в сфере e-commerce в Дубае, владеете бизнесом в Абу-Даби или заказываете для себя в Шардже — HappyBox предоставляет специализированный DDP сервис. Цена, которую вы платите, уже включает фрахт, растаможку, импортные пошлины ОАЭ и НДС. Никаких скрытых платежей и внезапных счетов от Aramex или DHL при доставке.",
-            methodsTitle: "Методы доставки и тарифы",
+            methodsTitle: "Тарифы и сроки доставки в ОАЭ: экспресс-авиа (5–9 дней) и морские контейнеры в Джебель-Али (25–35 дней)",
             methods: [
                 {
                     icon: Plane,
@@ -218,7 +218,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "Почему импортеры в ОАЭ выбирают HappyBox",
+            whyTitle: "Складской хаб в Шэньчжэне: бережная доставка оригиналов с Poizon (Dewu) и консолидация с 1688",
             whyIntro: "Мы работаем как ваш локальный офис в Шэньчжэне, обеспечивая бесперебойную работу без необходимости летать в Китай:",
             benefits: [
                 {
@@ -242,14 +242,14 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
                     desc: "От склада в Шэньчжэне до вашего адреса в Дубае, Абу-Даби, Шардже, Аджмане, Фуджейре или Рас-эль-Хайме."
                 }
             ],
-            fearsTitle: "Решаем главные проблемы импорта",
+            fearsTitle: "Гарантии безопасности груза: проверка брака на складе, страховка All-Risk и отправка от 0.1 кг",
             fearsList: [
                 { q: "Что если поставщик пришлет брак?", a: "Наш склад — ваш фильтр качества. Мы проверяем каждую посылку перед отправкой из Китая. Брак возвращается производителю немедленно." },
                 { q: "Что если груз потеряют или повредят?", a: "Мы предоставляем страховку All-Risk. При утере или повреждении в пути вы получаете 100% возврат заявленной стоимости. Без мелкого шрифта." },
                 { q: "Подходит ли сервис для малого бизнеса?", a: <>Да. Наши лимиты: от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span> для авиа и от 1 куба для моря. Стартапы получают тот же уровень сервиса, что и крупные импортеры.</> },
                 { q: "Как быть с задержками?", a: "Праздники в Китае и загруженность порта Джебель-Али предсказуемы. Мы заранее планируем график, чтобы ваш сток всегда был полон." }
             ],
-            stepsTitle: "Доставка из Китая в ОАЭ за 4 шага",
+            stepsTitle: "Пошаговый процесс доставки в ОАЭ: 4 шага от склада в Гуандуне до вручения в Дубае и Абу-Даби",
             steps: [
                 "Получите адрес склада в Шэньчжэне",
                 "Сделайте заказ у поставщиков",

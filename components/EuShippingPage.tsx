@@ -24,12 +24,12 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
     const content = {
         en: {
             badge: "Europe Direct Line",
-            titlePrefix: "Shipping from China to Europe",
-            titleHighlight: "",
+            titlePrefix: "Shipping from China to Europe:",
+            titleHighlight: "DDP Air, Rail & Ocean Freight with VAT Paid from 0.1 kg",
             subtitle: <>Stop worrying about customs, import VAT, and supplier mistakes. We provide a secure bridge between your Chinese manufacturers and your EU destination - all duties and taxes paid upfront, no charges on delivery. No minimum weight requirement — we ship from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span>.</>,
-            introTitle: "Seamless Logistics Across the European Union",
+            introTitle: "EU-Wide DDP Customs Clearance: EORI Management, Import VAT Settlement, and Doorstep Delivery",
             introText: "Whether you are shipping to Germany, France, Italy, Spain, Poland, or any other EU member state, HappyBox provides a streamlined logistics experience. We specialize in DDP (Delivered Duty Paid) shipping. What this means for you: the price you pay includes ocean/rail/air freight, customs clearance, and all import duties and VAT. No hidden fees, no surprise invoices from local tax authorities.",
-            methodsTitle: "Our Shipping Methods & Rates",
+            methodsTitle: "China to Europe Shipping Rates & Transit Times: Express Air (6–10 Days), Rail Express (18–24 Days) & Ocean (35–45 Days)",
             methods: [
                 {
                     icon: Plane,
@@ -59,7 +59,7 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "HappyBox: Your Local Office in Shenzhen",
+            whyTitle: "Shenzhen Operations Hub: Multi-Supplier Consolidation, QC Inspection & CE Compliance Checks",
             whyIntro: "We act as your eyes and ears in China so you never need to fly there.",
             benefits: [
                 {
@@ -83,14 +83,14 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
                     desc: "Final-mile delivery to your warehouse or home via DHL, DPD, or UPS - anywhere in all 27 member states."
                 }
             ],
-            fearsTitle: "Solving Your Biggest Importing Fears",
+            fearsTitle: "EU Cargo Protection: All-Risk Insurance, 100% Declared Value Coverage & Delay Management",
             fearsList: [
                 { q: "What if my supplier sends defective goods?", a: "Our Shenzhen warehouse is your quality buffer. We inspect every shipment with photos and technical checks before it leaves China. Defective items go back to the factory immediately." },
                 { q: "What if the cargo is lost or damaged?", a: "We provide All-Risk cargo insurance. If your goods are lost or damaged in transit, you receive a 100% refund of the declared value. No fine print." },
                 { q: "Am I too small for you?", a: <>Our minimums are accessible: from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span> for Air and from 1 CBM for Sea. Startups and established brands get the same service level.</> },
                 { q: "What about Chinese holidays and EU port delays?", a: "Chinese New Year, Golden Week, and seasonal port congestion are predictable. We plan your shipment calendar around them so you never run out of stock." }
             ],
-            stepsTitle: "How to Get Started",
+            stepsTitle: "Step-by-Step EU Delivery Process: 4 Steps from Shenzhen Receiving to DHL/DPD Final Delivery",
             steps: [
                 "Get your Shenzhen warehouse address",
                 "Order from your suppliers",
@@ -102,12 +102,12 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
         },
         ru: {
             badge: "Прямая линия в Европу",
-            titlePrefix: "Доставка из Китая в Европу",
-            titleHighlight: "",
+            titlePrefix: "Доставка из Китая в Европу под ключ:",
+            titleHighlight: "Авиа, ж/д и морской фрахт DDP с оплатой НДС (VAT) от 0.1 кг",
             subtitle: <>Забудьте о таможне, НДС и ошибках поставщиков. Мы обеспечиваем надежный мост между китайскими фабриками и Европой - все налоги и пошлины включены в цену, никаких доплат при получении. Нет минимального веса — доставляем от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span>.</>,
-            introTitle: "Бесшовная логистика по всему Евросоюзу",
+            introTitle: "Таможенная очистка DDP во всех 27 странах ЕС: оформление EORI, уплата ввозного НДС и доставка до двери",
             introText: "Отправляете ли вы в Германию, Францию, Италию, Испанию, Польшу или любую другую страну ЕС - процесс остается стабильным. Мы специализируемся на доставке DDP (Delivered Duty Paid). Это значит, что цена включает фрахт, таможенную очистку и уплату всех ввозных пошлин и НДС. Никаких скрытых платежей или неожиданных счетов от местных налоговых органов.",
-            methodsTitle: "Наши тарифы и способы доставки",
+            methodsTitle: "Тарифы и сроки доставки в страны ЕС: экспресс-авиа (6–10 дней), ж/д экспресс (18–24 дня) и море (35–45 дней)",
             methods: [
                 {
                     icon: Plane,
@@ -137,7 +137,7 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "HappyBox: Ваш местный офис в Шэньчжэне",
+            whyTitle: "Складской сервис в Шэньчжэне: объединение заказов, проверка качества и соответствие стандартам CE",
             whyIntro: "Мы - ваши глаза и уши в Китае. Вам больше не нужно туда летать.",
             benefits: [
                 {
@@ -161,14 +161,14 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
                     desc: "Финальная доставка на ваш склад или дом местными курьерами (DHL, DPD, UPS) по всем 27 странам ЕС."
                 }
             ],
-            fearsTitle: "Решение ваших главных страхов при импорте",
+            fearsTitle: "Защита коммерческих грузов в ЕС: страхование All-Risk, возврат 100% стоимости и контроль портовых задержек",
             fearsList: [
                 { q: "А что если поставщик пришлет брак?", a: "Наш склад в Шэньчжэне служит буфером качества. Мы проверяем каждую партию с фотоотчетами до отправки из Китая. Бракованный товар немедленно возвращается на фабрику." },
                 { q: "А что если груз потеряется или повредится?", a: "Мы предоставляем страховку от всех рисков (All-Risk). В случае порчи или утери груза в пути, вы получаете 100% возврат заявленной стоимости. Никакого мелкого шрифта." },
                 { q: "Я не слишком маленький клиент для вас?", a: <>У нас реалистичные минимумы: от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span> для авиа и от 1 куба (CBM) для моря. И стартапы, и крупные бренды получают одинаково высокий уровень сервиса.</> },
                 { q: "А как же праздники и задержки в портах?", a: "Китайский Новый год, Золотая Неделя и пробки в портах можно предвидеть. Мы планируем календарь отправок так, чтобы у вас всегда был товар на складе." }
             ],
-            stepsTitle: "Как начать",
+            stepsTitle: "Пошаговый алгоритм доставки в Европу: 4 шага от приемки в Шэньчжэне до вручения курьером DHL/DPD",
             steps: [
                 "Получите адрес нашего склада в Шэньчжэне",
                 "Сделайте заказ у поставщиков",

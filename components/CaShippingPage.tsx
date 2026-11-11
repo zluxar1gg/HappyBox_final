@@ -15,12 +15,12 @@ export const CaShippingPage: React.FC<CaShippingPageProps> = ({ language, setLan
     const content: Record<'en' | 'ru', DestinationContent> = {
         en: {
             badge: "Canada Direct Line",
-            titlePrefix: "Shipping from China to Canada",
-            titleHighlight: "",
-            subtitle: "Stop worrying about CBSA customs, GST/HST, and supplier mistakes. We provide a secure bridge between your Chinese manufacturers and your Canadian destination with 100% transparent pricing.",
-            introTitle: "Seamless Logistics Across Canada",
+            titlePrefix: "Shipping from China to Canada:",
+            titleHighlight: "Door-to-Door DDP Air & Ocean Freight from 0.1 kg",
+            subtitle: "Stop worrying about CBSA customs, GST/HST, and supplier mistakes. We provide a secure bridge between your Chinese manufacturers and your Canadian destination with 100% transparent pricing. No minimum weight requirement — we ship from 0.1 kg.",
+            introTitle: "CBSA Customs Clearance & Tax Management (GST/HST): Doorstep Delivery Across Ontario, BC & Quebec",
             introText: "Whether you are shipping to Ontario, British Columbia, Quebec, Alberta, or any other province, HappyBox provides a streamlined logistics experience. We cover the entire country, from the Port of Vancouver to the Atlantic coast.",
-            methodsTitle: "Our Shipping Methods & Rates",
+            methodsTitle: "China to Canada Shipping Rates & Transit Times: Express Air (6–10 Days) & Ocean via Vancouver (20–35 Days)",
             methods: [
                 {
                     icon: Plane,
@@ -39,7 +39,7 @@ export const CaShippingPage: React.FC<CaShippingPageProps> = ({ language, setLan
                     speed: "20–35 days"
                 }
             ],
-            whyTitle: "HappyBox is the Top Choice for Canadian Importers",
+            whyTitle: "Shenzhen Operations Hub: Multi-Supplier Consolidation & Direct Amazon.ca FBA Prep (YYZ4, YVR1)",
             whyIntro: "We act as your local office in Shenzhen, handling the \"heavy lifting\" so you can focus on your Canadian sales:",
             benefits: [
                 {
@@ -63,7 +63,7 @@ export const CaShippingPage: React.FC<CaShippingPageProps> = ({ language, setLan
                     desc: "Final-mile delivery to any Canadian address or warehouse via trusted partners like Canada Post, UPS, or FedEx."
                 }
             ],
-            fearsTitle: "Frequently Asked Questions",
+            fearsTitle: "Canadian Import Compliance: Zero-Hassle DDP Without a Business Number (BN) and Pre-Paid GST/HST",
             fearsList: [
                 {
                     q: "Do I need a Canadian Business Number (BN) to import?",
@@ -78,7 +78,7 @@ export const CaShippingPage: React.FC<CaShippingPageProps> = ({ language, setLan
                     a: "Yes, we ship to all major Canadian FBA centers (like YYZ4, YVR1) and ensure your shipment meets Amazon's strict labeling and pallet requirements."
                 }
             ],
-            stepsTitle: "How to Ship to Canada",
+            stepsTitle: "Step-by-Step Canada Shipping: 4 Steps from Shenzhen Receiving to Canada Post & UPS Delivery",
             steps: [
                 "1. Send Goods to Shenzhen",
                 "2. Free QC & Consolidation",
@@ -252,12 +252,12 @@ export const CaShippingPage: React.FC<CaShippingPageProps> = ({ language, setLan
         },
         ru: {
             badge: "Прямая линия в Канаду",
-            titlePrefix: "Доставка из Китая в Канаду",
-            titleHighlight: "",
-            subtitle: "Забудьте о сложностях с таможней CBSA, расчетом GST/HST и ошибках поставщиков. Мы обеспечиваем надежный мост между вашими китайскими производителями и пунктом назначения в Канаде со 100% прозрачным ценообразованием.",
-            introTitle: "Бесшовная логистика по всей Канаде",
+            titlePrefix: "Доставка из Китая в Канаду под ключ:",
+            titleHighlight: "Авиа и морской фрахт DDP с растаможкой CBSA от 0.1 кг",
+            subtitle: "Забудьте о сложностях с таможней CBSA, налогами GST/HST и ошибках поставщиков. Мы обеспечиваем надежный мост между китайскими фабриками и Канадой со 100% прозрачным ценообразованием. Нет минимального веса — доставляем от 0.1 кг.",
+            introTitle: "Таможенное оформление CBSA и налоги GST/HST: доставка от порта Ванкувера до Торонто и Монреаля",
             introText: "Онтарио, Британская Колумбия, Квебек, Альберта или любая другая провинция — HappyBox обеспечивает четкую доставку. Мы покрываем всю страну, от порта Ванкувера до Атлантического побережья.",
-            methodsTitle: "Методы доставки и тарифы",
+            methodsTitle: "Тарифы и сроки доставки в Канаду: экспресс-авиа (6–10 дней) и морские контейнеры через Ванкувер (20–35 дней)",
             methods: [
                 {
                     icon: Plane,
@@ -276,7 +276,7 @@ export const CaShippingPage: React.FC<CaShippingPageProps> = ({ language, setLan
                     speed: "20–35 дней"
                 }
             ],
-            whyTitle: "Почему импортеры из Канады выбирают HappyBox",
+            whyTitle: "Складской сервис в Шэньчжэне: консолидация заказов с фабрик и прямая доставка на Amazon.ca FBA (YYZ4, YVR1)",
             whyIntro: "Мы работаем как ваш локальный офис в Шэньчжэне и берем на себя всю «грязную работу», чтобы вы могли сфокусироваться на продажах:",
             benefits: [
                 {
@@ -300,7 +300,7 @@ export const CaShippingPage: React.FC<CaShippingPageProps> = ({ language, setLan
                     desc: "Доставка по любому канадскому адресу или на склад через проверенных партнеров: Canada Post, UPS или FedEx."
                 }
             ],
-            fearsTitle: "Частые вопросы",
+            fearsTitle: "Таможенные гарантии импорта: ввоз без канадского бизнес-номера (BN) и фиксированная цена с учетом налогов",
             fearsList: [
                 {
                     q: "Нужен ли мне канадский Business Number (BN) для импорта?",
@@ -315,7 +315,7 @@ export const CaShippingPage: React.FC<CaShippingPageProps> = ({ language, setLan
                     a: "Да, мы доставляем на все крупные склады FBA (YYZ4, YVR1 и др.) с соблюдением строгих правил упаковки и маркировки Amazon."
                 }
             ],
-            stepsTitle: "Как начать работу",
+            stepsTitle: "Пошаговый процесс доставки в Канаду: 4 этапа от склада в Шэньчжэне до вручения через Canada Post и UPS",
             steps: [
                 "1. Товар на наш склад",
                 "2. Проверка и упаковка",

@@ -23,24 +23,24 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
 
     const seoMap: Record<string, { title: { en: string; ru: string }, desc: { en: string; ru: string } }> = {
       usa: {
-        title: { en: `China to USA Shipping: Air & Sea Freight DDP | ${baseTitle}`, ru: `Доставка из Китая в США: DDP, Авиа и Склад в Китае | ${baseTitle}` },
-        desc: { en: 'Reliable shipping from China to the USA. Warehousing in China, DDP door-to-door delivery, fast air freight, and cost-effective sea freight. Get a quote today', ru: 'Быстрая доставка из Китая в США: авиа, море и DDP растаможка. Склад и преп-центр в Китае для Amazon FBA — подготовим и отправим заказ под ключ' }
+        title: { en: 'China to USA Shipping: Air & Ocean Freight DDP from 0.1 kg | HappyBox', ru: 'Доставка из Китая в США под ключ: DDP, Авиа и Море от 0.1 кг | HappyBox' },
+        desc: { en: 'Reliable door-to-door DDP shipping from China to the USA. Express air freight (5-9 days), economical ocean cargo, full CBP customs clearance, and free consolidation.', ru: 'Надежная доставка грузов и посылок из Китая в США на условиях DDP. Авиа от 5 дней, море от $1.2/кг, оформление ISF и растаможка CBP под ключ. Склад в Шэньчжэне.' }
       },
       eu: {
-        title: { en: 'China to Europe Shipping: Door-to-Door DDP | HappyBox', ru: 'Доставка в Европу из Китая: DDP до двери | HappyBox' },
-        desc: { en: 'Fast sea & air freight from China to all EU countries. Duties paid (DDP), customs cleared, delivered to your door. Get a quote in minutes.', ru: 'Быстрая авиа и морская доставка из Китая во все страны ЕС. Включая таможенную очистку и оплату пошлин (DDP). Расчет стоимости за минуты.' }
+        title: { en: 'China to Europe Shipping: DDP Air, Rail & Ocean Freight from 0.1 kg | HappyBox', ru: 'Доставка из Китая в Европу под ключ: DDP, Авиа, Ж/Д и Море от 0.1 кг | HappyBox' },
+        desc: { en: 'Fast and reliable DDP shipping from China to all 27 EU countries. Air, rail, and sea freight with import VAT and duties included. Free Shenzhen consolidation.', ru: 'Надежная доставка грузов и посылок из Китая в страны ЕС (Германия, Франция, Польша и др.). Все пошлины и НДС (VAT) включены в DDP тариф. Склад в Шэньчжэне.' }
       },
       uae: {
-        title: { en: 'China to UAE Shipping: Sea & Air Freight | HappyBox', ru: 'Доставка грузов из Китая в ОАЭ (Дубай) | HappyBox' },
-        desc: { en: 'Affordable sea and air freight from China to Dubai and UAE. DDP delivery options, customs cleared, and fast transit times.', ru: 'Надежная доставка из Китая в Эмираты. Морской фрахт и авиаперевозки в Дубай, таможенное оформление и доставка до двери.' }
+        title: { en: 'China to UAE Shipping: Door-to-Door DDP Air & Ocean Freight from 0.1 kg | HappyBox', ru: 'Доставка из Китая в ОАЭ (Дубай) под ключ: DDP Авиа и Море от 0.1 кг | HappyBox' },
+        desc: { en: 'Reliable DDP freight forwarding from China to Dubai and all UAE Emirates. Express air (5-9 days), ocean via Jebel Ali, customs clearance, and delivery to your door.', ru: 'Быстрая доставка грузов и посылок из Китая в ОАЭ (Дубай, Абу-Даби, Шарджа) на условиях DDP. Авиа от 5 дней, море через порт Джебель-Али, пошлина и VAT 5% включены.' }
       },
       russia: {
         title: { en: `Shipping from China to Russia | ${baseTitle}`, ru: `Карго и Белая Доставка из Китая в Россию | ${baseTitle}` },
         desc: { en: 'Logistics to Russia via express rail and truck. Fast customs clearance.', ru: 'Авто, ЖД и авиадоставка из Китая в Москву и регионы РФ. Оплата поставщикам в USDT.' }
       },
       canada: {
-        title: { en: `China to Canada Shipping: Air & Sea Freight DDP | ${baseTitle}`, ru: `Доставка из Китая в Канаду: Авиа и Море под ключ | ${baseTitle}` },
-        desc: { en: 'Fast, reliable shipping from China to Canada. Air freight, sea cargo, and DDP delivery — customs and duties handled for you. Get a quote today', ru: 'Надежная доставка грузов из Китая в Канаду: авиа, морской фрахт и DDP растаможка. Учитываем требования CBSA и GST/HST. Расчет за минуту' }
+        title: { en: 'China to Canada Shipping: Door-to-Door DDP Air & Ocean Freight from 0.1 kg | HappyBox', ru: 'Доставка из Китая в Канаду под ключ: DDP Авиа и Море через Ванкувер от 0.1 кг | HappyBox' },
+        desc: { en: 'Reliable door-to-door DDP shipping from China to Canada (Toronto, Vancouver, Montreal). Express air (6-10 days), ocean via Port of Vancouver ($1.5/kg), CBSA clearance, GST/HST included.', ru: 'Доставка грузов и посылок из Китая в Канаду (Торонто, Ванкувер, Монреаль) на условиях DDP. Авиа от 6 дней, море от $1.5/кг. Растаможка CBSA, налоги GST/HST включены, без номера BN.' }
       },
       amazon: {
         title: { en: 'Amazon FBA Prep China: Shipping Services | HappyBox', ru: 'Доставка на Amazon FBA: преп-центр | HappyBox' },

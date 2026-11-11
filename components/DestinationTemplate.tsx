@@ -209,7 +209,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                         <div id="features" className="mb-20 scroll-mt-32">
                             {t.fbaTitle && (
                                 <>
-                                    <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.fbaTitle}</h2>
+                                    <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.fbaTitle}</h3>
                                     {t.fbaText && <p className="text-base md:text-lg text-gray-700 leading-relaxed font-medium mb-12">{t.fbaText}</p>}
                                     {t.fbaItems && (
                                         <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -228,7 +228,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                             )}
                             {t.whyTitle && (
                                 <>
-                                    <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.whyTitle}</h2>
+                                    <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.whyTitle}</h3>
                                     {t.whyIntro && <p className="text-base md:text-lg text-gray-700 leading-relaxed font-medium mb-12">{t.whyIntro}</p>}
                                     {t.benefits && (
                                         <div className="space-y-8">
@@ -251,7 +251,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
 
                         {/* Fears */}
                         <div className="mb-20 bg-brand-light/30 p-8 sm:p-12 rounded-[40px] border border-brand-blue/10">
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-10 tracking-tight">{t.fearsTitle}</h2>
+                            <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 tracking-tight">{t.fearsTitle}</h3>
                             <div className="space-y-8">
                                 {t.fearsList.map((f, idx) => (
                                     <div key={idx}>

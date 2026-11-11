@@ -24,13 +24,13 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
 
     const content = {
         en: {
-            badge: "US Direct Line",
+            badge: "USA Direct Line",
             titlePrefix: "Shipping from China to",
-            titleHighlight: "USA: Professional DDP",
+            titleHighlight: "USA: Door-to-Door DDP Air & Ocean Freight from 0.1 kg",
             subtitle: <>Stop worrying about customs, taxes, and supplier mistakes. We provide a secure bridge between your Chinese manufacturers and your US destination with 100% transparent pricing. No minimum weight requirement — we ship from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span>.</>,
-            introTitle: "Seamless Logistics Across the United States",
+            introTitle: "Complete US Customs Clearance: ISF (10+2) Filing, CBP Duty Payment, and Nationwide Delivery",
             introText: "Whether you are shipping to California, New York, Texas, Florida, or any other state, HappyBox provides a streamlined logistics experience. We cover the entire country, from the West Coast to the East Coast. We specialize in DDP (Delivered Duty Paid) shipping. This means the price you pay includes all ocean/air freight, customs clearance, and import duties. No hidden fees, no surprise bills from Customs and Border Protection (CBP).",
-            methodsTitle: "Our Shipping Methods & Rates",
+            methodsTitle: "China to US Shipping Rates & Transit Times: Express Air (5–9 Days) & Ocean LCL/FCL (25–35 Days)",
             methods: [
                 {
                     icon: Plane,
@@ -51,7 +51,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            fbaTitle: "HappyBox is the Top Choice for US Importers",
+            fbaTitle: "Shenzhen Fulfillment Hub: Multi-Supplier Consolidation & Pre-Shipment Quality Control",
             fbaText: "We act as your local office in Shenzhen, ensuring your business runs smoothly without you ever needing to fly to China. We handle the \"heavy lifting\" so you can focus on your sales:",
             fbaItems: [
                 { title: "Order Consolidation", desc: "We collect goods from multiple suppliers (1688, Alibaba, Taobao) at our Shenzhen warehouse and ship them as one single cargo to significantly reduce your shipping costs." },
@@ -59,14 +59,14 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                 { title: "Total Customs Management (DDP)", desc: "We handle the ISF filing, customs bonds, and all import duties. You don't need to worry about complex US Customs and Border Protection (CBP) paperwork." },
                 { title: "Nationwide Door-to-Door Delivery", desc: "Whether it’s a residential address or a commercial warehouse, we provide \"last-mile\" delivery to any US state via trusted partners like UPS, FedEx, or local trucking." }
             ],
-            fearsTitle: "Solving Your Biggest Importing Fears",
+            fearsTitle: "US Cargo Protection: All-Risk Transit Insurance and Defect Screening in China",
             fearsList: [
                 { q: "What if my supplier sends junk?", a: "Our Shenzhen Warehouse acts as your quality buffer. We provide photos, videos, and technical checks before the cargo leaves China. If it's broken, we return it to the factory immediately." },
                 { q: "What if the cargo is lost or damaged?", a: "We offer Zero-Risk Insurance. Unlike others who hide this in the fine print, we offer \"All-Risk\" coverage for a small fee. If your goods are lost during transit, you receive a 100% refund of the declared value." },
                 { q: "Am I too small for you?", a: <>We work with growing businesses. Our minimums are realistic: starting from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span> for Air and 51 kg for Sea Freight. Whether you are a startup or an established brand, you get the same level of expertise.</> },
                 { q: "What about holidays and delays?", a: "Logistics isn't always perfect. We provide a Realistic Shipping Calendar, accounting for Chinese New Year, Golden Week, and US port congestion (like LAX or Long Beach) to ensure you never run out of stock." }
             ],
-            whyTitle: "Working with HappyBox is",
+            whyTitle: "Why Importers Choose HappyBox for US Freight",
             benefits: [
                 {
                     icon: FileCheck,
@@ -89,7 +89,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                     desc: "Free storage and professional repacking to protect your goods during the long journey."
                 }
             ],
-            stepsTitle: "How to Get Started",
+            stepsTitle: "Step-by-Step Delivery: 4 Simple Steps from Guangdong Warehouse to US Handover",
             steps: [
                 "Get Your Address",
                 "Order Your Goods",
@@ -101,12 +101,12 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
         },
         ru: {
             badge: "Прямая линия в США",
-            titlePrefix: "Доставка из Китая в",
-            titleHighlight: "США: профессиональный сервис DDP",
+            titlePrefix: "Доставка из Китая в США под ключ:",
+            titleHighlight: "Авиа и морской фрахт DDP с таможенной очисткой от 0.1 кг",
             subtitle: <>Забудьте о сложностях с таможней, налогами и ошибками поставщиков. Мы обеспечиваем надежный мост между вашими китайскими производителями и пунктом назначения в США со 100% прозрачным ценообразованием. Никаких ограничений по минимальному весу — отправляем от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span>.</>,
-            introTitle: "Бесшовная логистика по всей территории Соединенных Штатов",
+            introTitle: "Таможенное оформление DDP в США: подача ISF (10+2), уплата пошлин CBP и доставка до двери",
             introText: "Калифорния, Нью-Йорк, Техас или Флорида — HappyBox обеспечивает четкую логистику в любой штат, от Западного до Восточного побережья. Мы специализируемся на доставке DDP (Delivered Duty Paid). Это значит, что в цену уже включены авиа или морской фрахт, растаможка и все импортные пошлины. Никаких скрытых сборов и внезапных счетов от Таможенно-пограничной службы США (CBP).",
-            methodsTitle: "Методы доставки и тарифы",
+            methodsTitle: "Тарифы и сроки доставки в США: экспресс-авиа (5–9 дней) и сборные контейнеры морем (25–35 дней)",
             methods: [
                 {
                     icon: Plane,
@@ -127,7 +127,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            fbaTitle: "Почему американские импортеры выбирают HappyBox",
+            fbaTitle: "Складской хаб в Шэньчжэне: консолидация заказов с фабрик и контроль качества перед экспортом",
             fbaText: "Мы работаем как ваш локальный офис в Шэньчжэне. Пока вы фокусируетесь на продажах, мы берем на себя всю «грязную работу»:",
             fbaItems: [
                 { title: "Консолидация заказов", desc: "Соберем товары от разных поставщиков (1688, Alibaba, Taobao) на нашем складе и отправим единым грузом, чтобы максимально снизить стоимость доставки." },
@@ -135,14 +135,14 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                 { title: "Полное управление таможней (DDP)", desc: "Мы берем на себя подачу формы ISF, оформление таможенных бондов и оплату пошлин. Вам не нужно возиться со сложной документацией CBP." },
                 { title: "Доставка «до двери» по всей стране", desc: "Привезем груз на любой адрес — будь то частный дом или коммерческий склад — через проверенных партнеров (UPS, FedEx или локальные траковые компании)." }
             ],
-            fearsTitle: "Решаем главные проблемы импорта",
+            fearsTitle: "Защита грузов при перевозке в США: страхование от всех рисков и отбраковка партий в Китае",
             fearsList: [
                 { q: "Что если поставщик пришлет мусор?", a: "Наш склад в Шэньчжэне — это ваш фильтр качества. Мы проверяем всё до отправки. Если нашли брак — сразу возвращаем товар на завод." },
                 { q: "Что если груз потеряют или повредят?", a: "Мы предлагаем страховку «от всех рисков» (All-Risk). В случае утери или повреждения вы получаете 100% возврат заявленной стоимости. Никакого мелкого шрифта." },
                 { q: "У меня небольшой заказ, вы со мной работаете?", a: <>Да. Наши лимиты: от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span> для авиа и от 51 кг для моря. Мы даем одинаковый уровень экспертизы и стартапам, и крупным брендам.</> },
                 { q: "Как быть с праздниками и задержками?", a: "Мы предоставляем реалистичный календарь отгрузок с учетом китайского Нового года и заторов в портах (LAX или Long Beach), чтобы ваш бизнес работал без пауз." }
             ],
-            whyTitle: "Работа с HappyBox - это",
+            whyTitle: "Преимущества логистики с HappyBox",
             benefits: [
                 {
                     icon: FileCheck,
@@ -165,7 +165,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                     desc: "Бесплатный склад и профессиональная переупаковка для защиты груза в пути."
                 }
             ],
-            stepsTitle: "С чего начать",
+            stepsTitle: "Пошаговый процесс доставки: 4 простых шага от склада в Гуандуне до вручения в США",
             steps: [
                 "Получите адрес склада в Шэньчжэне",
                 "Закажите товар у поставщиков",
@@ -269,7 +269,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
 
                             {/* FBA Section */}
                             <div id="features" className="mb-24 scroll-mt-32">
-                                <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.fbaTitle}</h2>
+                                <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.fbaTitle}</h3>
                                 <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-12">{t.fbaText}</p>
                                 <div className="space-y-8">
                                     {t.fbaItems.map((item, idx) => (
@@ -283,7 +283,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
 
                             {/* Fears Container */}
                             <div className="mb-24 bg-brand-light/30 p-8 sm:p-12 rounded-[40px] border border-brand-blue/10">
-                                 <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-12 tracking-tight">{t.fearsTitle}</h2>
+                                 <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 tracking-tight">{t.fearsTitle}</h3>
                                  <div className="space-y-8">
                                     {t.fearsList.map((f, idx) => (
                                         <div key={idx}>
@@ -296,7 +296,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
 
                             {/* Why Choose Us */}
                             <div className="mb-24">
-                                 <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.whyTitle}</h2>
+                                 <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-8 tracking-tight">{t.whyTitle}</h3>
                                  <div className="space-y-8">
                                     {t.benefits.map((benefit, idx) => (
                                         <div key={idx} className="flex gap-5 items-start">
