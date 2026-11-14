@@ -19,12 +19,12 @@ export const GeorgiaShippingPage: React.FC<GeorgiaShippingPageProps> = ({
     const fullContent: Record<'en' | 'ru', DestinationContent> = {
         en: {
             badge: "Georgia-Direct Line",
-            titlePrefix: "Shipping from China to",
+            titlePrefix: "Parcels, Electronics & Commercial Freight from China to",
             titleHighlight: "Georgia",
             subtitle: "Reliable Air & Fast Land Freight. Avoid complex customs clearance, language barriers with Chinese factories, and hidden transit fees.",
-            introTitle: "Door-to-Door Delivery Across Georgia",
+            introTitle: "Doorstep Delivery Across Tbilisi, Batumi, Kutaisi & Rustavi",
             introText: "Whether you are an entrepreneur importing wholesale electronics, a designer sourcing home decor from Taobao, or an individual shipping a personal parcel, we manage the entire journey. We deliver directly to your address in Tbilisi, Batumi, Kutaisi, Rustavi, and any other region.",
-            methodsTitle: "Our Shipping Methods & Rates",
+            methodsTitle: "Rates & Transit Times: Air from $15/kg (5–8d) & Middle Corridor Auto from $1.2/kg",
             methods: [
                 {
                     icon: Plane,
@@ -45,7 +45,7 @@ export const GeorgiaShippingPage: React.FC<GeorgiaShippingPageProps> = ({
                     color: "bg-teal-100 text-teal-600"
                 }
             ],
-            whyTitle: "Why Regular Shoppers & Businesses Choose HappyBox",
+            whyTitle: "DDP Clearance Without Importer Registration, Free Consolidation & Bao'an QC",
             whyIntro: "All our shipping channels to Georgia operate on a strict DDP (Delivered Duty Paid) basis. The price you are quoted includes warehouse handling in China, international freight, customs clearance, and all Georgian import duties/taxes. The price we quote is the final price you pay.",
             benefits: [
                 {
@@ -69,7 +69,7 @@ export const GeorgiaShippingPage: React.FC<GeorgiaShippingPageProps> = ({
                     desc: "We inspect your items and send photos before they leave China. Returning a broken or incorrect item from Georgia to China is incredibly expensive—we catch factory errors at the source."
                 }
             ],
-            fearsTitle: "Frequently Asked Questions",
+            fearsTitle: "Tbilisi Customs Exemption, Volumetric Weight (/6000) & Ferry Transit Insurance",
             fearsList: [
                 {
                     q: "How is volumetric weight calculated?",
@@ -84,7 +84,7 @@ export const GeorgiaShippingPage: React.FC<GeorgiaShippingPageProps> = ({
                     a: "We offer All-Risk Insurance. Given that land transit involves multi-country border crossings and ferry transfers, our insurance covers 100% of your declared value against handling damage or transit loss."
                 }
             ],
-            stepsTitle: "The Step-by-Step Workflow",
+            stepsTitle: "4 Steps from Taobao or 1688 Order to Doorstep Delivery in Georgia",
             steps: [
                 "Address Assignment: We provide you with your dedicated shipping address and user ID for our Shenzhen warehouse.",
                 "Supplier Delivery: You input this address into Taobao/1688 or provide it directly to your Alibaba manufacturer.",
@@ -172,12 +172,12 @@ export const GeorgiaShippingPage: React.FC<GeorgiaShippingPageProps> = ({
         },
         ru: {
             badge: "Прямая линия в Грузию",
-            titlePrefix: "Доставка из Китая в",
+            titlePrefix: "Отправка посылок, электроники и оптовых грузов из Китая в",
             titleHighlight: "Грузию",
             subtitle: "Надежная авиа и быстрая автодоставка. Избегайте сложной растаможки, языковых барьеров и скрытых транзитных комиссий.",
-            introTitle: "Доставка до двери по всей Грузии",
+            introTitle: "Доставка до двери в Тбилиси, Батуми, Кутаиси, Рустави и регионы",
             introText: "Покупаете оптом электронику для бизнеса? Заказываете декор для дома с Taobao? Или отправляете личную посылку? Мы берем на себя весь процесс. Доставка прямо до вашего адреса в Тбилиси, Батуми, Кутаиси, Рустави и любом другом регионе.",
-            methodsTitle: "Наши тарифы и способы доставки",
+            methodsTitle: "Тарифы и сроки: авиа от $15/кг (5–8 дн.) и авто Средний коридор от $1.2/кг",
             methods: [
                 {
                     icon: Plane,
@@ -198,7 +198,7 @@ export const GeorgiaShippingPage: React.FC<GeorgiaShippingPageProps> = ({
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "Почему бизнесы и частные лица выбирают HappyBox",
+            whyTitle: "Таможня DDP без статуса импортёра, консолидация и фотопроверка в Баоане",
             whyIntro: "Все наши каналы в Грузию работают строго по системе DDP (Delivered Duty Paid). Цена, которую мы вам озвучиваем, уже включает складскую обработку в Китае, фрахт, таможенную очистку и все пошлины/налоги Грузии.",
             benefits: [
                 {
@@ -222,7 +222,7 @@ export const GeorgiaShippingPage: React.FC<GeorgiaShippingPageProps> = ({
                     desc: "Мы проверяем товары и отправляем фото до того, как они покинут склад в Китае. Вернуть брак из Грузии в Китай невероятно дорого — мы ловим ошибки на старте."
                 }
             ],
-            fearsTitle: "Частые вопросы",
+            fearsTitle: "Оформление без визита на таможню, расчёт объёмного веса и страховка груза",
             fearsList: [
                 {
                     q: "Как рассчитывается объемный вес?",
@@ -237,7 +237,7 @@ export const GeorgiaShippingPage: React.FC<GeorgiaShippingPageProps> = ({
                     a: "Мы предлагаем страховку All-Risk. Так как автодоставка включает несколько пересечений границ и паром, страховка покрывает 100% стоимости товара от повреждений или потерь."
                 }
             ],
-            stepsTitle: "Как работает доставка в Грузию",
+            stepsTitle: "4 этапа пути: от заказа на Taobao или 1688 до вручения курьером в Грузии",
             steps: [
                 "Получите свой адрес: Мы выдаем вам персональный ID и адрес склада в Шэньчжэне.",
                 "Сделайте заказ: Укажите этот адрес на Taobao, 1688 или передайте своему поставщику.",

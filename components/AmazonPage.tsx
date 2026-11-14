@@ -26,23 +26,23 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
     const content = {
         en: {
             badge: "Amazon FBA USA Logistics",
-            titlePrefix: "Amazon FBA Prep Center in China",
-            titleHighlight: "",
+            titlePrefix: "Send Inventory from Chinese Factories to ",
+            titleHighlight: "US Amazon Warehouses",
             titleSuffix: "",
             subtitle: "Scale your US Amazon business without the logistics headache. We provide a specialized \"Factory-to-FBA\" bridge with professional prep and guaranteed customs clearance.",
             
-            seamlessTitle: "Seamless Delivery to US Fulfillment Centers",
+            seamlessTitle: "Customs-Cleared DDP Freight to ONT8, FTW1, CLT2 & JFK8 from 0.1 kg",
             seamlessText: "Whether your inventory is assigned to ONT8, FTW1, CLT2, or JFK8, HappyBox ensures your goods arrive on time and in full compliance with Amazon's strict inbound policies.",
             ddpTitle: "DDP (Delivered Duty Paid)",
             ddpText: "One price that covers everything - freight, customs bonds, ISF filing, and all US import duties.",
             minWeightTitle: "0.1 kg Minimum",
             minWeightText: "Whether you're launching a PL (Private Label) sample or restocking a 40ft container, we've got you covered.",
 
-            ratesTitle: "Our Amazon Shipping Rates & Methods",
+            ratesTitle: "Transit Times & Rates: Air from $10/kg (5–9d) & Ocean from $1.2/kg",
             ratesAir: { method: "Air Freight", price: "From $10/kg", time: "5-9 days", bestFor: "Urgent restocks & launches" },
             ratesSea: { method: "Sea Freight", price: "From $1.2/kg", time: "25-35 days", bestFor: "Bulk inventory & high margins" },
 
-            prepTitle: "Professional Amazon FBA Prep (China-Based)",
+            prepTitle: "Shenzhen Prep Services: FNSKU Barcodes, QC Inspection & Poly-Bagging",
             prepSubtitle: "Don't find out your labels are wrong when the goods reach the US. We fix everything at our Shenzhen warehouse:",
             prepItems: [
                 { title: "FNSKU Labeling", desc: "Precise barcode application." },
@@ -51,14 +51,14 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                 { title: "Made in China Stickers", desc: "Full compliance with US Customs (CBP) mandatory markings." }
             ],
 
-            fearsTitle: "Solving Your FBA Logistics Fears",
+            fearsTitle: "Avoiding Inbound Rejections, ISF 10+2 & Section 301 Duty Surprises",
             fears: [
                 { q: "What if my shipment is rejected?", a: "We have a 0% rejection rate. We know the height, weight, and labeling rules for every US hub." },
                 { q: "What about customs duties?", a: "We handle the ISF 10+2 filing and all Section 301 tariffs. No surprise bills from CBP." },
                 { q: "Am I too small?", a: "We support growing brands. No massive minimums - start small and scale." }
             ],
 
-            howTitle: "How to Get Your Goods to FBA",
+            howTitle: "Four Steps from Supplier Dispatch to FBA «Checked-in» Status",
             steps: [
                 { title: "Create Shipment", desc: "Send us your FNSKU and Carton labels in PDF." },
                 { title: "Order to Warehouse", desc: "Ship your goods from the factory to our Shenzhen hub." },
@@ -66,7 +66,7 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                 { title: "Final Delivery", desc: "We ship and track your cargo until it's \"Checked-in\" at the FBA warehouse." }
             ],
 
-            techTitle: "Amazon FBA USA Strategy & Technical Guide (2026)",
+            techTitle: "Amazon FBA USA Logistics Guide: Matson Express, Section 321 & Prep Rules (2026)",
             techSubtitle: "Moving cargo to US Amazon warehouses requires a strategic approach to route selection and tariff mitigation. This guide provides the technical data needed for professional FBA inventory planning.",
             techSections: [
                 {
@@ -173,23 +173,23 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
         },
         ru: {
             badge: "Логистика Amazon FBA США",
-            titlePrefix: "Фулфилмент и преп-центр Amazon FBA в Китае",
-            titleHighlight: "",
+            titlePrefix: "Отправка товаров с китайских фабрик на ",
+            titleHighlight: "склады Амазон в США",
             titleSuffix: "",
             subtitle: "Масштабируйте свой бизнес на Amazon в США без головной боли с логистикой. Мы предоставляем специализированный мост \"Фабрика - FBA\" с профессиональным препом и гарантированным таможенным оформлением.",
             
-            seamlessTitle: "Бесшовная доставка на фулфилмент-центры в США",
-            seamlessText: "Независимо от того, назначен ли ваш инвентарь на ONT8, FTW1, CLT2 или JFK8, HappyBox гарантирует прибытие товаров вовремя и в полном соответствии со строгими политиками приема Amazon.",
+            seamlessTitle: "Приёмка в хабах ONT8, FTW1, CLT2 и JFK8 с растаможкой под ключ",
+            seamlessText: "Независимо того, назначен ли ваш инвентарь на ONT8, FTW1, CLT2 или JFK8, HappyBox гарантирует прибытие товаров вовремя и в полном соответствии со строгими политиками приема Amazon.",
             ddpTitle: "DDP (Delivered Duty Paid)",
             ddpText: "Единая цена, которая покрывает всё - фрахт, таможенные бонды, подачу ISF и все импортные пошлины США.",
             minWeightTitle: "Минимум от 0.1 кг",
             minWeightText: "Независимо от того, запускаете ли вы образец PL (Private Label) или пополняете запасы в 40-футовом контейнере, мы поможем.",
 
-            ratesTitle: "Наши тарифы и методы доставки",
+            ratesTitle: "Стоимость и сроки перевозки: авиа от $10/кг и море от $1.2/кг",
             ratesAir: { method: "Авиадоставка", price: "От $10/кг", time: "5-9 дней", bestFor: "Срочные пополнения и запуски" },
             ratesSea: { method: "Морская доставка", price: "От $1.2/кг", time: "25-35 дней", bestFor: "Объемный инвентарь и высокая маржа" },
 
-            prepTitle: "Профессиональный преп для Amazon FBA (в Китае)",
+            prepTitle: "Подготовка партии в Шэньчжэне: FNSKU-стикеры, проверка брака и упаковка",
             prepSubtitle: "Не ждите обнаружения ошибок в маркировке по прибытии товаров в США. Мы всё исправляем на нашем складе в Шэньчжэне:",
             prepItems: [
                 { title: "Маркировка FNSKU", desc: "Точное нанесение штрих-кода." },
@@ -198,14 +198,14 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                 { title: "Стикеры Made in China", desc: "Полное соответствие обязательным требованиям Таможни США (CBP)." }
             ],
 
-            fearsTitle: "Решение ваших страхов логистики FBA",
+            fearsTitle: "Оформление ISF 10+2, пошлины Section 301 и работа с малыми партиями",
             fears: [
                 { q: "А если мою отправку отклонят?", a: "У нас 0% отказов. Мы знаем правила по высоте, весу и маркировке для каждого хаба в США." },
                 { q: "Что с таможенными пошлинами?", a: "Мы занимаемся подачей ISF 10+2 и всеми тарифами Section 301. Никаких неожиданных счетов от CBP." },
                 { q: "Я слишком маленький селлер?", a: "Мы поддерживаем растущие бренды. Нет огромных минимумов - начинайте с малого и масштабируйтесь." }
             ],
 
-            howTitle: "Как отправить груз на FBA",
+            howTitle: "Четыре этапа работы: от получения PDF-этикеток до статуса «Checked-in»",
             steps: [
                 { title: "Создайте Шипмент", desc: "Отправьте нам ваши FNSKU и Carton labels в PDF." },
                 { title: "Заказ на Склад", desc: "Отправьте товары с фабрики на наш хаб в Шэньчжэне." },
@@ -213,7 +213,7 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                 { title: "Финальная доставка", desc: "Мы отправляем и отслеживаем груз до статуса \"Checked-in\" на складе FBA." }
             ],
 
-            techTitle: "Стратегия и техническое руководство Amazon FBA USA (2026)",
+            techTitle: "Технический гайд Amazon FBA США: Matson Express, Section 321 и стандарты (2026)",
             techSubtitle: "Отправка грузов на склады Amazon в США требует стратегического подхода к выбору маршрута и минимизации тарифов. В этом руководстве представлены технические данные для планирования.",
             techSections: [
                 {
@@ -362,7 +362,7 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                             {/* Seamless Delivery */}
                             <div className="bg-[#FF9900]/5 rounded-[40px] p-8 lg:p-12 mb-20 border border-[#FF9900]/10">
                                 <div className="text-center mb-10">
-                                    <h3 className="text-3xl font-extrabold text-brand-dark mb-4">{t.seamlessTitle}</h3>
+                                    <h2 className="text-3xl font-extrabold text-brand-dark mb-4">{t.seamlessTitle}</h2>
                                     <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">{t.seamlessText}</p>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-6">
@@ -379,9 +379,9 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
 
                             {/* Rates */}
                             <div className="mb-20">
-                                <h3 className="text-2xl font-extrabold text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
+                                <h2 className="text-2xl font-extrabold text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
                                     {t.ratesTitle}
-                                </h3>
+                                </h2>
                                 <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                                     <div className="bg-white rounded-[30px] p-6 border-2 border-gray-100 shadow-sm flex flex-col">
                                         <h4 className="font-bold text-xl text-brand-dark mb-4">{t.ratesAir.method}</h4>
@@ -470,7 +470,7 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                                 {/* Tech guide */}
                                 <div className="bg-white rounded-[40px] p-8 lg:p-12 mb-20 border border-gray-100 shadow-sm">
                                     <div className="text-center mb-10">
-                                        <h3 className="text-3xl font-extrabold text-brand-dark mb-4">{t.techTitle}</h3>
+                                        <h2 className="text-3xl font-extrabold text-brand-dark mb-4">{t.techTitle}</h2>
                                         <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">{t.techSubtitle}</p>
                                     </div>
                                     <div className="space-y-10">

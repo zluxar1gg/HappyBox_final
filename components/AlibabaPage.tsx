@@ -153,7 +153,7 @@ export const AlibabaPage = ({ language, setLanguage, onBack, onNavigate }: { lan
                                         <step.icon size={16} />
                                     </div>
                                 </div>
-                                <h4 className="font-bold text-xl text-brand-dark mb-3">{step.title}</h4>
+                                <h3 className="font-bold text-xl text-brand-dark mb-3">{step.title}</h3>
                                 <p className="text-sm text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                     {step.desc}
                                 </p>
@@ -165,11 +165,11 @@ export const AlibabaPage = ({ language, setLanguage, onBack, onNavigate }: { lan
                         <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
                             <ShieldCheck size={400} className="translate-x-1/3 -translate-y-1/4" />
                         </div>
-                         <h3 className="text-2xl md:text-3xl font-extrabold mb-10 text-center relative z-10">{t.fearsTitle}</h3>
+                         <h2 className="text-2xl md:text-3xl font-extrabold mb-10 text-center relative z-10">{t.fearsTitle}</h2>
                          <div className="grid md:grid-cols-2 gap-8 relative z-10">
                             {t.fearsList.map((fear, idx) => (
                                 <div key={idx} className="bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-[30px] border border-white/20">
-                                    <h4 className="font-bold text-lg text-brand-yellow mb-3 leading-snug">{fear.q}</h4>
+                                    <h3 className="font-bold text-lg text-brand-yellow mb-3 leading-snug">{fear.q}</h3>
                                     <p className="text-white/90 font-medium leading-relaxed">{fear.a}</p>
                                 </div>
                             ))}
@@ -177,11 +177,11 @@ export const AlibabaPage = ({ language, setLanguage, onBack, onNavigate }: { lan
                     </div>
 
                     <div className="mb-20">
-                        <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">{t.expertTitle}</h3>
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">{t.expertTitle}</h2>
                         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                             {t.expertList.map((tip, idx) => (
                                 <div key={idx} className="bg-brand-blue/5 p-6 rounded-2xl border border-brand-blue/10">
-                                    <h4 className="font-bold text-lg text-brand-blue mb-2">{tip.title}</h4>
+                                    <h3 className="font-bold text-lg text-brand-blue mb-2">{tip.title}</h3>
                                     <p className="text-gray-700 font-medium">{tip.desc}</p>
                                 </div>
                             ))}
@@ -189,14 +189,14 @@ export const AlibabaPage = ({ language, setLanguage, onBack, onNavigate }: { lan
                     </div>
 
                     <div className="mb-20">
-                        <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">{t.benefitsTitle}</h3>
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">{t.benefitsTitle}</h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                             {t.benefitsList.map((benefit, idx) => (
                                 <div key={idx} className="p-6 rounded-2xl bg-gray-50 border border-gray-100">
                                     <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-blue mb-4 shadow-sm">
                                         <CheckCircle2 size={20} />
                                     </div>
-                                    <h4 className="font-bold text-lg text-brand-dark mb-2">{benefit.title}</h4>
+                                    <h3 className="font-bold text-lg text-brand-dark mb-2">{benefit.title}</h3>
                                     <p className="text-gray-600">{benefit.desc}</p>
                                 </div>
                             ))}
@@ -209,7 +209,7 @@ export const AlibabaPage = ({ language, setLanguage, onBack, onNavigate }: { lan
                             <Percent size={40} className="text-brand-dark" />
                         </div>
                         <div className="text-center md:text-left">
-                            <h3 className="text-xl md:text-2xl font-bold text-brand-dark mb-2">{t.feeTitle}</h3>
+                            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-2">{t.feeTitle}</h2>
                             <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{t.feeText}</p>
                         </div>
                     </div>

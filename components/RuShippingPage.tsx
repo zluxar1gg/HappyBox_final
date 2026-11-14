@@ -22,14 +22,23 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
 
     const content = {
         en: {
-            badge: "TIR White Import",
-            titlePrefix: "Shipping from China to",
-            titleHighlight: "Russia",
-            subtitle: <>Official TIR Shipping: Fast, "White" Import with full documents. Accelerated border crossing via TIR system with complete transparency. No minimum weight requirement — we ship from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span>.</>,
-            introTitle: "What is TIR Shipping?",
+            badge: "Russia-Direct Line",
+            titlePrefix: "Freight Shipping from China to Russia:",
+            titleHighlight: "Simplified Cargo Without Contracts & TIR Auto",
+            subtitle: <>Direct Cargo & TIR Shipping from China: Fast delivery with insurance included or full "White" Import documents. No minimum weight requirement — we ship from <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 kg</span>.</>,
+            introTitle: "TIR Customs Transit System: Sealed in China with Zero Border Inspection Delays",
             introText: "TIR (Transports Internationaux Routiers) is an international customs transit system. The cargo is sealed in China and travels to the customs post in Russia under a single document (TIR Carnet). The Key Benefit: Your cargo is NOT opened or inspected at transit borders (e.g., Kazakhstan), eliminating the risk of damage or theft.",
-            methodsTitle: "Turnkey Rates & Terms",
+            methodsTitle: "Turnkey Shipping Rates to Russia: Standard Cargo (15–25 Days) & White TIR Truck",
             methods: [
+                {
+                    icon: ShieldCheck,
+                    title: "Standard Cargo",
+                    tag: "Simplified",
+                    desc: "Classic simplified route for hassle-free delivery without complex paperwork. Insurance included.",
+                    price: "From $2.5/kg",
+                    speed: "15–25 days",
+                    color: "bg-gray-50 text-gray-600"
+                },
                 {
                     icon: Truck,
                     title: "TIR Auto (White)",
@@ -38,19 +47,10 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                     price: "From $1.6/kg",
                     speed: "12–18 days",
                     color: "bg-blue-50 text-brand-blue"
-                },
-                {
-                    icon: ShieldCheck,
-                    title: "Standard Cargo",
-                    tag: "Simplified",
-                    desc: "Classic grey route for simplified delivery without complex paperwork. Insurance included.",
-                    price: "From $2.5/kg",
-                    speed: "15–25 days",
-                    color: "bg-gray-50 text-gray-600"
                 }
             ],
-            whiteTitle: "\"White\" Delivery: We Work Officially",
-            whiteText: "If your business needs closing documents, VAT deduction, and full legality, our \"White\" delivery service is the ideal solution.",
+            whiteTitle: "Turnkey Logistics & Import Services: Supplier Payments, Chestny Znak & Customs Docs",
+            whiteText: "Whether you ship via simplified Cargo or need closing documents, VAT deduction, and full legality, HappyBox handles every stage in China.",
             benefits: [
                 {
                     icon: FileCheck,
@@ -73,34 +73,40 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                     desc: "The seal is set in China and removed only at the destination customs. Zero transit interference."
                 }
             ],
-            stepsTitle: "How to Start?",
+            fearsTitle: "Russia Cargo Guarantees: Simplified Clearance from 0.1 kg, Included Insurance & Sealed Transit",
+            fearsList: [
+                {
+                    q: "How does simplified Cargo shipping work and is insurance included?",
+                    a: "Under Standard Cargo (from $2.5/kg, 15–25 days), your shipment travels via our classic simplified route without complex foreign-trade contracts, and cargo insurance is already included."
+                },
+                {
+                    q: "What is the minimum weight and can you help pay Chinese suppliers?",
+                    a: "There is no minimum weight requirement — we ship from 0.1 kg. We also assist with invoice payments to Chinese suppliers via trusted agents and apply mandatory Chestny Znak (Data Matrix) labeling at our warehouse in China before dispatch."
+                },
+                {
+                    q: "When should I choose White TIR Auto from $1.6/kg?",
+                    a: "Choose TIR Auto when your business needs closing accounting documents (Customs Declaration DT, Contract, Invoice, Torg-12/UPD) and VAT deduction. Cargo is sealed in China and travels under a TIR Carnet with zero inspections at Kazakhstan transit borders."
+                }
+            ],
+            stepsTitle: "How to Ship Cargo to Russia: 4 Steps from 2-Hour Quote to Delivery",
             steps: [
                 "Send Application (Invoice)",
                 "Get Calculation (2 hours)",
                 "Loading & Sealing",
                 "Customs & Delivery"
             ],
-            cta: "Request White Import Quote",
+            cta: "Request Cargo or TIR Quote",
             back: "Back to Home"
         },
         ru: {
-            badge: "TIR Белый Импорт",
-            titlePrefix: "Доставка из Китая в",
-            titleHighlight: "Россию",
-            subtitle: <>TIR-доставка из Китая: Быстрый «Белый» Импорт. Официальные поставки с полным пакетом документов и ускоренным прохождением границ. Нет минимального веса — доставляем от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span>.</>,
-            introTitle: "Что такое TIR-доставка?",
+            badge: "Прямая линия в Россию",
+            titlePrefix: "Доставка грузов из Китая в Россию:",
+            titleHighlight: "Упрощенное карго без контрактов и автодоставка TIR",
+            subtitle: <>Надежное карго со страховкой и официальный «белый» импорт TIR с полным пакетом документов. Нет минимального веса — доставляем от <span className="bg-brand-yellow px-1.5 py-0.5 rounded text-brand-dark font-bold whitespace-nowrap">0.1 кг</span>.</>,
+            introTitle: "Международный транзит по системе TIR: пломбирование в Китае и границы без досмотра",
             introText: "TIR (Transports Internationaux Routiers) - это международная система таможенного транзита. Груз пломбируется в Китае и следует до таможенного поста в РФ по единому документу (книжке МДП). Главное преимущество: Ваш груз не вскрывают и не досматривают на транзитных границах (например, в Казахстане). Это исключает риск повреждения или кражи товара в пути.",
-            methodsTitle: "Сроки и тарифы «под ключ»",
+            methodsTitle: "Тарифы и сроки доставки в Россию: Карго со страховкой (15–25 дней) и «белое» авто TIR",
             methods: [
-                {
-                    icon: Truck,
-                    title: "TIR Авто (Белая)",
-                    tag: "Официально",
-                    desc: "Полная «белая» таможня. Без досмотров на транзите. Полный вычет НДС для вашего бизнеса.",
-                    price: "От $1.6/кг",
-                    speed: "12–18 дней",
-                    color: "bg-blue-50 text-brand-blue"
-                },
                 {
                     icon: ShieldCheck,
                     title: "Стандарт Карго",
@@ -109,10 +115,19 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                     price: "От $2.5/кг",
                     speed: "15–25 дней",
                     color: "bg-gray-50 text-gray-600"
+                },
+                {
+                    icon: Truck,
+                    title: "TIR Авто (Белая)",
+                    tag: "Официально",
+                    desc: "Полная «белая» таможня. Без досмотров на транзите. Полный вычет НДС для вашего бизнеса.",
+                    price: "От $1.6/кг",
+                    speed: "12–18 дней",
+                    color: "bg-blue-50 text-brand-blue"
                 }
             ],
-            whiteTitle: "«Белая» доставка: Работаем официально",
-            whiteText: "Если вашему бизнесу нужны закрывающие документы, вычет НДС и полная легальность, наш сервис «белой» доставки - идеальное решение.",
+            whiteTitle: "Сервис под ключ для карго и импорта: оплата поставщикам, «Честный Знак» и закрывающие документы",
+            whiteText: "Отправляете ли вы упрощенным карго или вашему бизнесу нужны закрывающие документы, вычет НДС и полная легальность — мы берем все задачи на себя.",
             benefits: [
                 {
                     icon: FileCheck,
@@ -135,14 +150,29 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                     desc: "Пломба устанавливается при отправке и снимается только на таможне назначения."
                 }
             ],
-            stepsTitle: "Как начать работать?",
+            fearsTitle: "Гарантии карго-доставки в РФ: упрощенное оформление от 0.1 кг, страховка и транзит под пломбой",
+            fearsList: [
+                {
+                    q: "Как работает упрощенная доставка карго и включена ли страховка?",
+                    a: "В формате «Стандарт Карго» (от $2.5/кг, срок 15–25 дней) груз идет по классическому упрощенному маршруту без сложных внешнеторговых контрактов, а страховка уже включена."
+                },
+                {
+                    q: "От какого веса вы возите и помогаете ли с оплатой фабрикам?",
+                    a: "Минимального порога по весу нет — отправляем от 0.1 кг. Помогаем с оплатой инвойсов поставщикам через проверенных агентов и наносим маркировку «Честный Знак» прямо на складе в Китае."
+                },
+                {
+                    q: "В каких случаях выбрать «белое» авто TIR от $1.6/кг?",
+                    a: "Если вашему бизнесу нужны закрывающие документы (ДТ, договор, инвойс, Торг-12/УПД) и вычет НДС. Груз пломбируется в Китае и следует по книжке МДП без досмотров на транзитных границах Казахстана."
+                }
+            ],
+            stepsTitle: "Как отправить карго из Китая в Россию: 4 этапа от заявки и расчета за 2 часа до получения",
             steps: [
                 "Заявка (Инвойс)",
                 "Расчет (за 2 часа)",
                 "Загрузка и Пломба",
                 "Таможня и Доставка"
             ],
-            cta: "Расчет белого импорта",
+            cta: "Рассчитать Карго или TIR",
             back: "На главную"
         }
     };
@@ -189,9 +219,9 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                         </p>
                     </div>
 
-                    <h3 className="text-2xl font-extrabold text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center tracking-tight">
                         {t.methodsTitle}
-                    </h3>
+                    </h2>
 
                     {/* Rate Cards */}
                     <div className="grid md:grid-cols-2 gap-6 mb-20 max-w-4xl mx-auto">
@@ -241,6 +271,19 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                                 </div>
                             ))}
                          </div>
+                    </div>
+
+                    {/* Fears / Guarantees */}
+                    <div className="mb-20 bg-brand-light/30 p-8 sm:p-12 rounded-[40px] border border-brand-blue/10 max-w-4xl mx-auto">
+                        <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 tracking-tight">{t.fearsTitle}</h3>
+                        <div className="space-y-8">
+                            {t.fearsList.map((f, idx) => (
+                                <div key={idx}>
+                                    <h4 className="font-bold text-xl text-brand-dark mb-2">{f.q}</h4>
+                                    <p className="text-base md:text-lg text-gray-700 leading-relaxed font-medium">{f.a}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     {/* How to Start (Steps) */}

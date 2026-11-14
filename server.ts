@@ -202,7 +202,7 @@ async function startServer() {
   
   const portArgIndex = process.argv.indexOf("--port");
   const portArg = portArgIndex !== -1 ? parseInt(process.argv[portArgIndex + 1], 10) : undefined;
-  const PORT = portArg || 3000;
+  const PORT = portArg || (process.env.PORT ? parseInt(process.env.PORT, 10) : 3000);
 
   const hostArgIndex = process.argv.indexOf("--host");
   const hostArg = hostArgIndex !== -1 ? process.argv[hostArgIndex + 1] : undefined;
@@ -246,7 +246,8 @@ async function startServer() {
     const vite = await createViteServer({
       server: { 
         middlewareMode: true,
-        hmr: false
+        hmr: false,
+        ws: false,
       },
       appType: "spa",
     });

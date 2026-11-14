@@ -164,11 +164,11 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
                         <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
                             <ShieldCheck size={400} className="translate-x-1/3 -translate-y-1/4" />
                         </div>
-                         <h3 className="text-2xl md:text-3xl font-extrabold mb-10 text-center relative z-10">{t.fearsTitle}</h3>
+                         <h2 className="text-2xl md:text-3xl font-extrabold mb-10 text-center relative z-10">{t.fearsTitle}</h2>
                          <div className="grid md:grid-cols-2 gap-8 relative z-10">
                             {t.fearsList.map((fear, idx) => (
                                 <div key={idx} className="bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-[30px] border border-white/20">
-                                    <h4 className="font-bold text-lg text-brand-yellow mb-3 leading-snug">{fear.q}</h4>
+                                    <h3 className="font-bold text-lg text-brand-yellow mb-3 leading-snug">{fear.q}</h3>
                                     <p className="text-white/90 font-medium leading-relaxed">{fear.a}</p>
                                 </div>
                             ))}
@@ -188,7 +188,7 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
                                         <step.icon size={16} />
                                     </div>
                                 </div>
-                                <h4 className="font-bold text-xl text-brand-dark mb-3">{step.title}</h4>
+                                <h3 className="font-bold text-xl text-brand-dark mb-3">{step.title}</h3>
                                 <p className="text-sm text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                     {step.desc}
                                 </p>
@@ -215,13 +215,13 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
                     </div>
                     
                     <div className="mb-20 max-w-6xl mx-auto">
-                        <h3 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center uppercase tracking-widest opacity-80">
                             {t.benefitsTitle}
-                        </h3>
+                        </h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {t.benefits.map((benefit, idx) => (
                                 <div key={idx} className="bg-white rounded-[24px] p-8 border border-gray-100 shadow-sm">
-                                    <h4 className="font-bold text-xl text-brand-dark mb-3">{benefit.title}</h4>
+                                    <h3 className="font-bold text-xl text-brand-dark mb-3">{benefit.title}</h3>
                                     <p className="text-gray-700 font-medium leading-relaxed">
                                         {benefit.text}
                                     </p>
@@ -235,7 +235,7 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
                             <Search size={40} className="text-brand-dark" />
                         </div>
                         <div className="text-center md:text-left">
-                            <h3 className="text-xl md:text-2xl font-bold text-brand-dark mb-2">{t.feeTitle}</h3>
+                            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-2">{t.feeTitle}</h2>
                             <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">{t.feeText}</p>
                         </div>
                     </div>

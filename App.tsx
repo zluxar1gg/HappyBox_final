@@ -45,7 +45,7 @@ import { TaobaoPage } from './components/TaobaoPage';
 import { DynamicSeo } from './components/DynamicSeo';
 import { getBlogPostBySlug } from './utils/blogData';
 import { Language, translations } from './utils/translations';
-import { updateMetaTags, PageType } from './utils/seo'; 
+import type { PageType } from './utils/seo';
 import { SchemaMarkup } from './components/SchemaMarkup';
 import { Loader2, X, Hammer } from 'lucide-react';
 import { useAuth } from './context/AuthContext';
@@ -165,20 +165,10 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
     };
   }, [location.pathname]);
 
-  // --- SEO EFFECT ---
+  // --- LANGUAGE ATTR SYNC ---
   useEffect(() => {
-    if (currentPage === 'blogPost' && slug) {
-      const post = getBlogPostBySlug(slug, language);
-      if (post) {
-        updateMetaTags(currentPage, language, { title: post.title, description: post.excerpt, slug: post.slug });
-      } else {
-        updateMetaTags(currentPage, language);
-      }
-    } else {
-      updateMetaTags(currentPage, language);
-    }
     document.documentElement.lang = language;
-  }, [currentPage, language, slug]);
+  }, [language]);
 
   // Scroll Handling Effect
   useLayoutEffect(() => {

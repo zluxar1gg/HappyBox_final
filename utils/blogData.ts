@@ -16,6 +16,8 @@ export interface BlogPost {
   language: "en" | "ru";
   title: string;
   excerpt: string;
+  seoTitle?: string;
+  seoDescription?: string;
   category: BlogCategory;
   date: string;
   imageUrl: string;

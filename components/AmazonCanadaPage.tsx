@@ -26,24 +26,24 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
     const content = {
         en: {
             badge: "Amazon FBA Canada Logistics",
-            titlePrefix: "Shipping from China to",
-            titleHighlight: "Amazon FBA Canada",
-            titleSuffix: ": Expert DDP & Prep Solutions",
+            titlePrefix: "Send Inventory from China to",
+            titleHighlight: "Amazon.ca Warehouses",
+            titleSuffix: "",
             subtitle: "Expanding your business to Amazon.ca requires a partner who understands the complexity of Canadian customs and the vast geography of the Great White North. We provide a direct, stress-free link from your Chinese factory to every FBA warehouse in Canada.",
             
-            seamlessTitle: "Seamless Delivery to Canadian Fulfillment Centers",
+            seamlessTitle: "Direct Customs-Cleared Freight to YVR1, YYZ4 & YUL2 (GST/HST Included)",
             seamlessText: "From YVR1 (Vancouver) to YYZ4 (Toronto) and YUL2 (Montreal), HappyBox ensures your inventory is cleared, prepped, and delivered without hidden fees or border delays.",
             ddpTitle: "Total DDP (Delivered Duty Paid)",
             ddpText: "We handle the CBSA (Canada Border Services Agency) clearance and pay all GST/HST and import duties upfront. You get one all-inclusive price.",
             minWeightTitle: "Shenzhen Prep Center",
             minWeightText: "We fix all labeling and packaging issues at the source, ensuring your goods meet 100% of Amazon.ca’s inbound requirements.",
 
-            ratesTitle: "Our Amazon Canada Shipping Rates & Methods",
+            ratesTitle: "Rates & Transit Times: Air from $11/kg (6–10d) & Sea+Rail from $1.5/kg",
             ratesAir: { method: "Direct Air FBA", price: "From $11/kg", time: "6–10 days", bestFor: "Product launches & stock-outs" },
             ratesFastSea: { method: "Sea + Rail (Fast)", price: "From $1.5/kg", time: "22–28 days", bestFor: "Balanced cost & speed to Ontario/Quebec" },
             ratesSea: { method: "Standard Ocean", price: "Volumetric Basis", time: "Varies", bestFor: "Optimized volumetric weight (L*W*H/5000)" },
 
-            prepTitle: "Canada Specifics: Bilingual Labeling (English/French)",
+            prepTitle: "Bilingual English/French Labeling & Soft-Goods Compression in Shenzhen",
             prepSubtitle: "Amazon.ca and Canadian federal law (Consumer Packaging and Labelling Act) often require product info in English/French. Failing to comply risks rejected shipments.",
             prepItems: [
                 { title: "Shenzhen Prep Advantage", desc: "We don’t just apply barcodes. We can print bilingual stickers or swap packaging at our Shenzhen warehouse." },
@@ -52,14 +52,14 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                 { title: "No Relabeling Costs in Canada", desc: "Save massive relabeling costs by preparing everything correctly at the source." }
             ],
 
-            fearsTitle: "Solving Your Canadian FBA Fears",
+            fearsTitle: "CBSA Pre-Audits, Toronto Rail Routing & Cross-Country Tracking",
             fears: [
                 { q: "Will my goods get stuck at the border?", a: "The CBSA is known for rigorous inspections. We mitigate this by pre-auditing your Commercial Invoice and HS Codes in Shenzhen. We ensure your 'Made in China' markings are permanent and visible—the #1 reason for Canadian customs delays." },
                 { q: "Is shipping to Toronto too expensive?", a: "Direct air to Toronto is costly. Our Sea + Rail consolidation allows you to pay 'West Coast' ocean rates while still getting your goods into the heart of Ontario’s FBA network." },
                 { q: "What if my inventory is lost in the vast Canadian wilderness?", a: "Canada is huge. We use end-to-end tracking that covers the ocean crossing, the rail journey across the Rockies, and the final truck delivery to the FBA dock." }
             ],
 
-            howTitle: "Expanded Technical Guide for Amazon Canada",
+            howTitle: "Canada FBA Logistics Guide: Vancouver Port, NRI Import, ISPM-15 & Winter Prep",
             steps: [
                 { title: "1. The Vancouver Gateway (YVR)", desc: "90% of China-to-Canada sea freight enters through the Port of Vancouver. Fastest entry point for Western Canada hubs (YVR1, YVR2, YVR3)." },
                 { title: "2. Multimodal Rail Link (Sea + Rail)", desc: "For warehouses in Ontario (YYZ region) and Quebec (YUL region), we utilize CP or CN Rail networks. Fast rail to the East." },
@@ -143,24 +143,24 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
         },
         ru: {
             badge: "Логистика Amazon FBA Канада",
-            titlePrefix: "Доставка из Китая на",
-            titleHighlight: "Amazon FBA Канада",
-            titleSuffix: ": Экспертный DDP & Преп-центр",
+            titlePrefix: "Отправка партий из Китая на",
+            titleHighlight: "склады Amazon.ca в Канаде",
+            titleSuffix: "",
             subtitle: "Выход на Amazon.ca требует партнера, который понимает сложность таможни Канады (CBSA) и географию страны. Мы обеспечиваем прямую доставку от фабрики до любого склада FBA в Канаде без лишнего стресса.",
             
-            seamlessTitle: "Бесшовная доставка на канадские FBA центры",
+            seamlessTitle: "Растаможка CBSA, уплата GST/HST и поставка в хабы YVR1, YYZ4 и YUL2",
             seamlessText: "От YVR1 (Ванкувер) до YYZ4 (Торонто) и YUL2 (Монреаль). HappyBox гарантирует, что ваши товары будут очищены, подготовлены и доставлены без скрытых платежей и задержек на границе.",
             ddpTitle: "Полный DDP (Delivered Duty Paid)",
             ddpText: "Мы берем на себя оформление на таможне CBSA и заранее оплачиваем GST/HST и пошлины. Вы получаете итоговую стоимость \"всё включено\".",
             minWeightTitle: "Преп-центр в Шэньчжэне",
             minWeightText: "Решаем все вопросы с этикетками и упаковкой прямо у источника, гарантируя 100% соответствие требованиям Amazon.ca.",
 
-            ratesTitle: "Наши тарифы и методы доставки в Канаду",
+            ratesTitle: "Тарифы и сроки: авиа от $11/кг (6–10 дн.) и Море + Ж/Д от $1.5/кг",
             ratesAir: { method: "Прямое Авиа FBA", price: "От $11/кг", time: "6–10 дней", bestFor: "Запуски и срочное пополнение" },
             ratesFastSea: { method: "Море + Ж/Д (Быстро)", price: "От $1.5/кг", time: "22–28 дней", bestFor: "Баланс цены и скорости в Онтарио/Квебек" },
             ratesSea: { method: "Стандартное Море", price: "По объему", time: "Вариативно", bestFor: "Оптимизация объемного веса" },
 
-            prepTitle: "Специфика Канады: Двуязычные этикетки (Англ/Фр)",
+            prepTitle: "Двуязычная маркировка (EN/FR) и сжатие объёмного веса в Шэньчжэне",
             prepSubtitle: "Amazon.ca и Канадский закон часто требуют информацию на двух языках. Несоблюдение ведет к отказу или блокировке листингов.",
             prepItems: [
                 { title: "Преимущество Шэньчжэня", desc: "Мы не просто клеим штрих-коды. Наносим двуязычные стикеры или меняем упаковку на складе в Шэньчжэне." },
@@ -169,14 +169,14 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                 { title: "Никаких трат в Канаде", desc: "Сэкономьте огромные суммы на релейблинге на территории Канады." }
             ],
 
-            fearsTitle: "Решаем страхи доставки на Amazon FBA Канады",
+            fearsTitle: "Пре-аудит инвойсов, бюджетный маршрут в Торонто и сквозной трекинг",
             fears: [
                 { q: "Застрянет ли груз на границе?", a: "CBSA очень строги. Мы минимизируем риск через пре-аудит инвойсов и кодов ТН ВЭД (HS) в Шэньчжэне. Также строго следим за долговечной маркировкой 'Made in China'." },
                 { q: "Не слишком ли дорого везти в Торонто?", a: "Прямое авиа в Торонто дорогое. Наш мультимодальный путь 'Море + Ж/Д' позволяет платить по тарифам 'Западного побережья' и доставлять вглубь сети FBA в Онтарио." },
                 { q: "Не потеряется ли товар в дикой Канаде?", a: "Канада огромна. Мы используем сквозной трекинг для океана, поездов через Скалистые горы и финального трака на рампу FBA." }
             ],
 
-            howTitle: "Расширенный технический гид",
+            howTitle: "Технический гид по Канаде: порт Ванкувера, статус NRI, ISPM-15 и зима",
             steps: [
                 { title: "1. Врата Ванкувера (YVR)", desc: "90% морских грузов из Китая проходят через порт Ванкувера. Наибыстрейший вход для YVR1, YVR2, YVR3." },
                 { title: "2. Ж/Д: Море + Поезд", desc: "Для складов в Онтарио (YYZ) и Квебеке (YUL) мы используем сети CP/CN Rail. Быстро на Восток." },
@@ -282,8 +282,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
                             {t.titlePrefix} <span className="text-orange-500 relative inline-block mx-2">
                                 {t.titleHighlight}
-                            </span><br className="hidden md:block" />
-                            {t.titleSuffix.replace(/^:\s*/, '')}
+                            </span>{t.titleSuffix && <><br className="hidden md:block" />{t.titleSuffix.replace(/^:\s*/, '')}</>}
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-600 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
                             {t.subtitle}
@@ -297,7 +296,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                         {/* Seamless Delivery */}
                         <div className="mb-20">
                             <div>
-                                <h3 className="text-3xl font-extrabold text-brand-dark mb-4">{t.seamlessTitle}</h3>
+                                <h2 className="text-3xl font-extrabold text-brand-dark mb-4">{t.seamlessTitle}</h2>
                                 <p className="text-lg text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-6">{t.seamlessText}</p>
                             </div>
                             <div className="space-y-4">
@@ -314,9 +313,9 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
 
                         {/* Rates */}
                         <div className="mb-20">
-                            <h3 className="text-2xl font-extrabold text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
+                            <h2 className="text-2xl font-extrabold text-brand-dark mb-10 text-center uppercase tracking-widest opacity-80">
                                 {t.ratesTitle}
-                            </h3>
+                            </h2>
                             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                                 <div className="bg-white rounded-[30px] p-6 border-2 border-gray-100 shadow-sm flex flex-col">
                                     <h4 className="font-bold text-xl text-brand-dark mb-4">{t.ratesAir.method}</h4>
@@ -403,7 +402,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
 
                         {/* Technical Guide 1-8 */}
                         <div className="mb-20">
-                            <h3 className="text-3xl font-extrabold text-brand-dark mb-12">{t.howTitle}</h3>
+                            <h2 className="text-3xl font-extrabold text-brand-dark mb-12">{t.howTitle}</h2>
                             <div className="space-y-10">
                                 {t.steps.map((step, idx) => (
                                     <div key={idx} className="flex gap-4 sm:gap-6 items-start">
@@ -411,7 +410,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                                             {idx + 1}
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-2xl text-brand-dark mb-2 tracking-tight">{step.title.replace(/^\d+\.\s*/, '')}</h4>
+                                            <h3 className="font-bold text-2xl text-brand-dark mb-2 tracking-tight">{step.title.replace(/^\d+\.\s*/, '')}</h3>
                                             <p className="text-gray-700 font-medium leading-relaxed">{step.desc}</p>
                                         </div>
                                     </div>

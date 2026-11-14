@@ -19,12 +19,12 @@ export const ArgentinaShippingPage: React.FC<ArgentinaShippingPageProps> = ({
     const fullContent: Record<'en' | 'ru', DestinationContent> = {
         en: {
             badge: "Argentina-Direct Line",
-            titlePrefix: "Shipping from China to",
+            titlePrefix: "Furniture, Commercial Cargo & Parcels from China to",
             titleHighlight: "Argentina",
             subtitle: "Secure Door-to-Door DDP Logistics. Bypass the complex bureaucracy of Argentine customs, unpredictable import taxes, and endless paperwork.",
-            introTitle: "Stress-Free Delivery directly to Your Doorstep",
+            introTitle: "Customs-Cleared Delivery to Buenos Aires, Córdoba, Rosario & Mendoza",
             introText: "Whether you are an individual buying home furniture from Foshan, an online entrepreneur sourcing e-commerce stock, or a company importing industrial samples, we take care of everything. We deliver across the country, from metro Buenos Aires, Córdoba, and Rosario to Mendoza and Patagonia.",
-            methodsTitle: "Our Shipping Methods & Rates",
+            methodsTitle: "Rates & Transit Times: Air from $14/kg (7–12d) & Ocean from $1.8/kg",
             methods: [
                 {
                     icon: Plane,
@@ -45,7 +45,7 @@ export const ArgentinaShippingPage: React.FC<ArgentinaShippingPageProps> = ({
                     color: "bg-teal-100 text-teal-600"
                 }
             ],
-            whyTitle: "Why Importers & Personal Shoppers Choose HappyBox",
+            whyTitle: "Aduana Clearance Under Our Licenses, CUIT/CUIL Guidance & Free Consolidation",
             whyIntro: "All our shipping channels to Argentina operate strictly on a DDP (Delivered Duty Paid) basis. The price we quote includes international freight, warehouse handling, customs broker fees, and 100% of Argentine import duties, VAT (IVA), and statistical fees. No surprise bills, no AFIP holdups.",
             benefits: [
                 {
@@ -69,7 +69,7 @@ export const ArgentinaShippingPage: React.FC<ArgentinaShippingPageProps> = ({
                     desc: "We inspect your items and send photos/videos before they leave China. Returning a defective product from Argentina back to China is practically impossible—we catch errors at the source."
                 }
             ],
-            fearsTitle: "Frequently Asked Questions",
+            fearsTitle: "Zero IVA Surprises, Volumetric Weight (/5000–6000) & All-Risk Insurance",
             fearsList: [
                 {
                     q: "How is volumetric weight calculated?",
@@ -84,7 +84,7 @@ export const ArgentinaShippingPage: React.FC<ArgentinaShippingPageProps> = ({
                     a: "Because shipments to Argentina travel vast distances, we highly recommend our All-Risk Insurance. It covers 100% of the declared cargo value against maritime loss or handling damage."
                 }
             ],
-            stepsTitle: "The Shenzhen-to-Argentina Workflow",
+            stepsTitle: "4 Steps from Taobao or Factory Order to Local Delivery in Buenos Aires",
             steps: [
                 "Get Your Address: We provide you with your personal shipping address for our Shenzhen warehouse.",
                 "Order Your Items: Put this address into Taobao, 1688, or give it to your supplier.",
@@ -185,12 +185,12 @@ export const ArgentinaShippingPage: React.FC<ArgentinaShippingPageProps> = ({
         },
         ru: {
             badge: "Прямая линия в Аргентину",
-            titlePrefix: "Доставка из Китая в",
+            titlePrefix: "Отправка посылок, мебели и грузов из Китая в",
             titleHighlight: "Аргентину",
             subtitle: "Надежная DDP доставка до двери. Забудьте о сложной бюрократии аргентинской таможни, непредсказуемых налогах и бесконечных бумагах.",
-            introTitle: "Доставка без стресса",
+            introTitle: "Доставка до двери в Буэнос-Айрес, Кордову, Росарио, Мендосу и Патагонию",
             introText: "Независимо от того, покупаете ли вы мебель для дома из Фошаня, товары для e-commerce или импортируете промышленные образцы — мы берем всё на себя. Доставляем по всей стране: Буэнос-Айрес, Кордова, Росарио, Мендоса и Патагония.",
-            methodsTitle: "Наши способы доставки и тарифы",
+            methodsTitle: "Тарифы и сроки: авиа от $14/кг (7–12 дн.) и море от $1.8/кг (40–50 дн.)",
             methods: [
                 {
                     icon: Plane,
@@ -211,7 +211,7 @@ export const ArgentinaShippingPage: React.FC<ArgentinaShippingPageProps> = ({
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "Почему импортеры выбирают HappyBox",
+            whyTitle: "Таможня Aduana без личного брокера, обход квот CUIT/CUIL и консолидация",
             whyIntro: "Все наши каналы доставки в Аргентину работают строго по системе DDP (Delivered Duty Paid). Цена, которую мы называем, включает международный фрахт, складскую обработку, услуги брокера и 100% аргентинских пошлин, НДС (IVA) и статистических сборов. Никаких задержек от AFIP.",
             benefits: [
                 {
@@ -235,7 +235,7 @@ export const ArgentinaShippingPage: React.FC<ArgentinaShippingPageProps> = ({
                     desc: "Мы проверяем товары и отправляем фото/видео до того, как они покинут Китай. Вернуть бракованный продукт из Аргентины в Китай практически невозможно — мы ловим ошибки на месте."
                 }
             ],
-            fearsTitle: "Частые вопросы",
+            fearsTitle: "Уплата НДС (IVA) заранее, формула объёмного веса и страховка All-Risk",
             fearsList: [
                 {
                     q: "Как рассчитывается объемный вес?",
@@ -250,7 +250,7 @@ export const ArgentinaShippingPage: React.FC<ArgentinaShippingPageProps> = ({
                     a: "Доставка в Южную Америку — это огромное расстояние. Мы предоставляем страховку All-Risk, покрывающую 100% стоимости товара от потерь и повреждений."
                 }
             ],
-            stepsTitle: "Как работает доставка в Аргентину",
+            stepsTitle: "4 этапа пути: от выкупа в Шэньчжэне до курьерской доставки по Аргентине",
             steps: [
                 "Получите свой адрес: Мы выдаем вам персональный адрес нашего склада в Шэньчжэне.",
                 "Сделайте заказ: Укажите этот адрес на Taobao, 1688 или передайте своему поставщику.",

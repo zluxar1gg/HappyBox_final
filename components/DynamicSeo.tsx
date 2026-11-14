@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Language, translations } from '../utils/translations';
-import { blogPosts } from '../utils/blogData';
+import { getBlogPostBySlug } from '../utils/blogData';
 
 interface DynamicSeoProps {
   language: Language;
@@ -10,16 +10,18 @@ interface DynamicSeoProps {
 }
 
 export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, slug }) => {
+  const baseUrl = 'https://happyboxlogistics.com';
+  const defaultImage = 'https://i.ibb.co/C55Gbh27/happyboxdelivery.webp';
+
   const getSeoData = () => {
-    const baseTitle = 'HappyBox';
-    
     // Default Home
     let title = language === 'en' 
-      ? 'HappyBox | Fast China Freight Forwarder' 
-      : 'HappyBox | Доставка из Китая и Выкуп Товаров';
+      ? 'China Freight Forwarder & Purchasing Agent: Global DDP' 
+      : 'Логистика, карго и выкуп товаров из Китая по всему миру';
     let description = language === 'en'
-      ? 'Fast & Reliable Shipping from China to USA, Europe, UAE, Russia, and Worldwide. We handle purchasing, warehousing, and logistics.'
-      : 'Быстрая и надежная логистика из Китая в РФ, Европу, США и ОАЭ. Карго, выкуп товаров с фабрик, проверка качества и услуги склада.';
+      ? 'Freight forwarder from China to the USA, EU, UAE & worldwide. Purchasing from 1688, Taobao, Poizon, QC inspection, free consolidation & DDP shipping.'
+      : 'Надежное карго и DDP-доставка из Китая в Россию, СНГ, Европу, США и ОАЭ. Выкуп с 1688, Taobao, Poizon, проверка на брак, консолидация, страховка 100%, оплата в рублях.';
+    let ogImage = defaultImage;
 
     const seoMap: Record<string, { title: { en: string; ru: string }, desc: { en: string; ru: string } }> = {
       usa: {
@@ -35,24 +37,24 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
         desc: { en: 'Reliable DDP freight forwarding from China to Dubai and all UAE Emirates. Express air (5-9 days), ocean via Jebel Ali, customs clearance, and delivery to your door.', ru: 'Быстрая доставка грузов и посылок из Китая в ОАЭ (Дубай, Абу-Даби, Шарджа) на условиях DDP. Авиа от 5 дней, море через порт Джебель-Али, пошлина и VAT 5% включены.' }
       },
       russia: {
-        title: { en: `Shipping from China to Russia | ${baseTitle}`, ru: `Карго и Белая Доставка из Китая в Россию | ${baseTitle}` },
-        desc: { en: 'Logistics to Russia via express rail and truck. Fast customs clearance.', ru: 'Авто, ЖД и авиадоставка из Китая в Москву и регионы РФ. Оплата поставщикам в USDT.' }
+        title: { en: 'China to Russia Cargo & Shipping: From 0.1 kg with Insurance | HappyBox', ru: 'Карго из Китая в Россию: доставка от 0.1 кг со страховкой | HappyBox' },
+        desc: { en: 'Standard cargo from China to Russia from $2.5/kg (15–25 days, insurance included) and white TIR auto from $1.6/kg. From 0.1 kg, supplier payments, and Chestny Znak labeling.', ru: 'Карго-доставка из Китая в Россию от $2.5/кг (15–25 дней, страховка включена) и белое авто TIR от $1.6/кг. Отправка от 0.1 кг, оплата поставщикам и маркировка «Честный Знак».' }
       },
       canada: {
         title: { en: 'China to Canada Shipping: Door-to-Door DDP Air & Ocean Freight from 0.1 kg | HappyBox', ru: 'Доставка из Китая в Канаду под ключ: DDP Авиа и Море через Ванкувер от 0.1 кг | HappyBox' },
         desc: { en: 'Reliable door-to-door DDP shipping from China to Canada (Toronto, Vancouver, Montreal). Express air (6-10 days), ocean via Port of Vancouver ($1.5/kg), CBSA clearance, GST/HST included.', ru: 'Доставка грузов и посылок из Китая в Канаду (Торонто, Ванкувер, Монреаль) на условиях DDP. Авиа от 6 дней, море от $1.5/кг. Растаможка CBSA, налоги GST/HST включены, без номера BN.' }
       },
       amazon: {
-        title: { en: 'Amazon FBA Prep China: Shipping Services | HappyBox', ru: 'Доставка на Amazon FBA: преп-центр | HappyBox' },
-        desc: { en: 'Ship directly from China to Amazon FBA. We offer full prep center services, labeling, inspection, and affordable DDP shipping.', ru: 'Доставка товаров из Китая на склады Amazon FBA. Услуги преп-центра, маркировка, инспекция и отправка под ключ (DDP).' }
+        title: { en: 'Shipping from China to Amazon FBA USA: DDP Air & Sea', ru: 'Доставка из Китая на Amazon FBA США: тарифы DDP от 0.1 кг' },
+        desc: { en: 'Send inventory from Chinese factories to US Amazon warehouses from 0.1 kg. Air from $10/kg (5–9 days), sea from $1.2/kg, Matson 12–15 days, FNSKU prep & ISF.', ru: 'Отправка грузов с фабрик Китая на склады Амазон в США: авиа от $10/кг за 5–9 дней, море от $1.2/кг, Matson 12–15 дней. Преп в Шэньчжэне, FNSKU и ISF 10+2.' }
       },
       'amazon-canada': {
-        title: { en: `Amazon FBA Canada Prep & Shipping | ${baseTitle}`, ru: `Доставка на склады Amazon FBA Канада | ${baseTitle}` },
-        desc: { en: 'Expert FBA Canada prep & DDP shipping. We handle CBSA, GST/HST, and Canadian labeling requirements — factory to Amazon warehouse', ru: 'Доставка на Amazon FBA Канада под ключ: DDP, оформление CBSA и GST/HST, подготовка товара по канадским требованиям' }
+        title: { en: 'Shipping from China to Amazon FBA Canada: DDP Air & Sea', ru: 'Доставка из Китая на Amazon FBA Канада: тарифы DDP' },
+        desc: { en: 'Ship inventory from China to Amazon.ca hubs (YVR1, YYZ4, YUL2) under DDP. Air from $11/kg (6–10d), Sea+Rail from $1.5/kg, CBSA, GST/HST & EN/FR prep.', ru: 'Отправка грузов из Китая на склады Amazon.ca (YVR1, YYZ4, YUL2): авиа от $11/кг (6–10 дн.), море+ЖД от $1.5/кг. CBSA, GST/HST, NRI и этикетки EN/FR.' }
       },
       '1688': {
         title: { en: '1688 Sourcing Agent: Buy at China Domestic Wholesale Prices | HappyBox', ru: 'Посредник на 1688: закупки в Китае по ценам внутреннего рынка | HappyBox' },
-        desc: { en: 'Wholesale sourcing agent for 1688.com. We handle factory communication, price negotiations, secure payments, batch QC inspection, and global freight.', ru: 'Надежный посредник для закупок на 1688.com по реальным ценам фабрик. Переговоры с китайскими поставщиками, выкуп без комиссии, контроль качества и доставка под ключ.' }
+        desc: { en: 'Wholesale sourcing agent for 1688.com. We handle factory communication, price negotiations, secure payments, batch QC inspection, and global freight.', ru: 'Надежный посредник для закупок на 1688.com по ценам фабрик. Переговоры с поставщиками, выкуп без комиссии, проверка качества, консолидация, оплата картой РФ и доставка под ключ.' }
       },
       alibaba: {
         title: { en: 'Alibaba Sourcing Agent & Shipping: EXW & DDP (0% Fee) | HappyBox', ru: 'Посредник Alibaba: выкуп фабричных партий и доставка DDP (0%) | HappyBox' },
@@ -64,7 +66,7 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
       },
       poizon: {
         title: { en: 'Poizon (Dewu) Agent China: 0% Fee Sourcing & Shipping | HappyBox', ru: 'Посредник Poizon (Dewu): выкуп и доставка оригиналов без комиссии | HappyBox' },
-        desc: { en: 'Buy authentic sneakers and streetwear from Poizon (Dewu) with 0% agent fee. Physical authenticity verification, double-box protection, and worldwide shipping.', ru: 'Выкуп и доставка оригинальных кроссовок и брендовой одежды с Poizon (Dewu). Комиссия 0%, проверка на оригинальность, бесплатный фотоконтроль и бережная доставка.' }
+        desc: { en: 'Buy authentic sneakers and streetwear from Poizon (Dewu) with 0% agent fee. Physical authenticity verification, double-box protection, and worldwide shipping.', ru: 'Выкуп оригиналов с Poizon (Пойзон / Dewu) с комиссией 0%. Бесплатный Legit Check по фото, проверка на брак, удобная оплата картой РФ в рублях и бережная доставка.' }
       },
       tmall: {
         title: { en: 'Tmall Agent: Buy Official Brands & Flagship Stores (0% Fee) | HappyBox', ru: 'Посредник Tmall: выкуп оригиналов из официальных магазинов (0%) | HappyBox' },
@@ -76,8 +78,8 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
       },
       xianyu: {
         title: { 
-          en: `Goofish & Xianyu Agent: Second-Hand & Vintage from China (0% Fee) | ${baseTitle}`, 
-          ru: `Посредник Xianyu (Goofish): выкуп б/у техники и винтажа из Китая (0%) | ${baseTitle}` 
+          en: 'Goofish & Xianyu Agent: Second-Hand & Vintage from China (0% Fee) | HappyBox', 
+          ru: 'Посредник Xianyu (Goofish): выкуп б/у техники и винтажа из Китая (0%) | HappyBox' 
         },
         desc: { 
           en: 'Goofish (Xianyu / Idle Fish) purchasing agent with 0% fee. We verify Sesame Credit, bargain in Chinese, provide live video checks, and ship worldwide with DDP.', 
@@ -89,64 +91,73 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
         desc: { en: 'Buy exclusive streetwear and designer drops from Weidian with 0% agent fee. WeChat Pay purchasing, detailed macro photo QC, and worldwide shipping.', ru: 'Выкуп эксклюзивного стритвира и редких коллекций на Weidian без комиссии (0%). Оплата через WeChat Pay, детальный фотоконтроль замеров и бережная доставка.' }
       },
       inspection: {
-        title: { en: `Quality Control & Inspection in China | ${baseTitle}`, ru: `Проверка качества и Инспекция в Китае | ${baseTitle}` },
-        desc: { en: 'Protect your margins. We inspect goods in China before international shipment.', ru: 'Проверка товара на брак, фотоотчеты и коммуникация с фабрикой при возвратах до отправки через границу.' }
+        title: { en: 'Quality Control & Inspection in China | HappyBox', ru: 'Проверка качества и Инспекция в Китае | HappyBox' },
+        desc: { en: 'Professional on-site factory audits and pre-shipment inspections across all China provinces. Detailed defect reports within 24h before international shipping.', ru: 'Выездные аудиты фабрик и предотгрузочная проверка товара на брак во всех провинциях Китая. Фотоотчеты за 24 часа и возврат поставщику до отправки.' }
       },
       warehousing: {
         title: { en: 'Free China Warehousing & Consolidation | HappyBox', ru: 'Бесплатный склад в Китае и консолидация | HappyBox' },
         desc: { en: 'Store and consolidate unlimited parcels free in our Guangzhou & Shenzhen hubs. Combine Taobao, 1688 & Pinduoduo orders into one shipment and cut freight costs.', ru: 'Бесплатное хранение и объединение посылок на складах в Гуанчжоу и Шэньчжэне. Консолидация заказов с Taobao, 1688 и Pinduoduo для экономии на доставке.' }
       },
       destinations: {
-        title: { en: `Global Shipping Destinations | ${baseTitle}`, ru: `Все направления доставки | ${baseTitle}` },
-        desc: { en: 'Discover all the countries and regions we seamlessly ship to from China.', ru: 'Полный список стран и маршрутов, куда HappyBox доставляет посылки и коммерческие грузы из Китая.' }
+        title: { en: 'Worldwide Shipping Routes from China: Air, Sea & Land', ru: 'Международная доставка из Китая: страны, тарифы и сроки' },
+        desc: { en: 'Explore international air, sea LCL, rail and road freight from China to the USA, Europe, Canada, UAE, Australia, Asia & Amazon FBA. Rates and transit times by country.', ru: 'Все маршруты карго, авиа, морской и автодоставки из Китая: США, Европа, Россия, ОАЭ, Канада, Азия и склады Amazon FBA. Актуальные ставки и условия по странам.' }
       },
       thailand: {
-        title: { en: `Shipping from China to Thailand | ${baseTitle}`, ru: `Доставка из Китая в Тайланд | ${baseTitle}` },
-        desc: { en: 'Logistics and freight forwarding to Thailand.', ru: 'Надежная доставка в Тайланд из Китая (Пхукет, Бангкок).' }
+        title: { en: 'Shipping from China to Thailand: DDP Air & Land Cargo', ru: 'Доставка из Китая в Таиланд: авиа и авто карго DDP' },
+        desc: { en: 'Door-to-door DDP delivery from China to Bangkok, Phuket, Pattaya & Chiang Mai. Air from $11/kg (3–5d), auto freight from $4/kg (7–12d), free consolidation.', ru: 'Доставка посылок и грузов в Бангкок, Пхукет, Паттайю и Чиангмай. Авиа от $11/кг (3–5 дн.), авто от $4/кг (7–12 дн.). Таможня DDP без лицензий и налога.' }
       },
       indonesia: {
-        title: { en: `Shipping from China to Indonesia (Bali) | ${baseTitle}`, ru: `Доставка из Китая в Индонезию (Бали) | ${baseTitle}` },
-        desc: { en: 'Logistics and freight forwarding to Indonesia and Bali.', ru: 'Доставка посылок и коммерческих грузов из Китая в Индонезию (Бали, Джакарта).' }
+        title: { en: 'Shipping from China to Indonesia & Bali: DDP Air & Sea', ru: 'Доставка из Китая в Индонезию и на Бали: авиа и море DDP' },
+        desc: { en: 'Door-to-door DDP delivery from China to Bali, Jakarta & Surabaya. Air from $10/kg (4–7d), sea LCL from $1.1/kg (22–32d). No API license, NPWP or SNI needed.', ru: 'Доставка грузов и посылок на Бали, в Джакарту и Сурабаю. Авиа от $10/кг (4–7 дн.), море LCL от $1.1/кг (22–32 дн.). Таможня DDP без лицензий API и ИНН NPWP.' }
+      },
+      australia: {
+        title: { en: 'Shipping from China to Australia: DDP Air & Sea Freight', ru: 'Доставка из Китая в Австралию: авиа и море DDP под ключ' },
+        desc: { en: 'Door-to-door DDP delivery from China to Sydney, Melbourne, Brisbane & Perth. Air from $9/kg (5–9d), sea from $1.3/kg (20–30d). 10% GST included, no ABN.', ru: 'Доставка грузов и посылок в Сидней, Мельбурн, Брисбен и Перт. Авиа от $9/кг (5–9 дн.), море от $1.3/кг (20–30 дн.). Таможня, карантин DAFF и 10% GST включены.' }
       },
       argentina: {
-        title: { en: `Shipping from China to Argentina | ${baseTitle}`, ru: `Доставка из Китая в Аргентину | ${baseTitle}` },
-        desc: { en: 'Logistics and freight forwarding to Argentina.', ru: 'Доставка из Китая в Аргентину.' }
+        title: { en: 'Shipping from China to Argentina: DDP Air & Ocean Cargo', ru: 'Доставка из Китая в Аргентину: авиа и море DDP под ключ' },
+        desc: { en: 'Door-to-door DDP freight from China to Buenos Aires, Córdoba & Rosario. Air from $14/kg (7–12d), sea from $1.8/kg (40–50d). Duties, IVA & CUIT limits handled.', ru: 'Доставка посылок и грузов в Буэнос-Айрес, Кордову и Росарио. Авиа от $14/кг (7–12 дн.), море от $1.8/кг (40–50 дн.). Таможня Aduana, IVA и лимиты CUIT под ключ.' }
       },
       'south-africa': {
-        title: { en: `Shipping from China to South Africa | ${baseTitle}`, ru: `Доставка из Китая в ЮАР | ${baseTitle}` },
-        desc: { en: 'Logistics and freight forwarding to South Africa.', ru: 'Логистика коммерческих грузов и посылок в ЮАР.' }
+        title: { en: 'Shipping from China to South Africa: DDP Air & Sea', ru: 'Доставка из Китая в ЮАР: авиа и море DDP под ключ' },
+        desc: { en: 'Door-to-door DDP delivery from China to Johannesburg, Cape Town & Durban. Air from $12/kg (5–8d), sea LCL from $1.3/kg (35–45d). SARS duties & VAT included.', ru: 'Доставка грузов и посылок в Йоханнесбург, Кейптаун и Дурбан. Авиа от $12/кг (5–8 дн.), море LCL от $1.3/кг (35–45 дн.). Пошлины SARS и 15% VAT включены.' }
       },
       georgia: {
-        title: { en: `Shipping from China to Georgia | ${baseTitle}`, ru: `Доставка из Китая в Грузию | ${baseTitle}` },
-        desc: { en: 'Logistics and freight forwarding to Georgia.', ru: 'Быстрая экспресс доставка грузов из Китая в Грузию.' }
+        title: { en: 'Shipping from China to Georgia: DDP Air & Auto Cargo', ru: 'Доставка из Китая в Грузию: авиа и авто карго DDP' },
+        desc: { en: 'Door-to-door DDP delivery from China to Tbilisi, Batumi & Kutaisi. Air from $15/kg (5–8d), Middle Corridor auto from $1.2/kg (15–22d), no customs hassle.', ru: 'Доставка грузов и посылок в Тбилиси, Батуми и Кутаиси. Авиа от $15/кг (5–8 дн.), авто через Средний коридор от $1.2/кг (15–22 дн.). Растаможка DDP.' }
       },
       israel: {
-        title: { en: `Shipping from China to Israel | ${baseTitle}`, ru: `Доставка из Китая в Израиль | ${baseTitle}` },
-        desc: { en: 'Logistics and freight forwarding to Israel.', ru: 'Доставка в Израиль из Китая от двери до двери.' }
+        title: { en: 'Shipping from China to Israel: Air & Ocean Freight', ru: 'Доставка из Китая в Израиль: авиа и морские перевозки' },
+        desc: { en: 'Air and sea cargo delivery from China to Tel Aviv, Jerusalem, Haifa & Ashdod. Air from $15/kg (6–9d), LCL ocean freight from $1.2/kg (35–45d). Consolidation & QC in Shenzhen.', ru: 'Доставка грузов и посылок из Китая в Тель-Авив, Иерусалим, Хайфу и Ашдод. Авиа от $15/кг (6–9 дн.), море LCL от $1.2/кг (35–45 дн.). Консолидация и проверка в Шэньчжэне.' }
       }
     };
 
     if (currentPage === '404') {
-      title = language === 'en' ? `404 - Page Not Found | ${baseTitle}` : `404 - Страница не найдена | ${baseTitle}`;
+      title = language === 'en' ? '404 - Page Not Found' : '404 - Страница не найдена';
       description = language === 'en' ? 'The page you are looking for does not exist or has been moved.' : 'Запрашиваемая страница не найдена или была перемещена.';
     } else if (currentPage === 'blog') {
-      title = language === 'en' ? `Logistics Blog & Insights | ${baseTitle}` : `Блог и база знаний по логистике | ${baseTitle}`;
-      description = language === 'en' ? 'Expert guides, news, and tips for shipping from China and e-commerce.' : 'Экспертные статьи, бизнес-гайды и советы по доставке из Китая.';
+      title = language === 'en' ? 'China Shipping & Sourcing Blog: Guides & Tips' : 'Блог о доставке и закупках из Китая: гайды и советы';
+      description = language === 'en'
+        ? 'Expert guides, news, and tips for shipping from China. Learn how to buy on 1688, Taobao, and optimize your Amazon FBA supply chain.'
+        : 'Экспертные статьи, кейсы и советы по доставке из Китая. Как покупать на 1688 и Taobao, проходить таможню и оптимизировать логистику.';
     } else if (currentPage === 'blogPost' && slug) {
-      const post = blogPosts.find(p => p.slug === slug);
+      const post = getBlogPostBySlug(slug, language);
       if (post) {
-        title = `${post.title} | ${baseTitle}`;
-        description = post.excerpt;
+        title = post.seoTitle || post.title;
+        description = post.seoDescription || post.excerpt;
+        if (post.imageUrl) {
+          ogImage = post.imageUrl.startsWith('http') ? post.imageUrl : `${baseUrl}${post.imageUrl}`;
+        }
       }
     } else if (seoMap[currentPage]) {
       title = seoMap[currentPage].title[language];
       description = seoMap[currentPage].desc[language];
     }
 
-    return { title, description };
+    return { title, description, ogImage };
   };
 
-  const { title, description } = getSeoData();
+  const { title, description, ogImage } = getSeoData();
 
   if (currentPage === '404') {
     return (
@@ -156,12 +167,13 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
         <meta name="robots" content="noindex, follow" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
         <html lang={language === 'ru' ? 'ru' : 'en'} />
       </Helmet>
     );
   }
 
-  const baseUrl = 'https://happyboxlogistics.com';
   let enPath = '/';
   let ruPath = '/ru';
 
@@ -219,11 +231,16 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="robots" content="index, follow" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={currentPage === 'blogPost' ? 'article' : 'website'} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="twitter:url" content={canonicalUrl} />
+      <meta property="og:image" content={ogImage} />
+      <meta name="twitter:url" content={canonicalUrl} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
       <link rel="canonical" href={canonicalUrl} />
       <link rel="alternate" hrefLang="en" href={enUrl} />
       <link rel="alternate" hrefLang="ru" href={ruUrl} />

@@ -19,12 +19,12 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
     const fullContent: Record<'en' | 'ru', DestinationContent> = {
         en: {
             badge: "Israel-Direct Line",
-            titlePrefix: "Shipping from China to",
+            titlePrefix: "Cargo & Parcel Delivery from China to",
             titleHighlight: "Israel",
             subtitle: "Safe Air & Budget-Friendly Sea Freight. Overcome Red Sea shipping disruptions, strict Israeli customs audits, and complex Standards Institution (SII) requirements.",
-            introTitle: "Direct Door-to-Door Delivery Across Israel",
+            introTitle: "Door-to-Door Freight to Tel Aviv, Haifa, Jerusalem & Ashdod",
             introText: "Whether you are scaling an online store on Amazon Israel or local marketplaces, sourcing components for an industrial project, or buying personal goods from Taobao and 1688 — we take care of the entire journey. We deliver directly to your warehouse, office, or residential address across Israel, including Tel Aviv, Jerusalem, Haifa, Ashdod, Rishon LeZion, and Beersheba.",
-            methodsTitle: "Our Shipping Methods & Rates",
+            methodsTitle: "Air & Sea Freight Rates and Transit Times to Israel",
             methods: [
                 {
                     icon: Plane,
@@ -45,13 +45,13 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
                     color: "bg-teal-100 text-teal-600"
                 }
             ],
-            whyTitle: "Why Israeli Importers & Brands Choose HappyBox",
-            whyIntro: "Every shipping line we run to Israel operates on a strict DDP (Delivered Duty Paid) structure. The price we quote covers ocean/air freight, warehouse export handling, and 100% of Israeli import costs: Customs Duties, Purchase Tax (מס קנייה), and 17% Israeli VAT. You receive your goods at your door with absolutely zero unexpected customs fees or local courier demands.",
+            whyTitle: "Shenzhen Consolidation, QC Inspection & Customs Options",
+            whyIntro: <>Our DDP (Delivered Duty Paid) channel for Israel <strong className="font-bold text-brand-dark">(currently unavailable)</strong> is designed to cover ocean/air freight, warehouse export handling, and Israeli import costs: Customs Duties, Purchase Tax (מס קנייה), and 17% Israeli VAT. Currently, shipments operate under standard delivery terms with local customs clearance arranged upon arrival — please confirm active routing options with our manager.</>,
             benefits: [
                 {
                     icon: ShieldCheck,
                     title: "Zero Smart-Card or Custom Broker Hassles",
-                    desc: "Standard commercial imports into Israel require a digital \"Smart Card\" (כרטיס חכם) and registration in the \"Global Gate\" (שער עולמי) system. With HappyBox DDP, you don't need any technical registrations or import accounts — we clear everything under our own entity."
+                    desc: <>Standard commercial imports into Israel require a digital "Smart Card" (כרטיס חכם) and registration in the "Global Gate" (שער עולמי) system. With HappyBox DDP <strong className="font-bold text-brand-dark">(currently unavailable)</strong>, no technical registrations or import accounts are required when that channel is active — under standard shipping, regular Israeli import procedures apply.</>
                 },
                 {
                     icon: Check,
@@ -69,27 +69,27 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
                     desc: "Sending defective goods back from Tel Aviv to China is virtually impossible and incredibly expensive. We inspect your cargo at our Shenzhen warehouse and provide high-quality photos/videos before the shipment departs."
                 }
             ],
-            fearsTitle: "Frequently Asked Questions",
+            fearsTitle: "FAQ: Israeli Import Rules, 17% VAT, DDP Status & Insurance",
             fearsList: [
                 {
                     q: "Do I need a Smart-Card or import registration?",
-                    a: "No! Thanks to our DDP structure, we conduct the customs clearance through our own entities. You do not need any importer registrations."
+                    a: <>When our DDP route is active <strong className="font-bold text-brand-dark">(currently unavailable)</strong>, we conduct customs clearance through our own entities without importer registration. While DDP is paused, standard shipments follow regular Israeli import clearance requirements on the recipient's side.</>
                 },
                 {
                     q: "How does Israeli Customs tax work?",
-                    a: "Imports face a standard 17% VAT, potential Customs Duties, and Purchase Tax depending on the HS code. Our DDP rate already absorbs all these costs."
+                    a: <>Imports face a standard 17% VAT, potential Customs Duties, and Purchase Tax depending on the HS code. Our DDP rate <strong className="font-bold text-brand-dark">(currently unavailable)</strong> is structured to absorb these costs; under standard shipping today, local duties and 17% VAT are handled upon import.</>
                 },
                 {
                     q: "What if my goods get damaged or lost?",
                     a: "HappyBox offers All-Risk Insurance protecting 100% of your declared value from the moment it reaches our Shenzhen facility until signed for at your address in Israel."
                 }
             ],
-            stepsTitle: "The Step-by-Step Logistics Flow",
+            stepsTitle: "4-Step Shipping Process from Shenzhen Warehouse to Israel",
             steps: [
                 "Get Your Shenzhen Address: Create a HappyBox account and receive your dedicated shipping ID and warehouse address.",
                 "Purchase & Deliver: Send goods from Taobao, Alibaba or your factory to our Shenzhen hub.",
                 "Quality Check & Packing: We unpack, inspect, take photos, and consolidate your items to minimize volumetric weight.",
-                "Transport & Final Delivery: Your cargo is cleared through customs in Israel and delivered using our regional courier networks directly to your door."
+                <>Transport & Final Delivery: Your cargo is shipped by air or sea, processed through customs (DDP service <strong className="font-bold text-brand-dark">(currently unavailable)</strong>), and delivered via regional courier networks to your door.</>
             ],
             cta: "Ship to Israel Now",
             back: "Back to Destinations",
@@ -130,7 +130,7 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
                         items: [
                             { label: "The Tax Breakdown", text: "Imports face standard 17% VAT, potential Customs Duties depending on the Harmonized System (HS) code, and Purchase Tax (applicable to specific items like auto parts, luxury electronics, and certain raw materials)." },
                             { label: "Personal Import Threshold", text: "For personal parcel shipping, Israel maintains a strict de minimis system. While the $75 limit covers standard tax-free exemptions, orders entering commercial channels or arriving in close sequence face immediate scrutiny." },
-                            { label: "The HappyBox Formula", text: "Our DDP system converts these volatile variables into a flat, transparent per-kilogram (Air) or per-CBM (Sea) rate. We handle the valuation paperwork, absorb the 17% VAT, and handle any purchase tax variables so your cargo moves smoothly through customs." }
+                            { label: "The HappyBox Formula", text: <>Our DDP system <strong className="font-bold text-brand-dark">(currently unavailable)</strong> converts these volatile variables into a flat, transparent per-kilogram (Air) or per-CBM (Sea) rate. When the DDP channel is active, we handle the valuation paperwork, 17% VAT, and purchase tax variables; under current standard shipping, customs clearance applies upon import.</> }
                         ],
                         listStyle: "bullets"
                     },
@@ -167,12 +167,12 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
         },
         ru: {
             badge: "Прямая линия в Израиль",
-            titlePrefix: "Доставка из Китая в",
+            titlePrefix: "Грузоперевозки и доставка посылок из Китая в",
             titleHighlight: "Израиль",
             subtitle: "Надежная авиа и экономичная морская доставка. Забудьте о перебоях на морских маршрутах, строгих таможенных проверках и сложных требованиях Института стандартов (SII).",
-            introTitle: "Прямая доставка до двери по всей территории Израиля",
+            introTitle: "Доставка до двери в Тель-Авив, Иерусалим, Хайфу и Ашдод",
             introText: "Масштабируете онлайн-магазин на Amazon Israel? Закупаете компоненты для производства или просто заказываете вещи с Taobao и 1688? Мы берем весь процесс на себя. Доставляем прямо на ваш склад, в офис или домой — в Тель-Авив, Иерусалим, Хайфу, Ашдод, Ришон ле-Цион и Беэр-Шеву.",
-            methodsTitle: "Способы и стоимость доставки",
+            methodsTitle: "Тарифы и сроки авиа и морской доставки в Израиль",
             methods: [
                 {
                     icon: Plane,
@@ -193,13 +193,13 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "Почему израильские импортеры и бренды выбирают HappyBox",
-            whyIntro: "Все наши каналы доставки в Израиль работают строго по системе DDP (Delivered Duty Paid). Заявленная цена включает океанский/авиафрахт, складскую обработку на экспорте и 100% импортных расходов Израиля: таможенные пошлины (Мехес), налог на покупку (Мас Кния) и 17% НДС (Маам). Вы получаете груз у дверей без неожиданных сборов.",
+            whyTitle: "Консолидация в Шэньчжэне, проверка груза и условия таможни",
+            whyIntro: <>Наш канал доставки в Израиль по схеме DDP (Delivered Duty Paid) <strong className="font-bold text-brand-dark">(в данный момент временно недоступен)</strong> рассчитан на включение авиа/морского фрахта, складской обработки на экспорте и израильских импортных сборов: таможенных пошлин (Мехес), налога на покупку (Мас Кния) и 17% НДС (Маам). Сейчас отправка выполняется по стандартной схеме с таможенным оформлением при получении — актуальные условия уточняйте у менеджера.</>,
             benefits: [
                 {
                     icon: ShieldCheck,
                     title: "Без Смарт-Карты и бюрократии",
-                    desc: "В Израиле коммерческий импорт требует «Смарт-карту» (Картис Хахам) и регистрацию в системе «Глобальные ворота» (Шаар Олами). С нашим DDP вам не нужны никакие регистрации — мы растамаживаем всё на свои компании."
+                    desc: <>В Израиле коммерческий импорт требует «Смарт-карту» (Картис Хахам) и регистрацию в системе «Глобальные ворота» (Шаар Олами). С нашим DDP <strong className="font-bold text-brand-dark">(временно недоступен)</strong> эти регистрации не требуются, когда линия активна — при стандартной отправке действуют общие правила импорта в Израиле.</>
                 },
                 {
                     icon: Check,
@@ -217,27 +217,27 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
                     desc: "Вернуть бракованный товар из Тель-Авива в Китай практически невозможно и очень дорого. Мы проверяем качество товара в Шэньчжэне и предоставляем фото/видео до отправки."
                 }
             ],
-            fearsTitle: "Частые вопросы",
+            fearsTitle: "Частые вопросы: налоги в Израиле, статус DDP и страховка",
             fearsList: [
                 {
                     q: "Нужна ли мне смарт-карта или регистрация импортера?",
-                    a: "Нет! Благодаря системе DDP мы проводим таможенную очистку через наши собственные компании. Вам не нужно оформлять импортные документы."
+                    a: <>При работе по системе DDP <strong className="font-bold text-brand-dark">(в данный момент временно недоступна)</strong> мы проводим таможенную очистку через наши собственные компании без регистрации импортера. Пока линия DDP на паузе, стандартные отправки растамаживаются по общим правилам получателем.</>
                 },
                 {
                     q: "Как рассчитываются налоги в Израиле?",
-                    a: "Обычно импорт облагается стандартным НДС 17% (Маам), таможенными пошлинами (Мехес) и налогом на покупку. Наш DDP тариф уже полностью покрывает все эти статьи расходов."
+                    a: <>Обычно импорт облагается стандартным НДС 17% (Маам), таможенными пошлинами (Мехес) и налогом на покупку. Наш DDP тариф <strong className="font-bold text-brand-dark">(в данный момент временно недоступен)</strong> покрывает эти статьи расходов; при текущей стандартной отправке пошлины и 17% НДС оплачиваются при получении груза.</>
                 },
                 {
                     q: "А если груз повредят или потеряют в пути?",
                     a: "Мы предлагаем страховку All-Risk. Она покрывает 100% заявленной стоимости от повреждений, влаги или утери груза с момента получения в Китае и до вручения в Израиле."
                 }
             ],
-            stepsTitle: "Как происходит доставка логистики",
+            stepsTitle: "Как устроена доставка в 4 шага: от склада в Шэньчжэне до двери",
             steps: [
                 "Получите Адрес: Мы выдаем Вам персональный ID и адрес нашего китайского склада в Шэньчжэне.",
                 "Покупка: Введите наш адрес в Ваш аккаунт Taobao, Alibaba, или 1688 и оформите заказ.",
                 "Проверка & Консолидация: При получении мы делаем фотоотчет, убираем лишнюю упаковку и объединяем посылки для экономии.",
-                "Транзит DDP: Ваш груз доставляется авиа- или морским путем, проходит таможню и передается локальным курьерам для доставки до двери."
+                <>Транзит и доставка: Ваш груз отправляется авиа- или морским путем, проходит таможню (сервис DDP <strong className="font-bold text-brand-dark">(временно недоступен)</strong>) и передается локальным курьерам для доставки до двери.</>
             ],
             cta: "Отправить груз в Израиль",
             back: "К направлениям доставки",
@@ -267,7 +267,7 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
                         title: "1. Геополитика Маршрутов и Реальные Сроки",
                         items: [
                             { label: "Авиа коридор", text: "Груз отправляется из Шэньчжэня прямыми или стыковочными рейсами в аэропорт Бен-Гурион (TLV). От двери до двери: 6–9 дней. Наши авиамаршруты стабильны и безопасны." },
-                            { label: "Морские реалии (LCL)", text: "Из-за текущих обходов Красного моря суда идут в обход мыса Доброй Надежды. Грузы прибывают в Хайфу или Ашдод. Транзит по воде 25–30 дней, а полная DDP доставка занимает 35–45 дней с учетом всех портовых формальностей." }
+                            { label: "Морские реалии (LCL)", text: <>Из-за текущих обходов Красного моря суда идут в обход мыса Доброй Надежды. Грузы прибывают в Хайфу или Ашдод. Транзит по воде 25–30 дней, а полная доставка (DDP <strong className="font-bold text-brand-dark">(временно недоступен)</strong>) занимает 35–45 дней с учетом всех портовых формальностей.</> }
                         ],
                         listStyle: "bullets"
                     },
@@ -278,7 +278,7 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
                         items: [
                             { label: "Разбор Налогов", text: "Импорт облагается 17% НДС (Маам), пошлинами (Мехес) по ТН ВЭД (HS code) и налогом на покупку (Мас кния, для спец. товаров, автозапчастей и электроники)." },
                             { label: "Лимит на личные посылки", text: "В Израиле действует порог беспошлинного ввоза в $75, однако частые или коммерческие поставки строго контролируются." },
-                            { label: "Формула HappyBox", text: "Мы конвертируем все эти переменные в единый плоский тариф за килограмм (Авиа) или куб (Море). Мы сами оформляем документы и оплачиваем 17% НДС и пошлины. Ваш груз проходит таможню без задержек." }
+                            { label: "Формула HappyBox", text: <>Схема DDP <strong className="font-bold text-brand-dark">(в данный момент временно недоступна)</strong> конвертирует все эти переменные в единый плоский тариф за килограмм (Авиа) или куб (Море). Когда линия активна, мы сами оформляем документы и оплачиваем 17% НДС и пошлины; при текущей стандартной отправке растаможка проходит по общим правилам.</> }
                         ],
                         listStyle: "bullets"
                     },

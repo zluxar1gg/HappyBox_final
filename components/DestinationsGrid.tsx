@@ -207,11 +207,11 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
 
   if (grouped) {
     const regions = [
-      { id: 'americas', title: isEn ? 'North & South America' : 'Америка', items: ['usa', 'canada', 'argentina'] },
-      { id: 'europe', title: isEn ? 'Europe & CIS' : 'Европа и СНГ', items: ['eu', 'russia', 'georgia'] },
-      { id: 'asia', title: isEn ? 'Asia & Oceania' : 'Азия и Океания', items: ['thailand', 'indonesia', 'australia'] },
-      { id: 'mea', title: isEn ? 'Middle East & Africa' : 'Ближний Восток и Африка', items: ['uae', 'israel', 'south-africa'] },
-      { id: 'special', title: isEn ? 'E-Commerce' : 'Для Маркетплейсов', items: ['amazon', 'amazon-canada'] },
+      { id: 'americas', title: isEn ? 'USA, Canada & Argentina: Freight from China' : 'Северная и Южная Америка (США, Канада, Аргентина)', items: ['usa', 'canada', 'argentina'] },
+      { id: 'europe', title: isEn ? 'European Union, Russia & Georgia Delivery' : 'Доставка в Европу, Россию и Грузию', items: ['eu', 'russia', 'georgia'] },
+      { id: 'asia', title: isEn ? 'Asia-Pacific & Oceania Shipping Lanes' : 'Логистика в Азию и Океанию (Таиланд, Индонезия, Австралия)', items: ['thailand', 'indonesia', 'australia'] },
+      { id: 'mea', title: isEn ? 'Middle East & Africa Freight Corridors' : 'Ближний Восток и Африка (ОАЭ, Израиль, ЮАР)', items: ['uae', 'israel', 'south-africa'] },
+      { id: 'special', title: isEn ? 'Amazon FBA Prep & Direct Fulfillment' : 'Отправка партий на склады маркетплейсов (Amazon FBA)', items: ['amazon', 'amazon-canada'] },
     ];
 
     return (

@@ -26,12 +26,12 @@ export const ThailandShippingPage: React.FC<ThailandShippingPageProps> = ({
   const fullContent: Record<"en" | "ru", DestinationContent> = {
         en: {
             badge: "Thailand-Direct Line",
-            titlePrefix: "Shipping from China to",
+            titlePrefix: "Parcels & Commercial Cargo from China to",
             titleHighlight: "Thailand",
             subtitle: "Fast Air & Budget Land Freight. No customs drama, no hidden fees.",
-            introTitle: "Seamless Delivery for Businesses and Individuals",
+            introTitle: "Customs-Cleared Delivery to Bangkok, Phuket, Pattaya & Chiang Mai",
             introText: "From wholesale stock for your shop to a single pair of sneakers or home decor from China, we treat every shipment with the same care. We deliver directly to your doorstep anywhere in Thailand, including Bangkok, Chiang Mai, Pattaya, and Phuket.",
-            methodsTitle: "Our Shipping Methods & Rates",
+            methodsTitle: "Rates & Transit Times: Express Air (3–5 Days) & Land Auto (7–12 Days)",
             methods: [
                 {
                     icon: Plane,
@@ -52,7 +52,7 @@ export const ThailandShippingPage: React.FC<ThailandShippingPageProps> = ({
                     color: "bg-teal-100 text-teal-600"
                 }
             ],
-            whyTitle: "Why Regular Shoppers & Businesses Trust HappyBox",
+            whyTitle: "Shenzhen Consolidation, Pre-Dispatch Photo QC & Shipments from 0.5 kg",
             whyIntro: "All our shipping methods are DDP (Delivered Duty Paid). This means the price you see is the price you pay. We handle all customs clearance, import duties, and local taxes. Zero extra charges upon delivery.",
             benefits: [
                 {
@@ -76,7 +76,7 @@ export const ThailandShippingPage: React.FC<ThailandShippingPageProps> = ({
                     desc: "We open and take photos of your items upon arrival in Shenzhen so you can check the quality before the goods cross the border."
                 }
             ],
-            fearsTitle: "Frequently Asked Questions",
+            fearsTitle: "Thai Customs Rules, Volumetric Weight (/6000) & All-Risk Insurance",
             fearsList: [
                 {
                     q: "How is Land Freight volumetric weight calculated?",
@@ -91,7 +91,7 @@ export const ThailandShippingPage: React.FC<ThailandShippingPageProps> = ({
                     a: "To protect regular buyers and businesses alike, we offer All-Risk Insurance. If your parcel is lost or damaged during the overland truck journey or air transit, you receive a 100% refund of the declared value. Your capital and your personal purchases are always safe with HappyBox."
                 }
             ],
-            stepsTitle: "The Shenzhen-to-Thailand Workflow",
+            stepsTitle: "4 Steps from Taobao or Factory Order to Flash Express, J&T & Kerry Handover",
             steps: [
                 "Get Your Address: We provide you with your personal shipping address for our Shenzhen warehouse.",
                 "Order Your Items: Put this address into Taobao, 1688, or give it to your supplier.",
@@ -192,12 +192,12 @@ export const ThailandShippingPage: React.FC<ThailandShippingPageProps> = ({
         },
         ru: {
             badge: "Прямая линия в Таиланд",
-            titlePrefix: "Доставка из Китая в",
+            titlePrefix: "Отправка посылок и коммерческих грузов из Китая в",
             titleHighlight: "Таиланд",
             subtitle: "Быстрое Авиа и Бюджетное Авто. Без стресса на таможне и без скрытых комиссий.",
-            introTitle: "Бесшовная доставка для бизнеса и частных лиц",
+            introTitle: "Растаможка под ключ и вручение в Бангкоке, на Пхукете, в Паттайе и Чиангмае",
             introText: "Мы одинаково бережно относимся к каждому отправлению: будь то оптовая партия товаров для вашего магазина, покупки с Taobao или подарки для семьи. Доставим прямо до двери в любую точку Таиланда, включая Бангкок, Чиангмай, Паттайю и Пхукет.",
-            methodsTitle: "Наши способы доставки и тарифы",
+            methodsTitle: "Тарифы и сроки: авиа от $11/кг (3–5 дн.) и наземное авто от $4/кг",
             methods: [
                 {
                     icon: Plane,
@@ -218,7 +218,7 @@ export const ThailandShippingPage: React.FC<ThailandShippingPageProps> = ({
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "Почему нам доверяют покупатели и бизнес",
+            whyTitle: "Бесплатное объединение посылок в Шэньчжэне, фотоотчёт и приём от 0.5 кг",
             whyIntro: "Вся доставка работает по системе DDP (Delivered Duty Paid). Это значит, что вы не платите ни цента сверху после оформления. Мы берем на себя таможню и все местные налоги.",
             benefits: [
                 {
@@ -242,7 +242,7 @@ export const ThailandShippingPage: React.FC<ThailandShippingPageProps> = ({
                     desc: "Мы открываем и фотографируем ваши товары по прибытии в Шэньчжэнь, чтобы вы могли проверить их качество еще до пересечения границы."
                 }
             ],
-            fearsTitle: "Частые вопросы",
+            fearsTitle: "Расчёт объёмного веса (/6000), тайская таможня и страховка грузов",
             fearsList: [
                 {
                     q: "Как рассчитывается объемный вес для автодоставки?",
@@ -257,7 +257,7 @@ export const ThailandShippingPage: React.FC<ThailandShippingPageProps> = ({
                     a: "Для защиты как обычных покупателей, так и бизнеса, мы предлагаем страхование All-Risk. В случае утери или повреждения во время авто или авиа транзита, вы получаете 100% возврат заявленной стоимости. Ваши деньги и покупки в безопасности с HappyBox."
                 }
             ],
-            stepsTitle: "Как работает доставка Шэньчжэнь – Таиланд",
+            stepsTitle: "4 этапа пути: от заказа с Taobao или фабрики до курьеров Flash, J&T и Kerry",
             steps: [
                 "Получите свой адрес: Мы выдаем вам персональный адрес нашего склада в Шэньчжэне.",
                 "Сделайте заказ: Укажите этот адрес на Taobao, 1688 или передайте своему поставщику.",

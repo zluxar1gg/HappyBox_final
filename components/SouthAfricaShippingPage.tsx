@@ -19,12 +19,12 @@ export const SouthAfricaShippingPage: React.FC<SouthAfricaShippingPageProps> = (
     const fullContent: Record<'en' | 'ru', DestinationContent> = {
         en: {
             badge: "South Africa-Direct Line",
-            titlePrefix: "Shipping from China to",
+            titlePrefix: "Parcels, Apparel & Commercial Freight from China to",
             titleHighlight: "South Africa",
             subtitle: "Reliable Air & Sea Freight Services. Tackle South African customs complexities, strict SARS compliance, and unexpected port delays with confidence.",
-            introTitle: "Direct Door-to-Door Delivery Across South Africa",
+            introTitle: "Customs-Cleared Delivery to Johannesburg, Cape Town, Durban & Pretoria",
             introText: "Whether you are restocking inventory for local platforms like Takealot, Bash, or Zando, importing industrial tools, or consolidating personal purchases from Taobao and 1688 — we manage the process from end to end. We deliver right to your door across all major hubs, including Johannesburg, Cape Town, Durban, Pretoria, and Port Elizabeth.",
-            methodsTitle: "Our Shipping Methods & Rates",
+            methodsTitle: "Rates & Transit Times: Air from $12/kg (5–8d) & Sea LCL from $1.3/kg",
             methods: [
                 {
                     icon: Plane,
@@ -45,7 +45,7 @@ export const SouthAfricaShippingPage: React.FC<SouthAfricaShippingPageProps> = (
                     color: "bg-teal-100 text-teal-600"
                 }
             ],
-            whyTitle: "Why Importers in South Africa Trust HappyBox",
+            whyTitle: "DDP Without a SARS Import Code, Clothing Tax Coverage & Free Consolidation",
             whyIntro: "All our shipping channels to South Africa operate strictly on a DDP (Delivered Duty Paid) basis. The final rate we quote covers international freight, customs clearance, port handling, and 100% of SARS customs duties and 15% Import VAT. No hidden clearance fees, no administrative headaches, and zero surprise bills.",
             benefits: [
                 {
@@ -69,7 +69,7 @@ export const SouthAfricaShippingPage: React.FC<SouthAfricaShippingPageProps> = (
                     desc: "Finding out a machine or batch of products is defective after it reaches Johannesburg is a financial nightmare. Our Shenzhen team inspects your cargo and verifies your order before it ever boards a plane or ship."
                 }
             ],
-            fearsTitle: "Frequently Asked Questions",
+            fearsTitle: "10% VAT Upliftment Included, No Import Code & All-Risk Marine Insurance",
             fearsList: [
                 {
                     q: "Do I need an Import Code to receive goods in South Africa?",
@@ -84,7 +84,7 @@ export const SouthAfricaShippingPage: React.FC<SouthAfricaShippingPageProps> = (
                     a: "Due to long maritime routes and port handling, HappyBox offers All-Risk Insurance protecting 100% of your declared value from the moment it reaches our Shenzhen facility until signed for at your address."
                 }
             ],
-            stepsTitle: "The Step-by-Step Logistics Flow",
+            stepsTitle: "4 Steps from Taobao or 1688 Order to Local Courier Delivery in South Africa",
             steps: [
                 "Get Your Shenzhen Address: Create a HappyBox account and receive your dedicated shipping ID and warehouse address.",
                 "Purchase & Deliver: Send goods from Taobao, Alibaba or your factory to our Shenzhen hub.",
@@ -167,12 +167,12 @@ export const SouthAfricaShippingPage: React.FC<SouthAfricaShippingPageProps> = (
         },
         ru: {
             badge: "Прямая линия в ЮАР",
-            titlePrefix: "Доставка из Китая в",
+            titlePrefix: "Отправка посылок, оборудования и грузов из Китая в",
             titleHighlight: "ЮАР",
             subtitle: "Надежная авиа и морская доставка. Забудьте о сложностях с таможней, строгих правилах SARS и задержках в портах Южной Африки.",
-            introTitle: "Доставка до двери по всей ЮАР",
+            introTitle: "Доставка до двери в Йоханнесбург, Кейптаун, Дурбан и Преторию",
             introText: "Пополняете запасы для локальных маркетплейсов Takealot, Bash или Zando? Импортируете оборудование? Или просто ждете посылку с Taobao? Мы берем всё на себя. Доставляем в Йоханнесбург, Кейптаун, Дурбан, Преторию и Порт-Элизабет.",
-            methodsTitle: "Способы и стоимость доставки",
+            methodsTitle: "Тарифы и сроки: авиа от $12/кг (5–8 дн.) и море LCL от $1.3/кг (35–45 дн.)",
             methods: [
                 {
                     icon: Plane,
@@ -193,7 +193,7 @@ export const SouthAfricaShippingPage: React.FC<SouthAfricaShippingPageProps> = (
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "Почему бизнесы в ЮАР доверяют HappyBox",
+            whyTitle: "Таможня без SARS Import Code, фиксированный тариф на одежду и консолидация",
             whyIntro: "Все наши отправки в ЮАР осуществляются по системе DDP (Деливери Дьюти Пэйд). Названная нами цена включает международный фрахт, таможенную очистку, портовые сборы и 100% таможенных пошлин SARS и 15% НДС (VAT). Никаких скрытых сборов.",
             benefits: [
                 {
@@ -217,7 +217,7 @@ export const SouthAfricaShippingPage: React.FC<SouthAfricaShippingPageProps> = (
                     desc: "Узнать о браке станка или партии товара по прибытии в Йоханнесбург — финансовая катастрофа. Наша команда проверяет и делает фото в Шэньчжэне до того, как груз попадет на корабль."
                 }
             ],
-            fearsTitle: "Частые вопросы",
+            fearsTitle: "Уплата 15% VAT с надбавкой 10% заранее, оформление без кода и страховка",
             fearsList: [
                 {
                     q: "Мне нужен Импортный Код для получения груза?",
@@ -232,7 +232,7 @@ export const SouthAfricaShippingPage: React.FC<SouthAfricaShippingPageProps> = (
                     a: "Да, долгие морские маршруты несут риски. Мы предлагаем All-Risk Страхование (100% защиты от потери товара, намокания или физических повреждений) с момента прибытия на склад в Китае."
                 }
             ],
-            stepsTitle: "Как происходит доставка логистики",
+            stepsTitle: "4 этапа пути: от склада в Шэньчжэне до вручения курьером по ЮАР",
             steps: [
                 "Получите Адрес: Мы выдаем Вам персональный ID и адрес нашего китайского склада в Шэньчжэне.",
                 "Покупка: Введите наш адрес в Ваш аккаунт Taobao, Alibaba, или 1688.",

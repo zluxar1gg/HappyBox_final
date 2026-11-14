@@ -19,12 +19,12 @@ export const IndonesiaShippingPage: React.FC<IndonesiaShippingPageProps> = ({
     const fullContent: Record<'en' | 'ru', DestinationContent> = {
         en: {
             badge: "Indonesia-Direct Line",
-            titlePrefix: "Shipping from China to",
-            titleHighlight: "Indonesia",
+            titlePrefix: "Door-to-Door Parcels & Cargo from China to",
+            titleHighlight: "Indonesia & Bali",
             subtitle: "Secure Air & Economy Sea Freight. Bypass complex Indonesian customs regulations, unpredictable import licenses, and hidden port fees.",
-            introTitle: "Direct Door-to-Door Delivery to Your Doorstep",
+            introTitle: "Customs-Cleared Delivery to Bali, Jakarta, Surabaya, Bandung & Medan",
             introText: "Whether you are a local e-commerce seller stocking inventory for Tokopedia, Shopee, or Lazada, a business sourcing commercial equipment, or an individual ordering personal items from Taobao—we handle the entire journey. We deliver directly to your address across Indonesia, including Jakarta, Surabaya, Bandung, Medan, and Bali.",
-            methodsTitle: "Our Shipping Methods & Rates",
+            methodsTitle: "Rates & Transit Times: Express Air from $10/kg & Sea LCL from $1.1/kg",
             methods: [
                 {
                     icon: Plane,
@@ -45,7 +45,7 @@ export const IndonesiaShippingPage: React.FC<IndonesiaShippingPageProps> = ({
                     color: "bg-teal-100 text-teal-600"
                 }
             ],
-            whyTitle: "Why Indonesian Importers & Shoppers Choose HappyBox",
+            whyTitle: "DDP Clearance Without API Licenses, «Red Light» Stability & Free Consolidation",
             whyIntro: "All our shipping channels to Indonesia operate strictly on a DDP (Delivered Duty Paid) basis. The price we quote includes international freight, customs clearance, and 100% of Indonesian import duties, VAT (PPN), and Income Tax (PPh). You pay one transparent price with zero surprise charges upon delivery.",
             benefits: [
                 {
@@ -69,7 +69,7 @@ export const IndonesiaShippingPage: React.FC<IndonesiaShippingPageProps> = ({
                     desc: "We inspect your items and send photos before they leave China. Catching factory defects in Shenzhen saves you from the impossible task of returning goods from Jakarta back to China."
                 }
             ],
-            fearsTitle: "Frequently Asked Questions",
+            fearsTitle: "NPWP Exemption, SNI / BPOM Compliance & Sea CBM Calculation",
             fearsList: [
                 {
                     q: "Do I need an import license (API) or tax ID (NPWP)?",
@@ -84,7 +84,7 @@ export const IndonesiaShippingPage: React.FC<IndonesiaShippingPageProps> = ({
                     a: "Sea freight is billed by Cubic Meters (CBM). The formula is: Length × Width × Height (cm) / 1,000,000 = CBM. Our warehouse team repacks poorly boxed factory items for free to keep your CBM as low as possible."
                 }
             ],
-            stepsTitle: "The Step-by-Step Workflow",
+            stepsTitle: "4 Steps from Taobao or Factory Order to JNE & J&T Delivery Across Java & Bali",
             steps: [
                 "Get Your China Address: We provide you with your dedicated shipping address and user ID for our Shenzhen warehouse.",
                 "Supplier Delivery: You input this address into Taobao/1688 or provide it directly to your Alibaba manufacturer.",
@@ -177,12 +177,12 @@ export const IndonesiaShippingPage: React.FC<IndonesiaShippingPageProps> = ({
         },
         ru: {
             badge: "Прямая линия в Индонезию",
-            titlePrefix: "Доставка из Китая в",
+            titlePrefix: "Отправка посылок и коммерческих грузов из Китая на Бали и в",
             titleHighlight: "Индонезию",
             subtitle: "Надежная авиа и экономичная морская доставка. Избегайте сложных таможенных правил Индонезии (лицензий API) и скрытых портовых сборов.",
-            introTitle: "Прямая доставка до вашей двери",
+            introTitle: "Доставка до двери на Бали, в Джакарту, Сурабаю, Бандунг и Медан",
             introText: "Независимо от того, являетесь ли вы локальным продавцом на Tokopedia, Shopee или Lazada, бизнесом, закупающим оборудование, или заказываете посылки с Taobao для себя — мы берем на себя весь процесс. Доставка прямо до вашего адреса в Индонезии: Джакарта, Сурабая, Бандунг, Медан и Бали.",
-            methodsTitle: "Наши тарифы и способы доставки",
+            methodsTitle: "Тарифы и сроки: авиа от $10/кг (4–7 дн.) и море LCL от $1.1/кг",
             methods: [
                 {
                     icon: Plane,
@@ -203,7 +203,7 @@ export const IndonesiaShippingPage: React.FC<IndonesiaShippingPageProps> = ({
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "Почему бизнесы и частные лица выбирают HappyBox",
+            whyTitle: "Таможня без лицензий API, обход «Красного света» и проверка в Шэньчжэне",
             whyIntro: "Все наши каналы в Индонезию работают строго по системе DDP (Delivered Duty Paid). Цена, которую мы озвучиваем, включает международный фрахт, таможенную очистку и 100% индонезийских импортных пошлин, НДС (PPN) и подоходный налог (PPh). Единая прозрачная цена без дополнительных сборов.",
             benefits: [
                 {
@@ -227,7 +227,7 @@ export const IndonesiaShippingPage: React.FC<IndonesiaShippingPageProps> = ({
                     desc: "Мы проверяем товары и отправляем фото до их отъезда из Китая. Ловим фабричный брак в Шэньчжэне, избавляя вас от невыполнимой задачи возврата товара из Джакарты в Китай."
                 }
             ],
-            fearsTitle: "Частые вопросы",
+            fearsTitle: "Оформление без ИНН (NPWP), провоз без SNI/BPOM и расчёт кубатуры CBM",
             fearsList: [
                 {
                     q: "Нужны ли мне лицензия (API) или ИНН (NPWP)?",
@@ -242,7 +242,7 @@ export const IndonesiaShippingPage: React.FC<IndonesiaShippingPageProps> = ({
                     a: "Морской фрахт рассчитывается по кубическим метрам (CBM). Формула: Длина × Ширина × Высота (см) / 1,000,000. Наш склад бесплатно переупаковывает товары из плохой заводской тары, чтобы снизить ваш CBM."
                 }
             ],
-            stepsTitle: "Как это работает: От фабрики до Джакарты",
+            stepsTitle: "4 этапа пути: от заказа в Китае до курьеров JNE и J&T на Бали и Яве",
             steps: [
                 "Получите свой адрес: Мы выдаем вам персональный ID и адрес склада в Шэньчжэне.",
                 "Сделайте заказ: Укажите этот адрес на Taobao, 1688 или передайте поставщику.",

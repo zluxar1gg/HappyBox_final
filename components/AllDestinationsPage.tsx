@@ -76,7 +76,7 @@ export const AllDestinationsPage: React.FC<AllDestinationsPageProps> = ({
               <div className="container mx-auto px-6 xl:px-0">
                    <div className="max-w-5xl mx-auto text-center">
                       <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
-                          {isEn ? 'All Destinations' : 'Все направления доставки'}
+                          {isEn ? 'International Delivery Destinations from China' : 'Все направления доставки грузов и посылок из Китая'}
                       </h1>
                       <p className="text-xl text-gray-600 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
                           {isEn 

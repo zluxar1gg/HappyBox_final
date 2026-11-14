@@ -10,7 +10,7 @@ import { ArrowRight, Send } from 'lucide-react';
 
 export interface GuideSectionItem {
     label: string;
-    text?: string;
+    text?: React.ReactNode;
 }
 
 export interface GuideSection {
@@ -55,16 +55,16 @@ export interface DestinationContent {
     fbaText?: string;
     fbaItems?: { title: string; desc: string }[];
     whyTitle?: string;
-    whyIntro?: string;
+    whyIntro?: React.ReactNode;
     benefits?: {
         icon: any;
         title: string;
-        desc: string;
+        desc: React.ReactNode;
     }[];
     fearsTitle: string;
     fearsList: { q: string; a: React.ReactNode }[];
     stepsTitle: string;
-    steps: string[];
+    steps: React.ReactNode[];
     cta: string;
     back: string;
     amazonBlock?: {
@@ -458,7 +458,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                                                 <>
                                                                     <span className="text-brand-blue mt-1 font-black">•</span>
                                                                     <span className="text-gray-700 text-base md:text-lg">
-                                                                        {item.label} {item.text && `- ${item.text}`}
+                                                                        {item.label} {item.text && (<>- {item.text}</>)}
                                                                     </span>
                                                                 </>
                                                             ) : sec.listStyle === 'numbered' ? (

@@ -19,12 +19,12 @@ export const AustraliaShippingPage: React.FC<AustraliaShippingPageProps> = ({
     const fullContent: Record<'en' | 'ru', DestinationContent> = {
         en: {
             badge: "Australia-Direct Line",
-            titlePrefix: "Shipping from China to",
+            titlePrefix: "Furniture, Commercial Cargo & Parcels from China to",
             titleHighlight: "Australia",
             subtitle: "Hassle-Free DDP Solutions. Stop worrying about strict Australian customs, quarantine delays, and hidden port fees.",
-            introTitle: "Seamless Logistics Down Under",
+            introTitle: "Customs-Cleared Delivery to Sydney, Melbourne, Brisbane, Perth & Adelaide",
             introText: "Whether you are an individual buying furniture from Foshan, a private shopper ordering from Taobao/Poizon, or a business stocking inventory for the Australian market, we've got you covered. We deliver door-to-door to all major metro areas, including Sydney, Melbourne, Brisbane, Perth, and Adelaide.",
-            methodsTitle: "Our Shipping Methods & Rates",
+            methodsTitle: "Rates & Transit Times: Air from $9/kg (5–9d) & Ocean from $1.3/kg",
             methods: [
                 {
                     icon: Plane,
@@ -45,7 +45,7 @@ export const AustraliaShippingPage: React.FC<AustraliaShippingPageProps> = ({
                     color: "bg-teal-100 text-teal-600"
                 }
             ],
-            whyTitle: "Why Australian Importers & Shoppers Trust HappyBox",
+            whyTitle: "10% GST Included, DAFF Biosecurity Check & Free Shenzhen Consolidation",
             whyIntro: "All our routes are DDP (Delivered Duty Paid). The price you are quoted includes ocean/air freight, customs clearance, quarantine handling, and all Australian import duties and GST. No surprise bills from Border Force.",
             benefits: [
                 {
@@ -69,7 +69,7 @@ export const AustraliaShippingPage: React.FC<AustraliaShippingPageProps> = ({
                     desc: "We understand Australia's strict biosecurity laws. We check your cargo to ensure it passes inspection without extra fees."
                 }
             ],
-            fearsTitle: "Frequently Asked Questions",
+            fearsTitle: "Import Without an ABN, Volumetric Weight Rules & All-Risk Insurance",
             fearsList: [
                 {
                     q: "How is volumetric weight calculated?",
@@ -84,7 +84,7 @@ export const AustraliaShippingPage: React.FC<AustraliaShippingPageProps> = ({
                     a: "We offer All-Risk Insurance that covers 100% of your declared cargo value against water damage, theft, or handling damage from the moment it leaves Shenzhen until it arrives at your Australian address."
                 }
             ],
-            stepsTitle: "The Shenzhen-to-Australia Workflow",
+            stepsTitle: "4 Steps from Taobao or Foshan Factory to Australia Post & Toll Delivery",
             steps: [
                 "Get Your Address: We provide you with your personal shipping address for our Shenzhen warehouse.",
                 "Order Your Items: Put this address into Taobao, 1688, or give it to your supplier.",
@@ -189,12 +189,12 @@ export const AustraliaShippingPage: React.FC<AustraliaShippingPageProps> = ({
         },
         ru: {
             badge: "Прямая линия в Австралию",
-            titlePrefix: "Доставка из Китая в",
+            titlePrefix: "Отправка мебели, посылок и грузов из Китая в",
             titleHighlight: "Австралию",
             subtitle: "Логистика без хлопот (DDP). Мы берем на себя австралийскую таможню, карантин и портовые сборы.",
-            introTitle: "Бесшовная доставка 'До Двери'",
+            introTitle: "Доставка до двери в Сидней, Мельбурн, Брисбен, Перт и Аделаиду",
             introText: "Покупаете мебель из Фошаня для своего дома? Заказываете товары с Taobao/Poizon или везете оптовую партию для бизнеса в Австралии? Мы доставим груз до двери в Сиднее, Мельбурне, Брисбене, Перте или Аделаиде.",
-            methodsTitle: "Наши способы доставки и тарифы",
+            methodsTitle: "Тарифы и сроки: авиа от $9/кг (5–9 дн.) и море от $1.3/кг (20–30 дн.)",
             methods: [
                 {
                     icon: Plane,
@@ -215,7 +215,7 @@ export const AustraliaShippingPage: React.FC<AustraliaShippingPageProps> = ({
                     color: "bg-teal-50 text-teal-600"
                 }
             ],
-            whyTitle: "Почему австралийские импортёры выбирают HappyBox",
+            whyTitle: "Уплата 10% GST заранее, карантинный контроль DAFF и консолидация",
             whyIntro: "Все наши маршруты работают по системе DDP. Цена включает фрахт, растаможку, карантинный контроль, налоги (GST) и пошлины. Никаких внезапных счетов от Border Force.",
             benefits: [
                 {
@@ -239,7 +239,7 @@ export const AustraliaShippingPage: React.FC<AustraliaShippingPageProps> = ({
                     desc: "Мы проверяем ваш груз на соответствие строгим карантинным законам Австралии (упаковка, древесина), чтобы избежать штрафов."
                 }
             ],
-            fearsTitle: "Частые вопросы",
+            fearsTitle: "Оформление без номера ABN, формула объёмного веса и страховка All-Risk",
             fearsList: [
                 {
                     q: "Как рассчитывается объемный вес?",
@@ -254,7 +254,7 @@ export const AustraliaShippingPage: React.FC<AustraliaShippingPageProps> = ({
                     a: "Да, мы предоставляем страховку All-Risk. Она покрывает 100% заявленной стоимости от повреждений, потери или намокания на море, с момента отправки до получения."
                 }
             ],
-            stepsTitle: "Как работает доставка в Австралию",
+            stepsTitle: "4 этапа пути: от фабрик и Taobao до вручения через Australia Post и Toll",
             steps: [
                 "Получите свой адрес: Мы выдаем вам персональный адрес нашего склада в Шэньчжэне.",
                 "Сделайте заказ: Укажите этот адрес на Taobao, 1688 или передайте своему поставщику.",
