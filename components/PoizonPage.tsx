@@ -12,19 +12,19 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
     const content = {
         en: {
             badge: "POIZON (DEWU) AGENT",
-            titlePrefix: "Poizon (Dewu) Sourcing & Delivery:",
-            titleHighlight: "100% Genuine Brands with 0% Agent Fee",
+            titlePrefix: "Order from Poizon (Dewu):",
+            titleHighlight: "Legit Check, Double-Box & 0% Commission",
             subtitle: "Shop on Poizon (Dewu) – China's top marketplace for genuine branded items. Access originals at prices 20-50% lower than global retail. 0% Service Fee.",
             whyTitle: "Challenges of Buying Directly from Poizon and Safe Sourcing via an Agent",
             whyText1: "The Problem:\nChina-Only Access: The app is in Chinese, requires a local ID, and payment methods like Alipay/WeChat are difficult for foreigners to access.\nNo International Shipping: Sellers do not export. Without an agent, you face language barriers and shipping blocks.\nHidden Fees Elsewhere: Many agents charge 15-50% hidden markups on currency exchange rates.",
             whyText2: "How HappyBox Fixes It:\nHappyBox acts as your professional bridge. We handle the language gap, use secure local payments, and leverage Poizon's rigorous authenticity system. We use transparent currency rates close to market spot rates (no hidden 30% markups) and ensure all items come with the famous 'Turquoise Box' and Certificate.",
-            processTitle: "Step-by-Step Purchasing, Authenticity Check, and Delivery Process from Poizon",
+            processTitle: "How Poizon Ordering, Legit Check & Delivery Work",
             process: [
-                { icon: Smartphone, title: "1 — Download & Register", desc: "Download Dewu (Poizon). Register with your international phone number." },
-                { icon: Search, title: "2 — Find Your Items", desc: "Search using English keywords. Note: Prices vary by size." },
-                { icon: Send, title: "3 — Submit Order", desc: "Share the link with us. We verify price and delivery speed." },
-                { icon: ShieldCheck, title: "4 — We Buy & Inspect", desc: "We purchase. Poizon performs Legit Check. If it passes, it comes to us." },
-                { icon: Box, title: "5 — Consolidate & Ship", desc: "We repack, store for free if needed, and ship to your door." }
+                { icon: Smartphone, title: "Download & Register", desc: "Download Dewu (Poizon). Register with your international phone number." },
+                { icon: Search, title: "Find Your Items", desc: "Search using English keywords. Note: Prices vary by size." },
+                { icon: Send, title: "Submit Order", desc: "Share the link with us. We verify price and delivery speed." },
+                { icon: ShieldCheck, title: "We Buy & Inspect", desc: "We purchase. Poizon performs Legit Check. If it passes, it comes to us." },
+                { icon: Box, title: "Consolidate & Ship", desc: "We repack, store for free if needed, and ship to your door." }
             ],
             expertTitle: "Poizon Buying Tips: Stock-Market Sizing Prices, Item Conditions, and Savings",
             expertList: [
@@ -48,21 +48,21 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
         },
         ru: {
             badge: "АГЕНТ POIZON (DEWU)",
-            titlePrefix: "Выкуп и доставка с Poizon (Dewu):",
-            titleHighlight: "Оригиналы брендов без комиссии агента (0%)",
+            titlePrefix: "Оригиналы с Poizon (Dewu):",
+            titleHighlight: "Legit Check, двойная коробка и честный курс",
             subtitle: "Покупайте на Poizon (Dewu) – лучшем маркетплейсе Китая для оригинальных брендовых вещей. Доступ к оригиналам по ценам на 20-50% ниже мирового ритейла. Без комиссии агента (0%).",
-            whyTitle: "Сложности самостоятельного заказа на Poizon и выкуп через надежного посредника",
+            whyTitle: "Почему выгодно покупать на Poizon через агента",
             whyText1: "Проблема:\nТолько для Китая: Приложение на китайском, требует местный ID, а методы оплаты Alipay/WeChat недоступны иностранцам.\nНет международной доставки: Продавцы не отправляют на экспорт. Без агента вы сталкиваетесь с языковым барьером и блоком на доставку.\nСкрытые комиссии: Многие агенты прячут 15-50% комиссии в завышенном курсе валют.",
             whyText2: "Как HappyBox решает это:\nМы выступаем вашим профессиональным мостом. Мы преодолеваем языковой барьер, используем безопасные местные платежи и используем строгую систему аутентификации Poizon. Мы используем прозрачный курс, близкий к рыночному (без скрытых наценок в 30%), и гарантируем, что все товары придут со знаменитой 'Бирюзовой коробкой' и сертификатом.",
             processTitle: "Пошаговый процесс выкупа, проверки на оригинальность и доставки с Poizon",
             process: [
-                { icon: Smartphone, title: "1 — Скачать и зарегистрироваться", desc: "Скачайте Dewu (Poizon). Зарегистрируйтесь со своим международным номером телефона." },
-                { icon: Search, title: "2 — Найти товары", desc: "Ищите по английским ключевым словам. Важно: цены зависят от размера." },
-                { icon: Send, title: "3 — Оформить заказ", desc: "Пришлите нам ссылку. Мы проверим цену и скорость доставки." },
-                { icon: ShieldCheck, title: "4 — Мы выкупаем и проверяем", desc: "Мы оплачиваем. Poizon проводит Legit Check. Если всё ок, товар едет к нам." },
-                { icon: Box, title: "5 — Консолидация и доставка", desc: "Мы переупакуем, бесплатно сохраним (если нужно) и доставим до вашей двери." }
+                { icon: Smartphone, title: "Скачать и зарегистрироваться", desc: "Скачайте Dewu (Poizon). Зарегистрируйтесь со своим международным номером телефона." },
+                { icon: Search, title: "Найти товары", desc: "Ищите по английским ключевым словам. Важно: цены зависят от размера." },
+                { icon: Send, title: "Оформить заказ", desc: "Пришлите нам ссылку. Мы проверим цену и скорость доставки." },
+                { icon: ShieldCheck, title: "Мы выкупаем и проверяем", desc: "Мы оплачиваем. Poizon проводит Legit Check. Если всё ок, товар едет к нам." },
+                { icon: Box, title: "Консолидация и доставка", desc: "Мы переупакуем, бесплатно сохраним (если нужно) и доставим до вашей двери." }
             ],
-            expertTitle: "Советы по покупкам на Poizon: биржевые цены по размерам, статусы товаров и экономия",
+            expertTitle: "Лайфхаки Poizon: размеры, статусы 95 New и цвета кнопок",
             expertList: [
                 { title: "Цены и размеры", desc: "Цены зависят от размера (модель биржи). Проверьте соседние размеры, чтобы сэкономить до 30%." },
                 { title: "Обозначения состояния", desc: "95 New означает Б/У товар. Damaged Box означает АБСОЛЮТНО НОВЫЙ товар с помятой коробкой." },
@@ -105,7 +105,7 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                                 language={language}
                                 onNavigate={onNavigate}
                                 items={[
-                                    { label: language === 'ru' ? 'Выкуп с площадок' : 'Sourcing Services', path: 'home' },
+                                    { label: language === 'ru' ? 'Выкуп с площадок' : 'Sourcing Services', path: 'home#services' },
                                     { label: language === 'ru' ? 'Посредник Poizon (Dewu)' : 'Poizon (Dewu) Agent' }
                                 ]}
                             />

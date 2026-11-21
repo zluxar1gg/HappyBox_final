@@ -124,8 +124,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         { label: 'Tmall', path: '/tmall' },
         { label: 'Pinduoduo', path: '/pinduoduo' },
         { label: 'Weidian', path: '/weidian' },
-        { label: isRu ? 'Xianyu (Idle Fish)' : 'Goofish / Xianyu', path: '/xianyu' },
-        { label: 'Xiaohongshu (XHS)', path: '/xhs' },
+        { label: isRu ? 'Xianyu (Рыбка)' : 'Goofish / Xianyu', path: '/xianyu' },
       ]
     },
     destinations: {
@@ -148,7 +147,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         { label: isRu ? 'Бесплатный склад и консолидация' : 'Free China Warehousing', path: '/warehousing' },
         { label: isRu ? 'Amazon FBA США' : 'Amazon FBA USA Freight', path: '/amazon' },
         { label: isRu ? 'Amazon FBA Канада' : 'Amazon FBA Canada Freight', path: '/amazon-canada' },
-        { label: isRu ? 'Калькулятор доставки' : 'Shipping Cost Calculator', hash: 'calculator' },
+        { label: isRu ? 'Калькулятор доставки' : 'Shipping Cost Calculator', hash: 'calc' },
         { label: isRu ? 'Отслеживание груза' : 'Track Your Shipment', hash: 'tracking' },
       ]
     },

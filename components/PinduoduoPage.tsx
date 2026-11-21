@@ -6,6 +6,7 @@ import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
 import { PinduoduoAdvancedGuide } from './PinduoduoAdvancedGuide';
+import { Breadcrumbs } from './Breadcrumbs';
 import { Search, CreditCard, ClipboardCheck, Package, Send, ShieldCheck, Percent, Layers } from 'lucide-react';
 
 interface PinduoduoPageProps {
@@ -23,8 +24,8 @@ export const PinduoduoPage: React.FC<PinduoduoPageProps> = ({ language, setLangu
     const content = {
         en: {
             badge: "0% Commission Group Buying",
-            titlePrefix: "Pinduoduo (PDD) Purchasing Agent:",
-            titleHighlight: "Group-Buy Factory Prices with 0% Fee",
+            titlePrefix: "Unlock Pinduoduo Prices:",
+            titleHighlight: "Wholesale Group-Buy Discounts from China",
             subtitle: <>Pinduoduo is famous for its group buying model and incredible discounts on everything from gadgets to home goods. We make buying from Pinduoduo easy, secure, and accessible.</>,
             whyTitle: "The Pinduoduo Pricing Model: Why It’s Cheaper Than Taobao and How Group-Buy Works",
             whyText1: "Pinduoduo often offers lower prices than Taobao for the exact same items. The platform connects buyers directly to factories with no trading company layer and no retail markup. The platform's algorithm guarantees volume to manufacturers in exchange for deep discounts.",
@@ -55,21 +56,21 @@ export const PinduoduoPage: React.FC<PinduoduoPageProps> = ({ language, setLangu
             ],
             fearsTitle: "Smart Shopping on PDD: Subsidized Deals, Small-Item Consolidation, and Flash Timers",
             fearsList: [
-                { q: "Best Prices in China", a: "Known for heavily subsidized pricing on everyday items, from home goods to basic electronics." },
-                { q: "0% Commission", a: "We charge no service fee for standard Pinduoduo orders." },
-                { q: "Consolidation", a: "Perfect for adding small, cheap items to your main parcel, drastically reducing shipping costs." },
-                { q: "Don't ignore the timer", a: "Pinduoduo deals are often time-sensitive. If you see a great price, send it to us quickly so we can lock it in before the group-buy window closes." }
+                { q: "Why Are Pinduoduo Prices Lower Than Taobao?", a: "Known for heavily subsidized pricing on everyday items, from home goods to basic electronics." },
+                { q: "How Much Is the Purchasing Commission?", a: "We charge no service fee for standard Pinduoduo orders." },
+                { q: "Can I Combine Cheap Items With Other Orders?", a: "Perfect for adding small, cheap items to your main parcel, drastically reducing shipping costs." },
+                { q: "What If a Flash Deal Timer Expires Soon?", a: "Pinduoduo deals are often time-sensitive. If you see a great price, send it to us quickly so we can lock it in before the group-buy window closes." }
             ],
             qcTitle: "Warehouse Quality Check: Photo Inspection and Defect Screening Before Shipping",
-            qcText: "Because factory prices on Pinduoduo are rock-bottom, our Shenzhen warehouse conducts thorough quality checks. We photograph your items, verify specifications, and return defective goods before international departure.",
+            qcText: "Because factory prices on Pinduoduo are rock-bottom, our Shenzhen and Guangzhou warehouses conduct thorough quality checks. We photograph your items, verify specifications, and return defective goods before international departure.",
             feeTitle: "Service Terms: 0% Commission on Standard Pinduoduo Orders",
             feeText: "We charge absolutely no service fee for standard Pinduoduo orders. You get the real factory group-buy price plus international shipping.",
             cta: "Start Sourcing",
         },
         ru: {
             badge: "Групповые закупки и комиссия 0%",
-            titlePrefix: "Посредник Pinduoduo (PDD):",
-            titleHighlight: "выкуп по оптовым ценам совместных покупок (0% комиссии)",
+            titlePrefix: "Закупки на Pinduoduo (PDD):",
+            titleHighlight: "товары по ценам совместных покупок с QC",
             subtitle: <>Платформа Pinduoduo славится своей моделью совместных покупок (групп-бай) и невероятными скидками на всё — от электроники до товаров для дома. Мы делаем покупки на Pinduoduo простыми и безопасными.</>,
             whyTitle: "Феномен цен Pinduoduo: почему здесь дешевле, чем на Taobao, и в чем специфика площадки",
             whyText1: "Pinduoduo часто предлагает более низкие цены, чем Taobao, на абсолютно идентичные товары. Платформа напрямую связывает покупателей с фабриками, убирая торговые компании и розничную наценку, и гарантирует производителю огромные объемы взамен на скидки.",
@@ -100,13 +101,13 @@ export const PinduoduoPage: React.FC<PinduoduoPageProps> = ({ language, setLangu
             ],
             fearsTitle: "Секреты максимальной экономии: субсидированные скидки, консолидация и таймеры акций",
             fearsList: [
-                { q: "Лучшие цены в Китае", a: "Платформа известна субсидированными ценами на повседневные товары." },
-                { q: "Комиссия 0%", a: "Мы не берем сервисную комиссию за выкуп стандартных заказов на Pinduoduo." },
-                { q: "Консолидация посылок", a: "Идеально подходит для добавления мелких недорогих товаров к вашей основной посылке для экономии на логистике." },
-                { q: "Обращайте внимание на таймер", a: "Скидки на Pinduoduo ограничены по времени. Если вы увидели отличную цену, отправляйте ссылку как можно скорее, чтобы мы успели ее зафиксировать." }
+                { q: "Почему на Pinduoduo дешевле, чем на Taobao?", a: "Платформа известна субсидированными ценами на повседневные товары." },
+                { q: "Какая комиссия за выкуп с Pinduoduo?", a: "Мы не берем сервисную комиссию за выкуп стандартных заказов на Pinduoduo." },
+                { q: "Можно ли объединить мелочи с другими заказами?", a: "Идеально подходит для добавления мелких недорогих товаров к вашей основной посылке для экономии на логистике." },
+                { q: "Как успеть выкупить товар по таймеру акции?", a: "Скидки на Pinduoduo ограничены по времени. Если вы увидели отличную цену, отправляйте ссылку как можно скорее, чтобы мы успели ее зафиксировать." }
             ],
             qcTitle: "Контроль качества на складе: фотоотчет и проверка товара на дефекты перед отправкой",
-            qcText: "Цены на Pinduoduo минимальны, поэтому наш склад в Шэньчжэне проводит строгий входящий контроль. Мы делаем детальные фото товаров, проверяем комплектность и отбраковываем некачественные вещи до международной отправки.",
+            qcText: "Цены на Pinduoduo минимальны, поэтому наш склад в Шэньчжэне и Гуанчжоу проводит строгий входящий контроль. Мы делаем детальные фото товаров, проверяем комплектность и отбраковываем некачественные вещи до международной отправки.",
             feeTitle: "Условия выкупа: 0% комиссии за стандартные заказы на Pinduoduo",
             feeText: "Мы не взимаем сервисную комиссию за стандартные заказы Pinduoduo. Вы получаете ту самую цену групповой покупки с фабрики.",
             cta: "Начать поиск товара",
@@ -123,12 +124,23 @@ export const PinduoduoPage: React.FC<PinduoduoPageProps> = ({ language, setLangu
                 onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
+                onNavigate={onNavigate}
             />
 
             <main>
                 {/* Hero Section */}
                 <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
                     <div className="container mx-auto px-6 xl:px-0 relative z-10"> 
+                        <div className="max-w-5xl mx-auto mb-4">
+                            <Breadcrumbs 
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={[
+                                    { label: language === 'ru' ? 'Выкуп с площадок' : 'Sourcing Services', path: 'home#services' },
+                                    { label: language === 'ru' ? 'Посредник Pinduoduo' : 'Pinduoduo Agent' }
+                                ]}
+                            />
+                        </div>
                         <div className="max-w-5xl mx-auto text-center">
                                 <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                     {t.badge}

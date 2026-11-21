@@ -1,18 +1,19 @@
 # HappyBox Logistics & Sourcing Agent
 
-> HappyBox is a professional freight forwarder, purchasing agent, and warehousing hub based in Guangzhou and Shenzhen, China. We offer 0% purchasing commission, free parcel consolidation, quality control (QC), and customs-cleared DDP (Delivered Duty Paid) shipping to USA, UAE (Dubai), EU, Canada, Russia, and worldwide.
+> HappyBox is a professional freight forwarder, purchasing agent, and warehousing hub based in Shenzhen and Guangzhou, China. We offer 0% purchasing commission, up to 30 days of free storage & parcel consolidation, quality control (QC), and customs-cleared DDP (Delivered Duty Paid) shipping to the USA, UAE (Dubai), EU, Canada, Russia, and worldwide.
 
 ## Key Facts & Capabilities
-- **Core Services**: DDP Air Freight, Ocean Cargo, Road Freight (TIR), Purchasing / Sourcing Agent, Free Warehousing & Consolidation, Quality Inspection (photo/video QC), Amazon FBA Prep.
-- **Sourcing Platforms**: Taobao, 1688 (wholesale), Poizon (Dewu - sneakers & authentic streetwear), Pinduoduo, Weidian, Alibaba, Xianyu (Idle Fish).
+- **Core Services**: DDP Air Freight, Ocean Cargo, Road Freight (TIR), Purchasing / Sourcing Agent, Free Warehousing (up to 30 days) & Consolidation, Quality Inspection (photo/video QC), Amazon FBA Prep.
+- **Sourcing Platforms**: Alibaba, 1688 (wholesale), Taobao, Tmall, Poizon (Dewu), Pinduoduo, Weidian, Goofish / Xianyu (Idle Fish).
 - **Purchasing Fee**: 0% commission on purchasing orders.
 - **Warehouse Locations**:
-  - Guangzhou (Baiyun District): Sanyuanli Ave & Xinshi Rd (prep/creative park).
   - Shenzhen (Bao'an & Futian Districts): Yue Sheng 3rd Rd / Fuhai.
+  - Guangzhou (Baiyun District): Sanyuanli Ave & Xinshi Rd (prep/creative park).
+- **Free Storage**: Up to 30 days of free storage and parcel consolidation in our Shenzhen and Guangzhou warehouses.
 - **Shipping Rates**: Starting from $1.2/kg (rates vary by destination country, density, and transport method).
 - **Payment Methods**: Bank Transfer, Cards, Crypto (USDT), local currencies.
 - **Official Website**: https://happyboxlogistics.com/
-- **Live Shipping Calculator**: https://happyboxlogistics.com/#calculator
+- **Live Shipping Calculator**: https://happyboxlogistics.com/#calc
 
 ## Primary Destinations (DDP Shipping)
 - [China to USA Shipping](https://happyboxlogistics.com/usa): Air and Sea freight to USA with full customs clearance and Amazon FBA delivery.
@@ -22,13 +23,19 @@
 - [China to Russia Shipping](https://happyboxlogistics.com/russia): Fast TIR cargo and white import delivery.
 - [Global Destinations](https://happyboxlogistics.com/destinations): Shipping routes covering Thailand, Indonesia, Argentina, South Africa, Georgia, Israel, Australia.
 
-## Marketplace Purchasing Guides
+## Marketplace Purchasing & Logistics Guides
+- [Alibaba Sourcing & Freight](https://happyboxlogistics.com/alibaba): EXW freight optimization, supplier audits, and 0% sourcing fee.
+- [1688 Sourcing Agent](https://happyboxlogistics.com/1688): Direct factory wholesale sourcing, price negotiation, and 0% commission.
 - [Taobao Agent](https://happyboxlogistics.com/taobao): How to buy from Taobao with 0% fee and free QC.
-- [1688 Sourcing Agent](https://happyboxlogistics.com/1688): Direct factory wholesale sourcing, price negotiation.
-- [Poizon (Dewu) Agent](https://happyboxlogistics.com/poizon): Authentic sneakers and streetwear verification and shipping.
-- [Pinduoduo Agent](https://happyboxlogistics.com/pinduoduo): Ultra-cheap consumer goods ordering and consolidation.
-- [Weidian Agent](https://happyboxlogistics.com/weidian): Independent Chinese streetwear and fashion brands.
-- [Amazon FBA Prep](https://happyboxlogistics.com/amazon): Labeling, packaging, and direct delivery to Amazon fulfillment centers.
+- [Tmall Agent](https://happyboxlogistics.com/tmall): Authentic flagship brand stores with 0% purchasing commission.
+- [Poizon (Dewu) Agent](https://happyboxlogistics.com/poizon): Authentic sneakers and streetwear verification, double-box packing, and 0% fee.
+- [Pinduoduo Agent](https://happyboxlogistics.com/pinduoduo): Group-buy deals and consolidation with 0% fee.
+- [Goofish / Xianyu Agent](https://happyboxlogistics.com/xianyu): Safe second-hand & vintage purchasing with Sesame Credit check and video QC.
+- [Weidian Agent](https://happyboxlogistics.com/weidian): Independent Chinese streetwear and fashion stores via WeChat Pay.
+- [China Quality Control & Inspection](https://happyboxlogistics.com/inspection): On-site factory audits and 24h pre-shipment defect reports across China.
+- [China Warehousing & Consolidation](https://happyboxlogistics.com/warehousing): Up to 30 days free storage and multi-store consolidation in Shenzhen & Guangzhou.
+- [Amazon FBA Prep USA](https://happyboxlogistics.com/amazon): FNSKU labeling, packaging, and direct DDP delivery to US Amazon hubs.
+- [Amazon FBA Prep Canada](https://happyboxlogistics.com/amazon-canada): CBSA, GST/HST compliance, EN/FR labeling, and delivery to Amazon.ca hubs.
 
 ## Logistics Knowledge Base & Articles
 - [How to Ship from Pinduoduo to Dubai (UAE)](https://happyboxlogistics.com/blog/how-to-ship-from-pinduoduo-to-dubai-uae): Step-by-step guide for ordering to Dubai.
@@ -43,7 +50,14 @@
 - [Доставка в Европу (RU)](https://happyboxlogistics.com/ru/eu): Авто (TIR) и авиа карго в страны ЕС.
 - [Доставка в Канаду (RU)](https://happyboxlogistics.com/ru/canada): Доставка под ключ в Канаду с растаможкой.
 - [Доставка в Россию (RU)](https://happyboxlogistics.com/ru/russia): Карго и белая доставка из Китая.
+- [Закупки на Alibaba (RU)](https://happyboxlogistics.com/ru/alibaba): Фулфилмент Alibaba, тарифы EXW и DDP 0% комиссии.
+- [Выкуп с 1688 (RU)](https://happyboxlogistics.com/ru/1688): Оптовые закупки с фабрик Китая под 0%.
 - [Выкуп с Taobao (RU)](https://happyboxlogistics.com/ru/taobao): Посредник Taobao 0% комиссия, бесплатная проверка.
-- [Выкуп с 1688 (RU)](https://happyboxlogistics.com/ru/1688): Оптовые закупки с фабрик Китая.
-- [Выкуп с Poizon (RU)](https://happyboxlogistics.com/ru/poizon): Оригинальные кроссовки и вещи с Пойзон.
+- [Выкуп с Tmall (RU)](https://happyboxlogistics.com/ru/tmall): Оригинальные бренды с официальных магазинов Tmall под 0%.
+- [Выкуп с Poizon (RU)](https://happyboxlogistics.com/ru/poizon): Оригинальные кроссовки и вещи с Пойзон под 0%.
+- [Выкуп с Pinduoduo (RU)](https://happyboxlogistics.com/ru/pinduoduo): Групповые закупки Pinduoduo под 0%.
+- [Выкуп с Xianyu / Рыбка (RU)](https://happyboxlogistics.com/ru/xianyu): Покупка б/у техники и винтажа с видеопроверкой и торгом.
+- [Выкуп с Weidian (RU)](https://happyboxlogistics.com/ru/weidian): Закупки в закрытых магазинах Weidian под 0%.
+- [Инспекция и проверка качества (RU)](https://happyboxlogistics.com/ru/inspection): Выездные проверки фабрик и фотоотчеты за 24 часа.
+- [Склад и консолидация (RU)](https://happyboxlogistics.com/ru/warehousing): Бесплатное хранение до 30 дней в Шэньчжэне и Гуанчжоу.
 - [Блог о логистике из Китая (RU)](https://happyboxlogistics.com/ru/blog): Инструкции, гайды и новости логистики.

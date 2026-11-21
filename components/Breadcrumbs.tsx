@@ -36,10 +36,14 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
     itemListElement: fullItems.map((item, idx) => {
       let itemUrl = homeUrl;
       if (item.path && item.path !== 'home') {
-        const cleanPath = item.path.replace(/^\//, '');
-        itemUrl = isRu
-          ? `https://happyboxlogistics.com/ru/${cleanPath}`
-          : `https://happyboxlogistics.com/${cleanPath}`;
+        if (item.path.startsWith('home#')) {
+          itemUrl = `${homeUrl}${item.path.slice(4)}`;
+        } else {
+          const cleanPath = item.path.replace(/^\//, '');
+          itemUrl = isRu
+            ? `https://happyboxlogistics.com/ru/${cleanPath}`
+            : `https://happyboxlogistics.com/${cleanPath}`;
+        }
       }
       return {
         '@type': 'ListItem',
@@ -87,7 +91,9 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                     href={
                       item.path === 'home'
                         ? (isRu ? '/ru' : '/')
-                        : (isRu ? `/ru/${item.path?.replace(/^\//, '')}` : `/${item.path?.replace(/^\//, '')}`)
+                        : item.path?.startsWith('home#')
+                          ? `${isRu ? '/ru' : '/'}${item.path.slice(4)}`
+                          : (isRu ? `/ru/${item.path?.replace(/^\//, '')}` : `/${item.path?.replace(/^\//, '')}`)
                     }
                     onClick={(e) => handleItemClick(e, item.path)}
                     className="hover:text-brand-blue flex items-center gap-1 transition-colors cursor-pointer"

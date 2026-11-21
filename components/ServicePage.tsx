@@ -6,6 +6,7 @@ import { Footer } from './Footer';
 import { SeoBlock } from './SeoBlock';
 import { Language, translations } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
+import { Breadcrumbs } from './Breadcrumbs';
 import { 
     CheckCircle2, 
     Search, 
@@ -25,20 +26,13 @@ import { trackLead } from '../utils/analytics';
 interface ServicePageProps {
   language: Language;
   setLanguage: (lang: Language) => void;
-  serviceId: 'taobao' | '1688' | 'alibaba' | 'inspection' | 'warehousing' | 'poizon' | 'tmall' | 'pinduoduo' | 'xianyu' | 'weidian';
+  serviceId: 'inspection' | 'warehousing' | 'tmall';
   onBack: () => void;
   onNavigate?: (page: string) => void;
 }
 
 const serviceImages: Record<string, string> = {
-    '1688': 'https://wsrv.nl/?url=i.ibb.co/fRfBQNF/1688.webp&w=400&output=webp',
-    'pinduoduo': 'https://wsrv.nl/?url=i.ibb.co/qFkVHCjb/pdd.webp&w=400&output=webp',
-    'poizon': 'https://wsrv.nl/?url=i.ibb.co/7t5t5phb/poizon.webp&w=400&output=webp',
-    'taobao': 'https://wsrv.nl/?url=i.ibb.co/Rp3G3V4h/tao.webp&w=400&output=webp',
-    'tmall': 'https://wsrv.nl/?url=i.ibb.co/6762BbbX/tmall.webp&w=400&output=webp',
-    'xianyu': 'https://wsrv.nl/?url=i.ibb.co/RGVCGTjn/xy.webp&w=400&output=webp',
-    'weidian': 'https://wsrv.nl/?url=i.ibb.co/WW5hhcvP/wd.webp&w=400&output=webp',
-    'alibaba': 'https://wsrv.nl/?url=i.ibb.co/gL2gjBjk/alibaba.webp&w=400&output=webp'
+    'tmall': 'https://wsrv.nl/?url=i.ibb.co/6762BbbX/tmall.webp&w=400&output=webp'
 };
 
 export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage, serviceId, onBack, onNavigate }) => {
@@ -93,6 +87,20 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
         );
     };
 
+    const breadcrumbItems = serviceId === 'tmall'
+        ? [
+            { label: language === 'ru' ? 'Выкуп с площадок' : 'Sourcing Services', path: 'home#services' },
+            { label: language === 'ru' ? 'Посредник Tmall' : 'Tmall Agent' }
+          ]
+        : [
+            { label: language === 'ru' ? 'Услуги и сервисы' : 'Services & Tools', path: 'home#services' },
+            {
+              label: serviceId === 'inspection'
+                ? (language === 'ru' ? 'Инспекция и проверка качества' : 'Quality Control & Inspection')
+                : (language === 'ru' ? 'Склад и консолидация в Китае' : 'Free China Warehousing')
+            }
+          ];
+
     return (
         <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
             <Header
@@ -101,18 +109,26 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                 onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
+                onNavigate={onNavigate}
             />
 
             <main>
                 <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
                     <div className="container mx-auto px-6 xl:px-0 relative z-10">
+                         <div className="max-w-5xl mx-auto mb-4">
+                            <Breadcrumbs 
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={breadcrumbItems}
+                            />
+                         </div>
                          <div className="max-w-4xl mx-auto text-center">
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
                                     {t.title}
                                 </h1>
 
-                                {/* 0% Commission Badge ONLY for Taobao/Poizon/Tmall/Pinduoduo */}
-                                {(serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall' || serviceId === 'pinduoduo') && (
+                                {/* 0% Commission Badge ONLY for Tmall */}
+                                {serviceId === 'tmall' && (
                                     <div className="mb-8 animate-fade-in">
                                          <div className="inline-block bg-brand-yellow px-6 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default">
                                             <span className="text-base font-bold text-brand-dark tracking-wide">
@@ -159,7 +175,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                     {/* Solution Column */}
                                     <div className="bg-green-50/50 p-8 rounded-[30px] border border-green-100">
                                         <div className="flex items-center gap-2 mb-6 text-green-700 font-bold uppercase tracking-wider text-sm">
-                                            <CheckCircle2 size={18} /> {extraContent.whyNeed.solutionTitle || (language === 'en' ? 'The Solution' : 'Решение от HappyBox')}
+                                            <CheckCircle2 size={18} /> {extraContent.whyNeed.solutionTitle || (language === 'en' ? 'The Solution' : 'Наше решение')}
                                         </div>
                                         <p className="text-base text-gray-700 font-medium leading-relaxed">
                                             {extraContent.whyNeed.solution}
@@ -336,7 +352,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                     {extraContent.shippingInfo && (
                         <div className="mb-12 bg-green-50/50 p-8 rounded-[30px] border border-green-100 text-center md:text-left relative overflow-hidden mt-8">
                             {/* DDP Badge */}
-                            {(serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall' || serviceId === 'pinduoduo') && (
+                            {serviceId === 'tmall' && (
                                 <div className="absolute top-0 right-0 bg-green-200 text-green-800 text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase tracking-widest">
                                     {language === 'en' ? '🛡️ NO Customs Fees' : '🛡️ Без доплат при получении'}
                                 </div>
@@ -344,7 +360,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
 
                             <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
                                 <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-green-600 shadow-sm flex-shrink-0">
-                                    {serviceId === 'taobao' || serviceId === 'poizon' || serviceId === 'tmall' || serviceId === 'pinduoduo' ? <ShieldCheck size={32} /> : <Globe size={32} />}
+                                    {serviceId === 'tmall' ? <ShieldCheck size={32} /> : <Globe size={32} />}
                                 </div>
                                 <div>
                                     <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-2 leading-tight">

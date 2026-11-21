@@ -6,6 +6,7 @@ import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
 import { P1688AdvancedGuide } from './P1688AdvancedGuide';
+import { Breadcrumbs } from './Breadcrumbs';
 import { Search, CreditCard, ClipboardCheck, Package, Send, ShieldCheck, ArrowRight, Percent } from 'lucide-react';
 
 interface P1688PageProps {
@@ -23,13 +24,13 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
     const content = {
         en: {
             badge: "Sourcing & Purchasing",
-            titlePrefix: "1688 Sourcing Agent:",
-            titleHighlight: "Buy from China at Domestic Wholesale Prices",
-            subtitle: <>Access true factory prices. We source, negotiate, purchase, and consolidate wholesale orders from 1688.com directly at our Shenzhen warehouse — no Chinese bank account, no language barrier, no middleman markup.</>,
+            titlePrefix: "1688 Wholesale Purchasing:",
+            titleHighlight: "Direct Factory Prices Without Markups",
+            subtitle: <>Access true factory prices. We source, negotiate, purchase, and consolidate wholesale orders from 1688.com directly at our Shenzhen and Guangzhou warehouses — no Chinese bank account, no language barrier, no middleman markup.</>,
             whyTitle: "1688 vs Alibaba: Which Platform is Better for Sourcing?",
             whyText1: "Most international buyers default to Alibaba. That's exactly why Alibaba prices are higher — the platform is built for export, with margins baked in at every level. 1688.com is China's domestic wholesale marketplace where the same factories sell to Chinese businesses at real factory prices.",
             whyText2: "The difference is significant. The same product that costs $8 on Alibaba often costs $3–5 on 1688. The catch: the platform is entirely in Chinese, sellers only accept Chinese payment methods (Alipay, domestic bank transfer), and most only ship within Mainland China.",
-            whyText3: "HappyBox bridges that gap. We act as your professional 1688 buying agent — handling the language, the payments, the quality checks, and the consolidation at our Shenzhen warehouse before your goods ship internationally.",
+            whyText3: "HappyBox bridges that gap. We act as your professional 1688 buying agent — handling the language, the payments, the quality checks, and the consolidation at our Shenzhen and Guangzhou warehouses before your goods ship internationally.",
             processTitle: "How It Works: 5 Steps from Factory Sourcing to Final Delivery",
             process: [
                 {
@@ -45,7 +46,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                 {
                     icon: ClipboardCheck,
                     title: "Quality Inspection",
-                    desc: "Goods arrive at our Shenzhen warehouse. We inspect for defects, verify quantities against your order, and send you photos before anything is packed for shipping.",
+                    desc: "Goods arrive at our Shenzhen and Guangzhou warehouses. We inspect for defects, verify quantities against your order, and send you photos before anything is packed for shipping.",
                 },
                 {
                     icon: Package,
@@ -60,32 +61,24 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
             ],
             fearsTitle: "Addressing Common Risks and FAQs for 1688 Sourcing",
             fearsList: [
-                { q: "What if the supplier ships defective goods?", a: "We inspect everything at our Shenzhen warehouse before it goes international. Photos and videos sent to you for confirmation. Defective items go back to the factory — not across an ocean." },
+                { q: "What if the supplier ships defective goods?", a: "We inspect everything at our Shenzhen and Guangzhou warehouses before it goes international. Photos and videos sent to you for confirmation. Defective items go back to the factory — not across an ocean." },
                 { q: "What if I don't know which supplier to choose?", a: "Send us a photo or description. Our team finds verified suppliers, compares prices across multiple factories, and recommends the most reliable option. Full hands-off sourcing available." },
                 { q: "What if the stock listed isn't actually available?", a: "Stock numbers on 1688 are frequently inaccurate. We verify real availability with the supplier before you pay — not after." },
                 { q: "What if I need to combine 1688 orders with other platforms?", a: "We consolidate 1688 wholesale orders with purchases from Taobao, Tmall, Poizon, and Pinduoduo into one shipment." }
             ],
             feeTitle: "Our Pricing: Commission-Free Purchasing and Logistics Rates",
             feeText: "Purchasing commission: 0%. You pay exactly the manufacturer's price. We earn revenue exclusively on international shipping.",
-            beyondTitle: "Multi-Platform Consolidation: Combine 1688 with Taobao & Poizon",
-            beyondPlatforms: [
-                { name: "Taobao", desc: "single items and personal shopping", id: "taobao" },
-                { name: "Tmall", desc: "official brand flagship stores", id: "tmall" },
-                { name: "Poizon (Dewu)", desc: "authentic sneakers and streetwear", id: "poizon" },
-                { name: "Pinduoduo", desc: "group buying and discount deals", id: "pinduoduo" }
-            ],
-            beyondFooter: "We consolidate orders from all platforms into one shipment.",
             cta: "Start Sourcing",
         },
         ru: {
             badge: "Сорсинг и Выкуп",
-            titlePrefix: "Посредник на 1688:",
-            titleHighlight: "закупки в Китае по ценам для внутреннего рынка",
-            subtitle: <>Получите доступ к реальным заводским ценам. Мы находим товары, ведем переговоры, выкупаем и консолидируем ваши оптовые заказы с 1688.com на складе в Шэньчжэне. Вам не нужны китайский банковский счет, знание языка или переплаты посредникам.</>,
+            titlePrefix: "Закупки на 1688.com:",
+            titleHighlight: "прямые цены внутреннего рынка Китая",
+            subtitle: <>Получите доступ к реальным заводским ценам. Мы находим товары, ведем переговоры, выкупаем и консолидируем ваши оптовые заказы с 1688.com на складе в Шэньчжэне и Гуанчжоу. Вам не нужны китайский банковский счет, знание языка или переплаты посредникам.</>,
             whyTitle: "1688 или Alibaba: где выгоднее заказывать товар для бизнеса?",
             whyText1: "Большинство международных покупателей по привычке идут на Alibaba. Именно поэтому цены там выше: платформа создана для экспорта, и в стоимость каждого товара уже заложены наценки на всех уровнях. 1688.com — это внутренний оптовый маркетплейс Китая, где те же заводы продают товары китайским компаниям по «своим» ценам.",
             whyText2: "Разница колоссальна. Товар, который стоит $8 на Alibaba, на 1688 часто обходится в $3–5. Единственная сложность: платформа полностью на китайском, продавцы принимают только внутренние способы оплаты (Alipay, китайские карты) и отправляют товары только внутри страны.",
-            whyText3: "HappyBox убирает эти барьеры. Мы выступаем вашим профессиональным агентом: берем на себя общение, оплату, проверку качества и консолидацию груза на нашем складе в Шэньчжэне перед отправкой в вашу страну.",
+            whyText3: "HappyBox убирает эти барьеры. Мы выступаем вашим профессиональным агентом: берем на себя общение, оплату, проверку качества и консолидацию груза на нашем складе в Шэньчжэне и Гуанчжоу перед отправкой в вашу страну.",
             processTitle: "5 этапов поставки: как мы ведем ваш заказ от завода до склада",
             process: [
                 {
@@ -101,7 +94,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                 {
                     icon: ClipboardCheck,
                     title: "Инспекция качества",
-                    desc: "Как только товар поступает на наш склад в Шэньчжэне, мы проверяем его на брак, сверяем количество и присылаем вам фотоотчет до финальной упаковки.",
+                    desc: "Как только товар поступает на наш склад в Шэньчжэне и Гуанчжоу, мы проверяем его на брак, сверяем количество и присылаем вам фотоотчет до финальной упаковки.",
                 },
                 {
                     icon: Package,
@@ -116,28 +109,18 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
             ],
             fearsTitle: "Частые вопросы и риски при закупках на 1688",
             fearsList: [
-                { q: "Что если пришлют брак?", a: "Мы проверяем всё в Шэньчжэне. Вы получаете фото и видео для подтверждения. Бракованный товар возвращается на завод в Китае, а не едет к вам через океан." },
+                { q: "Что если пришлют брак?", a: "Мы проверяем всё в Шэньчжэне и Гуанчжоу. Вы получаете фото и видео для подтверждения. Бракованный товар возвращается на завод в Китае, а не едет к вам через океан." },
                 { q: "Я не знаю, какого поставщика выбрать.", a: "Просто пришлите фото. Наша команда найдет верифицированных производителей, сравнит цены на разных заводах и порекомендует самый надежный вариант." },
                 { q: "А если товара нет в наличии?", a: "Цифры остатков на 1688 часто не соответствуют реальности. Мы уточняем фактическое наличие у продавца до того, как вы переведете деньги." },
                 { q: "Можно ли объединить заказы с разных площадок?", a: "Да. Мы соберем в одну посылку опт с 1688, покупки с Taobao, Tmall, Poizon и Pinduoduo." }
             ],
             feeTitle: "Условия и тарифы: сколько стоит выкуп и за что вы платите",
             feeText: "Комиссия за выкуп — 0%. Вы платите ровно ту цену, которую установил завод-изготовитель на 1688.com. Мы зарабатываем исключительно на международной логистике.",
-            beyondTitle: "Консолидация: объединение заказов с 1688, Taobao и Poizon",
-            beyondPlatforms: [
-                { name: "Taobao", desc: "розница и личные покупки.", id: "taobao" },
-                { name: "Tmall", desc: "официальные флагманские магазины брендов.", id: "tmall" },
-                { name: "Poizon (Dewu)", desc: "оригинальные кроссовки и брендовая одежда.", id: "poizon" },
-                { name: "Pinduoduo", desc: "низкие цены и групповые закупки.", id: "pinduoduo" }
-            ],
-            beyondFooter: "Мы собираем заказы со всех платформ в одну международную отправку.",
             cta: "Начать поиск товара",
         }
     };
 
     const t = content[language];
-
-    const targetUrl = 'https://i.ibb.co/fRfBQNF/1688.webp';
 
     return (
         <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
@@ -147,11 +130,22 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
                 onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
+                onNavigate={onNavigate}
             />
 
             <main>
                 <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
                     <div className="container mx-auto px-6 xl:px-0 relative z-10">
+                         <div className="max-w-5xl mx-auto mb-4">
+                            <Breadcrumbs 
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={[
+                                    { label: language === 'ru' ? 'Выкуп с площадок' : 'Sourcing Services', path: 'home#services' },
+                                    { label: language === 'ru' ? 'Посредник 1688' : '1688 Sourcing Agent' }
+                                ]}
+                            />
+                         </div>
                          <div className="max-w-5xl mx-auto text-center">
                                 <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                     {t.badge}

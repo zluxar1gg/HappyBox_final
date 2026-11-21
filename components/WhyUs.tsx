@@ -33,8 +33,8 @@ export const WhyUs: React.FC<WhyUsProps> = ({ language }) => {
       icon: Warehouse,
       title: isEn ? 'Free Storage' : 'Бесплатный Склад',
       description: isEn
-        ? 'Shop from multiple sellers at your own pace. We provide unlimited free storage in our secure warehouse until you are ready to ship.'
-        : 'Покупайте у разных продавцов в своем темпе. Мы предоставляем неограниченное бесплатное хранение на нашем охраняемом складе.',
+        ? 'Shop from multiple sellers at your own pace. We provide up to 30 days of free storage in our secure Shenzhen & Guangzhou warehouses until you are ready to ship.'
+        : 'Покупайте у разных продавцов в своем темпе. Мы предоставляем бесплатное хранение до 30 дней на наших охраняемых складах в Шэньчжэне и Гуанчжоу.',
       image: 'https://i.ibb.co/VppWbV1Q/happybox-warehouse.webp',
       color: 'bg-green-50 text-green-600'
     },

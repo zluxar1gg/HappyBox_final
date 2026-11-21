@@ -6,6 +6,7 @@ import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
 import { WeidianAdvancedGuide } from './WeidianAdvancedGuide';
+import { Breadcrumbs } from './Breadcrumbs';
 import { Search, CreditCard, ClipboardCheck, Package, Send, ShieldCheck, ArrowRight, Percent } from 'lucide-react';
 
 interface WeidianPageProps {
@@ -22,9 +23,9 @@ export const WeidianPage: React.FC<WeidianPageProps> = ({ language, setLanguage,
 
     const content = {
         en: {
-            badge: "0% Fee Streetwear Sourcing",
-            titlePrefix: "Weidian Purchasing Agent:",
-            titleHighlight: "Exclusive Streetwear & Indie Brands from China",
+            badge: "0% Fee Weidian Purchasing",
+            titlePrefix: "Order from Any Weidian Store:",
+            titleHighlight: "WeChat Pay Access, QC Photos & DDP",
             subtitle: <>Discover unique items from independent designers and exclusive streetwear sellers. Weidian is the go-to platform for niche fashion, limited drops, and high-quality streetwear that you can't find on Taobao. 0% purchasing commission.</>,
             whyTitle: "China’s Niche Streetwear Scene: Why Independent Designers Sell Exclusively on Weidian",
             whyText1: "Weidian is a mobile-first platform popular with independent sellers and streetwear enthusiasts. Many exclusive items and high-tier releases are only available here.",
@@ -50,21 +51,21 @@ export const WeidianPage: React.FC<WeidianPageProps> = ({ language, setLanguage,
             ],
             fearsTitle: "Weidian Store Verification: Seller Rating Audits, Fair Pricing, and Image Search",
             fearsList: [
-                { q: "What if the item doesn't match the listing photos?", a: "We conduct a full Quality Control inspection at our Shenzhen warehouse. You receive detailed photos of the actual item. If something looks wrong, we contact the seller before it's too late." },
+                { q: "What if the item doesn't match the listing photos?", a: "We conduct a full Quality Control inspection at our Shenzhen and Guangzhou warehouses. You receive detailed photos of the actual item. If something looks wrong, we contact the seller before it's too late." },
                 { q: "What if the seller has a bad reputation?", a: "We verify every seller before purchasing. Low-reputation sellers, inactive stores, and listings with red flags get flagged before you spend a cent." },
                 { q: "What if I want to order from multiple sellers?", a: "We consolidate orders from multiple Weidian sellers — and from other platforms like Taobao, 1688, and Poizon — into one international shipment." },
                 { q: "What if I can't find what I'm looking for?", a: "Send us a photo or description. Our team searches Weidian and connected platforms to find the closest match available." }
             ],
-            qcTitle: "Streetwear Quality Control: High-Res Inspection of Prints, Tags, and Sizing Measurements",
+            qcTitle: "Detailed Warehouse QC: Measurements, Macro Photos & Labels",
             qcText: "Streetwear and designer drops require precision inspection. We verify size measurements against charts, inspect fabric prints, check brand tags and stitching, and send you detailed macro photos before international packing.",
             feeTitle: "Pricing Terms: 0% Purchasing Fee with Direct Market Exchange Rates",
             feeText: "Purchasing commission: 0%. You pay exactly the seller's price on Weidian plus international shipping. No hidden conversion markups.",
             cta: "Start Shopping on Weidian"
         },
         ru: {
-            badge: "Эксклюзивный стритвир и комиссия 0%",
-            titlePrefix: "Посредник Weidian:",
-            titleHighlight: "выкуп эксклюзивного стритвира и инди-брендов из Китая",
+            badge: "Выкуп с Weidian без комиссии (0%)",
+            titlePrefix: "Выкуп из магазинов Weidian:",
+            titleHighlight: "оплата WeChat Pay, фото-QC и доставка DDP",
             subtitle: <>Откройте для себя уникальные вещи от независимых дизайнеров и эксклюзивных продавцов уличной моды. Weidian — лучшая платформа для нишевой моды, лимитированных коллекций и качественного стритвира, которого не найти на Taobao. Выкуп с комиссией 0%.</>,
             whyTitle: "Закрытый рынок китайского стритвира: почему редкие дропы продаются только на Weidian",
             whyText1: "Weidian — это мобильная платформа, популярная среди независимых продавцов и энтузиастов уличной моды. Многие эксклюзивные вещи и высококлассные релизы доступны только здесь.",
@@ -85,17 +86,17 @@ export const WeidianPage: React.FC<WeidianPageProps> = ({ language, setLanguage,
                 {
                     icon: ClipboardCheck,
                     title: "Проверка (QC) и консолидация",
-                    desc: "Мы получаем товар в Шэньчжэне, проверяем его качество и присылаем вам фото. Мы объединяем заказы от разных продавцов в одну посылку.",
+                    desc: "Мы получаем товар в Шэньчжэне и Гуанчжоу, проверяем его качество и присылаем вам фото. Мы объединяем заказы от разных продавцов в одну посылку.",
                 }
             ],
             fearsTitle: "Проверка магазинов Weidian: аудит продавцов, защита от переплат и поиск по фото",
             fearsList: [
-                { q: "Что если товар не совпадает с фото продавца?", a: "Мы проводим полную проверку качества (QC) на нашем складе в Шэньчжэне. Вы получаете детальные фото реального товара. Если что-то не так, мы оформляем возврат." },
+                { q: "Что если товар не совпадает с фото продавца?", a: "Мы проводим полную проверку качества (QC) на нашем складе в Шэньчжэне и Гуанчжоу. Вы получаете детальные фото реального товара. Если что-то не так, мы оформляем возврат." },
                 { q: "Что если у продавца плохая репутация?", a: "Мы проверяем каждого продавца перед выкупом. Магазины с низким рейтингом, неактивные продавцы и подозрительные товары сразу блокируются." },
                 { q: "Можно ли заказать у разных продавцов?", a: "Да! Мы консолидируем ваши заказы от разных продавцов Weidian, а также покупки с Taobao, 1688 и Poizon в одну международную отправку." },
                 { q: "Что если я не могу найти нужный товар?", a: "Пришлите нам фото или описание. Наша команда найдет нужную вещь или ближайший аналог на Weidian и других платформах." }
             ],
-            qcTitle: "Складской фотоконтроль: проверка принтов, фурнитуры и точных замеров вещей",
+            qcTitle: "Детальный фотоконтроль: замеры, фурнитура и макро-фото",
             qcText: "Стритвир и дизайнерские вещи требуют предельной точности. Мы сверяем сантиметры по размерной сетке, проверяем принты, фурнитуру и ровность швов, отправляя вам макро-фотографии перед упаковкой в международную посылку.",
             feeTitle: "Условия выкупа: 0% комиссии за выкуп и расчет по прямому курсу",
             feeText: "Комиссия за выкуп: 0%. Вы платите ровно стоимость товара в магазине Weidian плюс международную доставку. Без скрытых наценок на валюту.",
@@ -113,11 +114,22 @@ export const WeidianPage: React.FC<WeidianPageProps> = ({ language, setLanguage,
                 onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
+                onNavigate={onNavigate}
             />
             
             <main>
                 <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
                     <div className="container mx-auto px-6 xl:px-0 relative z-10">
+                         <div className="max-w-5xl mx-auto mb-4">
+                            <Breadcrumbs 
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={[
+                                    { label: language === 'ru' ? 'Выкуп с площадок' : 'Sourcing Services', path: 'home#services' },
+                                    { label: language === 'ru' ? 'Посредник Weidian' : 'Weidian Agent' }
+                                ]}
+                            />
+                         </div>
                          <div className="max-w-5xl mx-auto text-center">
                                 <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                     {t.badge}

@@ -753,274 +753,15 @@ export const translations = {
       destinationsNote: 'Didn\'t find your destination? Contact us for details. We ship worldwide.'
     },
     servicePages: {
-      alibaba: {
-        title: 'Alibaba Sourcing Agent & Shipping: Buy Safely from China',
-        desc: "Source products from Alibaba (B2B) securely. We handle negotiations, quality control, and international DDP shipping. Don't risk your money — let us verify suppliers and inspect goods before they leave China.",
-        whyNeed: {
-            title: "Why use an agent for Alibaba?",
-            problems: [
-                "High Shipping Markups: Many Alibaba sellers overcharge significantly on international shipping.",
-                "Quality Risks: Sellers may send defective or different items, and international returns are prohibitively expensive.",
-                "Communication Barriers: Misunderstandings regarding product specifications lead to costly mistakes."
-            ],
-            solutionTitle: "How HappyBox Protects You",
-            solution: "We provide an Alibaba fulfillment service. You negotiate the price of the goods, or we do it for you. We then receive the goods at our China warehouse, conduct strict quality control (QC), and consolidate your orders before shipping them to your country using our heavily discounted shipping rates."
-        },
-        howItWorks: {
-            title: "How to ship Alibaba orders with HappyBox",
-            steps: [
-                { title: "Find Supplier", desc: "Select a supplier on Alibaba and negotiate product prices (or ask us to do it)." },
-                { title: "Ship to Our Warehouse", desc: "Ask the supplier to ship the goods to our warehouse in China." },
-                { title: "Quality Check", desc: "We receive the goods, inspect them for defects, and verify quantities." },
-                { title: "International Shipping", desc: "We ship the goods to you via Sea, Air, or Rail with all taxes paid (DDP)." }
-            ]
-        },
-        features: [
-            { title: 'Save on Shipping', desc: 'Our shipping rates are often 30-50% cheaper than what Alibaba suppliers offer directly.' },
-            { title: 'Free Quality Check', desc: 'Secure your investment. We check your goods before they leave China.' },
-            { title: 'Consolidation', desc: 'Ordering from 5 different Alibaba suppliers? We combine them into a single shipment to reduce costs.' },
-            { title: 'Secure Payment', desc: 'Pay us via Bank Transfer, Crypto, or local payment methods, and we will safely pay the supplier.' }
-        ],
-        proTip: {
-            title: "Expert Advice for Alibaba",
-            text: "• **Always Compare Shipping:** Always ask the Alibaba supplier for the 'EXW' (Ex Works) price and compare their shipping quote with ours. \n\n• **Trade Assurance:** If you pay the supplier directly, always use Alibaba Trade Assurance. \n\n• **Sample Orders:** Always order a sample before placing a bulk order. We can consolidate samples from multiple factories into one small package for you."
-        },
-        beyond: {
-            title: "Alternative Sourcing Options",
-            items: [
-                { id: '1688', title: "1688.com", desc: "Often cheaper than Alibaba, but strictly in Chinese. We can buy from there for you." },
-                { id: 'taobao', title: "Taobao", desc: "Ideal for small MOQs and retail shopping." },
-                { id: 'poizon', title: "Poizon", desc: "Best for authentic branded sneakers and apparel." },
-                { title: "Factory Audits", desc: "Request our advanced Factory Inspection service before transferring large amounts of money." }
-            ]
-        },
-        startBtn: 'Get Alibaba Shipping Quote',
-        backBtn: 'Back to Home'
-      },
-      xianyu: {
-        title: 'Xianyu Agent: China\'s Largest Second-Hand Market',
-        desc: "Buy vintage luxury, rare collectibles, and slightly used tech at a fraction of the price. Xianyu (Idle Fish) is Alibaba's flea market where you can find amazing deals on everything from designer bags to gaming consoles.",
-        whyNeed: {
-            title: "Why use an agent for Xianyu?",
-            text: "Sellers on Xianyu are individuals, not professional shops. They typically do not speak English and absolutely do not ship internationally. Furthermore, buying used items carries risk. HappyBox acts as your safety net: we negotiate prices, handle the payment, and most importantly, we physically inspect the item's condition before it leaves China."
-        },
-        howItWorks: {
-            title: "How to buy from Xianyu",
-            steps: [
-                { title: "Find Treasure", desc: "Browse the Xianyu app for unique finds." },
-                { title: "We Negotiate", desc: "Send us the link. We often can negotiate the price down by 10-20%." },
-                { title: "Video Inspection", desc: "For expensive items, we request a video from the seller before buying." },
-                { title: "Final QC", desc: "When it arrives at our warehouse, we check it again against the description." }
-            ]
-        },
-        features: [
-            { title: 'Bargaining Service', desc: 'We communicate with the seller to get you the best possible price.' },
-            { title: 'Risk Management', desc: 'We check the seller\'s "Sesame Credit" rating to ensure they are trustworthy.' },
-            { title: 'Detailed Photo Report', desc: 'Since it is a used item, we provide extra detailed photos of any wear and tear.' }
-        ],
-        proTip: {
-            title: "Expert Advice for Xianyu",
-            text: "• **Seller Rating:** Look for Excellent Sesame Credit. This is the most reliable indicator of a trustworthy seller.\n\n• **Video Confirmation:** Since items are used, always ask the seller for a current video of the product before purchasing.\n\n• **No Returns:** Be aware that most sellers on Xianyu do not accept returns. Detailed inspection is key.\n\n• **Bargaining:** It is common to negotiate! Prices can often be lowered by 10-20%.\n\n• **No Returns Policy:** Remember that most Xianyu sellers do not accept returns unless the item is fake or significantly different from the description. Our inspection service is your best protection."
-        },
-        beyond: {
-            title: "Mix New & Old",
-            items: [
-                { id: 'poizon', title: "Poizon", desc: "Combine vintage finds with brand new sneakers." },
-                { id: 'taobao', title: "Taobao", desc: "Add new accessories to your order." },
-                { id: '1688', title: "1688.com", desc: "For bulk orders." },
-                { id: 'pinduoduo', title: "Pinduoduo", desc: "For cheap gadgets." },
-                { title: "Consolidation", desc: "We combine your Xianyu treasures with regular Taobao orders into one shipment." }
-            ]
-        },
-        startBtn: 'Start Hunting',
-        backBtn: 'Back to Home'
-      },
-      weidian: {
-        title: 'Weidian Agent: Exclusive Streetwear & Indie Brands',
-        desc: "Discover unique items from independent designers and exclusive streetwear sellers. Weidian is the go-to platform for niche fashion, limited drops, and high-quality replicas that you can't find on Taobao.",
-        whyNeed: {
-            title: "Why shop on Weidian?",
-            text: "Weidian is a mobile-first platform popular with independent sellers and streetwear enthusiasts. Many exclusive items and high-tier replicas are only available here. However, the app is purely in Chinese and sellers rarely deal with international buyers. HappyBox gives you full access to this exclusive market."
-        },
-        howItWorks: {
-            title: "How to buy from Weidian",
-            steps: [
-                { title: "Browse Weidian", desc: "Use the Weidian app or mobile links to find products." },
-                { title: "Send Link", desc: "Share the product link with us. We verify the seller's reputation." },
-                { title: "We Purchase", desc: "We handle the payment via WeChat Pay or Alipay." },
-                { title: "QC & Ship", desc: "We receive the item, inspect quality, and ship it to you." }
-            ]
-        },
-        features: [
-            { title: 'Access to Exclusive Sellers', desc: 'Buy from sellers who only operate on Weidian.' },
-            { title: 'Detailed QC Photos', desc: 'We provide high-res photos so you can check the quality of materials and stitching.' },
-            { title: 'Secure Payment', desc: 'We protect your money. If the seller doesn\'t ship, we get your refund.' }
-        ],
-        proTip: {
-            title: "Check the Return Policy",
-            text: "Many Weidian sellers (especially for limited items) do not accept returns. Always ask us to confirm the return policy with the seller before purchasing."
-        },
-        beyond: {
-            title: "Complete Your Look",
-            items: [
-                { id: 'poizon', title: "Poizon", desc: "Match with authentic sneakers." },
-                { id: 'taobao', title: "Taobao", desc: "Basics and accessories." },
-                { id: '1688', title: "1688.com", desc: "Bulk basics." },
-                { id: 'xianyu', title: "Xianyu", desc: "Vintage finds." },
-                { title: "Consolidation", desc: "Combine your Weidian finds with other orders to save on shipping." }
-            ]
-        },
-        startBtn: 'Start Shopping Weidian',
-        backBtn: 'Back to Home'
-      },
-      taobao: {
-        title: 'Taobao Agent Service: Shop from China and Ship Worldwide',
-        desc: "Shop on Taobao, 1688, or Tmall like a local. We handle the purchasing, inspection, and international shipping so you can enjoy the best prices from China without language barriers, blocked accounts, or overpriced shipping. HappyBox buys, inspects, consolidates, and ships your orders worldwide — hassle-free.",
-        whyNeed: {
-            title: "Why Most People Fail Buying from China, and How We Fix It",
-            problems: [
-                "Buying from Taobao is nearly impossible without a Chinese shipping address or local payment methods.",
-                "Most sellers don’t speak English and rarely ship internationally.",
-                "Risk of receiving wrong items, poor quality, or damaged goods."
-            ],
-            solutionTitle: "How HappyBox Fixes It",
-            solution: "HappyBox acts as your professional Taobao Agent: we bridge the language gap, provide secure payment methods, perform Quality Control (QC), and offer a dedicated free warehouse in China to receive, consolidate, and repack all your goods."
-        },
-        howItWorks: {
-            title: "How It Works: 4 Simple Steps",
-            steps: [
-                { title: "Find Your Items", desc: "Browse Taobao.com or the app. Copy the links of products you want." },
-                { title: "Submit Order", desc: "Send us the links. We verify price and availability." },
-                { title: "We Buy & Inspect", desc: "We purchase the items and perform a free quality check. If item arrives broken or wrong — we return it." },
-                { title: "Consolidate & Ship", desc: "We store for free, combine into one package, and ship worldwide with premium repacking." }
-            ]
-        },
-        proTip: {
-            title: "Expert Advice for Taobao",
-            text: "• **Tmall (Red Icon):** When searching on Taobao and see red icon - it is TMall. It features official brands/dealers with near-zero defect risk. Regular Taobao is cheaper but some brands maybe not original.\n\n• **Live Photos:** Always look for the camera icon in reviews to see Live Photos instead of studio renders.\n\n• **Seller History:** Prioritize sellers active for 5–10 years; they value their reputation and history on the platform.\n\n• **Consolidation:** Use our warehouse for Consolidation. Buy small items from 10 different stores, and we will pack them into ONE box to save you up to 60% on shipping.\n\n**Let us do the searching!**\nStruggling to find that perfect item on Taobao? Don’t waste your time scrolling through endless listings. Just send us a photo or a quick description, and our experts will track down the best quality from sellers we actually trust."
-        },
-        features: [
-            { title: 'No Chinese Phone Number Required', desc: 'You don’t need to deal with Taobao’s complex registration or blocked accounts.' },
-            { title: 'Free Quality Check (QC)', desc: 'We are your eyes in China. We check for defects, wrong sizes, or incorrect colors before the item leaves the country.' },
-            { title: 'Free Consolidation & Storage', desc: 'Shop from different sellers over several days. We store your items for free and pack them into ONE box to save you up to 60% on shipping.' },
-            { title: 'Expert Repacking', desc: 'International shipping can be rough. We use high-quality materials to ensure your items arrive in perfect condition.' },
-            { title: 'Flexible Payment Options', desc: 'Pay for your orders via Bank Transfer, WeChat pay, AliPay, Crypto safely and easily.' },
-            { title: 'Transparent Tracking', desc: 'Watch your parcel\'s journey from China to your door. We provide a reliable tracking number so you always know where your goods are.' }
-        ],
-        beyond: {
-            title: "Beyond Taobao: 1688, Poizon, and More",
-            items: [
-                { id: '1688', title: "1688.com", desc: "Best for wholesale prices and sourcing directly from factories." },
-                { id: 'poizon', title: "Poizon (Dewu)", desc: "Authentic sneakers and luxury goods." },
-                { id: 'tmall', title: "Tmall", desc: "High-quality brands and official flagship stores." },
-                { id: 'xianyu', title: "Xianyu", desc: "Second-hand luxury and vintage finds." },
-                { title: "Offline Stores", desc: "We provide sourcing services for physical markets in China. Whether you need furniture from Foshan or electronics from the markets of Shenzhen, our team can handle offline purchases for you within Guandong province and Hong Kong." }
-            ]
-        },
-        shippingInfo: {
-            title: "Hassle-Free DDP Shipping from China to USA, Europe, Canada and more",
-            text: "We specialize in **DDP (Delivered Duty Paid)** logistics. This means **we handle all customs clearance and pay import duties for you**. Whether you are shipping to New York, Berlin, or Dubai, the shipping price you pay is final. No surprise bills from customs, no paperwork for you. Just wait for the doorbell."
-        },
-        startBtn: 'Start Shopping',
-        backBtn: 'Back to Home'
-      },
-      1688: {
-        title: '1688 Sourcing Agent: Bulk Purchasing & Wholesale from China',
-        desc: "Access the true factory prices of China. We help you source, negotiate, and ship wholesale orders from 1688.com directly to your warehouse.",
-        whyNeed: {
-            title: "Why Choose 1688.com over Alibaba?",
-            text: "While Alibaba.com is designed for international buyers with higher markups, 1688.com is the internal marketplace for Chinese manufacturers. Prices on 1688 are significantly lower, but the platform is entirely in Chinese and sellers usually only ship within Mainland China. HappyBox bridges this gap. We act as your professional 1688 Sourcing Agent, handling the language barrier, local payments (Alipay/Bank Transfer), and complex B2B logistics."
-        },
-        howItWorks: {
-            title: "How we streamline your B2B sourcing",
-            steps: [
-                { title: "Sourcing", desc: "You send us links or product photos; we find the best manufacturers." },
-                { title: "Purchasing", desc: "We pay the suppliers using our local corporate accounts — no need for you to have a Chinese bank account." },
-                { title: "Storage", desc: "1688 sellers often ship quickly; we provide free warehousing to hold your goods." },
-                { title: "Logistics", desc: "We offer DDP terms, so your business goods arrive with all customs and taxes already handled." }
-            ]
-        },
-        proTip: {
-            title: "Expert Advice for 1688",
-            text: "• **Rating 5–4** is the standard for reliability. Sellers with ratings below 4.0 are risky and often slow.\n\n• **Verify real weight/dimensions:** listings often have inaccurate data. Ask before paying to avoid shipping surprises.\n\n• **Electronics:** Check electronics for 220V compatibility and specify your required plug type.\n\n• **Packaging:** Specify individual packaging for items like clothes, notebooks, plush toys, etc. otherwise they may arrive in a bulk bag.\n\n• **Fragile Items:** For fragile items, request a wood crate for safer transit within China.\n\n• **Stock numbers** on 1688 are often inaccurate. Always send us the link first so our agent can verify the REAL availability before you pay.\n\n**Full Hands-Off Sourcing:**\nDon’t want to navigate 1688 or deal with technical specs? No problem. Simply send us a photo or a description of the products you need. Our team will handle the entire cycle: from finding the most reliable factory and negotiating the best price to quality inspection and door-to-door delivery. You focus on your sales; we handle the entire supply chain."
-        },
-        features: [
-            { title: 'Lowest Purchasing Commission', desc: 'Only 2% of the order amount.' },
-            { title: 'Direct Factory Access', desc: 'Buy at the same prices Chinese domestic companies pay.' },
-            { title: 'Professional Repacking', desc: 'If your orders need extra protection — such as wooden crates, reinforced pallets, or bubble wrap — we’ve got you covered.' }
-        ],
-        beyond: {
-            title: "Beyond 1688: Retail & Brands",
-            items: [
-                { id: 'taobao', title: "Taobao", desc: "For single items and personal shopping." },
-                { id: 'tmall', title: "Tmall", desc: "Official brands and flagship stores." },
-                { id: 'poizon', title: "Poizon", desc: "Authentic sneakers and streetwear." },
-                { id: 'pinduoduo', title: "Pinduoduo", desc: "Group buying deals & discounts." },
-                { title: "Consolidation", desc: "We combine your wholesale 1688 orders with personal shopping from other platforms." }
-            ]
-        },
-        startBtn: 'Start Sourcing',
-        backBtn: 'Back to Home'
-      },
-      poizon: {
-        title: 'Poizon (Dewu) Agent',
-        desc: "Shop on Poizon (Dewu) – China's top marketplace for genuine branded items. Access originals at prices 20-50% lower than global retail. 0% Service Fee.",
-        whyNeed: {
-            title: "What Makes Buying Directly Difficult",
-            problems: [
-                "China-Only Access: The app is in Chinese, requires a local ID, and payment methods like Alipay/WeChat are difficult for foreigners to access.",
-                "No International Shipping: Sellers do not export. Without an agent, you face language barriers and shipping blocks.",
-                "Hidden Fees Elsewhere: Many agents charge 15-50% hidden markups on currency exchange rates."
-            ],
-            solutionTitle: "How HappyBox Fixes It",
-            solution: "HappyBox acts as your professional bridge. We handle the language gap, use secure local payments, and leverage Poizon's rigorous authenticity system. We use transparent currency rates close to market spot rates (no hidden 30% markups) and ensure all items come with the famous 'Turquoise Box' and Certificate."
-        },
-        howItWorks: {
-            title: "How It Works (5 Steps)",
-            steps: [
-                { title: "Download & Register", desc: "Download Dewu (Poizon). Register with your international phone number." },
-                { title: "Find Your Items", desc: "Search using English keywords. Note: Prices vary by size." },
-                { title: "Submit Order", desc: "Share the link with us. We verify price and delivery speed." },
-                { title: "We Buy & Inspect", desc: "We purchase. Poizon performs Legit Check. If it passes, it comes to us." },
-                { title: "Consolidate & Ship", desc: "We repack, store for free if needed, and ship to your door." }
-            ]
-        },
-        proTip: {
-            title: "Expert Advice for Poizon",
-            text: "• **Prices vary by size** because it's a stock-market model. Check adjacent sizes to save up to 30%.\n\n• **95 New** means USED/Pre-owned (95% condition). Damaged Box means BRAND NEW with a dented box.\n\n• **Verification system:** Poizon inspects every item, which significantly reduces counterfeit risks.\n\n• **Keep the blue tag and NFC certificate!** They are essential for proving authenticity and resale value.\n\n• **Use the price chart** to buy during dips. Never remove the blue tag until you are 100% sure about the item.\n\n**Confused by the app buttons?**\nThe **Turquoise Button** usually means 'Ship in 48h' (Instant), while the **Black Button** means standard shipping. Avoid the **Gray Button** with '95' text unless you want used items. If you can't find what you need, just send us a photo!"
-        },
-        features: [
-            { title: '100% Authenticity Guarantee', desc: 'Every item passes Poizon’s lab verification. If it\'s fake, they refund us immediately. You get the Certificate and Blue Tag.' },
-            { title: 'Double Box Protection', desc: 'We ship all sneakers in reinforced double boxes to ensure the original brand box arrives in pristine condition.' },
-            { title: 'Fair Pricing', desc: 'We don\'t hide fees in the exchange rate. You pay the real price.' },
-            { title: 'Free Quality Check (QC)', desc: 'We send you photos of the item, the certificate, and the tag before international shipping.' }
-        ],
-        shippingInfo: {
-            title: "Hassle-Free DDP Shipping from China to USA, Europe, Canada and more",
-            text: "We specialize in **DDP (Delivered Duty Paid)** logistics. This means **we handle all customs clearance and pay import duties for you**. Whether you are shipping to New York, Berlin, or Dubai, the shipping price you pay is final. No surprise bills from customs, no paperwork for you. Just wait for the doorbell."
-        },
-        beyond: {
-            title: "More Than Just Poizon",
-            items: [
-                { id: 'taobao', title: "Taobao", desc: "Everyday fashion & accessories." },
-                { id: 'tmall', title: "Tmall", desc: "Official tech & cosmetics." },
-                { id: '1688', title: "1688.com", desc: "Wholesale & bulk orders." },
-                { id: 'pinduoduo', title: "Pinduoduo", desc: "Unbeatable deals & group buying." },
-                { title: "The Magic of Consolidation", desc: "Poizon sneakers + Taobao clothes + Pinduoduo gadgets = One Parcel. We store for free and combine shipments." }
-            ]
-        },
-        startBtn: 'Buy from Poizon',
-        backBtn: 'Back to Home'
-      },
       tmall: {
-        title: 'Tmall Purchasing Agent: Official Brand Flagship Stores from China with 0% Agent Fee',
+        title: 'Buy Authentic Brands on Tmall.com with Free Quality Check',
         desc: "Shop from official brand flagship stores on Tmall.com with 100% confidence. Tmall is the premium B2C platform of Alibaba, hosting major international and Chinese brands. HappyBox helps you buy and ship Tmall products worldwide with 0% commission.",
         whyNeed: {
-            title: "Guaranteed Authenticity: Authorized Brand Flagships and Anti-Counterfeit Verification on Tmall",
+            title: "Guaranteed Authenticity: Verified Tmall Brand Flagships",
             text: "While Taobao is C2C (Consumer to Consumer), Tmall is B2C (Business to Consumer). Tmall sellers are verified businesses or official brand representatives. This means: 100% Authentic products, higher service standards, and often better return policies. It is the best place to buy electronics, cosmetics, and branded fashion."
         },
         howItWorks: {
-            title: "Direct Flagship Purchasing: From Store Stock Check to Door-to-Door Delivery",
+            title: "How Direct Flagship Ordering Works on Tmall",
             steps: [
                 { title: "Browse Tmall", desc: "Look for the red Tmall logo on product listings." },
                 { title: "Send Link", desc: "Paste the product URL to us." },
@@ -1033,13 +774,13 @@ export const translations = {
             { title: 'Quality Assurance', desc: 'Tmall has stricter quality control than regular Taobao.' },
             { title: '0% Purchasing Fee', desc: 'We do not charge a commission for Tmall purchases.' }
         ],
-        benefitsTitle: "HappyBox Advantages: Original Retail Packaging Inspection and 0% Purchasing Fee",
+        benefitsTitle: "Tmall Order Benefits: Original Packaging QC & 0% Fee",
         proTip: {
-            title: "Seller Verification: Identifying Official Brand Flagship Badges on Tmall vs Third-Party Resellers",
+            title: "How to Spot Official Tmall Stores vs Resellers",
             text: "When searching on Taobao/Tmall, look for the red 'Cat' icon. This indicates the seller is a Tmall merchant with a verified business license and a deposit paid to Alibaba."
         },
         beyond: {
-            title: "Cross-Platform Consolidation: Combine Premium Tmall Orders with Taobao, 1688, and Poizon",
+            title: "Combine Tmall Orders with Taobao, 1688 & Poizon",
             items: [
                 { id: 'taobao', title: "Taobao", desc: "Find cheaper alternatives and consumer goods." },
                 { id: 'poizon', title: "Poizon", desc: "Best for limited edition sneakers and luxury street fashion." },
@@ -1051,51 +792,14 @@ export const translations = {
         startBtn: 'Start Shopping Tmall',
         backBtn: 'Back to Home'
       },
-      pinduoduo: {
-        title: 'Pinduoduo Agent: Group Buying & Unbeatable Prices',
-        desc: "Unlock the lowest prices in China. Pinduoduo is famous for its group buying model and incredible discounts on everything from gadgets to home goods. We make buying from Pinduoduo easy and secure.",
-        whyNeed: {
-            title: "Why Pinduoduo?",
-            text: "Pinduoduo often offers lower prices than Taobao for the exact same items. The catch? The app is only in Chinese and the interface can be overwhelming with its gamified discounts. HappyBox acts as your agent: we navigate the app, secure the group-buy price, and handle shipping."
-        },
-        howItWorks: {
-            title: "How to buy from Pinduoduo",
-            steps: [
-                { title: "Browse App", desc: "Download Pinduoduo (拼多多). Find items you like." },
-                { title: "Share Link", desc: "Click the share button and send us the product link." },
-                { title: "We Buy", desc: "We purchase using the 'Group Buy' price for maximum savings." },
-                { title: "Delivery", desc: "We receive, inspect, and ship it to you." }
-            ]
-        },
-        features: [
-            { title: 'Best Prices in China', desc: 'Known for subsidized pricing on everyday items.' },
-            { title: '0% Commission', desc: 'We charge no service fee for standard Pinduoduo orders.' },
-            { title: 'Consolidation', desc: 'Perfect for adding small, cheap items to your main parcel.' }
-        ],
-        proTip: {
-            title: "Don't ignore the timer",
-            text: "Pinduoduo deals are often time-sensitive. If you see a great price, send it to us quickly so we can lock it in before the group-buy window closes."
-        },
-        beyond: {
-            title: "Combine & Save",
-            items: [
-                { id: 'taobao', title: "Taobao", desc: "Wider variety of fashion." },
-                { id: '1688', title: "1688.com", desc: "Bulk orders." },
-                { id: 'poizon', title: "Poizon", desc: "Authentic luxury & sneakers." },
-                { id: 'tmall', title: "Tmall", desc: "Premium brands." },
-                { title: "Smart Shopping", desc: "Use Pinduoduo for cheap gadgets and home essentials, and Taobao for fashion. We ship them together." }
-            ]
-        },
-        startBtn: 'Start Pinduoduo',
-        backBtn: 'Back to Home'
-      },
       inspection: {
-        title: 'Professional Quality Control & Factory Inspection in China',
+        title: 'On-Site Product Inspection & Supplier Audits Across China',
         desc: "Don't rely on luck. Our network of professional inspectors provides on-site quality control in all provinces of China, ensuring that the goods meet your requirements 100%.",
         whyNeed: {
-            title: "Why is on-site inspection critical?",
+            title: "Why Factory Inspection in China Saves Your Margin",
             text: "When buying in bulk or ordering expensive items, a simple photo at the warehouse is not enough. Returning defective goods after shipping from China is almost impossible. HappyBox is your professional 'eyes and ears' on the production line to eliminate problems at the source."
         },
+        benefitsTitle: "What You Get with Our On-Site QC & AQL Reporting",
         features: [
             { title: 'China-Wide Network', desc: 'Experts in Guangdong, Zhejiang, Jiangsu, Fujian, and other regions ready to depart within 24-48 hours.' },
             { title: 'Detailed Reports', desc: 'Full PDF report within 24 hours: high-resolution photos and videos, list of defects.' },
@@ -1103,7 +807,7 @@ export const translations = {
             { title: 'Defect Classification', desc: 'We categorize defects into Critical, Major, and Minor for correct decision-making.' }
         ],
         beyond: {
-            title: "Our Quality Control Levels",
+            title: "4 Types of China Quality Inspections: Audit, DUPRO, PSI & CLS",
             items: [
                 { title: "Factory Audit", desc: "Before payment: We verify that the supplier is a real manufacturer, check their licenses and production capacity." },
                 { title: "During Production Check (DUPRO)", desc: "Inspectors visit the factory when 20–30% of the order is ready to identify systemic defects at an early stage." },
@@ -1112,21 +816,22 @@ export const translations = {
             ]
         },
         proTip: {
-            title: "Turnkey Quality Management",
+            title: "Turnkey QC Checklists & Factory Scheduling",
             text: "Don't know what to check? Leave it to us. Just send a photo or requirements. Our experts will create a checklist and arrange an inspection with the factory managers while you focus on brand development."
         },
         startBtn: 'Order Inspection',
         backBtn: 'Back to Home'
       },
       warehousing: {
-        title: 'China Warehousing & Parcel Consolidation',
+        title: 'Multi-Supplier Consolidation & Repacking in China',
         desc: "Stop paying for shipping each individual package. Save up to 80% on international shipping by combining your orders into one secure parcel.",
         whyNeed: {
-            title: "Why choose our warehouse?",
-            text: "With HappyBox, you get a dedicated space at our warehouse in Guangdong. Whether you are a retail buyer or a business, you can collect goods from dozens of different suppliers over several weeks. We will wait for everything to arrive, optimize the packaging, and ship it to you in one batch."
+            title: "China Consolidation Warehouse: One Shipment Instead of Ten",
+            text: "With HappyBox, you get a dedicated space at our warehouses in Shenzhen and Guangzhou. Whether you are a retail buyer or a business, you can collect goods from dozens of different suppliers for up to 30 days. We will wait for everything to arrive, optimize the packaging, and ship it to you in one batch."
         },
+        benefitsTitle: "Warehouse Services: Free Reception, QC Photos & Volume Reduction",
         features: [
-            { title: 'Unlimited Free Storage', desc: 'No time limits and hidden fees. All your purchases are stored for free while you wait for the rest of the goods.' },
+            { title: '30 Days Free Storage', desc: 'No hidden fees. All your purchases are stored free for up to 30 days while you wait for the rest of your orders.' },
             { title: 'Free Consolidation', desc: 'We combine any number of orders from Taobao, 1688, or other stores into one parcel to drastically reduce shipping costs.' },
             { title: 'Free Parcel Reception', desc: 'No matter the store or weight, we accept all incoming parcels at our warehouse absolutely free.' },
             { title: 'Free Photo & Video Report', desc: 'We are your eyes in China. We take high-quality photos or videos of your goods so you can check them before shipping out of the country.' },
@@ -1136,7 +841,7 @@ export const translations = {
             { title: '24/7 Video Surveillance', desc: 'Your cargo is safe. Our warehouse is under surveillance 24/7.' }
         ],
         proTip: {
-            title: "Don't want to handle this yourself?",
+            title: "Full-Service Purchasing & Fulfillment From One Hub",
             text: "If you don't want to track a bunch of tracking numbers and communicate with sellers, leave it to us. Our 'Full Support' service includes purchasing, warehouse management, and door-to-door delivery. You just say what you want, and we do it."
         },
         startBtn: 'Get Warehouse Address',
@@ -1891,275 +1596,15 @@ export const translations = {
       destinationsNote: 'Не нашли нужное направление? Напишите нам для уточнения. Мы доставляем по всему миру.'
     },
     servicePages: {
-      alibaba: {
-        title: 'Посредник и Доставка с Alibaba: Ваш надежный партнер',
-        desc: "Безопасные закупки на Alibaba (B2B). Мы берем на себя общение с китайскими поставщиками, проверку качества и международную доставку DDP. Не рискуйте деньгами — проверьте партию до отправки из Китая.",
-        whyNeed: {
-            title: "Зачем нужен посредник для Alibaba?",
-            problems: [
-                "Завышенная стоимость доставки: Многие поставщики на Alibaba сильно завышают цены на международную доставку.",
-                "Риск брака: Если вы получите бракованный товар в своей стране, вернуть его обратно в Китай будет дороже самого товара.",
-                "Потери при консолидации: Если у вас 5 разных поставщиков, они отправят 5 разных посылок, что кратно увеличит стоимость логистики."
-            ],
-            solutionTitle: "Как работает защита от HappyBox",
-            solution: "Вы договариваетесь с поставщиком, а мы выступаем вашим местным складом в Китае. Поставщик отправляет товар нам, мы проводим инспекцию качества, объединяем грузы от разных фабрик и отправляем вам по выгодным 'карго' тарифами без сюрпризов на таможне."
-        },
-        howItWorks: {
-            title: "Как доставить заказ с Alibaba с HappyBox",
-            steps: [
-                { title: "Выбор товара", desc: "Найдите поставщика на Alibaba и запросите цену товара без учета доставки (EXW)." },
-                { title: "Отправка на склад", desc: "Дайте поставщику адрес нашего склада в Шэньчжэне или Иу." },
-                { title: "Проверка качества", desc: "Мы получаем груз, пересчитываем, проверяем на брак и высылаем фотоотчет." },
-                { title: "Доставка DDP", desc: "Отправляем груз в вашу страну (Авиа, Море, Авто) с уже включенными налогами." }
-            ]
-        },
-        features: [
-            { title: 'Экономия на логистике', desc: 'Наши тарифы на доставку часто на 30-50% ниже тех, что предлагают фабрики напрямую.' },
-            { title: 'Бесплатная проверка качества (QC)', desc: 'Защитите свои вложения. Мы проверим товар до того, как он покинет Китай.' },
-            { title: 'Консолидация грузов', desc: 'Объединяем заказы от разных производителей в одну партию, чтобы снизить ваши расходы.' },
-            { title: 'Помощь с оплатой', desc: 'У нас есть возможность перевести деньги фабрике внутри Китая юанями, если это необходимо.' }
-        ],
-        proTip: {
-            title: "Совет эксперта по Alibaba",
-            text: "• **Сравнивайте доставку:** Всегда просите у фабрики расчет стоимости отправки на местный склад (EXW) и сравнивайте итоговую доставку с нашими тарифами.\n\n• **Торгуйтесь:** Цены на Alibaba не являются окончательными. Всегда уточняйте реальную стоимость.\n\n• **Заказывайте образцы (Сэмплы):** Мы можем получить образцы от 10 разных фабрик, положить их в одну маленькую коробку и отправить вам для тестирования."
-        },
-        beyond: {
-            title: "Альтернативные платформы",
-            items: [
-                { id: '1688', title: "1688", desc: "Внутренний оптовый рынок Китая. Цены часто ниже, чем на Alibaba." },
-                { id: 'taobao', title: "Taobao", desc: "Розничные покупки и мелкий опт." },
-                { id: 'inspection', title: "Инспекция Фабрики", desc: "Проверка производства на месте до отправки крупных сумм." },
-                { title: "Выкуп под ключ", desc: "Если вы не хотите общаться с менеджерами фабрик, доверьте переговоры нам." }
-            ]
-        },
-        startBtn: 'Рассчитать доставку с Alibaba',
-        backBtn: 'На главную'
-      },
-      xianyu: {
-        title: 'Посредник Xianyu: Б/У товары и винтаж из Китая',
-        desc: "Покупайте брендовые вещи, технику и коллекционные предметы в 2-3 раза дешевле. Xianyu (Idle Fish) — это китайский Авито от Alibaba, где можно найти уникальные предложения: от винтажных сумок до игровых консолей.",
-        whyNeed: {
-            title: "Зачем нужен посредник для Xianyu?",
-            text: "Продавцы на Xianyu — это частные лица, а не магазины. Они не говорят по-английски и не отправляют товары за границу. Покупка б/у товаров всегда несет риски. HappyBox — ваша защита: мы торгуемся с продавцом, проводим оплату и, самое главное, проверяем состояние товара на нашем складе перед отправкой."
-        },
-        howItWorks: {
-            title: "Как покупать на Xianyu",
-            steps: [
-                { title: "Найдите товар", desc: "Ищите уникальные лоты в приложении Xianyu." },
-                { title: "Мы торгуемся", desc: "Пришлите ссылку. Часто нам удается сбить цену на 10-20%." },
-                { title: "Видео-отчет", desc: "Для дорогих вещей мы запрашиваем видео у продавца перед выкупом." },
-                { title: "Финальная проверка", desc: "По прибытии на склад мы сверяем товар с описанием." }
-            ]
-        },
-        features: [
-            { title: 'Услуга торга', desc: 'Мы общаемся с продавцом, чтобы получить для вас лучшую цену.' },
-            { title: 'Проверка надежности', desc: 'Мы проверяем рейтинг "Sesame Credit" продавца, чтобы исключить мошенников.' },
-            { title: 'Детальный фотоотчет', desc: 'Так как это б/у товар, мы делаем подробные фото всех дефектов и следов носки.' }
-        ],
-        proTip: {
-            title: "Политика возвратов",
-            text: "Помните, что большинство продавцов на Xianyu не принимают возвраты, если товар соответствует описанию. Наша проверка на складе — ваша главная гарантия."
-        },
-        beyond: {
-            title: "Миксуйте новое и старое",
-            items: [
-                { id: 'poizon', title: "Poizon", desc: "Объедините винтаж с новыми кроссовками." },
-                { id: 'taobao', title: "Taobao", desc: "Добавьте новые аксессуары к заказу." },
-                { id: '1688', title: "1688.com", desc: "Оптовые закупки." },
-                { id: 'pinduoduo', title: "Pinduoduo", desc: "Дешевые гаджеты." },
-                { title: "Консолидация", desc: "Мы соберем ваши находки с Xianyu и покупки с Taobao в одну посылку." }
-            ]
-        },
-        startBtn: 'Начать охоту',
-        backBtn: 'Назад'
-      },
-      weidian: {
-        title: 'Посредник Weidian: Эксклюзивный стритвир и инди-бренды',
-        desc: "Откройте для себя уникальные вещи от независимых дизайнеров и эксклюзивных продавцов стритвира. Weidian — это платформа для нишевой моды, лимитированных дропов и качественных реплик, которые не найти на Taobao.",
-        whyNeed: {
-            title: "Почему стоит покупать на Weidian?",
-            text: "Weidian — это мобильная платформа, популярная среди независимых продавцов и энтузиастов уличной моды. Многие эксклюзивные вещи и топовые реплики доступны только здесь. Однако приложение полностью на китайском, и продавцы редко работают с иностранцами. HappyBox открывает вам полный доступ к этому закрытому рынку."
-        },
-        howItWorks: {
-            title: "Как покупать на Weidian",
-            steps: [
-                { title: "Найдите товар", desc: "Используйте приложение Weidian или мобильные ссылки." },
-                { title: "Пришлите ссылку", desc: "Поделитесь ссылкой на товар. Мы проверим репутацию продавца." },
-                { title: "Мы выкупаем", desc: "Мы оплачиваем через WeChat Pay или Alipay." },
-                { title: "Проверка и доставка", desc: "Получаем, проверяем качество и отправляем вам." }
-            ]
-        },
-        features: [
-            { title: 'Доступ к эксклюзивам', desc: 'Покупайте у продавцов, которые работают только на Weidian.' },
-            { title: 'Детальные фото (QC)', desc: 'Мы делаем фото высокого разрешения, чтобы вы могли проверить качество материалов и швов.' },
-            { title: 'Безопасная оплата', desc: 'Мы защищаем ваши деньги. Если продавец не отправит товар, мы вернем средства.' }
-        ],
-        proTip: {
-            title: "Проверяйте условия возврата",
-            text: "Многие продавцы на Weidian (особенно лимитированных вещей) не принимают возвраты. Всегда просите нас уточнить политику возврата у продавца перед покупкой."
-        },
-        beyond: {
-            title: "Соберите полный образ",
-            items: [
-                { id: 'poizon', title: "Poizon", desc: "Добавьте оригинальные кроссовки." },
-                { id: 'taobao', title: "Taobao", desc: "Базовые вещи и аксессуары." },
-                { id: '1688', title: "1688.com", desc: "Базовые вещи оптом." },
-                { id: 'xianyu', title: "Xianyu", desc: "Винтажные находки." },
-                { title: "Консолидация", desc: "Объедините покупки с Weidian с другими заказами для экономии на доставке." }
-            ]
-        },
-        startBtn: 'Начать шопинг Weidian',
-        backBtn: 'Назад'
-      },
-      taobao: {
-        title: 'Посредник Таобао: Выкуп и Доставка из Китая с комиссией 0%',
-        desc: "Покупайте на Taobao, 1688 и Tmall с комиссией 0%. Мы берем на себя выкуп, проверку и международную доставку, чтобы вы наслаждались лучшими ценами Китая без хлопот. HappyBox выкупает, проверяет, консолидирует и отправляет ваши заказы по всему миру.",
-        whyNeed: {
-            title: "Какие есть сложности, и как мы их решаем",
-            problems: [
-                "Для покупок нужен адрес склада в Китае и китайские платежные методы.",
-                "Продавцы редко говорят по-английски и не отправляют за границу.",
-                "Высокий риск получить брак, не тот цвет или размер без проверки."
-            ],
-            solutionTitle: "Решение от HappyBox",
-            solution: "С HappyBox покупать на Taobao просто. Мы помогаем преодолеть языковой барьер, гарантируем безопасность оплаты и проверяем каждый товар перед отправкой. К вашим услугам — наш бесплатный склад в Китае для консолидации и надежной упаковки всех ваших посылок."
-        },
-        howItWorks: {
-            title: "Как это работает: 4 простых шага",
-            steps: [
-                { title: "Найдите товары", desc: "Ищите на Taobao.com или в приложении. Копируйте ссылки на товары." },
-                { title: "Оформите заказ", desc: "Пришлите ссылки нам. Мы проверим наличие и цену." },
-                { title: "Выкуп и Проверка", desc: "Мы берем выкуп и проверку на себя. Если товар окажется бракованным или не тем, что вы заказывали, — мы быстро организуем возврат." },
-                { title: "Консолидация", desc: "Бесплатное хранение, консолидация и международная доставка. Гарантируем премиум-упаковку для сохранности ваших вещей." }
-            ]
-        },
-        proTip: {
-            title: "Советы экспертов по Taobao",
-            text: "• **Tmall (Красная иконка):** Когда ищете на Taobao и видите красную иконку — это TMall. Там представлены официальные бренды и дилеры с почти нулевым риском брака. Обычный Taobao дешевле, но некоторые бренды могут быть неоригинальными.\n\n• **Живые фото:** Всегда ищите иконку камеры в отзывах, чтобы увидеть реальные фото вместо студийных рендеров.\n\n• **История продавца:** Отдавайте предпочтение продавцам, работающим 5–10 лет; они дорожат своей репутацией на платформе.\n\n• **Консолидация:** Используйте наш склад для объединения посылок. Купите мелкие вещи в 10 разных магазинах, и мы упакуем их в ОДНУ коробку, чтобы вы сэкономили до 60% на доставке.\n\n**Позвольте нам искать за вас!**\nНе можете найти нужную вещь на Taobao? Не тратьте время на бесконечные списки. Просто пришлите нам фото или краткое описание, и наши эксперты найдут лучшее качество у продавцов, которым мы доверяем."
-        },
-        features: [
-            { title: 'Китайский номер не нужен', desc: 'Вам не нужно регистрироваться на Taobao и бояться блокировок аккаунта.' },
-            { title: 'Бесплатная проверка (QC)', desc: 'Мы — ваши глаза. Проверяем на брак, размер и цвет до того, как товар покинет Китай.' },
-            { title: 'Бесплатная консолидация', desc: 'Покупайте у разных продавцов. Мы соберем все в одну коробку, чтобы сэкономить до 60% на доставке.' },
-            { title: 'Надежная упаковка', desc: 'Международная доставка бывает суровой. Мы используем качественные материалы, чтобы все доехало целым.' },
-            { title: 'Удобная оплата', desc: 'Платите за заказы Рублями, USDT, Wechat Pay или банковским переводом легко и безопасно.' },
-            { title: 'Прозрачный трекинг', desc: 'Следите за путем вашей посылки от Китая до двери. Мы предоставляем надежный трек-номер, чтобы вы всегда знали, где находится ваш груз.' }
-        ],
-        beyond: {
-            title: "Не только Taobao: 1688, Poizon и другое",
-            items: [
-                { id: '1688', title: "1688.com", desc: "Лучшее для опта и закупок с фабрик. Поможем договориться с поставщиками и оформить оптовый заказ." },
-                { id: 'poizon', title: "Poizon (Dewu)", desc: "Топ для оригинальных кроссовок и люкса. Выкупим, проверим и бережно доставим." },
-                { id: 'tmall', title: "Tmall", desc: "Официальные магазины брендов. Идеально для тех, кто ищет премиум качество и гарантию оригинальности." },
-                { id: 'xianyu', title: "Xianyu", desc: "Вторичный рынок брендов и винтажа." },
-                { title: "Офлайн магазины", desc: "Нужна мебель из Фошаня или электроника с рынков Шэньчжэня? Мы можем организовать выкуп офлайн." },
-                { title: "Любая другая площадка", desc: "Pinduoduo, Xianyu (б/у), Weidian. Если продавец в Китае — мы можем это выкупить."}
-            ]
-        },
-        shippingInfo: {
-            title: "DDP Доставка из Китая в США, Европу, Канаду и ОАЭ: Таможня и Налоги включены",
-            text: "Мы специализируемся на доставке по системе **DDP (Delivered Duty Paid)**. Это значит, что **мы берем на себя всю таможенную очистку и уплату пошлин**. Вам не нужно общаться с таможней или платить налоги при получении. Цена доставки окончательная — никаких скрытых сюрпризов."
-        },
-        startBtn: 'Начать шопинг',
-        backBtn: 'На главную'
-      },
-      1688: {
-        title: 'Посредник 1688: Оптовые закупки в Китае',
-        desc: "Получите доступ к реальным ценам фабрик. Мы поможем найти, выкупить и доставить оптовые партии с 1688.com прямо на ваш склад.",
-        whyNeed: {
-            title: "Почему 1688.com, а не Alibaba?",
-            text: "Alibaba.com ориентирован на иностранцев с наценками. 1688.com — это внутренний рынок для китайцев, где цены значительно ниже. Но там всё на китайском и нет международной доставки. HappyBox решает это. Мы — ваш агент: переводим, платим внутри Китая и организуем логистику."
-        },
-        howItWorks: {
-            title: "Как мы упрощаем B2B закупки",
-            steps: [
-                { title: "Поиск", desc: "Вы шлете ссылки или фото; мы ищем лучших производителей." },
-                { title: "Оплата", desc: "Мы платим поставщикам с наших счетов — вам не нужен счет в Китае." },
-                { title: "Склад", desc: "Бесплатно принимаем и храним грузы от разных фабрик." },
-                { title: "Логистика", desc: "Оформляем документы и доставляем Карго или в Белую." }
-            ]
-        },
-        proTip: {
-            title: "Закупки под ключ",
-            text: "Не хотите разбираться в 1688? Просто пришлите ТЗ или фото товара. Наша команда найдет фабрику, договорится о лучшей цене, проверит образцы и привезет партию. Вы занимаетесь продажами, мы — поставками."
-        },
-        features: [
-            { title: 'Низкая комиссия', desc: 'Всего от 2% от суммы заказа.' },
-            { title: 'Цены как для своих', desc: 'Покупайте по ценам для внутреннего рынка Китая.' },
-            { title: 'Спец. упаковка', desc: 'Обрешетка, паллеты, уголки — защитим груз для долгой дороги.' }
-        ],
-        beyond: {
-            title: "Больше чем 1688: Розница и Бренды",
-            items: [
-                { id: 'taobao', title: "Taobao", desc: "Для штучных покупок и личного пользования." },
-                { id: 'tmall', title: "Tmall", desc: "Официальные бренды и флагманские магазины." },
-                { id: 'poizon', title: "Poizon", desc: "Оригинальные кроссовки и уличная мода." },
-                { id: 'pinduoduo', title: "Pinduoduo", desc: "Групповые покупки и скидки." },
-                { title: "Консолидация", desc: "Мы объединим ваши оптовые заказы с 1688 с личными покупками с других платформ." }
-            ]
-        },
-        startBtn: 'Начать закупку',
-        backBtn: 'На главную'
-      },
-      poizon: {
-        title: 'Посредник Poizon (Dewu)',
-        desc: "Покупайте на Poizon (Dewu) — главной площадке оригинальных вещей в Китае. Цены на 30-50% ниже, чем в РФ и Европе. Комиссия за выкуп 0%.",
-        whyNeed: {
-            title: "Почему сложно купить напрямую?",
-            problems: [
-                "Приложение для Китая: Интерфейс только на китайском, для оплаты нужны Alipay или WeChat, продавцы не отправляют за границу.",
-                "Скрытые комиссии: Многие посредники заявляют низкую комиссию, но накручивают 15-30% на курсе юаня.",
-                "Сложности с логистикой: Риск, что дорогая вещь потеряется или придет мятой без правильной упаковки."
-            ],
-            solutionTitle: "Решение от HappyBox",
-            solution: "Мы — ваш профессиональный агент. Мы берем на себя выкуп, проверку и логистику. Мы считаем юань по справедливому курсу (максимально близкому к биржевому/ЦБ), без скрытых наценок. Вы получаете полный комплект защиты Poizon: бирюзовая коробка, сертификат с QR-кодом и синяя пломба."
-        },
-        howItWorks: {
-            title: "Как это работает (5 Шагов)",
-            steps: [
-                { title: "Скачайте приложение", desc: "Найдите Dewu (Poizon) в App Store. Регистрация работает на российские номера (+7)." },
-                { title: "Найдите товар", desc: "Вбивайте название на английском. Цена зависит от размера." },
-                { title: "Оформите заказ", desc: "Пришлите нам ссылку (кнопка 'Поделиться'). Мы проверим наличие." },
-                { title: "Выкуп и Legit Check", desc: "Мы выкупаем. Poizon проверяет товар в своей лаборатории перед отправкой нам." },
-                { title: "Склад и Доставка", desc: "Мы получаем, делаем фотоотчет, упаковываем и отправляем вам." }
-            ]
-        },
-        proTip: {
-            title: "Совет эксперта",
-            text: "Путаетесь в кнопках? **Бирюзовая кнопка** — это 'Быстрая доставка' со склада Poizon. **Черная кнопка** — товар едет от продавца (чуть дольше, но дешевле). Избегайте кнопок с цифрой **'95'** — это б/у вещи или товары с дефектами коробки."
-        },
-        features: [
-            { title: 'Оригинал 100%', desc: 'Многоступенчатая проверка Poizon исключает подделки. Если товар не пройдет проверку, деньги вернутся нам, а мы вернем их вам.' },
-            { title: 'Double Box (Двойная коробка)', desc: 'Обувь и сумки мы упаковываем в дополнительную жесткую коробку, чтобы оригинальная упаковка приехала идеальной.' },
-            { title: 'Оплата в рублях', desc: 'Принимаем переводы на карты РФ, USDT или наличные. Вам не нужно искать китайские карты.' },
-            { title: 'Бесплатный фотоотчет', desc: 'Вы увидите свои кроссовки и сертификат до того, как они вылетят из Китая.' }
-        ],
-        shippingInfo: {
-            title: "DDP Доставка из Китая в США, Европу, Канаду и ОАЭ: Таможня и Налоги включены",
-            text: "Мы специализируемся на доставке по системе **DDP (Delivered Duty Paid)**. Это значит, что **мы берем на себя всю таможенную очистку и уплату пошлин**. Вам не нужно общаться с таможней или платить налоги при получении. Цена доставки окончательная — никаких скрытых сюрпризов."
-        },
-        beyond: {
-            title: "Больше, чем просто Poizon",
-            items: [
-                { id: 'taobao', title: "Taobao", desc: "Модная одежда и аксессуары." },
-                { id: 'tmall', title: "Tmall", desc: "Официальная техника и косметика." },
-                { id: '1688', title: "1688.com", desc: "Оптовые заказы." },
-                { id: 'pinduoduo', title: "Pinduoduo", desc: "Супер скидки и групповые покупки." },
-                { title: "Магия консолидации", desc: "Кроссовки с Poizon + одежда с Taobao + мелочи с Pinduoduo = Одна посылка. Мы храним бесплатно и объединяем всё." }
-            ]
-        },
-        startBtn: 'Заказать с Poizon',
-        backBtn: 'На главную'
-      },
       tmall: {
-        title: 'Посредник Tmall: выкуп оригиналов из официальных флагманских магазинов Китая без комиссии (0%)',
+        title: 'Официальные магазины Tmall.com: проверка упаковки и доставка DDP',
         desc: "Покупайте в официальных флагманских магазинах на Tmall.com с полной уверенностью. Tmall — это премиальная B2C платформа Alibaba, где представлены мировые и китайские бренды. HappyBox поможет выкупить и доставить товары с Tmall с комиссией 0%.",
         whyNeed: {
-            title: "Защита от подделок: авторизованные дистрибьюторы и прямые поставки от брендов на Tmall",
+            title: "Защита от подделок: официальные дистрибьюторы на Tmall",
             text: "Если Taobao — это рынок (C2C), то Tmall — это торговый центр (B2C). Продавцы на Tmall — это проверенные юрлица или официальные представители брендов. Это значит: 100% оригинал, выше стандарты обслуживания и качественная упаковка. Идеально для покупки техники, косметики и брендовой одежды."
         },
         howItWorks: {
-            title: "Прямой выкуп во флагманских магазинах: от проверки наличия до бережной доставки до двери",
+            title: "Как проходит выкуп и доставка из магазинов Tmall",
             steps: [
                 { title: "Поиск", desc: "Ищите товары с красным значком Tmall." },
                 { title: "Ссылка", desc: "Пришлите нам ссылку на товар." },
@@ -2172,13 +1617,13 @@ export const translations = {
             { title: 'Гарантия качества', desc: 'Tmall имеет более строгий контроль качества, чем обычный Taobao.' },
             { title: 'Комиссия 0%', desc: 'Мы не берем комиссию за выкуп с Tmall.' }
         ],
-        benefitsTitle: "Преимущества выкупа через HappyBox: оригинальная заводская упаковка и 0% сервисного сбора",
+        benefitsTitle: "Преимущества выкупа на Tmall: проверка упаковки и комиссия 0%",
         proTip: {
-            title: "Верификация продавца: как отличить официальный флагманский магазин Tmall (Красный знак) от сторонних реселлеров",
+            title: "Как отличить официальный магазин Tmall от перекупщиков",
             text: "При поиске обращайте внимание на иконку красного кота. Это знак того, что продавец — верифицированный мерчант Tmall с лицензией и депозитом в Alibaba."
         },
         beyond: {
-            title: "Консолидация заказов: объединение премиальных покупок с Tmall с товарами с Taobao, 1688 и Poizon",
+            title: "Объединение заказов с Tmall, Taobao, 1688 и Poizon",
             items: [
                 { id: 'taobao', title: "Taobao", desc: "Найдите дешевые аналоги и товары народного потребления." },
                 { id: 'poizon', title: "Poizon", desc: "Лучшее для лимитированных кроссовок и уличной моды." },
@@ -2190,51 +1635,14 @@ export const translations = {
         startBtn: 'Начать шопинг Tmall',
         backBtn: 'На главную'
       },
-      pinduoduo: {
-        title: 'Посредник Pinduoduo: Групповые покупки и Низкие цены',
-        desc: "Откройте для себя самые низкие цены в Китае. Pinduoduo известен своей моделью групповых покупок и невероятными скидками на всё: от гаджетов до товаров для дома. Мы делаем покупки с Pinduoduo простыми и безопасными.",
-        whyNeed: {
-            title: "Почему Pinduoduo?",
-            text: "Pinduoduo часто предлагает цены ниже, чем на Taobao, за те же самые товары. В чем подвох? Приложение только на китайском, а интерфейс перенасыщен акциями. HappyBox — ваш агент: мы разберемся в приложении, выкупим по цене групповой покупки и организуем доставку."
-        },
-        howItWorks: {
-            title: "Как покупать на Pinduoduo",
-            steps: [
-                { title: "Найдите товар", desc: "Скачайте Pinduoduo (拼多多). Выберите, что нравится." },
-                { title: "Поделитесь ссылкой", desc: "Нажмите кнопку поделиться и отправьте ссылку нам." },
-                { title: "Мы выкупим", desc: "Выкупаем по цене 'Group Buy' для максимальной экономии." },
-                { title: "Доставка", desc: "Получим, проверим и отправим вам." }
-            ]
-        },
-        features: [
-            { title: 'Лучшие цены в Китае', desc: 'Известен субсидированными ценами на повседневные товары.' },
-            { title: 'Комиссия 0%', desc: 'Мы не берем комиссию за стандартные заказы с Pinduoduo.' },
-            { title: 'Консолидация', desc: 'Идеально для добавления недорогих мелочей в основную посылку.' }
-        ],
-        proTip: {
-            title: "Не игнорируйте таймер",
-            text: "Скидки на Pinduoduo часто ограничены по времени. Если видите отличную цену, присылайте нам ссылку быстрее, чтобы мы успели выкупить до закрытия окна групповой покупки."
-        },
-        beyond: {
-            title: "Комбинируйте и Экономьте",
-            items: [
-                { id: 'taobao', title: "Taobao", desc: "Больше выбора одежды." },
-                { id: '1688', title: "1688.com", desc: "Оптовые заказы." },
-                { id: 'poizon', title: "Poizon", desc: "Оригинальные кроссовки и люкс." },
-                { id: 'tmall', title: "Tmall", desc: "Премиальные бренды." },
-                { title: "Умный шопинг", desc: "Используйте Pinduoduo для дешевых гаджетов, а Taobao для моды. Мы отправим всё вместе." }
-            ]
-        },
-        startBtn: 'Начать Pinduoduo',
-        backBtn: 'На главную'
-      },
       inspection: {
-        title: 'Инспекция фабрик и Проверка качества в Китае',
+        title: 'Контроль качества на производстве и выездной аудит в Китае',
         desc: "Не полагайтесь на удачу. Наши инспекторы проверят товар в любой провинции Китая. Гарантируем, что груз на 100% соответствует вашим требованиям.",
         whyNeed: {
-            title: "Зачем нужна проверка в Китае?",
+            title: "Зачем проверять партию на фабрике до отгрузки",
             text: "Вернуть брак из России или США в Китай почти невозможно и очень дорого. Проще и дешевле выявить проблему на фабрике, пока деньги еще не ушли окончательно. HappyBox — ваши глаза на производстве."
         },
+        benefitsTitle: "Преимущества инспекции: AQL-стандарты и фотоотчет за 24 часа",
         features: [
             { title: 'Сеть инспекторов', desc: 'Работаем в Гуандуне, Чжэцзяне, Цзянсу и других промышленных регионах.' },
             { title: 'Отчет за 24 часа', desc: 'Подробный PDF с фото и видео высокого разрешения.' },
@@ -2242,7 +1650,7 @@ export const translations = {
             { title: 'Сортировка брака', desc: 'Разделяем дефекты на критические и незначительные.' }
         ],
         beyond: {
-            title: "Виды проверок",
+            title: "Виды инспекций в Китае: аудит фабрики, DUPRO, PSI и контроль погрузки",
             items: [
                 { title: "Аудит фабрики", desc: "Проверка документов и реальности производства до начала работы." },
                 { title: "Проверка в процессе (DUPRO)", desc: "Инспекция на этапе 20-30% готовности для раннего выявления проблем." },
@@ -2251,21 +1659,22 @@ export const translations = {
             ]
         },
         proTip: {
-            title: "Управление качеством под ключ",
+            title: "Составим чек-лист и организуем выезд на фабрику за вас",
             text: "Не знаете, что проверять? Пришлите требования, и мы составим чек-лист (Inspection Checklist) сами. Договоримся с фабрикой о дате визита инспектора."
         },
         startBtn: 'Заказать проверку',
         backBtn: 'На главную'
       },
       warehousing: {
-        title: 'Склады в Китае и консолидация посылок',
+        title: 'Объединение заказов и оптимизация упаковки на складе в Китае',
         desc: "Хватит платить за доставку каждой посылки отдельно. Объедините заказы в одну коробку и сэкономьте до 80% на международной логистике.",
         whyNeed: {
-            title: "Зачем наш склад?",
-            text: "Вы получаете свой адрес в Китае. Покупайте у разных продавцов в течение недели или месяца. Мы примем, проверим и сохраним всё бесплатно, а потом отправим одной посылкой."
+            title: "Склад консолидации в Китае: объединяем заказы со всех фабрик",
+            text: "Вы получаете персональные адреса наших складов в Шэньчжэне и Гуанчжоу. Покупайте у разных продавцов в течение месяца — мы примем, проверим и сохраним всё бесплатно до 30 дней, а потом отправим одной посылкой."
         },
+        benefitsTitle: "Услуги склада: приемка, фотоотчет и снижение объемного веса",
         features: [
-            { title: 'Безлимитное хранение', desc: 'Храните покупки бесплатно, пока собираете посылку.' },
+            { title: '30 дней бесплатного хранения', desc: 'Бесплатно храним ваши покупки до 30 дней, пока собираются заказы от разных продавцов.' },
             { title: 'Бесплатная консолидация', desc: 'Уберем лишние коробки из-под обуви и упакуем компактно.' },
             { title: 'Прием любых посылок', desc: 'Принимаем грузы любого веса и объема.' },
             { title: 'Фотоотчет', desc: 'Делаем фото входящих посылок, чтобы вы видели, что пришло.' },
@@ -2275,8 +1684,8 @@ export const translations = {
             { title: 'Охрана 24/7', desc: 'Ваш груз в безопасности под видеонаблюдением.' }
         ],
         proTip: {
-            title: "Не хотите заниматься логистикой?",
-            text: "Услуга 'Фулфилмент'. Мы можем принять ваш товар, переупаковать, промаркировать и отправить напрямую вашим клиентам по дропшиппингу."
+            title: "Выкуп, переупаковка и фулфилмент под ключ",
+            text: "Если вы не хотите отслеживать десятки трек-номеров и общаться с продавцами — поручите это нам. Услуга «полного сопровождения под ключ» включает выкуп, приёмку на складе, переупаковку, маркировку, фулфилмент и доставку до двери."
         },
         startBtn: 'Получить адрес склада',
         backBtn: 'На главную'

@@ -6,6 +6,7 @@ import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
 import { TaobaoAdvancedGuide } from './TaobaoAdvancedGuide';
+import { Breadcrumbs } from './Breadcrumbs';
 import { Search, ShoppingCart, ClipboardCheck, Package, Send, ShieldCheck, CheckCircle2, BadgePercent } from 'lucide-react';
 
 interface TaobaoPageProps {
@@ -23,8 +24,8 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
     const content = {
         en: {
             badge: "0% Service Fee / Commission",
-            titlePrefix: "Taobao Purchasing Agent:",
-            titleHighlight: "Shop & Ship Worldwide from China with 0% Fee",
+            titlePrefix: "Buy from Taobao Like a Local:",
+            titleHighlight: "Free QC & Global Door-to-Door Delivery",
             subtitle: <>Shop on Taobao, 1688, or Tmall like a local. We handle the purchasing, inspection, and international shipping so you can enjoy the best prices from China without language barriers, blocked accounts, or overpriced shipping. HappyBox buys, inspects, consolidates, and ships your orders worldwide — hassle-free.</>,
             whyTitle: "How to Safely Shop on Taobao: Verified Sellers, Real Photo Reviews, and Cost Savings",
             whyText1: "Tmall (Red Icon): When searching on Taobao and you see a red icon — it's Tmall. It features official brands and authorized dealers with near-zero defect risk. Regular Taobao is cheaper but some brands may not be original.",
@@ -34,29 +35,29 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
             process: [
                 {
                     icon: Search,
-                    title: "1 — Find Your Items",
+                    title: "Find Your Items",
                     desc: "Browse Taobao.com or the app. Copy the links of products you want.",
                 },
                 {
                     icon: ShoppingCart,
-                    title: "2 — Submit Order",
+                    title: "Submit Order",
                     desc: "Send us the links. We verify price and availability.",
                 },
                 {
                     icon: ClipboardCheck,
-                    title: "3 — We Buy & Inspect",
+                    title: "We Buy & Inspect",
                     desc: "We purchase the items and perform a free quality check. If the item arrives broken or wrong — we return it.",
                 },
                 {
                     icon: Package,
-                    title: "4 — Consolidate & Ship",
+                    title: "Consolidate & Ship",
                     desc: "We store for free, combine into one package, and ship worldwide with premium repacking.",
                 }
             ],
             fearsTitle: "Risk-Free Ordering: No Chinese Bank Needed, Free Quality Check, and Easy Returns",
             fearsList: [
                 { q: "What if I can't pay or register on Taobao?", a: "You don't need a Chinese phone number, Alipay account, or local bank card. We purchase on your behalf using our own Chinese corporate accounts. You transfer funds to us in USD or your local currency — we handle the rest." },
-                { q: "What if the seller sends the wrong item or poor quality?", a: "We conduct a free Quality Control inspection at our Shenzhen warehouse before anything ships internationally. Photos sent to you for confirmation. Wrong items and defective goods go back to the seller — not on a plane to your door." },
+                { q: "What if the seller sends the wrong item or poor quality?", a: "We conduct a free Quality Control inspection at our Shenzhen and Guangzhou warehouses before anything ships internationally. Photos sent to you for confirmation. Wrong items and defective goods go back to the seller — not on a plane to your door." },
                 { q: "What if I want to order from multiple sellers?", a: "We consolidate orders from multiple Taobao sellers — and from 1688, Tmall, Weidian, and Poizon — into one international shipment. One customs entry, one freight bill, up to 60% saved on shipping compared to sending each order separately." },
                 { q: "What if I can't find what I'm looking for?", a: "Send us a photo or description. Our team searches Taobao and connected platforms to find the best match from sellers we actually trust." }
             ],
@@ -75,8 +76,8 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
         },
         ru: {
             badge: "0% Комиссия за выкуп",
-            titlePrefix: "Посредник Taobao:",
-            titleHighlight: "выкуп и международная доставка товаров из Китая с комиссией 0%",
+            titlePrefix: "Заказы с Taobao без барьеров:",
+            titleHighlight: "бесплатный фотоотчет и доставка DDP",
             subtitle: <>Покупайте на Taobao, 1688 и Tmall как местный житель. Мы берем на себя выкуп, проверку и международную доставку, чтобы вы могли получать лучшие цены из Китая без языкового барьера, блокировок аккаунтов или переплат за доставку. HappyBox выкупает, проверяет, консолидирует и доставляет ваши заказы по всему миру без лишних хлопот.</>,
             whyTitle: "Как безопасно покупать на Taobao: выбор надежных магазинов, живые фото и экономия",
             whyText1: "Tmall (Красная иконка): Если при поиске на Taobao вы видите красную иконку — это Tmall. Здесь представлены официальные бренды и авторизованные дилеры с практически нулевым риском брака. Обычный Taobao дешевле, но некоторые бренды могут быть неоригинальными.",
@@ -86,29 +87,29 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
             process: [
                 {
                     icon: Search,
-                    title: "1 — Найдите товары",
+                    title: "Найдите товары",
                     desc: "Ищите на сайте Taobao.com или в приложении. Скопируйте ссылки на нужные товары.",
                 },
                 {
                     icon: ShoppingCart,
-                    title: "2 — Оформите заказ",
+                    title: "Оформите заказ",
                     desc: "Пришлите нам ссылки. Мы проверим цену и наличие.",
                 },
                 {
                     icon: ClipboardCheck,
-                    title: "3 — Выкуп и проверка",
+                    title: "Выкуп и проверка",
                     desc: "Мы выкупаем товары и проводим бесплатную проверку качества. Если товар пришел с браком — мы вернем его.",
                 },
                 {
                     icon: Package,
-                    title: "4 — Консолидация и доставка",
+                    title: "Консолидация и доставка",
                     desc: "Бесплатное хранение, объединение в одну посылку и международная доставка в надежной упаковке.",
                 }
             ],
-            fearsTitle: "Покупки без риска: заказ без китайского Alipay, проверка на брак и возврат продавцу",
+            fearsTitle: "Покупки на Taobao без риска: оплата, QC и возврат брака",
             fearsList: [
                 { q: "Что если я не могу оплатить или зарегистрироваться на Taobao?", a: "Вам не нужен китайский номер телефона, Alipay или местная банковская карта. Мы выкупаем товары через наши китайские корпоративные счета. Вы просто переводите нам средства в удобной валюте — остальное мы берем на себя." },
-                { q: "Что если продавец пришлет не тот товар или брак?", a: "Мы проводим бесплатную проверку качества (QC) на нашем складе в Шэньчжэне перед международной отправкой. Вы получаете фото для подтверждения. Бракованные или неверные товары возвращаются продавцу, а не летят к вам." },
+                { q: "Что если продавец пришлет не тот товар или брак?", a: "Мы проводим бесплатную проверку качества (QC) на нашем складе в Шэньчжэне и Гуанчжоу перед международной отправкой. Вы получаете фото для подтверждения. Бракованные или неверные товары возвращаются продавцу, а не летят к вам." },
                 { q: "Что если я хочу заказать у разных продавцов?", a: "Мы консолидируем заказы от нескольких продавцов Taobao, а также с 1688, Tmall, Weidian и Poizon в одну международную посылку. Одна таможенная декларация, один счет за доставку — экономия до 60% по сравнению с отправкой каждого заказа отдельно." },
                 { q: "Что если я не могу найти нужный товар?", a: "Пришлите нам фото или описание. Наша команда найдет лучший вариант на Taobao и других платформах у продавцов, которым мы действительно доверяем." }
             ],
@@ -137,11 +138,22 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
                 onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
+                onNavigate={onNavigate}
             />
             
             <main>
                 <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
                     <div className="container mx-auto px-6 xl:px-0 relative z-10">
+                         <div className="max-w-5xl mx-auto mb-4">
+                            <Breadcrumbs 
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={[
+                                    { label: language === 'ru' ? 'Выкуп с площадок' : 'Sourcing Services', path: 'home#services' },
+                                    { label: language === 'ru' ? 'Посредник Taobao' : 'Taobao Agent' }
+                                ]}
+                            />
+                         </div>
                          <div className="max-w-5xl mx-auto text-center">
                                 <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                     <BadgePercent size={18} className="mr-2" />
@@ -209,7 +221,7 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
                             </p>
                             <p className="flex items-start gap-3">
                                 <CheckCircle2 className="text-brand-blue shrink-0 mt-1" size={24} />
-                                <span><strong className="text-brand-dark font-bold">Консолидация:</strong> {t.whyText3.replace('Консолидация: ', '').replace('Consolidation: ', '')}</span>
+                                <span><strong className="text-brand-dark font-bold">{language === 'en' ? 'Consolidation:' : 'Консолидация:'}</strong> {t.whyText3.replace('Консолидация: ', '').replace('Consolidation: ', '')}</span>
                             </p>
                         </div>
                     </div>

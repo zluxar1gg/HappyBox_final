@@ -38,248 +38,15 @@ const routesToPrerender = [
   '/australia', '/ru/australia'
 ];
 
-const seoData = {
-  '/': {
-    title: 'DDP Shipping from China to USA, UAE, EU, Canada & Australia | HappyBox',
-    description: 'Reliable freight forwarder in China. Professional DDP shipping to USA, Canada, UAE & EU. Sea, Air & TIR. Free warehousing and consolidation. Get a free quote!'
-  },
-  '/ru': {
-    title: 'Доставка из Китая под ключ в США, ЕС, Россию, ОАЭ, Канаду и Австралию | Карго HappyBox',
-    description: 'Надежный посредник и доставка из Китая. DDP доставка в США, Канаду, Европу, Россию и Дубай. Авиа, море и авто. Бесплатная консолидация и склад. Рассчитайте стоимость!'
-  },
-  '/usa': {
-    title: 'China to USA Shipping: Air & Sea Freight DDP | HappyBox',
-    description: 'Reliable shipping from China to the USA. Warehousing in China, DDP door-to-door delivery, fast air freight, and cost-effective sea freight. Get a quote today'
-  },
-  '/ru/usa': {
-    title: 'Доставка из Китая в США: DDP, Авиа и Склад в Китае | HappyBox',
-    description: 'Быстрая доставка из Китая в США: авиа, море и DDP растаможка. Склад и преп-центр в Китае для Amazon FBA — подготовим и отправим заказ под ключ'
-  },
-  '/uae': {
-    title: 'Shipping from China to UAE & Dubai | DDP Delivery | HappyBox',
-    description: 'Direct door-to-door shipping from China to Dubai and UAE. Sea freight from $4/kg, Air from $14/kg. Customs clearance included. Start shipping today!'
-  },
-  '/ru/uae': {
-    title: 'Доставка из Китая в ОАЭ и Дубай: Карго DDP | HappyBox',
-    description: 'Прямая доставка из Китая в Эмираты. Море от $4/кг, Авиа от $14/кг. Доставка от двери до двери с полной растаможкой. Рассчитать стоимость доставки!'
-  },
-  '/eu': {
-    title: 'Shipping from China to Europe | DDP & Customs Cleared',
-    description: 'Reliable freight forwarder from China to the EU. We provide DDP shipping (Delivered Duty Paid). No surprise customs fees or VAT issues. Request a quote!'
-  },
-  '/ru/eu': {
-    title: 'Доставка из Китая в Европу: Авто и Авиа Карго DDP | HappyBox',
-    description: 'DDP доставка из Китая в страны ЕС (Германия, Франция, Польша). Авто от $3/кг, Авиа от $10/кг. Доставка до двери без налогов для получателя. Закажите расчет!'
-  },
-  '/russia': {
-    title: 'Shipping from China to Russia | TIR & Express Cargo | HappyBox',
-    description: 'Reliable cargo delivery from China to Russia. Fast TIR trucking from $1.6/kg. White import, customs clearance, and secure logistics. Get a quote!'
-  },
-  '/ru/russia': {
-    title: 'Доставка из Китая в Россию: Карго и Белая доставка | HappyBox',
-    description: 'Надежное карго из Китая в РФ. Быстрая автодоставка (TIR) от $1.6/кг. Помощь с выкупом, таможенное оформление и страхование грузов. Узнайте тарифы!'
-  },
-  '/taobao': {
-    title: 'Taobao Agent & Forwarder: 0% Fee, DDP Shipping to USA/EU',
-    description: 'Buy direct from Taobao. We offer purchasing assistance, free QC photos, package consolidation, and Customs-cleared DDP Shipping. No hidden fees.'
-  },
-  '/ru/taobao': {
-    title: 'Посредник Taobao (0% Комиссия) | Выкуп и Доставка из Китая | HappyBox',
-    description: 'Покупайте на Taobao, 1688 и Tmall с комиссией 0%. HappyBox предлагает бесплатную проверку качества, консолидацию и доставку по всему миру. Сэкономьте до 70% на доставке!'
-  },
-  '/1688': {
-    title: '1688 Agent & Sourcing: Wholesale from China | HappyBox',
-    description: 'Professional 1688 sourcing agent. Buy wholesale from Chinese factories safely. Price negotiation, quality check & global shipping. Get a free sourcing consultation!'
-  },
-  '/ru/1688': {
-    title: 'Посредник 1688 (Китай): Выкуп оптом под 0% | Доставка в РФ',
-    description: 'Надежный посредник для оптовых закупок на 1688.com. Связь с фабриками, консолидация на складе в Китае, оплата картой РФ, доставка Карго "под ключ".'
-  },
-  '/poizon': {
-    title: 'Poizon Dewu Agent: Buy Authentic Sneakers from China | HappyBox',
-    description: 'Buy original sneakers and streetwear from Poizon Dewu. We provide purchasing assistance, legit checks, and fast shipping. Order your authentic gear now!'
-  },
-  '/ru/poizon': {
-    title: 'Выкуп с Poizon (Dewu) под 0% | Оплата картой РФ | HappyBox',
-    description: 'Доставка оригинальных кроссовок с Пойзон. Честный курс, комиссия 0%, бесплатный Legit Check по фото и удобная оплата рублями. Карго и авиа доставка из Китая.'
-  },
-  '/pinduoduo': {
-    title: 'Pinduoduo Agent | Cheap Shopping from China | HappyBox',
-    description: 'Buy items at the lowest prices from Pinduoduo. We help you navigate the app, consolidate your orders, and ship them globally. Get a free quote!'
-  },
-  '/ru/pinduoduo': {
-    title: 'Выкуп с Pinduoduo: Дешевые товары из Китая | Карго HappyBox',
-    description: 'Покупайте товары по самым низким ценам на Pinduoduo. Поможем с выкупом, объединим посылки на складе и отправим удобным способом. Узнайте тарифы!'
-  },
-  '/weidian': {
-    title: 'Best Weidian Agent 2026: 0% Fee, Free QC & DDP Shipping',
-    description: 'Discover exclusive streetwear on Weidian. No WeChat Pay needed. We buy, inspect (Free QC), and ship internationally with DDP (No Customs issues).'
-  },
-  '/ru/weidian': {
-    title: 'Выкуп с Weidian: Посредник для покупок в Китае | HappyBox',
-    description: 'Надежный агент для покупок на Weidian. Поможем заказать товары у независимых продавцов, проверим качество и организуем доставку. Закажите выкуп!'
-  },
-  '/xianyu': {
-    title: 'Xianyu Agent | Buy Second-Hand Goods from China | HappyBox',
-    description: 'Shop for rare and used items on Xianyu Idle Fish. We communicate with sellers, verify products, and ship your finds worldwide. Start shopping today!'
-  },
-  '/ru/xianyu': {
-    title: 'Выкуп с Xianyu Idle Fish: Б/у товары из Китая | HappyBox',
-    description: 'Помощь в покупке редких и б/у товаров на барахолке Xianyu. Договоримся с продавцом, проверим товар на складе и доставим вам. Рассчитайте стоимость!'
-  },
-  '/amazon': {
-    title: 'Amazon FBA Prep Center in China | DDP Shipping to USA & EU | HappyBox',
-    description: 'Full-service Amazon FBA prep in China: labeling, bundling, and quality inspection. Direct DDP shipping to Amazon warehouses in USA/EU. Grow your FBA business!'
-  },
-  '/ru/amazon': {
-    title: 'Преп-центр в Китае: Доставка на Amazon FBA США и Европа',
-    description: 'Услуги преп-центра для селлеров Amazon. Маркировка, упаковка, проверка и прямая DDP доставка на склады Амазон в США и ЕС. Оптимизируйте свою логистику!'
-  },
-  '/inspection': {
-    title: 'Quality Inspection in China | Factory Audits | HappyBox',
-    description: 'Professional quality control in China. Factory audits, pre-shipment inspections, and detailed photo/video reports. Protect your business and imports!'
-  },
-  '/ru/inspection': {
-    title: 'Проверка качества и инспекция фабрик в Китае | HappyBox',
-    description: 'Профессиональный контроль качества в Китае. Выездные инспекции фабрик, проверка партий перед отправкой, фото и видеоотчеты. Защитите свой бизнес от брака!'
-  },
-  '/warehousing': {
-    title: 'Free Warehousing & Consolidation in China | HappyBox',
-    description: 'Save on shipping with free warehousing and parcel consolidation in China. We combine multiple orders into one box to reduce costs. Start saving today!'
-  },
-  '/ru/warehousing': {
-    title: 'Бесплатный склад и консолидация посылок в Китае | HappyBox',
-    description: 'Экономьте на доставке с услугами нашего склада. Бесплатное хранение, проверка, переупаковка и объединение ваших заказов в одну посылку. Пользуйтесь бесплатно!'
-  },
-  '/canada': {
-    title: 'China to Canada Shipping: Air & Sea Freight DDP | HappyBox',
-    description: 'Fast, reliable shipping from China to Canada. Air freight, sea cargo, and DDP delivery — customs and duties handled for you. Get a quote today'
-  },
-  '/ru/canada': {
-    title: 'Доставка из Китая в Канаду: Авиа и Море под ключ | HappyBox',
-    description: 'Надежная доставка грузов из Китая в Канаду: авиа, морской фрахт и DDP растаможка. Учитываем требования CBSA и GST/HST. Расчет за минуту'
-  },
-  '/thailand': {
-    title: 'Shipping from China to Thailand | DDP Sea, Air & Land Freight | HappyBox',
-    description: 'Fast and affordable shipping from China to Thailand. Land freight from $4/kg, Air freight from $11/kg. Tax-free (DDP) delivery to Bangkok, Chiang Mai, Pattaya.'
-  },
-  '/ru/thailand': {
-    title: 'Доставка из Китая в Таиланд | DDP Авиа и Авто | HappyBox',
-    description: 'Быстрая доставка из Китая в Таиланд. Авто от $4/кг, Авиа от $11/кг. DDP доставка без налогов и пошлин в Бангкок, Пхукет, Паттайю.'
-  },
-  '/amazon-canada': {
-    title: 'Amazon FBA Canada Prep & Shipping | HappyBox',
-    description: 'Expert FBA Canada prep & DDP shipping. We handle CBSA, GST/HST, and Canadian labeling requirements — factory to Amazon warehouse'
-  },
-  '/ru/amazon-canada': {
-    title: 'Доставка на склады Amazon FBA Канада | HappyBox',
-    description: 'Доставка на Amazon FBA Канада под ключ: DDP, оформление CBSA и GST/HST, подготовка товара по канадским требованиям'
-  },
-  '/destinations': {
-    title: 'Global Shipping Destinations from China | HappyBox',
-    description: 'Explore our comprehensive sea, air, and train shipping routes from China to North America, Europe, Middle East, and beyond. Find your destination here.'
-  },
-  '/ru/destinations': {
-    title: 'Направления доставки грузов из Китая | Карго HappyBox',
-    description: 'Изучите наши маршруты доставки грузов: море, авиа, Ж/Д авто из Китая в Северную Америку, Европу, страны СНГ и Ближний Восток.'
-  },
-  '/alibaba': {
-    title: 'Alibaba Sourcing Agent: Buy Wholesale Securely | HappyBox',
-    description: 'Trusted Alibaba sourcing agent. We help you negotiate, audit suppliers, inspect quality, and ship worldwide. Source from China safely and efficiently.'
-  },
-  '/ru/alibaba': {
-    title: 'Посредник Alibaba: Оптовые закупки из Китая под ключ | HappyBox',
-    description: 'Надежный агент для работы с Алибаба. Поможем найти поставщиков, провести переговоры, проверить качество на фабрике и доставить груз.'
-  },
-  '/blog': {
-    title: 'Blog & Logistics News from China | HappyBox',
-    description: 'Read the latest updates, guides, and tips on shipping from China, sourcing, platform buying (Taobao, 1688, Poizon), and global logistics.'
-  },
-  '/ru/blog': {
-    title: 'Блог и новости логистики Китая | HappyBox',
-    description: 'Читайте последние новости, гайды и советы по доставке из Китая, выкупу с Taobao/1688/Poizon и глобальной логистике.'
-  },
-  '/blog/how-to-ship-from-pinduoduo-to-dubai-uae': {
-    title: 'How to Ship from Pinduoduo to Dubai (UAE): 2026 Step-by-Step Guide | HappyBox',
-    description: 'Want to buy from Pinduoduo and ship to Dubai? Learn how to bypass China-only addresses, consolidate parcels, and use HappyBox DDP shipping to the UAE with zero customs hassle.'
-  },
-  '/ru/blog/how-to-ship-from-pinduoduo-to-dubai-uae': {
-    title: 'Как заказать с Pinduoduo в Дубай (ОАЭ): Пошаговая инструкция — 2026 | HappyBox',
-    description: 'Хотите заказать с Pinduoduo в Дубай? Узнайте, как обойти ограничения, объединить посылки и использовать доставку HappyBox DDP в ОАЭ без проблем с таможней.'
-  },
-  '/blog/taobao-shopping-2026': {
-    title: 'How to Buy on Taobao in 2026: The Ultimate Guide | HappyBox',
-    description: "Taobao is China's largest marketplace. Learn how to order goods, search with AI, solve crypto (USDT) payment issues, and manage shipping in 2026."
-  },
-  '/ru/blog/taobao-shopping-2026': {
-    title: 'Как покупать на Taobao в 2026 году: полный гайд | HappyBox',
-    description: 'Taobao — крупнейший торговый маркетплейс Китая. Узнайте, как заказывать товары, искать через AI, решать вопросы с оплатой криптой (USDT) и доставкой в 2026 году.'
-  },
-  '/blog/weidian-poizon-pinduoduo-guide': {
-    title: 'Weidian, Poizon, and Pinduoduo: Differences and What to Buy Where | HappyBox',
-    description: 'A comparison of Chinese marketplaces: why you need Weidian, how to verify sneakers on Poizon, and the hidden pitfalls of Pinduoduo.'
-  },
-  '/ru/blog/weidian-poizon-pinduoduo-guide': {
-    title: 'Weidian, Poizon и Pinduoduo: в чём разница и что где покупать | HappyBox',
-    description: 'Сравнение китайских маркетплейсов: для чего нужен Weidian, как проверить кроссовки на Poizon и какие подводные камни таит Pinduoduo.'
-  },
-  '/blog/chinese-holidays-calendar-2026': {
-    title: 'Chinese Holidays Calendar 2026: Shipping Deadlines | HappyBox',
-    description: 'Find out the exact dates for Chinese New Year, Labor Day, and Golden Week in 2026. Plan your inventory to completely avoid supply chain disruptions.'
-  },
-  '/ru/blog/chinese-holidays-calendar-2026': {
-    title: 'Календарь китайских праздников 2026: как планировать доставку | HappyBox',
-    description: 'Узнайте точные даты Китайского Нового года, Майских праздников и Золотой недели в 2026 году. Планируйте закупки заранее, чтобы избежать задержек.'
-  },
-  '/indonesia': {
-    title: 'Shipping from China to Indonesia | DDP Sea & Air | HappyBox',
-    description: 'Secure Air & Economy Sea Freight from China to Indonesia. DDP Door-to-Door delivery. Air from $10/kg, Sea from $1.1/kg. No Import Licenses needed.'
-  },
-  '/ru/indonesia': {
-    title: 'Доставка из Китая в Индонезию | DDP Море и Авиа | HappyBox',
-    description: 'Экономичная DDP доставка в Индонезию. Авиа от $10/кг, Море от $1.1/кг. Полная очистка без необходимости лицензий API и уплаты НДС.'
-  },
-  '/argentina': {
-    title: 'Shipping from China to Argentina | DDP Delivery | HappyBox',
-    description: 'Secure Door-to-Door DDP Logistics from China to Argentina. Ocean freight from $1.8/kg, Air freight from $14/kg. AFIP customs and taxes handled.'
-  },
-  '/ru/argentina': {
-    title: 'Доставка из Китая в Аргентину | DDP Карго до двери | HappyBox',
-    description: 'Прямая DDP доставка из Китая в Аргентину. Море от $1.8/кг, Авиа от $14/кг. Растаможка (AFIP) и налоги (IVA) включены в тариф.'
-  },
-  '/south-africa': {
-    title: 'Shipping from China to South Africa | DDP Sea & Air | HappyBox',
-    description: 'Reliable Air & Sea Freight from China to South Africa. DDP Door-to-Door delivery. Sea from $1.3/kg, Air from $12/kg. SARS obligations handled.'
-  },
-  '/ru/south-africa': {
-    title: 'Доставка из Китая в ЮАР | DDP Море и Авиа | HappyBox',
-    description: 'Оптимальная DDP доставка из Китая в ЮАР. Море от $1.3/кг, Авиа от $12/кг. Все таможенные пошлины (SARS) и НДС включены.'
-  },
-  '/georgia': {
-    title: 'Shipping from China to Georgia | Middle Corridor DDP | HappyBox',
-    description: 'Reliable Air & Fast Land Freight from China to Georgia. Direct door-to-door delivery. Trucking from $1.2/kg, Air from $15/kg. Customs handled.'
-  },
-  '/ru/georgia': {
-    title: 'Доставка из Китая в Грузию | DDP Авиа и Авто | HappyBox',
-    description: 'Надежная и быстрая доставка карго из Китая в Грузию. Авто от $1.2/кг, Авиа от $15/кг. Растаможка и НДС включены.'
-  },
-  '/israel': {
-    title: 'Shipping from China to Israel | DDP Sea & Air | HappyBox',
-    description: 'Direct Door-to-Door DDP delivery to Israel. Air freight from $15/kg, Sea freight from $1.2/kg. Customs & VAT (Ma\'am) handling included.'
-  },
-  '/ru/israel': {
-    title: 'Доставка из Китая в Израиль | DDP Море и Авиа | HappyBox',
-    description: 'Надежная доставка DDP из Китая в Израиль. Авиа от $15/кг, Море от $1.2/кг. Таможенная очистка и НДС (Маам) включены.'
-  },
-  '/australia': {
-    title: 'Shipping from China to Australia | Hassle-Free DDP | HappyBox',
-    description: 'Cost-effective DDP shipping from China to Australia. Sea freight from $1.3/kg, Air freight from $9/kg. Taxes, duties (GST), and quarantine handled.'
-  },
-  '/ru/australia': {
-    title: 'Доставка из Китая в Австралию | DDP Море и Авиа | HappyBox',
-    description: 'Недорогая Карго доставка DDP из Китая в Австралию. Море от $1.3/кг, Авиа от $9/кг. Налоги (GST), таможня и био-контроль включены.'
-  }
-};
+function stripFallbackSeoTags(html) {
+  return html
+    .replace(/\s*<title[^>]*>[\s\S]*?<\/title>/i, '')
+    .replace(/\s*<meta[^>]+data-rh="true"[^>]*\/?>/gi, '')
+    .replace(/\s*<meta[^>]+name="(?:description|robots)"[^>]*\/?>/gi, '')
+    .replace(/\s*<meta[^>]+property="og:(?:type|url|title|description|image|site_name|locale|locale:alternate)"[^>]*\/?>/gi, '')
+    .replace(/\s*<meta[^>]+name="twitter:(?:url|title|description|image)"[^>]*\/?>/gi, '')
+    .replace(/\s*<link[^>]+rel="(?:canonical|alternate)"[^>]*\/?>/gi, '');
+}
 
 async function prerender() {
   const template = fs.readFileSync(path.resolve(__dirname, 'dist/client/index.html'), 'utf-8');
@@ -288,52 +55,33 @@ async function prerender() {
   const { render } = await import('./dist/server/entry-server.js');
 
   for (const url of routesToPrerender) {
-    const appHtml = render(url);
+    const { appHtml, helmet } = render(url);
     
     let html = template.replace(`<!--app-html-->`, appHtml);
     // If the template has <div id="root"></div>, replace it:
     html = html.replace(`<div id="root"></div>`, `<div id="root">${appHtml}</div>`);
-    
-    const seo = seoData[url];
-    if (seo) {
-      html = html.replace(/<title>.*<\/title>/, `<title>${seo.title}</title>`);
-      html = html.replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${seo.title}" />`);
-      html = html.replace(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${seo.title}" />`);
-      
-      html = html.replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${seo.description}" />`);
-      html = html.replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${seo.description}" />`);
-      html = html.replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${seo.description}" />`);
-      
-      const fullUrl = `https://happyboxlogistics.com${url === '/' ? '' : url}`;
-      html = html.replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${fullUrl}" />`);
-      html = html.replace(/<meta name="twitter:url" content="[^"]*" \/>/, `<meta name="twitter:url" content="${fullUrl}" />`);
-    }
 
-    // Canonical & Hreflang Tags Injection for Search Engines
-    let enUrl, ruUrl;
-    if (url === '/' || url === '/ru') {
-      enUrl = 'https://happyboxlogistics.com/';
-      ruUrl = 'https://happyboxlogistics.com/ru';
-    } else if (url.startsWith('/ru/')) {
-      ruUrl = `https://happyboxlogistics.com${url}`;
-      enUrl = `https://happyboxlogistics.com${url.replace(/^\/ru/, '')}`;
-    } else {
-      enUrl = `https://happyboxlogistics.com${url}`;
-      ruUrl = `https://happyboxlogistics.com/ru${url}`;
-    }
-
-    const canonicalUrl = url === '/' ? 'https://happyboxlogistics.com/' : `https://happyboxlogistics.com${url}`;
     const langAttr = (url === '/ru' || url.startsWith('/ru/')) ? 'ru' : 'en';
+    const htmlAttrs = helmet?.htmlAttributes?.toString()?.trim();
+    html = html.replace(/<html[^>]*>/i, `<html ${htmlAttrs || `lang="${langAttr}"`}>`);
 
-    html = html.replace(/<html lang="[^"]*"/, `<html lang="${langAttr}"`);
+    if (helmet) {
+      html = stripFallbackSeoTags(html);
 
-    const seoLinks = `    <!-- Canonical & Hreflang (Generated by SSR Prerender) -->
-    <link rel="canonical" href="${canonicalUrl}" />
-    <link rel="alternate" hreflang="en" href="${enUrl}" />
-    <link rel="alternate" hreflang="ru" href="${ruUrl}" />
-    <link rel="alternate" hreflang="x-default" href="${enUrl}" />`;
+      const helmetTags = [
+        helmet.title?.toString(),
+        helmet.priority?.toString(),
+        helmet.meta?.toString(),
+        helmet.link?.toString(),
+        helmet.script?.toString(),
+      ]
+        .filter(Boolean)
+        .join('\n    ');
 
-    html = html.replace('</head>', `${seoLinks}\n  </head>`);
+      if (helmetTags) {
+        html = html.replace('</head>', `    ${helmetTags}\n  </head>`);
+      }
+    }
 
     const filePath = path.resolve(__dirname, 'dist/client', url === '/' ? 'index.html' : `${url.slice(1)}/index.html`);
     
