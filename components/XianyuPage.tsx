@@ -90,7 +90,6 @@ export const XianyuPage = ({ language, setLanguage, onBack, onNavigate }: { lang
             <Header 
                 language={language} 
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
                 onNavigate={onNavigate}
@@ -208,7 +207,7 @@ export const XianyuPage = ({ language, setLanguage, onBack, onNavigate }: { lang
 
                 <XianyuAdvancedGuide language={language} onNavigate={onNavigate} />
 
-                <div id="contacts">
+                <div>
                     <Contact language={language} currentPage="xianyu" />
                 </div>
                 

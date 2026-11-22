@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { X, Mail } from 'lucide-react';
 import { Language, translations } from '../utils/translations';
 import { trackLead } from '../utils/analytics';
@@ -58,6 +59,7 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ language }) => {
+  const navigate = useNavigate();
   const [activeModal, setActiveModal] = useState<'privacy' | 'terms' | null>(null);
   const t = translations[language].footer;
 
@@ -84,14 +86,18 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
   };
 
   const getHashUrl = (hash: string) => {
-    const prefix = language === 'ru' ? '/ru' : '';
-    return `${prefix}#${hash}`;
+    return language === 'ru' ? `/ru#${hash}` : `/#${hash}`;
+  };
+
+  const handleRouteClick = (e: React.MouseEvent<HTMLAnchorElement>, targetUrl: string) => {
+    e.preventDefault();
+    navigate(targetUrl);
   };
 
   const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault();
     const element = document.getElementById(hash);
     if (element) {
-      e.preventDefault();
       const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
@@ -100,6 +106,8 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         top: offsetPosition,
         behavior: 'smooth'
       });
+    } else {
+      navigate(getHashUrl(hash));
     }
   };
 
@@ -164,6 +172,9 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
     <>
       <footer className="bg-brand-light pt-16 pb-8 overflow-hidden relative border-t border-brand-blue/15">
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          <h2 className="sr-only">
+            {isRu ? 'Навигация в подвале сайта' : 'Footer navigation'}
+          </h2>
           
           {/* Mega-Footer Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
@@ -172,6 +183,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             <div className="sm:col-span-2 lg:col-span-4 space-y-5">
               <a 
                 href={isRu ? '/ru' : '/'} 
+                onClick={(e) => handleRouteClick(e, isRu ? '/ru' : '/')}
                 className="inline-block text-3xl md:text-4xl font-extrabold text-brand-blue tracking-tighter hover:opacity-90 transition-opacity"
               >
                 HappyBox
@@ -212,6 +224,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                   <li key={link.path}>
                     <a 
                       href={getUrl(link.path)}
+                      onClick={(e) => handleRouteClick(e, getUrl(link.path))}
                       className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight hover:translate-x-0.5 transform duration-150"
                     >
                       {link.label}
@@ -231,6 +244,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                   <li key={link.path}>
                     <a 
                       href={getUrl(link.path)}
+                      onClick={(e) => handleRouteClick(e, getUrl(link.path))}
                       className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight hover:translate-x-0.5 transform duration-150"
                     >
                       {link.label}
@@ -259,6 +273,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                     ) : (
                       <a 
                         href={getUrl(link.path!)}
+                        onClick={(e) => handleRouteClick(e, getUrl(link.path!))}
                         className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight hover:translate-x-0.5 transform duration-150"
                       >
                         {link.label}
@@ -289,6 +304,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                       ) : (
                         <a 
                           href={getUrl(link.path!)}
+                          onClick={(e) => handleRouteClick(e, getUrl(link.path!))}
                           className="text-xs text-gray-700 hover:text-brand-blue transition-colors font-medium block leading-tight hover:translate-x-0.5 transform duration-150"
                         >
                           {link.label}

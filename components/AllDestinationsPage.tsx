@@ -6,6 +6,7 @@ import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
 import { DestinationsGrid } from './DestinationsGrid';
+import { Breadcrumbs } from './Breadcrumbs';
 import { ArrowLeft } from 'lucide-react';
 
 interface Props {
@@ -64,7 +65,6 @@ export const AllDestinationsPage: React.FC<AllDestinationsPageProps> = ({
         <Header 
           language={language} 
           setLanguage={setLanguage} 
-          onLoginClick={() => {}}
           isDashboard={false}
           onNavigate={onNavigate}
           onBack={onBack}
@@ -74,6 +74,15 @@ export const AllDestinationsPage: React.FC<AllDestinationsPageProps> = ({
           {/* Header Section */}
           <section className="py-12 lg:py-24 bg-cream">
               <div className="container mx-auto px-6 xl:px-0">
+                   <div className="max-w-5xl mx-auto mb-4">
+                      <Breadcrumbs
+                          language={language}
+                          onNavigate={onNavigate}
+                          items={[
+                              { label: isEn ? 'All Destinations' : 'Все направления' }
+                          ]}
+                      />
+                   </div>
                    <div className="max-w-5xl mx-auto text-center">
                       <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
                           {isEn ? 'International Delivery Destinations from China' : 'Все направления доставки грузов и посылок из Китая'}
@@ -94,8 +103,8 @@ export const AllDestinationsPage: React.FC<AllDestinationsPageProps> = ({
               </div>
           </section>
 
-          <Contact language={language} currentPage="home" /> {/* Or generic */}
-          <SeoBlock language={language} onNavigate={onNavigate || (() => {})} />
+          <Contact language={language} currentPage="destinations" />
+          <SeoBlock language={language} onNavigate={onNavigate || (() => {})} currentPage="destinations" />
         </main>
 
         <Footer language={language} />

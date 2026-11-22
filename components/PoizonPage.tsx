@@ -44,6 +44,25 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
             ],
             feeTitle: "Transparent Fees: 0% Service Commission and Fair Exchange Rates",
             feeText: "Commission: 0% Service Fee. You pay exactly the price of the item plus shipping.",
+            faqTitle: "Frequently Asked Questions About Ordering from Poizon (Dewu)",
+            faqList: [
+                {
+                    q: "How much commission does HappyBox charge on Poizon (Dewu)?",
+                    a: "HappyBox charges a 0% service fee for purchasing on Poizon (Dewu) with transparent currency rates close to market spot rates and no hidden 15–50% exchange markups. You pay the real price of the item plus international shipping."
+                },
+                {
+                    q: "How is item authenticity guaranteed and what comes in the box?",
+                    a: "Every item passes Poizon's multi-step physical lab Legit Check before shipping to our warehouse; counterfeits are immediately refunded by Poizon. Authentic orders arrive in the signature Turquoise Box with the Blue Verification Tag and NFC certificate, plus we send free QC photos of the item, tag, and certificate before international dispatch."
+                },
+                {
+                    q: "How do you protect sneaker boxes and how fast is delivery from Poizon?",
+                    a: "All sneakers ship in reinforced double-box packaging so the original brand box arrives intact. Orders typically arrive at our China warehouse within 2–7 days (depending on seller button) and deliver internationally via air freight in 5–12 days to most destinations."
+                },
+                {
+                    q: "What do the Turquoise, Black, and Gray 95 buttons mean in the Dewu app?",
+                    a: "The Turquoise button indicates authenticated stock with \"Ship in 48h\" instant dispatch, while the Black button is standard delivery (+3–7 days via seller-to-Poizon authentication). Avoid the Gray \"95\" button unless you want pre-owned goods (~95% condition); \"Damaged Box\" means a brand-new unworn item whose box was dented."
+                }
+            ],
             cta: "Start Shopping on Poizon"
         },
         ru: {
@@ -80,6 +99,25 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
             ],
             feeTitle: "Прозрачные тарифы: 0% комиссии сервиса и честный курс валют",
             feeText: "Комиссия: 0%. Вы платите ровно стоимость товара и доставку.",
+            faqTitle: "Частые вопросы о выкупе и доставке с Poizon (Dewu)",
+            faqList: [
+                {
+                    q: "Какая комиссия за выкуп с Poizon (Dewu) и по какому курсу идет оплата?",
+                    a: "Комиссия сервиса HappyBox составляет 0%. Мы используем прозрачный курс, близкий к рыночному, без скрытых наценок в 15–50% — вы платите реальную стоимость товара на платформе и международную доставку."
+                },
+                {
+                    q: "Как гарантируется оригинальность товаров и что идет в комплекте?",
+                    a: "Каждый товар проходит физическую проверку подлинности (Legit Check) в лаборатории Poizon — при выявлении подделки платформа сразу возвращает деньги. Оригинал приходит в фирменной бирюзовой коробке с голубой пломбой и NFC-сертификатом, а перед отправкой из Китая мы бесплатно присылаем фотоотчет товара, пломбы и сертификата."
+                },
+                {
+                    q: "Как защищается коробка кроссовок и сколько занимает доставка с Poizon?",
+                    a: "Мы отправляем кроссовки в усиленной двойной коробке (double-box), чтобы оригинальная упаковка доехала без повреждений. Доставка по Китаю до нашего склада обычно занимает 2–7 дней, а международная авиадоставка до двери — 5–12 дней для большинства направлений."
+                },
+                {
+                    q: "Что означают бирюзовая, черная и серая кнопка «95» в приложении Dewu?",
+                    a: "Бирюзовая кнопка — это уже проверенный товар с быстрой отправкой за 48 часов, черная — стандартная поставка через продавца с дополнительной проверкой (+3–7 дней). Серую кнопку с пометкой «95» стоит избегать, если нужна новая вещь (это б/у товары), а «Damaged Box» означает абсолютно новый товар с помятой коробкой."
+                }
+            ],
             cta: "Начать покупки на Poizon"
         }
     };
@@ -91,7 +129,6 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
             <Header 
                 language={language} 
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
                 onNavigate={onNavigate}
@@ -184,6 +221,18 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
                         </div>
                     </div>
 
+                    <div className="mb-20 bg-gray-50 rounded-[35px] p-8 sm:p-10 border border-gray-100 max-w-5xl mx-auto">
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-8 text-center">{t.faqTitle}</h2>
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {t.faqList.map((faq, idx) => (
+                                <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                                    <h3 className="font-bold text-lg text-brand-dark mb-2 leading-snug">{faq.q}</h3>
+                                    <p className="text-gray-600 text-base leading-relaxed font-medium">{faq.a}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
                     <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
                         <div className="w-24 h-24 bg-[#00B2B2] text-white rounded-full flex items-center justify-center shrink-0">
                             <Percent size={40} />
@@ -209,7 +258,7 @@ export const PoizonPage = ({ language, setLanguage, onBack, onNavigate }: { lang
 
                 <PoizonAdvancedGuide language={language} onNavigate={onNavigate} />
 
-                <div id="contacts">
+                <div>
                     <Contact language={language} currentPage="poizon" />
                 </div>
                 

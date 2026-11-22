@@ -17,8 +17,6 @@ export const SeoBlock: React.FC<SeoBlockProps> = ({ language, onNavigate, curren
   // Helper to determine destination and create link
   const getLinkData = (text: string, overrideLink?: string) => {
     const lowerText = text.toLowerCase();
-    const params = new URLSearchParams();
-    if (language === 'ru') params.set('lang', 'ru');
 
     let pageId: string | null = overrideLink || null;
 
@@ -26,7 +24,7 @@ export const SeoBlock: React.FC<SeoBlockProps> = ({ language, onNavigate, curren
       // Destinations
       if (lowerText.includes('usa') || lowerText.includes('сша')) pageId = 'usa';
       else if (lowerText.includes('uae') || lowerText.includes('dubai') || lowerText.includes('оаэ') || lowerText.includes('дубай')) pageId = 'uae';
-      else if (lowerText.includes('europe') || lowerText.includes('germany') || lowerText.includes('france') || lowerText.includes('европа') || lowerText.includes('германию') || lowerText.includes('францию')) pageId = 'eu';
+      else if (lowerText.includes('europe') || lowerText.includes('germany') || lowerText.includes('france') || lowerText.includes('европа') || lowerText.includes('европу') || lowerText.includes('европы') || lowerText.includes('германию') || lowerText.includes('францию')) pageId = 'eu';
       else if (lowerText.includes('russia') || lowerText.includes('россию')) pageId = 'russia';
       else if (lowerText.includes('canada') || lowerText.includes('канада') || lowerText.includes('канаду')) pageId = 'canada';
       else if (lowerText.includes('thailand') || lowerText.includes('таиланд') || lowerText.includes('тайланд')) pageId = 'thailand';
@@ -46,9 +44,10 @@ export const SeoBlock: React.FC<SeoBlockProps> = ({ language, onNavigate, curren
       else if (lowerText.includes('pinduoduo')) pageId = 'pinduoduo';
       else if (lowerText.includes('xianyu')) pageId = 'xianyu';
       else if (lowerText.includes('weidian')) pageId = 'weidian';
+      else if (lowerText.includes('amazon canada') || lowerText.includes('amazon.ca') || lowerText.includes('амазон канада')) pageId = 'amazon-canada';
       else if (lowerText.includes('amazon')) pageId = 'amazon';
       else if (lowerText.includes('inspection') || lowerText.includes('quality') || lowerText.includes('инспекция') || lowerText.includes('брак')) pageId = 'inspection';
-      else if (lowerText.includes('warehousing') || lowerText.includes('storage') || lowerText.includes('consolidation') || lowerText.includes('хранение') || lowerText.includes('консолидация')) pageId = 'warehousing';
+      else if (lowerText.includes('warehousing') || lowerText.includes('storage') || lowerText.includes('consolidation') || lowerText.includes('хранение') || lowerText.includes('консолидация') || lowerText.includes('консолидации') || lowerText.includes('консолидацию') || lowerText.includes('склад')) pageId = 'warehousing';
     }
 
     if (pageId) {
@@ -71,7 +70,7 @@ export const SeoBlock: React.FC<SeoBlockProps> = ({ language, onNavigate, curren
   const renderColumn = (col: any, idx: number) => {
     return (
       <div key={idx}>
-        <h4 className="font-bold text-brand-dark mb-4 text-base">{col.title}</h4>
+        <h3 className="font-bold text-brand-dark mb-4 text-base">{col.title}</h3>
         <ul className="space-y-2">
           {col.items.map((item: any, i: number) => {
             const isStr = typeof item === 'string';
@@ -104,9 +103,9 @@ export const SeoBlock: React.FC<SeoBlockProps> = ({ language, onNavigate, curren
   return (
     <section className="bg-cream border-t border-brand-blue/10 py-10">
       <div className="container mx-auto px-6 xl:px-0">
-        <h3 className="font-bold text-brand-dark text-xl md:text-2xl mb-8">
+        <h2 className="font-bold text-brand-dark text-xl md:text-2xl mb-8">
           {t.toggle}
-        </h3>
+        </h2>
 
         <div>
            {overrides ? (

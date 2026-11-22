@@ -6,9 +6,10 @@ import { TableWrapper } from './TableWrapper';
 interface Props {
   language: Language;
   simplified?: boolean;
+  onNavigate?: (page: string) => void;
 }
 
-export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplified }) => {
+export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplified, onNavigate }) => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -669,7 +670,19 @@ export const UsaAdvancedLogisticsGuide: React.FC<Props> = ({ language, simplifie
             
             <div className="bg-[#FF9900]/10 border border-[#FF9900]/20 rounded-2xl p-6 text-center">
               <p className="text-brand-dark font-medium">
-                {t.fbaLinkDesc} <a href={language === 'en' ? '/amazon' : '/ru/amazon'} className="text-[#FF9900] font-bold hover:underline">{t.fbaLinkText}</a>.
+                {t.fbaLinkDesc}{' '}
+                <a
+                  href={language === 'en' ? '/amazon' : '/ru/amazon'}
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('amazon');
+                    }
+                  }}
+                  className="text-[#FF9900] font-bold hover:underline"
+                >
+                  {t.fbaLinkText}
+                </a>.
               </p>
             </div>
           </div>

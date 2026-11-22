@@ -197,13 +197,18 @@ export const WeidianAdvancedGuide: React.FC<WeidianAdvancedGuideProps> = ({ lang
                                 <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 mb-6 mt-6">
                                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
                                         {(section as any).beyondPlatforms.map((plat: any, i: number) => (
-                                            <div key={i} onClick={() => onNavigate && onNavigate(plat.id)} className="bg-brand-blue p-6 rounded-[24px] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-transparent cursor-pointer group flex flex-col h-full text-left">
+                                            <a
+                                                key={i}
+                                                href={`${language === 'ru' ? '/ru' : ''}/${plat.id}`}
+                                                onClick={(e) => { if (onNavigate) { e.preventDefault(); onNavigate(plat.id); } }}
+                                                className="bg-brand-blue p-6 rounded-[24px] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-transparent cursor-pointer group flex flex-col h-full text-left"
+                                            >
                                                 <h4 className="font-bold text-white mb-2 text-lg transition-colors flex items-center gap-2">
                                                     {plat.name}
                                                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-1"/>
                                                 </h4>
                                                 <p className="text-white/80 font-medium text-sm leading-relaxed">{plat.desc}</p>
-                                            </div>
+                                            </a>
                                         ))}
                                     </div>
                                     

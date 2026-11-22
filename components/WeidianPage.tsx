@@ -111,7 +111,6 @@ export const WeidianPage: React.FC<WeidianPageProps> = ({ language, setLanguage,
             <Header
                 language={language}
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
                 onNavigate={onNavigate}
@@ -233,7 +232,7 @@ export const WeidianPage: React.FC<WeidianPageProps> = ({ language, setLanguage,
 
                 <WeidianAdvancedGuide language={language} onNavigate={onNavigate} />
 
-                <div id="contacts">
+                <div>
                     <Contact language={language} currentPage="weidian" />
                 </div>
                 

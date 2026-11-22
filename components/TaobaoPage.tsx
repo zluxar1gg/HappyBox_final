@@ -135,7 +135,6 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
             <Header
                 language={language}
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
                 onNavigate={onNavigate}
@@ -267,7 +266,7 @@ export const TaobaoPage: React.FC<TaobaoPageProps> = ({ language, setLanguage, o
 
                 <TaobaoAdvancedGuide language={language} onNavigate={onNavigate} />
 
-                <div id="contacts">
+                <div>
                     <Contact language={language} currentPage="taobao" />
                 </div>
                 

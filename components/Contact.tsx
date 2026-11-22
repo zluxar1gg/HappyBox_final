@@ -129,7 +129,7 @@ export const Contact: React.FC<ContactProps> = ({ language, currentPage = 'home'
   };
 
   return (
-    <section id="contacts" className="pt-12 pb-20">
+    <section id="contacts" className="pt-12 pb-20 scroll-mt-28">
       <div className="container mx-auto">
         <div className="bg-white rounded-[30px] p-8 lg:p-16 text-center shadow-sm max-w-[1200px] mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-brand-dark mb-8 tracking-tight">

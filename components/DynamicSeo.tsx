@@ -27,6 +27,34 @@ export const DynamicSeo: React.FC<DynamicSeoProps> = ({ language, currentPage, s
     );
   }
 
+  if (currentPage === 'dashboard' || currentPage === 'admin') {
+    const portalTitle =
+      currentPage === 'admin'
+        ? language === 'ru'
+          ? 'Админ-панель | HappyBox'
+          : 'Admin Portal | HappyBox'
+        : language === 'ru'
+          ? 'Личный кабинет | HappyBox'
+          : 'Client Portal | HappyBox';
+    const portalDesc =
+      currentPage === 'admin'
+        ? language === 'ru'
+          ? 'Панель управления отправлениями и посылками HappyBox.'
+          : 'HappyBox logistics administration portal.'
+        : language === 'ru'
+          ? 'Личный кабинет клиента HappyBox: адреса складов в Китае и отслеживание посылок.'
+          : 'HappyBox client portal: China warehouse addresses and parcel tracking.';
+
+    return (
+      <Helmet>
+        <title>{portalTitle}</title>
+        <meta name="description" content={portalDesc} />
+        <meta name="robots" content="noindex, nofollow" />
+        <html lang={language === 'ru' ? 'ru' : 'en'} />
+      </Helmet>
+    );
+  }
+
   let enPath = '/';
   let ruPath = '/ru';
 

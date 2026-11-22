@@ -6,6 +6,7 @@ import { Footer } from './Footer';
 import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
+import { Breadcrumbs } from './Breadcrumbs';
 import { Truck, FileCheck, Lock, CreditCard, ShieldCheck, Send, Check } from 'lucide-react';
 
 interface RuShippingPageProps {
@@ -184,14 +185,24 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
             <Header
                 language={language}
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
+                onNavigate={onNavigate}
             />
 
             <main>
                 <section className="py-12 lg:py-24 bg-cream">
                     <div className="container mx-auto px-6 xl:px-0">
+                         <div className="max-w-5xl mx-auto mb-4">
+                            <Breadcrumbs
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={[
+                                    { label: language === 'ru' ? 'Все направления' : 'All Destinations', path: 'destinations' },
+                                    { label: language === 'ru' ? 'Доставка в Россию' : 'Russia Shipping' }
+                                ]}
+                            />
+                         </div>
                          <div className="max-w-5xl mx-auto text-center">
                             <span className="inline-flex items-center justify-center bg-brand-blue/10 text-brand-blue px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                 {language === 'en' ? 'Russia-Direct Line' : 'Прямая линия в Россию'}
@@ -231,7 +242,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
                                     <method.icon size={28} />
                                 </div>
                                 <div className="flex justify-between items-start mb-2">
-                                    <h4 className="font-bold text-xl text-brand-dark">{method.title}</h4>
+                                    <h3 className="font-bold text-xl text-brand-dark">{method.title}</h3>
                                     <span className="text-[10px] font-black uppercase bg-gray-100 px-2 py-1 rounded-md text-gray-500 tracking-wider">{method.tag}</span>
                                 </div>
                                 <p className="text-sm text-gray-500 font-medium mb-6 flex-grow leading-relaxed">
@@ -319,7 +330,7 @@ export const RuShippingPage: React.FC<RuShippingPageProps> = ({ language, setLan
 
                 </section>
 
-                <div id="contacts">
+                <div>
                     <Contact language={language} currentPage="russia" />
                 </div>
 

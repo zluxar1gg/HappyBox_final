@@ -50,6 +50,16 @@
 - [Доставка в Европу (RU)](https://happyboxlogistics.com/ru/eu): Авто (TIR) и авиа карго в страны ЕС.
 - [Доставка в Канаду (RU)](https://happyboxlogistics.com/ru/canada): Доставка под ключ в Канаду с растаможкой.
 - [Доставка в Россию (RU)](https://happyboxlogistics.com/ru/russia): Карго и белая доставка из Китая.
+- [Все направления доставки (RU)](https://happyboxlogistics.com/ru/destinations): Все страны и тарифы доставки из Китая.
+- [Доставка в Таиланд (RU)](https://happyboxlogistics.com/ru/thailand): Авиа и авто карго DDP в Бангкок и на Пхукет.
+- [Доставка в Индонезию и на Бали (RU)](https://happyboxlogistics.com/ru/indonesia): Авиа и море LCL DDP без лицензий API и SNI.
+- [Доставка в Австралию (RU)](https://happyboxlogistics.com/ru/australia): Авиа и море DDP с оформлением DAFF и GST.
+- [Доставка в Аргентину (RU)](https://happyboxlogistics.com/ru/argentina): Авиа и море DDP в Буэнос-Айрес и по стране.
+- [Доставка в ЮАР (RU)](https://happyboxlogistics.com/ru/south-africa): Авиа и море LCL DDP в Йоханнесбург и Кейптаун.
+- [Доставка в Грузию (RU)](https://happyboxlogistics.com/ru/georgia): Авиа и авто через Средний коридор в Тбилиси и Батуми.
+- [Доставка в Израиль (RU)](https://happyboxlogistics.com/ru/israel): Авиа и морские перевозки в Тель-Авив, Хайфу и Ашдод.
+- [Amazon FBA США (RU)](https://happyboxlogistics.com/ru/amazon): Преп-центр в Шэньчжэне, маркировка FNSKU и DDP доставка в США.
+- [Amazon FBA Канада (RU)](https://happyboxlogistics.com/ru/amazon-canada): CBSA, GST/HST, маркировка EN/FR и доставка на хабы Amazon.ca.
 - [Закупки на Alibaba (RU)](https://happyboxlogistics.com/ru/alibaba): Фулфилмент Alibaba, тарифы EXW и DDP 0% комиссии.
 - [Выкуп с 1688 (RU)](https://happyboxlogistics.com/ru/1688): Оптовые закупки с фабрик Китая под 0%.
 - [Выкуп с Taobao (RU)](https://happyboxlogistics.com/ru/taobao): Посредник Taobao 0% комиссия, бесплатная проверка.
@@ -61,3 +71,7 @@
 - [Инспекция и проверка качества (RU)](https://happyboxlogistics.com/ru/inspection): Выездные проверки фабрик и фотоотчеты за 24 часа.
 - [Склад и консолидация (RU)](https://happyboxlogistics.com/ru/warehousing): Бесплатное хранение до 30 дней в Шэньчжэне и Гуанчжоу.
 - [Блог о логистике из Китая (RU)](https://happyboxlogistics.com/ru/blog): Инструкции, гайды и новости логистики.
+- [Как заказать с Pinduoduo в Дубай (RU)](https://happyboxlogistics.com/ru/blog/how-to-ship-from-pinduoduo-to-dubai-uae): Пошаговая инструкция по доставке DDP в ОАЭ.
+- [Как покупать на Taobao в 2026 (RU)](https://happyboxlogistics.com/ru/blog/taobao-shopping-2026): Полный гид по выкупу, поиску и оплате.
+- [Отличия Weidian, Poizon и Pinduoduo (RU)](https://happyboxlogistics.com/ru/blog/weidian-poizon-pinduoduo-guide): Сравнение китайских площадок.
+- [Календарь китайских праздников 2026 (RU)](https://happyboxlogistics.com/ru/blog/chinese-holidays-calendar-2026): График выходных и дедлайны отгрузок.

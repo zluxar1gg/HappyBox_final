@@ -25,9 +25,8 @@ export const ShoppingGuides: React.FC<{ language: Language }> = ({ language }) =
     return () => { document.body.style.overflow = 'unset'; };
   }, [activeGuide]);
 
-  const handleBuyForMe = () => {
+  const handleBuyForMeTrack = () => {
     trackLead('telegram', 'contact_section', 'click');
-    window.open('https://t.me/d_china_hbl', '_blank');
   };
 
   const getBrandTextStyle = (id: string) => {
@@ -110,9 +109,9 @@ export const ShoppingGuides: React.FC<{ language: Language }> = ({ language }) =
 
                 {/* Steps Section */}
                 <div className="space-y-4">
-                  <h4 className="text-xs font-black text-brand-blue uppercase tracking-[0.2em] flex items-center gap-2">
+                  <h3 className="text-xs font-black text-brand-blue uppercase tracking-[0.2em] flex items-center gap-2">
                     <ArrowDownCircle size={16} /> {language === 'en' ? 'Step-by-Step' : 'Пошагово'}
-                  </h4>
+                  </h3>
                   <ul className="space-y-4">
                     {activeGuide.steps.map((step: string, idx: number) => (
                       <li key={idx} className="flex gap-4 items-start bg-gray-50 p-4 rounded-2xl border border-gray-100">
@@ -162,13 +161,16 @@ export const ShoppingGuides: React.FC<{ language: Language }> = ({ language }) =
 
               {/* Footer Actions */}
               <div className="p-8 pt-4 mt-auto border-t border-gray-100 bg-gray-50/50 space-y-4">
-                <button 
-                  onClick={handleBuyForMe}
+                <a 
+                  href="https://t.me/d_china_hbl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleBuyForMeTrack}
                   className="w-full bg-brand-blue text-white py-5 rounded-2xl font-black text-lg flex items-center justify-center gap-3 hover:bg-blue-600 transition-all shadow-xl shadow-blue-100 active:scale-[0.98]"
                 >
                   <Send size={22} />
                   {t.buyForMe}
-                </button>
+                </a>
                 <button 
                   onClick={() => setActiveGuide(null)}
                   className="w-full text-gray-400 py-2 font-black text-xs uppercase tracking-[0.2em] hover:text-gray-600 transition-colors"

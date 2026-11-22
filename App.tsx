@@ -54,6 +54,7 @@ import { CustomerDashboardModal } from './components/CustomerDashboardModal';
 import { CustomerDashboardPage } from './components/CustomerDashboardPage';
 import { AdminDashboardPage } from './components/AdminDashboardPage';
 import { NotFoundPage } from './components/NotFoundPage';
+import { PortalProvider } from './context/PortalContext';
 
 // Lazy load components
 const Quiz = React.lazy(() => import('./components/Quiz').then(module => ({ default: module.Quiz })));
@@ -103,7 +104,10 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
   const setLanguage = (lang: Language) => {
     const prefix = lang === 'ru' ? '/ru' : '';
     let path = '';
-    if (currentPage === 'blogPost' && slug) {
+    if (currentPage === '404') {
+      const cleanPath = getCleanPath(location.pathname);
+      path = cleanPath === '/' ? '' : cleanPath;
+    } else if (currentPage === 'blogPost' && slug) {
       path = `/blog/${slug}`;
     } else if (currentPage !== 'home') {
       path = `/${currentPage}`;
@@ -124,12 +128,20 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
   };
 
   const handleNavigate = (targetPage: string, sectionId?: string, stateObj?: any) => {
-    let finalTarget = targetPage;
+    if (/^https?:\/\//i.test(targetPage)) {
+      window.open(targetPage, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    let finalTarget = targetPage.trim();
     let finalSection = sectionId;
-    if (targetPage.includes('#')) {
-      const parts = targetPage.split('#');
+    if (finalTarget.includes('#')) {
+      const parts = finalTarget.split('#');
       finalTarget = parts[0];
       finalSection = finalSection || parts[1];
+    }
+    finalTarget = finalTarget.replace(/^\/+/, '').replace(/^ru\//, '');
+    if (finalTarget === '' || finalTarget === 'ru') {
+      finalTarget = 'home';
     }
     const prefix = language === 'ru' ? '/ru' : '';
     const path = finalTarget === 'home' ? '' : `/${finalTarget}`;
@@ -189,8 +201,11 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
           setTimeout(() => {
              window.scrollTo(0, parseInt(savedScroll, 10));
           }, 10);
+          return;
        }
-       return;
+       if (!location.hash) {
+          return;
+       }
     }
 
     if (location.hash) {
@@ -220,7 +235,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
       if (currentPage === 'blog') return (
         <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
           <Header language={language} setLanguage={setLanguage} onLoginClick={handleOpenPortal} isDashboard={false} onNavigate={handleNavigate} onBack={() => handleBack('home')} />
-          <BlogCatalog language={language} />
+          <BlogCatalog language={language} onNavigate={handleNavigate} />
           <Footer language={language} />
           <FloatingContact />
         </div>
@@ -228,7 +243,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
       if (currentPage === 'blogPost') return (
         <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
           <Header language={language} setLanguage={setLanguage} onLoginClick={handleOpenPortal} isDashboard={false} onNavigate={handleNavigate} onBack={() => handleBack('blog')} />
-          <BlogPost language={language} />
+          <BlogPost language={language} onNavigate={handleNavigate} />
           <Footer language={language} />
           <FloatingContact />
         </div>
@@ -333,6 +348,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
               language={language}
               setLanguage={setLanguage}
               onNavigateHome={() => navigate(language === 'ru' ? '/ru' : '/')}
+              onNavigate={handleNavigate}
             />
           );
       }
@@ -388,7 +404,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
               <Tracking language={language} />
             </div>
             
-            <div id="contacts" className="scroll-mt-28">
+            <div className="scroll-mt-28">
               <Contact language={language} currentPage={currentPage} />
             </div>
 
@@ -404,7 +420,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
   };
 
   return (
-      <>
+      <PortalProvider openPortal={handleOpenPortal}>
         <DynamicSeo language={language} currentPage={currentPage} slug={slug} />
         <SchemaMarkup currentPage={currentPage} language={language} />
         <Analytics />
@@ -430,7 +446,7 @@ const AppContent: React.FC<{ language: Language, isBlogPost?: boolean, isNotFoun
           onClose={() => setIsCustomerDashboardOpen(false)} 
           language={language}
         />
-      </>
+      </PortalProvider>
   );
 };
 

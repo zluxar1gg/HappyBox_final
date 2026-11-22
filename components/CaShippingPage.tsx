@@ -495,7 +495,8 @@ export const CaShippingPage: React.FC<CaShippingPageProps> = ({ language, setLan
             setLanguage={setLanguage}
             onBack={onBack}
             onNavigate={onNavigate}
+            pageId="canada"
             content={content}
-                    />
+        />
     );
 };

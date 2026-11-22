@@ -106,7 +106,6 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
             <Header
                 language={language}
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
                 onNavigate={onNavigate}
@@ -293,16 +292,22 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                 {extraContent.beyond.title}
                             </h2>
                             
-                            {/* 1. The Grid of Service Buttons */}
+                            {/* 1. The Grid of Service Links */}
                             <div className="grid md:grid-cols-2 gap-4 mb-6">
                                 {extraContent.beyond.items.filter((item: any) => item.id).map((item: any, idx: number) => {
                                     const imageUrl = serviceImages[item.id];
+                                    const href = `${language === 'ru' ? '/ru' : ''}/${item.id}`;
                                     
                                     return (
-                                        <div 
-                                            key={idx} 
-                                            onClick={() => handleBeyondClick(item)}
-                                            className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md cursor-pointer hover:border-brand-blue/20 transition-all group flex items-center justify-between"
+                                        <a 
+                                            key={idx}
+                                            href={href}
+                                            onClick={(e) => {
+                                                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                                                e.preventDefault();
+                                                handleBeyondClick(item);
+                                            }}
+                                            className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md cursor-pointer hover:border-brand-blue/20 transition-all group flex items-center justify-between text-left"
                                         >
                                             <div className="flex items-center gap-4 overflow-hidden">
                                                 <div className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center bg-white border border-gray-50 overflow-hidden">
@@ -324,7 +329,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                                             <div className="text-gray-300 group-hover:text-brand-blue transition-colors flex-shrink-0">
                                                 <ArrowRight size={20} />
                                             </div>
-                                        </div>
+                                        </a>
                                     )
                                 })}
                             </div>
@@ -374,6 +379,27 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                         </div>
                     )}
 
+                    {/* OPTIONAL: FAQ Section (synced with pageFaqs.ts FAQPage JSON-LD) */}
+                    {extraContent.faq && extraContent.faq.items?.length > 0 && (
+                        <div className="mt-12 mb-12 bg-brand-light/30 p-8 sm:p-10 rounded-[35px] border border-brand-blue/10 max-w-4xl mx-auto">
+                            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-8 text-center tracking-tight">
+                                {extraContent.faq.title}
+                            </h2>
+                            <div className="space-y-6">
+                                {extraContent.faq.items.map((item: { q: string; a: string }, idx: number) => (
+                                    <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                                        <h3 className="font-bold text-lg text-brand-dark mb-2 leading-snug">
+                                            {item.q}
+                                        </h3>
+                                        <p className="text-base text-gray-700 font-medium leading-relaxed">
+                                            {item.a}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
                     <div className="text-center mt-12">
                         <button 
                             onClick={handleAction}
@@ -385,7 +411,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ language, setLanguage,
                     </div>
                 </section>
 
-                <div id="contacts" className="scroll-mt-28">
+                <div className="scroll-mt-28">
                     <Contact language={language} currentPage={serviceId} />
                 </div>
                 

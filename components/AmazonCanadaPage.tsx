@@ -5,6 +5,7 @@ import { Footer } from './Footer';
 import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
+import { Breadcrumbs } from './Breadcrumbs';
 import { 
   Check, ShieldCheck, Plane, Anchor, Zap, Box, Send, 
   ScanBarcode, Layers, Globe, Truck, ShoppingBag, AlertTriangle, 
@@ -267,7 +268,6 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
             <Header
                 language={language}
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
                 onNavigate={onNavigate}
@@ -276,6 +276,16 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
             <main>
                 <section className="py-12 lg:py-24 bg-cream relative overflow-hidden">
                     <div className="container mx-auto px-6 xl:px-0 max-w-5xl relative z-10 text-center">
+                        <div className="mb-4 text-left">
+                            <Breadcrumbs
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={[
+                                    { label: language === 'ru' ? 'Все направления' : 'All Destinations', path: 'destinations' },
+                                    { label: t.badge }
+                                ]}
+                            />
+                        </div>
                         <span className="inline-flex items-center justify-center bg-[#FF9900]/10 text-[#FF9900] px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                             {t.badge}
                         </span>
@@ -301,11 +311,11 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                             </div>
                             <div className="space-y-4">
                                 <div>
-                                    <h4 className="font-bold text-brand-dark mb-1 text-lg leading-snug">{t.ddpTitle}</h4>
+                                    <h3 className="font-bold text-brand-dark mb-1 text-lg leading-snug">{t.ddpTitle}</h3>
                                     <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed font-medium">{t.ddpText}</p>
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-brand-dark mb-1 text-lg leading-snug">{t.minWeightTitle}</h4>
+                                    <h3 className="font-bold text-brand-dark mb-1 text-lg leading-snug">{t.minWeightTitle}</h3>
                                     <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed font-medium">{t.minWeightText}</p>
                                 </div>
                             </div>
@@ -318,7 +328,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                             </h2>
                             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                                 <div className="bg-white rounded-[30px] p-6 border-2 border-gray-100 shadow-sm flex flex-col">
-                                    <h4 className="font-bold text-xl text-brand-dark mb-4">{t.ratesAir.method}</h4>
+                                    <h3 className="font-bold text-xl text-brand-dark mb-4">{t.ratesAir.method}</h3>
                                     <div className="space-y-4 font-medium text-gray-600 mb-6">
                                         <div className="flex justify-between border-b border-gray-50 pb-2">
                                             <span className="uppercase text-xs font-bold text-gray-400">Price</span>
@@ -335,7 +345,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                                     </div>
                                 </div>
                                 <div className="bg-white rounded-[30px] p-6 border-2 border-gray-100 shadow-sm flex flex-col">
-                                    <h4 className="font-bold text-xl text-brand-dark mb-4">{t.ratesFastSea.method}</h4>
+                                    <h3 className="font-bold text-xl text-brand-dark mb-4">{t.ratesFastSea.method}</h3>
                                     <div className="space-y-4 font-medium text-gray-600 mb-6">
                                         <div className="flex justify-between border-b border-gray-50 pb-2">
                                             <span className="uppercase text-xs font-bold text-gray-400">Price</span>
@@ -352,7 +362,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                                     </div>
                                 </div>
                                 <div className="bg-white rounded-[30px] p-6 border-2 border-gray-100 shadow-sm flex flex-col">
-                                    <h4 className="font-bold text-xl text-brand-dark mb-4">{t.ratesSea.method}</h4>
+                                    <h3 className="font-bold text-xl text-brand-dark mb-4">{t.ratesSea.method}</h3>
                                     <div className="space-y-4 font-medium text-gray-600 mb-6">
                                         <div className="flex justify-between border-b border-gray-50 pb-2">
                                             <span className="uppercase text-xs font-bold text-gray-400">Price</span>
@@ -441,10 +451,10 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                             <div className="space-y-12">
                                 {t.extraSections.map((sect, idx) => (
                                     <div key={idx}>
-                                        <h4 className="font-bold text-2xl text-brand-dark mb-3 flex items-center gap-3">
+                                        <h3 className="font-bold text-2xl text-brand-dark mb-3 flex items-center gap-3">
                                             <sect.icon size={28} className="text-[#FF9900]" />
                                             {sect.title}
-                                        </h4>
+                                        </h3>
                                         <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-4">{sect.text}</p>
                                         {sect.list && sect.list.length > 0 && (
                                             <div className="space-y-3 text-gray-700 font-medium">
@@ -479,7 +489,7 @@ export const AmazonCanadaPage: React.FC<AmazonCanadaPageProps> = ({ language, se
                         </div>
                 </section>
 
-                <div id="contacts">
+                <div>
                     <Contact language={language} currentPage="amazon-canada" />
                 </div>
                 

@@ -250,11 +250,11 @@ export const pageFaqs: PageFaqsStructure = {
     "en": [
       {
         "question": "Do I need a Smart-Card or import registration?",
-        "answer": "No! Thanks to our DDP structure, we conduct the customs clearance through our own entities. You do not need any importer registrations."
+        "answer": "When our DDP route is active (currently unavailable), we conduct customs clearance through our own entities without importer registration. While DDP is paused, standard shipments follow regular Israeli import clearance requirements on the recipient's side."
       },
       {
         "question": "How does Israeli Customs tax work?",
-        "answer": "Imports face a standard 17% VAT, potential Customs Duties, and Purchase Tax depending on the HS code. Our DDP rate already absorbs all these costs."
+        "answer": "Imports face a standard 17% VAT, potential Customs Duties, and Purchase Tax depending on the HS code. Our DDP rate (currently unavailable) is structured to absorb these costs; under standard shipping today, local duties and 17% VAT are handled upon import."
       },
       {
         "question": "What if my goods get damaged or lost?",
@@ -264,11 +264,11 @@ export const pageFaqs: PageFaqsStructure = {
     "ru": [
       {
         "question": "Нужна ли мне смарт-карта или регистрация импортера?",
-        "answer": "Нет! Благодаря системе DDP мы проводим таможенную очистку через наши собственные компании. Вам не нужно оформлять импортные документы."
+        "answer": "При работе по системе DDP (в данный момент временно недоступна) мы проводим таможенную очистку через наши собственные компании без регистрации импортера. Пока линия DDP на паузе, стандартные отправки растамаживаются по общим правилам получателем."
       },
       {
         "question": "Как рассчитываются налоги в Израиле?",
-        "answer": "Обычно импорт облагается стандартным НДС 17% (Маам), таможенными пошлинами (Мехес) и налогом на покупку. Наш DDP тариф уже полностью покрывает все эти статьи расходов."
+        "answer": "Обычно импорт облагается стандартным НДС 17% (Маам), таможенными пошлинами (Мехес) и налогом на покупку. Наш DDP тариф (в данный момент временно недоступен) покрывает эти статьи расходов; при текущей стандартной отправке пошлины и 17% НДС оплачиваются при получении груза."
       },
       {
         "question": "А если груз повредят или потеряют в пути?",
@@ -366,6 +366,36 @@ export const pageFaqs: PageFaqsStructure = {
       }
     ]
   },
+  "russia": {
+    "en": [
+      {
+        "question": "How does simplified Cargo shipping work and is insurance included?",
+        "answer": "Under Standard Cargo (from $2.5/kg, 15–25 days), your shipment travels via our classic simplified route without complex foreign-trade contracts, and cargo insurance is already included."
+      },
+      {
+        "question": "What is the minimum weight and can you help pay Chinese suppliers?",
+        "answer": "There is no minimum weight requirement — we ship from 0.1 kg. We also assist with invoice payments to Chinese suppliers via trusted agents and apply mandatory Chestny Znak (Data Matrix) labeling at our warehouse in China before dispatch."
+      },
+      {
+        "question": "When should I choose White TIR Auto from $1.6/kg?",
+        "answer": "Choose TIR Auto when your business needs closing accounting documents (Customs Declaration DT, Contract, Invoice, Torg-12/UPD) and VAT deduction. Cargo is sealed in China and travels under a TIR Carnet with zero inspections at Kazakhstan transit borders."
+      }
+    ],
+    "ru": [
+      {
+        "question": "Как работает упрощенная доставка карго и включена ли страховка?",
+        "answer": "В формате «Стандарт Карго» (от $2.5/кг, срок 15–25 дней) груз идет по классическому упрощенному маршруту без сложных внешнеторговых контрактов, а страховка уже включена."
+      },
+      {
+        "question": "От какого веса вы возите и помогаете ли с оплатой фабрикам?",
+        "answer": "Минимального порога по весу нет — отправляем от 0.1 кг. Помогаем с оплатой инвойсов поставщикам через проверенных агентов и наносим маркировку «Честный Знак» прямо на складе в Китае."
+      },
+      {
+        "question": "В каких случаях выбрать «белое» авто TIR от $1.6/кг?",
+        "answer": "Если вашему бизнесу нужны закрывающие документы (ДТ, договор, инвойс, Торг-12/УПД) и вычет НДС. Груз пломбируется в Китае и следует по книжке МДП без досмотров на транзитных границах Казахстана."
+      }
+    ]
+  },
   "alibaba": {
     "en": [
       {
@@ -374,7 +404,7 @@ export const pageFaqs: PageFaqsStructure = {
       },
       {
         "question": "What if the goods arrive defective?",
-        "answer": "We inspect every shipment at our Shenzhen warehouse before it ships internationally. Photos and videos sent to you for confirmation. Defective or incorrect goods go back to the supplier while still in China — not after a trans-Pacific journey."
+        "answer": "We inspect every shipment at our Shenzhen and Guangzhou warehouses before it ships internationally. Photos and videos sent to you for confirmation. Defective or incorrect goods go back to the supplier while still in China — not after a trans-Pacific journey."
       },
       {
         "question": "What if I'm ordering from multiple suppliers?",
@@ -392,7 +422,7 @@ export const pageFaqs: PageFaqsStructure = {
       },
       {
         "question": "Что если товар придет с браком?",
-        "answer": "Мы проверяем каждую партию на складе в Шэньчжэне до международной отправки. Фото и видео отправляются вам на подтверждение. Бракованный или неверный товар возвращается поставщику еще в Китае, а не после путешествия через океан."
+        "answer": "Мы проверяем каждую партию на складе в Шэньчжэне и Гуанчжоу до международной отправки. Фото и видео отправляются вам на подтверждение. Бракованный или неверный товар возвращается поставщику еще в Китае, а не после путешествия через океан."
       },
       {
         "question": "Что если я заказываю у нескольких поставщиков?",
@@ -412,7 +442,7 @@ export const pageFaqs: PageFaqsStructure = {
       },
       {
         "question": "What if the seller sends the wrong item or poor quality?",
-        "answer": "We conduct a free Quality Control inspection at our Shenzhen warehouse before anything ships internationally. Photos sent to you for confirmation. Wrong items and defective goods go back to the seller — not on a plane to your door."
+        "answer": "We conduct a free Quality Control inspection at our Shenzhen and Guangzhou warehouses before anything ships internationally. Photos sent to you for confirmation. Wrong items and defective goods go back to the seller — not on a plane to your door."
       },
       {
         "question": "What if I want to order from multiple sellers?",
@@ -430,7 +460,7 @@ export const pageFaqs: PageFaqsStructure = {
       },
       {
         "question": "Что если продавец пришлет не тот товар или брак?",
-        "answer": "Мы проводим бесплатную проверку качества (QC) на нашем складе в Шэньчжэне перед международной отправкой. Вы получаете фото для подтверждения. Бракованные или неверные товары возвращаются продавцу, а не летят к вам."
+        "answer": "Мы проводим бесплатную проверку качества (QC) на нашем складе в Шэньчжэне и Гуанчжоу перед международной отправкой. Вы получаете фото для подтверждения. Бракованные или неверные товары возвращаются продавцу, а не летят к вам."
       },
       {
         "question": "Что если я хочу заказать у разных продавцов?",
@@ -446,7 +476,7 @@ export const pageFaqs: PageFaqsStructure = {
     "en": [
       {
         "question": "What if the supplier ships defective goods?",
-        "answer": "We inspect everything at our Shenzhen warehouse before it goes international. Photos and videos sent to you for confirmation. Defective items go back to the factory — not across an ocean."
+        "answer": "We inspect everything at our Shenzhen and Guangzhou warehouses before it goes international. Photos and videos sent to you for confirmation. Defective items go back to the factory — not across an ocean."
       },
       {
         "question": "What if I don't know which supplier to choose?",
@@ -464,7 +494,7 @@ export const pageFaqs: PageFaqsStructure = {
     "ru": [
       {
         "question": "Что если пришлют брак?",
-        "answer": "Мы проверяем всё в Шэньчжэне. Вы получаете фото и видео для подтверждения. Бракованный товар возвращается на завод в Китае, а не едет к вам через океан."
+        "answer": "Мы проверяем всё в Шэньчжэне и Гуанчжоу. Вы получаете фото и видео для подтверждения. Бракованный товар возвращается на завод в Китае, а не едет к вам через океан."
       },
       {
         "question": "Я не знаю, какого поставщика выбрать.",
@@ -483,37 +513,37 @@ export const pageFaqs: PageFaqsStructure = {
   "pinduoduo": {
     "en": [
       {
-        "question": "Best Prices in China",
+        "question": "Why Are Pinduoduo Prices Lower Than Taobao?",
         "answer": "Known for heavily subsidized pricing on everyday items, from home goods to basic electronics."
       },
       {
-        "question": "0% Commission",
+        "question": "How Much Is the Purchasing Commission?",
         "answer": "We charge no service fee for standard Pinduoduo orders."
       },
       {
-        "question": "Consolidation",
+        "question": "Can I Combine Cheap Items With Other Orders?",
         "answer": "Perfect for adding small, cheap items to your main parcel, drastically reducing shipping costs."
       },
       {
-        "question": "Don't ignore the timer",
+        "question": "What If a Flash Deal Timer Expires Soon?",
         "answer": "Pinduoduo deals are often time-sensitive. If you see a great price, send it to us quickly so we can lock it in before the group-buy window closes."
       }
     ],
     "ru": [
       {
-        "question": "Лучшие цены в Китае",
+        "question": "Почему на Pinduoduo дешевле, чем на Taobao?",
         "answer": "Платформа известна субсидированными ценами на повседневные товары."
       },
       {
-        "question": "Комиссия 0%",
+        "question": "Какая комиссия за выкуп с Pinduoduo?",
         "answer": "Мы не берем сервисную комиссию за выкуп стандартных заказов на Pinduoduo."
       },
       {
-        "question": "Консолидация посылок",
+        "question": "Можно ли объединить мелочи с другими заказами?",
         "answer": "Идеально подходит для добавления мелких недорогих товаров к вашей основной посылке для экономии на логистике."
       },
       {
-        "question": "Обращайте внимание на таймер",
+        "question": "Как успеть выкупить товар по таймеру акции?",
         "answer": "Скидки на Pinduoduo ограничены по времени. Если вы увидели отличную цену, отправляйте ссылку как можно скорее, чтобы мы успели ее зафиксировать."
       }
     ]
@@ -522,7 +552,7 @@ export const pageFaqs: PageFaqsStructure = {
     "en": [
       {
         "question": "What if the item doesn't match the listing photos?",
-        "answer": "We conduct a full Quality Control inspection at our Shenzhen warehouse. You receive detailed photos of the actual item. If something looks wrong, we contact the seller before it's too late."
+        "answer": "We conduct a full Quality Control inspection at our Shenzhen and Guangzhou warehouses. You receive detailed photos of the actual item. If something looks wrong, we contact the seller before it's too late."
       },
       {
         "question": "What if the seller has a bad reputation?",
@@ -540,7 +570,7 @@ export const pageFaqs: PageFaqsStructure = {
     "ru": [
       {
         "question": "Что если товар не совпадает с фото продавца?",
-        "answer": "Мы проводим полную проверку качества (QC) на нашем складе в Шэньчжэне. Вы получаете детальные фото реального товара. Если что-то не так, мы оформляем возврат."
+        "answer": "Мы проводим полную проверку качества (QC) на нашем складе в Шэньчжэне и Гуанчжоу. Вы получаете детальные фото реального товара. Если что-то не так, мы оформляем возврат."
       },
       {
         "question": "Что если у продавца плохая репутация?",
@@ -615,6 +645,172 @@ export const pageFaqs: PageFaqsStructure = {
         "answer": "Канада огромна. Мы используем сквозной трекинг для океана, поездов через Скалистые горы и финального трака на рампу FBA."
       }
     ]
+  },
+  "xianyu": {
+    "en": [
+      {
+        "question": "What if the item is not as described?",
+        "answer": "We request a video from the seller before purchasing for any significant item. When the item arrives at our warehouse, we inspect against the listing description and send you detailed photos. If there's a major discrepancy, we raise a dispute with the seller immediately — while the item is still in China."
+      },
+      {
+        "question": "What if the seller is untrustworthy?",
+        "answer": "We check Sesame Credit before every purchase. Sesame Credit is Alibaba's financial trust score — sellers with Excellent rating have a verified track record on the platform. Low-rated sellers are declined."
+      },
+      {
+        "question": "What if I overpay?",
+        "answer": "Bargaining is standard practice on Goofish. We negotiate in Chinese on your behalf — typically achieving 10–20% below the listed price. Private sellers expect to negotiate; most international buyers don't know this."
+      },
+      {
+        "question": "What if the seller won't accept returns?",
+        "answer": "Most Goofish sellers do not accept returns — this is standard for private secondhand sales. Our pre-purchase video verification and warehouse inspection are your protection. We flag condition issues before you commit, not after."
+      }
+    ],
+    "ru": [
+      {
+        "question": "Что делать, если товар не соответствует описанию?",
+        "answer": "Для любой значимой вещи мы запрашиваем видео у продавца перед покупкой. Когда товар поступает на склад, мы проверяем его на соответствие описанию и отправляем детальные фото. При серьезном несоответствии мы сразу открываем спор с продавцом — пока товар еще в Китае."
+      },
+      {
+        "question": "Что, если продавец ненадежен?",
+        "answer": "Мы проверяем Sesame Credit перед каждой покупкой. Это финансовый рейтинг доверия от Alibaba — продавцы с оценкой 'Отлично' имеют подтвержденную историю на платформе. Продавцам с низким рейтингом мы отказываем."
+      },
+      {
+        "question": "Что, если я переплачу?",
+        "answer": "Торг — стандартная практика на Xianyu. Мы торгуемся на китайском от вашего имени — обычно снижая цену на 10-20%. Частные продавцы ожидают торга; большинство международных покупателей этого не знают."
+      },
+      {
+        "question": "Что, если продавец не принимает возвраты?",
+        "answer": "Большинство продавцов на Xianyu не принимают возвраты — это норма для частных б/у продаж. Наша видеопроверка перед покупкой и осмотр на складе — ваша защита. Мы выявляем проблемы с состоянием до того, как вы совершите покупку, а не после."
+      }
+    ]
+  },
+  "poizon": {
+    "en": [
+      {
+        "question": "How much commission does HappyBox charge on Poizon (Dewu)?",
+        "answer": "HappyBox charges a 0% service fee for purchasing on Poizon (Dewu) with transparent currency rates close to market spot rates and no hidden 15–50% exchange markups. You pay the real price of the item plus international shipping."
+      },
+      {
+        "question": "How is item authenticity guaranteed and what comes in the box?",
+        "answer": "Every item passes Poizon's multi-step physical lab Legit Check before shipping to our warehouse; counterfeits are immediately refunded by Poizon. Authentic orders arrive in the signature Turquoise Box with the Blue Verification Tag and NFC certificate, plus we send free QC photos of the item, tag, and certificate before international dispatch."
+      },
+      {
+        "question": "How do you protect sneaker boxes and how fast is delivery from Poizon?",
+        "answer": "All sneakers ship in reinforced double-box packaging so the original brand box arrives intact. Orders typically arrive at our China warehouse within 2–7 days (depending on seller button) and deliver internationally via air freight in 5–12 days to most destinations."
+      },
+      {
+        "question": "What do the Turquoise, Black, and Gray 95 buttons mean in the Dewu app?",
+        "answer": "The Turquoise button indicates authenticated stock with \"Ship in 48h\" instant dispatch, while the Black button is standard delivery (+3–7 days via seller-to-Poizon authentication). Avoid the Gray \"95\" button unless you want pre-owned goods (~95% condition); \"Damaged Box\" means a brand-new unworn item whose box was dented."
+      }
+    ],
+    "ru": [
+      {
+        "question": "Какая комиссия за выкуп с Poizon (Dewu) и по какому курсу идет оплата?",
+        "answer": "Комиссия сервиса HappyBox составляет 0%. Мы используем прозрачный курс, близкий к рыночному, без скрытых наценок в 15–50% — вы платите реальную стоимость товара на платформе и международную доставку."
+      },
+      {
+        "question": "Как гарантируется оригинальность товаров и что идет в комплекте?",
+        "answer": "Каждый товар проходит физическую проверку подлинности (Legit Check) в лаборатории Poizon — при выявлении подделки платформа сразу возвращает деньги. Оригинал приходит в фирменной бирюзовой коробке с голубой пломбой и NFC-сертификатом, а перед отправкой из Китая мы бесплатно присылаем фотоотчет товара, пломбы и сертификата."
+      },
+      {
+        "question": "Как защищается коробка кроссовок и сколько занимает доставка с Poizon?",
+        "answer": "Мы отправляем кроссовки в усиленной двойной коробке (double-box), чтобы оригинальная упаковка доехала без повреждений. Доставка по Китаю до нашего склада обычно занимает 2–7 дней, а международная авиадоставка до двери — 5–12 дней для большинства направлений."
+      },
+      {
+        "question": "Что означают бирюзовая, черная и серая кнопка «95» в приложении Dewu?",
+        "answer": "Бирюзовая кнопка — это уже проверенный товар с быстрой отправкой за 48 часов, черная — стандартная поставка через продавца с дополнительной проверкой (+3–7 дней). Серую кнопку с пометкой «95» стоит избегать, если нужна новая вещь (это б/у товары), а «Damaged Box» означает абсолютно новый товар с помятой коробкой."
+      }
+    ]
+  },
+  "tmall": {
+    "en": [
+      {
+        "question": "What is the difference between Tmall and Taobao?",
+        "answer": "Taobao is primarily a C2C marketplace of individual sellers, while Tmall is Alibaba's B2C platform hosting verified business entities and official brand flagships (marked with the red Cat icon and a deposit paid to Alibaba), ensuring 100% authentic goods and stricter quality standards."
+      },
+      {
+        "question": "What commission does HappyBox charge for buying from Tmall?",
+        "answer": "HappyBox charges a 0% service fee for Tmall purchases. You do not need a Chinese phone number, Alipay, or local bank card — we buy directly from official flagship stores on your behalf."
+      },
+      {
+        "question": "Can I combine Tmall items with orders from Taobao, 1688, or Poizon?",
+        "answer": "Yes. We receive your Tmall purchases at our warehouses in Shenzhen and Guangzhou, store them free for up to 30 days, and consolidate them into one parcel alongside items from Taobao, 1688, Poizon, and Pinduoduo."
+      }
+    ],
+    "ru": [
+      {
+        "question": "В чем разница между Tmall и обычным Taobao?",
+        "answer": "Taobao работает как рынок (C2C) с частными продавцами, а Tmall — это премиальная B2C-площадка Alibaba с официальными представителями брендов и проверенными юрлицами (отмечены красной иконкой кота и имеют депозит в Alibaba), что гарантирует 100% оригинальность и более высокий контроль качества."
+      },
+      {
+        "question": "Какая комиссия за выкуп товаров с Tmall через HappyBox?",
+        "answer": "Мы не берем комиссию за выкуп с Tmall — ставка сервиса составляет 0%. Выкупаем товары напрямую в официальных флагманских магазинах без необходимости заводить китайскую карту или Alipay."
+      },
+      {
+        "question": "Можно ли объединить заказы с Tmall, Taobao, 1688 и Poizon в одну посылку?",
+        "answer": "Да. Мы бесплатно принимаем ваши заказы с Tmall на складах в Шэньчжэне и Гуанчжоу, храним их до 30 дней и объединяем в одну компактную посылку вместе с покупками с Taobao, 1688, Poizon и Pinduoduo."
+      }
+    ]
+  },
+  "inspection": {
+    "en": [
+      {
+        "question": "Which provinces do you cover and how fast can an inspector visit a factory?",
+        "answer": "Our network of professional inspectors operates across Guangdong, Zhejiang, Jiangsu, Fujian, and other industrial provinces of China, ready to depart within 24–48 hours. You receive a full PDF report with high-resolution photos, videos, and a list of defects within 24 hours."
+      },
+      {
+        "question": "What types of factory inspections and standards do you use?",
+        "answer": "We perform 4 core types of inspections: Factory Audit (before payment), DUPRO at 20–30% production readiness, Pre-Shipment Inspection (PSI) under international AQL standards when 100% is produced and 80% packed, and Container Loading Supervision (CLS), classifying defects into Critical, Major, and Minor."
+      },
+      {
+        "question": "What if I don't have a technical checklist prepared?",
+        "answer": "Just send us product photos or your requirements. Our specialists prepare an Inspection Checklist, schedule the inspection date directly with factory managers, and deliver a clear Pass/Fail assessment."
+      }
+    ],
+    "ru": [
+      {
+        "question": "В каких регионах Китая работают инспекторы и как быстро готов отчет?",
+        "answer": "Наша сеть инспекторов работает в Гуандуне, Чжэцзяне, Цзянсу, Фуцзяни и других промышленных провинциях Китая. После проверки вы получаете подробный PDF-отчет с фото и видео высокого разрешения, списком дефектов и оценкой Pass/Fail в течение 24 часов."
+      },
+      {
+        "question": "Какие виды проверок на производстве вы проводите?",
+        "answer": "Мы выполняем 4 типа проверок: аудит фабрики до оплаты, контроль в процессе производства (DUPRO на этапе 20–30% готовности), пред-отгрузочную инспекцию (PSI по международным стандартам AQL) и контроль погрузки в контейнер (CLS) с сортировкой брака на критический и незначительный."
+      },
+      {
+        "question": "Что делать, если у меня нет готового чек-листа для инспектора?",
+        "answer": "Просто пришлите фото товара или ваши требования. Наши эксперты сами составят подробный чек-лист (Inspection Checklist) и согласуют дату визита инспектора с руководством фабрики."
+      }
+    ]
+  },
+  "warehousing": {
+    "en": [
+      {
+        "question": "How long is storage free and do you charge for parcel reception or consolidation?",
+        "answer": "Storage at our Shenzhen and Guangzhou warehouses is free for up to 30 days. Receiving incoming parcels (regardless of store or weight) and consolidating orders from Taobao, 1688, and other platforms into one shipment are also completely free."
+      },
+      {
+        "question": "How does warehouse consolidation save up to 80% on international shipping?",
+        "answer": "Instead of paying shipping minimums on every individual box, we remove excess factory packaging such as heavy shoe boxes and repack items compactly to reduce volumetric weight and cut overall international shipping costs by up to 80%."
+      },
+      {
+        "question": "Can you send QC photos, split large batches, or return items within China?",
+        "answer": "Yes. We provide free incoming photo and video reports, operate under 24/7 video surveillance, and can split orders for different recipients or return items to Chinese sellers for free (you only pay domestic shipping within China). Optional cargo insurance is also available."
+      }
+    ],
+    "ru": [
+      {
+        "question": "Сколько длится бесплатное хранение и сколько стоит приемка посылок?",
+        "answer": "Хранение на наших складах в Шэньчжэне и Гуанчжоу бесплатно до 30 дней. Приемка входящих посылок любого веса и объединение заказов с Taobao, 1688 и других площадок в одну посылку также выполняются бесплатно."
+      },
+      {
+        "question": "За счет чего консолидация экономит до 80% на доставке?",
+        "answer": "Мы не просто складываем коробки в одну большую коробку — мы убираем лишнюю заводскую тару (например, тяжелые коробки из-под обуви) и упаковываем товар максимально компактно, снижая объемный вес."
+      },
+      {
+        "question": "Делаете ли вы фотоотчет и можно ли разделить партию на складе?",
+        "answer": "Да. Мы делаем бесплатный фотоотчет входящих посылок, обеспечиваем круглосуточную охрану с видеонаблюдением 24/7 и можем бесплатно разделить крупную партию для отправки разным получателям."
+      }
+    ]
   }
 },
   blogPosts: {
@@ -626,11 +822,11 @@ export const pageFaqs: PageFaqsStructure = {
       },
       {
         "question": "Will I have to pay customs duties or VAT when my package arrives in Dubai?",
-        "answer": "Not when shipping with HappyBox. Our dedicated Air & Sea DDP channels cover all Dubai customs clearance, import tariffs, and VAT. The price we quote is 100% final."
+        "answer": "Not if you ship with HappyBox. Our specialized Air and Sea DDP channels include all Dubai customs clearance costs, import duties, and VAT. The price we quote you is 100% final."
       },
       {
-        "question": "Can HappyBox ship electronics with built-in batteries from Pinduoduo?",
-        "answer": "Yes! Pinduoduo is famous for cheap gadgets and smart home devices. We have specialized battery cargo channels that safely clear electronics from China to UAE without customs delays."
+        "question": "Can HappyBox ship electronics with batteries from Pinduoduo?",
+        "answer": "Yes! Pinduoduo is famous for cheap tech gadgets and smart home items. We have dedicated, battery-compliant shipping lanes that safely transport electronic items from China to the UAE without border delays."
       }
     ],
     "ru": [

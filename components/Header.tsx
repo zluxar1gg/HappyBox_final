@@ -1,13 +1,15 @@
 
 import React, { useState } from 'react';
 import { Menu, X, User, ArrowLeft, LogOut, Shield } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Language, translations } from '../utils/translations';
 import { useAuth } from '../context/AuthContext';
+import { usePortal } from '../context/PortalContext';
 
 interface HeaderProps {
   language: Language;
   setLanguage: (lang: Language) => void;
-  onLoginClick: () => void;
+  onLoginClick?: () => void;
   isDashboard?: boolean;
   onNavigate?: (page: any, targetId?: string) => void;
   onBack?: () => void; // New prop for back navigation
@@ -16,7 +18,12 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginClick, isDashboard, onNavigate, onBack }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, isAdmin, logout } = useAuth();
+  const { openPortal } = usePortal();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const handleLoginClick = onLoginClick || openPortal;
   const t = translations[language].nav;
+  const isHome = location.pathname === '/' || location.pathname === '/ru';
 
   // Simplified navigation
   // Services link now points to #services
@@ -27,8 +34,14 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
     { name: t.tracking, href: '#tracking' },
     { name: t.contacts, href: '#contacts' },
     { name: t.faq, href: '#faq' },
-    { name: language === 'en' ? 'Blog' : 'Блог', href: '/blog', isRoute: true },
+    { name: language === 'en' ? 'Blog' : 'Блог', href: language === 'ru' ? '/ru/blog' : '/blog', isRoute: true },
   ];
+
+  const getItemHref = (item: { href: string; isRoute?: boolean }) => {
+    if (item.isRoute) return item.href;
+    if (isHome) return item.href;
+    return (language === 'ru' ? '/ru' : '/') + item.href;
+  };
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, item: any) => {
     e.preventDefault();
@@ -36,15 +49,15 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
       if (onNavigate) {
         onNavigate('blog');
       } else {
-        window.location.href = language === 'ru' ? '/ru/blog' : '/blog';
+        navigate(language === 'ru' ? '/ru/blog' : '/blog');
       }
       setIsMenuOpen(false);
       return;
     }
 
     if (isDashboard) {
-        window.location.href = item.href;
-        return;
+      navigate((language === 'ru' ? '/ru' : '/') + item.href);
+      return;
     }
     
     const targetId = item.href.replace('#', '');
@@ -56,33 +69,27 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       setIsMenuOpen(false);
     } else {
-      // If element not found (e.g. we are on a blog page), navigate to home with hash
+      // If element not found (e.g. we are on a blog or 404 page), navigate to home with hash
       if (onNavigate) {
         onNavigate('home', targetId);
       } else {
-        window.location.href = (language === 'ru' ? '/ru' : '/') + item.href;
+        navigate((language === 'ru' ? '/ru' : '/') + item.href);
       }
       setIsMenuOpen(false);
     }
   };
 
-  const scrollToTop = () => { 
-      if (onBack) {
-          onBack();
-      } else if (onNavigate) {
-          onNavigate('home');
-          // Remove hash from URL to prevent auto-scrolling back on refresh
-          if (window.location.hash) {
-              window.history.replaceState("", document.title, window.location.pathname + window.location.search);
-          }
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-          // Remove hash from URL to prevent auto-scrolling back on refresh
-          if (window.location.hash) {
-              window.history.replaceState("", document.title, window.location.pathname + window.location.search);
-          }
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate('home');
+    } else {
+      navigate(language === 'ru' ? '/ru' : '/');
+    }
+    if (window.location.hash) {
+      window.history.replaceState("", document.title, window.location.pathname + window.location.search);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const toggleLanguage = () => { setLanguage(language === 'en' ? 'ru' : 'en'); };
@@ -90,12 +97,13 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
   return (
     <header className="py-5 bg-cream fixed top-0 left-0 w-full z-50 transition-all shadow-sm border-b border-gray-100/50 backdrop-blur-md bg-cream/90">
       <div className="container mx-auto flex justify-between items-center px-4 xl:px-0">
-        <div 
-          onClick={scrollToTop}
+        <a 
+          href={language === 'ru' ? '/ru' : '/'}
+          onClick={handleLogoClick}
           className="text-3xl md:text-4xl font-extrabold text-brand-blue tracking-tight cursor-pointer"
         >
           HappyBox
-        </div>
+        </a>
 
         <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
           {!isDashboard && !onBack && (
@@ -103,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
                 {navItems.map((item) => (
                 <li key={item.href}>
                     <a 
-                    href={item.href} 
+                    href={getItemHref(item)} 
                     onClick={(e) => handleScroll(e, item)}
                     className="text-brand-dark font-semibold text-sm hover:text-brand-blue transition-colors cursor-pointer tracking-wide"
                     >
@@ -141,7 +149,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
               user ? (
                 <div className="flex items-center gap-2">
                   <button 
-                    onClick={onLoginClick}
+                    onClick={handleLoginClick}
                     aria-label={isAdmin ? 'Панель администратора' : 'Личный кабинет'}
                     className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-xs md:text-sm transition-all shadow-sm active:scale-95 whitespace-nowrap ${
                       isAdmin 
@@ -162,7 +170,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
                 </div>
               ) : (
                 <button 
-                  onClick={onLoginClick}
+                  onClick={handleLoginClick}
                   aria-label={language === 'en' ? 'Sign In' : 'Войти в личный кабинет'}
                   className="flex items-center gap-2 bg-brand-dark text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-brand-blue transition-colors shadow-lg shadow-gray-200 active:scale-95 whitespace-nowrap"
                 >
@@ -186,7 +194,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
             {!isDashboard && (
               user ? (
                 <button 
-                  onClick={onLoginClick}
+                  onClick={handleLoginClick}
                   aria-label={isAdmin ? 'Admin' : user.clientCode}
                   className={`h-9 px-3 rounded-xl flex items-center justify-center font-bold text-xs active:scale-95 ${
                     isAdmin ? 'bg-amber-400 text-brand-dark' : 'bg-brand-dark text-white'
@@ -196,7 +204,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
                 </button>
               ) : (
                 <button 
-                  onClick={onLoginClick}
+                  onClick={handleLoginClick}
                   aria-label={language === 'en' ? 'Sign In' : 'Войти в личный кабинет'}
                   className="w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center active:scale-95"
                 >
@@ -234,7 +242,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
             {navItems.map((item) => (
               <a 
                 key={item.href} 
-                href={item.href} 
+                href={getItemHref(item)} 
                 onClick={(e) => handleScroll(e, item)} 
                 className="text-lg font-bold py-3 border-b border-gray-100 last:border-0 text-center text-brand-dark"
               >
@@ -242,7 +250,7 @@ export const Header: React.FC<HeaderProps> = ({ language, setLanguage, onLoginCl
               </a>
             ))}
              <button 
-                onClick={() => { onLoginClick(); setIsMenuOpen(false); }}
+                onClick={() => { handleLoginClick(); setIsMenuOpen(false); }}
                 className={`flex items-center justify-center gap-2 px-5 py-4 rounded-xl font-bold text-lg mt-2 active:scale-95 ${
                   user ? (isAdmin ? 'bg-amber-400 text-brand-dark' : 'bg-brand-dark text-white') : 'bg-brand-dark text-white'
                 }`}

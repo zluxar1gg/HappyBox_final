@@ -84,7 +84,7 @@ export const seoMap: Record<string, { title: Record<Language, string>; desc: Rec
       ru: 'Доставка из Китая в Канаду: DDP Авиа и Море через Ванкувер',
     },
     desc: {
-      en: 'Reliable door-to-door DDP shipping from China to Canada (Toronto, Vancouver, Montreal). Express air (6-10 days), ocean via Port of Vancouver ($1.5/kg), CBSA clearance, GST/HST included.',
+      en: 'Door-to-door DDP shipping from China to Canada (Toronto, Vancouver, Montreal). Air 6-10 days, ocean via Vancouver from $1.5/kg, CBSA & GST/HST included.',
       ru: 'Доставка грузов и посылок из Китая в Канаду (Торонто, Ванкувер, Монреаль) на условиях DDP. Авиа от 6 дней, море от $1.5/кг. Растаможка CBSA, налоги GST/HST включены, без номера BN.',
     },
   },
@@ -284,7 +284,7 @@ export const seoMap: Record<string, { title: Record<Language, string>; desc: Rec
       ru: 'Доставка из Китая в Израиль: авиа и морские перевозки',
     },
     desc: {
-      en: 'Air and sea cargo delivery from China to Tel Aviv, Jerusalem, Haifa & Ashdod. Air from $15/kg (6–9d), LCL ocean freight from $1.2/kg (35–45d). Consolidation & QC in Shenzhen.',
+      en: 'Air and sea freight from China to Tel Aviv, Jerusalem, Haifa & Ashdod. Air from $15/kg (6–9d), LCL ocean from $1.2/kg (35–45d). Shenzhen QC & consolidation.',
       ru: 'Доставка грузов и посылок из Китая в Тель-Авив, Иерусалим, Хайфу и Ашдод. Авиа от $15/кг (6–9 дн.), море LCL от $1.2/кг (35–45 дн.). Консолидация и проверка в Шэньчжэне.',
     },
   },

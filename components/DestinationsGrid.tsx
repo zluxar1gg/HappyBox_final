@@ -146,13 +146,15 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
 
   const displayedDestinations = limit ? allDestinations.slice(0, limit) : allDestinations;
 
+  const getDestUrl = (id: string) => isEn ? `/${id}` : `/ru/${id}`;
+
   const renderCard = (dest: typeof allDestinations[0]) => {
     const isAmazon = dest.id.includes('amazon');
     
     return (
       <a 
         key={dest.id}
-        href={`/${dest.id}`}
+        href={getDestUrl(dest.id)}
         onClick={(e) => {
           e.preventDefault();
           onNavigate(dest.id);
@@ -247,7 +249,7 @@ export const DestinationsGrid: React.FC<DestinationsGridProps> = ({ language, on
         const viewAllCard = (limit && dest.id === 'amazon') ? (
           <a 
             key="view-all"
-            href="/destinations"
+            href={isEn ? '/destinations' : '/ru/destinations'}
             onClick={(e) => {
               e.preventDefault();
               onNavigate('destinations');

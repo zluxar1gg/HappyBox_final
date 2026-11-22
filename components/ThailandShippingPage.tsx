@@ -104,7 +104,7 @@ export const ThailandShippingPage: React.FC<ThailandShippingPageProps> = ({
                 {
                     title: "Need help buying from Taobao?",
                     desc: "We can help you navigate Chinese marketplaces, communicate with sellers, and safely purchase your goods.",
-                    link: "/taobao",
+                    link: "taobao",
                     action: "Learn About Our Free Service",
                     isPrimary: true
                 }
@@ -270,7 +270,7 @@ export const ThailandShippingPage: React.FC<ThailandShippingPageProps> = ({
                 {
                     title: "Нужна помощь с покупками на Taobao?",
                     desc: "Мы поможем вам разобраться в китайских маркетплейсах, пообщаемся с продавцами и безопасно выкупим нужные товары.",
-                    link: "/ru/taobao",
+                    link: "taobao",
                     action: "Узнать о сервисе выкупа 0%",
                     isPrimary: true
                 }
@@ -363,6 +363,7 @@ export const ThailandShippingPage: React.FC<ThailandShippingPageProps> = ({
       setLanguage={setLanguage}
       onBack={onBack}
       onNavigate={onNavigate}
+      pageId="thailand"
       content={fullContent}
     />
   );

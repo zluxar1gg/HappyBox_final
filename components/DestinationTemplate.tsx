@@ -6,6 +6,7 @@ import { SeoBlock } from './SeoBlock';
 import { FloatingContact } from './FloatingContact';
 import { Breadcrumbs } from './Breadcrumbs';
 import { Language } from '../utils/translations';
+import { PageType } from '../utils/seo';
 import { ArrowRight, Send } from 'lucide-react';
 
 export interface GuideSectionItem {
@@ -97,6 +98,7 @@ interface DestinationTemplateProps {
     onNavigate?: (page: string) => void;
     content: Record<'en' | 'ru', DestinationContent>;
     guideComponent?: React.ReactNode;
+    pageId?: PageType;
 }
 
 export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
@@ -105,7 +107,8 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
     onBack,
     onNavigate,
     content,
-    guideComponent
+    guideComponent,
+    pageId
 }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -120,12 +123,16 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
         contacts: language === 'en' ? 'Contact Us' : 'Контакты',
     };
 
+    const normalizeInternalTarget = (rawLink: string) => {
+        const cleaned = rawLink.trim().replace(/^\/+/, '').replace(/^ru\//, '');
+        return (cleaned === '' || cleaned === 'ru') ? 'home' : cleaned;
+    };
+
     return (
         <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden pt-20">
             <Header
                 language={language}
                 setLanguage={setLanguage}
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
                 onNavigate={onNavigate}
@@ -184,7 +191,7 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                             <method.icon size={28} />
                                         </div>
                                         <div className="flex justify-between items-start mb-2">
-                                            <h4 className="font-bold text-xl text-brand-dark">{method.title}</h4>
+                                            <h3 className="font-bold text-xl text-brand-dark">{method.title}</h3>
                                             <span className="text-[10px] font-black uppercase bg-gray-100 px-2 py-1 rounded-md text-gray-500 tracking-wider">{method.tag}</span>
                                         </div>
                                         <p className="text-sm md:text-base text-gray-500 font-medium mb-6 flex-grow leading-relaxed">
@@ -304,10 +311,10 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                     const innerContent = (
                                         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                                             <div className="text-center sm:text-left">
-                                                <h4 className="text-2xl sm:text-3xl font-extrabold font-sans text-brand-dark mb-2 leading-tight">
+                                                <h3 className="text-2xl sm:text-3xl font-extrabold font-sans text-brand-dark mb-2 leading-tight">
                                                     {t.amazonBlock!.titlePrefix}{" "}
                                                     <span className="text-[#FF9900] block sm:inline mt-1 sm:mt-0">{t.amazonBlock!.titleHighlight}</span>?
-                                                </h4>
+                                                </h3>
                                                 <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                                     {t.amazonBlock!.desc}
                                                 </p>
@@ -321,10 +328,24 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                         </div>
                                     );
 
+                                    const internalTarget = normalizeInternalTarget(t.amazonBlock!.link);
+                                    const internalHref = internalTarget === 'home'
+                                        ? (language === 'ru' ? '/ru' : '/')
+                                        : `${language === 'ru' ? '/ru' : ''}/${internalTarget}`;
+
                                     return isInternal ? (
-                                        <button onClick={() => onNavigate?.(t.amazonBlock!.link)} className={wrapperClass}>
+                                        <a
+                                            href={internalHref}
+                                            onClick={(e) => {
+                                                if (onNavigate) {
+                                                    e.preventDefault();
+                                                    onNavigate(internalTarget);
+                                                }
+                                            }}
+                                            className={wrapperClass}
+                                        >
                                             {innerContent}
-                                        </button>
+                                        </a>
                                     ) : (
                                         <a href={t.amazonBlock.link} target="_blank" rel="noopener noreferrer" className={wrapperClass}>
                                             {innerContent}
@@ -362,9 +383,9 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                     const innerContent = (
                                         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                                             <div className="text-center sm:text-left">
-                                                <h4 className={titleClass}>
+                                                <h3 className={titleClass}>
                                                     {promo.title.endsWith('?') ? promo.title.slice(0, -1) : promo.title}{promo.title.endsWith('?') ? '?' : ''}
-                                                </h4>
+                                                </h3>
                                                 <p className={descClass}>
                                                     {promo.desc}
                                                 </p>
@@ -385,10 +406,24 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                                             </a>
                                         );
                                     } else if (isInternal) {
+                                        const internalTarget = normalizeInternalTarget(promo.link);
+                                        const internalHref = internalTarget === 'home'
+                                            ? (language === 'ru' ? '/ru' : '/')
+                                            : `${language === 'ru' ? '/ru' : ''}/${internalTarget}`;
                                         return (
-                                            <button key={idx} onClick={() => onNavigate?.(promo.link.replace(/^\//, ''))} className={wrapperClass}>
+                                            <a
+                                                key={idx}
+                                                href={internalHref}
+                                                onClick={(e) => {
+                                                    if (onNavigate) {
+                                                        e.preventDefault();
+                                                        onNavigate(internalTarget);
+                                                    }
+                                                }}
+                                                className={wrapperClass}
+                                            >
                                                 {innerContent}
-                                            </button>
+                                            </a>
                                         );
                                     } else {
                                         return (
@@ -504,9 +539,11 @@ export const DestinationTemplate: React.FC<DestinationTemplateProps> = ({
                     </div>
                 )}
 
-                <div id="contacts" className="scroll-mt-32">
-                    <Contact language={language} currentPage="destination" />
+                <div className="scroll-mt-32">
+                    <Contact language={language} currentPage={pageId || 'destination'} />
                 </div>
+
+                <SeoBlock language={language} onNavigate={onNavigate || (() => {})} currentPage={pageId} />
             </main>
 
             <Footer language={language} />

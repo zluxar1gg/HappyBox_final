@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Home, AlertCircle } from 'lucide-react';
 import { Header } from './Header';
 import { Footer } from './Footer';
@@ -10,12 +9,14 @@ interface NotFoundPageProps {
   language: Language;
   setLanguage: (lang: Language) => void;
   onNavigateHome: () => void;
+  onNavigate?: (targetPage: string, sectionId?: string) => void;
 }
 
 export const NotFoundPage: React.FC<NotFoundPageProps> = ({
   language,
   setLanguage,
   onNavigateHome,
+  onNavigate,
 }) => {
   const isEn = language === 'en';
 
@@ -23,25 +24,13 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({
     window.scrollTo(0, 0);
   }, []);
 
-  const title = isEn ? '404 - Page Not Found | HappyBox' : '404 - Страница не найдена | HappyBox';
-  const description = isEn
-    ? 'The page you are looking for does not exist or has been moved.'
-    : 'Запрашиваемая страница не найдена или была перемещена.';
-
   return (
     <div className="min-h-screen bg-cream font-sans text-brand-dark overflow-x-hidden flex flex-col justify-between pt-20">
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="robots" content="noindex, follow" />
-      </Helmet>
-
       <Header
         language={language}
         setLanguage={setLanguage}
-        onLoginClick={() => {}}
         isDashboard={false}
-        onNavigate={onNavigateHome}
+        onNavigate={onNavigate || onNavigateHome}
       />
 
       <main className="flex-1 flex items-center justify-center py-16 md:py-24 px-6">
@@ -64,13 +53,17 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({
               : 'К сожалению, запрашиваемая страница не существует, была удалена или временно недоступна.'}
           </p>
 
-          <button
-            onClick={onNavigateHome}
+          <a
+            href={isEn ? '/' : '/ru'}
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigateHome();
+            }}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-brand-blue text-white rounded-xl font-bold text-base hover:bg-blue-600 transition-all duration-200 shadow-lg shadow-brand-blue/25 active:scale-[0.98]"
           >
             <Home size={18} />
             <span>{isEn ? 'Return to Homepage' : 'Вернуться на главную'}</span>
-          </button>
+          </a>
         </div>
       </main>
 

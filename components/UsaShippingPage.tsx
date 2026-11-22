@@ -184,9 +184,9 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
             <Header
                 language={language}
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
+                onNavigate={onNavigate}
             />
 
             <main>
@@ -246,7 +246,7 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                                             <method.icon size={28} />
                                         </div>
                                         <div className="flex justify-between items-start mb-2">
-                                            <h4 className="font-bold text-xl text-brand-dark">{method.title}</h4>
+                                            <h3 className="font-bold text-xl text-brand-dark">{method.title}</h3>
                                             <span className="text-[10px] font-extrabold uppercase bg-gray-100 px-2 py-1 rounded-md text-gray-500 tracking-wider">{method.tag}</span>
                                         </div>
                                         <p className="text-sm text-gray-500 font-medium mb-6 flex-grow leading-relaxed">
@@ -346,13 +346,20 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
 
                             {/* Banners */}
                             <div className="pt-12 border-t border-gray-100 mb-24 space-y-6">
-                                <a href={language === 'ru' ? '/ru/amazon' : '/amazon'} className="block w-full bg-gray-50 border border-gray-200 rounded-3xl p-6 sm:p-8 hover:bg-orange-50 hover:border-orange-200 transition-colors group cursor-pointer">
+                                <a
+                                    href={language === 'ru' ? '/ru/amazon' : '/amazon'}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        onNavigate('amazon');
+                                    }}
+                                    className="block w-full bg-gray-50 border border-gray-200 rounded-3xl p-6 sm:p-8 hover:bg-orange-50 hover:border-orange-200 transition-colors group cursor-pointer"
+                                >
                                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                                         <div className="text-center sm:text-left">
-                                            <h4 className="text-2xl sm:text-3xl font-extrabold font-sans text-brand-dark mb-2 leading-tight">
+                                            <h3 className="text-2xl sm:text-3xl font-extrabold font-sans text-brand-dark mb-2 leading-tight">
                                                 {language === 'ru' ? 'Вам нужна доставка на ' : 'Shipping to '} 
                                                 <span className="text-[#FF9900] block sm:inline">Amazon FBA</span>?
-                                            </h4>
+                                            </h3>
                                             <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                                                 {language === 'ru' ? 'Специальные условия, маркировка и доставка напрямую на склады FBA.' : 'Specialized rates, prep services, and direct delivery to FBA warehouses.'}
                                             </p>
@@ -366,12 +373,19 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                                     </div>
                                 </a>
 
-                                <a href={language === 'ru' ? '/ru/blog/chinese-holidays-calendar-2026' : '/blog/chinese-holidays-calendar-2026'} className="block w-full bg-brand-dark border border-gray-800 rounded-3xl p-6 sm:p-8 hover:border-brand-blue transition-colors group cursor-pointer">
+                                <a
+                                    href={language === 'ru' ? '/ru/blog/chinese-holidays-calendar-2026' : '/blog/chinese-holidays-calendar-2026'}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        onNavigate('blog/chinese-holidays-calendar-2026');
+                                    }}
+                                    className="block w-full bg-brand-dark border border-gray-800 rounded-3xl p-6 sm:p-8 hover:border-brand-blue transition-colors group cursor-pointer"
+                                >
                                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                                         <div className="text-center sm:text-left">
-                                            <h4 className="text-2xl sm:text-3xl font-extrabold font-sans text-white mb-2 leading-tight">
+                                            <h3 className="text-2xl sm:text-3xl font-extrabold font-sans text-white mb-2 leading-tight">
                                                 {language === 'ru' ? 'Календарь Китайских Праздников 2026' : 'Chinese Holidays Calendar 2026'} 
-                                            </h4>
+                                            </h3>
                                             <p className="text-gray-400 font-medium">
                                                 {language === 'ru' ? 'Узнайте точные даты, когда останавливается логистика, и как заранее отправить груз.' : 'Find out exact dates when logistics stop and how to ship your cargo ahead of time.'}
                                             </p>
@@ -387,13 +401,13 @@ export const UsaShippingPage: React.FC<UsaShippingPageProps> = ({ language, setL
                             </div>
 
                             <div id="guide" className="pt-10 border-t border-gray-100 scroll-mt-32">
-                                <UsaAdvancedLogisticsGuide language={language} simplified />
+                                <UsaAdvancedLogisticsGuide language={language} simplified onNavigate={onNavigate} />
                             </div>
 
                         </div>
                 </section>
 
-                <div id="contacts" className="scroll-mt-32">
+                <div className="scroll-mt-32">
                     <Contact language={language} currentPage="usa" />
                 </div>
                 

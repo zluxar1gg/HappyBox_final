@@ -5,6 +5,7 @@ import { Footer } from './Footer';
 import { SeoBlock } from './SeoBlock';
 import { Language } from '../utils/translations';
 import { FloatingContact } from './FloatingContact';
+import { Breadcrumbs } from './Breadcrumbs';
 import { 
   Check, ShieldCheck, Plane, Anchor, Zap, Box, Send, 
   ScanBarcode, Layers, Globe, Truck, ShoppingBag, AlertTriangle, 
@@ -327,7 +328,6 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
             <Header
                 language={language}
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
                 onNavigate={onNavigate}
@@ -336,6 +336,16 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
             <main>
                 <section className="py-12 lg:py-24 bg-cream">
                     <div className="container mx-auto px-6 xl:px-0">
+                         <div className="max-w-5xl mx-auto mb-4">
+                            <Breadcrumbs
+                                language={language}
+                                onNavigate={onNavigate}
+                                items={[
+                                    { label: language === 'ru' ? 'Все направления' : 'All Destinations', path: 'destinations' },
+                                    { label: t.badge }
+                                ]}
+                            />
+                         </div>
                          <div className="max-w-5xl mx-auto text-center">
                             <span className="inline-flex items-center justify-center bg-[#FF9900]/10 text-[#FF9900] px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8">
                                 {t.badge}
@@ -367,11 +377,11 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-[#FF9900]/10 h-full">
-                                        <h4 className="font-bold text-brand-dark mb-3 text-lg leading-snug">{t.ddpTitle}</h4>
+                                        <h3 className="font-bold text-brand-dark mb-3 text-lg leading-snug">{t.ddpTitle}</h3>
                                         <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed font-medium">{t.ddpText}</p>
                                     </div>
                                     <div className="bg-white p-6 md:p-8 rounded-[30px] shadow-sm border border-[#FF9900]/10 h-full">
-                                        <h4 className="font-bold text-brand-dark mb-3 text-lg leading-snug">{t.minWeightTitle}</h4>
+                                        <h3 className="font-bold text-brand-dark mb-3 text-lg leading-snug">{t.minWeightTitle}</h3>
                                         <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed font-medium">{t.minWeightText}</p>
                                     </div>
                                 </div>
@@ -384,7 +394,7 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                                 </h2>
                                 <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                                     <div className="bg-white rounded-[30px] p-6 border-2 border-gray-100 shadow-sm flex flex-col">
-                                        <h4 className="font-bold text-xl text-brand-dark mb-4">{t.ratesAir.method}</h4>
+                                        <h3 className="font-bold text-xl text-brand-dark mb-4">{t.ratesAir.method}</h3>
                                         <div className="space-y-4 font-medium text-gray-600 mb-6">
                                             <div className="flex justify-between border-b border-gray-50 pb-2">
                                                 <span className="uppercase text-xs font-bold text-gray-400">Price</span>
@@ -402,7 +412,7 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                                     </div>
                                     
                                     <div className="bg-white rounded-[30px] p-6 border-2 border-gray-100 shadow-sm flex flex-col">
-                                        <h4 className="font-bold text-xl text-brand-dark mb-4">{t.ratesSea.method}</h4>
+                                        <h3 className="font-bold text-xl text-brand-dark mb-4">{t.ratesSea.method}</h3>
                                         <div className="space-y-4 font-medium text-gray-600 mb-6">
                                             <div className="flex justify-between border-b border-gray-50 pb-2">
                                                 <span className="uppercase text-xs font-bold text-gray-400">Price</span>
@@ -504,7 +514,7 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                                             <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-brand-light text-brand-blue">
                                                 <sect.icon size={28} />
                                             </div>
-                                            <h4 className="font-bold text-xl text-brand-dark mb-3">{sect.title}</h4>
+                                            <h3 className="font-bold text-xl text-brand-dark mb-3">{sect.title}</h3>
                                             <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-6 flex-grow">{sect.text}</p>
                                             {sect.list && sect.list.length > 0 && (
                                                 <ul className="space-y-3 pt-6 border-t border-gray-50 text-sm text-gray-700 font-medium">
@@ -542,7 +552,7 @@ export const AmazonPage: React.FC<AmazonPageProps> = ({ language, setLanguage, o
                         </div>
                 </section>
 
-                <div id="contacts">
+                <div>
                     <Contact language={language} currentPage="amazon" />
                 </div>
                 

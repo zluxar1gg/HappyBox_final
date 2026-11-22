@@ -127,7 +127,6 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
             <Header
                 language={language}
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
                 onNavigate={onNavigate}
@@ -235,7 +234,7 @@ export const P1688Page: React.FC<P1688PageProps> = ({ language, setLanguage, onB
 
                 <P1688AdvancedGuide language={language} onNavigate={onNavigate} />
 
-                <div id="contacts">
+                <div>
                     <Contact language={language} currentPage="1688" />
                 </div>
                 

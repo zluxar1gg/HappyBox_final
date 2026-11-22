@@ -110,6 +110,10 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
   const [editProductTitle, setEditProductTitle] = useState('');
   const [editWarehouse, setEditWarehouse] = useState<WarehouseDestination>('cis_cargo');
   const [isSavingParcel, setIsSavingParcel] = useState(false);
+  const [editParcelError, setEditParcelError] = useState<string | null>(null);
+  const [confirmDeleteParcelId, setConfirmDeleteParcelId] = useState<string | null>(null);
+  const [isDeletingParcel, setIsDeletingParcel] = useState(false);
+  const [deleteParcelError, setDeleteParcelError] = useState<string | null>(null);
 
   // Photo Lightbox modal
   const [lightboxPhotoUrl, setLightboxPhotoUrl] = useState<string | null>(null);
@@ -242,6 +246,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
 
   // Start editing inbound parcel
   const handleStartEditParcel = (parcel: Parcel) => {
+    setEditParcelError(null);
     setEditingParcel(parcel);
     setEditInboundTracking(parcel.inboundTracking);
     setEditProductTitle(parcel.productTitle);
@@ -253,6 +258,7 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
     e.preventDefault();
     if (!editingParcel) return;
 
+    setEditParcelError(null);
     setIsSavingParcel(true);
     try {
       await updateCustomerParcel(editingParcel.id, {
@@ -263,21 +269,31 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
       setEditingParcel(null);
     } catch (err) {
       console.error('Error updating parcel:', err);
-      alert(isRu ? 'Не удалось обновить посылку' : 'Failed to update parcel');
+      setEditParcelError(isRu ? 'Не удалось обновить посылку. Попробуйте ещё раз.' : 'Failed to update parcel. Please try again.');
     } finally {
       setIsSavingParcel(false);
     }
   };
 
-  // Delete inbound parcel
-  const handleDeleteCustomerParcel = async (parcelId: string) => {
-    if (confirm(isRu ? 'Удалить этот трек-номер из списка ожидаемых?' : 'Delete this tracking number?')) {
-      try {
-        await deleteCustomerParcel(parcelId);
-        if (editingParcel?.id === parcelId) setEditingParcel(null);
-      } catch (err) {
-        console.error('Failed to delete parcel:', err);
-      }
+  // Delete inbound parcel (opens in-app confirmation modal)
+  const handleDeleteCustomerParcel = (parcelId: string) => {
+    setDeleteParcelError(null);
+    setConfirmDeleteParcelId(parcelId);
+  };
+
+  const confirmDeleteParcelAction = async () => {
+    if (!confirmDeleteParcelId || isDeletingParcel) return;
+    setIsDeletingParcel(true);
+    setDeleteParcelError(null);
+    try {
+      await deleteCustomerParcel(confirmDeleteParcelId);
+      if (editingParcel?.id === confirmDeleteParcelId) setEditingParcel(null);
+      setConfirmDeleteParcelId(null);
+    } catch (err) {
+      console.error('Failed to delete parcel:', err);
+      setDeleteParcelError(isRu ? 'Не удалось удалить посылку. Попробуйте ещё раз.' : 'Failed to delete parcel. Please try again.');
+    } finally {
+      setIsDeletingParcel(false);
     }
   };
 
@@ -864,9 +880,9 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
               <div className="bg-white rounded-[32px] p-6 sm:p-7 border border-gray-200/80 shadow-xs">
                 <div className="flex items-center gap-2.5 mb-1.5">
                   <Inbox size={22} className="text-brand-blue" />
-                  <h2 className="text-lg sm:text-xl font-black text-brand-dark tracking-tight">
+                  <h1 className="text-lg sm:text-xl font-black text-brand-dark tracking-tight">
                     {isRu ? 'Регистрация входящей посылки по Китаю' : 'Register Inbound China Parcel'}
-                  </h2>
+                  </h1>
                 </div>
                 <p className="text-xs text-gray-500 mb-5 max-w-2xl leading-relaxed">
                   {isRu 
@@ -1262,10 +1278,10 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                 {/* Header title */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <h2 className="text-lg sm:text-xl font-black text-brand-dark flex items-center gap-2">
+                    <h1 className="text-lg sm:text-xl font-black text-brand-dark flex items-center gap-2">
                       <Truck size={22} className="text-brand-blue" />
                       <span>{isRu ? 'Сформированные отправления' : 'Outbound Shipments'}</span>
-                    </h2>
+                    </h1>
                     <p className="text-xs text-gray-500 mt-1">
                       {isRu 
                         ? 'Склад объединяет ваши товары в коробку, делает общее фото, рассчитывает вес и присваивает международный трек (СДЭК/Карго).' 
@@ -2063,6 +2079,13 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
               {isRu ? 'Редактировать входящую посылку' : 'Edit Incoming Parcel'}
             </h3>
 
+            {editParcelError && (
+              <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-2xl flex items-center gap-2 text-red-600 text-xs font-semibold">
+                <AlertCircle size={15} className="shrink-0" />
+                <span>{editParcelError}</span>
+              </div>
+            )}
+
             <form onSubmit={handleSaveParcelEdit} className="space-y-4 text-xs">
               <div>
                 <label className="block font-bold text-gray-500 uppercase tracking-wider mb-1">
@@ -2243,6 +2266,58 @@ export const CustomerDashboardPage: React.FC<CustomerDashboardPageProps> = ({
                   <span>WhatsApp</span>
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CONFIRM DELETE PARCEL MODAL */}
+      {confirmDeleteParcelId && (
+        <div
+          className="fixed inset-0 z-[130] flex items-center justify-center p-4 bg-brand-dark/75 backdrop-blur-sm animate-fade-in"
+          onClick={() => !isDeletingParcel && setConfirmDeleteParcelId(null)}
+        >
+          <div
+            className="bg-white rounded-3xl p-6 sm:p-7 max-w-sm w-full shadow-2xl border border-gray-100"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center shrink-0">
+                <Trash2 size={18} />
+              </div>
+              <h3 className="font-extrabold text-base text-brand-dark">
+                {isRu ? 'Удалить трек-номер?' : 'Delete tracking number?'}
+              </h3>
+            </div>
+            <p className="text-xs text-gray-500 leading-relaxed mb-4">
+              {isRu
+                ? 'Удалить этот трек-номер из списка ожидаемых? Это действие нельзя отменить.'
+                : 'Delete this tracking number from your expected list? This action cannot be undone.'}
+            </p>
+            {deleteParcelError && (
+              <div className="mb-4 p-2.5 bg-red-50 border border-red-200 rounded-xl flex items-center gap-2 text-red-600 text-xs font-semibold">
+                <AlertCircle size={14} className="shrink-0" />
+                <span>{deleteParcelError}</span>
+              </div>
+            )}
+            <div className="flex justify-end gap-2">
+              <button
+                type="button"
+                disabled={isDeletingParcel}
+                onClick={() => setConfirmDeleteParcelId(null)}
+                className="px-4 py-2 rounded-xl text-xs font-bold text-gray-600 hover:bg-gray-100 cursor-pointer disabled:opacity-50"
+              >
+                {isRu ? 'Отмена' : 'Cancel'}
+              </button>
+              <button
+                type="button"
+                disabled={isDeletingParcel}
+                onClick={confirmDeleteParcelAction}
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-red-600 hover:bg-red-700 text-white shadow-sm flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+              >
+                {isDeletingParcel ? <Loader2 size={14} className="animate-spin" /> : <Trash2 size={14} />}
+                <span>{isRu ? 'Удалить' : 'Delete'}</span>
+              </button>
             </div>
           </div>
         </div>

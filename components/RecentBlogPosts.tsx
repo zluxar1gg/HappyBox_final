@@ -61,67 +61,82 @@ export const RecentBlogPosts: React.FC<RecentBlogPostsProps> = ({
               {subtitle || defaultSubtitle}
             </p>
           </div>
-          <button
-            onClick={handleViewAll}
+          <a
+            href={isRu ? '/ru/blog' : '/blog'}
+            onClick={(e) => {
+              e.preventDefault();
+              handleViewAll();
+            }}
             className="mt-6 md:mt-0 inline-flex items-center gap-2 self-start md:self-auto font-bold text-sm md:text-base text-brand-blue hover:text-blue-700 transition-colors group cursor-pointer"
           >
             <span>{isRu ? 'Все статьи блога' : 'View All Articles'}</span>
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post) => (
-            <article
-              key={post.id}
-              onClick={() => handlePostClick(post.slug)}
-              className="bg-white rounded-[28px] overflow-hidden border border-gray-100 hover:border-brand-blue/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group cursor-pointer hover:-translate-y-1.5"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
-                <img
-                  src={post.imageUrl}
-                  alt={post.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
-                  {post.category}
-                </span>
-              </div>
-
-              <div className="p-6 md:p-7 flex flex-col flex-grow">
-                <div className="flex items-center gap-4 text-xs font-semibold text-gray-500 mb-3">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-brand-blue" />
-                    {post.date}
-                  </span>
-                  <span>•</span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-brand-blue" />
-                    {post.readTime} {isRu ? 'мин чтения' : 'min read'}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-bold text-brand-dark group-hover:text-brand-blue transition-colors leading-snug mb-3">
-                  {post.title}
-                </h3>
-
-                <p className="text-sm text-gray-600 line-clamp-3 leading-relaxed mb-6 flex-grow font-normal">
-                  {post.excerpt}
-                </p>
-
-                <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-xs font-bold text-brand-blue group-hover:underline">
-                    {isRu ? 'Читать подробнее' : 'Read Full Guide'}
-                  </span>
-                  <div className="w-8 h-8 rounded-full bg-brand-light flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors">
-                    <ArrowRight className="w-4 h-4" />
+          {posts.map((post) => {
+            const postUrl = isRu ? `/ru/blog/${post.slug}` : `/blog/${post.slug}`;
+            return (
+              <article
+                key={post.id}
+                className="bg-white rounded-[28px] overflow-hidden border border-gray-100 hover:border-brand-blue/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1.5"
+              >
+                <a
+                  href={postUrl}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlePostClick(post.slug);
+                  }}
+                  className="flex flex-col flex-grow h-full cursor-pointer"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                    <img
+                      src={post.imageUrl}
+                      alt={post.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+                      {post.category}
+                    </span>
                   </div>
-                </div>
-              </div>
-            </article>
-          ))}
+
+                  <div className="p-6 md:p-7 flex flex-col flex-grow">
+                    <div className="flex items-center gap-4 text-xs font-semibold text-gray-500 mb-3">
+                      <span className="flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-brand-blue" />
+                        {post.date}
+                      </span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5 text-brand-blue" />
+                        {post.readTime} {isRu ? 'мин чтения' : 'min read'}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-brand-dark group-hover:text-brand-blue transition-colors leading-snug mb-3">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-sm text-gray-600 line-clamp-3 leading-relaxed mb-6 flex-grow font-normal">
+                      {post.excerpt}
+                    </p>
+
+                    <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                      <span className="text-xs font-bold text-brand-blue group-hover:underline">
+                        {isRu ? 'Читать подробнее' : 'Read Full Guide'}
+                      </span>
+                      <div className="w-8 h-8 rounded-full bg-brand-light flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

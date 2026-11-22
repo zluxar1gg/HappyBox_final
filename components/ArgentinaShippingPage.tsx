@@ -97,7 +97,7 @@ export const ArgentinaShippingPage: React.FC<ArgentinaShippingPageProps> = ({
                 {
                     title: "Need help buying from Taobao?",
                     desc: "We can help you navigate Chinese marketplaces, communicate with sellers, and safely purchase your goods.",
-                    link: "/taobao",
+                    link: "taobao",
                     action: "Learn About Our Free Service",
                     isPrimary: true
                 }
@@ -263,7 +263,7 @@ export const ArgentinaShippingPage: React.FC<ArgentinaShippingPageProps> = ({
                 {
                     title: "Нужна помощь с покупками на Taobao?",
                     desc: "Мы поможем разобраться в китайских маркетплейсах, пообщаемся с продавцами и безопасно выкупим нужные товары.",
-                    link: "/ru/taobao",
+                    link: "taobao",
                     action: "Узнать о сервисе выкупа 0%",
                     isPrimary: true
                 }
@@ -357,6 +357,7 @@ export const ArgentinaShippingPage: React.FC<ArgentinaShippingPageProps> = ({
             setLanguage={setLanguage}
             onBack={onBack}
             onNavigate={onNavigate}
+            pageId="argentina"
             content={fullContent}
         />
     );

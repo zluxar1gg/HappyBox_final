@@ -1,5 +1,4 @@
 import express from "express";
-import { createServer as createViteServer } from "vite";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
@@ -53,6 +52,7 @@ async function startServer() {
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { 
         middlewareMode: true,
@@ -79,14 +79,35 @@ async function startServer() {
       }
     });
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
-    
-    // Serve static files, automatically serving index.html for directories
-    app.use(express.static(distPath));
-    
-    // Fallback for any unmatched routes (SPA fallback)
+    const distPath = path.resolve(process.cwd(), 'dist');
+    const clientSpaRoutes = new Set(['/dashboard', '/ru/dashboard', '/admin', '/ru/admin']);
+
+    // Serve static files without directory trailing-slash 301 redirects (prevents loop with slash-stripper)
+    app.use(express.static(distPath, { redirect: false }));
+
+    // Serve prerendered <route>/index.html or client-only portal routes, return 404 for unknown URLs
     app.use((req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      if (req.method !== 'GET' && req.method !== 'HEAD') {
+        return res.status(404).end();
+      }
+
+      const relPath = req.path === '/' ? '' : req.path.replace(/^\/+/, '');
+      if (relPath && !path.extname(relPath)) {
+        const candidate = path.resolve(distPath, relPath, 'index.html');
+        if (candidate.startsWith(distPath + path.sep) && fs.existsSync(candidate)) {
+          return res.status(200).sendFile(candidate);
+        }
+      }
+
+      if (clientSpaRoutes.has(req.path)) {
+        return res.status(200).sendFile(path.join(distPath, 'index.html'));
+      }
+
+      if (req.path.startsWith('/api/') || path.extname(req.path)) {
+        return res.status(404).end();
+      }
+
+      return res.status(404).sendFile(path.join(distPath, 'index.html'));
     });
   }
 

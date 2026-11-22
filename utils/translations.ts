@@ -555,7 +555,7 @@ export const translations = {
           {
             title: 'Value-added Services',
             items: [
-              { text: 'Amazon FBA to Canada', link: 'amazon' },
+              { text: 'Amazon FBA to Canada', link: 'amazon-canada' },
               { text: 'Package Consolidation', link: 'warehousing' },
               { text: 'Free Warehousing in China', link: 'warehousing' },
               { text: 'Quality Inspection', link: 'inspection' }
@@ -789,6 +789,23 @@ export const translations = {
                 { title: "Consolidation Logic", desc: "Combine your premium Tmall electronics with cheap Taobao accessories in one parcel." }
             ]
         },
+        faq: {
+          title: "Frequently Asked Questions About Tmall Purchasing",
+          items: [
+            {
+              q: "What is the difference between Tmall and Taobao?",
+              a: "Taobao is primarily a C2C marketplace of individual sellers, while Tmall is Alibaba's B2C platform hosting verified business entities and official brand flagships (marked with the red Cat icon and a deposit paid to Alibaba), ensuring 100% authentic goods and stricter quality standards."
+            },
+            {
+              q: "What commission does HappyBox charge for buying from Tmall?",
+              a: "HappyBox charges a 0% service fee for Tmall purchases. You do not need a Chinese phone number, Alipay, or local bank card — we buy directly from official flagship stores on your behalf."
+            },
+            {
+              q: "Can I combine Tmall items with orders from Taobao, 1688, or Poizon?",
+              a: "Yes. We receive your Tmall purchases at our warehouses in Shenzhen and Guangzhou, store them free for up to 30 days, and consolidate them into one parcel alongside items from Taobao, 1688, Poizon, and Pinduoduo."
+            }
+          ]
+        },
         startBtn: 'Start Shopping Tmall',
         backBtn: 'Back to Home'
       },
@@ -819,6 +836,23 @@ export const translations = {
             title: "Turnkey QC Checklists & Factory Scheduling",
             text: "Don't know what to check? Leave it to us. Just send a photo or requirements. Our experts will create a checklist and arrange an inspection with the factory managers while you focus on brand development."
         },
+        faq: {
+          title: "Frequently Asked Questions About China Quality Inspection",
+          items: [
+            {
+              q: "Which provinces do you cover and how fast can an inspector visit a factory?",
+              a: "Our network of professional inspectors operates across Guangdong, Zhejiang, Jiangsu, Fujian, and other industrial provinces of China, ready to depart within 24–48 hours. You receive a full PDF report with high-resolution photos, videos, and a list of defects within 24 hours."
+            },
+            {
+              q: "What types of factory inspections and standards do you use?",
+              a: "We perform 4 core types of inspections: Factory Audit (before payment), DUPRO at 20–30% production readiness, Pre-Shipment Inspection (PSI) under international AQL standards when 100% is produced and 80% packed, and Container Loading Supervision (CLS), classifying defects into Critical, Major, and Minor."
+            },
+            {
+              q: "What if I don't have a technical checklist prepared?",
+              a: "Just send us product photos or your requirements. Our specialists prepare an Inspection Checklist, schedule the inspection date directly with factory managers, and deliver a clear Pass/Fail assessment."
+            }
+          ]
+        },
         startBtn: 'Order Inspection',
         backBtn: 'Back to Home'
       },
@@ -843,6 +877,23 @@ export const translations = {
         proTip: {
             title: "Full-Service Purchasing & Fulfillment From One Hub",
             text: "If you don't want to track a bunch of tracking numbers and communicate with sellers, leave it to us. Our 'Full Support' service includes purchasing, warehouse management, and door-to-door delivery. You just say what you want, and we do it."
+        },
+        faq: {
+          title: "Frequently Asked Questions About China Warehousing & Consolidation",
+          items: [
+            {
+              q: "How long is storage free and do you charge for parcel reception or consolidation?",
+              a: "Storage at our Shenzhen and Guangzhou warehouses is free for up to 30 days. Receiving incoming parcels (regardless of store or weight) and consolidating orders from Taobao, 1688, and other platforms into one shipment are also completely free."
+            },
+            {
+              q: "How does warehouse consolidation save up to 80% on international shipping?",
+              a: "Instead of paying shipping minimums on every individual box, we remove excess factory packaging such as heavy shoe boxes and repack items compactly to reduce volumetric weight and cut overall international shipping costs by up to 80%."
+            },
+            {
+              q: "Can you send QC photos, split large batches, or return items within China?",
+              a: "Yes. We provide free incoming photo and video reports, operate under 24/7 video surveillance, and can split orders for different recipients or return items to Chinese sellers for free (you only pay domestic shipping within China). Optional cargo insurance is also available."
+            }
+          ]
         },
         startBtn: 'Get Warehouse Address',
         backBtn: 'Back to Home'
@@ -1398,7 +1449,7 @@ export const translations = {
           {
             title: 'Полезные сервисы',
             items: [
-              { text: 'Доставка Amazon FBA в Канаду', link: 'amazon' },
+              { text: 'Доставка Amazon FBA в Канаду', link: 'amazon-canada' },
               { text: 'Консолидация посылок', link: 'warehousing' },
               { text: 'Бесплатный склад в Китае', link: 'warehousing' },
               { text: 'Проверка качества', link: 'inspection' }
@@ -1632,6 +1683,23 @@ export const translations = {
                 { title: "Консолидация", desc: "Объедините премиальную технику с Tmall и дешевые мелочи с Taobao в одной посылке." }
             ]
         },
+        faq: {
+          title: "Частые вопросы о покупках на Tmall",
+          items: [
+            {
+              q: "В чем разница между Tmall и обычным Taobao?",
+              a: "Taobao работает как рынок (C2C) с частными продавцами, а Tmall — это премиальная B2C-площадка Alibaba с официальными представителями брендов и проверенными юрлицами (отмечены красной иконкой кота и имеют депозит в Alibaba), что гарантирует 100% оригинальность и более высокий контроль качества."
+            },
+            {
+              q: "Какая комиссия за выкуп товаров с Tmall через HappyBox?",
+              a: "Мы не берем комиссию за выкуп с Tmall — ставка сервиса составляет 0%. Выкупаем товары напрямую в официальных флагманских магазинах без необходимости заводить китайскую карту или Alipay."
+            },
+            {
+              q: "Можно ли объединить заказы с Tmall, Taobao, 1688 и Poizon в одну посылку?",
+              a: "Да. Мы бесплатно принимаем ваши заказы с Tmall на складах в Шэньчжэне и Гуанчжоу, храним их до 30 дней и объединяем в одну компактную посылку вместе с покупками с Taobao, 1688, Poizon и Pinduoduo."
+            }
+          ]
+        },
         startBtn: 'Начать шопинг Tmall',
         backBtn: 'На главную'
       },
@@ -1662,6 +1730,23 @@ export const translations = {
             title: "Составим чек-лист и организуем выезд на фабрику за вас",
             text: "Не знаете, что проверять? Пришлите требования, и мы составим чек-лист (Inspection Checklist) сами. Договоримся с фабрикой о дате визита инспектора."
         },
+        faq: {
+          title: "Частые вопросы об инспекции и проверке качества в Китае",
+          items: [
+            {
+              q: "В каких регионах Китая работают инспекторы и как быстро готов отчет?",
+              a: "Наша сеть инспекторов работает в Гуандуне, Чжэцзяне, Цзянсу, Фуцзяни и других промышленных провинциях Китая. После проверки вы получаете подробный PDF-отчет с фото и видео высокого разрешения, списком дефектов и оценкой Pass/Fail в течение 24 часов."
+            },
+            {
+              q: "Какие виды проверок на производстве вы проводите?",
+              a: "Мы выполняем 4 типа проверок: аудит фабрики до оплаты, контроль в процессе производства (DUPRO на этапе 20–30% готовности), пред-отгрузочную инспекцию (PSI по международным стандартам AQL) и контроль погрузки в контейнер (CLS) с сортировкой брака на критический и незначительный."
+            },
+            {
+              q: "Что делать, если у меня нет готового чек-листа для инспектора?",
+              a: "Просто пришлите фото товара или ваши требования. Наши эксперты сами составят подробный чек-лист (Inspection Checklist) и согласуют дату визита инспектора с руководством фабрики."
+            }
+          ]
+        },
         startBtn: 'Заказать проверку',
         backBtn: 'На главную'
       },
@@ -1686,6 +1771,23 @@ export const translations = {
         proTip: {
             title: "Выкуп, переупаковка и фулфилмент под ключ",
             text: "Если вы не хотите отслеживать десятки трек-номеров и общаться с продавцами — поручите это нам. Услуга «полного сопровождения под ключ» включает выкуп, приёмку на складе, переупаковку, маркировку, фулфилмент и доставку до двери."
+        },
+        faq: {
+          title: "Частые вопросы о складе и консолидации в Китае",
+          items: [
+            {
+              q: "Сколько длится бесплатное хранение и сколько стоит приемка посылок?",
+              a: "Хранение на наших складах в Шэньчжэне и Гуанчжоу бесплатно до 30 дней. Приемка входящих посылок любого веса и объединение заказов с Taobao, 1688 и других площадок в одну посылку также выполняются бесплатно."
+            },
+            {
+              q: "За счет чего консолидация экономит до 80% на доставке?",
+              a: "Мы не просто складываем коробки в одну большую коробку — мы убираем лишнюю заводскую тару (например, тяжелые коробки из-под обуви) и упаковываем товар максимально компактно, снижая объемный вес."
+            },
+            {
+              q: "Делаете ли вы фотоотчет и можно ли разделить партию на складе?",
+              a: "Да. Мы делаем бесплатный фотоотчет входящих посылок, обеспечиваем круглосуточную охрану с видеонаблюдением 24/7 и можем бесплатно разделить крупную партию для отправки разным получателям."
+            }
+          ]
         },
         startBtn: 'Получить адрес склада',
         backBtn: 'На главную'

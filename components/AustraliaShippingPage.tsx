@@ -97,7 +97,7 @@ export const AustraliaShippingPage: React.FC<AustraliaShippingPageProps> = ({
                 {
                     title: "Need help buying from Taobao?",
                     desc: "We can help you navigate Chinese marketplaces, communicate with sellers, and safely purchase your goods.",
-                    link: "/taobao",
+                    link: "taobao",
                     action: "Learn About Our Free Service",
                     isPrimary: true
                 }
@@ -267,7 +267,7 @@ export const AustraliaShippingPage: React.FC<AustraliaShippingPageProps> = ({
                 {
                     title: "Нужна помощь с покупками на Taobao?",
                     desc: "Мы поможем разобраться в китайских маркетплейсах, пообщаемся с продавцами и безопасно выкупим нужные товары.",
-                    link: "/ru/taobao",
+                    link: "taobao",
                     action: "Узнать о сервисе выкупа 0%",
                     isPrimary: true
                 }
@@ -365,6 +365,7 @@ export const AustraliaShippingPage: React.FC<AustraliaShippingPageProps> = ({
             setLanguage={setLanguage}
             onBack={onBack}
             onNavigate={onNavigate}
+            pageId="australia"
             content={fullContent}
         />
     );

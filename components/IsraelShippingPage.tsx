@@ -97,7 +97,7 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
                 {
                     title: "Need help buying from Taobao?",
                     desc: "We can help you navigate Chinese marketplaces, communicate with sellers, and safely purchase your goods.",
-                    link: "/taobao",
+                    link: "taobao",
                     action: "Learn About Our Free Service",
                     isPrimary: true
                 }
@@ -245,7 +245,7 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
                 {
                     title: "Нужна помощь с Taobao/1688?",
                     desc: "Мы можем выкупить для вас товары без наценок и скрытых комиссий.",
-                    link: "/ru/taobao",
+                    link: "taobao",
                     action: "Узнать про выкуп",
                     isPrimary: true
                 }
@@ -321,6 +321,7 @@ export const IsraelShippingPage: React.FC<IsraelShippingPageProps> = ({
             setLanguage={setLanguage}
             onBack={onBack}
             onNavigate={onNavigate}
+            pageId="israel"
             content={fullContent}
         />
     );

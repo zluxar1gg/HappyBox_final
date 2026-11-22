@@ -97,7 +97,7 @@ export const SouthAfricaShippingPage: React.FC<SouthAfricaShippingPageProps> = (
                 {
                     title: "Need help buying from Taobao?",
                     desc: "We can help you navigate Chinese marketplaces, communicate with sellers, and safely purchase your goods.",
-                    link: "/taobao",
+                    link: "taobao",
                     action: "Learn About Our Free Service",
                     isPrimary: true
                 }
@@ -245,7 +245,7 @@ export const SouthAfricaShippingPage: React.FC<SouthAfricaShippingPageProps> = (
                 {
                     title: "Нужна помощь с Taobao/1688?",
                     desc: "Мы можем выкупить для вас товары без наценок и скрытых комиссий.",
-                    link: "/ru/taobao",
+                    link: "taobao",
                     action: "Узнать про выкуп",
                     isPrimary: true
                 }
@@ -315,6 +315,7 @@ export const SouthAfricaShippingPage: React.FC<SouthAfricaShippingPageProps> = (
             setLanguage={setLanguage}
             onBack={onBack}
             onNavigate={onNavigate}
+            pageId="south-africa"
             content={fullContent}
         />
     );

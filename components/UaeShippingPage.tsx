@@ -374,6 +374,7 @@ export const UaeShippingPage: React.FC<UaeShippingPageProps> = ({ language, setL
             setLanguage={setLanguage}
             onBack={onBack}
             onNavigate={onNavigate}
+            pageId="uae"
             content={content}
         />
     );

@@ -145,6 +145,12 @@ export const AdminDashboardPage: React.FC<AdminDashboardPageProps> = ({
 
   // Inline feedback message
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [confirmAction, setConfirmAction] = useState<
+    | { type: 'disband-shipment'; shipment: Shipment }
+    | { type: 'delete-parcel'; parcelId: string }
+    | null
+  >(null);
+  const [isConfirmProcessing, setIsConfirmProcessing] = useState(false);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -412,20 +418,8 @@ export const AdminDashboardPage: React.FC<AdminDashboardPageProps> = ({
   };
 
   // Disband / Delete shipment
-  const handleDisbandShipment = async (shipment: Shipment) => {
-    const confirmMsg = isRu
-      ? `Расформировать партию #${shipment.shipmentNumber}? Все посылки вернутся в статус «На складе», а сборка будет удалена.`
-      : `Disband batch #${shipment.shipmentNumber}? All parcels will be restored to "In Warehouse" status.`;
-
-    if (window.confirm(confirmMsg)) {
-      try {
-        await deleteShipment(shipment.id, shipment.parcelIds);
-        showToast(isRu ? `Партия #${shipment.shipmentNumber} расформирована` : `Batch #${shipment.shipmentNumber} disbanded`);
-      } catch (err) {
-        console.error('Error disbanding shipment:', err);
-        showToast(isRu ? 'Ошибка при расформировании партии' : 'Error disbanding shipment');
-      }
-    }
+  const handleDisbandShipment = (shipment: Shipment) => {
+    setConfirmAction({ type: 'disband-shipment', shipment });
   };
 
   // Toggle payment status in 1 click
@@ -530,14 +524,32 @@ export const AdminDashboardPage: React.FC<AdminDashboardPageProps> = ({
   };
 
   // Delete parcel
-  const handleDeleteParcel = async (parcelId: string) => {
-    if (window.confirm(isRu ? 'Удалить эту посылку из базы?' : 'Delete this parcel?')) {
-      try {
-        await deleteParcel(parcelId);
+  const handleDeleteParcel = (parcelId: string) => {
+    setConfirmAction({ type: 'delete-parcel', parcelId });
+  };
+
+  const executeConfirmAction = async () => {
+    if (!confirmAction || isConfirmProcessing) return;
+    setIsConfirmProcessing(true);
+    try {
+      if (confirmAction.type === 'disband-shipment') {
+        const { shipment } = confirmAction;
+        await deleteShipment(shipment.id, shipment.parcelIds);
+        showToast(isRu ? `Партия #${shipment.shipmentNumber} расформирована` : `Batch #${shipment.shipmentNumber} disbanded`);
+      } else if (confirmAction.type === 'delete-parcel') {
+        await deleteParcel(confirmAction.parcelId);
         showToast(isRu ? 'Посылка удалена' : 'Parcel deleted');
-      } catch (err) {
-        console.error('Error deleting parcel:', err);
       }
+      setConfirmAction(null);
+    } catch (err) {
+      console.error('Confirm action error:', err);
+      showToast(
+        confirmAction.type === 'disband-shipment'
+          ? (isRu ? 'Ошибка при расформировании партии' : 'Error disbanding shipment')
+          : (isRu ? 'Ошибка при удалении посылки' : 'Error deleting parcel')
+      );
+    } finally {
+      setIsConfirmProcessing(false);
     }
   };
 
@@ -2171,6 +2183,64 @@ export const AdminDashboardPage: React.FC<AdminDashboardPageProps> = ({
               <X size={20} />
               <span>{isRu ? 'Закрыть' : 'Close'}</span>
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* IN-APP CONFIRMATION MODAL */}
+      {/* ========================================================================= */}
+      {confirmAction && (
+        <div
+          className="fixed inset-0 z-[130] flex items-center justify-center p-4 bg-brand-dark/75 backdrop-blur-sm animate-fade-in"
+          onClick={() => !isConfirmProcessing && setConfirmAction(null)}
+        >
+          <div
+            className="bg-white w-full max-w-sm rounded-[28px] p-6 shadow-2xl border border-gray-100"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+                <AlertCircle size={18} />
+              </div>
+              <h3 className="text-base font-black text-brand-dark">
+                {confirmAction.type === 'disband-shipment'
+                  ? (isRu ? `Расформировать #${confirmAction.shipment.shipmentNumber}?` : `Disband #${confirmAction.shipment.shipmentNumber}?`)
+                  : (isRu ? 'Удалить посылку?' : 'Delete parcel?')}
+              </h3>
+            </div>
+            <p className="text-xs text-gray-600 leading-relaxed mb-5">
+              {confirmAction.type === 'disband-shipment'
+                ? (isRu
+                    ? `Расформировать партию #${confirmAction.shipment.shipmentNumber}? Все посылки вернутся в статус «На складе», а сборка будет удалена.`
+                    : `Disband batch #${confirmAction.shipment.shipmentNumber}? All parcels will be restored to "In Warehouse" status.`)
+                : (isRu
+                    ? 'Удалить эту посылку из базы? Это действие нельзя отменить.'
+                    : 'Delete this parcel from the database? This action cannot be undone.')}
+            </p>
+            <div className="flex justify-end gap-2">
+              <button
+                type="button"
+                disabled={isConfirmProcessing}
+                onClick={() => setConfirmAction(null)}
+                className="px-4 py-2 rounded-xl text-xs font-bold text-gray-600 hover:bg-gray-100 cursor-pointer disabled:opacity-50"
+              >
+                {isRu ? 'Отмена' : 'Cancel'}
+              </button>
+              <button
+                type="button"
+                disabled={isConfirmProcessing}
+                onClick={executeConfirmAction}
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-red-600 hover:bg-red-700 text-white shadow-sm flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+              >
+                {isConfirmProcessing ? <Loader2 size={14} className="animate-spin" /> : <Trash2 size={14} />}
+                <span>
+                  {confirmAction.type === 'disband-shipment'
+                    ? (isRu ? 'Расформировать' : 'Disband')
+                    : (isRu ? 'Удалить' : 'Delete')}
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       )}

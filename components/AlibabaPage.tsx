@@ -105,7 +105,6 @@ export const AlibabaPage = ({ language, setLanguage, onBack, onNavigate }: { lan
             <Header 
                 language={language} 
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
                 onNavigate={onNavigate}
@@ -240,7 +239,7 @@ export const AlibabaPage = ({ language, setLanguage, onBack, onNavigate }: { lan
 
                 <AlibabaAdvancedGuide language={language} onNavigate={onNavigate} />
 
-                <div id="contacts">
+                <div>
                     <Contact language={language} currentPage="alibaba" />
                 </div>
                 

@@ -46,7 +46,6 @@ export const GenericDestinationPage: React.FC<GenericDestinationPageProps> = ({
       <Header 
         language={language} 
         setLanguage={setLanguage} 
-        onLoginClick={() => {}}
         isDashboard={false}
         onNavigate={onNavigate}
         onBack={onBack}

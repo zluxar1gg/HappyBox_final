@@ -3,12 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { Language, translations } from '../utils/translations';
 import { getBlogPostsByLanguage, BlogCategory } from '../utils/blogData';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
+import { Contact } from './Contact';
+import { Breadcrumbs } from './Breadcrumbs';
 
 interface BlogCatalogProps {
   language: Language;
+  onNavigate?: (page: string) => void;
 }
 
-export const BlogCatalog: React.FC<BlogCatalogProps> = ({ language }) => {
+export const BlogCatalog: React.FC<BlogCatalogProps> = ({ language, onNavigate }) => {
   const navigate = useNavigate();
   const posts = getBlogPostsByLanguage(language);
   const [activeCategory, setActiveCategory] = useState<BlogCategory | 'all'>('all');
@@ -43,6 +46,13 @@ export const BlogCatalog: React.FC<BlogCatalogProps> = ({ language }) => {
   return (
     <div className="min-h-screen bg-cream pt-32 pb-20 px-6">
       <div className="container mx-auto max-w-7xl">
+        <Breadcrumbs
+          language={language}
+          onNavigate={onNavigate}
+          items={[{ label: language === 'ru' ? 'Блог' : 'Blog' }]}
+          className="mb-4"
+        />
+
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-brand-dark mb-8 tracking-tight">
@@ -72,41 +82,52 @@ export const BlogCatalog: React.FC<BlogCatalogProps> = ({ language }) => {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredPosts.map(post => (
-            <article 
-              key={post.id}
-              onClick={() => handlePostClick(post.slug)}
-              className="bg-white rounded-[30px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={post.imageUrl} 
-                  alt={post.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-bold text-brand-blue">
-                  {categories.find(c => c.id === post.category)?.label}
-                </div>
-              </div>
-              <div className="p-8 flex flex-col flex-grow">
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-4 font-medium">
-                  <span className="flex items-center gap-1"><Calendar size={16} /> {post.date}</span>
-                  <span className="flex items-center gap-1"><Clock size={16} /> {post.readTime} min</span>
-                </div>
-                <h2 className="text-2xl font-bold text-brand-dark mb-4 leading-tight group-hover:text-brand-blue transition-colors">
-                  {post.title}
-                </h2>
-                <p className="text-gray-600 mb-6 flex-grow line-clamp-3">
-                  {post.excerpt}
-                </p>
-                <div className="flex items-center text-brand-blue font-bold mt-auto">
-                  {language === 'en' ? 'Read More' : 'Читать далее'}
-                  <ArrowRight size={20} className="ml-2 group-hover:translate-x-2 transition-transform" />
-                </div>
-              </div>
-            </article>
-          ))}
+          {filteredPosts.map(post => {
+            const postUrl = `${language === 'ru' ? '/ru' : ''}/blog/${post.slug}`;
+            return (
+              <article 
+                key={post.id}
+                className="bg-white rounded-[30px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col"
+              >
+                <a
+                  href={postUrl}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlePostClick(post.slug);
+                  }}
+                  className="flex flex-col flex-grow h-full cursor-pointer"
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={post.imageUrl} 
+                      alt={post.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-bold text-brand-blue">
+                      {categories.find(c => c.id === post.category)?.label}
+                    </div>
+                  </div>
+                  <div className="p-8 flex flex-col flex-grow">
+                    <div className="flex items-center gap-4 text-sm text-gray-500 mb-4 font-medium">
+                      <span className="flex items-center gap-1"><Calendar size={16} /> {post.date}</span>
+                      <span className="flex items-center gap-1"><Clock size={16} /> {post.readTime} min</span>
+                    </div>
+                    <h2 className="text-2xl font-bold text-brand-dark mb-4 leading-tight group-hover:text-brand-blue transition-colors">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-600 mb-6 flex-grow line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center text-brand-blue font-bold mt-auto">
+                      {language === 'en' ? 'Read More' : 'Читать далее'}
+                      <ArrowRight size={20} className="ml-2 group-hover:translate-x-2 transition-transform" />
+                    </div>
+                  </div>
+                </a>
+              </article>
+            );
+          })}
         </div>
 
         {filteredPosts.length === 0 && (
@@ -114,6 +135,10 @@ export const BlogCatalog: React.FC<BlogCatalogProps> = ({ language }) => {
             {language === 'en' ? 'No posts found in this category.' : 'В этой категории пока нет статей.'}
           </div>
         )}
+      </div>
+
+      <div className="mt-16 -mx-6">
+        <Contact language={language} currentPage="blog" />
       </div>
     </div>
   );

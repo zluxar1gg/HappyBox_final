@@ -121,7 +121,6 @@ export const PinduoduoPage: React.FC<PinduoduoPageProps> = ({ language, setLangu
             <Header
                 language={language}
                 setLanguage={setLanguage} 
-                onLoginClick={() => {}}
                 isDashboard={false}
                 onBack={onBack}
                 onNavigate={onNavigate}
@@ -248,7 +247,7 @@ export const PinduoduoPage: React.FC<PinduoduoPageProps> = ({ language, setLangu
 
                 <PinduoduoAdvancedGuide language={language} onNavigate={onNavigate} />
 
-                <div id="contacts">
+                <div>
                     <Contact language={language} currentPage="pinduoduo" />
                 </div>
                 

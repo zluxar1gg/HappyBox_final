@@ -188,7 +188,7 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
                 titlePrefix: "Shipping to",
                 titleHighlight: "Amazon FBA Europe",
                 desc: "Specialized rates, prep services, and direct delivery to FBA warehouses in Germany, France, and Poland.",
-                link: "/amazon",
+                link: "amazon",
                 cta: "Learn More"
             },
             guide: {
@@ -291,7 +291,7 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
                 titlePrefix: "Вам нужна доставка на",
                 titleHighlight: "Amazon FBA Europe",
                 desc: "Специальные условия, маркировка и доставка напрямую на склады FBA в Германии, Франции и Польше.",
-                link: "/ru/amazon",
+                link: "amazon",
                 cta: "Подробнее"
             },
             guide: {
@@ -393,6 +393,7 @@ export const EuShippingPage: React.FC<EuShippingPageProps> = ({ language, setLan
             setLanguage={setLanguage}
             onBack={onBack}
             onNavigate={onNavigate}
+            pageId="eu"
             content={fullContent as any}
         />
     );
